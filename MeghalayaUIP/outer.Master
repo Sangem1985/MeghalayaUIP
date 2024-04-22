@@ -107,20 +107,20 @@
                             <li class="menu-item-has-children">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="menu-item-has-children">
+                            <%--<li class="menu-item-has-children">
                                 <a href="#">About <i class="fi fi-br-chevron-double-down"></i></a>
                                 <ul class="sub-menu">
-                                    <li><a href="about.html">State Profile</a></li>
-                                    <li><a href="contact.html">Advantage Meghalaya</a></li>
-                                    <li><a href="testimonials.html">Department of Industries</a></li>
+                                    
                                 </ul>
-                            </li>
+                            </li>--%>
                             <li class="menu-item-has-children">
                                 <a href="#">Why invest Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
                                 <ul class="sub-menu">
-                                    <li><a href="services.html">Meghalaya at a Glance</a></li>
-                                    <li><a href="services-s2.html">Meghalaya's
-                                            Industrial Parks</a></li>
+                                    <li><a href="#">State Profile</a></li>
+                                    <li><a href="#">Advantage Meghalaya</a></li>
+                                    <li><a href="#">Department of Industries</a></li>
+                                    <li><a href="#">Meghalaya at a Glance</a></li>
+                                    <li><a href="#">Meghalaya's Industrial Parks</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
