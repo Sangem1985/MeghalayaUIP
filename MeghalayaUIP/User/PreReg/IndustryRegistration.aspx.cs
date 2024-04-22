@@ -42,7 +42,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (!IsPostBack)
                     {
                         MVprereg.ActiveViewIndex = index;
-                        //BindData();
+                        BindData();
                         BindCountries();
                         BindStates();
                         BindDistricts();
@@ -71,9 +71,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     if (ds.Tables.Count > 0)
                     {
-                        List<IndustryDetails> objindustryDetails = new List<IndustryDetails>();
-                        //objindustryDetails = (Object)ds.Tables[0];
-
+                        txtUnitName.Text =Convert.ToString( ds.Tables[0].Rows[0]["CompanyName"]);
                     }
                 }
             }
