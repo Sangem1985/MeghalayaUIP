@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MeghalayaUIP.DAL.PreRegDAL;
+using MeghalayaUIP.Common;
+using MeghalayaUIP.DAL.CommonDAL;
+using System.Data;
+
+
+namespace MeghalayaUIP.BAL.PreRegBAL
+{
+    public class PreRegBAL
+    {
+        public PreRegDAL IRD { get; } = new PreRegDAL();
+        public MasterDAL MDAL { get; } = new MasterDAL();
+        public DataTable GetPreRegDashBoard(PreRegDtls PRD)
+        {
+            return IRD.GetPreRegDashBoard(PRD);
+        }
+        public DataTable GetPreRegDashBoardView(PreRegDtls PRD)
+        {
+            return IRD.GetPreRegDashBoardView(PRD);
+        }
+        public DataSet GetPreRegNodelOfficer(PreRegDtls PRD)
+        {
+            return IRD.GetPreRegNodelOfficer(PRD);
+        }
+        public string PreRegApprovals(PreRegDtls PRD)
+        {
+            return IRD.PreRegApprovals(PRD);
+        }
+        public DataSet GetDeptMst()
+        {
+            return MDAL.GetDepartments();
+        }
+        public string InsertDeptDetails(DataTable dt)
+        {
+            return IRD.InsertDeptDetails(dt);
+        }
+        public DataSet GetIndustryRegData(string userid)
+        {
+            return IRD.GetIndustryRegData(userid);
+        }
+        public DataTable GetRevenueProjectionsMaster()
+        {
+            return IRD.GetRevenueProjectionsMaster();
+        }
+        public DataTable GetSectorDepartments(string sectorname)
+        {
+            return IRD.GetSectorDepartments(sectorname);
+        }
+        public string InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
+        {
+            return IRD.InsertIndRegBasicDetails(ID, out IDno);
+        }
+        public string InsertIndRegRevenueDetails(DataTable dt)
+        {
+            return IRD.InsertIndRegRevenueDetails(dt);
+        }
+        public string InsertIndPromotersDetails(DataTable dt)
+        {
+            return IRD.InsertIndPromotersDetails(dt);
+        }
+    }
+
+}
