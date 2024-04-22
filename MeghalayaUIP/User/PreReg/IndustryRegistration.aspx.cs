@@ -72,6 +72,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (ds.Tables.Count > 0)
                     {
                         txtUnitName.Text =Convert.ToString( ds.Tables[0].Rows[0]["CompanyName"]);
+                        txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["Unitname"]);
                     }
                 }
             }
