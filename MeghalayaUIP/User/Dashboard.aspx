@@ -19,13 +19,13 @@
                         <div class="row">
 
                             <div class="col-md-3">
-                                <a href="IndustryRegistration_tabs.html">
+                                <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
                                     <div class="card-counter info">
                                         <i class="fa fa-users"></i>
                                         <span class="count-numbers">Principle approval</span>
                                         <span class="count-name">(Lorem Ipsum is simply dummy text)</span>
                                     </div>
-                                </a>
+                                  </asp:LinkButton>
                             </div>
                             <div class="col-md-3">
                                 <div class="card-counter primary" data-toggle="modal" data-target=".bd-example-modal-xl">

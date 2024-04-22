@@ -63,6 +63,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.UserID = ObjUserInfo.UserID;
                     prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
                     prd.Stage = Convert.ToInt32(Session["stage"]);
+                    if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                    {
+                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    }
                     DataSet ds = new DataSet();
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
 
@@ -199,7 +203,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
                 if (ddlStatus.SelectedValue == "4" || ddlStatus.SelectedValue == "5")
                 {
-                    if ((ddlStatus.SelectedValue == "4") && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
+                    if ((ddlStatus.SelectedValue == "4" || ddlStatus.SelectedValue == "5") && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
                     {
                         lblmsg0.Text = "Please Enter Query Description";
                         Failure.Visible = true;
@@ -266,9 +270,21 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         var Hostname = Dns.GetHostName();
                         prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
-                        string valid = PreBAL.PreRegApprovals(prd);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
-                        return;
+                        if(ddlStatus.SelectedValue =="5")
+                        {
+                            string valid = PreBAL.PreRegApprovals(prd);
+                            btnSubmit.Enabled = false;
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                            return;
+                        }
+                        else
+                        {
+                            string valid = PreBAL.PreRegUpdateQuery(prd);
+                            btnSubmit.Enabled = false;
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                            return;
+                        }
+                       
                     }
                 }
                 else
@@ -356,6 +372,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
                 if (ddlStatus.SelectedValue == "5")
                 {
+                    trheading.Visible = true;
                     tblaction.Visible = true;
                     lblaction.Text = "Remarks if any: ";
                     if (ObjUserInfo.Deptid == "1001") // Industries det For Land Vlaue
@@ -366,7 +383,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     else if (ObjUserInfo.Deptid == "1009") // Power det For Power Vlaue
                     {
                         trPowerDept.Visible = true;
-                        lblApplPowerReq.Text = lbl_power.Text;
+                        lblApplPowerReq.Text = lbl_electricity.Text;
                     }
                     else if (ObjUserInfo.Deptid == "1008") //water dept
                     {
@@ -382,8 +399,9 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
 
                 }
-                else if (ddlStatus.SelectedValue == "5")
+                else if (ddlStatus.SelectedValue == "4")
                 {
+                    trheading.Visible = false;
                     tblaction.Visible = true;
                     lblaction.Text = "Please Enter Query Description";
 

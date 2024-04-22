@@ -251,6 +251,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
+        
         public DataSet GetIndustryRegData(string userid)
         {
 
@@ -270,6 +271,41 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public DataSet GetIndustryRegUserDashboard(string userid)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetIndustryRegUserDashboard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetIndustryRegUserDashboard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid)); 
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -406,6 +442,10 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", PRD.Investerid);
                 da.SelectCommand.Parameters.AddWithValue("@USERID", PRD.UserID);
                 da.SelectCommand.Parameters.AddWithValue("@ROLEID", PRD.Role);
+                if(PRD.deptid != null && PRD.deptid !=0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("DEPTID", PRD.deptid);
+                }                
                 /* da.SelectCommand.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
                  da.SelectCommand.Parameters["@Valid"].Direction = ParameterDirection.Output;
                  da.SelectCommand.Parameters.Add("@NewWork_progress_code", SqlDbType.VarChar, 500);
@@ -429,8 +469,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 connection.Dispose();
             }
             return ds;
-        }
-
+        }   
         public string PreRegApprovals(PreRegDtls PRD)
         {
             string valid = "";
@@ -548,7 +587,61 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             //}
             //return dt;
         }
+        public string PreRegUpdateQuery(PreRegDtls PRD)
+        {
+            string valid = "";
 
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = PreRegConstants.PreRegUpdateQuery;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@UNITID", PRD.Unitid);
+                com.Parameters.AddWithValue("@INVESTERID", PRD.Investerid);
+                if (PRD.deptid != null && PRD.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@DEPTID", PRD.deptid);
+                }
+                com.Parameters.AddWithValue("@ACTIONID", PRD.status);
+                com.Parameters.AddWithValue("@REMARKS", PRD.Remarks);
+                if (PRD.LandArea != null && PRD.LandArea != "")
+                {
+                    com.Parameters.AddWithValue("@QUERYTODEPTID", PRD.LandArea);
+                }
+                if (PRD.Power != null && PRD.Power != "")
+                {
+                    com.Parameters.AddWithValue("@QUERYTODEPT", PRD.Power);
+                }                 
+                com.Parameters.AddWithValue("@IPADDRESS", PRD.IPAddress);
+                com.Parameters.AddWithValue("@USERID", PRD.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid; 
+        }
         public string InsertDeptDetails(DataTable dt)
         {
             string valid = "";
@@ -581,5 +674,6 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
+         
     }
 }

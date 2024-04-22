@@ -19,6 +19,8 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";
         public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
         public static string GetSectorDepartments = "USP_GET_SECTOR_DEPT";
+        public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION";
+        public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
     }
     public class IndustryDetails
     {
@@ -134,7 +136,8 @@ namespace MeghalayaUIP.Common
         public string Water { get; set; }
         public string WasteDetails { get; set; }
         public string HazDetails { get; set; }
-
+        public string QuerytoDept { get; set; }
+        public string QuerytoDeptID { get; set; } // FROM IMA TO DEPT (OR) FROM COMM TO IMA OR DEPT
     }
     public class InvBasicDtls
     {

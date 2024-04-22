@@ -31,6 +31,10 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegApprovals(PRD);
         }
+        public string PreRegUpdateQuery(PreRegDtls PRD)
+        {
+            return IRD.PreRegUpdateQuery(PRD);
+        }
         public DataSet GetDeptMst()
         {
             return MDAL.GetDepartments();
@@ -38,11 +42,17 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         public string InsertDeptDetails(DataTable dt)
         {
             return IRD.InsertDeptDetails(dt);
-        }
+        }      
         public DataSet GetIndustryRegData(string userid)
         {
             return IRD.GetIndustryRegData(userid);
         }
+
+        public DataSet GetIndustryRegUserDashboard(string userid)
+        {
+            return IRD.GetIndustryRegUserDashboard(userid);
+        }
+
         public DataTable GetRevenueProjectionsMaster()
         {
             return IRD.GetRevenueProjectionsMaster();

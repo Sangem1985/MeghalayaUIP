@@ -221,9 +221,21 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         var Hostname = Dns.GetHostName();
                         prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
-                        string valid = PreBAL.PreRegApprovals(prd);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
-                        return;
+                        if(ddlStatus.SelectedValue =="13" || ddlStatus.SelectedValue=="14")
+                        {
+                            string valid = PreBAL.PreRegApprovals(prd);
+                            btnSubmit.Enabled = false;
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
+                            return;
+                        }
+                        else if(ddlStatus.SelectedValue == "12")
+                        {
+                            string valid = PreBAL.PreRegUpdateQuery(prd);
+                            btnSubmit.Enabled = false;
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
+                            return;
+                        }
+
                     }
                 }
                 else
