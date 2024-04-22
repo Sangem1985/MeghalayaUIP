@@ -42,7 +42,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (!IsPostBack)
                     {
                         MVprereg.ActiveViewIndex = index;
-                        BindData();
+                      //  BindData();
                         BindCountries();
                         BindStates();
                         BindDistricts();
@@ -59,6 +59,7 @@ namespace MeghalayaUIP.User.PreReg
             {
                 lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
+                throw ex;
             }
         }
         public void BindData()
@@ -72,7 +73,67 @@ namespace MeghalayaUIP.User.PreReg
                     if (ds.Tables.Count > 0)
                     {
                         txtUnitName.Text =Convert.ToString( ds.Tables[0].Rows[0]["CompanyName"]);
-                        txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["Unitname"]);
+                        txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyPAN"]);
+                      
+                        txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompnyRegDt"]);
+                        txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UdyamorIEMNo"]);
+                        txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNo"]);
+
+                        txtAuthReprName.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprName"]);
+                        txtAuthReprMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprMobile"]);
+                        txtAuthReprEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprEmail"]);
+                        txtAuthReprLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprLocality"]);
+                        ddlAuthReprDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprDistID"]);
+                        ddlAuthReprTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprTalukaID"]);
+                        ddlAuthReprVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprVillageID"]);
+                        txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprPincode"]);
+
+                        rblLandType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["LandType"]);
+                        txtPropLocDoorno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PropLocDoorno"]);
+                        txtPropLocLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["PropLocLocality"]);
+                        ddlPropLocDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PropLocDistID"]);
+                        ddlPropLocTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PropLocTalukaID"]);
+                        ddlPropLocVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PropLocVillageID"]);
+                        txtPropLocPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["PropLocPincode"]);
+                        txtDCPorOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["DCPorOperation"]);
+                        ddlSector.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SectorName"]);
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["Lineofacitivityid"]);
+                        lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["Category"]);
+                        rblNatureofActvty.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["NatureofActivity"]);
+                        txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["ManfActivity"]);
+                        txtManfprodct.Text = Convert.ToString(ds.Tables[0].Rows[0]["Manfproduct"]);
+
+                        txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["ServiceActivity"]);
+                        txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["ServiceTobeProviding"]);
+
+                        txtProductionNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["ProductionNO"]);
+                        txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["ServiceNo"]);
+
+                        txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["AnnualCapacity"]);
+                        txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["EstimatedProjCost"]);
+                        txtLandAreainSqft.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandAreainSqft"]);
+                        txtCivilConstr.Text = Convert.ToString(ds.Tables[0].Rows[0]["CivilConstr"]);
+                        txtPlantnMachineryCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PlantnMachineryCost"]);
+                        txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["Rawmaterial"]);
+                        txtBuildingAreaSqm.Text = Convert.ToString(ds.Tables[0].Rows[0]["BuildingAreaSqm"]);
+                        txtWaterReqKLD.Text = Convert.ToString(ds.Tables[0].Rows[0]["WaterReqKLD"]);
+                        txtPowerReqKV.Text = Convert.ToString(ds.Tables[0].Rows[0]["PowerReqKV"]);
+                        txtWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["WasteDetails"]);
+                        txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["HazWasteDetails"]);
+                        txtCapitalInvestment.Text = Convert.ToString(ds.Tables[0].Rows[0]["CapitalInvestment"]);
+                        txtFixedAssets.Text = Convert.ToString(ds.Tables[0].Rows[0]["FixedAssets"]);
+                        txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["MeasurementUnits"]);
+
+                        txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandValue"]);
+                        txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["BuildingValue"]);
+                        txtWaterValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["WaterValue"]);
+                        txtElectricityValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["ElectricityValue"]);
+
+                        txtWorkingCapital.Text = Convert.ToString(ds.Tables[0].Rows[0]["WorkingCapital"]);
+                        txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CapitalSubsidy"]);
+                        txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PromoterEquity"]);
+                        txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["LoanAmount"]);
+
                     }
                 }
             }
