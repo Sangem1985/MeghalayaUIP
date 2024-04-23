@@ -14,7 +14,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
     public class PreRegDAL
     {
         string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
-
+        //-------------------USER METHODS-------------------------------------//
         public DataTable GetRevenueProjectionsMaster()
         {
             DataTable dt = new DataTable();
@@ -321,6 +321,43 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 connection.Dispose();
             }
         }
+
+        public DataSet GetIndRegUserApplDetails(string UnitID, string InvesterID)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetIndRegUserApplDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetIndRegUserApplDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        //-------------------END OF USER METHODS-------------------------------------//
         public DataTable GetPreRegDashBoard(PreRegDtls PRD)
         {
             DataTable dt = new DataTable();
@@ -367,7 +404,6 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return dt;
         }
-
         public DataTable GetPreRegDashBoardView(PreRegDtls PRD)
         {
             string valid = "";
@@ -421,7 +457,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
         }
         public DataSet GetPreRegNodelOfficer(PreRegDtls PRD)
         {
-            string valid = "";
+          
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
@@ -446,10 +482,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("DEPTID", PRD.deptid);
                 }                
-                /* da.SelectCommand.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
-                 da.SelectCommand.Parameters["@Valid"].Direction = ParameterDirection.Output;
-                 da.SelectCommand.Parameters.Add("@NewWork_progress_code", SqlDbType.VarChar, 500);
-                 da.SelectCommand.Parameters["@NewWork_progress_code"].Direction = ParameterDirection.Output;*/
+               
                 da.Fill(ds);
                 if (ds.Tables.Count > 0)
                     //   valid = Convert.ToString(dt.Rows[0]["UNITID"]);

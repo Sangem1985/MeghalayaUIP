@@ -21,6 +21,7 @@ namespace MeghalayaUIP.Common
         public static string GetSectorDepartments = "USP_GET_SECTOR_DEPT";
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION";
         public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
+        public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDASHBOARDVIEWDETAILS";
     }
     public class IndustryDetails
     {

@@ -349,6 +349,7 @@
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryRegistration.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
+    <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -548,6 +549,13 @@
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistrationUserDashboard.aspx.designer.cs">
       <DependentUpon>IndustryRegistrationUserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationViewDetails.aspx.cs">
+      <DependentUpon>IndustryRegistrationViewDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationViewDetails.aspx.designer.cs">
+      <DependentUpon>IndustryRegistrationViewDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>

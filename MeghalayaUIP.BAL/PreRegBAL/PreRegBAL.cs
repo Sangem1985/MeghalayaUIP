@@ -15,6 +15,39 @@ namespace MeghalayaUIP.BAL.PreRegBAL
     {
         public PreRegDAL IRD { get; } = new PreRegDAL();
         public MasterDAL MDAL { get; } = new MasterDAL();
+
+        //-------------------USER METHODS-------------------------------------//
+        public DataTable GetRevenueProjectionsMaster()
+        {
+            return IRD.GetRevenueProjectionsMaster();
+        }
+        public DataTable GetSectorDepartments(string sectorname)
+        {
+            return IRD.GetSectorDepartments(sectorname);
+        }
+        public string InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
+        {
+            return IRD.InsertIndRegBasicDetails(ID, out IDno);
+        }
+        public string InsertIndRegRevenueDetails(DataTable dt)
+        {
+            return IRD.InsertIndRegRevenueDetails(dt);
+        }
+        public string InsertIndPromotersDetails(DataTable dt)
+        {
+            return IRD.InsertIndPromotersDetails(dt);
+        }
+        public DataSet GetIndustryRegUserDashboard(string userid)
+        {
+            return IRD.GetIndustryRegUserDashboard(userid);
+        }
+        public DataSet GetIndRegUserApplDetails(string UnitID, string InvesterID)
+        {
+            return IRD.GetIndRegUserApplDetails(UnitID, InvesterID);
+        }
+
+        //-------------------END OF USER METHODS-------------------------------------//
+
         public DataTable GetPreRegDashBoard(PreRegDtls PRD)
         {
             return IRD.GetPreRegDashBoard(PRD);
@@ -48,31 +81,8 @@ namespace MeghalayaUIP.BAL.PreRegBAL
             return IRD.GetIndustryRegData(userid);
         }
 
-        public DataSet GetIndustryRegUserDashboard(string userid)
-        {
-            return IRD.GetIndustryRegUserDashboard(userid);
-        }
-
-        public DataTable GetRevenueProjectionsMaster()
-        {
-            return IRD.GetRevenueProjectionsMaster();
-        }
-        public DataTable GetSectorDepartments(string sectorname)
-        {
-            return IRD.GetSectorDepartments(sectorname);
-        }
-        public string InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
-        {
-            return IRD.InsertIndRegBasicDetails(ID, out IDno);
-        }
-        public string InsertIndRegRevenueDetails(DataTable dt)
-        {
-            return IRD.InsertIndRegRevenueDetails(dt);
-        }
-        public string InsertIndPromotersDetails(DataTable dt)
-        {
-            return IRD.InsertIndPromotersDetails(dt);
-        }
+        
+        
     }
 
 }
