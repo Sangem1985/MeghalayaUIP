@@ -134,6 +134,21 @@ namespace MeghalayaUIP.User.PreReg
                         txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PromoterEquity"]);
                         txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["LoanAmount"]);
                     }
+                    if(ds.Tables.Count > 1)
+                    {
+                        //ViewState["MRPID"].ToString();
+                        //DataTable dt = jrresult
+
+                        string mrpId = ViewState["MRPID"].ToString();                      
+                        DataTable dt = ds.Tables[1]; 
+                       
+                        grdRevenueProj.Visible = true;
+                        grdRevenueProj.DataSource = dt;
+                        grdRevenueProj.DataBind();
+
+
+                    }
+
                 }
             }
             catch (Exception ex)
