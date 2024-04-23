@@ -10,7 +10,7 @@
     <meta name="author" content="irstheme">
 
     <title>Invest Meghalaya</title>
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="assets/css/themify-icons.css" rel="stylesheet">
@@ -29,123 +29,122 @@
     <link href="assets/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.2.0/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-brands/css/uicons-brands.css'>
-
-  
 </head>
 <body>
     <form id="form1" runat="server">
         <!-- start page-wrapper -->
-    <div class="page-wrapper">
+        <div class="page-wrapper">
 
-        <!-- start preloader -->
-        <div class="preloader">
-            <div class="loader">
-                <div class="gear two">
-                    <svg viewbox="0 0 100 100" fill="#131e4a">
-                        <path
-                            d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z">
-                        </path>
-                    </svg>
-                </div>
-                <div class="gear three">
-                    <svg viewbox="0 0 100 100" fill="#fd5f17">
-                        <path
-                            d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z">
-                        </path>
-                    </svg>
+            <!-- start preloader -->
+            <div class="preloader">
+                <div class="loader">
+                    <div class="gear two">
+                        <svg viewbox="0 0 100 100" fill="#131e4a">
+                            <path
+                                d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="gear three">
+                        <svg viewbox="0 0 100 100" fill="#fd5f17">
+                            <path
+                                d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z">
+                            </path>
+                        </svg>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- end preloader -->
+            <!-- end preloader -->
 
 
 
-        <!-- Start header -->
-        <header id="header" class="site-header header-style-1">
-            <div class="topbar">
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-sm-6" style="display: flex;">
-                            <p>Government of Meghalaya</p>
-                            <div class="contact-info">
-                                <ul>
+            <!-- Start header -->
+            <header id="header" class="site-header header-style-1">
+                <div class="topbar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-sm-6" style="display: flex;">
+                                <p>Government of Meghalaya</p>
+                                <div class="contact-info">
+                                    <ul>
 
-                                    <li style="padding-top: 2px;"><i class="fi fi-brands-facebook"></i></li>
-                                    <li style="padding-top: 2px;"><i class="fi fi-brands-youtube"></i></li>
-                                    <li style="padding-top: 2px;"><i class="fi fi-brands-twitter-alt-circle"></i></li>
-                                    <li style="padding-top: 2px;"><i class="fi fi-brands-linkedin"></i></li>
-                                </ul>
+                                        <li style="padding-top: 2px;"><i class="fi fi-brands-facebook"></i></li>
+                                        <li style="padding-top: 2px;"><i class="fi fi-brands-youtube"></i></li>
+                                        <li style="padding-top: 2px;"><i class="fi fi-brands-twitter-alt-circle"></i></li>
+                                        <li style="padding-top: 2px;"><i class="fi fi-brands-linkedin"></i></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col col-sm-6">
-                            <div class="contact-info">
-                                <ul>
-                                    <li>About Meghalaya</li>
-                                    <li><a href="login.aspx"><i class="fi fi-br-sign-in-alt"></i> Login</a></li>
-                                    <li><a href="Deptlogin.aspx"><i class="fi fi-br-mode-portrait"></i> Dept Login</a></li>
-                                </ul>
+                            <div class="col col-sm-6">
+                                <div class="contact-info">
+                                    <ul>
+                                        <li>About Meghalaya</li>
+                                        <li><a href="login.aspx"><i class="fi fi-br-sign-in-alt"></i> Login</a></li>
+                                        <li><a href="Deptlogin.aspx"><i class="fi fi-br-mode-portrait"></i> Dept Login</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <nav class="navigation navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="open-btn">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="Home.aspx"><img src="assets/images/Logo.png" alt=""
-                                style="margin-top: 6px;"></a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse navigation-holder">
-                        <button class="close-navbar"><i class="ti-close"></i></button>
-                        <ul class="nav navbar-nav">
-                            <li class="menu-item-has-children">
-                                <a href="#">Home</a>
-                            </li>
-                            <%--<li class="menu-item-has-children">
+                <nav class="navigation navbar navbar-default">
+                    <div class="container-fluid" style="background: linear-gradient(90deg, rgb(255 255 255 / 0%) 10%, rgb(255 255 255 / 71%) 90%), url(../assets/images/menubg.jpg) center center no-repeat;background-position: right;background-size: cover;">
+                        <div class="navbar-header">
+                            <button type="button" class="open-btn">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="Home.aspx">
+                                <img src="assets/images/Logo.png" alt=""
+                                    style="margin-top: 6px;"></a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse navigation-holder">
+                            <button class="close-navbar"><i class="ti-close"></i></button>
+                            <ul class="nav navbar-nav">
+                                <li class="menu-item-has-children">
+                                    <a href="#">Home</a>
+                                </li>
+                                <%--<li class="menu-item-has-children">
                                 <a href="#">About <i class="fi fi-br-chevron-double-down"></i></a>
                                 <ul class="sub-menu">
                                     
                                 </ul>
                             </li>--%>
-                            <li class="menu-item-has-children">
-                                <a href="#">Why invest Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">State Profile</a></li>
-                                    <li><a href="#">Advantage Meghalaya</a></li>
-                                    <li><a href="#">Department of Industries</a></li>
-                                    <li><a href="#">Meghalaya at a Glance</a></li>
-                                    <li><a href="#">Meghalaya's Industrial Parks</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="resources/homePage/17/megeodb/policies/procure2020.pdf"
+                                <li class="menu-item-has-children">
+                                    <a href="#">Why invest Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">State Profile</a></li>
+                                        <li><a href="#">Advantage Meghalaya</a></li>
+                                        <li><a href="#">Department of Industries</a></li>
+                                        <li><a href="#">Meghalaya at a Glance</a></li>
+                                        <li><a href="#">Meghalaya's Industrial Parks</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="resources/homePage/17/megeodb/policies/procure2020.pdf"
                                             class="text-black">Meghalaya Procurement Preference Policy for Micro and
                                             small Enterprises, 2020</a></li>
-                                    <li><a href="resources/homePage/17/megeodb/policies/startup2018.pdf"
+                                        <li><a href="resources/homePage/17/megeodb/policies/startup2018.pdf"
                                             class="text-black">Meghalaya Start up Policy, 2018</a></li>
-                            </li>
-                            <li><a href="resources/homePage/17/megeodb/policies/edu2018.pdf"
+                                </li>
+                                <li><a href="resources/homePage/17/megeodb/policies/edu2018.pdf"
                                     class="text-black">Meghalaya State Education Policy, 2018</a></li>
-                            <li><a href="resources/homePage/17/megeodb/policies/health2021.pdf"
+                                <li><a href="resources/homePage/17/megeodb/policies/health2021.pdf"
                                     class="text-black">Meghalaya Health Policy, 2021</a></li>
-                            <li><a href="resources/homePage/17/megeodb/policies/telecom2018.pdf"
+                                <li><a href="resources/homePage/17/megeodb/policies/telecom2018.pdf"
                                     class="text-black">Meghalaya Telecom Infrastructure Policy, 2018</a></li>
-                            <li><a href="resources/homePage/17/megeodb/policies/farming2023.pdf"
+                                <li><a href="resources/homePage/17/megeodb/policies/farming2023.pdf"
                                     class="text-black">Meghalaya State Organic Farming Policy,2023</a>
-                            </li>
-                            <li><a href="resources/homePage/17/megeodb/policies/tourism.pdf"
+                                </li>
+                                <li><a href="resources/homePage/17/megeodb/policies/tourism.pdf"
                                     class="text-black">Meghalaya Tourism Policy</a>
+                                </li>
+                            </ul>
                             </li>
-                        </ul>
-                        </li>
                         <li class="menu-item-has-children">
                             <a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
                             <ul class="sub-menu">
@@ -154,143 +153,178 @@
 
                             </ul>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html">Apply for Services</a></li>
-                                <li><a href="blog-left-sidebar.html">Auto Renewal</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html">Apply for Services</a></li>
+                                    <li><a href="blog-left-sidebar.html">Auto Renewal</a></li>
 
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
                             </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                        </div>
+
+
                     </div>
-
-
-                </div>
-            </nav>
-        </header>
+                </nav>
+            </header>
 
 
 
-        <!-- end of header -->
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-         <footer class="site-footer">
-            <div class="upper-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-lg-3 col-md-3 col-sm-6">
-                            <div class="widget about-widget">
-                                <div class="logo widget-title">
-                                    <img src="assets/images/logo.png" alt>
+            <!-- end of header -->
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <footer class="site-footer">
+                <div class="upper-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget about-widget">
+                                    <div class="logo widget-title">
+                                        <img src="assets/images/logo.png" alt>
+                                    </div>
+                                    <p></p>
+                                    <div class="social-icons">
+                                        <ul>
+                                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                            <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                                            <li><a href="#"><i class="ti-vimeo-alt"></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <p></p>
-                                <div class="social-icons">
+                            </div>
+                            <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget link-widget">
+                                    <div class="widget-title">
+                                        <h3>Usefull Links</h3>
+                                    </div>
                                     <ul>
-                                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                                        <li><a href="#"><i class="ti-vimeo-alt"></i></a></li>
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">Our services</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                        <li><a href="#">Meet team</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">Provacu Policy</a></li>
+                                        <li><a href="#">Testimonials</a></li>
+                                        <li><a href="#">News</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget contact-widget service-link-widget">
+                                    <div class="widget-title">
+                                        <h3>Our Address</h3>
+                                    </div>
+                                    <ul>
+                                        <li>25/19 Duel aveniew, new Southeasten town, Meghalaya</li>
+                                        <li><span>Phone:</span> 84667441</li>
+                                        <li><span>Email:</span> demo@example.com</li>
+                                        <li><span>Office Time:</span> 10AM- 5PM</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget newsletter-widget">
+                                    <div class="widget-title">
+                                        <h3>Newsletter</h3>
+                                    </div>
+                                    <p>You will be notified when somthing new will be appear.</p>
+                                    <form>
+                                        <div class="input-1">
+                                            <input type="email" class="form-control" placeholder="Email Address *" required>
+                                        </div>
+                                        <div class="submit clearfix">
+                                            <button type="submit"><i class="ti-email"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end container -->
+                </div>
+                <div class="lower-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="separator"></div>
+                            <div class="col col-xs-12">
+                                <p class="copyright">
+                                    © 2024 Copyright Invest Meghalaya Authority. All Rights Reserved |
+                                Design and Developed By <a href="#" style="color: #131e4a; text-decoration: none; font-weight: 500;">CMS Computers
+                                    Ltd...</a>
+                                </p>
+                                <div class="extra-link">
+                                    <ul>
+                                        <li><a href="#">Privace & Policy</a></li>
+                                        <li><a href="#">Terms</a></li>
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-lg-3 col-md-3 col-sm-6">
-                            <div class="widget link-widget">
-                                <div class="widget-title">
-                                    <h3>Usefull Links</h3>
-                                </div>
-                                <ul>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Our services</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">Meet team</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">Provacu Policy</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3 col-md-3 col-sm-6">
-                            <div class="widget contact-widget service-link-widget">
-                                <div class="widget-title">
-                                    <h3>Our Address</h3>
-                                </div>
-                                <ul>
-                                    <li>25/19 Duel aveniew, new Southeasten town, Meghalaya</li>
-                                    <li><span>Phone:</span> 84667441</li>
-                                    <li><span>Email:</span> demo@example.com</li>
-                                    <li><span>Office Time:</span> 10AM- 5PM</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3 col-md-3 col-sm-6">
-                            <div class="widget newsletter-widget">
-                                <div class="widget-title">
-                                    <h3>Newsletter</h3>
-                                </div>
-                                <p>You will be notified when somthing new will be appear.</p>
-                                <form>
-                                    <div class="input-1">
-                                        <input type="email" class="form-control" placeholder="Email Address *" required>
-                                    </div>
-                                    <div class="submit clearfix">
-                                        <button type="submit"><i class="ti-email"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end container -->
-            </div>
-            <div class="lower-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="separator"></div>
-                        <div class="col col-xs-12">
-                            <p class="copyright">© 2024 Copyright Invest Meghalaya Authority. All Rights Reserved |
-                                Design and Developed By <a href="#" style="color: #131e4a;text-decoration: none;font-weight: 500;">CMS Computers
-                                    Ltd...</a></p>
-                            <div class="extra-link">
-                                <ul>
-                                    <li><a href="#">Privace & Policy</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <!-- end site-footer -->
+            </footer>
+            <!-- end site-footer -->
+            <button
+                type="button"
+                class="btn btn-floating btn-lg"
+                id="btn-back-to-top">
+                <i class="fi fi-br-level-up"></i>
+            </button>
+            <a href="#" class="back-to-top"></a>
+        </div>
+        <!-- end of page-wrapper -->
 
 
-    </div>
-    <!-- end of page-wrapper -->
 
-
-
-    <!-- All JavaScript files
+        <!-- All JavaScript files
     ================================================== -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
 
-    <!-- Plugins for this template -->
-    <script src="assets/js/jquery-plugin-collection.js"></script>
+        <!-- Plugins for this template -->
+        <script src="assets/js/jquery-plugin-collection.js"></script>
 
-    <!-- Custom script for this template -->
-    <script src="assets/js/script.js"></script>
+        <!-- Custom script for this template -->
+        <script src="assets/js/script.js"></script>
 
-    <script src="assets/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/swiper/swiper-bundle.min.js"></script>
+        <script>
+            let mybutton = document.getElementById("btn-back-to-top");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction();
+            };
+
+            function scrollFunction() {
+                if (
+                    document.body.scrollTop > 20 ||
+                    document.documentElement.scrollTop > 20
+                ) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            mybutton.addEventListener("click", backToTop);
+
+            function backToTop() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        
     </form>
 </body>
 </html>

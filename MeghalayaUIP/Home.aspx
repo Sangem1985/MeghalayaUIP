@@ -130,14 +130,75 @@
         </section>
         <!-- end about-us-section -->
 
-        <section class="service-section section-padding" style="padding: 0px;">
+        <%--<section class="service-section section-padding" style="padding: 0px;">
             <div class="container-fluid">
                 <div class="row">
                     <img src="assets/images/headerbg4.png" style="width: 100%;" />
                    
                 </div>
             </div>
-        </section>
+        </section>--%>
+
+    <!-- Start Services Section -->
+        <section id="services" class="services">
+            <div class="container-fluid">
+          
+          
+             <div class="row">
+                <div class="col-lg-1"></div>
+              <div class="col-lg-2">
+                <div class="icon-box" title="Employer" id="one">
+                    <div class="box">
+                  <div class="icon"><img src="assets/images/param/icon1.png"></div>
+                  <h4>6%<br/></h4>
+                    <p style="color: #000;">CAGR of GSDP between
+                    2025-16 and 2020-21</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="icon-box" title="Employer" id="one">
+                    <div class="box">
+                  <div class="icon"><img src="assets/images/param/icon2.png"></div>
+                  <h4>$10.14 Mn<br/></h4>
+                    <p style="color: #000;">Exports during Apr 2022 to Mar 2023</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="icon-box" title="Employer" id="one">
+                    <div class="box">
+                  <div class="icon"><img src="assets/images/param/icon3.png"></div>
+                  <h4>76%<br/></h4>
+                    <p style="color: #000;">Forest cover of the total Area</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="icon-box" title="Employer" id="one">
+                    <div class="box">
+                  <div class="icon"><img src="assets/images/param/icon4.png"></div>
+                  <h4>$5 Bn<br/></h4>
+                    <p style="color: #000;">GSDP <br/>(2022-23)</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="icon-box" title="Employer" id="one">
+                    <div class="box">
+                  <div class="icon"><img src="assets/images/param/icon5.png"></div>
+                  <h4>3K MW<br/></h4>
+                    <p style="color: #000;">Hydroelectric Power Potential</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-lg-1"></div>
+          
+              </div>
+          
+            </div>
+          </section>
+          <!-- End Services Section -->
         <section class="service-section section-padding" style="padding: 30px;">
             <div class="container-fluid">
                 <div class="row">
