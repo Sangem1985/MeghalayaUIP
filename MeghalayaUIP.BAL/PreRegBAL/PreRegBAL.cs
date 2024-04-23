@@ -7,7 +7,7 @@ using MeghalayaUIP.DAL.PreRegDAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.DAL.CommonDAL;
 using System.Data;
-
+using System.Security.Policy;
 
 namespace MeghalayaUIP.BAL.PreRegBAL
 {
@@ -44,6 +44,10 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         public DataSet GetIndRegUserApplDetails(string UnitID, string InvesterID)
         {
             return IRD.GetIndRegUserApplDetails(UnitID, InvesterID);
+        }
+        public string UpdateIndRegApplQueryRespose(IndustryDetails ID)
+        {
+            return IRD.UpdateIndRegApplQueryRespose(ID);
         }
 
         //-------------------END OF USER METHODS-------------------------------------//

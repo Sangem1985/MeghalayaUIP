@@ -16,6 +16,7 @@ namespace MeghalayaUIP.User.PreReg
         readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
         PreRegBAL preBAL = new PreRegBAL();
+        string userid;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -27,7 +28,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
-
+                        userid = ObjUserInfo.Userid;
                     }
 
                     if (!IsPostBack)
@@ -146,7 +147,7 @@ namespace MeghalayaUIP.User.PreReg
                 if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
                 {
                     Failure.Visible = true;
-                    lblmsg0.Text ="Please Enter Query Response";
+                    lblmsg0.Text = "Please Enter Query Response";
                     return;
                 }
                 else
@@ -154,8 +155,22 @@ namespace MeghalayaUIP.User.PreReg
                     Label UnitID = (Label)row.FindControl("lblUNITID");
                     Label DeptID = (Label)row.FindControl("lblDeptID");
                     Label QID = (Label)row.FindControl("lblDQID");
+                    IndustryDetails ID = new IndustryDetails();
+                    ID.UserID = userid;
+                    ID.UnitID = UnitID.Text;
+                    ID.Deptid = DeptID.Text;
+                    ID.QueryID = QID.Text;
+                    ID.QueryResponse = txtReply.Text;
+                    ID.IPAddress = getclientIP();
 
+                    string result = preBAL.UpdateIndRegApplQueryRespose(ID);
+                    if(result !=""||result!=null) 
+                    {
+                        lblmsg.Text = "Query Response Submitted Sussfully";
+                        success.Visible=true;
+                        BindaApplicatinDetails(UnitID.Text, userid);
 
+                    }
                 }
             }
             catch (Exception ex)
@@ -163,11 +178,23 @@ namespace MeghalayaUIP.User.PreReg
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
             }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
 
-
-
-
-
+            return result;
         }
     }
 }

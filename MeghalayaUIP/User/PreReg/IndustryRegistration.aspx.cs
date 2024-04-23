@@ -42,7 +42,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (!IsPostBack)
                     {
                         MVprereg.ActiveViewIndex = index;
-                      //  BindData();
+                        //  BindData();
                         BindCountries();
                         BindStates();
                         BindDistricts();
@@ -72,9 +72,9 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     if (ds.Tables.Count > 0)
                     {
-                        txtUnitName.Text =Convert.ToString( ds.Tables[0].Rows[0]["CompanyName"]);
+                        txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                         txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyPAN"]);
-                      
+
                         txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompnyRegDt"]);
                         txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UdyamorIEMNo"]);
                         txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNo"]);
@@ -134,14 +134,14 @@ namespace MeghalayaUIP.User.PreReg
                         txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PromoterEquity"]);
                         txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["LoanAmount"]);
                     }
-                    if(ds.Tables.Count > 1)
+                    if (ds.Tables.Count > 1)
                     {
                         //ViewState["MRPID"].ToString();
                         //DataTable dt = jrresult
 
-                        string mrpId = ViewState["MRPID"].ToString();                      
-                        DataTable dt = ds.Tables[1]; 
-                       
+                        string mrpId = ViewState["MRPID"].ToString();
+                        DataTable dt = ds.Tables[1];
+
                         grdRevenueProj.Visible = true;
                         grdRevenueProj.DataSource = dt;
                         grdRevenueProj.DataBind();
@@ -620,6 +620,7 @@ namespace MeghalayaUIP.User.PreReg
                     ID.CompanyName = txtUnitName.Text.Trim();
                     ID.CompanyPAN = txtPANno.Text.Trim();
                     ID.CompnyRegDt = txtCompnyRegDt.Text.Trim();
+                    ID.CompnyType=rblproposal.SelectedItem.Text.Trim();
                     ID.UdyamorIEMNo = txtUdyamorIEMNo.Text.Trim();
                     ID.GSTNo = txtGSTNo.Text.Trim();
 
@@ -639,41 +640,42 @@ namespace MeghalayaUIP.User.PreReg
                     ID.PropLocTalukaID = ddlPropLocTaluka.SelectedValue;
                     ID.PropLocVillageID = ddlPropLocVillage.SelectedValue;
                     ID.PropLocPincode = txtPropLocPincode.Text.Trim();
+
                     ID.DCPorOperation = txtDCPorOperation.Text.Trim();
                     ID.SectorName = ddlSector.SelectedValue;
                     ID.Lineofacitivityid = ddlLineOfActivity.SelectedValue;
                     ID.Category = lblPCBCategory.Text.Trim();
                     ID.NatureofActivity = rblNatureofActvty.SelectedValue;
+
                     ID.ManfActivity = txtMainManf.Text.Trim();
                     ID.Manfproduct = txtManfprodct.Text.Trim();
-
+                    ID.ProductionNO = txtProductionNo.Text.Trim();
                     ID.ServiceActivity = txtServcActvty.Text.Trim();
                     ID.ServiceTobeProviding = txtServctobeprovded.Text.Trim();
-
-                    ID.ProductionNO = txtProductionNo.Text.Trim();
                     ID.ServiceNo = txtSrviceno.Text.Trim();
 
-                    ID.AnnualCapacity = txtAnnualCapacity.Text.Trim();
-                    ID.EstimatedProjCost = txtEstimatedProjCost.Text.Trim();
-                    ID.LandAreainSqft = txtLandAreainSqft.Text.Trim();
-                    ID.CivilConstr = txtCivilConstr.Text.Trim();
-                    ID.PlantnMachineryCost = txtPlantnMachineryCost.Text.Trim();
                     ID.Rawmaterial = txtRawmaterial.Text.Trim();
+                    ID.WasteDetails = txtWasteDetails.Text.Trim();
+                    ID.HazWasteDetails = txtHazWasteDetails.Text.Trim();
+                    ID.CivilConstr = txtCivilConstr.Text.Trim();
+                    ID.LandAreainSqft = txtLandAreainSqft.Text.Trim();
                     ID.BuildingAreaSqm = txtBuildingAreaSqm.Text.Trim();
                     ID.WaterReqKLD = txtWaterReqKLD.Text.Trim();
                     ID.PowerReqKV = txtPowerReqKV.Text.Trim();
-                    ID.WasteDetails = txtWasteDetails.Text.Trim();
-                    ID.HazWasteDetails = txtHazWasteDetails.Text.Trim();
+                    ID.MeasurementUnits = txtMeasurementUnits.Text.Trim();
+
+                    ID.AnnualCapacity = txtAnnualCapacity.Text.Trim();
+                    ID.EstimatedProjCost = txtEstimatedProjCost.Text.Trim();
+                    ID.PlantnMachineryCost = txtPlantnMachineryCost.Text.Trim();
                     ID.CapitalInvestment = txtCapitalInvestment.Text.Trim();
                     ID.FixedAssets = txtFixedAssets.Text.Trim();
-                    ID.MeasurementUnits = txtMeasurementUnits.Text.Trim();
 
                     ID.LandValue = txtLandValue.Text.Trim();
                     ID.BuildingValue = txtBuildingValue.Text.Trim();
                     ID.WaterValue = txtWaterValue.Text.Trim();
                     ID.ElectricityValue = txtElectricityValue.Text.Trim();
-
                     ID.WorkingCapital = txtWorkingCapital.Text.Trim();
+
                     ID.CapitalSubsidy = txtCapitalSubsidy.Text.Trim();
                     ID.PromoterEquity = txtPromoterEquity.Text.Trim();
                     ID.LoanAmount = txtLoanAmount.Text.Trim();
@@ -1305,7 +1307,7 @@ namespace MeghalayaUIP.User.PreReg
 
         protected void btnSave3_Click(object sender, EventArgs e)
         {
-             
+
             try
             {
                 //ViewState["UnitID"] = 1002;
@@ -1314,7 +1316,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
                     dt.Columns.Remove("IDD_COUNTRYName");
-                    result = indstregBAL.InsertIndPromotersDetails(dt);                    
+                    result = indstregBAL.InsertIndPromotersDetails(dt);
                     if (result != "")
                     {
                         success.Visible = true;
