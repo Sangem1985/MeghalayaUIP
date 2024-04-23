@@ -122,8 +122,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lbl_annual.Text = row["PROJECT_AC"].ToString();
                     if (!row.IsNull("PROJECT_EPC"))
                         lbl_estimatedcost.Text = row["PROJECT_EPC"].ToString();
-                    //if (!row.IsNull("PROJECT_LAND"))
-                    //    lbl_estimatedcost.Text = row["PROJECT_EPC"].ToString();
+                  
                     if (!row.IsNull("PROJECT_LAND"))
                         lbl_land.Text = row["PROJECT_LAND"].ToString();
                     if (!row.IsNull("PROJECT_CIVIL_CONSTRCTION"))
@@ -134,12 +133,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         lbl_main_raw.Text = row["PROJECT_MMPP"].ToString();
                     if (!row.IsNull("PROJECT_BUILDING"))
                         lbl_building.Text = row["PROJECT_BUILDING"].ToString();
-                    //if (!row.IsNull("lbl_water"))
-                    //    lbl_water.Text = row["lbl_water"].ToString();
-                    //if (!row.IsNull("PROJECT_BUILDING"))
-                    //    lbl_power.Text = row["PROJECT_BUILDING"].ToString();
-                    //if (!row.IsNull("PROJECT_BUILDING"))
-                    //    lbl_det_waste.Text = row["PROJECT_BUILDING"].ToString();
+                    if (!row.IsNull("PROJECT_WATER"))
+                        lbl_water.Text = row["PROJECT_WATER"].ToString();
+                    if (!row.IsNull("PROJECT_ELECTRIC"))
+                        lbl_power.Text = row["PROJECT_ELECTRIC"].ToString();
+                    if (!row.IsNull("PROJECT_BUILDING"))
+                        lbl_det_waste.Text = row["PROJECT_BUILDING"].ToString();
                     if (!row.IsNull("PROJECT_hazardous"))
                         lbl_det_hazar.Text = row["PROJECT_hazardous"].ToString();
                     if (!row.IsNull("PROJECT_IFC"))
