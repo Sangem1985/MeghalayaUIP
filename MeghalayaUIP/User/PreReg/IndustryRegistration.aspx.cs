@@ -133,7 +133,6 @@ namespace MeghalayaUIP.User.PreReg
                         txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CapitalSubsidy"]);
                         txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PromoterEquity"]);
                         txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["LoanAmount"]);
-
                     }
                 }
             }
