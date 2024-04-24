@@ -63,6 +63,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.UserID = ObjUserInfo.UserID;
                     prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
                     prd.Stage = Convert.ToInt32(Session["stage"]);
+                    if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                    {
+                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    }
                     DataSet ds = new DataSet();
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
 
@@ -221,9 +225,21 @@ namespace MeghalayaUIP.Dept.PreReg
                          
                         var Hostname = Dns.GetHostName();
                         prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
-                        string valid = PreBAL.PreRegApprovals(prd);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
-                        return;
+                        if(ddlStatus.SelectedValue=="11")
+                        {
+                            string valid = PreBAL.PreRegApprovals(prd);
+                            btnSubmit.Enabled = false;
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                            return;
+                        }
+                        else if (ddlStatus.SelectedValue == "7")
+                        {
+                            string valid = PreBAL.PreRegUpdateQuery(prd);
+                            btnSubmit.Enabled = false;
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                            return;
+                        }
+                       
                     }
                 }
                 else

@@ -13,5 +13,11 @@ namespace MeghalayaUIP.User
         {
 
         }
+
+        protected void linkPreReg_Click(object sender, EventArgs e)
+        {
+            string url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx";
+            Response.Redirect(url);
+        }
     }
 }

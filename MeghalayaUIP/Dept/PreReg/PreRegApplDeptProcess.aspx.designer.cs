@@ -537,6 +537,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.HtmlControls.HtmlTable tblaction;
 
         /// <summary>
+        /// trheading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trheading;
+
+        /// <summary>
         /// trIndsDept control.
         /// </summary>
         /// <remarks>

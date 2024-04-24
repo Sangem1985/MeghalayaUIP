@@ -17,18 +17,7 @@
         }
     </style>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script> 
-    <script type="text/javascript">
-        function validateGSTIN(input) {
-            var gstin = input.value.trim();
-            var regex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}[0-9A-Z]{1}[0-9]{1}$/;
-
-            if (!regex.test(gstin)) {
-                alert("Invalid GSTIN format. Please enter a valid GSTIN.");
-                input.value = "";
-                input.focus();
-            }
-        }
-    </script>
+   
 <script type="text/javascript">
     function validateNames(input) {
         var name = input.value;
@@ -441,7 +430,7 @@
 
                                                 </div>
                                                 <div class="col-md-12 d-flex" id="divservc" runat="server" visible="false">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Main Service Activity*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -449,7 +438,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Service to be Provided </label>
                                                             <div class="col-lg-6 d-flex">

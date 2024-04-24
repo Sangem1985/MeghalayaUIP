@@ -1,24 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MeghalayaUIP.Common
 {
     public class PreRegConstants
-    {
+    {    /*-----------------------User-----------------------------*/
         public static string GetIndustryRegData = "USP_GET_INDUSTRYREG_DATA";
         public static string GetRevenueProjectionsMaster = "USP_GET_REVENUE_PROJECTIONS";
-        public static string InsertIndRegBasicDetails = "USP_INS_Insvester_basicdetails";
+        public static string InsertIndRegBasicDetails = "USP_INS_PREREGBASICDETAILS"; /* "USP_INS_Insvester_basicdetails";*/
         public static string InsertIndRegRevenueDetails = "USP_INS_INVESTER_BASICREVENUE_PROJECTIONS";
         public static string InsertIndRegPromotersDetails = "USP_INS_INSVESTER_DIRECTOR_DETAILS";
+        public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
+        public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDASHBOARDVIEWDETAILS";
+        public static string UpdateIndRegApplQueryRespose = "USP_UPDATEPREREGAPPLQUERYRESPONSE";
+        /*-----------------------End of User-----------------------------*/
+
+        public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
+        public static string GetSectorDepartments = "USP_GET_SECTOR_DEPT";
         public static string GetPreRegDashBoard = "USP_PREREGDASHBOARDCOUNT";
         public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDVIEW";
         public static string GetPreRegNodelOfficer = "USP_PREREGDASHBOARDVIEWDETAILS";
-        public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";
-        public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
-        public static string GetSectorDepartments = "USP_GET_SECTOR_DEPT";
+        public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";       
+        public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION";
+      
     }
     public class IndustryDetails
     {
@@ -27,6 +35,7 @@ namespace MeghalayaUIP.Common
         public string CompanyName { get; set; }
         public string CompanyPAN { get; set; }
         public string CompnyRegDt { get; set; }
+        public string CompnyType { get; set; }
         public string UdyamorIEMNo { get; set; }
         public string GSTNo { get; set; }
         public string AuthReprName { get; set; }
@@ -91,10 +100,12 @@ namespace MeghalayaUIP.Common
         public string DPRFilepath { get; set; }
         public string DPRFileName { get; set; }
         public string UnitID { get; set; }
-        public string Deptid { get; set; }
+        public string Deptid { get; set; }        
         public string SectorName { get; set; }
         public string Lineofacitivityid { get; set; }
         public string Category { get; set; }
+        public string QueryID { get; set; }
+        public string QueryResponse { get; set; }
     }
     public class PromoterDetails
     {
@@ -134,7 +145,8 @@ namespace MeghalayaUIP.Common
         public string Water { get; set; }
         public string WasteDetails { get; set; }
         public string HazDetails { get; set; }
-
+        public string QuerytoDept { get; set; }
+        public string QuerytoDeptID { get; set; } // FROM IMA TO DEPT (OR) FROM COMM TO IMA OR DEPT
     }
     public class InvBasicDtls
     {

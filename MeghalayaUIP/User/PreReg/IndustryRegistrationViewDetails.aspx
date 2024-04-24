@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="PreRegApplDeptProcess.aspx.cs" Inherits="MeghalayaUIP.Dept.PreReg.PreRegApplDeptProcess" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="IndustryRegistrationViewDetails.aspx.cs" Inherits="MeghalayaUIP.User.PreReg.IndustryRegistrationViewDetails" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -49,18 +50,18 @@
                                                             <div class="col-md-4">
                                                                 <label>Company Registration / Incorporation Date :</label>
 
-                                                                <asp:Label ID="lbl_regdate" runat="server"></asp:Label>
+                                                                <asp:Label ID="lblregdate" runat="server"></asp:Label>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <label>Udyam/IEM No :</label>
 
-                                                                <asp:Label ID="lbl_Udyam" runat="server"></asp:Label>
+                                                                <asp:Label ID="lblUdyam" runat="server"></asp:Label>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <label>
                                                                     GSTIN Number :</label>
 
-                                                                <asp:Label ID="lbl_GSTIN" runat="server"></asp:Label>
+                                                                <asp:Label ID="lblGSTIN" runat="server"></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -74,7 +75,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Name * :</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:Label ID="lbl_Name" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblName" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -82,7 +83,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Mobile * :</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:Label ID="lbl_Mobile" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblMobile" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -92,7 +93,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">E-mail * :</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:Label ID="Lbl_Email" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblEmail" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -102,7 +103,7 @@
                                                                     Locality
 																			* :</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:Label ID="Lbl_Locality" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblLocality" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -115,7 +116,7 @@
                                                                     District
 																			* :</label>
                                                                 <div class="col-lg-8">
-                                                                    <asp:Label ID="lbl_Distict" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblDistict" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -123,7 +124,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Mandal * :</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:Label ID="lbl_Mandal" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblMandal" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -133,7 +134,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Village * :</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:Label ID="lbl_Village" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblVillage" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -141,7 +142,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Pincode * :</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:Label ID="lbl_Pincode" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblPincode" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -163,7 +164,7 @@
                                                                     Door No.
 																			* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_drno" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lbldrno" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -173,7 +174,7 @@
                                                                     Locality
 																			* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_Pro_loc" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblPro_loc" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -186,7 +187,7 @@
                                                                     District
 																			* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_pro_dis" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblpro_dis" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -194,7 +195,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mandal * :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_Pro_Man" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblPro_Man" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -207,7 +208,7 @@
                                                                     Village
 																			* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_Pro_vill" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblPro_vill" runat="server"></asp:Label>
 
                                                                 </div>
                                                             </div>
@@ -218,7 +219,7 @@
                                                                     Pin Code
 																			* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_Pro_Pin" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblPro_Pin" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -238,7 +239,7 @@
                                                                     Nature of
 																			Activity* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_NatureofAct" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblNatureofAct" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -249,7 +250,7 @@
 																			Manufacturing/ Service
 																			Activity* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_Mainmanu" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblMainmanu" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -263,7 +264,7 @@
 																			Manufactured /
 																			service to be provided* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_pro_manu" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblpro_manu" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -278,7 +279,7 @@
 																			Commencement of
 																			Production/operation* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_Dateofcomm" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblDateofcomm" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -289,7 +290,7 @@
 																			Existing – Production
 																			no./ service no.* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_existing" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblexisting" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -299,7 +300,7 @@
                                                                     Annual
 																			Capacity* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_annual" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblannual" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -313,7 +314,7 @@
 																			Cost
 																			(INR)* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_estimatedcost" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblestimatedcost" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -323,7 +324,7 @@
                                                                     Land*(in
 																			Sq.ft)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_land" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblland" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -336,7 +337,7 @@
                                                                     Civil
 																			Construction* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_civil" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblcivil" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -351,7 +352,7 @@
                                                                     Plant & Machinery
 																			(INR)* :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_plant" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblplant" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -362,7 +363,7 @@
 																			materials for the
 																			proposed project</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_main_raw" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblmain_raw" runat="server"></asp:Label>
 
                                                                 </div>
                                                             </div>
@@ -373,7 +374,7 @@
                                                                     Building / Shed
 																			(Sq. m)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_building" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblbuilding" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -386,7 +387,7 @@
                                                                     Water required
 																			(KL/D)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_water" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblwater" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -396,7 +397,7 @@
                                                                     Power
 																			(KV)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_power" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblpower" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -407,7 +408,7 @@
 																			/ effluent to be
 																			generated</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_det_waste" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lbldet_waste" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -422,7 +423,7 @@
 																			hazardous waste to be
 																			generated</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_det_hazar" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lbldet_hazar" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -433,7 +434,7 @@
 																			Fixed Capital
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_investment" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblinvestment" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -444,7 +445,7 @@
 																			Assets
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_durable" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lbldurable" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -457,7 +458,7 @@
                                                                     Unit of
 																			measurement</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_unitofmeasure" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblunitofmeasure" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -467,7 +468,7 @@
                                                                     Building / Shed
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_buildingshed" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblbuildingshed" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -478,7 +479,7 @@
                                                                     Water
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_waterinr" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblwaterinr" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -492,7 +493,7 @@
                                                                     Electricity
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_electricity" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblelectricity" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -502,7 +503,7 @@
                                                                     Working Capital
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_working" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblworking" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -524,7 +525,7 @@
 																			Benefit from
 																			UNNATI/ other Central / State Scheme (INR)</label>
                                                                 <div class="col-lg-4 d-flex">
-                                                                    <asp:Label ID="lbl_capital" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblcapital" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -536,7 +537,7 @@
                                                                     Promoter’s Equity
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_promoter" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblpromoter" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -546,7 +547,7 @@
                                                                     Loan
 																			(INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lbl_loan" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblloan" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -555,13 +556,12 @@
                                                 <div class="row">
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span
-                                                                style="font-weight: 900; font-size: 20px;">Production and Sales particulars for the Last 5 Years</span></label>
+                                                            <span style="font-weight: 900; font-size: 20px; padding-left: 45px">Production and Sales particulars for the Last 5 Years</span></label>
                                                     </div>
                                                     <p></p>
                                                     <div class="table-responsive">
                                                         <center>
-                                                            <asp:GridView ID="gvPreRegDtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                            <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                                 GridLines="Both" HeaderStyle-BackColor="Red"
                                                                 Width="80%" EnableModelValidation="True">
@@ -571,12 +571,12 @@
                                                                 <Columns>
                                                                     <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                         <HeaderStyle HorizontalAlign="Center" />
-                                                                        <ItemStyle HorizontalAlign="Left" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
                                                                         <ItemTemplate>
                                                                             <%# Container.DataItemIndex + 1%>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:BoundField HeaderText="Items" DataField="ITEMS" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="Items" DataField="ITEMS" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
                                                                     <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                     <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                     <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -587,159 +587,46 @@
                                                                 <AlternatingRowStyle BackColor="White" />
                                                             </asp:GridView>
                                                         </center>
-                                                        <%--<table class="table table-bordered mb-0">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Items</th>
-                                                                        <th>Year 1</th>
-                                                                        <th>Year 2</th>
-                                                                        <th>Year 3</th>
-                                                                        <th>Year 4</th>
-                                                                        <th>Year 5</th>
 
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
+                                                    </div>
+                                                </div>
 
-                                                                    <tr>
-                                                                        <td class="fw-bold">Turnover</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Cost of Operation</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Gross Profit</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Earnings Before
-																				Interest,<br />
-                                                                            Tax,
-																				Depreciation and Amortization (EBITDA)
-                                                                        </td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Profit before Taxation
-                                                                        </td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Profit after Taxation
-                                                                        </td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Internal Rate of Return
-																				<br />
-                                                                            (IRR) [(a)
-																				With and (b) without grant/subsidy]
-                                                                        </td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Avg. Debt Service
-																				Coverage Ratio (DSCR)</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Break Even Point (BEP)
-                                                                        </td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Debt-Equity Ratio
-																				(TTL/TNW)</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Fixed Assets Coverage
-																				Ratio</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="6"
-                                                                            class="fw-bold alert alert-primary alert-dismissible fade show">Employment Generation projections</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Direct Employment:
-																				(Skilled and
-																				Semi-skilled)</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Contractual Employment
-																				with no. of days</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-bold">Indirect Employment
-																				(specify)</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                        <td>0</td>
-                                                                    </tr>
+                                                <div class="row">
+                                                    <div class="col-md-12 d-flex">
+                                                        <label class="col-lg-12 col-form-label fw-bold">
+                                                            <span style="font-weight: 900; font-size: 20px; padding-left: 45px">Directors / Promoters Details</span></label>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="table-responsive">
+                                                        <center>
+                                                            <asp:GridView ID="grdDirectors" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                                GridLines="Both" HeaderStyle-BackColor="Red"
+                                                                Width="80%" EnableModelValidation="True">
+                                                                <RowStyle />
+                                                                <AlternatingRowStyle BackColor="LightGray" />
+                                                                <HeaderStyle BackColor="Red" />
+                                                                <Columns>
+                                                                    <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                        <ItemTemplate>
+                                                                            <%# Container.DataItemIndex + 1%>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:BoundField HeaderText="Name" DataField="NAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
+                                                                    <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                </Columns>
+                                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                                <AlternatingRowStyle BackColor="White" />
+                                                            </asp:GridView>
+                                                        </center>
 
-
-
-                                                                </tbody>
-                                                            </table>--%>
                                                     </div>
                                                 </div>
 
@@ -830,28 +717,28 @@
                                             <div class="row clearfix">
                                                 <div class="col-sm-12">
                                                     <asp:GridView ID="grdQueries" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
-                                                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Left" />
                                                                 <ItemTemplate>
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="Applicant Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Unit Name" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Mobile" DataField="IDD_PAN" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Raised By" DataField="IDD_DINNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Description" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Raised Date" DataField="IDD_DOORNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Response" DataField="IDD_STREET" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Response Date" DataField="IDD_CITY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Unit Name" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Raised Date" DataField="QUERYDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Response" DataField="QUERYRESPONSEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Response Date" DataField="QUERYRESPONSEDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                         </Columns>
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+
                                                     </asp:GridView>
                                                     <%--<div class="table-responsive">                                                       
                                                     </div>--%>
@@ -886,6 +773,7 @@
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                         GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
@@ -898,7 +786,6 @@
                                                             <asp:BoundField HeaderText="File Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="View" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                         </Columns>
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
                                                     <%--<div class="table-responsive">                                                      
                                                        </div>--%>
@@ -929,12 +816,9 @@
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="col-sm-12">
-
-                                                    <%--<div class="table-responsive">--%>
-                                                    <asp:GridView ID="grd_Statusofapp" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                                                        GridLines="Both"
-                                                        Width="100%" EnableModelValidation="True">
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True">
                                                         <RowStyle />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
@@ -945,27 +829,17 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="First Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Last Name" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <%--<asp:BoundField HeaderText="Year 2" DataField="IDD_ADNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
-                                                            <asp:BoundField HeaderText="PAN" DataField="IDD_PAN" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="DI No." DataField="IDD_DINNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Nationality" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Door No." DataField="IDD_DOORNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Street" DataField="IDD_STREET" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="City" DataField="IDD_CITY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Distruct" DataField="IDD_DISTRICT" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Mandal" DataField="IDD_MANDAL" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="State" DataField="IDD_STATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Pincode" DataField="IDD_PINCODE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Country" DataField="IDD_COUNTRY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Email" DataField="IDD_EMAIL" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Phone" DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
+                                                            <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
+                                                            <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
 
-                                                    <%--</div>--%>
                                                 </div>
 
                                             </div>
@@ -974,12 +848,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" id="verifypanel" runat="server" visible="true">
+                        <div class="panel panel-default" id="QueryResondpanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSix">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix">Verification of Application
+                                        aria-controls="collapseSix">Respond to Query
                                     </a>
                                 </h4>
                             </div>
@@ -987,123 +861,55 @@
                                 aria-labelledby="headingSix" aria-expanded="false">
 
                                 <div class="card">
-                                    <div class="table-responsive">
-                                        <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
-                                            <tr style="border-color: brown; background-color: midnightblue; color: azure">
-                                                <td><b>Name</b></td>
-                                                <td><b>Unit Name</b></td>
-                                                <td><b>Mobile No</b></td>
-                                                <td style="width: 150px"><b>Application Date</b></td>
-                                                <td style="width: 200px"><b>Select Action</b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <asp:Label runat="server" ID="lbl_Name1"></asp:Label></td>
-                                                <td>
-                                                    <asp:Label ID="lblunitname1" runat="server"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="lbl_Mobile1" runat="server"></asp:Label></td>
-                                                <td tyle="width: 100px">
-                                                    <asp:Label ID="lblapplDate" runat="server"></asp:Label>
-                                                </td>
-                                                <td style="width: 200px">
-                                                    <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
-                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="Approve & Forwrd to IMA" Value="5"></asp:ListItem>
-                                                        <asp:ListItem Text="Raise Query" Value="4"></asp:ListItem>
-                                                    </asp:DropDownList>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div>
-                                        <table align="Center" style="width: 70%; border: none; align-content: flex-start" id="tblaction" runat="server" visible="false">
-                                            <tr>
-                                                <td colspan="3">
-                                                    <table style="width: 100%; border: none; align-content: flex-start">
-                                                        <tr style="border-color: brown; background-color: aqua; color: darkred" runat="server" visible="false" id="trheading">
-                                                            <td><b>Paramater Name</b></td>
-                                                            <td><b>Applicant' s Data</b></td>
-                                                            <td><b>Dept Suggession</b></td>
-                                                        </tr>
-                                                        <tr id="trIndsDept" runat="server" visible="false">
-                                                            <td>
-                                                                <label>Land Area</label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lblApplLandArea" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr id="trPowerDept" runat="server" visible="false">
-                                                            <td>
-                                                                <label>Power Required</label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lblApplPowerReq" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr id="trWaterDept" runat="server" visible="false">
-                                                            <td>
-                                                                <label>Water Required</label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr id="trForestDept1" runat="server" visible="false">
-                                                            <td>
-                                                                <label>Details of waste /<br /> Effluent to be generated</label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr id="trForestDept2" runat="server" visible="false">
-                                                            <td>
-                                                                <label>Details of Hazardous  <br /> waste to be generated</label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <b>
-                                                        <asp:Label ID="lblaction" runat="server"></asp:Label>
-                                                    </b>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="350px" Visible="true"></asp:TextBox>
-                                                </td>
+                                    <asp:GridView ID="grdQueryRaised" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" CssClass="table-bordered mb-0 GRD"
+                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                        <RowStyle />
+                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="LightGray" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1%>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="DepQID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="UNIT ID">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblUNITID" runat="server" Text='<%#Eval("UNITID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
+                                            <asp:TemplateField HeaderText="Reply to Query">
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtResponse" runat="server" TextMode="MultiLine" Width="400PX"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Submit">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="btnRespond" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnRespond_Click" ></asp:Button>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
 
-                                                <td colspan="2" align="Center">
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                    </asp:GridView>
 
-                                                </td>
 
-                                            </tr>
-                                        </table>
-                                    </div>
                                 </div>
 
                             </div>
@@ -1119,5 +925,4 @@
     <!-- /Main Wrapper -->
 
     <!-- jQuery -->
-    
 </asp:Content>
