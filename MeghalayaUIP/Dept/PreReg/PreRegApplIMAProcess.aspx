@@ -879,7 +879,7 @@
                                                 <td id="tdquryorrej" runat="server" visible="false"><b>
                                                     <asp:Label runat="server" Text="Please Enter Query/Forward Reason"></asp:Label></b>
                                                 </td>
-                                                <td>
+                                                <td id="tdaction" runat="server" visible="true">
                                                     <b>Submit Action</b>
                                                 </td>
                                             </tr>
@@ -905,9 +905,56 @@
                                                 </td>
                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
                                                     <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+                                                </td>                                            
+                                                
+
+                                                 <td>
+                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit"  OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
                                                 </td>
-                                                <td>
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: central" id="tdquery" runat="server" visible="false" colspan="3">
+                                                    <asp:GridView ID="gvdeptquery" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                        GridLines="None"  Width="100%" EnableModelValidation="True" OnRowCommand="gvdeptquery_RowCommand" OnRowDataBound="gvdeptquery_RowDataBound">
+                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderText="Sl No.">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblSl" runat="server" Text="<%#Container.DataItemIndex+1 %>"></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Department">
+                                                                <ItemTemplate>
+                                                                    <asp:DropDownList ID="ddldepartment" runat="server">
+                                                                        <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </ItemTemplate>
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Query Description">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtquery" runat="server"></asp:TextBox>
+                                                                </ItemTemplate>
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:TemplateField>
+                                                            <asp:ButtonField CommandName="Add" Text="Add">
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:ButtonField>
+                                                            <asp:ButtonField CommandName="Remove" Text="Delete">
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:ButtonField>
+                                                        </Columns>
+                                                        <PagerStyle BackColor="#013161" ForeColor="White" HorizontalAlign="Center" />
+                                                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                                        <EditRowStyle BackColor="#B9D684" />
+                                                        <AlternatingRowStyle BackColor="White" />
+                                                    </asp:GridView>
+                                                </td>
+                                                 <td>
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query"  OnClick="btnQuery_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
                                                 </td>
                                             </tr>
                                         </table>
