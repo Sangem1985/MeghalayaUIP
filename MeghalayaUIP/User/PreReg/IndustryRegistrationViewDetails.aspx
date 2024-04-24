@@ -122,7 +122,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-3">
                                                             <div class="form-group row">
@@ -160,14 +159,11 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
-
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label ">
                                                             <span
                                                                 style="font-weight: 600; font-size: 20px;">Proposed Location of Unit</span></label>
                                                     </div>
-
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-3">
                                                             <div class="form-group row">
@@ -230,13 +226,11 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
                                                             <span
                                                                 style="font-weight: 600; font-size: 20px;">Project Details</span></label>
                                                     </div>
-
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
@@ -543,7 +537,6 @@
                                                         </div>
 
                                                     </div>
-
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label ">
                                                             <span style="font-weight: 600; font-size: 20px;">Finance Revenue Details</span></label>
@@ -583,15 +576,11 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span style="font-weight: 900; font-size: 20px; padding-left: 45px">Production and Sales particulars for the Last 5 Years</span></label>
+                                                            <span style="font-weight: 900; font-size: 20px; ">Production and Sales particulars for the Last 5 Years</span></label>
                                                     </div>
-                                                    <p></p>
                                                     <div class="table-responsive">
-                                                        <center>
                                                             <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                                 GridLines="Both" HeaderStyle-BackColor="Red"
@@ -617,19 +606,12 @@
                                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                                 <AlternatingRowStyle BackColor="White" />
                                                             </asp:GridView>
-                                                        </center>
-
                                                     </div>
-                                                </div>
-
-                                                <div class="row">
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span style="font-weight: 900; font-size: 20px; padding-left: 45px">Directors / Promoters Details</span></label>
+                                                            <span style="font-weight: 900; font-size: 20px; ">Directors / Promoters Details</span></label>
                                                     </div>
-                                                    <p></p>
                                                     <div class="table-responsive">
-                                                        <center>
                                                             <asp:GridView ID="grdDirectors" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                                 GridLines="Both" HeaderStyle-BackColor="Red"
@@ -651,25 +633,16 @@
                                                                     <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                     <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                     <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                    <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ControlStyle-Width="300px"  />
                                                                 </Columns>
                                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                                 <AlternatingRowStyle BackColor="White" />
                                                             </asp:GridView>
-                                                        </center>
-
                                                     </div>
                                                 </div>
-
-                                                <%-- <div class="text-center mt-2">
-                                                        <a href="#basictab2" data-toggle="tab">
-                                                            <button type="submit"
-                                                                class="btn btn-rounded btn-info btn-lg">
-                                                                Print</button></a>
-                                                    </div>--%>
                                             </div>
                                         </div>
-                                        <%-- </div>--%>
+
                                     </section>
                                 </div>
                             </div>
@@ -771,8 +744,7 @@
                                                         </Columns>
 
                                                     </asp:GridView>
-                                                    <%--<div class="table-responsive">                                                       
-                                                    </div>--%>
+                                                   
                                                 </div>
 
                                             </div>

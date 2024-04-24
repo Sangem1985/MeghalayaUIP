@@ -130,26 +130,26 @@ namespace MeghalayaUIP.User.PreReg
                     lblLoan.Text = Convert.ToString(row["FRD_LOAN"]);
                     //Convert.ToDateTime(lblDateofcomm.Text).ToString("dd -MM-yyyy");
 
-                    //grdRevenueProj.DataSource = ds.Tables[1];
-                    //grdRevenueProj.DataBind();
+                    grdRevenueProj.DataSource = ds.Tables[1];
+                    grdRevenueProj.DataBind();
 
-                    //grdDirectors.DataSource = ds.Tables[2];
-                    //grdDirectors.DataBind();
+                    grdDirectors.DataSource = ds.Tables[2];
+                    grdDirectors.DataBind();
 
-                    //grdApplStatus.DataSource = ds.Tables[3];
-                    //grdApplStatus.DataBind();
+                    grdApplStatus.DataSource = ds.Tables[3];
+                    grdApplStatus.DataBind();
 
-                    //if (ds.Tables[4].Rows.Count > 0)
-                    //{
-                    //    grdQueries.DataSource = ds.Tables[4];
-                    //    grdQueries.DataBind();
-                    //}
-                    //if (ds.Tables[5].Rows.Count > 0)
-                    //{
-                    //    QueryResondpanel.Visible = true;
-                    //    grdQueryRaised.DataSource = ds.Tables[5];
-                    //    grdQueryRaised.DataBind();
-                    //}
+                    if (ds.Tables[4].Rows.Count > 0)
+                    {
+                        grdQueries.DataSource = ds.Tables[4];
+                        grdQueries.DataBind();
+                    }
+                    if (ds.Tables[5].Rows.Count > 0)
+                    {
+                        QueryResondpanel.Visible = true;
+                        grdQueryRaised.DataSource = ds.Tables[5];
+                        grdQueryRaised.DataBind();
+                    }
 
                 }
             }
