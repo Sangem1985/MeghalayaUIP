@@ -43,13 +43,14 @@ namespace MeghalayaUIP.User.PreReg
                     if (!IsPostBack)
                     {
                         MVprereg.ActiveViewIndex = index;
+                        BindSectors();
                         BindDistricts();
-                        BindData();
                         BindCountries();
                         BindStates();
-                        BindDistricts();
+                        //BindDistricts();
                         BindRevenueProjectionsMaster();
-                        BindSectors();
+                        BindData();
+
                     }
                 }
                 else
@@ -80,7 +81,7 @@ namespace MeghalayaUIP.User.PreReg
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                         txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
-                        txtCompnyRegDt.TextMode = TextBoxMode.Date;
+                       // txtCompnyRegDt.TextMode = TextBoxMode.Date;
 
                         txtCompnyRegDt.Text= Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATEnew"]);
 
@@ -90,13 +91,10 @@ namespace MeghalayaUIP.User.PreReg
                         txtAuthReprMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_MOBILE"]);
                         txtAuthReprEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_EMAIL"]);
                         txtAuthReprLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_LOCALITY"]);
-                        ddlAuthReprDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_DISTRICTID"]);
-                       // ddlAuthReprDist_SelectedIndexChanged(ddlAuthReprDist, EventArgs.Empty);
-                        BindMandal(ddlAuthReprTaluka, ddlAuthReprDist.SelectedValue);
+                        ddlAuthReprDist.SelectedValue = ds.Tables[0].Rows[0]["REP_DISTRICTID"].ToString();
+                        ddlAuthReprDist_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlAuthReprTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
-                       
-                       // ddlAuthReprTaluka_SelectedIndexChanged(ddlAuthReprTaluka, EventArgs.Empty);
-                        BindVillages(ddlAuthReprVillage, ddlAuthReprTaluka.SelectedValue);
+                        ddlAuthReprTaluka_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlAuthReprVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
 
                         txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_PINCODE"]);
@@ -107,14 +105,13 @@ namespace MeghalayaUIP.User.PreReg
                         ddlPropLocDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_DISTRICTID"]);
                         ddlPropLocDist_SelectedIndexChanged(this, EventArgs.Empty);
                         ddlPropLocTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_MANDALID"]);
-                        ddlPropLocDist_SelectedIndexChanged(this, EventArgs.Empty);
-                        ddlPropLocVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_VILLAGEID"]);
                         ddlPropLocTaluka_SelectedIndexChanged(this, EventArgs.Empty);
+                        ddlPropLocVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_VILLAGEID"]);
                         txtPropLocPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_PINCODE"]);
                         txtDCPorOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DCP"]);
                         ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
-
-                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
+                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);               
                         lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                         rblNatureofActvty.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
                         txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"]);
