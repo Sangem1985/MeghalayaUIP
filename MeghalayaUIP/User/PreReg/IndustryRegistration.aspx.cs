@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -42,12 +43,14 @@ namespace MeghalayaUIP.User.PreReg
                     if (!IsPostBack)
                     {
                         MVprereg.ActiveViewIndex = index;
-                        //  BindData();
+                        BindSectors();
+                        BindDistricts();
                         BindCountries();
                         BindStates();
-                        BindDistricts();
+                        //BindDistricts();
                         BindRevenueProjectionsMaster();
-                        BindSectors();
+                        BindData();
+
                     }
                 }
                 else
@@ -62,8 +65,10 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
+
         public void BindData()
         {
+
             try
             {
                 DataSet ds = new DataSet();
@@ -72,82 +77,88 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     if (ds.Tables.Count > 0)
                     {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
-                        txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyPAN"]);
+                        txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
+                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
+                       // txtCompnyRegDt.TextMode = TextBoxMode.Date;
 
-                        txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompnyRegDt"]);
-                        txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UdyamorIEMNo"]);
-                        txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNo"]);
+                        txtCompnyRegDt.Text= Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATEnew"]);
 
-                        txtAuthReprName.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprName"]);
-                        txtAuthReprMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprMobile"]);
-                        txtAuthReprEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprEmail"]);
-                        txtAuthReprLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprLocality"]);
-                        ddlAuthReprDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprDistID"]);
-                        ddlAuthReprTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprTalukaID"]);
-                        ddlAuthReprVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprVillageID"]);
-                        txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["AuthReprPincode"]);
+                        txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UDYAMNO"]);
+                        txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
+                        txtAuthReprName.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_NAME"]);
+                        txtAuthReprMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_MOBILE"]);
+                        txtAuthReprEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_EMAIL"]);
+                        txtAuthReprLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_LOCALITY"]);
+                        ddlAuthReprDist.SelectedValue = ds.Tables[0].Rows[0]["REP_DISTRICTID"].ToString();
+                        ddlAuthReprDist_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlAuthReprTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
+                        ddlAuthReprTaluka_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlAuthReprVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
 
-                        rblLandType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["LandType"]);
-                        txtPropLocDoorno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PropLocDoorno"]);
-                        txtPropLocLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["PropLocLocality"]);
-                        ddlPropLocDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PropLocDistID"]);
-                        ddlPropLocTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PropLocTalukaID"]);
-                        ddlPropLocVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PropLocVillageID"]);
-                        txtPropLocPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["PropLocPincode"]);
-                        txtDCPorOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["DCPorOperation"]);
-                        ddlSector.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SectorName"]);
-                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["Lineofacitivityid"]);
-                        lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["Category"]);
-                        rblNatureofActvty.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["NatureofActivity"]);
-                        txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["ManfActivity"]);
-                        txtManfprodct.Text = Convert.ToString(ds.Tables[0].Rows[0]["Manfproduct"]);
+                        txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_PINCODE"]);
 
-                        txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["ServiceActivity"]);
-                        txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["ServiceTobeProviding"]);
+                        rblLandType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_LANDTYPE"]);
+                        txtPropLocDoorno.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_DOORNO"]);
+                        txtPropLocLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_LOCALITY"]);
+                        ddlPropLocDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_DISTRICTID"]);
+                        ddlPropLocDist_SelectedIndexChanged(this, EventArgs.Empty);
+                        ddlPropLocTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_MANDALID"]);
+                        ddlPropLocTaluka_SelectedIndexChanged(this, EventArgs.Empty);
+                        ddlPropLocVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_VILLAGEID"]);
+                        txtPropLocPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_PINCODE"]);
+                        txtDCPorOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DCP"]);
+                        ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
+                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);               
+                        lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
+                        rblNatureofActvty.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
+                        txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"]);
+                        txtManfprodct.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODUCT"]);
+                        txtProductionNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODNO"]);
+                        txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"]);
+                        txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNAME"]);
+                        txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNO"]);
+                        txtWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WASTEDETAILS"]);
+                        txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"]);
+                        txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
 
-                        txtProductionNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["ProductionNO"]);
-                        txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["ServiceNo"]);
-
-                        txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["AnnualCapacity"]);
-                        txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["EstimatedProjCost"]);
-                        txtLandAreainSqft.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandAreainSqft"]);
-                        txtCivilConstr.Text = Convert.ToString(ds.Tables[0].Rows[0]["CivilConstr"]);
-                        txtPlantnMachineryCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PlantnMachineryCost"]);
-                        txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["Rawmaterial"]);
-                        txtBuildingAreaSqm.Text = Convert.ToString(ds.Tables[0].Rows[0]["BuildingAreaSqm"]);
-                        txtWaterReqKLD.Text = Convert.ToString(ds.Tables[0].Rows[0]["WaterReqKLD"]);
-                        txtPowerReqKV.Text = Convert.ToString(ds.Tables[0].Rows[0]["PowerReqKV"]);
-                        txtWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["WasteDetails"]);
-                        txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["HazWasteDetails"]);
-                        txtCapitalInvestment.Text = Convert.ToString(ds.Tables[0].Rows[0]["CapitalInvestment"]);
-                        txtFixedAssets.Text = Convert.ToString(ds.Tables[0].Rows[0]["FixedAssets"]);
-                        txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["MeasurementUnits"]);
-
-                        txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandValue"]);
-                        txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["BuildingValue"]);
-                        txtWaterValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["WaterValue"]);
-                        txtElectricityValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["ElectricityValue"]);
-
-                        txtWorkingCapital.Text = Convert.ToString(ds.Tables[0].Rows[0]["WorkingCapital"]);
-                        txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CapitalSubsidy"]);
-                        txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PromoterEquity"]);
-                        txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["LoanAmount"]);
-                    }
-                    if (ds.Tables.Count > 1)
-                    {
-                        //ViewState["MRPID"].ToString();
-                        //DataTable dt = jrresult
-
-                        string mrpId = ViewState["MRPID"].ToString();
-                        DataTable dt = ds.Tables[1];
-
-                        grdRevenueProj.Visible = true;
-                        grdRevenueProj.DataSource = dt;
-                        grdRevenueProj.DataBind();
-
+                        txtCivilConstr.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_CIVILCONSTR"]);
+                        txtLandAreainSqft.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                        txtBuildingAreaSqm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
+                        txtPowerReqKV.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_POWERRREQ"]);
+                        txtWaterReqKLD.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERREQ"]);
+                        txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
+                        txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
+                        txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
+                        txtPlantnMachineryCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
+                        txtCapitalInvestment.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_IFC"]);
+                        txtFixedAssets.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DFA"]);
+                        txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
+                        txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
+                        txtWaterValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERVALUE"]);
+                        txtElectricityValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ELECTRICITYVALUE"]);
+                        txtWorkingCapital.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WORKINGCAPITAL"]);
+                        txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_CAPITALSUBSIDY"]);
+                        txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_PROMOTEREQUITY"]);
+                        txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_LOAN"]);
 
                     }
+                    //if (ds.Tables.Count > 1)
+                    //{
+                    //    //ViewState["MRPID"].ToString();
+                    //    //DataTable dt = jrresult
+
+                    //    string mrpId = ViewState["MRPID"].ToString();
+                    //    DataTable dt = ds.Tables[1];
+
+                    //    grdRevenueProj.Visible = true;
+                    //    grdRevenueProj.DataSource = dt;
+                    //    grdRevenueProj.DataBind();
+
+
+                    //}
 
                 }
             }
@@ -614,13 +625,15 @@ namespace MeghalayaUIP.User.PreReg
                 if (ErrorMsg == "")
                 {
                     IndustryDetails ID = new IndustryDetails();
+                    if (Convert.ToString(ViewState["UnitID"]) != "")
+                    { ID.UnitID = Convert.ToString(ViewState["UnitID"]); }
                     ID.UserID = hdnUserID.Value;
                     ID.IPAddress = getclientIP();
 
                     ID.CompanyName = txtUnitName.Text.Trim();
                     ID.CompanyPAN = txtPANno.Text.Trim();
                     ID.CompnyRegDt = txtCompnyRegDt.Text.Trim();
-                    ID.CompnyType=rblproposal.SelectedItem.Text.Trim();
+                    ID.CompnyType = rblproposal.SelectedItem.Text.Trim();
                     ID.UdyamorIEMNo = txtUdyamorIEMNo.Text.Trim();
                     ID.GSTNo = txtGSTNo.Text.Trim();
 
@@ -692,7 +705,7 @@ namespace MeghalayaUIP.User.PreReg
                     }
                     catch (Exception ex)
                     {
-
+                        throw ex;
                     }
                     result = indstregBAL.InsertIndRegBasicDetails(ID, out string IDno);
                     ViewState["UnitID"] = result;

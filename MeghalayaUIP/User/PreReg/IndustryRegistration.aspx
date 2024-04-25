@@ -182,7 +182,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" type="date" />
+                                                                <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control"  />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -372,7 +372,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox type="date" runat="server" ID="txtDCPorOperation" class="form-control" />
+                                                                <asp:TextBox type="text" runat="server" ID="txtDCPorOperation" class="form-control" />
                                                             </div>
                                                         </div>
                                                     </div>

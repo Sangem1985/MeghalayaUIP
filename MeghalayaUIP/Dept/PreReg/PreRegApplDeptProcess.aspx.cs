@@ -72,104 +72,87 @@ namespace MeghalayaUIP.Dept.PreReg
 
 
                     DataRow row = ds.Tables[0].Rows[0];
-                    lbl_regdate.Text = row["Udyamno"].ToString();
-                    lbl_Udyam.Text = row["GSTNNO"].ToString();
-                    if (!row.IsNull("Udyamno"))
-                        lbl_GSTIN.Text = row["Udyamno"].ToString();
-                    if (!row.IsNull("REP_NAME"))
-                        lbl_Name.Text = lbl_Name1.Text = lblunitname1.Text = row["REP_NAME"].ToString();
-                    if (!row.IsNull("REP_MOBILE"))
-                        lbl_Mobile.Text = lbl_Mobile1.Text = row["REP_MOBILE"].ToString();
-                    if (!row.IsNull("REP_EMAIL"))
-                        Lbl_Email.Text = row["REP_EMAIL"].ToString();
-                    if (!row.IsNull("REP_LOCALITY"))
-                        Lbl_Locality.Text = row["REP_LOCALITY"].ToString();
-                    if (!row.IsNull("REP_DISTRICT"))
-                        lbl_Distict.Text = row["REP_DISTRICT"].ToString();
-                    if (!row.IsNull("REP_MANDAL"))
-                        lbl_Mandal.Text = row["REP_MANDAL"].ToString();
-                    if (!row.IsNull("REP_VILLAGE"))
-                        lbl_Village.Text = row["REP_VILLAGE"].ToString();
-                    if (!row.IsNull("REP_PINCODE"))
-                        lbl_Pincode.Text = row["REP_PINCODE"].ToString();
-                    if (!row.IsNull("REP_PINCODE"))
-                        lbl_Pincode.Text = row["REP_PINCODE"].ToString();
+                    lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
+                    lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
+                    lblCompanyType.Text = Convert.ToString(row["COMPANYTYPE"]);
+                    lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
+                    lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                    lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
+                    lblName.Text = Convert.ToString(row["REP_NAME"]);
+                    lblMobile.Text = Convert.ToString(row["REP_MOBILE"]);
+                    lblEmail.Text = Convert.ToString(row["REP_EMAIL"]);
+                    lblLocality.Text = Convert.ToString(row["REP_LOCALITY"]);
+                    lblDistict.Text = Convert.ToString(row["REP_DISTRICT"]);
+                    lblMandal.Text = Convert.ToString(row["REP_MANDAL"]);
+                    lblVillage.Text = Convert.ToString(row["REP_VILLAGE"]);
+                    lblPincode.Text = Convert.ToString(row["REP_PINCODE"]);
+                    lblPincode.Text = Convert.ToString(row["REP_PINCODE"]);
+                    //lblLandtype.Text= Convert.ToString(row["UNIT_LANDTYPE"]);
+                    lbldrno.Text = Convert.ToString(row["UNIT_DOORNO"]);
+                    lblPro_loc.Text = Convert.ToString(row["UNIT_LOCALITY"]);
+                    lblpro_dis.Text = Convert.ToString(row["UNIT_DISTRICT"]);
+                    lblPro_Man.Text = Convert.ToString(row["UNIT_MANDAL"]);
+                    lblPro_vill.Text = Convert.ToString(row["UNIT_VILLAGE"]);
+                    lblPro_Pin.Text = Convert.ToString(row["UNIT_PINCODE"]);
 
-                    if (!row.IsNull("UNIT_DOORNO"))
-                        lbl_drno.Text = row["UNIT_DOORNO"].ToString();
-                    if (!row.IsNull("UNIT_LOCALITY"))
-                        lbl_Pro_loc.Text = row["UNIT_LOCALITY"].ToString();
-                    if (!row.IsNull("UNIT_DISTRICT"))
-                        lbl_pro_dis.Text = row["UNIT_DISTRICT"].ToString();
-                    if (!row.IsNull("UNIT_MANDAL"))
-                        lbl_Pro_Man.Text = row["UNIT_MANDAL"].ToString();
-                    if (!row.IsNull("UNIT_VILLAGE"))
-                        lbl_Pro_vill.Text = row["UNIT_VILLAGE"].ToString();
-                    if (!row.IsNull("UNIT_PICODE"))
-                        lbl_Pro_Pin.Text = row["UNIT_PICODE"].ToString();
-                    if (!row.IsNull("PROJECT_NOA"))
-                        lbl_NatureofAct.Text = row["PROJECT_NOA"].ToString();
-                    if (!row.IsNull("PROJECT_MMSA"))
-                        lbl_Mainmanu.Text = row["PROJECT_MMSA"].ToString();
-                    if (!row.IsNull("PROJECT_PMSP"))
-                        lbl_pro_manu.Text = row["PROJECT_PMSP"].ToString();
-                    if (!row.IsNull("PROJECT_DCP"))
-                        lbl_Dateofcomm.Text = row["PROJECT_DCP"].ToString();
+                    lblDateofcomm.Text = Convert.ToString(row["PROJECT_DCP"]);
+                    lblNatureofAct.Text = Convert.ToString(row["PROJECT_NOA"]);
+                    if (lblNatureofAct.Text == "Manufacturing")
+                        divManf.Visible = true;
+                    else divServc.Visible = true;
+                    lblMainmanuf.Text = Convert.ToString(row["PROJECT_MANFACTIVITY"]);
+                    lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
+                    lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
 
-                    if (!row.IsNull("PROJECT_PROD_NO"))
-                        lbl_existing.Text = row["PROJECT_PROD_NO"].ToString();
-                    if (!row.IsNull("PROJECT_AC"))
-                        lbl_annual.Text = row["PROJECT_AC"].ToString();
-                    if (!row.IsNull("PROJECT_EPC"))
-                        lbl_estimatedcost.Text = row["PROJECT_EPC"].ToString();
-                  
-                    if (!row.IsNull("PROJECT_LAND"))
-                        lbl_land.Text = row["PROJECT_LAND"].ToString();
-                    if (!row.IsNull("PROJECT_CIVIL_CONSTRCTION"))
-                        lbl_civil.Text = row["PROJECT_CIVIL_CONSTRCTION"].ToString();
-                    if (!row.IsNull("PROJECT_PM"))
-                        lbl_plant.Text = row["PROJECT_PM"].ToString();
-                    if (!row.IsNull("PROJECT_MMPP"))
-                        lbl_main_raw.Text = row["PROJECT_MMPP"].ToString();
-                    if (!row.IsNull("PROJECT_BUILDING"))
-                        lbl_building.Text = row["PROJECT_BUILDING"].ToString();
-                    if (!row.IsNull("PROJECT_WATER"))
-                        lbl_water.Text = row["PROJECT_WATER"].ToString();
-                    if (!row.IsNull("PROJECT_ELECTRIC"))
-                        lbl_power.Text = row["PROJECT_ELECTRIC"].ToString();
-                    if (!row.IsNull("PROJECT_BUILDING"))
-                        lbl_det_waste.Text = row["PROJECT_BUILDING"].ToString();
-                    if (!row.IsNull("PROJECT_hazardous"))
-                        lbl_det_hazar.Text = row["PROJECT_hazardous"].ToString();
-                    if (!row.IsNull("PROJECT_IFC"))
-                        lbl_investment.Text = row["PROJECT_IFC"].ToString();
-                    if (!row.IsNull("PROJECT_DFA"))
-                        lbl_durable.Text = row["PROJECT_DFA"].ToString();
-                    if (!row.IsNull("PROJECT_UM"))
-                        lbl_unitofmeasure.Text = row["PROJECT_UM"].ToString();
-                    if (!row.IsNull("PROJECT_BS"))
-                        lbl_buildingshed.Text = row["PROJECT_BS"].ToString();
-                    if (!row.IsNull("PROJECT_WATER"))
-                        lbl_waterinr.Text = row["PROJECT_WATER"].ToString();
-                    if (!row.IsNull("PROJECT_ELECTRIC"))
-                        lbl_electricity.Text = row["PROJECT_ELECTRIC"].ToString();
-                    if (!row.IsNull("PROJECT_WC"))
-                        lbl_working.Text = row["PROJECT_WC"].ToString();
-                    if (!row.IsNull("FRD_CS"))
-                        lbl_capital.Text = row["FRD_CS"].ToString();
-                    if (!row.IsNull("FRD_PE"))
-                        lbl_promoter.Text = row["FRD_PE"].ToString();
-                    if (!row.IsNull("FRD_LOAN"))
-                        lbl_loan.Text = row["FRD_LOAN"].ToString();
-                    lbl_Dateofcomm.Text = lblapplDate.Text = Convert.ToDateTime(lbl_Dateofcomm.Text).ToString("dd-MM-yyyy"); ;
+                    lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
+                    lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
+                    lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
 
+                    lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
+                    lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
+                    lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
 
-                    DataTable dtpRrodSales = new DataTable();
-                    gvPreRegDtls.DataSource = ds.Tables[2];
-                    gvPreRegDtls.DataBind();
+                    lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
+                    lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
+                    lblhazdtls.Text = Convert.ToString(row["PROJECT_HAZWASTEDETAILS"]);
+                    lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
+                    lbllandArea.Text = Convert.ToString(row["PROJECT_LANDAREA"]);
+                    lblBuildingArea.Text = Convert.ToString(row["PROJECT_BUILDINGAREA"]);
 
-                    grd_Statusofapp.DataSource = ds.Tables[1];
-                    grd_Statusofapp.DataBind();
+                    lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
+                    lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
+                    lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
+                    lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
+                    lblEstProjcost.Text = Convert.ToString(row["PROJECT_EPCOST"]);
+                    lblPMCost.Text = Convert.ToString(row["PROJECT_PMCOST"]);
+                    lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
+                    lblDFA.Text = Convert.ToString(row["PROJECT_DFA"]);
+                    lblBuldingValue.Text = Convert.ToString(row["PROJECT_BUILDINGVALUE"]);
+                    lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);
+                    lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
+                    lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                    lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
+
+                    lblCapitalSubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
+                    lblPromoterEquity.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
+                    lblLoan.Text = Convert.ToString(row["FRD_LOAN"]);
+                    lbl_Name1.Text= Convert.ToString(row["REP_NAME"]);
+                    lblunitname1.Text= Convert.ToString(row["REP_NAME"]);
+                    lblApplNo.Text= Convert.ToString(row["PREREGUIDNO"]);
+                    lblapplDate.Text= Convert.ToString(row["REP_MOBILE"]);
+                    lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]) ;
+
+                    grdRevenueProj.DataSource = ds.Tables[1];
+                    grdRevenueProj.DataBind();
+
+                    grdDirectors.DataSource = ds.Tables[2];
+                    grdDirectors.DataBind();
+
+                    grdApplStatus.DataSource = ds.Tables[3];
+                    grdApplStatus.DataBind();
+
+                    //grd_Statusofapp.DataSource = ds.Tables[1];
+                    //grd_Statusofapp.DataBind();
 
                     //grdQueries.DataSource = null;
                     grdQueries.DataBind();
@@ -377,17 +360,17 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (ObjUserInfo.Deptid == "1001") // Industries det For Land Vlaue
                     {
                         trIndsDept.Visible = true;
-                        lblApplLandArea.Text = lbl_land.Text;
+                        lblApplLandArea.Text = lbllandArea.Text;
                     }
                     else if (ObjUserInfo.Deptid == "1009") // Power det For Power Vlaue
                     {
                         trPowerDept.Visible = true;
-                        lblApplPowerReq.Text = lbl_electricity.Text;
+                        lblApplPowerReq.Text = lblPowerReq.Text;
                     }
                     else if (ObjUserInfo.Deptid == "1008") //water dept
                     {
                         trWaterDept.Visible = true;
-                        lblApplWaterReq.Text = lbl_water.Text;
+                        lblApplWaterReq.Text = lblWaterReq.Text;
                     }
                     else if (ObjUserInfo.Deptid == "1005")// || DeptID == "Env") //Forest or ENV for Waste
                     {
