@@ -182,10 +182,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Proposal *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal">
-                                                                    <asp:ListItem Value="New" Text="New"></asp:ListItem>
-                                                                    <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
-                                                                </asp:RadioButtonList>
+                                                                <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control"  />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -387,7 +384,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox type="text" runat="server" ID="txtDCPorOperation" class="form-control" />
+                                                                <asp:TextBox type="date" runat="server" ID="txtDCPorOperation" class="form-control" />
                                                             </div>
                                                         </div>
                                                     </div>
