@@ -53,7 +53,7 @@ namespace MeghalayaUIP.Common
         public string UserID { get; set; }
         public string UserName { get; set; }
         public string UserStatus { get; set; }
-        public string Roleid { get; set; }
+        public string Roleid { get; set; } 
         public string Deptid { get; set; }
     }
 }

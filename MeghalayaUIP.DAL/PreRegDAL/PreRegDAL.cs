@@ -817,7 +817,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
-        public DataSet GetDeptMst(string Unitid)
+        public DataSet GetDeptMst(string Unitid,string Userid)
         {
 
             DataSet ds = new DataSet();
@@ -836,7 +836,8 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Unitid); 
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Unitid);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", Userid);
 
                 da.Fill(ds);
                 if (ds.Tables.Count > 0)

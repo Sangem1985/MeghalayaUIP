@@ -149,6 +149,66 @@
                 </section>
             </div>
 
+
+             <div class="card">
+                <div class="card-header">
+                    <h3>Query Details (IMA Queries)</h3>
+                </div>
+                <section id="dashboardcount4">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-orange hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblIMAQuery" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplDeptView.aspx?status=IMAQuery" style="color: white">IMA Query Raised </a>
+                                        </div>
+                                        <div style="font-size: 12px;">Total Revence Hold Application Received</div>
+                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-cyan hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblDeptrepliedtoIMA" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplDeptView.aspx?status=DeptrepliedtoIMA" style="color: white">Dept Replied to IMA Query </a>
+                                        </div>
+                                        <div style="font-size: 12px;">Total Processed Application</div>
+                                        <i class="fi fi-tr-file-import"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-cyan hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblIMAQueryforwardedtoAppl" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplDeptView.aspx?status=IMAQueryforwardedtoAppl" style="color: white">IMA Query Forwarded to Applicant</a>
+                                        </div>
+                                        <div style="font-size: 12px;">Total To be Processed Application</div>
+                                        <i class="fi fi-tr-file-import"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 </asp:Content>
