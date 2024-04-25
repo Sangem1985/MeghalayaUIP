@@ -7,6 +7,7 @@ using MeghalayaUIP.DAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.DAL.CommonDAL;
 using MeghalayaUIP.DAL.CFEDAL;
+using MeghalayaUIP.Common.CFE;
 using System.Data;
 
 namespace MeghalayaUIP.BAL.CFEBLL

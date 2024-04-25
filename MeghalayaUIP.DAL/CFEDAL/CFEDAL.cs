@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeghalayaUIP.Common.CFE;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -51,9 +52,9 @@ namespace MeghalayaUIP.DAL.CFEDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(CFECommon.GetCFERegDetails, connection);
+                da = new SqlDataAdapter(CFEConstants.GetCFERegDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFECommon.GetCFERegDetails;
+                da.SelectCommand.CommandText = CFEConstants.GetCFERegDetails;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;

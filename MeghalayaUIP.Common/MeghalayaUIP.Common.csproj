@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CFECommon.cs" />
+    <Compile Include="CFEConstants.cs" />
+    <Compile Include="CFE\CFEDetails.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="LoginConstants.cs" />
+    <Compile Include="MasterConstants.cs" />
     <Compile Include="MasterModel.cs" />
     <Compile Include="PreRegCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -65,7 +65,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 Session["UNITID"] = UNITID;
                 Session["INVESTERID"] = INVESTERID;
                 Session["stage"] = stage;
-                Response.Redirect("PreRegApplIMAProcess.aspx?status="+Request.QueryString["status"].ToString());
+                Response.Redirect("PreRegApplIMAProcess.aspx");
             }
         }
     }

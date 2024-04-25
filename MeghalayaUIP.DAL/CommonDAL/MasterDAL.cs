@@ -294,40 +294,5 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return PCBCategory;
 
         }
-
-        public List<MasterConstType> GetConstitutionType()
-        {
-            List<MasterConstType> lstConstMstr = new List<MasterConstType>();
-            SqlDataReader drOptions = null;
-            try
-            {
-                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetConstitutionType);
-
-                if (drOptions != null && drOptions.HasRows)
-                {
-                    while (drOptions.Read())
-                    {
-                        var ConstType = new MasterConstType()
-                        {
-                            ConstId = Convert.ToString(drOptions["CONST_ID"]),
-                            ConstName = Convert.ToString(drOptions["CONST_TYPE"])
-                        };
-                        lstConstMstr.Add(ConstType);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (drOptions != null)
-                {
-                    drOptions.Close();
-                }
-            }
-            return lstConstMstr;
-        }
     }
 }

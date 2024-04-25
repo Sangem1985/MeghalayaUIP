@@ -132,15 +132,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtUnitName;
 
         /// <summary>
-        /// ddlConstType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConstType;
-
-        /// <summary>
         /// rblproposal control.
         /// </summary>
         /// <remarks>
@@ -148,6 +139,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblproposal;
+
+        /// <summary>
+        /// txtCompnyRegDt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompnyRegDt;
 
         /// <summary>
         /// txtUdyamorIEMNo control.
@@ -166,15 +166,6 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGSTNo;
-
-        /// <summary>
-        /// txtCompnyRegDt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompnyRegDt;
 
         /// <summary>
         /// txtAuthReprName control.

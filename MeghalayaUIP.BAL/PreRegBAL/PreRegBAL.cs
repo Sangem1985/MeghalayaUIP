@@ -72,9 +72,9 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegUpdateQuery(PRD);
         }
-        public DataSet GetDeptMst(string UnitID, string Userid)
+        public DataSet GetDeptMst(string UnitID)
         {
-            return IRD.GetDeptMst(UnitID,Userid);
+            return IRD.GetDeptMst(UnitID);
         }
         public string InsertDeptDetails(DataTable dt)
         {
@@ -83,7 +83,9 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         public DataSet GetIndustryRegData(string userid)
         {
             return IRD.GetIndustryRegData(userid);
-        }        
+        }
+
+        
         
     }
 

@@ -17,7 +17,7 @@
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                         <AlternatingRowStyle BackColor="LightGray" />
                         <Columns>
-                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <ItemStyle HorizontalAlign="Left" />
                                 <ItemTemplate>

@@ -6,23 +6,23 @@
     <style>
         
     </style>
-    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script> 
+   
+<script type="text/javascript">
+    function validateNames(input) {
+        var name = input.value;
+        var charCode = event.charCode || event.keyCode;
 
-    <script type="text/javascript">
-        function validateNames(input) {
-            var name = input.value;
-            var charCode = event.charCode || event.keyCode;
 
-
-            if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
-                return true;
-            } else {
-                alert("Enter only alphabets (A-Z, a-z)");
-                input.value = "";
-                return false;
-            }
+        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+            return true;
+        } else {
+            alert("Enter only alphabets (A-Z, a-z)");
+            input.value = "";
+            return false;
         }
-    </script>
+    }
+</script>
 
     <script type="text/javascript">
         function checkLength(el) {
@@ -33,7 +33,7 @@
     </script>
 
 
-
+  
     <script type="text/javascript">
         function validateEmail(event) {
             var email = event.target.value;
@@ -46,8 +46,8 @@
         }
 
     </script>
-
-
+   
+ 
     <script type="text/javascript">
         function validateNumberOnly(input) {
             var inputValue = input.value.trim();
@@ -65,20 +65,20 @@
             validateNumberOnly(input);
         }
     </script>
-    <script type="text/javascript">
-        function checkLength1(el) {
-            if (el.value.length !== 12) {
-                alert("Aadhar number length must be exactly 12 characters");
-                el.value = "";
-                el.focus();
-            }
+<script type="text/javascript">
+    function checkLength1(el) {
+        if (el.value.length !== 12) {
+            alert("Aadhar number length must be exactly 12 characters");
+            el.value = "";
+            el.focus();
         }
+    }
 
-        function validateAadharOnBlur(event) {
-            var input = event.target;
-            checkLength1(input);
-        }
-    </script>
+    function validateAadharOnBlur(event) {
+        var input = event.target;
+        checkLength1(input);
+    }
+</script>
     <script type="text/javascript">
         function ValidatePAN() {
             var Obj = document.getElementById("txtApplPAN");
@@ -166,26 +166,23 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Company Type *</label>
-                                                            <div class="col-lg-6 d-flex">
-                                                                <asp:DropDownList ID="ddlConstType" runat="server"  class="form-control" >
-                                                                   
-                                                                </asp:DropDownList>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Proposal *</label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal">
                                                                     <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                     <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
                                                                 </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control"  />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -205,20 +202,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
-
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
-                                                            <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
                                                 <div class="col-md-12 d-flex">
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Correspodence Details of Authorised Representative</span></label>
                                                 </div>
@@ -455,7 +440,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label ">If Existing – Production no./ Service No.*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtSrviceno" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                <asp:TextBox runat="server" ID="txtSrviceno" class="form-control"  onkeypress="return validateNameAndNumbers(event)" />
                                                             </div>
                                                         </div>
                                                     </div>

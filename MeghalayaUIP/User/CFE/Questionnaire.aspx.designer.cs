@@ -11,53 +11,8 @@ namespace MeghalayaUIP.User.CFE
 {
 
 
-    public partial class CFEQuestionnaire
+    public partial class Questionnaire
     {
-
-        /// <summary>
-        /// success control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
-
-        /// <summary>
-        /// lblmsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
-
-        /// <summary>
-        /// Failure control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
-
-        /// <summary>
-        /// lblmsg0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg0;
-
-        /// <summary>
-        /// hdnPreRegUNITID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnPreRegUNITID;
 
         /// <summary>
         /// hdnUserID control.
@@ -69,94 +24,49 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// Li1 control.
+        /// Name_Unit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li1;
+        protected global::System.Web.UI.WebControls.TextBox Name_Unit;
 
         /// <summary>
-        /// Li2 control.
+        /// Constit_Unit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li2;
+        protected global::System.Web.UI.WebControls.TextBox Constit_Unit;
 
         /// <summary>
-        /// Li3 control.
+        /// ddlProposal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProposal;
 
         /// <summary>
-        /// MVQues control.
+        /// rblTSIIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView MVQues;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblTSIIC;
 
         /// <summary>
-        /// viewProjDtls control.
+        /// ddlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewProjDtls;
-
-        /// <summary>
-        /// txtUnitName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnitName;
-
-        /// <summary>
-        /// ddlConstType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConstType;
-
-        /// <summary>
-        /// txtProposalfor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProposalfor;
-
-        /// <summary>
-        /// rblMIDCL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblMIDCL;
-
-        /// <summary>
-        /// ddlDistrict control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDistrict;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
 
         /// <summary>
         /// ddlMandal control.
@@ -177,58 +87,58 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlVillage;
 
         /// <summary>
-        /// txtLandArea control.
+        /// ddlLand control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLandArea;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLand;
 
         /// <summary>
-        /// txtAcres control.
+        /// Acres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAcres;
+        protected global::System.Web.UI.WebControls.TextBox Acres;
 
         /// <summary>
-        /// txtGunthas control.
+        /// Gunthas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGunthas;
+        protected global::System.Web.UI.WebControls.TextBox Gunthas;
 
         /// <summary>
-        /// txtSquareMeters control.
+        /// Square_Meters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSquareMeters;
+        protected global::System.Web.UI.WebControls.TextBox Square_Meters;
 
         /// <summary>
-        /// txtBuiltArea control.
+        /// Built_Area control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuiltArea;
+        protected global::System.Web.UI.WebControls.TextBox Built_Area;
 
         /// <summary>
-        /// txtPolCategory control.
+        /// Pollution_Category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPolCategory;
+        protected global::System.Web.UI.WebControls.TextBox Pollution_Category;
 
         /// <summary>
         /// ddlLine_Activity control.
@@ -240,22 +150,22 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlLine_Activity;
 
         /// <summary>
-        /// txtEnterpriseType control.
+        /// Type_Enterprise control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEnterpriseType;
+        protected global::System.Web.UI.WebControls.TextBox Type_Enterprise;
 
         /// <summary>
-        /// txtUnitLocation control.
+        /// Location_Unit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnitLocation;
+        protected global::System.Web.UI.WebControls.TextBox Location_Unit;
 
         /// <summary>
         /// ddlSector control.
@@ -267,85 +177,58 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlSector;
 
         /// <summary>
-        /// btnsave1 control.
+        /// txtProposed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsave1;
+        protected global::System.Web.UI.WebControls.TextBox txtProposed;
 
         /// <summary>
-        /// btnNext1 control.
+        /// ddlProjectCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProjectCost;
 
         /// <summary>
-        /// viewProjFin control.
+        /// txtLandsale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewProjFin;
+        protected global::System.Web.UI.WebControls.TextBox txtLandsale;
 
         /// <summary>
-        /// txtPropEmp control.
+        /// txtbuilding control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPropEmp;
+        protected global::System.Web.UI.WebControls.TextBox txtbuilding;
 
         /// <summary>
-        /// txtEstProjCost control.
+        /// txtplant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstProjCost;
+        protected global::System.Web.UI.WebControls.TextBox txtplant;
 
         /// <summary>
-        /// txtLandValue control.
+        /// txtAnnualTurn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLandValue;
-
-        /// <summary>
-        /// txtBuildingValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuildingValue;
-
-        /// <summary>
-        /// txtPMCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPMCost;
-
-        /// <summary>
-        /// txtAnnualTurnOver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnnualTurnOver;
+        protected global::System.Web.UI.WebControls.TextBox txtAnnualTurn;
 
         /// <summary>
         /// Mention_Zero control.
@@ -357,49 +240,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Mention_Zero;
 
         /// <summary>
-        /// lblTotProjCost control.
+        /// lbllabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotProjCost;
-
-        /// <summary>
-        /// btnPreviuos2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPreviuos2;
-
-        /// <summary>
-        /// btnsave2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsave2;
-
-        /// <summary>
-        /// btnNext2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext2;
-
-        /// <summary>
-        /// viewProjReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewProjReq;
+        protected global::System.Web.UI.WebControls.Label lbllabel;
 
         /// <summary>
         /// HMWS control.
@@ -670,41 +517,5 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblstore;
-
-        /// <summary>
-        /// btnApprvlsReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApprvlsReq;
-
-        /// <summary>
-        /// btnSave3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave3;
-
-        /// <summary>
-        /// btnShowEncl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnShowEncl;
-
-        /// <summary>
-        /// btnPreviuos3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPreviuos3;
     }
 }

@@ -578,66 +578,66 @@
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span style="font-weight: 900; font-size: 20px;">Production and Sales particulars for the Last 5 Years</span></label>
+                                                            <span style="font-weight: 900; font-size: 20px; ">Production and Sales particulars for the Last 5 Years</span></label>
                                                     </div>
                                                     <div class="table-responsive">
-                                                        <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
-                                                            GridLines="Both" HeaderStyle-BackColor="Red"
-                                                            Width="80%" EnableModelValidation="True">
-                                                            <RowStyle />
-                                                            <AlternatingRowStyle BackColor="LightGray" />
-                                                            <HeaderStyle BackColor="Red" />
-                                                            <Columns>
-                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
-                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                    <ItemTemplate>
-                                                                        <%# Container.DataItemIndex + 1%>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
-                                                                <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="YEAR4" DataField="YEAR4" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="YEAR5" DataField="YEAR5" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            </Columns>
-                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                            <AlternatingRowStyle BackColor="White" />
-                                                        </asp:GridView>
+                                                            <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                                GridLines="Both" HeaderStyle-BackColor="Red"
+                                                                Width="80%" EnableModelValidation="True">
+                                                                <RowStyle />
+                                                                <AlternatingRowStyle BackColor="LightGray" />
+                                                                <HeaderStyle BackColor="Red" />
+                                                                <Columns>
+                                                                    <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                        <ItemTemplate>
+                                                                            <%# Container.DataItemIndex + 1%>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:BoundField HeaderText="Items" DataField="ITEMS" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
+                                                                    <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="YEAR4" DataField="YEAR4" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="YEAR5" DataField="YEAR5" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                </Columns>
+                                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                                <AlternatingRowStyle BackColor="White" />
+                                                            </asp:GridView>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span style="font-weight: 900; font-size: 20px;">Directors / Promoters Details</span></label>
+                                                            <span style="font-weight: 900; font-size: 20px; ">Directors / Promoters Details</span></label>
                                                     </div>
                                                     <div class="table-responsive">
-                                                        <asp:GridView ID="grdDirectors" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
-                                                            GridLines="Both" HeaderStyle-BackColor="Red"
-                                                            Width="80%" EnableModelValidation="True">
-                                                            <RowStyle />
-                                                            <AlternatingRowStyle BackColor="LightGray" />
-                                                            <HeaderStyle BackColor="Red" />
-                                                            <Columns>
-                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
-                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                    <ItemTemplate>
-                                                                        <%# Container.DataItemIndex + 1%>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Name" DataField="NAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
-                                                                <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ControlStyle-Width="300px" />
-                                                            </Columns>
-                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                            <AlternatingRowStyle BackColor="White" />
-                                                        </asp:GridView>
+                                                            <asp:GridView ID="grdDirectors" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                                GridLines="Both" HeaderStyle-BackColor="Red"
+                                                                Width="80%" EnableModelValidation="True">
+                                                                <RowStyle />
+                                                                <AlternatingRowStyle BackColor="LightGray" />
+                                                                <HeaderStyle BackColor="Red" />
+                                                                <Columns>
+                                                                    <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                        <ItemTemplate>
+                                                                            <%# Container.DataItemIndex + 1%>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:BoundField HeaderText="Name" DataField="NAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
+                                                                    <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                    <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ControlStyle-Width="300px"  />
+                                                                </Columns>
+                                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                                <AlternatingRowStyle BackColor="White" />
+                                                            </asp:GridView>
                                                     </div>
                                                 </div>
                                             </div>
@@ -744,7 +744,7 @@
                                                         </Columns>
 
                                                     </asp:GridView>
-
+                                                   
                                                 </div>
 
                                             </div>
@@ -819,14 +819,13 @@
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="col-sm-12">
-                                                    <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                    <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                                                        GridLines="None" Width="100%" EnableModelValidation="True">
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True">
                                                         <RowStyle />
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
-                                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Left" />
                                                                 <ItemTemplate>
