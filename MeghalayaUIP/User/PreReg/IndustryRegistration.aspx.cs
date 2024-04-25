@@ -47,7 +47,7 @@ namespace MeghalayaUIP.User.PreReg
                         BindDistricts();
                         BindCountries();
                         BindStates();
-                        //BindDistricts();
+                        BindConstitutionType();
                         BindRevenueProjectionsMaster();
                         BindData();
 
@@ -171,6 +171,34 @@ namespace MeghalayaUIP.User.PreReg
                 lblmsg0.Text = ex.Message;
             }
 
+        }
+        protected void BindConstitutionType()
+        {
+            try
+            {
+                ddlConstType.Items.Clear();
+
+                List<MasterConstType> objConsttype = new List<MasterConstType>();
+
+                objConsttype = mstrBAL.GetConstitutionType();
+                if (objConsttype != null)
+                {
+                    ddlConstType.DataSource = objConsttype;
+                    ddlConstType.DataValueField = "ConstId";
+                    ddlConstType.DataTextField = "ConstName";
+                    ddlConstType.DataBind();
+                }
+                else
+                {
+                    ddlConstType.DataSource = null;
+                    ddlConstType.DataBind();
+                }
+                AddSelect(ddlConstType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         protected void BindCountries()
         {

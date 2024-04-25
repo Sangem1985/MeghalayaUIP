@@ -357,7 +357,6 @@
     <Content Include="Registration.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
     <Content Include="User\CFE\demo.aspx" />
-    <Content Include="User\CFE\Questionnaire.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
@@ -535,13 +534,6 @@
     </Compile>
     <Compile Include="User\CFE\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\CFE\Questionnaire.aspx.cs">
-      <DependentUpon>Questionnaire.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\CFE\Questionnaire.aspx.designer.cs">
-      <DependentUpon>Questionnaire.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>

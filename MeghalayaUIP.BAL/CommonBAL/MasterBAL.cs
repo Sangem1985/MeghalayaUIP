@@ -45,6 +45,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetPCBCategory(LineofActivityID);
         }
+        public List<MasterConstType> GetConstitutionType()
+        {
+            return objMasterDAL.GetConstitutionType();
+        }
 
     }
 }

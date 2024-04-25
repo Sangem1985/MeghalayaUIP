@@ -17,6 +17,7 @@ namespace MeghalayaUIP.Common
         public static string GetSectormaster = "USP_GET_Sector";
         public static string GetLineOfActivitymaster = "USP_GET_LineofActivity";
         public static string GetPCBCategory = "USP_GET_PCBCategory";
+        public static string GetConstitutionType=  "USP_GETCONSTITUTIONTYPE";
     }
     public class MasterCountry
     {
@@ -24,6 +25,7 @@ namespace MeghalayaUIP.Common
         public string CountryName { get; set; }
 
     }
+    
     public class MasterStates
     {
         public string StateId { get; set; }
@@ -79,6 +81,12 @@ namespace MeghalayaUIP.Common
     {
         public string SectorId { get; set; }
         public string SectorName { get; set; }
+
+    }
+    public class MasterConstType
+    {
+        public string ConstId { get; set; }
+        public string ConstName { get; set; }
 
     }
 

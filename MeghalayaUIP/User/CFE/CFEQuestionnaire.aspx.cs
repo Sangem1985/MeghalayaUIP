@@ -14,6 +14,7 @@ namespace MeghalayaUIP.User.CFE
 {
     public partial class CFEQuestionnaire : System.Web.UI.Page
     {
+        int index;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
         protected void Page_Load(object sender, EventArgs e)
@@ -31,12 +32,20 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (!IsPostBack)
                 {
+                    MVQues.ActiveViewIndex = index;
                     BindSectors();
                     BindDistricts();
-                    BINDDATA();
+                    BindConstitutionType();
+                    //BINDDATA();
                 }
 
             }
+        }
+        protected void MVQues_ActiveViewChanged(object sender, EventArgs e)
+        {
+            index = MVQues.ActiveViewIndex;
+
+
         }
         public void BINDDATA()
         {
@@ -47,35 +56,30 @@ namespace MeghalayaUIP.User.CFE
                 ds = objcfebal.GetCFEQuestionnaireDet(hdnUserID.Value);
                 if (ds != null)
                 {
-                    Name_Unit.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
-                    Constit_Unit.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    ddlProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
-                    rblTSIIC.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    ddlLocation.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_DISTRICTID"]);
-                    ddlLocation_SelectedIndexChanged(null, EventArgs.Empty);
+                    hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
+                    txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
+                    txtProposalfor.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
+                    ddlDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_DISTRICTID"]);
+                    ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
                     ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
-                    ddlLand.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    Acres.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                    Gunthas.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    Square_Meters.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    Built_Area.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
-                    Pollution_Category.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
+                    txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                    txtAcres.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                    txtGunthas.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                    txtSquareMeters.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+
+                    txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
+                    txtPolCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                     ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
-                    Type_Enterprise.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    Location_Unit.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                    txtEnterpriseType.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
                     ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
                     ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
-                    txtProposed.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    ddlProjectCost.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
-                    txtLandsale.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    txtbuilding.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
-                    txtplant.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    txtAnnualTurn.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    lbllabel.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    //  Line_Activity.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-
+                    //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                    txtEstProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_EPCOST"]);
+                    txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
+                    txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
+                    txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
                 }
 
 
@@ -85,6 +89,36 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+
+        protected void BindConstitutionType()
+        {
+            try
+            {
+                ddlConstType.Items.Clear();
+
+                List<MasterConstType> objConsttype = new List<MasterConstType>();
+
+                objConsttype = mstrBAL.GetConstitutionType();
+                if (objConsttype != null)
+                {
+                    ddlConstType.DataSource = objConsttype;
+                    ddlConstType.DataValueField = "ConstId";
+                    ddlConstType.DataTextField = "ConstName";
+                    ddlConstType.DataBind();
+                }
+                else
+                {
+                    ddlConstType.DataSource = null;
+                    ddlConstType.DataBind();
+                }
+                AddSelect(ddlConstType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         protected void BindSectors()
         {
             try
@@ -141,61 +175,13 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        public void AddSelect(DropDownList ddl)
-        {
-            try
-            {
-                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
-                li.Text = "--Select--";
-                li.Value = "0";
-                ddl.Items.Insert(0, li);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlSector.SelectedValue.ToString() != "--Select--")
-                {
-                    BindLineOfActivity(ddlSector.SelectedItem.Text);
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
-        protected void ddlLine_Activity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlLine_Activity.SelectedItem.Text != "--Select--")
-                {
-                    Pollution_Category.Text = mstrBAL.GetPCBCategory(ddlLine_Activity.SelectedValue);
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
         protected void BindDistricts()
         {
 
             try
             {
 
-                ddlLocation.Items.Clear();
+                ddlDistrict.Items.Clear();
                 ddlMandal.Items.Clear();
                 ddlVillage.Items.Clear();
 
@@ -208,21 +194,21 @@ namespace MeghalayaUIP.User.CFE
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
-                    ddlLocation.DataSource = objDistrictModel;
-                    ddlLocation.DataValueField = "DistrictId";
-                    ddlLocation.DataTextField = "DistrictName";
-                    ddlLocation.DataBind();
+                    ddlDistrict.DataSource = objDistrictModel;
+                    ddlDistrict.DataValueField = "DistrictId";
+                    ddlDistrict.DataTextField = "DistrictName";
+                    ddlDistrict.DataBind();
 
 
                 }
                 else
                 {
-                    ddlLocation.DataSource = null;
-                    ddlLocation.DataBind();
+                    ddlDistrict.DataSource = null;
+                    ddlDistrict.DataBind();
 
 
                 }
-                AddSelect(ddlLocation);
+                AddSelect(ddlDistrict);
                 AddSelect(ddlMandal);
                 AddSelect(ddlVillage);
 
@@ -289,16 +275,61 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlSector.SelectedValue.ToString() != "--Select--")
+                {
+                    BindLineOfActivity(ddlSector.SelectedItem.Text);
 
-        protected void ddlLocation_SelectedIndexChanged(object sender, EventArgs e)
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        protected void ddlLine_Activity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlLine_Activity.SelectedItem.Text != "--Select--")
+                {
+                    txtPolCategory.Text = mstrBAL.GetPCBCategory(ddlLine_Activity.SelectedValue);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 ddlMandal.ClearSelection();
                 ddlVillage.ClearSelection();
-                if (ddlLocation.SelectedItem.Text != "--Select--")
+                if (ddlDistrict.SelectedItem.Text != "--Select--")
                 {
-                    BindMandal(ddlMandal, ddlLocation.SelectedValue);
+                    BindMandal(ddlMandal, ddlDistrict.SelectedValue);
                 }
                 else return;
             }
@@ -309,7 +340,6 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-
         protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -326,5 +356,52 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+
+        protected void btnsave1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNext1_Click(object sender, EventArgs e)
+        {
+            MVQues.ActiveViewIndex = 1;
+        }
+        protected void btnPreviuos2_Click(object sender, EventArgs e)
+        {
+            MVQues.ActiveViewIndex = 0;
+        }
+        protected void btnsave2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNext2_Click(object sender, EventArgs e)
+        {
+            MVQues.ActiveViewIndex = 2;
+
+        }
+
+        protected void btnSave3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnPreviuos3_Click(object sender, EventArgs e)
+        {
+            MVQues.ActiveViewIndex = 2;
+
+        }
+
+        protected void btnShowEncl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnApprvlsReq_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
