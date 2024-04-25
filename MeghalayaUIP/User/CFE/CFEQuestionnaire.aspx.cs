@@ -12,7 +12,7 @@ using MeghalayaUIP.BAL.CFEBLL;
 
 namespace MeghalayaUIP.User.CFE
 {
-    public partial class Questionnaire : System.Web.UI.Page
+    public partial class CFEQuestionnaire : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
@@ -41,11 +41,11 @@ namespace MeghalayaUIP.User.CFE
         public void BINDDATA()
         {
             try
-            {               
+            {
 
                 DataSet ds = new DataSet();
                 ds = objcfebal.GetCFEQuestionnaireDet(hdnUserID.Value);
-                if(ds != null)
+                if (ds != null)
                 {
                     Name_Unit.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                     Constit_Unit.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
@@ -74,7 +74,7 @@ namespace MeghalayaUIP.User.CFE
                     txtplant.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                     txtAnnualTurn.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                     lbllabel.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                  //  Line_Activity.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                    //  Line_Activity.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
 
                 }
 
@@ -198,7 +198,7 @@ namespace MeghalayaUIP.User.CFE
                 ddlLocation.Items.Clear();
                 ddlMandal.Items.Clear();
                 ddlVillage.Items.Clear();
-              
+
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
                 string strmode = string.Empty;
                 //if (ObjUserInformation.User_Level == "2")
@@ -213,18 +213,18 @@ namespace MeghalayaUIP.User.CFE
                     ddlLocation.DataTextField = "DistrictName";
                     ddlLocation.DataBind();
 
-                   
+
                 }
                 else
                 {
                     ddlLocation.DataSource = null;
                     ddlLocation.DataBind();
 
-                   
+
                 }
                 AddSelect(ddlLocation);
                 AddSelect(ddlMandal);
-                AddSelect(ddlVillage);               
+                AddSelect(ddlVillage);
 
             }
             catch (Exception ex)
