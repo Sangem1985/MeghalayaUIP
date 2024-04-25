@@ -7375,7 +7375,7 @@ i.fi.fi-br-chevron-double-down {
 }
 
 nav.navigation.navbar.navbar-default.sticky-header.sticky-on li a {
-    color: #fff !important;
+    color: #3f51b5 !important;
 }
 
 p.px-4.btn.btn-primary.btn-custom.login-homepage {
@@ -7437,6 +7437,15 @@ i.fi.flaticon-call:before, i.fi.flaticon-contact:before {
 }
 
 /*Service CSS*/
+
+.box:hover {
+    box-shadow: 5px 6px 2px 1px rgb(51 52 52 / 27%);
+    background: #c5f436;
+    border-radius: 0px;
+    background: #485563;
+    background: -webkit-linear-gradient(to right, #29323c, #485563);
+    background: linear-gradient(to bottom, #c5f438, #f8ffe4);
+}
 .services .icon-box {
     text-align: center;
     padding: 15px 7px;
@@ -7465,7 +7474,7 @@ section#services {
 .box {
     background: #fff;
     padding: 52px 0px 0px;
-    box-shadow: 1px 2px 3px #585656;
+    /*box-shadow: 1px 2px 3px #585656;*/
     border-radius: 3px;
 }
 
@@ -7517,9 +7526,11 @@ section#services .col-lg-2 {
     margin: 0px 3px;
 }
 
-div#one .icon:hover {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transition: all .3s ease-out 0s !important;
+div#one:hover {
+    .icon {
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    transition: all 3s ease-out .0s !important;
+}
 }

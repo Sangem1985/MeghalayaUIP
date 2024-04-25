@@ -130,7 +130,7 @@
 						  <a class="nav-link" href="../dashboard.aspx">Dashboard <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-						  <a class="nav-link" href="IndustryRegistration_tabs.html">Industry Registration</a>
+						  <a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>
 						</li>
 						
 						<li class="nav-item dropdown">
@@ -138,7 +138,7 @@
 							CFE
 						  </a>
 						  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="Quesstionniare_cfe.html">Questionnaire</a>
+							<a class="dropdown-item" href="../CFE/Questionnaire.aspx">Questionnaire</a>
 							<a class="dropdown-item" href="DepartmentApprovalDetails.html">Combined Application Form</a>
 							<a class="dropdown-item" href="#">Respond To Query </a>
 

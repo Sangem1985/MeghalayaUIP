@@ -5737,3 +5737,59 @@ span.badge.badge-light {
 .card-counter a {
 	color: #fff;
 }
+.card ul.nav.nav-tabs a.nav-link.active {
+	color: #009688 !important;
+	font-weight: 600;
+}
+.card .nav-tabs .nav-item.show .nav-link,
+.card .nav-tabs .nav-link.active {
+	color: #009688 !important;
+	background-color: #fff;
+	border-color: #dee2e6 #dee2e6 #fff;
+	border-bottom: 4px solid #1b5a90;
+	font-weight: 600;
+}
+
+.card ul.nav.nav-tabs a {
+	color: #1b5a90 !important;
+}
+button.btn.btn-rounded.btn-success2.btn-lg {
+	background-image: linear-gradient(to right, #360033 0%, #0b8793 51%, #360033 100%);
+	margin: 10px;
+	text-align: center;
+	text-transform: capitalize;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: white;
+	box-shadow: 0 0 20px #eee;
+	border-radius: 40px;
+	display: block;
+	margin-top: 0px;
+}
+
+	button.btn.btn-rounded.btn-success2.btn-lg:hover {
+		background-position: right center; /* change the direction of the change here */
+		color: #fff;
+		text-decoration: none;
+	}
+
+button.btn.btn-rounded.btn-success1.btn-lg:hover {
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	text-decoration: none;
+}
+
+button.btn.btn-rounded.btn-success1.btn-lg {
+	margin-bottom: 14px;
+	background: -webkit-linear-gradient(45deg, #680aca, #ff897e);
+	background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+	-webkit-animation: animatedgradient 6s ease infinite alternate;
+	animation: animatedgradient 6s ease infinite alternate;
+	background-size: 300% 300%;
+	border: 1px solid rgba(0, 0, 0, 0);
+	color: #fff;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-in;
+	transition-delay: 0.3s;
+}

@@ -4,17 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        .nav-tabs .nav-item.show .nav-link,
-        .nav-tabs .nav-link.active {
-            color: #009688 !important;
-            background-color: #fff;
-            border-color: #dee2e6 #dee2e6 #fff;
-            border-bottom: 4px solid #1b5a90;
-            font-weight:600;
-        }
-        ul.nav.nav-tabs a {
-            color: #1b5a90 !important;
-        }
+        
     </style>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script> 
    
@@ -1039,12 +1029,12 @@
 
                                                     <div class="col-md-4">
                                                         <a href="#basictab2" data-toggle="tab">
-                                                            <button type="submit" class="btn btn-rounded btn-warning btn-lg">
+                                                            <button type="submit" class="btn btn-warning btn-lg">
                                                                 <i class="fa fa-external-link" aria-hidden="true"></i>Clear All</button>
                                                         </a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <asp:Button ID="btnSave3" Text="Save" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" />
+                                                        <asp:Button ID="btnSave3" Text="Save" runat="server" class="btn btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" />
                                                         <%-- <a href="index.html">
                                                             <button type="submit"
                                                                 class="btn btn-rounded btn-primary btn-lg">

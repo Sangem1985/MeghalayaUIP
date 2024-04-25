@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">                    
                     <div class="main-wrapper login-body">
-        <div class="login-wrapper">
+        <div class="login-wrapper_reg">
             <div class="container">
                 <div class="col-md-12 mb-4">
                     <h1>Register</h1>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
 
-                        <div class="auto-style1">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 PAN No.
                             </div>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12" style="display: flex;">
-                        <div class="auto-style1">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 Mobile No
                             </div>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="form-grup">
-                                <asp:Button runat="server" CssClass=" btn btn-primary btn-custom" Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click"></asp:Button>
+                                <asp:Button runat="server" CssClass=" btn btn-primary" Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click"></asp:Button>
 
                             </div>
                         </div>
@@ -133,7 +133,7 @@
 
                         <div class="col-md-3">
                             <div>
-                                <asp:Button runat="server" Text="Clear" ID="btnClear" CssClass=" btn btn-primary btn-custom" BackColor="OrangeRed" OnClick="btnClear_Click"></asp:Button>                                
+                                <asp:Button runat="server" Text="Clear" ID="btnClear" CssClass="btn btn-warning" OnClick="btnClear_Click"></asp:Button>                                
                             </div>
                         </div>
                         <div class="col-md-3">
