@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CFEConstants.cs" />
+    <Compile Include="CFE\CFEDetails.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="LoginConstants.cs" />
     <Compile Include="MasterConstants.cs" />

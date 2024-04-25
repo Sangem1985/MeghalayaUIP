@@ -131,7 +131,7 @@ namespace MeghalayaUIP.User.PreReg
                         txtWaterReqKLD.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERREQ"]);
                         txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
                         txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
-                        txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
+                        txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_EPCOST"]);
                         txtPlantnMachineryCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
                         txtCapitalInvestment.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_IFC"]);
                         txtFixedAssets.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DFA"]);
