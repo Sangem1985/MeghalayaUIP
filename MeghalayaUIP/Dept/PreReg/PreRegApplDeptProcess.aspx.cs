@@ -142,23 +142,38 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblapplDate.Text= Convert.ToString(row["REP_MOBILE"]);
                     lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]) ;
 
-                    grdRevenueProj.DataSource = ds.Tables[1];
-                    grdRevenueProj.DataBind();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
+                    {
+                        grdRevenueProj.DataSource = ds.Tables[1];
+                        grdRevenueProj.DataBind();
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[2].Rows.Count > 0)
+                    {
+                        grdDirectors.DataSource = ds.Tables[2];
+                        grdDirectors.DataBind();
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
+                    {
+                        grdApplStatus.DataSource = ds.Tables[3];
+                        grdApplStatus.DataBind();
+                    }
 
-                    grdDirectors.DataSource = ds.Tables[2];
-                    grdDirectors.DataBind();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
+                    {
+                        grdQueries.DataSource = ds.Tables[4];
+                        grdQueries.DataBind();
 
-                    grdApplStatus.DataSource = ds.Tables[3];
-                    grdApplStatus.DataBind();
-
-                    //grd_Statusofapp.DataSource = ds.Tables[1];
-                    //grd_Statusofapp.DataBind();
-
-                    //grdQueries.DataSource = null;
-                    grdQueries.DataBind();
-
-                    //grdQryAttachments.DataSource = null;
+                    }
+                    grdQryAttachments.DataSource = null;
                     grdQryAttachments.DataBind();
+                    if (Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" || Request.QueryString["status"].ToString() == "IMAQUERYREPLIED")
+                    {
+                        verifypanel.Visible = true;
+                    }
+                    else
+                    {
+                        verifypanel.Visible = false;
+                    }
 
                 }
             }
