@@ -80,9 +80,9 @@ namespace MeghalayaUIP.User.PreReg
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                         txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
-                       // txtCompnyRegDt.TextMode = TextBoxMode.Date;
+                        // txtCompnyRegDt.TextMode = TextBoxMode.Date;
 
-                            txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATEnew"]);
+                        txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATEnew"]);
 
                         txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UDYAMNO"]);
                         txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
@@ -96,7 +96,7 @@ namespace MeghalayaUIP.User.PreReg
                         ddlAuthReprTaluka_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlAuthReprVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
 
-                            txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_PINCODE"]);
+                        txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_PINCODE"]);
 
                         rblLandType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_LANDTYPE"]);
                         txtPropLocDoorno.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_DOORNO"]);
@@ -110,7 +110,7 @@ namespace MeghalayaUIP.User.PreReg
                         txtDCPorOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DCP"]);
                         ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
                         ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);               
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
                         lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                         rblNatureofActvty.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
                         txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"]);
@@ -123,45 +123,45 @@ namespace MeghalayaUIP.User.PreReg
                         txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"]);
                         txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
 
-                            txtCivilConstr.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_CIVILCONSTR"]);
-                            txtLandAreainSqft.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                            txtBuildingAreaSqm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
-                            txtPowerReqKV.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_POWERRREQ"]);
-                            txtWaterReqKLD.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERREQ"]);
-                            txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
-                            txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
-                            txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_EPCOST"]);
-                            txtPlantnMachineryCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
-                            txtCapitalInvestment.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_IFC"]);
-                            txtFixedAssets.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DFA"]);
-                            txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
-                            txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
-                            txtWaterValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERVALUE"]);
-                            txtElectricityValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ELECTRICITYVALUE"]);
-                            txtWorkingCapital.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WORKINGCAPITAL"]);
-                            txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_CAPITALSUBSIDY"]);
-                            txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_PROMOTEREQUITY"]);
-                            txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_LOAN"]);
+                        txtCivilConstr.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_CIVILCONSTR"]);
+                        txtLandAreainSqft.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                        txtBuildingAreaSqm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
+                        txtPowerReqKV.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_POWERRREQ"]);
+                        txtWaterReqKLD.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERREQ"]);
+                        txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
+                        txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
+                        txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_EPCOST"]);
+                        txtPlantnMachineryCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
+                        txtCapitalInvestment.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_IFC"]);
+                        txtFixedAssets.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DFA"]);
+                        txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
+                        txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
+                        txtWaterValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERVALUE"]);
+                        txtElectricityValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ELECTRICITYVALUE"]);
+                        txtWorkingCapital.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WORKINGCAPITAL"]);
+                        txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_CAPITALSUBSIDY"]);
+                        txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_PROMOTEREQUITY"]);
+                        txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_LOAN"]);
 
-                        }
                     }
-                    //if (ds.Tables.Count > 1)
-                    //{
-                    //    //ViewState["MRPID"].ToString();
-                    //    //DataTable dt = jrresult
+                }
+                if (ds.Tables.Count > 1)
+                {
+                    //ViewState["MRPID"].ToString();
+                    //DataTable dt = jrresult
 
-                    //    string mrpId = ViewState["MRPID"].ToString();
-                    //    DataTable dt = ds.Tables[1];
+                    string mrpId = ViewState["MRPID"].ToString();
+                    DataTable dt = ds.Tables[1];
 
-                    //    grdRevenueProj.Visible = true;
-                    //    grdRevenueProj.DataSource = dt;
-                    //    grdRevenueProj.DataBind();
+                    grdRevenueProj.Visible = true;
+                    grdRevenueProj.DataSource = dt;
+                    grdRevenueProj.DataBind();
 
-
-                    //}
 
                 }
+
             }
+
             catch (Exception ex)
             {
                 Failure.Visible = true;
