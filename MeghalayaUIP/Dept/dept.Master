@@ -94,13 +94,13 @@
                                         class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
-                                    <h6>Kabeer</h6>
-                                    <p class="text-muted mb-0">Administrator</p>
+                                    <h6> <span id="lblUser" runat="server"></span></h6>
+                                    <p class="text-muted mb-0"><span id="lblrole" runat="server"></span></p>
                                 </div>
                             </div>
-                            <a class="dropdown-item" href="#">My Profile</a>
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="../../login.aspx">Logout</a>
+                           <%-- <a class="dropdown-item" href="#">My Profile</a>
+                            <a class="dropdown-item" href="#">Settings</a>--%>
+                            <a class="dropdown-item" href="../Deptlogin.aspx" id="aLogout" runat="server">Logout</a>
                         </div>
                     </li>
                     <!-- /User Menu -->
@@ -172,12 +172,14 @@
             </div>
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                     
                 </asp:ContentPlaceHolder>
             </div>
         </div>
         <!-- /Main Wrapper -->
 
         <!-- jQuery -->
+        <asp:HiddenField ID="hdnUToken" runat="server" Value="" />
         <script src="../../assets/admin/js/jquery-3.2.1.min.js"></script>
 
         <!-- Bootstrap Core JS -->
