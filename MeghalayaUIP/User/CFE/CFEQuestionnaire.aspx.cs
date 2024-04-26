@@ -30,23 +30,28 @@ namespace MeghalayaUIP.User.CFE
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
+                Page.MaintainScrollPositionOnPostBack = true;
                 if (!IsPostBack)
                 {
-                    MVQues.ActiveViewIndex = index;
+                    // MVQues.ActiveViewIndex = index;
                     BindSectors();
                     BindDistricts();
                     BindConstitutionType();
+                    BindPowerReq();
+                    GetElectricRegulations();
+                    GetVoltageMaster();
+                    GetPowerPlants();
                     //BINDDATA();
                 }
 
             }
         }
-        protected void MVQues_ActiveViewChanged(object sender, EventArgs e)
-        {
-            index = MVQues.ActiveViewIndex;
+        //protected void MVQues_ActiveViewChanged(object sender, EventArgs e)
+        //{
+        //    index = MVQues.ActiveViewIndex;
 
 
-        }
+        //}
         public void BINDDATA()
         {
             try
@@ -66,13 +71,12 @@ namespace MeghalayaUIP.User.CFE
                     ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
                     txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
                     txtAcres.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                    txtGunthas.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
                     txtSquareMeters.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
 
                     txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
                     txtPolCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                     ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
-                    txtEnterpriseType.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
+                    rblNatureofActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
                     ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
                     ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                     //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
@@ -118,7 +122,6 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-
         protected void BindSectors()
         {
             try
@@ -275,6 +278,118 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+        protected void BindPowerReq()
+        {
+            try
+            {
+                ddlPowerReq.Items.Clear();
+
+                List<MasterPowerReq> objPowerRange = new List<MasterPowerReq>();
+
+                objPowerRange = mstrBAL.GetPowerKW();
+                if (objPowerRange != null)
+                {
+                    ddlPowerReq.DataSource = objPowerRange;
+                    ddlPowerReq.DataValueField = "PowerReqID";
+                    ddlPowerReq.DataTextField = "PowerReqRange";
+                    ddlPowerReq.DataBind();
+                }
+                else
+                {
+                    ddlPowerReq.DataSource = null;
+                    ddlPowerReq.DataBind();
+                }
+                AddSelect(ddlPowerReq);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void GetElectricRegulations()
+        {
+            try
+            {
+                ddlRegulation.Items.Clear();
+
+                List<MasterElecRegulations> objElReg = new List<MasterElecRegulations>();
+
+                objElReg = mstrBAL.GetElectricRegulations();
+                if (objElReg != null)
+                {
+                    ddlRegulation.DataSource = objElReg;
+                    ddlRegulation.DataValueField = "ElRegID";
+                    ddlRegulation.DataTextField = "ElRegNumber";
+                    ddlRegulation.DataBind();
+                }
+                else
+                {
+                    ddlRegulation.DataSource = null;
+                    ddlRegulation.DataBind();
+                }
+                AddSelect(ddlRegulation);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void GetVoltageMaster()
+        {
+            try
+            {
+                ddlVoltage.Items.Clear();
+
+                List<MasterVoltages> objVolt = new List<MasterVoltages>();
+
+                objVolt = mstrBAL.GetVoltages();
+                if (objVolt != null)
+                {
+                    ddlVoltage.DataSource = objVolt;
+                    ddlVoltage.DataValueField = "VoltageID";
+                    ddlVoltage.DataTextField = "VoltageValue";
+                    ddlVoltage.DataBind();
+                }
+                else
+                {
+                    ddlVoltage.DataSource = null;
+                    ddlVoltage.DataBind();
+                }
+                AddSelect(ddlVoltage);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void GetPowerPlants()
+        {
+            try
+            {
+                ddlPowerPlant.Items.Clear();
+
+                List<MasterPowerPlants> objplants = new List<MasterPowerPlants>();
+
+                objplants = mstrBAL.GetPowerPlantsMaster();
+                if (objplants != null)
+                {
+                    ddlPowerPlant.DataSource = objplants;
+                    ddlPowerPlant.DataValueField = "PowerPlantID";
+                    ddlPowerPlant.DataTextField = "PowerPlantName";
+                    ddlPowerPlant.DataBind();
+                }
+                else
+                {
+                    ddlPowerPlant.DataSource = null;
+                    ddlPowerPlant.DataBind();
+                }
+                AddSelect(ddlPowerPlant);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -356,7 +471,69 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+        protected void rblFelltrees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblFelltrees.SelectedIndex != -1)
+                {
+                    if (rblFelltrees.SelectedValue == "Y")
+                        divtrees.Visible = true;
+                    else divtrees.Visible = false;
+                }
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void rblHighTension_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblHighTension.SelectedIndex != -1)
+                {
+                    if (rblHighTension.SelectedValue == "Y")
+                        divHTMeter.Visible = true;
+                    else divHTMeter.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void ddlRegulation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRegulation.SelectedValue == "1") //32
+                {
+                    divpowerplants1.Visible = true;
+                    divpowerplants2.Visible = true;
+                    divvoltages.Visible = false;
+                }
+                else if (ddlRegulation.SelectedValue == "2") //43(3)
+                {
+                    divpowerplants1.Visible = false;
+                    divpowerplants2.Visible = false;
+                    divvoltages.Visible = true;
+                }
+                else
+                {
+                    divvoltages.Visible = false;
+                    divpowerplants1.Visible = false;
+                    divpowerplants2.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         protected void btnsave1_Click(object sender, EventArgs e)
         {
 
@@ -364,11 +541,11 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnNext1_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 1;
+            //MVQues.ActiveViewIndex = 1;
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 0;
+            //MVQues.ActiveViewIndex = 0;
         }
         protected void btnsave2_Click(object sender, EventArgs e)
         {
@@ -377,7 +554,7 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnNext2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            //MVQues.ActiveViewIndex = 2;
 
         }
 
@@ -388,7 +565,7 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnPreviuos3_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            //MVQues.ActiveViewIndex = 2;
 
         }
 
@@ -402,6 +579,6 @@ namespace MeghalayaUIP.User.CFE
 
         }
 
-
+        
     }
 }

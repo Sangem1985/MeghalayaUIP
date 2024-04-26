@@ -18,6 +18,11 @@ namespace MeghalayaUIP.Common
         public static string GetLineOfActivitymaster = "USP_GET_LineofActivity";
         public static string GetPCBCategory = "USP_GET_PCBCategory";
         public static string GetConstitutionType=  "USP_GETCONSTITUTIONTYPE";
+        public static string GetPowerRequiredRange = "USP_GETPOWERRANGE";
+        public static string GetElectricRegulations = "USP_GETELECTRICREGULATIONS";
+        public static string GetVoltageMaster = "USP_GETVOLTAGEMASTER";
+        public static string GetPowerPlantsMaster = "USP_GETPOWERPLANTSMASTER";
+
     }
     public class MasterCountry
     {
@@ -87,6 +92,30 @@ namespace MeghalayaUIP.Common
     {
         public string ConstId { get; set; }
         public string ConstName { get; set; }
+
+    }
+    public class MasterPowerReq
+    {
+        public string PowerReqID { get; set; }
+        public string PowerReqRange { get; set; }
+
+    }
+    public class MasterElecRegulations
+    {
+        public string ElRegID { get; set; }
+        public string ElRegNumber { get; set; }
+
+    }
+    public class MasterVoltages
+    {
+        public string VoltageID { get; set; }
+        public string VoltageValue { get; set; }
+
+    }
+    public class MasterPowerPlants
+    {
+        public string PowerPlantID { get; set; }
+        public string PowerPlantName { get; set; }
 
     }
 

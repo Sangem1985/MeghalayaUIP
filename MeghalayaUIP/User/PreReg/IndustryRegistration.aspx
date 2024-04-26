@@ -182,7 +182,10 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Proposal *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <%--<asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control"  />--%>
+                                                                 <asp:RadioButtonList ID="rblproposal" runat="server"  class="form-control"  RepeatDirection="Horizontal" >
+                                                                    <asp:ListItem Value="New" Text="New"></asp:ListItem>
+                                                                    <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
+                                                                </asp:RadioButtonList>
                                                             </div>
                                                         </div>
                                                     </div>

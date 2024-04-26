@@ -329,5 +329,144 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstConstMstr;
         }
+
+        public List<MasterPowerReq> GetPowerKW()
+        {
+            List<MasterPowerReq> lstPower = new List<MasterPowerReq>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetPowerRequiredRange);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Power = new MasterPowerReq()
+                        {
+                            PowerReqID = Convert.ToString(drOptions["POWER_ID"]),
+                            PowerReqRange = Convert.ToString(drOptions["POWER_KW"])
+                        };
+                        lstPower.Add(Power);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstPower;
+        }
+
+        public List<MasterElecRegulations> GetElectricRegulations()
+        {
+            List<MasterElecRegulations> lstElecReg = new List<MasterElecRegulations>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetElectricRegulations);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var ElecReg = new MasterElecRegulations()
+                        {
+                            ElRegID = Convert.ToString(drOptions["CEA_RID"]),
+                            ElRegNumber = Convert.ToString(drOptions["CEA_RNUMBER"])
+                        };
+                        lstElecReg.Add(ElecReg);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstElecReg;
+        }
+
+        public List<MasterVoltages> GetVoltageMaster()
+        {
+            List<MasterVoltages> lstvoltg = new List<MasterVoltages>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetVoltageMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Volts = new MasterVoltages()
+                        {
+                            VoltageID = Convert.ToString(drOptions["VOLTAGEID"]),
+                            VoltageValue = Convert.ToString(drOptions["VOLTAGERANGE"])
+                        };
+                        lstvoltg.Add(Volts);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstvoltg;
+        }
+        public List<MasterPowerPlants> GetPowerPlantsMaster()
+        {
+            List<MasterPowerPlants> lstplants = new List<MasterPowerPlants>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetPowerPlantsMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var powrplants = new MasterPowerPlants()
+                        {
+                            PowerPlantID = Convert.ToString(drOptions["POWERPLANTID"]),
+                            PowerPlantName = Convert.ToString(drOptions["POWERPLANTNAME"])
+                        };
+                        lstplants.Add(powrplants);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstplants;
+        }
     }
 }
