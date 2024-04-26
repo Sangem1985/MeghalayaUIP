@@ -505,7 +505,8 @@ namespace MeghalayaUIP.Dept.PreReg
                 {
                     DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
                     TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
-                    PreRegDtlsVo.deptid = Convert.ToInt32(ddldepartment.SelectedValue);
+                    PreRegDtlsVo.QuerytoDeptID = ddldepartment.SelectedValue;
+                   // PreRegDtlsVo.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                     PreRegDtlsVo.DeptDesc = ddldepartment.SelectedItem.Text.Trim();
                     PreRegDtlsVo.Remarks = txtquery.Text.Trim();
                     PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
