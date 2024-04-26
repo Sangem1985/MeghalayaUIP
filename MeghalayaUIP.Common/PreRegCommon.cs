@@ -140,6 +140,7 @@ namespace MeghalayaUIP.Common
         public string ViewStatus { get; set; }
         public string Remarks { get; set; }
         public int? deptid { get; set; }
+        public string DeptDesc { get; set; }
         public string IPAddress { get; set; }
         public string LandArea { get; set; }
         public string Power { get; set; }
@@ -148,6 +149,8 @@ namespace MeghalayaUIP.Common
         public string HazDetails { get; set; }
         public string QuerytoDept { get; set; }
         public string QuerytoDeptID { get; set; } // FROM IMA TO DEPT (OR) FROM COMM TO IMA OR DEPT
+        public string QueryID { get; set; }
+        public string QueryResponse { get; set; }
     }
     public class InvBasicDtls
     {

@@ -44,7 +44,7 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         MVprereg.ActiveViewIndex = index;
                         BindDistricts();
-                        BindData();
+                       // BindData();
                         BindCountries();
                         BindStates();
                         //BindDistricts();
@@ -79,7 +79,7 @@ namespace MeghalayaUIP.User.PreReg
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                         txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
-                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
+                        //rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
                         // txtCompnyRegDt.TextMode = TextBoxMode.Date;
 
                         txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATEnew"]);
@@ -661,7 +661,7 @@ namespace MeghalayaUIP.User.PreReg
                     ID.CompanyName = txtUnitName.Text.Trim();
                     ID.CompanyPAN = txtPANno.Text.Trim();
                     ID.CompnyRegDt = txtCompnyRegDt.Text.Trim();
-                    ID.CompnyType = rblproposal.SelectedItem.Text.Trim();
+                    //ID.CompnyType = rblproposal.SelectedItem.Text.Trim();
                     ID.UdyamorIEMNo = txtUdyamorIEMNo.Text.Trim();
                     ID.GSTNo = txtGSTNo.Text.Trim();
 

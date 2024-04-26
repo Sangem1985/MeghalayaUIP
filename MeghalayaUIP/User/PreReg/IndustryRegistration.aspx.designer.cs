@@ -141,15 +141,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.DropDownList ddlConstType;
 
         /// <summary>
-        /// rblproposal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblproposal;
-
-        /// <summary>
         /// txtUdyamorIEMNo control.
         /// </summary>
         /// <remarks>

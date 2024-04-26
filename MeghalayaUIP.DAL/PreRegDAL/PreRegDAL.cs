@@ -754,13 +754,21 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 }
                 com.Parameters.AddWithValue("@ACTIONID", PRD.status);
                 com.Parameters.AddWithValue("@REMARKS", PRD.Remarks);
-                if (PRD.LandArea != null && PRD.LandArea != "")
+                if (PRD.QuerytoDeptID != null && PRD.QuerytoDeptID != "0")
                 {
-                    com.Parameters.AddWithValue("@QUERYTODEPTID", PRD.LandArea);
+                    com.Parameters.AddWithValue("@QUERYTODEPTID", PRD.QuerytoDeptID);
                 }
-                if (PRD.Power != null && PRD.Power != "")
+                if (PRD.deptid != null && PRD.deptid != 0)
                 {
-                    com.Parameters.AddWithValue("@QUERYTODEPT", PRD.Power);
+                    com.Parameters.AddWithValue("@QUERYTODEPT", PRD.deptid);
+                }
+                if (PRD.QueryID != null && PRD.QueryID != "0")
+                {
+                    com.Parameters.AddWithValue("@QueryID", PRD.QueryID);
+                }
+                if (PRD.@QueryResponse != null && PRD.@QueryResponse != "")
+                {
+                    com.Parameters.AddWithValue("@QueryResponse", PRD.@QueryResponse);
                 }
                 com.Parameters.AddWithValue("@IPADDRESS", PRD.IPAddress);
                 com.Parameters.AddWithValue("@USERID", PRD.UserID);

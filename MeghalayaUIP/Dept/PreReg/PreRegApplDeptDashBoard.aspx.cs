@@ -47,6 +47,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblQuery.Text = dt.Rows[0]["QUERYRIASED"].ToString(); 
                     lblQueryReplied.Text = dt.Rows[0]["QUERYREPLIED"].ToString();
                     lblQueryNotRepld.Text = dt.Rows[0]["QUERYREPLIED"].ToString();
+
+                    lblIMAQuery.Text= dt.Rows[0]["IMATODEPTQUERY"].ToString();
+                    lblDeptrepliedtoIMA.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+                    lblIMAQueryforwardedtoAppl.Text = dt.Rows[0]["DEPTFWDIMAQUERYTOAPPL"].ToString();
                 }
             }
             catch (Exception ex)
