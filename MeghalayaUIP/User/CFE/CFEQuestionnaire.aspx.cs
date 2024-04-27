@@ -576,9 +576,109 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnApprvlsReq_Click(object sender, EventArgs e)
         {
+            try 
+            {
+                string ErrorMsg = "1";
+                //ErrorMsg = Step3Validations();
+                if(ErrorMsg!="")
+                {
+                    DataSet dsApprReq = new DataSet();
+                    if(ddlPowerReq.SelectedValue!="")
+                    {
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void rblLbrAct1970_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblLbrAct1970.SelectedValue == "Y")
+                {
+                    trworkers1970.Visible = true;
+                }
+                else trworkers1970.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void rblLbrAct1979_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblLbrAct1979.SelectedValue == "Y")
+                {
+                    trworkers1979.Visible = true;
+                }
+                else trworkers1979.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
 
-        
+        protected void rblLbrAct1996_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblLbrAct1996.SelectedValue == "Y")
+                {
+                    tr1workers1996.Visible = true;
+                }
+                else tr1workers1996.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        protected void rblbuildingwork_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblbuildingwork.SelectedValue == "Y")
+                {
+                    tr2workers1996.Visible = true;
+                }
+                else tr2workers1996.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        protected void rblLabourAct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (rblLabourAct.SelectedValue == "Y")
+                {
+                    trContrctworkers.Visible = true;
+                }
+                else trContrctworkers.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

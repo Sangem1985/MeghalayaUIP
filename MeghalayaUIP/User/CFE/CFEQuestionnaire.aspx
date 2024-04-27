@@ -6,11 +6,7 @@
     <div class="page-wrapper">
 
         <div class="content container-fluid">
-
-
-
             <section class="comp-section">
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -230,7 +226,7 @@
                                                                 9. Type of
 																		Enterprise</label>
                                                             <div class="col-lg-6">
-                                                                 <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Vertical" >
+                                                                <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Vertical">
                                                                     <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
                                                                     <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
                                                                 </asp:RadioButtonList>
@@ -292,7 +288,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">
-                                                                13.Project Cost</label>
+                                                                13.Project Cost (INR)</label>
                                                             <div class="col-lg-6">
                                                                 <asp:TextBox ID="txtEstProjCost" runat="server" class="form-control"></asp:TextBox>
                                                             </div>
@@ -441,7 +437,7 @@
                                                 <div class="col-md-12 d-flex mt-2">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Total Project Cost(in INR)</label>
+                                                            <label class="col-lg-6 col-form-label">Total Project Cost(in Crores)</label>
                                                             <div class="col-lg-6">
                                                                 <asp:Label ID="lblTotProjCost" runat="server"></asp:Label>
                                                             </div>
@@ -504,7 +500,7 @@
 																		requirement in KW<span
                                                                             class="text-danger">*</span></label>
                                                             <div class="col-lg-4">
-                                                                <asp:DropDownList ID="ddlPowerReq" runat="server" class="form-control"  >
+                                                                <asp:DropDownList ID="ddlPowerReq" runat="server" class="form-control">
                                                                     <asp:ListItem Text="--Select--" Value="0" />
                                                                 </asp:DropDownList>
                                                             </div>
@@ -579,7 +575,31 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">22. Do you require Road Cutting Permission</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:RadioButtonList ID="rblRoadCutting" runat="server" RepeatDirection="Horizontal">
+                                                                    <asp:ListItem Text="Yes" Value="1" />
+                                                                    <asp:ListItem Text="No" Value="2" />
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">
+                                                                19. Do you require Non-Encumbrance Certificate</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:RadioButtonList ID="rblNonEncCert" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblFelltrees_SelectedIndexChanged">
+                                                                    <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                    <asp:ListItem Value="N">No</asp:ListItem>
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-6">
@@ -595,11 +615,9 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">
-                                                                19. Is there
-																		any need to Fell trees in Proposed Site</label>
+                                                            <label class="col-lg-6 col-form-label">23. Do you Use (High Tension)HT meter Above 70KVA<span class="text-danger">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:RadioButtonList ID="rblFelltrees" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblFelltrees_SelectedIndexChanged">
+                                                                <asp:RadioButtonList ID="rblHighTension" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblHighTension_SelectedIndexChanged">
                                                                     <asp:ListItem Value="Y">Yes</asp:ListItem>
                                                                     <asp:ListItem Value="N">No</asp:ListItem>
                                                                 </asp:RadioButtonList>
@@ -607,59 +625,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divtrees">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">
-                                                                Number of
-																		trees to be felled (Girth of tree > 30
-																		centimeters)</label>
-                                                            <div class="col-lg-4">
-                                                                <asp:TextBox ID="txttree" runat="server" class="form-control"></asp:TextBox>
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">
-                                                                Are there any
-																		trees in Non-Exempted (Other than trees in this
-																		List )</label>
-                                                            <div class="col-lg-6 d-flex">
-                                                                <asp:RadioButtonList ID="rbltrees" runat="server" RepeatDirection="Horizontal">
-                                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                                    <asp:ListItem Text="No" Value="2" />
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">21. Does the unit Location fall within 100mts vicinity of any water body?</label>
-                                                            <div class="col-lg-6 d-flex">
-                                                                <asp:RadioButtonList ID="rblwaterbody" runat="server" RepeatDirection="Horizontal">
-                                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                                    <asp:ListItem Text="No" Value="2" />
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">23. DO you Use (High Tension)HT meter Above 70KVA<span class="text-danger">*</span></label>
-                                                            <div class="col-lg-6 d-flex">
-                                                                <asp:RadioButtonList ID="rblHighTension" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblHighTension_SelectedIndexChanged">
-                                                                    <asp:ListItem Value="Y">Yes</asp:ListItem>
-                                                                    <asp:ListItem Value="N" >No</asp:ListItem>
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-12 d-flex" runat="server" id="divHTMeter" visible="false">
 
                                                     <div class="col-md-4">
@@ -669,7 +635,7 @@
                                                                 <asp:DropDownList ID="ddlRegulation" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlRegulation_SelectedIndexChanged">
                                                                     <asp:ListItem Text="Regulation" Value="0" />
                                                                 </asp:DropDownList>
-                                                               <%-- <p>43(3)- Electrical Installation<br /> 32 - Generating Unit/Generators</p>--%>
+                                                                <%-- <p>43(3)- Electrical Installation<br /> 32 - Generating Unit/Generators</p>--%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -706,13 +672,72 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">
+                                                                19. Is there
+																		any need to Fell trees in Proposed Site</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:RadioButtonList ID="rblFelltrees" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblFelltrees_SelectedIndexChanged">
+                                                                    <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                    <asp:ListItem Value="N">No</asp:ListItem>
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">23. Do you require Non-Forest Land Certificate<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:RadioButtonList ID="rblNonForstLandCert" runat="server" RepeatDirection="Horizontal">
+                                                                    <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                    <asp:ListItem Value="N">No</asp:ListItem>
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6" runat="server" visible="false" id="divtrees">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">
+                                                                Number of
+																		trees to be felled
+                                                                <br />
+                                                                (Girth of tree > 30
+																		centimeters)</label>
+                                                            <div class="col-lg-4">
+                                                                <asp:TextBox ID="txttree" runat="server" class="form-control"></asp:TextBox>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">21. Does the unit Location fall within 100mts vicinity of any water body?</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:RadioButtonList ID="rblwaterbody" runat="server" RepeatDirection="Horizontal">
+                                                                    <asp:ListItem Text="Yes" Value="1" />
+                                                                    <asp:ListItem Text="No" Value="2" />
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-12 d-flex">
+                                                </div>
+                                                <div class="col-md-12 d-flex">
                                                     <div class="col-md-9">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">
                                                                 16. Do you 	have Existing borewell in proposed factory
 																		Location</label>
                                                             <div class="col-lg-6 ">
-                                                                <asp:RadioButtonList ID="rblborewell" runat="server" RepeatDirection="Horizontal" >
+                                                                <asp:RadioButtonList ID="rblborewell" runat="server" RepeatDirection="Horizontal">
                                                                     <asp:ListItem Text="Yes" Value="1" />
                                                                     <asp:ListItem Text="No" Value="2" />
                                                                 </asp:RadioButtonList>
@@ -731,100 +756,91 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td rowspan="2">20 a.</td>
-                                                                <td>Does your establishment employ 05 or more contract Labour as defined in the
-                                                                        <br />
+                                                                <td>20 a.</td>
+                                                                <td>Does your Establishment employ 05 or more contract Labour as defined in the
+                                                                       
                                                                     Contract Labour(Regulation and Abolition)Act, 1970?</td>
-                                                                <td >
-                                                                    <asp:RadioButtonList ID="rblContractLabour" runat="server" RepeatDirection="Horizontal">
+                                                                <td>
+                                                                    <asp:RadioButtonList ID="rblLbrAct1970" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLbrAct1970_SelectedIndexChanged">
                                                                         <asp:ListItem Value="Y">Yes</asp:ListItem>
-                                                                        <asp:ListItem  Value="N">No</asp:ListItem>
-                                                                    </asp:RadioButtonList>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>No of Workers</td>
-                                                                <td>
-                                                                    <asp:TextBox ID="txtWorker" runat="server" class="form-control"></asp:TextBox></td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td rowspan="2">20 b.</td>
-                                                                <td>Does your establishment employ 05 or more Inter-State migrant workmen as defined<br />
-                                                                    in the Inter-state Migrant Workmen Act, 1979?</td>
-                                                                <td>
-                                                                    <asp:RadioButtonList ID="rblstateMigrant" runat="server" RepeatDirection="Horizontal">
-                                                                        <asp:ListItem Value="Y">Yes</asp:ListItem>
-                                                                        <asp:ListItem Selected="True" Value="N">No</asp:ListItem>
-                                                                    </asp:RadioButtonList>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>No of Workers</td>
-                                                                <td>
-                                                                    <asp:TextBox ID="txtmigrantwork" runat="server" class="form-control"></asp:TextBox></td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td rowspan="3">20 c.</td>
-                                                                <td>Does your establishment fall under the definition of establishment as per Building<br />
-                                                                    and Other Constrution Worker(RE&COS) Act, 1996?</td>
-                                                                <td>
-                                                                    <asp:RadioButtonList ID="rblRECOS" runat="server" RepeatDirection="Horizontal">
-                                                                        <asp:ListItem Value="Y">Yes</asp:ListItem>
-                                                                        <asp:ListItem Selected="True" Value="N">No</asp:ListItem>
-                                                                    </asp:RadioButtonList>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-
-                                                                <td>Whether your establishment has employed or had employed on any day of the preceding
-                                                                        <br />
-                                                                    12 months, 10 or more building workers in any “Building & Other Construction Works”</td>
-                                                                <td>
-                                                                    <asp:RadioButtonList ID="rblbuildingwork" runat="server" RepeatDirection="Horizontal">
-                                                                        <asp:ListItem Value="Y" Selected="True">Yes</asp:ListItem>
                                                                         <asp:ListItem Value="N">No</asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>No of Workers</td>
+                                                            <tr runat="server" visible="false" id="trworkers1970">
+                                                                <td></td>
+                                                                <td align="right">No of Workers</td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txtemployedwork" runat="server" class="form-control"></asp:TextBox></td>
+                                                                    <asp:TextBox ID="txt1970Workers" runat="server" class="form-control"></asp:TextBox>
+                                                                </td>
                                                             </tr>
 
                                                             <tr>
-                                                                <td rowspan="2">20 d.</td>
-                                                                <td>Does your establishment provide 05 or more inter-state migrant workmen on contractual basis as
-                                                                        <br />
-                                                                    defined in the Inter-state Migrant Workmen Act, 1979?(for Contractor)</td>
+                                                                <td>20 b.</td>
+                                                                <td>Does your Establishment employ 05 or more Inter-State migrant workmen as defined
+                                                                    in the Inter-state Migrant Workmen Act, 1979?</td>
                                                                 <td>
-                                                                    <asp:RadioButtonList ID="rblworkmen" runat="server" RepeatDirection="Horizontal">
+                                                                    <asp:RadioButtonList ID="rblLbrAct1979" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLbrAct1979_SelectedIndexChanged">
                                                                         <asp:ListItem Value="Y">Yes</asp:ListItem>
-                                                                        <asp:ListItem Selected="True" Value="N">No</asp:ListItem>
+                                                                        <asp:ListItem Value="N">No</asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>No of Workers</td>
+                                                            <tr runat="server" visible="false" id="trworkers1979">
+                                                                <td></td>
+                                                                <td align="right">No of Workers</td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txtmigrantworkmen" runat="server" class="form-control"></asp:TextBox></td>
+                                                                    <asp:TextBox ID="txt1979Workers" runat="server" class="form-control"></asp:TextBox></td>
                                                             </tr>
 
                                                             <tr>
-                                                                <td rowspan="1">20 e.</td>
-                                                                <td>Does your establishment employ 05 or more contract labour(License for contractors) as defined
+                                                                <td>20 c.</td>
+                                                                <td>Does your Establishment fall under the definition of establishment as per Building
+                                                                    and Other Constrution Worker(RE&COS) Act, 1996?</td>
+                                                                <td>
+                                                                    <asp:RadioButtonList ID="rblLbrAct1996" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLbrAct1996_SelectedIndexChanged">
+                                                                        <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                        <asp:ListItem Value="N">No</asp:ListItem>
+                                                                    </asp:RadioButtonList>
+                                                                </td>
+                                                            </tr>
+                                                            <tr runat="server" visible="false" id="tr1workers1996">
+                                                                <td></td>
+                                                                <td>Whether your Establishment has employed or had employed on any day of the preceding
                                                                         <br />
-                                                                    in the contract labour(Regulation and Abolition) act, 1970?</td>
+                                                                    12 months, 10 or more building workers in any “Building & Other Construction Works”</td>
                                                                 <td>
-                                                                    <asp:RadioButtonList ID="rblRegulationRegulation" runat="server" RepeatDirection="Horizontal">
-                                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                                        <asp:ListItem Text="No" Value="2" />
+                                                                    <asp:RadioButtonList ID="rblbuildingwork" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblbuildingwork_SelectedIndexChanged">
+                                                                        <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                        <asp:ListItem Value="N">No</asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                 </td>
                                                             </tr>
+                                                            <tr runat="server" visible="false" id="tr2workers1996">
+                                                                <td></td>
+                                                                <td align="right">No of Workers</td>
+                                                                <td>
+                                                                    <asp:TextBox ID="txt1996Workers" runat="server" class="form-control"></asp:TextBox></td>
+                                                            </tr>
 
+                                                            <tr>
+                                                                <td>20 d.</td>
+                                                                <td>License under Contract Labour Act (For Contractor)
+                                                                        <br />
+                                                                </td>
+                                                                <td>
+                                                                    <asp:RadioButtonList Style="border: none" ID="rblLabourAct" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLabourAct_SelectedIndexChanged">
+                                                                        <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                        <asp:ListItem Value="N">No</asp:ListItem>
+                                                                    </asp:RadioButtonList>
+                                                                </td>
+                                                            </tr>
+                                                            <tr runat="server" visible="false" id="trContrctworkers">
+                                                                <td></td>
+                                                                <td align="right">No of Workers</td>
+                                                                <td>
+                                                                    <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control"></asp:TextBox></td>
+                                                            </tr>
 
                                                         </tbody>
 
@@ -835,22 +851,22 @@
 
                                                 <div class="col-md-12 d-flex text-center">
                                                     <div class="col-md-4">
-                                                        <a href="#basictab2">
-                                                            <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn  btn-info btn-lg" OnClick="btnApprvlsReq_Click" />
+                                                        <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn  btn-info btn-lg" OnClick="btnApprvlsReq_Click"></asp:Button>
 
-                                                            <button type="submit" class="btn btn-rounded btn-success1 btn-lg"><span class="spinner-border spinner-border-sm mr-2 mb-1" role="status"></span>Show Approvals Required</button></a>
+                                                        <%--<a href="#basictab2">
+                                                            <button type="submit" class="btn btn-rounded btn-success1 btn-lg"><span class="spinner-border spinner-border-sm mr-2 mb-1" role="status"></span>Show Approvals Required</button></a>--%>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <asp:Button ID="btnSave3" Text="Submit Questionnaire" runat="server" class="btn btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" />
 
-                                                        <a href="#basictab2">
-                                                            <button type="submit" class="btn btn-rounded btn-success1 btn-lg"><span class="spinner-border spinner-border-sm mr-2 mb-1" role="status"></span>Submit Questionnaire</button></a>
+                                                        <%--<a href="#basictab2">
+                                                            <button type="submit" class="btn btn-rounded btn-success1 btn-lg"><span class="spinner-border spinner-border-sm mr-2 mb-1" role="status"></span>Submit Questionnaire</button></a>--%>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <asp:Button Text="Show Enclousers List" runat="server" ID="btnShowEncl" class="btn  btn-info btn-lg" OnClick="btnShowEncl_Click" />
 
-                                                        <a href="#basictab2">
-                                                            <button type="submit" class="btn btn-rounded btn-success2 btn-lg">Show Enclousers List</button></a>
+                                                        <%-- <a href="#basictab2">
+                                                            <button type="submit" class="btn btn-rounded btn-success2 btn-lg">Show Enclousers List</button></a>--%>
                                                     </div>
 
 
@@ -880,49 +896,49 @@
                 </div>
 
 
-                <div class="row">
+                <div class="row" runat="server" visible="false" id="divApprovals">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Fee Details(in Rs.)</h4>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-bordered mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>S No</th>
-                                                <th>Approval Required</th>
-                                                <th>Department</th>
-                                                <th>Fees (Rs.)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>SERVICE CONNECTION CERTIFICATE FROM TSNPDCL</td>
-                                                <td>TSNPDCL</td>
-                                                <td>0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>PERMISSION FROM GROUND WATER DEPARTMENT TO DIG BORE WELL</td>
-                                                <td>GROUND WATER</td>
-                                                <td>14,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>PROVISIONAL NOC FROM FIRE SERVICES DEPARTMENT</td>
-                                                <td>FIRE</td>
-                                                <td>50,000</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="table-responsive">                                    
+                                    <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                        CssClass="GRD" ForeColor="#333333" Height="62px" PageSize="15" Width="100%" 
+                                        ShowFooter="true" >
+                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                          <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="White" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1%>
+                                                    <asp:HiddenField ID="HdfQueid" runat="server" />
+                                                    <asp:HiddenField ID="HdfApprovalid" runat="server" />
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle Width="50px" />
+                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
+                                                <ItemStyle Width="450px" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="DeptName" HeaderText="Department">
+                                                <ItemStyle Width="180px" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="Fees" FooterStyle-HorizontalAlign="Right" HeaderText="Fees (Rs.)"
+                                                DataFormatString="{0:0}">
+                                                <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                                <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Right" />
+                                            </asp:BoundField>
+                                        </Columns>                                      
+                                    </asp:GridView>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 

@@ -17,9 +17,9 @@ namespace MeghalayaUIP.Common
         public static string GetSectormaster = "USP_GET_Sector";
         public static string GetLineOfActivitymaster = "USP_GET_LineofActivity";
         public static string GetPCBCategory = "USP_GET_PCBCategory";
-        public static string GetConstitutionType=  "USP_GETCONSTITUTIONTYPE";
-        public static string GetPowerRequiredRange = "USP_GETPOWERRANGE";
-        public static string GetElectricRegulations = "USP_GETELECTRICREGULATIONS";
+        public static string GetConstitutionType=  "USP_GETCONSTITUTIONTYPEMASTER";
+        public static string GetPowerRequiredRange = "USP_GETPOWERRANGEMASTER";
+        public static string GetElectricRegulations = "USP_GETELECTRICREGULATIONSMASTER";
         public static string GetVoltageMaster = "USP_GETVOLTAGEMASTER";
         public static string GetPowerPlantsMaster = "USP_GETPOWERPLANTSMASTER";
 

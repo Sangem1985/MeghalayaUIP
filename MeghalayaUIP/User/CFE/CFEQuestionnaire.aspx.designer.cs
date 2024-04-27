@@ -411,6 +411,24 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblManufacture;
 
         /// <summary>
+        /// rblRoadCutting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblRoadCutting;
+
+        /// <summary>
+        /// rblNonEncCert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblNonEncCert;
+
+        /// <summary>
         /// rblCommericalTax control.
         /// </summary>
         /// <remarks>
@@ -418,51 +436,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblCommericalTax;
-
-        /// <summary>
-        /// rblFelltrees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblFelltrees;
-
-        /// <summary>
-        /// divtrees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divtrees;
-
-        /// <summary>
-        /// txttree control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttree;
-
-        /// <summary>
-        /// rbltrees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbltrees;
-
-        /// <summary>
-        /// rblwaterbody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblwaterbody;
 
         /// <summary>
         /// rblHighTension control.
@@ -546,6 +519,51 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtCapacity;
 
         /// <summary>
+        /// rblFelltrees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblFelltrees;
+
+        /// <summary>
+        /// rblNonForstLandCert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblNonForstLandCert;
+
+        /// <summary>
+        /// divtrees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divtrees;
+
+        /// <summary>
+        /// txttree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txttree;
+
+        /// <summary>
+        /// rblwaterbody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblwaterbody;
+
+        /// <summary>
         /// rblborewell control.
         /// </summary>
         /// <remarks>
@@ -555,49 +573,76 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblborewell;
 
         /// <summary>
-        /// rblContractLabour control.
+        /// rblLbrAct1970 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblContractLabour;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblLbrAct1970;
 
         /// <summary>
-        /// txtWorker control.
+        /// trworkers1970 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWorker;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trworkers1970;
 
         /// <summary>
-        /// rblstateMigrant control.
+        /// txt1970Workers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblstateMigrant;
+        protected global::System.Web.UI.WebControls.TextBox txt1970Workers;
 
         /// <summary>
-        /// txtmigrantwork control.
+        /// rblLbrAct1979 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmigrantwork;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblLbrAct1979;
 
         /// <summary>
-        /// rblRECOS control.
+        /// trworkers1979 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblRECOS;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trworkers1979;
+
+        /// <summary>
+        /// txt1979Workers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt1979Workers;
+
+        /// <summary>
+        /// rblLbrAct1996 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblLbrAct1996;
+
+        /// <summary>
+        /// tr1workers1996 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr1workers1996;
 
         /// <summary>
         /// rblbuildingwork control.
@@ -609,40 +654,49 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblbuildingwork;
 
         /// <summary>
-        /// txtemployedwork control.
+        /// tr2workers1996 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtemployedwork;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr2workers1996;
 
         /// <summary>
-        /// rblworkmen control.
+        /// txt1996Workers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblworkmen;
+        protected global::System.Web.UI.WebControls.TextBox txt1996Workers;
 
         /// <summary>
-        /// txtmigrantworkmen control.
+        /// rblLabourAct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmigrantworkmen;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblLabourAct;
 
         /// <summary>
-        /// rblRegulationRegulation control.
+        /// trContrctworkers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblRegulationRegulation;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trContrctworkers;
+
+        /// <summary>
+        /// txtContractWorkers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContractWorkers;
 
         /// <summary>
         /// btnApprvlsReq control.
@@ -679,5 +733,23 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPreviuos3;
+
+        /// <summary>
+        /// divApprovals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divApprovals;
+
+        /// <summary>
+        /// grdApprovals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdApprovals;
     }
 }
