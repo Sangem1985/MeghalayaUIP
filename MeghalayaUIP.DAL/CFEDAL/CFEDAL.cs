@@ -41,7 +41,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
         //        throw ex;
         //    }
         //}
-        public DataSet GetCFEQuestionnaireDet(string userid)
+        public DataSet GetIndustryRegDetails(string userid)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -64,6 +64,44 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 return ds;
             }
             catch(Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public DataTable GetApprovalsReqWithFee(CFEQuestionnaireDet objCFEQ)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFECommon.GetCFEApprovalsReq, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFECommon.GetCFEApprovalsReq;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@ENTPRISETYPE", objCFEQ.EnterpriseCategory);
+                da.SelectCommand.Parameters.AddWithValue("@APPROVALID", objCFEQ.ApprovalID);
+                da.SelectCommand.Parameters.AddWithValue("@POWERKW_ID", objCFEQ.PowerReqKW);
+                da.SelectCommand.Parameters.AddWithValue("@EMPLOYEE", Convert.ToInt32(objCFEQ.PropEmployment));
+                da.SelectCommand.Parameters.AddWithValue("@BUILDINGHEIGHT", objCFEQ.BuildingHeight);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds.Tables[0];
+            }
+            catch (Exception ex)
             {
                 transaction.Rollback();
                 throw ex;

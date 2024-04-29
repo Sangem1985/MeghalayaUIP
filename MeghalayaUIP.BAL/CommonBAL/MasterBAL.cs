@@ -55,11 +55,13 @@ namespace MeghalayaUIP.BAL.CommonBAL
         }
         public List<MasterElecRegulations> GetElectricRegulations()
         { return objMasterDAL.GetElectricRegulations(); }
-        public List<MasterVoltages> GetVoltages() 
+        public List<MasterVoltages> GetVoltages()
         { return objMasterDAL.GetVoltageMaster(); }
 
         public List<MasterPowerPlants> GetPowerPlantsMaster()
         { return objMasterDAL.GetPowerPlantsMaster(); }
+        public List<MasterIndustryType> GetIndustryTypeMaster()
+        { return objMasterDAL.GetIndustryTypeMaster(); }
 
     }
 }

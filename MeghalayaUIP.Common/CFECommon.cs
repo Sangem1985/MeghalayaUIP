@@ -9,71 +9,74 @@ namespace MeghalayaUIP.Common
     public class CFECommon
     {
         public static string GetCFERegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA";
+        public static string GetCFEApprovalsReq = "USP_GETCFEAPPROVALSWITHFEE";
+
     }
     public class CFEQuestionnaireDet
     {
-        public string Name_Unit { get; set; }
-        public string Constit_Unit { get; set; }
-        public string land_MIDCL { get; set; }
-        public string Prop_Location { get; set; }
-        public string Dist { get; set; }
-        public string MANDAL_ID { get; set; }
-        public string Village_ID { get; set; }
-        public string Extent_Land { get; set; }
+        public string UNITID { get; set; }
+        public string CreatedBy { get; set; }
+        public string ApprovalID { get; set; }
+        public string DeptID { get; set; }
+        public string IPAddress { get; set; }
+        public string CompanyName { get; set; }
+        public string ConstofUnit { get; set; }
+        public string ProposalFor { get; set; }
+        public string LandFromMIDCL { get; set; }
+        public string PropLocDitrictID { get; set; }
+        public string PropLocMandalID { get; set; }
+        public string PropLocVillageID { get; set; }
+        public string ExtentofLand { get; set; }        
         public string Acres { get; set; }
         public string Gunthas { get; set; }
         public string Square_Meters { get; set; }
-        public string Built_Area { get; set; }
-        public string Pollution_Category { get; set; }
-        public string Line_Activity { get; set; }
-        public string Type_Enterprise { get; set; }
-        public string Location_Unit { get; set; }
-        public string Sector { get; set; }
-        public string Prop_Employment { get; set; }
-        public string Proposal { get; set; }
-        public string Project_Cost { get; set; }
-        public string Land_saleDeed { get; set; }
-        public string Rs_Lakhs { get; set; }
-        public string Land_Market { get; set; }
-        public string Value_Building { get; set; }
-        public string Building_Rs_Lakhs { get; set; }
-        public string Plant_Machinery { get; set; }
-        public string Machinery_Lakhs { get; set; }
-        public string Expected_Turnover { get; set; }
-        public string Annual_Lakhs { get; set; }
+        public string BuiltUpArea { get; set; }
+        public string SectorName { get; set; }
+        public string Lineofacitivityid { get; set; }
+        public string PCBCategory { get; set; }      
+        public string NatureofActivity { get; set; }
+        public string UnitLocation { get; set; }
+
+        public string PropEmployment { get; set; }
         public string ProjectCost { get; set; }
-        public string Category_enterprise { get; set; }
-        public string Power_Hp { get; set; }
-        public string manufacture_explosives { get; set; }
-        public string manufacture_Kerosene { get; set; }
-        public string borewell { get; set; }
-        public string HMWS { get; set; }
-        public string Rivers { get; set; }
-        public string CDMA { get; set; }
-        public string MissionBhagiratha { get; set; }
-        public string Generator { get; set; }
-        public string Height_building { get; set; }
-        public string Fell_trees { get; set; }
-        public string Number_trees { get; set; }
-        public string trees_Expected { get; set; }
-        public string Labour_Regulation { get; set; }
-        public string Labour_Work { get; set; }
-        public string Migrant_Workmen { get; set; }
-        public string Labour_Migrant { get; set; }
-        public string RE_COS { get; set; }
-        public string WorkRE_COS { get; set; }
-        public string Construction_Works { get; set; }
-        public string EMPLOYED_WORK { get; set; }
-        public string Inter_stateMigrant { get; set; }
-        public string stateMigrant_Worker { get; set; }
-        public string labour_Regulation_Abolition { get; set; }
-        public string Locationfall_vicinitywater { get; set; }
-        public string Commerical_Tax { get; set; }
-        public string High_Tension { get; set; }
-        public string Regulation { get; set; }
-        public string Voltage { get; set; }
-        public string Aggregate_Capacity { get; set; }
-        public string store_RS_DS { get; set; }
+        public string LandValue { get; set; }
+        public string BuildingValue { get; set; }
+        public string PlantnMachineryCost { get; set; }
+        public string ExpectedTurnover { get; set; }
+        public string TotalProjCost { get; set; }
+        public string EnterpriseCategory { get; set; }
+        public string PowerReqKW { get; set; }
+        public string GeneratorReq { get; set; }
+        public string BuildingHeight { get; set; }
+        public string StoringRSDS { get; set; }
+
+        public string ManfExplosives { get; set; }
+        public string ManfPetroleum { get; set; }
+        public string RdCtngPermission { get; set; }
+        public string NonEncmbrnceCert { get; set; }
+        public string CommTaxApproval { get; set; }
+        public string HTMeteruse { get; set; }
+        public string CEARegulationID { get; set; }
+        public string PowerPlantID { get; set; }
+        public string AggCapacity { get; set; }
+        public string VoltageRating { get; set; }
+        public string TreesFelling { get; set; }
+        public string NoofTrees { get; set; }
+        public string NonForstLandCert { get; set; }
+        public string ForstDistLetr { get; set; }
+
+        public string NearWaterBodyLocation { get; set; }
+        public string ExistingBoreWell { get; set; }
+        public string LabourAct1970 { get; set; }
+        public string LabourAct1970_Workers { get; set; }
+        public string LabourAct1979 { get; set; }
+        public string LabourAct1979_Workers { get; set; }
+        public string LabourAct1996 { get; set; }
+        public string LabourAct1996_10Workers { get; set; }
+        public string LabourAct1996_Workers { get; set; }
+
+        public string ContractLabourAct { get; set; }
+        public string ContractLabourAct_Workers { get; set; }
 
     }
     public class Labour_Details

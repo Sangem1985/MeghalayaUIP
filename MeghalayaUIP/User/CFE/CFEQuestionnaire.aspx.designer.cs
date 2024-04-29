@@ -222,13 +222,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtPolCategory;
 
         /// <summary>
-        /// rblNatureofActvty control.
+        /// ddlIndustryType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblNatureofActvty;
+        protected global::System.Web.UI.WebControls.DropDownList ddlIndustryType;
 
         /// <summary>
         /// txtUnitLocation control.
@@ -330,6 +330,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblTotProjCost;
 
         /// <summary>
+        /// lblEntCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEntCategory;
+
+        /// <summary>
         /// btnPreviuos2 control.
         /// </summary>
         /// <remarks>
@@ -375,22 +384,22 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblGenerator;
 
         /// <summary>
-        /// txtHeight control.
+        /// txtBuildingHeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHeight;
+        protected global::System.Web.UI.WebControls.TextBox txtBuildingHeight;
 
         /// <summary>
-        /// rblstore control.
+        /// rblRSDSstore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblstore;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblRSDSstore;
 
         /// <summary>
         /// rblexplosives control.
@@ -402,13 +411,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblexplosives;
 
         /// <summary>
-        /// rblManufacture control.
+        /// rblPetrlManf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblManufacture;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblPetrlManf;
 
         /// <summary>
         /// rblRoadCutting control.
@@ -519,13 +528,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtCapacity;
 
         /// <summary>
-        /// rblFelltrees control.
+        /// rblfrstDistncLtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblFelltrees;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblfrstDistncLtr;
 
         /// <summary>
         /// rblNonForstLandCert control.
@@ -535,6 +544,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblNonForstLandCert;
+
+        /// <summary>
+        /// rblFelltrees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblFelltrees;
 
         /// <summary>
         /// divtrees control.

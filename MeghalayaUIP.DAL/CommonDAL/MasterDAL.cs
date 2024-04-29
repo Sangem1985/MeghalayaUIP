@@ -468,5 +468,40 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstplants;
         }
+
+        public List<MasterIndustryType> GetIndustryTypeMaster()
+        {
+            List<MasterIndustryType> lstplants = new List<MasterIndustryType>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetIndustryTypeMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Industry = new MasterIndustryType()
+                        {
+                            IndustryTypeID = Convert.ToString(drOptions["INDUSTRYTYPEID"]),
+                            IndustryType = Convert.ToString(drOptions["INDUSTRYTYPE"])
+                        };
+                        lstplants.Add(Industry);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstplants;
+        }
     }
 }

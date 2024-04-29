@@ -37,6 +37,7 @@ namespace MeghalayaUIP.User.CFE
                     BindSectors();
                     BindDistricts();
                     BindConstitutionType();
+                    BindIndustryType();
                     BindPowerReq();
                     GetElectricRegulations();
                     GetVoltageMaster();
@@ -58,7 +59,7 @@ namespace MeghalayaUIP.User.CFE
             {
 
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetCFEQuestionnaireDet(hdnUserID.Value);
+                ds = objcfebal.GetIndustryRegDetails(hdnUserID.Value);
                 if (ds != null)
                 {
                     hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
@@ -76,7 +77,7 @@ namespace MeghalayaUIP.User.CFE
                     txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
                     txtPolCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                     ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
-                    rblNatureofActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
+                    ddlIndustryType.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
                     ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
                     ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                     //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
@@ -116,6 +117,35 @@ namespace MeghalayaUIP.User.CFE
                     ddlConstType.DataBind();
                 }
                 AddSelect(ddlConstType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void BindIndustryType()
+        {
+            try
+            {
+                ddlIndustryType.Items.Clear();
+
+                List<MasterIndustryType> objIndtype = new List<MasterIndustryType>();
+
+                objIndtype = mstrBAL.GetIndustryTypeMaster();
+                if (objIndtype != null)
+                {
+                    ddlIndustryType.DataSource = objIndtype;
+                    ddlIndustryType.DataValueField = "IndustryTypeID";
+                    ddlIndustryType.DataTextField = "IndustryType";
+                    ddlIndustryType.DataBind();
+                }
+                else
+                {
+                    ddlIndustryType.DataSource = null;
+                    ddlIndustryType.DataBind();
+                }
+                AddSelect(ddlIndustryType);
             }
             catch (Exception ex)
             {
@@ -534,68 +564,6 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        protected void btnsave1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnNext1_Click(object sender, EventArgs e)
-        {
-            //MVQues.ActiveViewIndex = 1;
-        }
-        protected void btnPreviuos2_Click(object sender, EventArgs e)
-        {
-            //MVQues.ActiveViewIndex = 0;
-        }
-        protected void btnsave2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnNext2_Click(object sender, EventArgs e)
-        {
-            //MVQues.ActiveViewIndex = 2;
-
-        }
-
-        protected void btnSave3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnPreviuos3_Click(object sender, EventArgs e)
-        {
-            //MVQues.ActiveViewIndex = 2;
-
-        }
-
-        protected void btnShowEncl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnApprvlsReq_Click(object sender, EventArgs e)
-        {
-            try 
-            {
-                string ErrorMsg = "1";
-                //ErrorMsg = Step3Validations();
-                if(ErrorMsg!="")
-                {
-                    DataSet dsApprReq = new DataSet();
-                    if(ddlPowerReq.SelectedValue!="")
-                    {
-
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         protected void rblLbrAct1970_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -680,5 +648,203 @@ namespace MeghalayaUIP.User.CFE
             }
 
         }
+        protected void btnsave1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNext1_Click(object sender, EventArgs e)
+        {
+            //MVQues.ActiveViewIndex = 1;
+        }
+        protected void btnPreviuos2_Click(object sender, EventArgs e)
+        {
+            //MVQues.ActiveViewIndex = 0;
+        }
+        protected void btnsave2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNext2_Click(object sender, EventArgs e)
+        {
+            //MVQues.ActiveViewIndex = 2;
+
+        }
+
+        protected void btnSave3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnPreviuos3_Click(object sender, EventArgs e)
+        {
+            //MVQues.ActiveViewIndex = 2;
+
+        }
+
+        protected void btnShowEncl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnApprvlsReq_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CFEQuestionnaireDet objCFEQ = new CFEQuestionnaireDet();
+
+                string ErrorMsg = "1";
+                //ErrorMsg = Step3Validations();
+                if (ErrorMsg != "")
+                {
+
+
+                    DataTable dtApprReq = new DataTable();
+                    DataTable dtPCB = new DataTable(); DataTable dtpower = new DataTable(); DataTable dtGenReq = new DataTable();
+                    DataTable dtfire = new DataTable(); DataTable dtFctry = new DataTable(); DataTable dtRSDS = new DataTable();
+
+                    DataTable dtExplosivs = new DataTable(); DataTable dtPtrlsale = new DataTable();
+                    DataTable dtRdctng = new DataTable(); DataTable dtNonEncCert = new DataTable();
+
+                    DataTable dtCommTax = new DataTable(); DataTable dtfrstDist = new DataTable();
+                    DataTable dtNonFrstLand = new DataTable(); DataTable dtHitens = new DataTable(); DataTable dttreefellng = new DataTable();
+
+                    DataTable dtAct1970 = new DataTable(); DataTable dtAct1979 = new DataTable();
+                    DataTable dtAct1996 = new DataTable(); DataTable dtContrLbrAct = new DataTable();
+
+
+                    objCFEQ.EnterpriseCategory = lblEntCategory.Text;
+                    if (txtPolCategory.Text.Trim() != "White")
+                    {
+                        objCFEQ.PCBCategory = txtPolCategory.Text;
+                        objCFEQ.ApprovalID = "32";
+                        dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtPCB);
+                    }
+                    if (ddlPowerReq.SelectedValue != "")
+                    {
+                        objCFEQ.PowerReqKW = ddlPowerReq.SelectedValue;
+                        objCFEQ.PropEmployment = txtPropEmp.Text;
+                        objCFEQ.ApprovalID = "19";
+                        dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtpower);
+                        objCFEQ.ApprovalID = "25";
+                        dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtFctry);
+                    }
+                    if (rblGenerator.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "17";
+                        dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtGenReq);
+                    }
+                    if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
+                    {
+                        objCFEQ.BuildingHeight = txtBuildingHeight.Text;
+                        objCFEQ.ApprovalID = "8";
+                        dtfire = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtfire);
+                    }
+                    if (rblRSDSstore.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "7";
+                        dtRSDS = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtRSDS);
+                    }
+                    if (rblexplosives.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "16";
+                        dtExplosivs = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtExplosivs);
+                    }
+                    if (rblPetrlManf.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "15";
+                        dtPtrlsale = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtPtrlsale);
+                    }
+                    if (rblRoadCutting.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "23";
+                        dtRdctng = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtRdctng);
+                    }
+                    if (rblNonEncCert.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "14";
+                        dtNonEncCert = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtNonEncCert);
+                    }
+                    if (rblCommericalTax.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "6";
+                        dtCommTax = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtCommTax);
+                    }
+                    if (rblHighTension.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "24";
+                        dtHitens = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtHitens);
+                    }
+                    if (rblfrstDistncLtr.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "3";
+                        dtfrstDist = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtfrstDist);
+                    }
+                    if (rblNonForstLandCert.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "4";
+                        dtNonFrstLand = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtNonFrstLand);
+                    }
+                    if (rblLbrAct1970.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "12";
+                        dtAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtAct1970);
+                    }
+                    if (rblLbrAct1979.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "10";
+                        dtAct1979 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtAct1979);
+                    }
+                    if (rblLbrAct1996.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "9";
+                        dtAct1996 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtAct1996);
+                    }
+                    if (rblLabourAct.SelectedValue == "Y")
+                    {
+                        objCFEQ.ApprovalID = "11";
+                        dtContrLbrAct = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                        dtApprReq.Merge(dtContrLbrAct);
+                    }
+                    if (dtApprReq.Rows.Count > 0)
+                    {
+                        divApprovals.Visible = true;
+                        grdApprovals.DataSource = dtApprReq;
+                        grdApprovals.DataBind();
+                    }
+                    else
+                    {
+                        grdApprovals.DataSource = null;
+                        grdApprovals.DataBind();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }

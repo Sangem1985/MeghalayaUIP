@@ -8,16 +8,20 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.DAL.CommonDAL;
 using MeghalayaUIP.DAL.CFEDAL;
 using System.Data;
+using MeghalayaUIP.DAL.PreRegDAL;
 
 namespace MeghalayaUIP.BAL.CFEBLL
 {
     public class CFEBAL
     {
+        public CFEQuestionnaireDet objCFEQ { get; } = new CFEQuestionnaireDet();
         public CFEDAL objCFEDAL { get; } = new CFEDAL();       
 
-        public DataSet GetCFEQuestionnaireDet(string userid)
+        public DataSet GetIndustryRegDetails(string userid)
         {
-            return objCFEDAL.GetCFEQuestionnaireDet(userid);
+            return objCFEDAL.GetIndustryRegDetails(userid);
         }
+        public DataTable GetApprovalsReqWithFee(CFEQuestionnaireDet objCFEQ)
+        { return objCFEDAL.GetApprovalsReqWithFee(objCFEQ); }
     }
 }
