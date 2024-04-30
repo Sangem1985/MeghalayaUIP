@@ -45,11 +45,15 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.GetIndRegUserApplDetails(UnitID, InvesterID);
         }
-        public string UpdateIndRegApplQueryRespose(IndustryDetails ID)
+        public string UpdateIndRegApplQueryRespose(PreRegDtls ID)
         {
             return IRD.UpdateIndRegApplQueryRespose(ID);
         }
-
+        public DataSet GetIndustryRegistrationQueryDetails(String userid)
+        {
+            return IRD.GetIndustryRegistrationQueryDetails(userid);
+        }
+       
         //-------------------END OF USER METHODS-------------------------------------//
 
         public DataTable GetPreRegDashBoard(PreRegDtls PRD)

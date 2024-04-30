@@ -852,7 +852,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" id="QueryResondpanel" runat="server" visible="false">
+                        <%--<div class="panel panel-default" id="QueryResondpanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSix">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -917,7 +917,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
             </div>

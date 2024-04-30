@@ -257,11 +257,11 @@ namespace MeghalayaUIP.Dept.PreReg
                     int value = ddlStatus.SelectedIndex;
                     tdquryorrej.Visible = true;
                     tdquryorrejTxtbx.Visible = true;
-                    txtRequest.Focus();
-                    tdquery.Visible = false;
-                    btnSubmit.Visible = true;
-                    btnQuery.Visible = false;
+                    txtRequest.Focus();                   
+                    btnSubmit.Visible = true;                   
                     tdaction.Visible = true;
+                    btnQuery.Visible = false;
+                    tdquery.Visible = false;
                 }
                 else
                 {
@@ -269,7 +269,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     tdquryorrejTxtbx.Visible = false;
                     tdquery.Visible = true;
                     btnSubmit.Visible = false;
-                    gvdeptquery.DataSource = BindWorkerPlaceGrid();
+                    gvdeptquery.DataSource = BindDepartmentGrid();
                     gvdeptquery.DataBind();
                     btnQuery.Visible = true;
                     tdaction.Visible = false;
@@ -284,7 +284,6 @@ namespace MeghalayaUIP.Dept.PreReg
 
 
         }
-
         protected void gvdeptquery_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -293,7 +292,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 int valid = 0;
                 if (e.CommandName == "Add")
                 {
-                    dt = BindWorkerPlaceGridAdd();
+                    dt = BindDepartmentGridAdd();
 
                     DropDownList ddldepartment;
                     TextBox txtquery;
@@ -327,7 +326,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                     if (valid == 0)
                     {
-                        ViewState["dtWorkerDtls"] = dt;
+                        ViewState["dtDepartmentDtls"] = dt;
                         gvdeptquery.DataSource = dt;
                         gvdeptquery.DataBind();
                     }
@@ -338,7 +337,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     int gvrcnt = gvdeptquery.Rows.Count;
                     if (gvrcnt > 1)
                     {
-                        dt = BindWorkerPlaceGridAdd();
+                        dt = BindDepartmentGridAdd();
                         DropDownList ddldepartment;
                         TextBox txtquery;
                         String[] arraydata = new String[2];
@@ -370,7 +369,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             }
                         }
                         dt.Rows.RemoveAt(i - 1);
-                        ViewState["dtWorkerDtls"] = dt;
+                        ViewState["dtDepartmentDtls"] = dt;
                         gvdeptquery.DataSource = dt;
                         gvdeptquery.DataBind();
                     }
@@ -387,7 +386,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblmsg.CssClass = "errormsg";
             }
         }
-
         protected void gvdeptquery_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             try
@@ -420,7 +418,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         //var department = ddldepartment.Items.FindByValue(ddldepartment.SelectedValue);
                         //ddldepartment.Items.Remove(department);
 
-                        DataTable dt = (DataTable)ViewState["dtWorkerDtls"];
+                        DataTable dt = (DataTable)ViewState["dtDepartmentDtls"];
 
                         if (dt != null)
                         {
@@ -443,8 +441,7 @@ namespace MeghalayaUIP.Dept.PreReg
             }
 
         }
-
-        protected DataTable BindWorkerPlaceGridAdd()
+        protected DataTable BindDepartmentGridAdd()
         {
             DataTable dt = new DataTable();
 
@@ -472,7 +469,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblmsg.CssClass = "errormsg";
             }
         }
-        protected DataTable BindWorkerPlaceGrid()
+        protected DataTable BindDepartmentGrid()
         {
             DataTable dt = new DataTable();
 
@@ -485,7 +482,6 @@ namespace MeghalayaUIP.Dept.PreReg
 
             return dt;
         }
-
         protected void btnQuery_Click(object sender, EventArgs e)
         {
             try

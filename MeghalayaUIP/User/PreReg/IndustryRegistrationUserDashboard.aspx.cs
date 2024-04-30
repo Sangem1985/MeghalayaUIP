@@ -64,20 +64,20 @@ namespace MeghalayaUIP.User.PreReg
 
         }       
 
-        protected void lnkQueryCount_Click(object sender, EventArgs e)
-        {
-            LinkButton lnkbtn = (LinkButton)sender;
+        //protected void lnkQueryCount_Click(object sender, EventArgs e)
+        //{
+        //    LinkButton lnkbtn = (LinkButton)sender;
 
-            GridViewRow row = (GridViewRow)lnkbtn.NamingContainer;
-            string UNITID = row.Cells[1].Text;
-            if (lnkbtn.Text != "0")
-            {
-                string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID ;
+        //    GridViewRow row = (GridViewRow)lnkbtn.NamingContainer;
+        //    string UNITID = row.Cells[1].Text;
+        //    if (lnkbtn.Text != "0")
+        //    {
+        //        string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID ;
 
-                Response.Redirect(newurl);
-            }
+        //        Response.Redirect(newurl);
+        //    }
 
-        }
+        //}
 
         protected void btnView_Click(object sender, EventArgs e)
         {

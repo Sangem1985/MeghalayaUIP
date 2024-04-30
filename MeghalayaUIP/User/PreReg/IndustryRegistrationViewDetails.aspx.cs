@@ -144,12 +144,12 @@ namespace MeghalayaUIP.User.PreReg
                         grdQueries.DataSource = ds.Tables[4];
                         grdQueries.DataBind();
                     }
-                    if (ds.Tables[5].Rows.Count > 0)
-                    {
-                        QueryResondpanel.Visible = true;
-                        grdQueryRaised.DataSource = ds.Tables[5];
-                        grdQueryRaised.DataBind();
-                    }
+                    //if (ds.Tables[5].Rows.Count > 0)
+                    //{
+                    //    QueryResondpanel.Visible = true;
+                    //    grdQueryRaised.DataSource = ds.Tables[5];
+                    //    grdQueryRaised.DataBind();
+                    //}
 
                 }
             }
@@ -160,48 +160,48 @@ namespace MeghalayaUIP.User.PreReg
             }
         }
 
-        protected void btnRespond_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Button btn = (Button)sender;
-                GridViewRow row = (GridViewRow)btn.NamingContainer;
-                TextBox txtReply = (TextBox)row.FindControl("txtResponse");
-                if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
-                {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "Please Enter Query Response";
-                    return;
-                }
-                else
-                {
-                    Label UnitID = (Label)row.FindControl("lblUNITID");
-                    Label DeptID = (Label)row.FindControl("lblDeptID");
-                    Label QID = (Label)row.FindControl("lblDQID");
-                    IndustryDetails ID = new IndustryDetails();
-                    ID.UserID = userid;
-                    ID.UnitID = UnitID.Text;
-                    ID.Deptid = DeptID.Text;
-                    ID.QueryID = QID.Text;
-                    ID.QueryResponse = txtReply.Text;
-                    ID.IPAddress = getclientIP();
+        //protected void btnRespond_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Button btn = (Button)sender;
+        //        GridViewRow row = (GridViewRow)btn.NamingContainer;
+        //        TextBox txtReply = (TextBox)row.FindControl("txtResponse");
+        //        if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
+        //        {
+        //            Failure.Visible = true;
+        //            lblmsg0.Text = "Please Enter Query Response";
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            Label UnitID = (Label)row.FindControl("lblUNITID");
+        //            Label DeptID = (Label)row.FindControl("lblDeptID");
+        //            Label QID = (Label)row.FindControl("lblDQID");
+        //            IndustryDetails ID = new IndustryDetails();
+        //            ID.UserID = userid;
+        //            ID.UnitID = UnitID.Text;
+        //            ID.Deptid = DeptID.Text;
+        //            ID.QueryID = QID.Text;
+        //            ID.QueryResponse = txtReply.Text;
+        //            ID.IPAddress = getclientIP();
 
-                    string result = preBAL.UpdateIndRegApplQueryRespose(ID);
-                    if (result != "" || result != null)
-                    {
-                        lblmsg.Text = "Query Response Submitted Sussfully";
-                        success.Visible = true;
-                        BindaApplicatinDetails(UnitID.Text, userid);
+        //            string result = preBAL.UpdateIndRegApplQueryRespose(ID);
+        //            if (result != "" || result != null)
+        //            {
+        //                lblmsg.Text = "Query Response Submitted Sussfully";
+        //                success.Visible = true;
+        //                BindaApplicatinDetails(UnitID.Text, userid);
 
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-        }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Failure.Visible = true;
+        //        lblmsg0.Text = ex.Message;
+        //    }
+        //}
         public static string getclientIP()
         {
             string result = string.Empty;

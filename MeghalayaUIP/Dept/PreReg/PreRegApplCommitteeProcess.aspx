@@ -877,7 +877,7 @@
                                                 <td id="tdquryorrej" runat="server" visible="false"><b>
                                                     <asp:Label runat="server" Text="Please Enter Query/Forward Reason"></asp:Label></b>
                                                 </td>
-                                                <td>
+                                                <td id="tdaction" runat="server" visible="false">
                                                     <b>Submit Action</b>
                                                 </td>
                                             </tr>
@@ -901,18 +901,152 @@
                                                         <asp:ListItem Text="Reject" Value="14"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
-                                                <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
+                                                    <asp:TextBox ID="txtReject" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
                                                 </td>
                                                 <td>
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                    <asp:Button ID="btnReject" runat="server" Text="Reject" OnClick="btnReject_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
+                                    <div>
+                                        <table align="Center" style="width: 70%; border: none; align-content: flex-start" id="tblaction" runat="server" visible="false">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <table style="width: 100%; border: none; align-content: flex-start">
+                                                        <tr style="border-color: brown; background-color: aqua; color: darkred" runat="server" visible="false" id="trheading">
+                                                            <td><b>Paramater Name</b></td>
+                                                            <td><b>Applicant' s Data</b></td>
+                                                            <td><b>Dept Suggession</b></td>
+                                                        </tr>
+                                                        <tr id="trIndsDept" runat="server" visible="false">
+                                                            <td>
+                                                                <label>Land Area</label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblApplLandArea" runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="trPowerDept" runat="server" visible="false">
+                                                            <td>
+                                                                <label>Power Required</label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblApplPowerReq" runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="trWaterDept" runat="server" visible="false">
+                                                            <td>
+                                                                <label>Water Required</label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="trForestDept1" runat="server" visible="false">
+                                                            <td>
+                                                                <label>
+                                                                    Details of waste /<br />
+                                                                    Effluent to be generated</label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="trForestDept2" runat="server" visible="false">
+                                                            <td>
+                                                                <label>
+                                                                    Details of Hazardous 
+                                                                    <br />
+                                                                    waste to be generated</label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
 
+                                            </tr>
+                                            <tr id="trsubmit" runat="server" visible="false">
+                                                <td>
+                                                    <b>
+                                                        <asp:Label ID="lblaction" runat="server"></asp:Label>
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="350px" Visible="true"></asp:TextBox>
+                                                </td>
+
+                                                <td colspan="2" align="Center">
+                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: central" id="tdquery" runat="server" visible="false" colspan="3">
+                                                    <asp:GridView ID="gvdeptquery" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                        GridLines="None"  Width="100%" EnableModelValidation="True" OnRowCommand="gvdeptquery_RowCommand" OnRowDataBound="gvdeptquery_RowDataBound">
+                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderText="Sl No.">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblSl" runat="server" Text="<%#Container.DataItemIndex+1 %>"></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Department">
+                                                                <ItemTemplate>
+                                                                    <asp:DropDownList ID="ddldepartment" runat="server">
+                                                                        <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </ItemTemplate>
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Query Description">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtquery" runat="server"></asp:TextBox>
+                                                                </ItemTemplate>
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:TemplateField>
+                                                            <asp:ButtonField CommandName="Add" Text="Add">
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:ButtonField>
+                                                            <asp:ButtonField CommandName="Remove" Text="Delete">
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:ButtonField>
+                                                        </Columns>
+                                                        <PagerStyle BackColor="#013161" ForeColor="White" HorizontalAlign="Center" />
+                                                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                                        <EditRowStyle BackColor="#B9D684" />
+                                                        <AlternatingRowStyle BackColor="White" />
+                                                    </asp:GridView>
+                                                </td>
+                                                 <td>
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query"  OnClick="btnQuery_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
