@@ -10,11 +10,14 @@ namespace MeghalayaUIP.Common
     {
         public static string GetCFERegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA";
         public static string GetCFEApprovalsReq = "USP_GETCFEAPPROVALSWITHFEE";
-
+        public static string InsertCFEQuestionnaire = "USP_INSCFEQUESTIONNAREDETAILS";
+        public static string GetSector_Department = "USP_GET_SECTOR_DEPT";
     }
     public class CFEQuestionnaireDet
     {
         public string UNITID { get; set; }
+        public string PREREGUIDNO { get; set; }
+        public string CFEQDID { get; set; }
         public string CreatedBy { get; set; }
         public string ApprovalID { get; set; }
         public string DeptID { get; set; }
