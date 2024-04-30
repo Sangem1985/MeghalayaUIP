@@ -32,7 +32,11 @@ namespace MeghalayaUIP.User.PreReg
 
                     if (!IsPostBack)
                     {
-                        BindData(ObjUserInfo.Userid);
+                        string UnitID = Request.QueryString[0].ToString();
+                        string InvesterID = Request.QueryString[1].ToString();
+                        string Dept = Request.QueryString[2].ToString();
+                        string QueryID = Request.QueryString[3].ToString();
+                        BindData(UnitID,ObjUserInfo.Userid,QueryID);
                     }
                 }
                 else
@@ -47,16 +51,13 @@ namespace MeghalayaUIP.User.PreReg
 
 
         }
-        public void BindData(string userid)
+        public void BindData(string Unitid, string InvesterID, string Queryid)
         {
             try
             {
-                DataSet ds = new DataSet();
-                string Unit = Request.QueryString[0].ToString();
-                string insertid = Request.QueryString[1].ToString();
+                DataSet ds = new DataSet();                 
                 string Dept = Request.QueryString[2].ToString();
-                string Rmid = Request.QueryString[3].ToString();
-                ds = indstregBAL.GetIndustryRegistrationQueryDetails(userid);
+                ds = indstregBAL.GetIndustryRegistrationQueryDetails(Unitid, InvesterID, Queryid);
                 if (ds.Tables.Count > 0)
                 {
                     lblUnitId.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);

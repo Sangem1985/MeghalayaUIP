@@ -36,7 +36,10 @@ namespace MeghalayaUIP.User.PreReg
 
                     if (!IsPostBack)
                     {
-                        BindData(ObjUserInfo.Userid);
+                        if (Request.QueryString["UNITID"].ToString() != null && Request.QueryString["UNITID"].ToString() != "")
+                        {
+                            BindData(Request.QueryString["UNITID"].ToString(), ObjUserInfo.Userid, null);
+                        }
                     }
                 }
                 else
@@ -50,47 +53,7 @@ namespace MeghalayaUIP.User.PreReg
             }
 
 
-        }
-        //public void BindData(string userid)
-        //{
-        //    //using (SqlConnection con = new SqlConnection(connstr))
-        //    //{
-        //    try
-        //    {
-        //        //con.Open();
-        //        //using (SqlCommand cmd = new SqlCommand("USP_GETPREREGDEPTRRAISEDQUERIES", con))   //USP_GETPREREGDEPTQUERIES
-        //        //{
-        //        //    cmd.CommandType = CommandType.StoredProcedure;
-        //        //    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-        //        //    {
-        //        //        DataTable dt = new DataTable();
-        //        //        sda.Fill(dt);
-        //        //        gvAttachmentsQuery.DataSource = dt;
-        //        //        gvAttachmentsQuery.DataBind();
-        //        //    }
-        //        //}
-        //        //string UNITID = "";
-        //        //string INVESTERID = "";
-        //        //string QUERYID = "";
-        //        DataSet ds = new DataSet();
-        //        ds = indstregBAL.GetQueryDashboardReason(userid);
-        //        if (ds != null && ds.Tables.Count > 0)
-        //        {
-        //            DataTable dt = ds.Tables[0];
-        //            gvAttachmentsQuery.DataSource = dt;
-        //            gvAttachmentsQuery.DataBind();
-        //        }
-
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        Console.WriteLine("SQL Exception: " + ex.Message);
-        //    }
-
-        //    //  }
-
-        //}
-
+        } 
         protected void gvAttachmentsQuery_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
@@ -110,12 +73,12 @@ namespace MeghalayaUIP.User.PreReg
 
             }
         }
-        public void BindData(string userid)
+        public void BindData(string Unitid, string InvesterID, string Queryid)
         {
             try
             {
                 DataSet ds = new DataSet();
-                ds = indstregBAL.GetIndustryRegistrationQueryDetails(userid);
+                ds = indstregBAL.GetIndustryRegistrationQueryDetails(Unitid,InvesterID,Queryid);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     gvAttachmentsQuery.DataSource = ds;

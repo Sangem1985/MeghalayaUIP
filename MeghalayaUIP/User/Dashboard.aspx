@@ -17,21 +17,21 @@
                 <section id="dashboardcount">
                     <div class="container-fluid">
                         <div class="row">
-
                             <div class="col-md-3">
                                 <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
+                                   
                                     <div class="card-counter info">
-                                        <i class="fa fa-users"></i>
-                                        <span class="count-numbers">Principle approval</span>
-                                        <span class="count-name">(Lorem Ipsum is simply dummy text)</span>
+                                         <i class="fa fa-users"></i>
+                                        <span class="count-numbers">Registration under <br /> MIIPP 2024</span>
+                                        <span class="count-name">(Principle approval)</span>
                                     </div>
-                                  </asp:LinkButton>
+                                </asp:LinkButton>
                             </div>
                             <div class="col-md-3">
                                 <div class="card-counter primary" data-toggle="modal" data-target=".bd-example-modal-xl">
                                     <img src="../assets/admin/img/prl.png" alt="logo">
-                                    <span class="count-numbers">CFE</span>
-                                    <span class="count-name">(Pre-Establishment Approval)</span>
+                                    <span class="count-numbers">Pre-Establishment Approval</span>
+                                    <span class="count-name"></span>
                                 </div>
                             </div>
 
@@ -39,8 +39,8 @@
                                 <div class="card-counter danger" data-toggle="modal" data-target=".bd-example-modal-lg" data-original-title="">
 
                                     <img src="../assets/admin/img/poa.png" alt="logo">
-                                    <span class="count-numbers">CFO</span>
-                                    <span class="count-name">(Pre-Operational Approval)</span>
+                                    <span class="count-numbers">Pre-Operational Approval</span>
+                                    <span class="count-name"></span>
                                 </div>
                             </div>
 
@@ -50,7 +50,7 @@
 
                                     <img src="../assets/admin/img/inc.png" alt="logo">
                                     <span class="count-numbers">Incentive</span>
-                                    <span class="count-name">Data</span>
+                                    <span class="count-name"></span>
                                 </div>
                             </div>
 

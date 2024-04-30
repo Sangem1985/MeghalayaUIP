@@ -466,7 +466,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
-        public DataSet GetIndustryRegistrationQueryDetails(string userid)
+        public DataSet GetIndustryRegistrationQueryDetails(string Unitid, string InvesterID, string Queryid)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -483,9 +483,12 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(userid)); 
-
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Unitid)); 
+                if(Queryid!="" && Queryid !=null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(Queryid));
+                }
                 da.Fill(ds);
                 if (ds.Tables.Count > 0)
 
