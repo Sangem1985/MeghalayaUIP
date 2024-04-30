@@ -16,7 +16,8 @@ namespace MeghalayaUIP.Common
         public static string InsertIndRegPromotersDetails = "USP_INS_INSVESTER_DIRECTOR_DETAILS";
         public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
         public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDASHBOARDVIEWDETAILS";
-        public static string UpdateIndRegApplQueryRespose = "USP_UPDATEPREREGAPPLQUERYRESPONSE";
+        public static string UpdateIndRegApplQueryRespose = "USP_UPDATEPREREGAPPLQUERYRESPONSE"; 
+        public static string GetIndustryRegistrationQueryDetails = "USP_GETPREREGDEPTRRAISEDQUERIES";
         /*-----------------------End of User-----------------------------*/
 
         public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";

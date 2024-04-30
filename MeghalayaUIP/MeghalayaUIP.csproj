@@ -361,6 +361,8 @@
     <Content Include="User\Dashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryRegistration.aspx" />
+    <Content Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx" />
+    <Content Include="User\PreReg\IndustryRegistrationQueryDetails.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
     <Content Include="Web.config" />
@@ -562,6 +564,20 @@
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistration.aspx.designer.cs">
       <DependentUpon>IndustryRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx.cs">
+      <DependentUpon>IndustryRegistrationQueryDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx.designer.cs">
+      <DependentUpon>IndustryRegistrationQueryDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDetails.aspx.cs">
+      <DependentUpon>IndustryRegistrationQueryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDetails.aspx.designer.cs">
+      <DependentUpon>IndustryRegistrationQueryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistrationUserDashboard.aspx.cs">
       <DependentUpon>IndustryRegistrationUserDashboard.aspx</DependentUpon>

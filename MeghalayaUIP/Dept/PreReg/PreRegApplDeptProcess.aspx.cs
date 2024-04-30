@@ -173,7 +173,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         grdQueryRaised.DataSource = ds.Tables[5];
                         grdQueryRaised.DataBind();
                     }
-                    if (Request.QueryString["status"].ToString() == "B" || Request.QueryString["status"].ToString() == "D")
+                    if (Request.QueryString["status"].ToString() == "C" || Request.QueryString["status"].ToString() == "D")
                     {
                         verifypanel.Visible = true;
                         QueryResondpanel.Visible = false;
@@ -534,6 +534,19 @@ namespace MeghalayaUIP.Dept.PreReg
             }
 
             return result;
+        }
+
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnSubmit_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
     }
 }

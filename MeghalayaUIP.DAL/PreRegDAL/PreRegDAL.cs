@@ -423,7 +423,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
         }
 
-        public string UpdateIndRegApplQueryRespose(IndustryDetails ID)
+        public string UpdateIndRegApplQueryRespose(PreRegDtls ID)
         {
             string valid = "";
 
@@ -439,10 +439,10 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                
                 com.Transaction = transaction;
                 com.Connection = connection;
-                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(ID.UnitID ));
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(ID.Unitid ));
                 com.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.UserID));
                 com.Parameters.AddWithValue("@IRQID", Convert.ToInt32(ID.QueryID));
-                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(ID.Deptid));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(ID.deptid));
                 com.Parameters.AddWithValue("@RESPONSE", ID.QueryResponse);
                 com.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 0);
@@ -466,7 +466,45 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
+        public DataSet GetIndustryRegistrationQueryDetails(string userid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
 
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetIndustryRegistrationQueryDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetIndustryRegistrationQueryDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(userid)); 
+
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+         
         //-------------------END OF USER METHODS-------------------------------------//
         public DataTable GetPreRegDashBoard(PreRegDtls PRD)
         {
