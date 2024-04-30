@@ -593,7 +593,7 @@
                                                             <label class="col-lg-6 col-form-label">
                                                                 19. Do you require Non-Encumbrance Certificate</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:RadioButtonList ID="rblNonEncCert" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblFelltrees_SelectedIndexChanged">
+                                                                <asp:RadioButtonList ID="rblNonEncCert" runat="server" RepeatDirection="Horizontal" >
                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                     <asp:ListItem Text="No" Value="N" />
                                                                 </asp:RadioButtonList>
@@ -855,6 +855,25 @@
                                                                 <td>
                                                                     <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control"></asp:TextBox></td>
                                                             </tr>
+                                                            <tr>
+                                                                <td>20 e.</td>
+                                                                <td>Does your Establishment employ 05 or more contract Labour(License for Contractors) as defined in the contract labour
+                                                                    <br />(Regulation and Abolition) Act,1970? 
+                                                                        <br />
+                                                                </td>
+                                                                <td>
+                                                                    <asp:RadioButtonList Style="border: none" ID="rblForContr1970" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblForContr1970_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                                        <asp:ListItem Text="No" Value="N" />
+                                                                    </asp:RadioButtonList>
+                                                                </td>
+                                                            </tr>
+                                                            <tr runat="server" visible="false" id="trcontrworkers1970">
+                                                                <td></td>
+                                                                <td align="right">No of Workers</td>
+                                                                <td>
+                                                                    <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control"></asp:TextBox></td>
+                                                            </tr>
 
                                                         </tbody>
 
@@ -916,12 +935,9 @@
                             <div class="card-header">
                                 <h4 class="card-title">Fee Details(in Rs.)</h4>
                             </div>
-                            <div class="card-body">
-                               
-                                <div class="table-responsive">
+                            <div class="card-body">                                                           
                                     <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                        CssClass="GRD" ForeColor="#333333" Height="62px" PageSize="15" Width="100%"
-                                        ShowFooter="true">
+                                        CssClass="GRD" ForeColor="#333333"  Width="90%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" >
                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                         <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
                                         <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
@@ -947,7 +963,7 @@
                                             </asp:BoundField>
                                             <asp:TemplateField HeaderText="Approval ID" Visible="true">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("Appr_Id") %>'></asp:Label>
+                                                    <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText=" Dept ID" Visible="true">
@@ -956,8 +972,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
-                                    </asp:GridView>
-                                </div>
+                                    </asp:GridView>                              
                             </div>
                         </div>
                     </div>

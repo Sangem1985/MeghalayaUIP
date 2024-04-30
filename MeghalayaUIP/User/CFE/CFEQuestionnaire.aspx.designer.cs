@@ -717,6 +717,33 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtContractWorkers;
 
         /// <summary>
+        /// rblForContr1970 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblForContr1970;
+
+        /// <summary>
+        /// trcontrworkers1970 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trcontrworkers1970;
+
+        /// <summary>
+        /// txtContr1970wrkrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContr1970wrkrs;
+
+        /// <summary>
         /// btnApprvlsReq control.
         /// </summary>
         /// <remarks>
