@@ -555,13 +555,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpowerplants2;
 
         /// <summary>
-        /// txtCapacity control.
+        /// txtAggrCapacity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCapacity;
+        protected global::System.Web.UI.WebControls.TextBox txtAggrCapacity;
 
         /// <summary>
         /// rblfrstDistncLtr control.
@@ -600,13 +600,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divtrees;
 
         /// <summary>
-        /// txttree control.
+        /// txtNoofTrees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttree;
+        protected global::System.Web.UI.WebControls.TextBox txtNoofTrees;
 
         /// <summary>
         /// rblwaterbody control.

@@ -9,6 +9,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.BAL;
 using MeghalayaUIP.BAL.CFEBLL;
+using System.Drawing;
 
 namespace MeghalayaUIP.User.CFE
 {
@@ -70,6 +71,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
                     hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
+                    Session["UNITID"] = hdnPreRegUNITID.Value;
                     txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                     txtProposalfor.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
                     ddlDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_DISTRICTID"]);
@@ -95,7 +97,7 @@ namespace MeghalayaUIP.User.CFE
                     txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
                     txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
                     txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
-                    lblTotProjCost.Text =Convert.ToString( Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
+                    lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
                     lblEntCategory.Text = "MEGA PROJECT";
                 }
 
@@ -705,7 +707,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 string ErrorMsg = "", result = "";
-                ErrorMsg = Step5validations();
+                ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
                     CFEQuestionnaireDet objCFEQsnaire = new CFEQuestionnaireDet();
@@ -731,7 +733,6 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.NatureofActivity = ddlIndustryType.SelectedValue;
                     objCFEQsnaire.UnitLocation = txtUnitLocation.Text.Trim();
                     objCFEQsnaire.PropEmployment = txtPropEmp.Text.Trim();
-                    //  objCFEQsnaire.ProjectCost = txtEstProjCost.Text.Trim();
                     objCFEQsnaire.LandValue = txtLandValue.Text.Trim();
                     objCFEQsnaire.BuildingValue = txtBuildingValue.Text.Trim();
                     objCFEQsnaire.PlantnMachineryCost = txtPMCost.Text.Trim();
@@ -750,10 +751,10 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.HTMeteruse = rblHighTension.SelectedValue;
                     objCFEQsnaire.CEARegulationID = ddlRegulation.SelectedValue;
                     objCFEQsnaire.PowerPlantID = ddlPowerPlant.SelectedValue;
-                    objCFEQsnaire.AggCapacity = txtCapacity.Text.Trim();
+                    objCFEQsnaire.AggCapacity = txtAggrCapacity.Text.Trim();
                     objCFEQsnaire.VoltageRating = ddlVoltage.SelectedValue;
                     objCFEQsnaire.TreesFelling = rblfrstDistncLtr.SelectedValue;
-                    objCFEQsnaire.NoofTrees = txttree.Text.Trim();
+                    objCFEQsnaire.NoofTrees = txtNoofTrees.Text.Trim();
                     objCFEQsnaire.NonForstLandCert = rblNonForstLandCert.SelectedValue;
                     objCFEQsnaire.ForstDistLetr = rblFelltrees.SelectedValue;
                     objCFEQsnaire.NearWaterBodyLocation = rblwaterbody.SelectedValue;
@@ -767,28 +768,37 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.LabourAct1996_Workers = txt1996Workers.Text.Trim();
                     objCFEQsnaire.ContractLabourAct = rblLabourAct.SelectedValue;
                     objCFEQsnaire.ContractLabourAct_Workers = txtContractWorkers.Text.Trim();
-
-                    try
+                    objCFEQsnaire.CreatedBy = hdnUserID.Value;
+                    int count = 0;
+                    result = objcfebal.InsertQuestionnaireCFE(objCFEQsnaire);
+                    if (result != "100")
                     {
-                        DataTable dt = new DataTable();
-                        dt = objcfebal.GetsectorDep(ddlSector.SelectedValue);
-                        if (dt.Rows.Count > 0)
+                        Session["QUESTIONRID"] = result;
+                        for (int i = 0; i < grdApprovals.Rows.Count; i++)
                         {
-                            objCFEQsnaire.DeptID = dt.Rows[0].Table.Columns["MD_DEPTID"].ToString();
+
+                            Label ApprovalID = grdApprovals.Rows[i].FindControl("lblApprID") as Label;
+                            Label DeptID = grdApprovals.Rows[i].FindControl("lblDeptID") as Label;
+
+                            objCFEQsnaire.CFEQDID = result;
+                            objCFEQsnaire.ApprovalID = ApprovalID.Text;
+                            objCFEQsnaire.DeptID = DeptID.Text;
+                            objCFEQsnaire.ApprovalFee = grdApprovals.Rows[i].Cells[3].Text;
+                            objCFEQsnaire.CreatedBy = hdnUserID.Value;
+                            objCFEQsnaire.IPAddress = getclientIP();
+                            objCFEQsnaire.UNITID= hdnPreRegUNITID.Value;
+
+                            string A = objcfebal.InsertCFEQuestionnaireApprovals(objCFEQsnaire);
+                            if (A != "")
+                            { count = count + 1; }
                         }
-                    }
-                    catch (Exception EX)
-                    {
-                        throw EX;
-                    }
-                    result = objcfebal.InsertQuestionnaireCFE(objCFEQsnaire, out string IDno);
-                    ViewState["UnitID"] = result;
-                    if (result != "")
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "Basic Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        if (grdApprovals.Rows.Count == count )
+                        {
+                            success.Visible = true;
+                            lblmsg.Text = "Consent For Establishment - Questionnaire Details Submitted Successfully";
+                            string message = "alert('" + lblmsg.Text + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
                     }
 
                 }
@@ -821,7 +831,7 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
-        public string Step5validations()
+        public string Validations()
         {
             try
             {
@@ -839,22 +849,22 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (string.IsNullOrEmpty(txtProposalfor.Text) || txtProposalfor.Text == "" || txtProposalfor.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Proposal \\n";
+                    errormsg = errormsg + slno + ". Please Enter Proposal for \\n";
                     slno = slno + 1;
                 }
                 if (ddlDistrict.SelectedIndex == -1 || ddlDistrict.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Authorised Representative District \\n";
+                    errormsg = errormsg + slno + ". Please Select Proposed Location District \\n";
                     slno = slno + 1;
                 }
                 if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Authorised Representative Mandal \\n";
+                    errormsg = errormsg + slno + ". Please Select AProposed Location Mandal \\n";
                     slno = slno + 1;
                 }
                 if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Authorised Representative Village \\n";
+                    errormsg = errormsg + slno + ". Please Select Proposed Location Village \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null)
@@ -862,16 +872,16 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Total Extend Land  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtSquareMeters.Text) || txtSquareMeters.Text == "" || txtSquareMeters.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Square Meter \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtAcres.Text) || txtAcres.Text == "" || txtAcres.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Acrs \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtSquareMeters.Text) || txtSquareMeters.Text == "" || txtSquareMeters.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Square Meter \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtAcres.Text) || txtAcres.Text == "" || txtAcres.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Acrs \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtBuiltArea.Text) || txtBuiltArea.Text == "" || txtBuiltArea.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Built Up Area \\n";
@@ -887,15 +897,231 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Line of Activity \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(lblPCBCategory.Text) || lblPCBCategory.Text == "" || lblPCBCategory.Text == null)
+                if (ddlIndustryType.SelectedIndex == -1 || ddlIndustryType.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Pollution Category of Enterprise \\n";
+                    errormsg = errormsg + slno + ". Please Select Industry Type \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtUnitLocation.Text) || txtUnitLocation.Text == "" || txtUnitLocation.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Location Of The Unit \\n";
                     slno = slno + 1;
+                }
+                if (rblMIDCL.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether land purchased from MIDCL or not \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Proposed Employment \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Value of Land as per sale Deed(In INR) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Value of Building \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtPMCost.Text) || txtPMCost.Text == "" || txtPMCost.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Value of Plant & Machinery \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtAnnualTurnOver.Text) || txtAnnualTurnOver.Text == "" || txtAnnualTurnOver.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Expected Annual Turnover( \\n";
+                    slno = slno + 1;
+                }
+                if (ddlPowerReq.SelectedIndex == -1 || ddlPowerReq.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Power requirement \\n";
+                    slno = slno + 1;
+                }
+                if (rblGenerator.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether Generator Required or not \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtBuildingHeight.Text) || txtBuildingHeight.Text == "" || txtBuildingHeight.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Height of the building \\n";
+                    slno = slno + 1;
+                }
+                if (rblRSDSstore.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether you store RS, DS or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblexplosives.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether you manufacture, store, sale, transport explosives \\n";
+                    slno = slno + 1;
+                }
+                if (rblPetrlManf.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether you Manufacture, store, sale, Petroleum, Diesel, Kerosene or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblRoadCutting.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether you require Road Cutting Permission or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblNonEncCert.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether you require Non-Encumbrance Certificate or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblCommericalTax.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether you require approval from Commerical Tax or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblHighTension.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether you Use (High Tension)HT meter Above 70KVA or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblHighTension.SelectedValue == "Y")
+                {
+                    if (ddlRegulation.SelectedIndex == -1 || ddlRegulation.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Regulation Type \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlRegulation.SelectedValue == "1")
+                    {
+                        if (ddlPowerPlant.SelectedIndex == -1 || ddlPowerPlant.SelectedItem.Text == "--Select--")
+                        {
+                            errormsg = errormsg + slno + ". Please Select Power Plant Type \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtAggrCapacity.Text) || txtAggrCapacity.Text == "" || txtAggrCapacity.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Aggregate Capacity  \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                    if (ddlRegulation.SelectedValue == "2")
+                    {
+                        if (ddlVoltage.SelectedIndex == -1 || ddlVoltage.SelectedItem.Text == "--Select--")
+                        {
+                            errormsg = errormsg + slno + ". Please Select Voltage Rating  \\n";
+                            slno = slno + 1;
+                        }
+                    }
+
+                }
+                if (rblfrstDistncLtr.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether You require Letter for distance from Forest or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblNonForstLandCert.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether You require Non-Forest Land Certificate or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblFelltrees.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether any need to Fell trees in Proposed Site or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblFelltrees.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txtNoofTrees.Text) || txtNoofTrees.Text == "" || txtNoofTrees.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Number of trees to be felled \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (rblwaterbody.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether unit Location fall within 100mts vicinity of any water body or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblborewell.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether You have Existing borewell in proposed factory Location or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblLbrAct1970.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Contract Labour(Regulation and Abolition)Act, 1970? \\n";
+                    slno = slno + 1;
+                }
+                if (rblLbrAct1970.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txt1970Workers.Text) || txt1970Workers.Text == "" || txt1970Workers.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter No.of workers under Contract Labour(Regulation and Abolition)Act, 1970 \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (rblLbrAct1979.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Inter-state Migrant Workmen Act, 1979? \\n";
+                    slno = slno + 1;
+                }
+                if (rblLbrAct1979.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txt1979Workers.Text) || txt1979Workers.Text == "" || txt1979Workers.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter No.of workers under Inter-state Migrant Workmen Act, 1979? \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (rblLbrAct1996.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Building and Other Constrution Worker(RE&COS) Act, 1996? \\n";
+                    slno = slno + 1;
+                }
+                if (rblLbrAct1996.SelectedValue == "Y")
+                {
+                    if (rblbuildingwork.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select  “Building & Other Construction Works” \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblbuildingwork.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txt1996Workers.Text) || txt1996Workers.Text == "" || txt1996Workers.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter No.of workers Building and Other Constrution Worker(RE&COS) Act, 1996? \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                }
+                if (rblLabourAct.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether You require License under Contract Labour Act (For Contractor) or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblLabourAct.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txtContractWorkers.Text) || txtContractWorkers.Text == "" || txtContractWorkers.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter No.of Workers under License under Contract Labour Act (For Contractor) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (rblForContr1970.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select (License for Contractors) as defined in the contract labour\r\n(Regulation and Abolition) Act,1970? \\n";
+                    slno = slno + 1;
+                }
+                if (rblForContr1970.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txtContr1970wrkrs.Text) || txtContr1970wrkrs.Text == "" || txtContr1970wrkrs.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter No.of workers under License for Contractors) as defined in the contract labour\r\n(Regulation and Abolition) Act,1970? \\n";
+                        slno = slno + 1;
+                    }
                 }
                 return errormsg;
 
@@ -924,11 +1150,15 @@ namespace MeghalayaUIP.User.CFE
             {
                 CFEQuestionnaireDet objCFEQ = new CFEQuestionnaireDet();
 
-                string ErrorMsg = "1";
-                //ErrorMsg = Step3Validations();
-                if (ErrorMsg != "")
+                string ErrorMsg ;
+                ErrorMsg = Validations();
+                if (ErrorMsg == "")
                 {
                     GetApprovals();
+                }
+                else
+                {
+                   
                 }
             }
             catch (Exception ex)
@@ -943,162 +1173,160 @@ namespace MeghalayaUIP.User.CFE
             {
                 CFEQuestionnaireDet objCFEQ = new CFEQuestionnaireDet();
 
-                string ErrorMsg = "1";
-                //ErrorMsg = Step3Validations();
-                if (ErrorMsg != "")
+
+
+                DataTable dtApprReq = new DataTable();
+                DataTable dtPCB = new DataTable(); DataTable dtpower = new DataTable(); DataTable dtGenReq = new DataTable();
+                DataTable dtfire = new DataTable(); DataTable dtFctry = new DataTable(); DataTable dtRSDS = new DataTable();
+
+                DataTable dtExplosivs = new DataTable(); DataTable dtPtrlsale = new DataTable();
+                DataTable dtRdctng = new DataTable(); DataTable dtNonEncCert = new DataTable();
+
+                DataTable dtCommTax = new DataTable(); DataTable dtfrstDist = new DataTable(); DataTable dtNonFrstLand = new DataTable();
+                DataTable dtHitens = new DataTable(); DataTable dttreefellng = new DataTable(); DataTable dtWtrbody = new DataTable();
+
+                DataTable dtAct1970 = new DataTable(); DataTable dtAct1979 = new DataTable(); DataTable dtAct1996 = new DataTable();
+                DataTable dtContrLbrAct = new DataTable(); DataTable dtContAct1970 = new DataTable();
+
+
+                objCFEQ.EnterpriseCategory = lblEntCategory.Text;
+                if (lblPCBCategory.Text.Trim() != "White")
                 {
-                    DataTable dtApprReq = new DataTable();
-                    DataTable dtPCB = new DataTable(); DataTable dtpower = new DataTable(); DataTable dtGenReq = new DataTable();
-                    DataTable dtfire = new DataTable(); DataTable dtFctry = new DataTable(); DataTable dtRSDS = new DataTable();
-
-                    DataTable dtExplosivs = new DataTable(); DataTable dtPtrlsale = new DataTable();
-                    DataTable dtRdctng = new DataTable(); DataTable dtNonEncCert = new DataTable();
-
-                    DataTable dtCommTax = new DataTable(); DataTable dtfrstDist = new DataTable(); DataTable dtNonFrstLand = new DataTable();
-                    DataTable dtHitens = new DataTable(); DataTable dttreefellng = new DataTable(); DataTable dtWtrbody = new DataTable();
-
-                    DataTable dtAct1970 = new DataTable(); DataTable dtAct1979 = new DataTable(); DataTable dtAct1996 = new DataTable();
-                    DataTable dtContrLbrAct = new DataTable(); DataTable dtContAct1970 = new DataTable();
-
-
-                    objCFEQ.EnterpriseCategory = lblEntCategory.Text;
-                    if (lblPCBCategory.Text.Trim() != "White")
-                    {
-                        objCFEQ.PCBCategory = lblPCBCategory.Text;
-                        objCFEQ.ApprovalID = "1";
-                        dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtPCB);
-                    }
-                    if (ddlPowerReq.SelectedValue != "")
-                    {
-                        objCFEQ.PowerReqKW = ddlPowerReq.SelectedValue;
-                        objCFEQ.PropEmployment = txtPropEmp.Text;
-                        objCFEQ.ApprovalID = "3";
-                        dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtpower);
-                        objCFEQ.ApprovalID = "5";
-                        dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtFctry);
-                    }
-                    if (rblGenerator.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "6";
-                        dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtGenReq);
-                    }
-                    if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
-                    {
-                        objCFEQ.BuildingHeight = txtBuildingHeight.Text;
-                        objCFEQ.ApprovalID = "7";
-                        dtfire = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtfire);
-                    }
-                    if (rblRSDSstore.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "8";
-                        dtRSDS = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtRSDS);
-                    }
-                    if (rblexplosives.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "9";
-                        dtExplosivs = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtExplosivs);
-                    }
-                    if (rblPetrlManf.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "10";
-                        dtPtrlsale = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtPtrlsale);
-                    }
-                    if (rblRoadCutting.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "11";
-                        dtRdctng = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtRdctng);
-                    }
-                    if (rblNonEncCert.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "12";
-                        dtNonEncCert = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtNonEncCert);
-                    }
-                    if (rblCommericalTax.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "13";
-                        dtCommTax = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtCommTax);
-                    }
-                    if (rblHighTension.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "14";
-                        dtHitens = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtHitens);
-                    }
-                    if (rblfrstDistncLtr.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "15";
-                        dtfrstDist = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtfrstDist);
-                    }
-                    if (rblNonForstLandCert.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "16";
-                        dtNonFrstLand = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtNonFrstLand);
-                    }
-                    if (rblwaterbody.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "17";
-                        dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtWtrbody);
-                        dtWtrbody.Clear();
-                        objCFEQ.ApprovalID = "18";
-                        dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtWtrbody);
-                    }
-                    if (rblLbrAct1970.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "25";
-                        dtAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtAct1970);
-                    }
-                    if (rblLbrAct1979.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "26";
-                        dtAct1979 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtAct1979);
-                    }
-                    if (rblLbrAct1996.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "27";
-                        dtAct1996 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtAct1996);
-                    }
-                    if (rblLabourAct.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "28";
-                        dtContrLbrAct = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtContrLbrAct);
-                    }
-                    if (rblForContr1970.SelectedValue == "Y")
-                    {
-                        objCFEQ.ApprovalID = "29";
-                        dtContAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                        dtApprReq.Merge(dtContAct1970);
-                    }
-                    if (dtApprReq.Rows.Count > 0)
-                    {
-                        divApprovals.Visible = true;
-                        grdApprovals.DataSource = dtApprReq;
-                        grdApprovals.DataBind();
-                    }
-                    else
-                    {
-                        grdApprovals.DataSource = null;
-                        grdApprovals.DataBind();
-                    }
+                    objCFEQ.PCBCategory = lblPCBCategory.Text;
+                    objCFEQ.ApprovalID = "1";
+                    dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtPCB);
                 }
+                if (ddlPowerReq.SelectedValue != "")
+                {
+                    objCFEQ.PowerReqKW = ddlPowerReq.SelectedValue;
+                    objCFEQ.PropEmployment = txtPropEmp.Text;
+                    objCFEQ.ApprovalID = "3";
+                    dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtpower);
+                    objCFEQ.ApprovalID = "5";
+                    dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtFctry);
+                }
+                if (rblGenerator.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "6";
+                    dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtGenReq);
+                }
+                if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
+                {
+                    objCFEQ.BuildingHeight = txtBuildingHeight.Text;
+                    objCFEQ.ApprovalID = "7";
+                    dtfire = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtfire);
+                }
+                if (rblRSDSstore.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "8";
+                    dtRSDS = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtRSDS);
+                }
+                if (rblexplosives.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "9";
+                    dtExplosivs = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtExplosivs);
+                }
+                if (rblPetrlManf.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "10";
+                    dtPtrlsale = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtPtrlsale);
+                }
+                if (rblRoadCutting.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "11";
+                    dtRdctng = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtRdctng);
+                }
+                if (rblNonEncCert.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "12";
+                    dtNonEncCert = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtNonEncCert);
+                }
+                if (rblCommericalTax.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "13";
+                    dtCommTax = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtCommTax);
+                }
+                if (rblHighTension.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "14";
+                    dtHitens = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtHitens);
+                }
+                if (rblfrstDistncLtr.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "15";
+                    dtfrstDist = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtfrstDist);
+                }
+                if (rblNonForstLandCert.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "16";
+                    dtNonFrstLand = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtNonFrstLand);
+                }
+                if (rblwaterbody.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "17";
+                    dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtWtrbody);
+                    dtWtrbody.Clear();
+                    objCFEQ.ApprovalID = "18";
+                    dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtWtrbody);
+                }
+                if (rblLbrAct1970.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "25";
+                    dtAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtAct1970);
+                }
+                if (rblLbrAct1979.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "26";
+                    dtAct1979 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtAct1979);
+                }
+                if (rblLbrAct1996.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "27";
+                    dtAct1996 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtAct1996);
+                }
+                if (rblLabourAct.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "28";
+                    dtContrLbrAct = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtContrLbrAct);
+                }
+                if (rblForContr1970.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "29";
+                    dtContAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtContAct1970);
+                }
+                if (dtApprReq.Rows.Count > 0)
+                {
+                    divApprovals.Visible = true;
+                    grdApprovals.DataSource = dtApprReq;
+                    grdApprovals.DataBind();
+                }
+                else
+                {
+                    grdApprovals.DataSource = null;
+                    grdApprovals.DataBind();
+                }
+
             }
             catch (Exception ex)
             {

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace MeghalayaUIP.Common
 {
-    public class CFECommon
+    public class CFEConstants
     {
         public static string GetCFERegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA";
         public static string GetCFEApprovalsReq = "USP_GETCFEAPPROVALSWITHFEE";
         public static string InsertCFEQuestionnaire = "USP_INSCFEQUESTIONNAREDETAILS";
-        public static string GetSector_Department = "USP_GET_SECTOR_DEPT";
+        public static string InsertCFEQuestionnaireApprovals = "USP_INSCFEREQUIREDAPPROVALS";
+        public static string GetApprovalsReqFromTable = "USP_GETCFEQUESTIONNAIREAPPROVALS";
     }
     public class CFEQuestionnaireDet
     {
@@ -21,6 +22,8 @@ namespace MeghalayaUIP.Common
         public string CreatedBy { get; set; }
         public string ApprovalID { get; set; }
         public string DeptID { get; set; }
+        public string ApprovalFee { get; set; }
+
         public string IPAddress { get; set; }
         public string CompanyName { get; set; }
         public string ConstofUnit { get; set; }

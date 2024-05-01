@@ -168,7 +168,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Type *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:DropDownList ID="ddlConstType" runat="server"  class="form-control" >
+                                                                <asp:DropDownList ID="ddlConstType" runat="server"  class="form-control"  >
                                                                    
                                                                 </asp:DropDownList>
                                                             </div>
@@ -212,7 +212,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" />
+                                                                <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" type="date" />
                                                             </div>
                                                         </div>
                                                     </div>

@@ -44,12 +44,13 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         MVprereg.ActiveViewIndex = index;
                         BindDistricts();
-                        BindData();
+
                         BindCountries();
                         BindStates();
                         BindConstitutionType();
                         BindRevenueProjectionsMaster();
                         BindSectors();
+                        BindData();
                     }
                 }
                 else
@@ -146,17 +147,17 @@ namespace MeghalayaUIP.User.PreReg
                             txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_LOAN"]);
                         }
                     }
-                    if (ds.Tables.Count > 1)
-                    {
-                        //ViewState["MRPID"].ToString();
-                        //DataTable dt = jrresult                       
+                    //if (ds.Tables.Count > 1)
+                    //{
+                    //    //ViewState["MRPID"].ToString();
+                    //    //DataTable dt = jrresult                       
 
-                        grdRevenueProj.Visible = true;
-                        grdRevenueProj.DataSource = ds.Tables[0];
-                        grdRevenueProj.DataBind();
-                    }
+                    //    grdRevenueProj.Visible = true;
+                    //    grdRevenueProj.DataSource = ds.Tables[0];
+                    //    grdRevenueProj.DataBind();
+                    //}
                 }
-                
+
 
             }
 

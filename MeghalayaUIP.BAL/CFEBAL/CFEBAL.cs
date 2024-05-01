@@ -23,13 +23,16 @@ namespace MeghalayaUIP.BAL.CFEBLL
         }
         public DataTable GetApprovalsReqWithFee(CFEQuestionnaireDet objCFEQ)
         { return objCFEDAL.GetApprovalsReqWithFee(objCFEQ); }
-        public string InsertQuestionnaireCFE(CFEQuestionnaireDet objCFEQsnaire, out string IDno)
+        public string InsertQuestionnaireCFE(CFEQuestionnaireDet objCFEQsnaire)
         {
-            return objCFEDAL.InsertQuestionnaireCFE(objCFEQsnaire, out IDno);
+            return objCFEDAL.InsertQuestionnaireCFE(objCFEQsnaire);
         }
-        public DataTable GetsectorDep(string sectorname)
+        public string InsertCFEQuestionnaireApprovals(CFEQuestionnaireDet objCFEQsnaire)
         {
-            return objCFEDAL.GetsectorDep(sectorname);
+            return objCFEDAL.InsertCFEQuestionnaireApprovals(objCFEQsnaire);
         }
+        public DataSet GetApprovalsReqFromTable(CFEQuestionnaireDet objCFEQsnaire)
+        { return objCFEDAL.GetApprovalsReqFromTable(objCFEQsnaire); }
+
     }
 }

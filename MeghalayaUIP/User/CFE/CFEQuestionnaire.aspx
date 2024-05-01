@@ -653,7 +653,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Aggregate Capacity:</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtCapacity" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control"></asp:TextBox>
 
                                                                     </div>
                                                                 </div>
@@ -707,7 +707,7 @@
                                                                         (Girth of tree > 30
 																		centimeters)</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txttree" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtNoofTrees" runat="server" class="form-control"></asp:TextBox>
 
                                                                     </div>
                                                                 </div>
@@ -941,7 +941,7 @@
                                         <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
                                             <ItemStyle Width="450px" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="Dept_Name" HeaderText="Department">
+                                        <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
                                             <ItemStyle Width="180px" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fees (Rs.)">
@@ -949,14 +949,14 @@
                                             <HeaderStyle HorizontalAlign="Right" />
                                             <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Right" />
                                         </asp:BoundField>
-                                        <asp:TemplateField HeaderText="Approval ID" Visible="true">
+                                        <asp:TemplateField HeaderText="Approval ID" Visible="false">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText=" Dept ID" Visible="true">
+                                        <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("Dept_Id") %>'></asp:Label>
+                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("TMD_DEPTID") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
