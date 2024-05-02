@@ -73,7 +73,8 @@ namespace MeghalayaUIP.User.CFE
                     hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
                     Session["UNITID"] = hdnPreRegUNITID.Value;
                     txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
-                    txtProposalfor.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
+                    rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
+                    ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
                     ddlDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_DISTRICTID"]);
                     ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
@@ -105,7 +106,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -113,28 +114,28 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                ddlConstType.Items.Clear();
+                ddlCompanyType.Items.Clear();
 
                 List<MasterConstType> objConsttype = new List<MasterConstType>();
 
                 objConsttype = mstrBAL.GetConstitutionType();
                 if (objConsttype != null)
                 {
-                    ddlConstType.DataSource = objConsttype;
-                    ddlConstType.DataValueField = "ConstId";
-                    ddlConstType.DataTextField = "ConstName";
-                    ddlConstType.DataBind();
+                    ddlCompanyType.DataSource = objConsttype;
+                    ddlCompanyType.DataValueField = "ConstId";
+                    ddlCompanyType.DataTextField = "ConstName";
+                    ddlCompanyType.DataBind();
                 }
                 else
                 {
-                    ddlConstType.DataSource = null;
-                    ddlConstType.DataBind();
+                    ddlCompanyType.DataSource = null;
+                    ddlCompanyType.DataBind();
                 }
-                AddSelect(ddlConstType);
+                AddSelect(ddlCompanyType);
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -163,7 +164,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindSectors()
@@ -191,7 +192,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindLineOfActivity(string Sector)
@@ -219,7 +220,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindDistricts()
@@ -262,7 +263,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindMandal(DropDownList ddlmndl, string DistrictID)
@@ -290,7 +291,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -319,7 +320,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindPowerReq()
@@ -347,7 +348,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void GetElectricRegulations()
@@ -375,7 +376,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void GetVoltageMaster()
@@ -403,7 +404,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void GetPowerPlants()
@@ -431,7 +432,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -445,7 +446,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
@@ -461,7 +462,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlLine_Activity_SelectedIndexChanged(object sender, EventArgs e)
@@ -477,7 +478,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
@@ -495,8 +496,8 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
                 //Failure.Visible = true;
-                //lblmsg0.Text = ex.Message;
-                throw ex;
+                //lblmsg0.Text = ex.Message; Failure.Visible = true;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
@@ -512,7 +513,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void rblFelltrees_SelectedIndexChanged(object sender, EventArgs e)
@@ -529,7 +530,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -546,7 +547,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -575,7 +576,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void rblLbrAct1970_SelectedIndexChanged(object sender, EventArgs e)
@@ -590,7 +591,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -606,7 +607,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -623,7 +624,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -640,7 +641,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -658,7 +659,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -674,7 +675,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -716,8 +717,8 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.PREREGUIDNO = hdnPreRegUID.Value;
                     objCFEQsnaire.IPAddress = getclientIP();
                     objCFEQsnaire.CompanyName = txtUnitName.Text.Trim();
-                    objCFEQsnaire.ConstofUnit = ddlConstType.SelectedValue;
-                    objCFEQsnaire.ProposalFor = txtProposalfor.Text.Trim();
+                    objCFEQsnaire.CompanyType = ddlCompanyType.SelectedValue;
+                    objCFEQsnaire.ProposalFor = rblProposal.SelectedValue.Trim();
                     objCFEQsnaire.LandFromMIDCL = rblMIDCL.SelectedValue;
                     objCFEQsnaire.PropLocDitrictID = ddlDistrict.SelectedValue;
                     objCFEQsnaire.PropLocMandalID = ddlMandal.SelectedValue;
@@ -773,6 +774,7 @@ namespace MeghalayaUIP.User.CFE
                     result = objcfebal.InsertQuestionnaireCFE(objCFEQsnaire);
                     if (result != "100")
                     {
+                        CFEQuestionnaireDet objrm =new CFEQuestionnaireDet();
                         Session["QUESTIONRID"] = result;
                         for (int i = 0; i < grdApprovals.Rows.Count; i++)
                         {
@@ -786,13 +788,13 @@ namespace MeghalayaUIP.User.CFE
                             objCFEQsnaire.ApprovalFee = grdApprovals.Rows[i].Cells[3].Text;
                             objCFEQsnaire.CreatedBy = hdnUserID.Value;
                             objCFEQsnaire.IPAddress = getclientIP();
-                            objCFEQsnaire.UNITID= hdnPreRegUNITID.Value;
+                            objCFEQsnaire.UNITID = hdnPreRegUNITID.Value;
 
                             string A = objcfebal.InsertCFEQuestionnaireApprovals(objCFEQsnaire);
                             if (A != "")
                             { count = count + 1; }
                         }
-                        if (grdApprovals.Rows.Count == count )
+                        if (grdApprovals.Rows.Count == count)
                         {
                             success.Visible = true;
                             lblmsg.Text = "Consent For Establishment - Questionnaire Details Submitted Successfully";
@@ -810,7 +812,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -842,12 +844,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Company Registration /Incorporation Date \\n";
                     slno = slno + 1;
                 }
-                if (ddlConstType.SelectedIndex == -1 || ddlConstType.SelectedItem.Text == "--Select--")
+                if (ddlCompanyType.SelectedIndex == -1 || ddlCompanyType.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Constitution of Unit \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtProposalfor.Text) || txtProposalfor.Text == "" || txtProposalfor.Text == null)
+                if (rblProposal.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposal for \\n";
                     slno = slno + 1;
@@ -1130,6 +1132,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
                 throw ex;
+                 //lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -1150,7 +1153,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 CFEQuestionnaireDet objCFEQ = new CFEQuestionnaireDet();
 
-                string ErrorMsg ;
+                string ErrorMsg;
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -1158,12 +1161,12 @@ namespace MeghalayaUIP.User.CFE
                 }
                 else
                 {
-                   
+
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -1330,7 +1333,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void grdApprovals_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -1351,7 +1354,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -1359,6 +1362,10 @@ namespace MeghalayaUIP.User.CFE
         protected void Link1_Click(object sender, EventArgs e)
         {
             MVQues.ActiveViewIndex = 0;
+            Link1.ForeColor = Color.Black;
+            Link1.Font.Underline = true;
+            Link2.Font.Underline = false;
+            Link3.Font.Underline = false;
 
         }
 

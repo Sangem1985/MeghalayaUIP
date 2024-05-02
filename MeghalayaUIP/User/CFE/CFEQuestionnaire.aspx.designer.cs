@@ -132,22 +132,22 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtUnitName;
 
         /// <summary>
-        /// ddlConstType control.
+        /// ddlCompanyType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConstType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCompanyType;
 
         /// <summary>
-        /// txtProposalfor control.
+        /// rblProposal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProposalfor;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblProposal;
 
         /// <summary>
         /// ddlDistrict control.

@@ -32,9 +32,9 @@
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
-                                <asp:LinkButton ID="Link1" runat="server" OnClick="Link1_Click" style="padding-right:20px; font-size:20px" >1.Project Details</asp:LinkButton> 
-                                <asp:LinkButton ID="Link2" runat="server" OnClick="Link2_Click" style="padding-right:20px;  font-size:20px">2.Project Financials</asp:LinkButton>
-                                <asp:LinkButton ID="Link3" runat="server" OnClick="Link3_Click" style="padding-right:10px;  font-size:20px">3.Project Requirements</asp:LinkButton>
+                                <asp:LinkButton ID="Link1" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px">1.Project Details</asp:LinkButton>
+                                <asp:LinkButton ID="Link2" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 20px">2.Project Financials</asp:LinkButton>
+                                <asp:LinkButton ID="Link3" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 20px">3.Project Requirements</asp:LinkButton>
                                 <%--<ul class="nav nav-tabs">
                                     <li class="nav-item" runat="server" id="Li1">
                                         <a class="nav-link  active" href="#basictab1" data-toggle="tab">1.Project Details</a>
@@ -66,9 +66,9 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        2.Constitution of the unit</label>
+                                                                        2.Company Type</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:DropDownList ID="ddlConstType" runat="server" class="form-control">
+                                                                        <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control">
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
@@ -78,7 +78,11 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         Proposal For</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtProposalfor" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="New" Value="New"></asp:ListItem>
+                                                                            <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
+                                                                        </asp:RadioButtonList>
+
                                                                     </div>
                                                                 </div>
                                                             </div>

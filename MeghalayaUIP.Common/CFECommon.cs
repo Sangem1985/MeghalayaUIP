@@ -13,6 +13,7 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEQuestionnaire = "USP_INSCFEQUESTIONNAREDETAILS";
         public static string InsertCFEQuestionnaireApprovals = "USP_INSCFEREQUIREDAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFEQUESTIONNAIREAPPROVALS";
+        public static string InsertCFEDepartmentapprovals = "USP_INSCFEDEPARTMENTAPPROVALS";
     }
     public class CFEQuestionnaireDet
     {
@@ -23,10 +24,10 @@ namespace MeghalayaUIP.Common
         public string ApprovalID { get; set; }
         public string DeptID { get; set; }
         public string ApprovalFee { get; set; }
-
+        public string IsOffline { get; set; }
         public string IPAddress { get; set; }
         public string CompanyName { get; set; }
-        public string ConstofUnit { get; set; }
+        public string CompanyType { get; set; }
         public string ProposalFor { get; set; }
         public string LandFromMIDCL { get; set; }
         public string PropLocDitrictID { get; set; }

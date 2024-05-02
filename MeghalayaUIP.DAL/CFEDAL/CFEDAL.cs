@@ -141,12 +141,12 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 //da.SelectCommand.Connection = connection;
 
                 com.Parameters.AddWithValue("@CFEQDID", objCFEQsnaire.CFEQDID);
-                
+
                 com.Parameters.AddWithValue("@CFEQD_UNITID", Convert.ToInt32(objCFEQsnaire.UNITID));
                 com.Parameters.AddWithValue("@CFEQD_PREREGUIDNO", objCFEQsnaire.PREREGUIDNO);
                 com.Parameters.AddWithValue("@CFEQD_APPLSTATUS", 2);
                 com.Parameters.AddWithValue("@CFEQD_COMPANYNAME", objCFEQsnaire.CompanyName);
-                com.Parameters.AddWithValue("@CFEQD_CONSTOFUNIT", Convert.ToInt32(objCFEQsnaire.ConstofUnit));
+                com.Parameters.AddWithValue("@CFEQD_COMPANYTYPE", Convert.ToInt32(objCFEQsnaire.CompanyType));
                 com.Parameters.AddWithValue("@CFEQD_PROPOSALFOR", objCFEQsnaire.ProposalFor);
                 com.Parameters.AddWithValue("@CFEQD_MIDCLLAND", Convert.ToInt32(objCFEQsnaire.LandFromMIDCL));
                 com.Parameters.AddWithValue("@CFEQD_PROPDISTRICTID", Convert.ToInt32(objCFEQsnaire.PropLocDitrictID));
@@ -176,28 +176,28 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEQD_NONENCMCERTREQ", objCFEQsnaire.NonEncmbrnceCert);
                 com.Parameters.AddWithValue("@CFEQD_COMMTAXREQ", objCFEQsnaire.CommTaxApproval);
                 com.Parameters.AddWithValue("@CFEQD_USINGHTMETER", objCFEQsnaire.HTMeteruse);
-                com.Parameters.AddWithValue("@CFEQD_CEIGREGULATION",  objCFEQsnaire.CEARegulationID);
-                com.Parameters.AddWithValue("@CFEQD_POWERPLANT",  objCFEQsnaire.PowerPlantID);
+                com.Parameters.AddWithValue("@CFEQD_CEIGREGULATION", objCFEQsnaire.CEARegulationID);
+                com.Parameters.AddWithValue("@CFEQD_POWERPLANT", objCFEQsnaire.PowerPlantID);
                 com.Parameters.AddWithValue("@CFEQD_AGGRCAPACITY", objCFEQsnaire.AggCapacity);
-                com.Parameters.AddWithValue("@CFEQD_VOLTAGERATING",  objCFEQsnaire.VoltageRating);
-                com.Parameters.AddWithValue("@CFEQD_TREESFELLING",  objCFEQsnaire.TreesFelling);
+                com.Parameters.AddWithValue("@CFEQD_VOLTAGERATING", objCFEQsnaire.VoltageRating);
+                com.Parameters.AddWithValue("@CFEQD_TREESFELLING", objCFEQsnaire.TreesFelling);
                 com.Parameters.AddWithValue("@CFEQD_NOOFTREES", objCFEQsnaire.NoofTrees);
-                com.Parameters.AddWithValue("@CFEQD_NONFORSTLANDCERTREQ",  objCFEQsnaire.NonForstLandCert);
+                com.Parameters.AddWithValue("@CFEQD_NONFORSTLANDCERTREQ", objCFEQsnaire.NonForstLandCert);
                 com.Parameters.AddWithValue("@CFEQD_FORSTDISTLTRREQ", objCFEQsnaire.ForstDistLetr);
-                com.Parameters.AddWithValue("@CFEQD_WATERBODYVICINITY",  objCFEQsnaire.NearWaterBodyLocation);
-                com.Parameters.AddWithValue("@CFEQD_BOREWELLEXISTS",  objCFEQsnaire.ExistingBoreWell);
-                com.Parameters.AddWithValue("@CFEQD_LABOURACT1970",  objCFEQsnaire.LabourAct1970);
+                com.Parameters.AddWithValue("@CFEQD_WATERBODYVICINITY", objCFEQsnaire.NearWaterBodyLocation);
+                com.Parameters.AddWithValue("@CFEQD_BOREWELLEXISTS", objCFEQsnaire.ExistingBoreWell);
+                com.Parameters.AddWithValue("@CFEQD_LABOURACT1970", objCFEQsnaire.LabourAct1970);
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERS1970", objCFEQsnaire.LabourAct1970_Workers);
-                com.Parameters.AddWithValue("@CFEQD_LABOURACT1979",  objCFEQsnaire.LabourAct1979);
+                com.Parameters.AddWithValue("@CFEQD_LABOURACT1979", objCFEQsnaire.LabourAct1979);
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERS1979", objCFEQsnaire.LabourAct1979_Workers);
-                com.Parameters.AddWithValue("@CFEQD_LABOURACT1996",  objCFEQsnaire.LabourAct1996);
-                com.Parameters.AddWithValue("@CFEQD_BUILDINGWORKS1996",  objCFEQsnaire.LabourAct1996_10Workers);
+                com.Parameters.AddWithValue("@CFEQD_LABOURACT1996", objCFEQsnaire.LabourAct1996);
+                com.Parameters.AddWithValue("@CFEQD_BUILDINGWORKS1996", objCFEQsnaire.LabourAct1996_10Workers);
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERS1996", objCFEQsnaire.LabourAct1996_Workers);
-                com.Parameters.AddWithValue("@CFEQD_CONTRLABOURACT",  objCFEQsnaire.ContractLabourAct);
+                com.Parameters.AddWithValue("@CFEQD_CONTRLABOURACT", objCFEQsnaire.ContractLabourAct);
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERSCONTR", objCFEQsnaire.ContractLabourAct_Workers);
                 com.Parameters.AddWithValue("@CFEQD_CONTRLABOURACT1970", objCFEQsnaire.ContractLabourAct);
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERSCONTR1970", objCFEQsnaire.ContractLabourAct_Workers);
-                com.Parameters.AddWithValue("@CFEQD_CREATEDBY", Convert.ToInt32( objCFEQsnaire.CreatedBy));
+                com.Parameters.AddWithValue("@CFEQD_CREATEDBY", Convert.ToInt32(objCFEQsnaire.CreatedBy));
                 com.Parameters.AddWithValue("@CFEQD_CREATEDBYIP", objCFEQsnaire.IPAddress);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -211,7 +211,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 //connection.Close();
                 //Result = Convert.ToString(QID);
 
-               // transaction.Commit();
+                // transaction.Commit();
                 //connection.Close();
 
             }
@@ -246,12 +246,12 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.CommandText = CFEConstants.InsertCFEQuestionnaireApprovals;
 
                 com.Transaction = transaction;
-                com.Connection = connection;        
+                com.Connection = connection;
 
                 com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(objCFEQsnaire.CFEQDID));
                 com.Parameters.AddWithValue("@CFEQA_DEPTID", Convert.ToInt32(objCFEQsnaire.DeptID));
                 com.Parameters.AddWithValue("@CFEQA_APPROVALID", Convert.ToInt32(objCFEQsnaire.ApprovalID));
-                com.Parameters.AddWithValue("@CFEQA_APPROVALFEE", Convert.ToDecimal(objCFEQsnaire.ApprovalFee));              
+                com.Parameters.AddWithValue("@CFEQA_APPROVALFEE", Convert.ToDecimal(objCFEQsnaire.ApprovalFee));
                 com.Parameters.AddWithValue("@CFEQA_CREATEDBY", Convert.ToInt32(objCFEQsnaire.CreatedBy));
                 com.Parameters.AddWithValue("@CFEQA_CREATEDBYIP", objCFEQsnaire.IPAddress);
                 com.Parameters.AddWithValue("@CFEQA_UNITID", Convert.ToInt32(objCFEQsnaire.UNITID));
@@ -262,7 +262,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Close();
                 Result = Convert.ToString(QAID);
 
-               
+
 
             }
             catch (Exception ex)
@@ -296,7 +296,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(objCFEQ.UNITID));
                 da.SelectCommand.Parameters.AddWithValue("@CRETAEDBY", Convert.ToInt32(objCFEQ.CreatedBy));
-              
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -311,6 +311,57 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+
+        public string InsertCFEDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
+        {
+            string Result = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            //connection.Open();
+            //transaction = connection.BeginTransaction();
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEDepartmentapprovals;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEDA_UNITID", Convert.ToInt32(objCFEQsnaire.UNITID));
+                com.Parameters.AddWithValue("@CFEDA_CFEQDID", Convert.ToInt32(objCFEQsnaire.CFEQDID));
+                com.Parameters.AddWithValue("@CFEDA_DEPTID", Convert.ToInt32(objCFEQsnaire.DeptID));
+                com.Parameters.AddWithValue("@CFEDA_APPROVALID", Convert.ToInt32(objCFEQsnaire.ApprovalID));
+                com.Parameters.AddWithValue("@CFEDA_APPROVALFEE", Convert.ToDecimal(objCFEQsnaire.ApprovalFee));
+                com.Parameters.AddWithValue("@CFEDA_ISOFFLINE", objCFEQsnaire.IsOffline);
+                com.Parameters.AddWithValue("@CFDA_CREATEDBY", Convert.ToInt32(objCFEQsnaire.CreatedBy));
+                com.Parameters.AddWithValue("@CFDA_CREATEDBYIP", objCFEQsnaire.IPAddress);
+
+                int DAID = Convert.ToInt32(com.ExecuteScalar());
+                transaction.Commit();
+                connection.Close();
+                Result = Convert.ToString(DAID);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
     }
 }

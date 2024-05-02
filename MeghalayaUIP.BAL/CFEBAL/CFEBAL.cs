@@ -15,7 +15,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
     public class CFEBAL
     {
         public CFEQuestionnaireDet objCFEQ { get; } = new CFEQuestionnaireDet();
-        public CFEDAL objCFEDAL { get; } = new CFEDAL();       
+        public CFEDAL objCFEDAL { get; } = new CFEDAL();
 
         public DataSet GetIndustryRegDetails(string userid)
         {
@@ -33,6 +33,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         }
         public DataSet GetApprovalsReqFromTable(CFEQuestionnaireDet objCFEQsnaire)
         { return objCFEDAL.GetApprovalsReqFromTable(objCFEQsnaire); }
-
+        public string InsertCFEDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
+        { return objCFEDAL.InsertCFEDepartmentApprovals(objCFEQsnaire); }
     }
 }
