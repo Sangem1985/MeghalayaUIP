@@ -35,16 +35,15 @@
                                                     <strong>Warning!</strong>
                                                     <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                                                 </div>
-                                            </div>
-
-                                            <div class="col-md-12 d-flex">
-
+                                            </div>     
+                                            <div class="container">
+                                                <div class="row">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
                                                             Application Number:</label>
                                                         <div class="col-lg-6 text-center">
-
                                                             <asp:Label runat="server" ID="lblRmId"></asp:Label>
                                                         </div>
                                                     </div>
@@ -53,39 +52,42 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
                                                             Unit Name:</label>
-                                                        <div class="col-lg-6 text-center">
-
+                                                        <div class="col-lg-6 d-flex text-center">
                                                             <asp:Label runat="server" ID="lblUnitName"></asp:Label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-md-12 d-flex">
+                                                    </div>
+                                                </div>
+                                            <div class="container">
+                                                <div class="row">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
                                                             Query raised by:</label>
-                                                        <div class="col-lg-6 d-flex text-center">
-                                                            <div class="form-check form-check-inline">
-                                                                <asp:Label runat="server" ID="lblQueryRaised"></asp:Label>
-                                                            </div>
+                                                        <div class="col-lg-6 d-flex text-center">                                                       
+                                                            <asp:Label runat="server" ID="lblQueryRaised"></asp:Label>                                                     
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="auto-style2">
-                                                    <div class="form-group row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row align-content-center">
                                                         <label class="col-lg-6 col-form-label">
                                                             Query raise date:</label>
-                                                        <div class="col-lg-6 d-flex">
+                                                        <div class="col-lg-6 d-flex text-center">
                                                             <asp:Label runat="server" ID="lblQueryRaisedDate"></asp:Label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                                    </div>
+                                                </div>
 
-                                            <div class="col-md-12 d-flex">
-
+                                             <div class="container">
+                                                <div class="row">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Query Description:</label>
@@ -94,9 +96,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Query Response:</label>
@@ -106,21 +105,22 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                            </div>   
+                                                    </div>
+                                                 </div>
+                                              <div class="container">
+                                                <div class="row">
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <div class="col-md-8">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
                                                             Response Attachment:</label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:FileUpload ID="fupResAttachment" runat="server" />
-
-                                                            <asp:Button ID="btnAttach" runat="server" Text="Attach Files" CssClass="btn btn-warning" Width="100px" OnClick="btnAttach_Click" />
+                                                            <div class="col-md-4">
+                                                                <asp:Button ID="btnAttach" runat="server" class="form-control" Text="Attach Files" CssClass="btn btn-warning" Width="100px" OnClick="btnAttach_Click" />
+                                                            </div>
                                                         </div>
-                                                        <%--<div class="col-lg-6 d-flex">
-                                                           
-                                                        </div>--%>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4" id="ddunit" runat="server" visible="false">
@@ -155,8 +155,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
+                                            </div>    
+                                                    </div>
+                                                  </div>
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <div class="text-center">
                                                     <asp:GridView ID="gvCertificate" runat="server" AutoGenerateColumns="False"
@@ -191,11 +192,16 @@
                                             </div>
 
                                             <br />
-                                            <div class="d-flex justify-content-center">
+                                            <div class="container">
+                                                <div class="row">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <div>
                                                     <asp:Button runat="server" ID="btnSubmit" Style="width: 130px;" CssClass="btn btn-success" Text="Submit" OnClick="btnSubmit_Click" />
                                                 </div>
                                             </div>
+                                                    </div>
+                                                </div>
+                                               
                                         </div>
                                     </div>
 

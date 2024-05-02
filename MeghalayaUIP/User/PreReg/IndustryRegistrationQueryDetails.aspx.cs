@@ -6,6 +6,7 @@ using System.Data;
 using System.Globalization;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -147,7 +148,9 @@ namespace MeghalayaUIP.User.PreReg
                 PRE.QueryID = lblRid.Text;
                 string indus = indstregBAL.UpdateIndRegApplQueryRespose(PRE);
 
-
+                btnSubmit.Enabled = false;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Replied Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                return;
             }
             catch (Exception ex)
             {

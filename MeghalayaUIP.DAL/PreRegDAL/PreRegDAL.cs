@@ -440,12 +440,12 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
                 com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(ID.Unitid ));
-                com.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.UserID));
+                com.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.Investerid));
                 com.Parameters.AddWithValue("@IRQID", Convert.ToInt32(ID.QueryID));
-                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(ID.deptid));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(ID.QuerytoDeptID));
                 com.Parameters.AddWithValue("@RESPONSE", ID.QueryResponse);
-                com.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
-                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 0);
+                com.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress); 
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
 
