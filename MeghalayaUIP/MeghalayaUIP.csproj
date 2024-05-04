@@ -356,6 +356,7 @@
     <Content Include="login.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
+    <Content Include="User\CFE\CFEDashboard.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
     <Content Include="User\CFE\demo.aspx" />
     <Content Include="User\CFO\demo.aspx" />
@@ -530,6 +531,13 @@
     </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.designer.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEDashboard.aspx.cs">
+      <DependentUpon>CFEDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEDashboard.aspx.designer.cs">
+      <DependentUpon>CFEDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEQuestionnaire.aspx.cs">
       <DependentUpon>CFEQuestionnaire.aspx</DependentUpon>

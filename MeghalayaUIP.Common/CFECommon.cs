@@ -8,6 +8,7 @@ namespace MeghalayaUIP.Common
 {
     public class CFEConstants
     {
+        public static string GetPREREGandCFEapplications = "USP_GETPREREGANDCFEUSERDASHBOARD";
         public static string GetCFERegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA";
         public static string GetCFEApprovalsReq = "USP_GETCFEAPPROVALSWITHFEE";
         public static string InsertCFEQuestionnaire = "USP_INSCFEQUESTIONNAREDETAILS";

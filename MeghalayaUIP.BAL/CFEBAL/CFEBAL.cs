@@ -16,10 +16,13 @@ namespace MeghalayaUIP.BAL.CFEBLL
     {
         public CFEQuestionnaireDet objCFEQ { get; } = new CFEQuestionnaireDet();
         public CFEDAL objCFEDAL { get; } = new CFEDAL();
-
-        public DataSet GetIndustryRegDetails(string userid)
+        public DataSet GetPREREGandCFEapplications(string USERID)
+        { 
+            return objCFEDAL.GetPREREGandCFEapplications(USERID);
+        }
+        public DataSet GetIndustryRegDetails(string userid, string UnitID)
         {
-            return objCFEDAL.GetIndustryRegDetails(userid);
+            return objCFEDAL.GetIndustryRegDetails(userid, UnitID);
         }
         public DataTable GetApprovalsReqWithFee(CFEQuestionnaireDet objCFEQ)
         { return objCFEDAL.GetApprovalsReqWithFee(objCFEQ); }

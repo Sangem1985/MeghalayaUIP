@@ -14,8 +14,40 @@ namespace MeghalayaUIP.DAL.CFEDAL
     {
         string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
 
+        public DataSet GetPREREGandCFEapplications(string userid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetPREREGandCFEapplications, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetPREREGandCFEapplications;
 
-        public DataSet GetIndustryRegDetails(string userid)
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetIndustryRegDetails(string userid, string UnitID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -33,6 +65,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(userid));
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

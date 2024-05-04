@@ -15,6 +15,7 @@ namespace MeghalayaUIP.User.CFE
 {
     public partial class CFEQuestionnaire : System.Web.UI.Page
     {
+        string UnitID;
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
@@ -34,6 +35,8 @@ namespace MeghalayaUIP.User.CFE
                 Page.MaintainScrollPositionOnPostBack = true;
                 if (!IsPostBack)
                 {
+                    if(Request.QueryString.Count>0)
+                    {  UnitID = Request.QueryString[0]; }
                     MVQues.ActiveViewIndex = index;
                     BindSectors();
                     BindDistricts();
@@ -66,7 +69,7 @@ namespace MeghalayaUIP.User.CFE
             {
 
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetIndustryRegDetails(hdnUserID.Value);
+                ds = objcfebal.GetIndustryRegDetails(hdnUserID.Value, UnitID);
                 if (ds != null)
                 {
                     hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
