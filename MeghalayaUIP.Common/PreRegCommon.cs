@@ -20,7 +20,7 @@ namespace MeghalayaUIP.Common
         public static string GetIndustryRegistrationQueryDetails = "USP_GETPREREGDEPTRRAISEDQUERIES";
         /*-----------------------End of User-----------------------------*/
 
-        public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
+        //public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
         public static string GetSectorDepartments = "USP_GET_SECTOR_DEPT";
         public static string GetPreRegDashBoard = "USP_PREREGDASHBOARDCOUNT";
         public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDVIEW";
@@ -38,6 +38,7 @@ namespace MeghalayaUIP.Common
         public string CompanyPAN { get; set; }
         public string CompnyRegDt { get; set; }
         public string CompnyType { get; set; }
+        public string CompnyProposal { get; set; }
         public string UdyamorIEMNo { get; set; }
         public string GSTNo { get; set; }
         public string AuthReprName { get; set; }

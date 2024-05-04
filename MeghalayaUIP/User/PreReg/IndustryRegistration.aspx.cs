@@ -660,7 +660,8 @@ namespace MeghalayaUIP.User.PreReg
                     ID.CompanyName = txtUnitName.Text.Trim();
                     ID.CompanyPAN = txtPANno.Text.Trim();
                     ID.CompnyRegDt = txtCompnyRegDt.Text.Trim();
-                    //ID.CompnyType = rblproposal.SelectedItem.Text.Trim();
+                    ID.CompnyType = ddlConstType.SelectedValue;
+                    ID.CompnyProposal= rblproposal.SelectedItem.Text.Trim();
                     ID.UdyamorIEMNo = txtUdyamorIEMNo.Text.Trim();
                     ID.GSTNo = txtGSTNo.Text.Trim();
 
@@ -719,7 +720,7 @@ namespace MeghalayaUIP.User.PreReg
                     ID.CapitalSubsidy = txtCapitalSubsidy.Text.Trim();
                     ID.PromoterEquity = txtPromoterEquity.Text.Trim();
                     ID.LoanAmount = txtLoanAmount.Text.Trim();
-
+                    
                     try
                     {
                         DataTable dt = new DataTable();

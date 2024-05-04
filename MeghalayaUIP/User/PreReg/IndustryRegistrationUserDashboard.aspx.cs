@@ -57,27 +57,17 @@ namespace MeghalayaUIP.User.PreReg
                     gvPreRegUserDashboard.DataSource = ds;
                     gvPreRegUserDashboard.DataBind();
                 }
+                //if (lnkbtn.Text != "0")
+                //{
+                //    LinkButton lnkbtn = (LinkButton)sender;
+                //    lnkbtn.Style["text-decoration"] = "none";
+                //}
             }
             catch (Exception ex)
             {
             }
 
-        }
-
-        //protected void lnkQueryCount_Click(object sender, EventArgs e)
-        //{
-        //    LinkButton lnkbtn = (LinkButton)sender;
-
-        //    GridViewRow row = (GridViewRow)lnkbtn.NamingContainer;
-        //    string UNITID = row.Cells[1].Text;
-        //    if (lnkbtn.Text != "0")
-        //    {
-        //        string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID ;
-
-        //        Response.Redirect(newurl);
-        //    }
-
-        //}
+        }        
 
         protected void btnView_Click(object sender, EventArgs e)
         {
@@ -87,6 +77,25 @@ namespace MeghalayaUIP.User.PreReg
             string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID;
 
             Response.Redirect(newurl);
+        }
+
+        protected void lnkQueryCount_Click(object sender, EventArgs e)
+        {
+            LinkButton lnkbtn = (LinkButton)sender;
+
+            GridViewRow row = (GridViewRow)lnkbtn.NamingContainer;
+            string UNITID = row.Cells[1].Text;
+            if (lnkbtn.Text != "0")
+            {
+                string newurl = "IndustryRegistrationQueryDashboard.aspx?UNITID=" + UNITID;
+
+                Response.Redirect(newurl);
+            }
+            else
+            {
+                lnkbtn.Style["text-decoration"] = "none";
+            }
+
         }
     }
 }

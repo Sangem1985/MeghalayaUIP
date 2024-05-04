@@ -23,7 +23,7 @@
                                         <div class="text">
                                             <a href="PreRegApplDeptView.aspx?status=A" style="color: white">Total Application </a>
                                         </div>
-                                        <div style="font-size: 12px;">Total Revence Hold Application Received</div>
+                                        <div style="font-size: 12px;"></div>
                                         <i class="fi fi-tr-memo-circle-check"></i>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-cyan hover-expand-effect">
+                                <div class="info-box bg-yellow hover-expand-effect">
                                     <div class="icon">
                                         <h4>
                                             <asp:Label ID="lblToBeProcessed" runat="server"></asp:Label>
@@ -65,13 +65,28 @@
                 </section>
             </div>
             <div class="card">
-                <div class="card-header">
+                <%-- <div class="card-header">
                     <h3>Query Details</h3>
-                </div>
+                </div>--%>
                 <section id="dashboardcount2">
                     <div class="container-fluid">
                         <div class="row clearfix">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-green hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblApproved" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplDeptView.aspx?status=D" style="color: white">Approved </a>
+                                        </div>
+                                        <div style="font-size: 12px;">Total Query Raised Application Received</div>
 
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-blue hover-expand-effect">
                                     <div class="icon">
@@ -96,61 +111,19 @@
                                     </div>
                                     <div class="content">
                                         <div class="text">
-                                            <a href="PreRegApplDeptView.aspx?status=D" style="color: white">Replied by Applicant</a>
+                                            <a href="PreRegApplDeptView.aspx?status=F" style="color: white">Replied by Applicant</a>
                                         </div>
                                         <div style="font-size: 12px;">Total To be Processed Application</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-yellow hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblQueryNotRepld" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplDeptView.aspx?status=D" style="color: white">Yet To be Replied</a>
-                                        </div>
-                                        <div style="font-size: 12px;">Total Rejected Application</div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
             </div>
+
+
             <div class="card">
-                <div class="card-header">
-                    <h3>Query Details</h3>
-                </div>
-                <section id="dashboardcount3">
-                    <div class="container-fluid">
-                        <div class="row clearfix">
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-green hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblApproved" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplDeptView.aspx?status=D" style="color: white">Approved </a>
-                                        </div>
-                                        <div style="font-size: 12px;">Total Query Raised Application Received</div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-
-             <div class="card">
                 <div class="card-header">
                     <h3>Query Details (IMA Queries)</h3>
                 </div>
@@ -202,6 +175,24 @@
                                         </div>
                                         <div style="font-size: 12px;">Total To be Processed Application</div>
                                         <i class="fi fi-tr-file-import"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-orange hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblAPPLREPLIEDTOIMAQUERY" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplDeptView.aspx?status=APPLREPLIEDTOIMAQUERY" style="color: white">Applicant Replied to IMA Query</a>
+                                        </div>
+                                        <div style="font-size: 12px;"></div>
+                                        <i class="fi fi-tr-memo-circle-check"></i>
                                     </div>
                                 </div>
                             </div>

@@ -35,7 +35,7 @@
 
                             <asp:TemplateField HeaderText="Queries Count" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkQueryCount" runat="server" Text='<%#Eval("QUERYCOUNT")%>' PostBackUrl='<%#Eval("UNITID","IndustryRegistrationQueryDashboard.aspx?UNITID={0}")%>'></asp:LinkButton> 
+                                    <asp:LinkButton ID="lnkQueryCount" runat="server" Text='<%#Eval("QUERYCOUNT")%>'  OnClick="lnkQueryCount_Click" ForeColor="Red" Font-Underline="true"></asp:LinkButton> 
                                     <%--PostBackUrl='<%#Eval("INVESTERID","QueryResponse.aspx?Appid={0}")%>'--%>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />

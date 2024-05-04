@@ -88,9 +88,9 @@
                 </section>
             </div>
             <div class="card">
-                <div class="card-header">
+               <%-- <div class="card-header">
                     <h3>Query Details</h3>
-                </div>
+                </div>--%>
                 <section id="dashboardcount5">
                     <div class="container-fluid">
                         <div class="row clearfix">

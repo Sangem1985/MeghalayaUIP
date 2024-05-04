@@ -149,7 +149,7 @@ namespace MeghalayaUIP.User.PreReg
                 string indus = indstregBAL.UpdateIndRegApplQueryRespose(PRE);
 
                 btnSubmit.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Replied Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Replied Successfully!');  window.location.href='IndustryRegistrationUserDashboard.aspx'", true);
                 return;
             }
             catch (Exception ex)

@@ -913,12 +913,13 @@
                                     <div>
                                         <table align="Center" style="width: 70%; border: none; align-content: flex-start" id="tblaction" runat="server" visible="false">
                                             <tr>
-                                                <td colspan="3">
+                                                <td colspan="4">
                                                     <table style="width: 100%; border: none; align-content: flex-start">
                                                         <tr style="border-color: brown; background-color: aqua; color: darkred" runat="server" visible="false" id="trheading">
                                                             <td><b>Paramater Name</b></td>
-                                                            <td><b>Applicant' s Data</b></td>
-                                                            <td><b>Dept Suggession</b></td>
+                                                            <td><b>Applicant Data</b></td>
+                                                            <td><b>Department Value</b></td>
+                                                            <td><b>Committee Value</b></td>
                                                         </tr>
                                                         <tr id="trIndsDept" runat="server" visible="false">
                                                             <td>
@@ -926,6 +927,9 @@
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblApplLandArea" runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblDeptLandArea" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control"></asp:TextBox>
@@ -939,6 +943,9 @@
                                                                 <asp:Label ID="lblApplPowerReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
+                                                                <asp:Label ID="lblDeptPowerReq" runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptPower" class="form-control"></asp:TextBox>
                                                             </td>
                                                         </tr>
@@ -948,6 +955,9 @@
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
+                                                            </td>
+                                                             <td>
+                                                                <asp:Label ID="lblDeptWaterReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptWater" class="form-control"></asp:TextBox>
@@ -962,6 +972,9 @@
                                                             <td>
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
+                                                             <td>
+                                                                <asp:Label ID="lblDeptWastedtls" runat="server"></asp:Label>
+                                                            </td>
                                                             <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control"></asp:TextBox>
                                                             </td>
@@ -975,6 +988,9 @@
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
+                                                            </td>
+                                                             <td>
+                                                                <asp:Label ID="lblDeptHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:TextBox runat="server" ID="txtHazWaste" class="form-control"></asp:TextBox>

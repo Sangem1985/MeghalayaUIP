@@ -726,6 +726,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblApplLandArea;
 
         /// <summary>
+        /// lblDeptLandArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeptLandArea;
+
+        /// <summary>
         /// txtDeptLandArea control.
         /// </summary>
         /// <remarks>
@@ -751,6 +760,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApplPowerReq;
+
+        /// <summary>
+        /// lblDeptPowerReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeptPowerReq;
 
         /// <summary>
         /// txtDeptPower control.
@@ -780,6 +798,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblApplWaterReq;
 
         /// <summary>
+        /// lblDeptWaterReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeptWaterReq;
+
+        /// <summary>
         /// txtDeptWater control.
         /// </summary>
         /// <remarks>
@@ -807,6 +834,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblApplWastedtls;
 
         /// <summary>
+        /// lblDeptWastedtls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeptWastedtls;
+
+        /// <summary>
         /// txtDeptWastedtls control.
         /// </summary>
         /// <remarks>
@@ -832,6 +868,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApplHazWaste;
+
+        /// <summary>
+        /// lblDeptHazWaste control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeptHazWaste;
 
         /// <summary>
         /// txtHazWaste control.

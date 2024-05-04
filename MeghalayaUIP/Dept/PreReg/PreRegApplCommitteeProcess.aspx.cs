@@ -143,6 +143,27 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                     lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
 
+                    if(Convert.ToString(row["DEPTLANDAREA"]) != null)
+                    {
+                        lblDeptLandArea.Text = Convert.ToString(row["DEPTLANDAREA"]);
+                    }
+                    if (Convert.ToString(row["DEPTPOWER"]) != null)
+                    {
+                        lblDeptPowerReq.Text = Convert.ToString(row["DEPTPOWER"]);
+                    }
+                    if (Convert.ToString(row["DEPTWATER"]) != null)
+                    {
+                        lblDeptWaterReq.Text = Convert.ToString(row["DEPTWATER"]);
+                    }
+                    if (Convert.ToString(row["DEPTWASTEDTLS"]) != null)
+                    {
+                        lblDeptWastedtls.Text = Convert.ToString(row["DEPTWASTEDTLS"]);
+                    }
+                    if (Convert.ToString(row["DEPTHAZWASTEDTLS"]) != null)
+                    {
+                        lblDeptHazWaste.Text = Convert.ToString(row["DEPTHAZWASTEDTLS"]);
+                    }
+                    
                     grdRevenueProj.DataSource = ds.Tables[1];
                     grdRevenueProj.DataBind();
 
@@ -315,6 +336,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblaction.Text = "Remarks if any: ";
 
                     trIndsDept.Visible = true;// Industries det For Land Vlaue
+                    lblApplLandArea.Text = lbllandArea.Text;
                     lblApplLandArea.Text = lbllandArea.Text;
 
                     trPowerDept.Visible = true;// Power det For Power Vlaue

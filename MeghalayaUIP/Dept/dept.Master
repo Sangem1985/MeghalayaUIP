@@ -121,28 +121,9 @@
 
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../dashboard.aspx">DashBoard</a>
+                                    <a class="nav-link" href="Dashboard.aspx">DashBoard</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Menu2 DashBoard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Menu3 Dashboard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">menu4</a>
-                                </li>
-
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard's
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="No_Dashboard.html">Nodel Officer</a>
-                                        <a class="dropdown-item" href="Dept_Dashboard.html">Department</a>
-                                        <a class="dropdown-item" href="Jd_Dashboard.html">JD</a>
-                                        <a class="dropdown-item" href="Committe_Dashboard.html">Committe</a>
-                                    </div>
-                                </li>
+                                 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Helpdesk
                                     </a>

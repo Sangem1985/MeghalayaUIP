@@ -173,12 +173,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         grdQueryRaised.DataSource = ds.Tables[5];
                         grdQueryRaised.DataBind();
                     }
-                    if (Request.QueryString["status"].ToString() == "C" || Request.QueryString["status"].ToString() == "D")
+                    if (Request.QueryString["status"].ToString() == "C" || Request.QueryString["status"].ToString() == "F")
                     {
                         verifypanel.Visible = true;
                         QueryResondpanel.Visible = false;
                     }
-                    else if (Request.QueryString["status"].ToString() == "IMAQuery")
+                    else if (Request.QueryString["status"].ToString() == "IMAQuery" || Request.QueryString["status"].ToString() == "APPLREPLIEDTOIMAQUERY")
                     {
                         QueryResondpanel.Visible = true;
 
@@ -502,6 +502,24 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
                     // username = ObjUserInfo.UserName;
                 }
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                TextBox txtReply = (TextBox)row.FindControl("txtIMAQueryReply");
+                Label QID = (Label)row.FindControl("lblDQID");
+
+                if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Enter Query Response";
+                    return;
+                }
+                prd.Unitid = Session["UNITID"].ToString();
+                prd.Investerid = Session["INVESTERID"].ToString();
+                prd.QueryID = QID.Text.Trim();
+                prd.status = 9;
+                prd.UserID = ObjUserInfo.UserID;
+                prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                prd.Remarks = txtReply.Text;
                 var Hostname = Dns.GetHostName();
                 prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
 

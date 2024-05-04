@@ -10,7 +10,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="No_Dashboard.html">
+                                <a href="DeptDashboard.aspx">
                                     <div class="card-counter primarydashboard5">
                                         <i class="fi fi-rr-square-up-right"></i>
                                         <span class="count-numbers">Registration under MIIPP 2024

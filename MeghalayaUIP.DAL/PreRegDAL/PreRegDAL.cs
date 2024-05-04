@@ -109,6 +109,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYNAME", ID.CompanyName);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYPANNO", ID.CompanyPAN);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYTYPE", ID.CompnyType);
+                da.SelectCommand.Parameters.AddWithValue("@COMPANYPRAPOSAL", ID.CompnyProposal);
                 da.SelectCommand.Parameters.AddWithValue("@UDYAMNO", ID.UdyamorIEMNo);
                 da.SelectCommand.Parameters.AddWithValue("@GSTNNO", ID.GSTNo);
 
@@ -834,38 +835,38 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
-        public string InsertDeptDetails(DataTable dt)
-        {
-            string valid = "";
+        //public string InsertDeptDetails(DataTable dt)
+        //{
+        //    string valid = "";
 
-            SqlConnection connection = new SqlConnection(connstr);
-            //SqlTransaction transaction = null;
-            connection.Open();
-            // transaction = connection.BeginTransaction();
-            try
-            {
-                SqlParameter[] p = new SqlParameter[] {
-                new SqlParameter("@DS",SqlDbType.Structured) };
-                p[0].Value = dt;
-                p[0].TypeName = "dbo.DEPARTMENT_SELECTIONS";
-                valid = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertPreRegJDDept, p));
+        //    SqlConnection connection = new SqlConnection(connstr);
+        //    //SqlTransaction transaction = null;
+        //    connection.Open();
+        //    // transaction = connection.BeginTransaction();
+        //    try
+        //    {
+        //        SqlParameter[] p = new SqlParameter[] {
+        //        new SqlParameter("@DS",SqlDbType.Structured) };
+        //        p[0].Value = dt;
+        //        p[0].TypeName = "dbo.DEPARTMENT_SELECTIONS";
+        //        valid = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertPreRegJDDept, p));
 
-                //transaction.Commit();
-                //connection.Close();
-            }
+        //        //transaction.Commit();
+        //        //connection.Close();
+        //    }
 
-            catch (Exception ex)
-            {
-                //transaction.Rollback();
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return valid;
-        }
+        //    catch (Exception ex)
+        //    {
+        //        //transaction.Rollback();
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //        connection.Dispose();
+        //    }
+        //    return valid;
+        //}
         public DataSet GetDeptMst(string Unitid,string Userid)
         {
 
