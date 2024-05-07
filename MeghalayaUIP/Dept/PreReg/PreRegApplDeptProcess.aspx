@@ -580,31 +580,31 @@
                                                                 style="font-weight: 900; font-size: 20px;">Production and Sales particulars for the Last 5 Years</span></label>
                                                     </div>
                                                     <div class="table-responsive">
-                                                            <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
-                                                                GridLines="Both" HeaderStyle-BackColor="Red"
-                                                                Width="80%" EnableModelValidation="True">
-                                                                <RowStyle />
-                                                                <AlternatingRowStyle BackColor="LightGray" />
-                                                                <HeaderStyle BackColor="Red" />
-                                                                <Columns>
-                                                                    <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
-                                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                                        <ItemStyle HorizontalAlign="Left" />
-                                                                        <ItemTemplate>
-                                                                            <%# Container.DataItemIndex + 1%>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-                                                                    <asp:BoundField HeaderText="Items" DataField="ITEMS" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                    <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                    <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                    <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                    <asp:BoundField HeaderText="YEAR4" DataField="YEAR4" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                    <asp:BoundField HeaderText="YEAR5" DataField="YEAR5" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                </Columns>
-                                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                                <AlternatingRowStyle BackColor="White" />
-                                                            </asp:GridView>
+                                                        <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                            GridLines="Both" HeaderStyle-BackColor="Red"
+                                                            Width="80%" EnableModelValidation="True">
+                                                            <RowStyle />
+                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                            <HeaderStyle BackColor="Red" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                    <ItemTemplate>
+                                                                        <%# Container.DataItemIndex + 1%>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="YEAR4" DataField="YEAR4" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="YEAR5" DataField="YEAR5" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            </Columns>
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                            <AlternatingRowStyle BackColor="White" />
+                                                        </asp:GridView>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
@@ -736,7 +736,7 @@
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Unit Name" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <%--<asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
                                                             <asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Raised Date" DataField="QUERYDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -903,8 +903,8 @@
                                                     <table style="width: 100%; border: none; align-content: flex-start">
                                                         <tr style="border-color: brown; background-color: aqua; color: darkred" runat="server" visible="false" id="trheading">
                                                             <td><b>Paramater Name</b></td>
-                                                            <td><b>Applicant' s Data</b></td>
-                                                            <td><b>Dept Suggession</b></td>
+                                                            <td><b>Applicant Data</b></td>
+                                                            <td><b>Department Value</b></td>
                                                         </tr>
                                                         <tr id="trIndsDept" runat="server" visible="false">
                                                             <td>
@@ -986,10 +986,120 @@
                                                 </td>
 
                                             </tr>
+                                            <tr>
+                                                <td style="vertical-align: central" id="tdquery" runat="server" visible="false" colspan="3">
+                                                    <asp:GridView ID="gvdeptquery" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                        GridLines="None"  Width="100%" EnableModelValidation="True">
+                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderText="Sl No.">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblSl" runat="server" Text="<%#Container.DataItemIndex+1 %>"></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Department">
+                                                                <ItemTemplate>
+                                                                    <asp:DropDownList ID="ddldepartment" runat="server">
+                                                                        <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </ItemTemplate>
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Query Description">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtquery" runat="server"></asp:TextBox>
+                                                                </ItemTemplate>
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:TemplateField>
+                                                            <asp:ButtonField CommandName="Add" Text="Add">
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:ButtonField>
+                                                            <asp:ButtonField CommandName="Remove" Text="Delete">
+                                                                <ItemStyle CssClass="scroll_td" />
+                                                            </asp:ButtonField>
+                                                        </Columns>
+                                                        <PagerStyle BackColor="#013161" ForeColor="White" HorizontalAlign="Center" />
+                                                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                                        <EditRowStyle BackColor="#B9D684" />
+                                                        <AlternatingRowStyle BackColor="White" />
+                                                    </asp:GridView>
+                                                </td>
+                                                 <td>
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query"  OnClick="btnQuery_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                </td>
+                                            </tr>
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" id="QueryResondpanel" runat="server" visible="true">
+                            <div class="panel-heading" role="tab" id="headingSeven">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">Respond to Query
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSeven" class="panel-collapse show" role="tabpanel"
+                                aria-labelledby="headingSeven" aria-expanded="false">
 
+                                <div class="card">
+                                    <asp:GridView ID="grdQueryRaised" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" CssClass="table-bordered mb-0 GRD"
+                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                        <RowStyle />
+                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="LightGray" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1%>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="DepQID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYDETPID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="UNIT ID">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblUNITID" runat="server" Text='<%#Eval("UNITID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
+                                            <asp:TemplateField HeaderText="Response">
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Text='<%#Eval("Responce") %>' Height="100px" Width="250px" runat="server"></asp:TextBox>
+                                                    <br />
+                                                    <br />
+                                                    <asp:FileUpload ID="FileUploadquery" runat="server" class="btn btn-success" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Send Response to IMA/Forward To applicant">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="btnsendresponsetoIMA" CssClass="btn btn-success" runat="server" Text="Send Response to IMA Officer" OnClick="btnsendresponsetoIMA_Click" /><br />
+                                                    <br />
+                                                    <asp:Button ID="btnsendIMAQuerytoApplicant" CssClass="btn btn-success" runat="server" Text="Forward Query to Applicant" OnClick="btnsendIMAQuerytoApplicant_Click" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
                             </div>
                         </div>
                     </div>

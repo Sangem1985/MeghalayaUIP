@@ -42,6 +42,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblToBeProcessed;
 
         /// <summary>
+        /// lblApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApproved;
+
+        /// <summary>
         /// lblQuery control.
         /// </summary>
         /// <remarks>
@@ -60,21 +69,39 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblQueryReplied;
 
         /// <summary>
-        /// lblQueryNotRepld control.
+        /// lblIMAQuery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQueryNotRepld;
+        protected global::System.Web.UI.WebControls.Label lblIMAQuery;
 
         /// <summary>
-        /// lblApproved control.
+        /// lblDeptrepliedtoIMA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApproved;
+        protected global::System.Web.UI.WebControls.Label lblDeptrepliedtoIMA;
+
+        /// <summary>
+        /// lblIMAQueryforwardedtoAppl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIMAQueryforwardedtoAppl;
+
+        /// <summary>
+        /// lblAPPLREPLIEDTOIMAQUERY control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAPPLREPLIEDTOIMAQUERY;
     }
 }

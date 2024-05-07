@@ -45,11 +45,15 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.GetIndRegUserApplDetails(UnitID, InvesterID);
         }
-        public string UpdateIndRegApplQueryRespose(IndustryDetails ID)
+        public string UpdateIndRegApplQueryRespose(PreRegDtls ID)
         {
             return IRD.UpdateIndRegApplQueryRespose(ID);
         }
-
+        public DataSet GetIndustryRegistrationQueryDetails(string Unitid, string InvesterID,string Queryid)
+        {
+            return IRD.GetIndustryRegistrationQueryDetails(Unitid,InvesterID,Queryid);
+        }
+       
         //-------------------END OF USER METHODS-------------------------------------//
 
         public DataTable GetPreRegDashBoard(PreRegDtls PRD)
@@ -72,20 +76,18 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegUpdateQuery(PRD);
         }
-        public DataSet GetDeptMst(string UnitID)
+        public DataSet GetDeptMst(string UnitID, string Userid)
         {
-            return IRD.GetDeptMst(UnitID);
+            return IRD.GetDeptMst(UnitID,Userid);
         }
-        public string InsertDeptDetails(DataTable dt)
-        {
-            return IRD.InsertDeptDetails(dt);
-        }      
+        //public string InsertDeptDetails(DataTable dt)
+        //{
+        //    return IRD.InsertDeptDetails(dt);
+        //}      
         public DataSet GetIndustryRegData(string userid)
         {
             return IRD.GetIndustryRegData(userid);
-        }
-
-        
+        }        
         
     }
 

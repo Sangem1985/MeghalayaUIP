@@ -345,6 +345,7 @@
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\script.js" />
     <Content Include="Deptlogin.aspx" />
+    <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
     <Content Include="Dept\CFE\demo.aspx" />
     <Content Include="Dept\CFO\demo.aspx" />
     <Content Include="Dept\Dashboard.aspx" />
@@ -365,12 +366,23 @@
     <Content Include="Home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="User\CFE\CFECommonApplication.aspx" />
+    <Content Include="User\CFE\CFEEntrepreneurDetails.aspx" />
+    <Content Include="User\CFE\CFEFireDetails.aspx" />
+    <Content Include="User\CFE\CFEForestDetails.aspx" />
+    <Content Include="User\CFE\CFELabourDetails.aspx" />
+    <Content Include="User\CFE\CFELandDetails.aspx" />
+    <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
+    <Content Include="User\CFE\CFEPowerDetails.aspx" />
+    <Content Include="User\CFE\CFEQuestionnaire.aspx" />
+    <Content Include="User\CFE\CFEUserDashboard.aspx" />
     <Content Include="User\CFE\demo.aspx" />
-    <Content Include="User\CFE\Questionnaire.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryRegistration.aspx" />
+    <Content Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx" />
+    <Content Include="User\PreReg\IndustryRegistrationQueryDetails.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
     <Content Include="Web.config" />
@@ -382,6 +394,13 @@
     </Compile>
     <Compile Include="Deptlogin.aspx.designer.cs">
       <DependentUpon>Deptlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEDeptDashboard.aspx.cs">
+      <DependentUpon>CFEDeptDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEDeptDashboard.aspx.designer.cs">
+      <DependentUpon>CFEDeptDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\CFE\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
@@ -538,19 +557,82 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
+      <DependentUpon>CFECommonApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFECommonApplication.aspx.designer.cs">
+      <DependentUpon>CFECommonApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEEntrepreneurDetails.aspx.cs">
+      <DependentUpon>CFEEntrepreneurDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEEntrepreneurDetails.aspx.designer.cs">
+      <DependentUpon>CFEEntrepreneurDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEFireDetails.aspx.cs">
+      <DependentUpon>CFEFireDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEFireDetails.aspx.designer.cs">
+      <DependentUpon>CFEFireDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEForestDetails.aspx.cs">
+      <DependentUpon>CFEForestDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEForestDetails.aspx.designer.cs">
+      <DependentUpon>CFEForestDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFELabourDetails.aspx.cs">
+      <DependentUpon>CFELabourDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFELabourDetails.aspx.designer.cs">
+      <DependentUpon>CFELabourDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFELandDetails.aspx.cs">
+      <DependentUpon>CFELandDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFELandDetails.aspx.designer.cs">
+      <DependentUpon>CFELandDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFELineOfManufactureDetails.aspx.cs">
+      <DependentUpon>CFELineOfManufactureDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFELineOfManufactureDetails.aspx.designer.cs">
+      <DependentUpon>CFELineOfManufactureDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEPowerDetails.aspx.cs">
+      <DependentUpon>CFEPowerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPowerDetails.aspx.designer.cs">
+      <DependentUpon>CFEPowerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEQuestionnaire.aspx.cs">
+      <DependentUpon>CFEQuestionnaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEQuestionnaire.aspx.designer.cs">
+      <DependentUpon>CFEQuestionnaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEUserDashboard.aspx.cs">
+      <DependentUpon>CFEUserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEUserDashboard.aspx.designer.cs">
+      <DependentUpon>CFEUserDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\CFE\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\CFE\Questionnaire.aspx.cs">
-      <DependentUpon>Questionnaire.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\CFE\Questionnaire.aspx.designer.cs">
-      <DependentUpon>Questionnaire.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
@@ -579,6 +661,20 @@
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistration.aspx.designer.cs">
       <DependentUpon>IndustryRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx.cs">
+      <DependentUpon>IndustryRegistrationQueryDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx.designer.cs">
+      <DependentUpon>IndustryRegistrationQueryDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDetails.aspx.cs">
+      <DependentUpon>IndustryRegistrationQueryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryRegistrationQueryDetails.aspx.designer.cs">
+      <DependentUpon>IndustryRegistrationQueryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistrationUserDashboard.aspx.cs">
       <DependentUpon>IndustryRegistrationUserDashboard.aspx</DependentUpon>

@@ -244,6 +244,8 @@ namespace MeghalayaUIP.DAL.CommonDAL
             SqlDataReader drOptions = null;
             try
             {
+                if (Sector == "")
+                    Sector = null;
                 SqlParameter[] param = new SqlParameter[]
                {
                     new SqlParameter("@Sector",Sector)
@@ -293,6 +295,277 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
             return PCBCategory;
 
+        }
+
+        public List<MasterConstType> GetConstitutionType()
+        {
+            List<MasterConstType> lstConstMstr = new List<MasterConstType>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetConstitutionType);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var ConstType = new MasterConstType()
+                        {
+                            ConstId = Convert.ToString(drOptions["CONST_ID"]),
+                            ConstName = Convert.ToString(drOptions["CONST_TYPE"])
+                        };
+                        lstConstMstr.Add(ConstType);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstConstMstr;
+        }
+
+        public List<MasterPowerReq> GetPowerKW()
+        {
+            List<MasterPowerReq> lstPower = new List<MasterPowerReq>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetPowerRequiredRange);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Power = new MasterPowerReq()
+                        {
+                            PowerReqID = Convert.ToString(drOptions["POWER_ID"]),
+                            PowerReqRange = Convert.ToString(drOptions["POWER_KW"])
+                        };
+                        lstPower.Add(Power);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstPower;
+        }
+
+        public List<MasterElecRegulations> GetElectricRegulations()
+        {
+            List<MasterElecRegulations> lstElecReg = new List<MasterElecRegulations>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetElectricRegulations);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var ElecReg = new MasterElecRegulations()
+                        {
+                            ElRegID = Convert.ToString(drOptions["CEA_RID"]),
+                            ElRegNumber = Convert.ToString(drOptions["CEA_RNUMBER"])
+                        };
+                        lstElecReg.Add(ElecReg);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstElecReg;
+        }
+
+        public List<MasterVoltages> GetVoltageMaster()
+        {
+            List<MasterVoltages> lstvoltg = new List<MasterVoltages>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetVoltageMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Volts = new MasterVoltages()
+                        {
+                            VoltageID = Convert.ToString(drOptions["VOLTAGEID"]),
+                            VoltageValue = Convert.ToString(drOptions["VOLTAGERANGE"])
+                        };
+                        lstvoltg.Add(Volts);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstvoltg;
+        }
+        public List<MasterPowerPlants> GetPowerPlantsMaster()
+        {
+            List<MasterPowerPlants> lstplants = new List<MasterPowerPlants>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetPowerPlantsMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var powrplants = new MasterPowerPlants()
+                        {
+                            PowerPlantID = Convert.ToString(drOptions["POWERPLANTID"]),
+                            PowerPlantName = Convert.ToString(drOptions["POWERPLANTNAME"])
+                        };
+                        lstplants.Add(powrplants);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstplants;
+        }
+
+        public List<MasterIndustryType> GetIndustryTypeMaster()
+        {
+            List<MasterIndustryType> lstplants = new List<MasterIndustryType>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetIndustryTypeMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Industry = new MasterIndustryType()
+                        {
+                            IndustryTypeID = Convert.ToString(drOptions["INDUSTRYTYPEID"]),
+                            IndustryType = Convert.ToString(drOptions["INDUSTRYTYPE"])
+                        };
+                        lstplants.Add(Industry);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstplants;
+        }
+        public List<MasterCaste> GetCaste()
+        {
+            List<MasterCaste> lstCasteMstr = new List<MasterCaste>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetCastemaster);
+                while (drOptions.Read())
+                {
+                    var caste = new MasterCaste()
+                    {
+
+                        CASTEID = Convert.ToString(drOptions["CASTEID"]),
+                        CASTNAME = Convert.ToString(drOptions["CASTNAME"])
+                    };
+                    lstCasteMstr.Add(caste);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstCasteMstr;
+        }
+        public List<MasterRegistrationType> GetRegistrationType()
+        {
+            List<MasterRegistrationType> lstRegistrationTypeMstr = new List<MasterRegistrationType>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetRegistrationType);
+                while (drOptions.Read())
+                {
+                    var ResistrationType = new MasterRegistrationType()
+                    {
+
+                        REGISTRATIONTYPEID = Convert.ToString(drOptions["REGISTRATIONTYPEID"]),
+                        REGISTRATIONTYPENAME = Convert.ToString(drOptions["REGISTRATIONTYPENAME"])
+                    };
+                    lstRegistrationTypeMstr.Add(ResistrationType);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstRegistrationTypeMstr;
         }
     }
 }

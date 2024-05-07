@@ -5,236 +5,236 @@
 <html lang="en">
 
 <head runat="server">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Invset Meghalaya - Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Invset Meghalaya - Dashboard</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="shortcut icon" type="image/x-icon" href="..assets/admin/images/favicon.png">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="../assets/admin/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/admin/css/bootstrap.min.css">
 
-	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="../assets/admin/css/font-awesome.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="../assets/admin/css/font-awesome.min.css">
 
-	<!-- Feathericon CSS -->
-	<link rel="stylesheet" href="../assets/admin/css/feathericon.min.css">
+    <!-- Feathericon CSS -->
+    <link rel="stylesheet" href="../assets/admin/css/feathericon.min.css">
 
-	<link rel="stylesheet" href="../assets/admin/plugins/morris/morris.css">
+    <link rel="stylesheet" href="../assets/admin/plugins/morris/morris.css">
 
-	<!-- Main CSS -->
-	<link rel="stylesheet" href="../assets/admin/css/style.css">
-	<link rel="stylesheet" href="../assets/admin/css/menustyle.css">
-	<link rel="stylesheet" href="../assets/admin/css/dashboard.css">
-<style>
-	.card-counter.primarydashboard {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: capitalize;
-    transition: 0.5s;
-    background-size: 100% auto !important;
-    color: #FAFAFA;
-    box-shadow: 0px 2px 0px #ccc;
-    display: block;
-    background: url(assets/img/opendashboard.gif);
-    background-position: center;
-}
-.card-counter.primarydashboard:hover {
-   box-shadow: 10px 12px 0px #ccc;
-   }
-</style>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/admin/css/style.css">
+    <link rel="stylesheet" href="../assets/admin/css/menustyle.css">
+    <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
+    <style>
+        .card-counter.primarydashboard {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: capitalize;
+            transition: 0.5s;
+            background-size: 100% auto !important;
+            color: #FAFAFA;
+            box-shadow: 0px 2px 0px #ccc;
+            display: block;
+            background: url(assets/img/opendashboard.gif);
+            background-position: center;
+        }
+
+            .card-counter.primarydashboard:hover {
+                box-shadow: 10px 12px 0px #ccc;
+            }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="main-wrapper">
+            <!-- Header -->
+            <div class="header">
+                <!-- Logo -->
+                <div class="header-left">
+                    <a href="dashboard.aspx" class="logo">
+                        <img src="../../assets/admin/img/logo.png" alt="Logo">
+                    </a>
+                    <a href="dashboard.aspx" class="logo logo-small">
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                </div>
+                <!-- /Logo -->
 
-		<!-- Header -->
-		<div class="header">
 
-			<!-- Logo -->
-			<div class="header-left">
-				<a href="dashboard.aspx" class="logo">
-					<img src="../../assets/admin/img/logo.png" alt="Logo">
-				</a>
-				<a href="dashboard.aspx" class="logo logo-small">
-					<img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
-				</a>
-			</div>
-			<!-- /Logo -->
 
-			
 
-			
 
-			<!-- Mobile Menu Toggle -->
-			<a class="mobile_btn" id="mobile_btn">
-				<i class="fa fa-bars"></i>
-			</a>
-			<!-- /Mobile Menu Toggle -->
+                <!-- Mobile Menu Toggle -->
+                <a class="mobile_btn" id="mobile_btn">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <!-- /Mobile Menu Toggle -->
 
-			<!-- Header Right Menu -->
-			<ul class="nav user-menu">
+                <!-- Header Right Menu -->
+                <ul class="nav user-menu">
 
-				<!-- Notifications -->
-				<li id="datetime">
+                    <!-- Notifications -->
+                    <li id="datetime">
 
-					<body onload="startTime()">
+                        <body onload="startTime()">
 
-						<div id="txt" class="mt-3"></div>
+                            <div id="txt" class="mt-3"></div>
 
-					</body>
-				</li>
+                        </body>
+                    </li>
 
-				<!-- /Notifications -->
+                    <!-- /Notifications -->
 
-				<!-- User Menu -->
-				<li class="nav-item dropdown has-arrow">
-					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-						<span class="user-img"><img class="rounded-circle" src="../../assets/admin/img/profiles/avatar-01.jpg"
-								width="31" alt="Ryan Taylor"></span>
-					</a>
-					<div class="dropdown-menu">
-						<div class="user-header">
-							<div class="avatar avatar-sm">
-								<img src="../../assets/admin/img/profiles/avatar-01.jpg" alt="User Image"
-									class="avatar-img rounded-circle">
-							</div>
-							<div class="user-text">
-								<h6><asp:Label ID="lblUser" runat="server"></asp:Label></h6>
-								<p class="text-muted mb-0">User</p>
-							</div>
-						</div>
-						<%--<a class="dropdown-item" href="#">My Profile</a>
+                    <!-- User Menu -->
+                    <li class="nav-item dropdown has-arrow">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <span class="user-img">
+                                <img class="rounded-circle" src="../../assets/admin/img/profiles/avatar-01.jpg"
+                                    width="31" alt="Ryan Taylor"></span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="user-header">
+                                <div class="avatar avatar-sm">
+                                    <img src="../../assets/admin/img/profiles/avatar-01.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                                <div class="user-text">
+                                    <h6>
+                                        <asp:Label ID="lblUser" runat="server"></asp:Label></h6>
+                                    <p class="text-muted mb-0">User</p>
+                                </div>
+                            </div>
+                            <%--<a class="dropdown-item" href="#">My Profile</a>
 						<a class="dropdown-item" href="#">Settings</a>--%>
-						<a class="dropdown-item" href="../../login.aspx">Logout</a>
-					</div>
-				</li>
-				<!-- /User Menu -->
+                            <a class="dropdown-item" href="../../login.aspx" id="aLogout" runat="server">Logout</a>
+                        </div>
+                    </li>
+                    <!-- /User Menu -->
 
-			</ul>
-			<!-- /Header Right Menu -->
+                </ul>
+                <!-- /Header Right Menu -->
 
-		</div>
-		<!-- /Header -->
+            </div>
+            <!-- /Header -->
 
-		<!-- Sidebar -->
-		<div class="mainmenu" style="margin-top: 60px;background: #0b3654;">
-			<div class="col-md-12">
-				<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				
-					<div class="collapse navbar-collapse" id="navbarNavDropdown">
-					  <ul class="navbar-nav">
-						<li class="nav-item active">
-						  <a class="nav-link" href="../dashboard.aspx">Dashboard <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-						  <a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>
-						</li>
-						
-						<li class="nav-item dropdown">
-						  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							CFE
-						  </a>
-						  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="../CFE/Questionnaire.aspx">Questionnaire</a>
-							<a class="dropdown-item" href="DepartmentApprovalDetails.html">Combined Application Form</a>
-							<a class="dropdown-item" href="#">Respond To Query </a>
+            <!-- Sidebar -->
+            <div class="mainmenu" style="margin-top: 60px; background: #0b3654;">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-							<a class="dropdown-item" href="#">Payment </a>
-							<a class="dropdown-item" href="#">Payment History </a>
-							<a class="dropdown-item" href="#">Print Acknowledgment </a>
-							<a class="dropdown-item" href="#">Track Your Application </a>
-							<a class="dropdown-item" href="CAF.html">Print CFE </a>
-							<a class="dropdown-item" href="#">Duplicate Receipt </a>
-						  </div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							  CFO
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							  <a class="dropdown-item" href="Quesstionniare_cfo.html">Questionnaire</a>
-							  <a class="dropdown-item" href="DepartmentApprovalDetails.html">Combined Application Form</a>
-							  <a class="dropdown-item" href="#">Respond To Query </a>
-  
-							  <a class="dropdown-item" href="#">Payment </a>
-							  <a class="dropdown-item" href="#">Payment History </a>
-							  <a class="dropdown-item" href="#">Print Acknowledgment </a>
-							  <a class="dropdown-item" href="#">Track Your Application </a>
-							  <a class="dropdown-item" href="#">Print CFE </a>
-							  <a class="dropdown-item" href="#">Duplicate Receipt </a>
-							</div>
-						  </li>
-						  <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Renewals
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							  <a class="dropdown-item" href="#">Renewals</a>
-							  <a class="dropdown-item" href="#">Renewals DashBoard</a>
-							  <a class="dropdown-item" href="#">Print Acknowledgment</a>
-  
-							
-							</div>
-						  </li>
-						  <li class="nav-item">
-							<a class="nav-link" href="#">Grievance</a>
-						  </li>
-						  <li class="nav-item">
-							<a class="nav-link" href="../admin/Dept/No_Dashboard.html">Other Services</a>
-						  </li>
-						  
-					  </ul>
-					</div>
-				  </nav>
-			</div>
-		</div>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="../dashboard.aspx">Dashboard <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>
+                                </li>
+                                 <li class="nav-item">
+                                     <a class="nav-link" href="../CFE/CFEUserDashboard.aspx">Pre Establishment</a>                                  
+                                </li>
+                                <%--<li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CFE
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="../CFE/CFEQuestionnaire.aspx">Questionnaire</a>
+                                        <a class="dropdown-item" href="DepartmentApprovalDetails.html">Combined Application Form</a>
+                                        <a class="dropdown-item" href="#">Respond To Query </a>
+
+                                        <a class="dropdown-item" href="#">Payment </a>
+                                        <a class="dropdown-item" href="#">Payment History </a>
+                                        <a class="dropdown-item" href="#">Print Acknowledgment </a>
+                                        <a class="dropdown-item" href="#">Track Your Application </a>
+                                        <a class="dropdown-item" href="CAF.html">Print CFE </a>
+                                        <a class="dropdown-item" href="#">Duplicate Receipt </a>
+                                    </div>
+                                </li>--%>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Post Establishment
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="Quesstionniare_cfo.html">Questionnaire</a>
+                                        <a class="dropdown-item" href="DepartmentApprovalDetails.html">Combined Application Form</a>
+                                        <a class="dropdown-item" href="#">Respond To Query </a>
+
+                                        <a class="dropdown-item" href="#">Payment </a>
+                                        <a class="dropdown-item" href="#">Payment History </a>
+                                        <a class="dropdown-item" href="#">Print Acknowledgment </a>
+                                        <a class="dropdown-item" href="#">Track Your Application </a>
+                                        <a class="dropdown-item" href="#">Print CFE </a>
+                                        <a class="dropdown-item" href="#">Duplicate Receipt </a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Renewals
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Renewals</a>
+                                        <a class="dropdown-item" href="#">Renewals DashBoard</a>
+                                        <a class="dropdown-item" href="#">Print Acknowledgment</a>
+
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Grievance</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../admin/Dept/No_Dashboard.html">Other Services</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <asp:HiddenField ID="hdnUToken" runat="server" Value="" />
         </div>
+        <!-- /Main Wrapper -->
 
-			</div>
-	<!-- /Main Wrapper -->
+        <!-- jQuery -->
+        <script src="../../assets/admin/js/jquery-3.2.1.min.js"></script>
 
-	<!-- jQuery -->
-	<script src="../../assets/admin/js/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap Core JS -->
+        <script src="../../assets/admin/js/popper.min.js"></script>
+        <script src="../../assets/admin/js/bootstrap.min.js"></script>
 
-	<!-- Bootstrap Core JS -->
-	<script src="../../assets/admin/js/popper.min.js"></script>
-	<script src="../../assets/admin/js/bootstrap.min.js"></script>
+        <!-- Slimscroll JS -->
+        <script src="../../assets/admin/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-	<!-- Slimscroll JS -->
-	<script src="../../assets/admin/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="../../assets/admin/plugins/raphael/raphael.min.js"></script>
+        <script src="../../assets/admin/plugins/morris/morris.min.js"></script>
+        <script src="../../assets/admin/js/chart.morris.js"></script>
 
-	<script src="../../assets/admin/plugins/raphael/raphael.min.js"></script>
-	<script src="../../assets/admin/plugins/morris/morris.min.js"></script>
-	<script src="../../assets/admin/js/chart.morris.js"></script>
+        <!-- Custom JS -->
+        <script src="../../assets/admin/js/script.js"></script>
+        <script>
+            function startTime() {
+                var today = new Date();
+                var day = today.getDate();
+                var month = today.getMonth();
+                var year = today.getFullYear();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('txt').innerHTML = "Date: " + day + "/" + month + "/" + year + " " + ": " + h + ":" + m + ":" + s;
+                var t = setTimeout(function () { startTime() }, 500);
+            }
 
-	<!-- Custom JS -->
-	<script src="../../assets/admin/js/script.js"></script>
-	<script>
-		function startTime() {
-			var today = new Date();
-			var day = today.getDate();
-			var month = today.getMonth();
-			var year = today.getFullYear();
-			var h = today.getHours();
-			var m = today.getMinutes();
-			var s = today.getSeconds();
-			m = checkTime(m);
-			s = checkTime(s);
-			document.getElementById('txt').innerHTML = "Date: " + day + "/" + month + "/" + year + " " + ": " + h + ":" + m + ":" + s;
-			var t = setTimeout(function () { startTime() }, 500);
-		}
-
-		function checkTime(i) {
-			if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
-			return i;
-		}
-    </script>
+            function checkTime(i) {
+                if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+                return i;
+            }
+        </script>
     </form>
 </body>
 </html>

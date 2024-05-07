@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CFEDAL\CFEDAL.cs" />
     <Compile Include="CommonDAL\LoginDAL.cs" />
     <Compile Include="CommonDAL\MasterDAL.cs" />
     <Compile Include="CommonDAL\UserRegDAL.cs" />

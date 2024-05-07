@@ -16,10 +16,11 @@ namespace MeghalayaUIP.Common
         public static string InsertIndRegPromotersDetails = "USP_INS_INSVESTER_DIRECTOR_DETAILS";
         public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
         public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDASHBOARDVIEWDETAILS";
-        public static string UpdateIndRegApplQueryRespose = "USP_UPDATEPREREGAPPLQUERYRESPONSE";
+        public static string UpdateIndRegApplQueryRespose = "USP_UPDATEPREREGAPPLQUERYRESPONSE"; 
+        public static string GetIndustryRegistrationQueryDetails = "USP_GETPREREGDEPTRRAISEDQUERIES";
         /*-----------------------End of User-----------------------------*/
 
-        public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
+        //public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
         public static string GetSectorDepartments = "USP_GET_SECTOR_DEPT";
         public static string GetPreRegDashBoard = "USP_PREREGDASHBOARDCOUNT";
         public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDVIEW";
@@ -37,6 +38,7 @@ namespace MeghalayaUIP.Common
         public string CompanyPAN { get; set; }
         public string CompnyRegDt { get; set; }
         public string CompnyType { get; set; }
+        public string CompnyProposal { get; set; }
         public string UdyamorIEMNo { get; set; }
         public string GSTNo { get; set; }
         public string AuthReprName { get; set; }
@@ -140,6 +142,7 @@ namespace MeghalayaUIP.Common
         public string ViewStatus { get; set; }
         public string Remarks { get; set; }
         public int? deptid { get; set; }
+        public string DeptDesc { get; set; }
         public string IPAddress { get; set; }
         public string LandArea { get; set; }
         public string Power { get; set; }
@@ -148,6 +151,8 @@ namespace MeghalayaUIP.Common
         public string HazDetails { get; set; }
         public string QuerytoDept { get; set; }
         public string QuerytoDeptID { get; set; } // FROM IMA TO DEPT (OR) FROM COMM TO IMA OR DEPT
+        public string QueryID { get; set; }
+        public string QueryResponse { get; set; }
     }
     public class InvBasicDtls
     {

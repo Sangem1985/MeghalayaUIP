@@ -7,10 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace MeghalayaUIP.User.CFE
+namespace MeghalayaUIP.Dept.CFE
 {
-    public partial class Questionnaire
+
+
+    public partial class CFEDeptDashboard
     {
     }
 }

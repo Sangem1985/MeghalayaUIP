@@ -14,8 +14,8 @@
                             <div class="card-counter primarydashboard5">
                             <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
 									<i class="fi fi-rr-square-up-right"></i>
-									<span class="count-numbers">Principle approval </span>
-									<span class="count-name">(Industry Registration Approval)  </span>
+									<span class="count-numbers">Registration under MIIPP 2024</span>
+									<span class="count-name">(Principle approval)</span>
                             </asp:LinkButton>
                                 </div>
                         </div>
@@ -23,8 +23,8 @@
                             <div class="card-counter primarydashboard1">
                                 <asp:LinkButton runat="server" ID="linkCFE" OnClick="linkCFE_Click">
 									<i class="fi fi-rr-square-up-right"></i>
-									<span class="count-numbers">CFE</span>
-									<span class="count-name">(Pre-Establishment Approval)</span>
+									<span class="count-numbers">Pre-establishment Approval</span>
+									<span class="count-name"></span>
                                 </asp:LinkButton>
                             </div>
 
@@ -34,8 +34,8 @@
                             <div class="card-counter primarydashboard2">
                                 <asp:LinkButton runat="server" ID="linkCFO" OnClick="linkCFO_Click">
                                     <i class="fi fi-rr-square-up-right"></i>
-                                    <span class="count-numbers">CFO</span>
-                                    <span class="count-name">(Pre-Operational Approval)</span>
+                                    <span class="count-numbers">Pre-Operational Approval</span>
+                                    <span class="count-name"></span>
                                 </asp:LinkButton>
                             </div>
 
@@ -47,7 +47,7 @@
                                 <asp:LinkButton runat="server" ID="linkIncentive" OnClick="linkIncentive_Click">
                                     <i class="fi fi-rr-square-up-right"></i>
                                     <span class="count-numbers">Incentive</span>
-                                    <span class="count-name">(Lorem Ipsum is simply dummy text) </span>
+                                    <span class="count-name"></span>
                                 </asp:LinkButton>
                             </div>
 

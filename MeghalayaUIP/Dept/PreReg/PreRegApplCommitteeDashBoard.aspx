@@ -6,7 +6,7 @@
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3>Dept Dashboard: Industry Registration Applications</h3>
+                    <h3>Committee Dashboard: Industry Registration Applications</h3>
                 </div>
                 <section id="dashboardcount">
                     <div class="container-fluid">
@@ -64,9 +64,9 @@
                 </section>
             </div>
             <div class="card">
-                <div class="card-header">
+               <%-- <div class="card-header">
                     <h3>Query Details</h3>
-                </div>
+                </div>--%>
                 <section id="dashboardcount2">
                     <div class="container-fluid">
                         <div class="row clearfix">
@@ -122,9 +122,9 @@
                 </section>
             </div>
             <div class="card">
-                <div class="card-header">
+               <%-- <div class="card-header">
                     <h3>Query Details</h3>
-                </div>
+                </div>--%>
                 <section id="dashboardcount3">
                     <div class="container-fluid">
                         <div class="row clearfix">

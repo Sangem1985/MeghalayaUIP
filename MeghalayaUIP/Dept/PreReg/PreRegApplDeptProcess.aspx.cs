@@ -136,29 +136,58 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblCapitalSubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
                     lblPromoterEquity.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
                     lblLoan.Text = Convert.ToString(row["FRD_LOAN"]);
-                    lbl_Name1.Text= Convert.ToString(row["REP_NAME"]);
-                    lblunitname1.Text= Convert.ToString(row["REP_NAME"]);
-                    lblApplNo.Text= Convert.ToString(row["PREREGUIDNO"]);
-                    lblapplDate.Text= Convert.ToString(row["REP_MOBILE"]);
-                    lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]) ;
+                    lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
+                    lblunitname1.Text = Convert.ToString(row["REP_NAME"]);
+                    lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
+                    lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
+                    lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
 
-                    grdRevenueProj.DataSource = ds.Tables[1];
-                    grdRevenueProj.DataBind();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
+                    {
+                        grdRevenueProj.DataSource = ds.Tables[1];
+                        grdRevenueProj.DataBind();
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[2].Rows.Count > 0)
+                    {
+                        grdDirectors.DataSource = ds.Tables[2];
+                        grdDirectors.DataBind();
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
+                    {
+                        grdApplStatus.DataSource = ds.Tables[3];
+                        grdApplStatus.DataBind();
+                    }
 
-                    grdDirectors.DataSource = ds.Tables[2];
-                    grdDirectors.DataBind();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
+                    {
+                        grdQueries.DataSource = ds.Tables[4];
+                        grdQueries.DataBind();
 
-                    grdApplStatus.DataSource = ds.Tables[3];
-                    grdApplStatus.DataBind();
-
-                    //grd_Statusofapp.DataSource = ds.Tables[1];
-                    //grd_Statusofapp.DataBind();
-
-                    //grdQueries.DataSource = null;
-                    grdQueries.DataBind();
-
-                    //grdQryAttachments.DataSource = null;
+                    }
+                    grdQryAttachments.DataSource = null;
                     grdQryAttachments.DataBind();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
+                    {
+                        QueryResondpanel.Visible = true;
+                        verifypanel.Visible = false;
+                        grdQueryRaised.DataSource = ds.Tables[5];
+                        grdQueryRaised.DataBind();
+                    }
+                    if (Request.QueryString["status"].ToString() == "C" || Request.QueryString["status"].ToString() == "F")
+                    {
+                        verifypanel.Visible = true;
+                        QueryResondpanel.Visible = false;
+                    }
+                    else if (Request.QueryString["status"].ToString() == "IMAQuery" || Request.QueryString["status"].ToString() == "APPLREPLIEDTOIMAQUERY")
+                    {
+                        QueryResondpanel.Visible = true;
+
+                    }
+                    else
+                    {
+                        verifypanel.Visible = false;
+                        QueryResondpanel.Visible = false;
+                    }
 
                 }
             }
@@ -252,7 +281,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         var Hostname = Dns.GetHostName();
                         prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
-                        if(ddlStatus.SelectedValue =="5")
+                        if (ddlStatus.SelectedValue == "5")
                         {
                             string valid = PreBAL.PreRegApprovals(prd);
                             btnSubmit.Enabled = false;
@@ -266,7 +295,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
                             return;
                         }
-                       
+
                     }
                 }
                 else
@@ -405,6 +434,137 @@ namespace MeghalayaUIP.Dept.PreReg
             }
 
 
+        }
+        protected void btnsendresponsetoIMA_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    // username = ObjUserInfo.UserName;
+                }
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                TextBox txtReply = (TextBox)row.FindControl("txtIMAQueryReply");
+                if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Enter Query Response";
+                    return;
+                }
+                else
+                {
+                    Label UnitID = (Label)row.FindControl("lblUNITID");
+                    Label DeptID = (Label)row.FindControl("lblDeptID");
+                    Label QID = (Label)row.FindControl("lblDQID");
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    prd.UserID = ObjUserInfo.UserID.Trim();
+                    prd.Unitid = UnitID.Text.Trim();
+                    prd.QuerytoDeptID =DeptID.Text.Trim();
+                    prd.QueryID = QID.Text.Trim();
+                    prd.QueryResponse = txtReply.Text.Trim();
+                    prd.IPAddress = getclientIP();
+                    prd.status = 8;  ////  DEPARTMENT REPLY TO IMA QUERY
+                    prd.deptid =Convert.ToInt32(ObjUserInfo.Deptid);
+                    string valid = PreBAL.PreRegUpdateQuery(prd);
+                    btn.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Replied to IMA Query Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                    return;
+                    BindaApplicatinDetails();
+                    
+                } 
+                
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void btnsendIMAQuerytoApplicant_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    // username = ObjUserInfo.UserName;
+                }
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                TextBox txtReply = (TextBox)row.FindControl("txtIMAQueryReply");
+                Label QID = (Label)row.FindControl("lblDQID");
+
+                if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Enter Query Response";
+                    return;
+                }
+                prd.Unitid = Session["UNITID"].ToString();
+                prd.Investerid = Session["INVESTERID"].ToString();
+                prd.QueryID = QID.Text.Trim();
+                prd.status = 9;
+                prd.UserID = ObjUserInfo.UserID;
+                prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                prd.Remarks = txtReply.Text;
+                var Hostname = Dns.GetHostName();
+                prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
+
+                string valid = PreBAL.PreRegUpdateQuery(prd);
+                btnSubmit.Enabled = false;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                return;
+
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
+
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnSubmit_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
     }
 }

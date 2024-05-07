@@ -17,7 +17,7 @@
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                         <AlternatingRowStyle BackColor="LightGray" />
                         <Columns>
-                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <ItemStyle HorizontalAlign="Left" />
                                 <ItemTemplate>
@@ -35,7 +35,7 @@
 
                             <asp:TemplateField HeaderText="Queries Count" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkQueryCount" runat="server" Text='<%#Eval("QUERYCOUNT")%>' OnClick="lnkQueryCount_Click" ></asp:LinkButton>
+                                    <asp:LinkButton ID="lnkQueryCount" runat="server" Text='<%#Eval("QUERYCOUNT")%>'  OnClick="lnkQueryCount_Click" ForeColor="Red" Font-Underline="true"></asp:LinkButton> 
                                     <%--PostBackUrl='<%#Eval("INVESTERID","QueryResponse.aspx?Appid={0}")%>'--%>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
