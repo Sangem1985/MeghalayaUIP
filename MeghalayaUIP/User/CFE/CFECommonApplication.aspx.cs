@@ -19,11 +19,10 @@ namespace MeghalayaUIP.User.CFE
         CFEQuestionnaireDet cfeqs = new CFEQuestionnaireDet();
         decimal TotalFee, TotalFeeAmount;
         decimal amounts1;
-        decimal TotalFeeNExt;
         decimal amounts22 = 0;
+        string UnitID;
 
-        string amt = "0";
-        int n1;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,11 +33,20 @@ namespace MeghalayaUIP.User.CFE
                     var ObjUserInfo = new UserInfo();
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
-                        ObjUserInfo = (UserInfo)Session["UserInfo"]; Session["UNITID"] = 1001;
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
                     }
                     if (hdnUserID.Value == "")
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    if (Convert.ToString(Session["UNITID"]) != "")
+                    { 
+                        UnitID = Convert.ToString(Session["UNITID"]); 
+                    }
+                    else
+                    {
+                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                        Response.Redirect(newurl);
                     }
                     Page.MaintainScrollPositionOnPostBack = true;
                     if (!IsPostBack)
@@ -59,9 +67,12 @@ namespace MeghalayaUIP.User.CFE
                                 }
                             }
                         }
-
+                        else
+                        {
+                            string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                            Response.Redirect(newurl);
+                        }
                     }
-
                 }
                 else
                 {
@@ -450,6 +461,20 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEEntrepreneurDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
         public static string getclientIP()
         {
             string result = string.Empty;

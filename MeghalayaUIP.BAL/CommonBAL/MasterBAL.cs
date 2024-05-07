@@ -62,6 +62,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         { return objMasterDAL.GetPowerPlantsMaster(); }
         public List<MasterIndustryType> GetIndustryTypeMaster()
         { return objMasterDAL.GetIndustryTypeMaster(); }
+        public List<MasterCaste> GetCaste()
+        { return objMasterDAL.GetCaste();}
+        public List<MasterRegistrationType> GetRegistrationType()
+        { return objMasterDAL.GetRegistrationType();}
 
     }
 }

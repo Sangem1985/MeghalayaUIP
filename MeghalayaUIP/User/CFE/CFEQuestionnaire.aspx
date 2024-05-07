@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style type="text/css">
+               
+    </style>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -32,14 +35,27 @@
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
-                                <asp:LinkButton ID="Link1" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px">1.Project Details</asp:LinkButton>
-                                <asp:LinkButton ID="Link2" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 20px">2.Project Financials</asp:LinkButton>
-                                <asp:LinkButton ID="Link3" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 20px">3.Project Requirements</asp:LinkButton>
+                               
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <asp:LinkButton ID="Link1" runat="server" OnClick="Link1_Click" class="nav-link" data-toggle="nav-tab" Style="padding-right: 20px; font-size: 20px"> 
+                                    1.Project Details</asp:LinkButton>
+                                    </li>
+                                    <li class="nav-item">
+                                        <asp:LinkButton ID="Link2" runat="server" OnClick="Link2_Click" class="nav-link" data-toggle="nav-tab" Style="padding-right: 20px; font-size: 20px">
+                                    2.Project Financials</asp:LinkButton>
+                                    </li>
+                                    <li class="nav-item">
+                                        <asp:LinkButton ID="Link3" runat="server" OnClick="Link3_Click" class="nav-link" data-toggle="nav-tab" Style="padding-right: 10px; font-size: 20px">
+                                    3.Project Requirements</asp:LinkButton>
+                                    </li>
+                                </ul>
                                 <%--<ul class="nav nav-tabs">
                                     <li class="nav-item" runat="server" id="Li1">
                                         <a class="nav-link  active" href="#basictab1" data-toggle="tab">1.Project Details</a>
                                     </li>
-                                    <li class="nav-item" runat="server" id="Li2"><a class="nav-link" href="#basictab2" data-toggle="tab">2.
+                                    <li class="nav-item" runat="server" id="Li2">
+                                        <a class="nav-link" href="#basictab2" data-toggle="tab">2.
 												Project Financials</a></li>
                                     <li class="nav-item" runat="server" id="Li3"><a class="nav-link" href="#basictab3"
                                         data-toggle="tab">3.

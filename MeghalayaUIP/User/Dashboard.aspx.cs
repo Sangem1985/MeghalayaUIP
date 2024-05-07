@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeghalayaUIP.User.CFE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,12 @@ namespace MeghalayaUIP.User
         protected void linkPreReg_Click(object sender, EventArgs e)
         {
             string url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx";
+            Response.Redirect(url);
+        }
+
+        protected void linkCFE_Click(object sender, EventArgs e)
+        {
+            string url = "~/User/CFE/CFEDashboard.aspx";
             Response.Redirect(url);
         }
     }

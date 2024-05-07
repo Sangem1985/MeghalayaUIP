@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.CFE
 {
 
 
-    public partial class CFEDashboard
+    public partial class CFEUserDashboard
     {
 
         /// <summary>
@@ -67,5 +67,14 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPreRegApproved;
+
+        /// <summary>
+        /// gvCFEApplied control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCFEApplied;
     }
 }

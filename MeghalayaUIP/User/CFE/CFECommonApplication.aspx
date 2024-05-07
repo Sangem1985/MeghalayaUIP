@@ -10,18 +10,18 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h3><b>Consent For Establishment - Approvals Abstract:</b></h3>
+                                <h3><b>Pre Establishment - Approvals Abstract:</b></h3>
                                 <h5 style="color: red"><b>The following are the Approvals required for Establishment of your Unit. Please
                                                     select the Approvals for which you intend to apply for.</b></h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
                                 <asp:HiddenField ID="hdnQuestionnaireID" runat="server" />
                                 <div class="col-md-12 d-flex">
-                                    <div id="success" runat="server" visible="true" class="alert alert-success" align="Center">
+                                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div id="Failure" runat="server" visible="true" class="alert alert-danger" align="Center">
+                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
                                         <strong>Warning!</strong>
                                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                                     </div>
@@ -125,21 +125,34 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex">
-                        <div class="col-md-3"></div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <div class="col-lg-6 d-flex">
+                                <div class="col-lg-4 d-flex">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <div class="col-lg-4 d-flex">
+                                    <asp:Button ID="btnClear" runat="server" class="btn btn-rounded btn-info btn-lg" BackColor="Orange" Text="Clear" OnClick="btnClear_Click" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <div class="col-lg-4 d-flex">
                                     <asp:Button ID="btnSubmit" runat="server" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Text="Submit" OnClick="btnSubmit_Click" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <div class="col-lg-6 d-flex">
-                                    <asp:Button ID="btnClear" runat="server" class="btn btn-rounded btn-info btn-lg" BackColor="Orange" Text="Clear" OnClick="btnClear_Click" />
+                                <div class="col-lg-4 d-flex">
+                                    <asp:Button ID="btnNext" runat="server" class="btn btn-rounded btn-info btn-lg" BackColor="Brown" Text="Next" OnClick="btnNext_Click" />
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3"></div>
                     </div>
                 </div>

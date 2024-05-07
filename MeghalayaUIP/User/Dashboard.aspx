@@ -24,15 +24,17 @@
                                          <i class="fa fa-users"></i>
                                         <span class="count-numbers">Registration under <br /> MIIPP 2024</span>
                                         <span class="count-name">(Principle approval)</span>
-                                    </div>
+                                    </div><%--<a href="CFE/CFEDashboard.aspx">CFE/CFEDashboard.aspx</a>--%>
                                 </asp:LinkButton>
                             </div>
                             <div class="col-md-3">
+                                <asp:LinkButton ID="linkCFE" runat="server" OnClick="linkCFE_Click" >
                                 <div class="card-counter primary" data-toggle="modal" data-target=".bd-example-modal-xl">
                                     <img src="../assets/admin/img/prl.png" alt="logo">
                                     <span class="count-numbers">Pre-Establishment Approval</span>
                                     <span class="count-name"></span>
                                 </div>
+                                </asp:LinkButton>
                             </div>
 
                             <div class="col-md-3">

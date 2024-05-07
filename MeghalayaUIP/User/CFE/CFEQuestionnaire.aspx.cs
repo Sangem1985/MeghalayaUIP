@@ -32,11 +32,16 @@ namespace MeghalayaUIP.User.CFE
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
+                if (Convert.ToString(Session["UNITID"]) != "")
+                { UnitID = Convert.ToString(Session["UNITID"]); }
+                else
+                {
+                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
                 Page.MaintainScrollPositionOnPostBack = true;
                 if (!IsPostBack)
                 {
-                    if(Request.QueryString.Count>0)
-                    {  UnitID = Request.QueryString[0]; }
                     MVQues.ActiveViewIndex = index;
                     BindSectors();
                     BindDistricts();
@@ -46,7 +51,7 @@ namespace MeghalayaUIP.User.CFE
                     GetElectricRegulations();
                     GetVoltageMaster();
                     GetPowerPlants();
-                    BINDDATA();
+                    BindData();
                 }
 
             }
@@ -63,53 +68,138 @@ namespace MeghalayaUIP.User.CFE
 
 
         }
-        public void BINDDATA()
+        public void BindData()
         {
             try
             {
 
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetIndustryRegDetails(hdnUserID.Value, UnitID);
-                if (ds != null)
+                ds = objcfebal.RetrieveQuestionnaireDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
-                    hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
-                    Session["UNITID"] = hdnPreRegUNITID.Value;
-                    txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
-                    rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
-                    ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
-                    ddlDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_DISTRICTID"]);
+                    hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNITID"]);
+                    hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PREREGUIDNO"]);
+                    txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYNAME"]);
+                    rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPOSALFOR"]);
+                    ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]);
+                    ddlDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPDISTRICTID"]);
                     ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
-                    ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
+                    ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPMANDALID"]);
                     ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                    ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
-                    txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                    txtAcres.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                    txtSquareMeters.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                    ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPVILLAGEID"]);
+                    txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
+                    txtAcres.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
+                    txtSquareMeters.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
 
-                    txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
-                    lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
-                    ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
-                    if (Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
+                    txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILTUPAREA"]);
+                    ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_SECTOR"]);
+                    ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LOAID"]);
+                    lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PCBCATEGORY"]);
+
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_INDUSTRYTYPE"]) == "Manufacturing")
                         ddlIndustryType.SelectedValue = "1";
                     else
                         ddlIndustryType.SelectedValue = "2";
+                    txtUnitLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNTLOCATION"]);
+                    rblMIDCL.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MIDCLLAND"]);
 
-                    ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
-                    ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
-                    //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                    txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
-                    txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
-                    txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
-                    lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
-                    lblEntCategory.Text = "MEGA PROJECT";
+                    txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPEMP"]);
+                    txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LANDVALUE"]);
+                    txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILDINGVALUE"]);
+                    txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PMCOST"]);
+                    txtAnnualTurnOver.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_EXPECTEDTURNOVER"]);
+                    lblTotProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALPROJCOST"]);
+                    lblEntCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_ENTERPRISETYPE"]);
+
+                    ddlPowerReq.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_POWERREQKW"]);
+                    rblGenerator.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_GENREQ"]);
+                    txtBuildingHeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILDINGHT"]);
+                    rblRSDSstore.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_STORINGRSDS"]);
+                    rblexplosives.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MANFEXPLOSIVES"]);
+                    rblPetrlManf.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MANFPETROL"]);
+                    rblRoadCutting.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_RDCTNGREQ"]);
+                    rblNonEncCert.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NONENCMCERTREQ"]);
+                    rblCommericalTax.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMMTAXREQ"]);
+                    rblHighTension.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_USINGHTMETER"]);
+                    rblHighTension_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlRegulation.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CEIGREGULATION"]);
+                    ddlRegulation_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlPowerPlant.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_POWERPLANT"]);
+                    txtAggrCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_AGGRCAPACITY"]);
+                    ddlVoltage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_VOLTAGERATING"]);
+                    rblfrstDistncLtr.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_FORSTDISTLTRREQ"]);
+                    rblNonForstLandCert.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NONFORSTLANDCERTREQ"]);
+                    rblFelltrees.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TREESFELLING"]);
+                    rblFelltrees_SelectedIndexChanged(null, EventArgs.Empty);
+                    txtNoofTrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFTREES"]);
+                    rblwaterbody.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERBODYVICINITY"]);
+                    rblborewell.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BOREWELLEXISTS"]);
+                    //CFEQD_BOREWELLREQ CFEQD_BOREWELLKLD   CFEQD_RIVERSnCANALS CFEQD_RIVERSnCANALSKLD
+
+                    rblLbrAct1970.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LABOURACT1970"]);
+                    rblLbrAct1970_SelectedIndexChanged(null, EventArgs.Empty);
+                    txt1970Workers.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERS1970"]);
+                    rblLbrAct1979.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LABOURACT1979"]);
+                    rblLbrAct1979_SelectedIndexChanged(null, EventArgs.Empty);
+                    txt1979Workers.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERS1979"]);
+                    rblLbrAct1996.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LABOURACT1996"]);
+                    rblLbrAct1996_SelectedIndexChanged(null, EventArgs.Empty);
+                    rblbuildingwork.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILDINGWORKS1996"]);
+                    rblbuildingwork_SelectedIndexChanged(null, EventArgs.Empty);
+                    txt1996Workers.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERS1996"]);
+                    rblLabourAct.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CONTRLABOURACT"]);
+                    rblLabourAct_SelectedIndexChanged(null, EventArgs.Empty);
+                    txtContractWorkers.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERSCONTR"]);
+                    rblForContr1970.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CONTRLABOURACT1970"]);
+                    rblForContr1970_SelectedIndexChanged(null, EventArgs.Empty);
+                    txtContr1970wrkrs.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERSCONTR1970"]);
+                }
+                else
+                {
+                    ds.Clear();
+                    ds = objcfebal.GetIndustryRegDetails(hdnUserID.Value, UnitID);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
+                        hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
+                        Session["UNITID"] = hdnPreRegUNITID.Value;
+                        txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
+                        rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
+                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
+                        ddlDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_DISTRICTID"]);
+                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
+                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
+                        txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                        txtAcres.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+                        txtSquareMeters.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
+
+                        txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
+                        lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
+                        ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
+                        if (Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
+                            ddlIndustryType.SelectedValue = "1";
+                        else
+                            ddlIndustryType.SelectedValue = "2";
+
+                        ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
+                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
+                        //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
+                        txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
+                        txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
+                        lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
+                        lblEntCategory.Text = "MEGA PROJECT";
+                    }
                 }
 
 
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -138,7 +228,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -167,7 +257,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindSectors()
@@ -195,7 +285,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindLineOfActivity(string Sector)
@@ -223,7 +313,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindDistricts()
@@ -266,7 +356,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindMandal(DropDownList ddlmndl, string DistrictID)
@@ -294,7 +384,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -323,7 +413,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindPowerReq()
@@ -351,7 +441,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void GetElectricRegulations()
@@ -379,7 +469,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void GetVoltageMaster()
@@ -407,7 +497,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void GetPowerPlants()
@@ -435,7 +525,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -449,7 +539,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
@@ -465,7 +555,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlLine_Activity_SelectedIndexChanged(object sender, EventArgs e)
@@ -481,7 +571,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
 
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
@@ -500,7 +590,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 //Failure.Visible = true;
                 //lblmsg0.Text = ex.Message; Failure.Visible = true;
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
@@ -516,7 +606,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void rblFelltrees_SelectedIndexChanged(object sender, EventArgs e)
@@ -533,7 +623,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -550,7 +640,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -579,7 +669,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void rblLbrAct1970_SelectedIndexChanged(object sender, EventArgs e)
@@ -594,7 +684,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -610,7 +700,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -627,7 +717,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -644,7 +734,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -662,7 +752,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -678,7 +768,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -731,7 +821,7 @@ namespace MeghalayaUIP.User.CFE
                     // objCFEQsnaire.Gunthas =
                     objCFEQsnaire.Square_Meters = txtSquareMeters.Text.Trim();
                     objCFEQsnaire.BuiltUpArea = txtBuiltArea.Text.Trim();
-                    objCFEQsnaire.SectorName = ddlSector.SelectedValue;
+                    objCFEQsnaire.SectorName = ddlSector.SelectedItem.Text;
                     objCFEQsnaire.Lineofacitivityid = ddlLine_Activity.SelectedValue;
                     objCFEQsnaire.PCBCategory = lblPCBCategory.Text.Trim();
                     objCFEQsnaire.NatureofActivity = ddlIndustryType.SelectedValue;
@@ -772,12 +862,14 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.LabourAct1996_Workers = txt1996Workers.Text.Trim();
                     objCFEQsnaire.ContractLabourAct = rblLabourAct.SelectedValue;
                     objCFEQsnaire.ContractLabourAct_Workers = txtContractWorkers.Text.Trim();
+                    objCFEQsnaire.ContractLabourAct1970 = rblForContr1970.SelectedValue;
+                    objCFEQsnaire.ContractLabourAct1970_Workers = txtContr1970wrkrs.Text.Trim();
                     objCFEQsnaire.CreatedBy = hdnUserID.Value;
                     int count = 0;
                     result = objcfebal.InsertQuestionnaireCFE(objCFEQsnaire);
                     if (result != "100")
                     {
-                        CFEQuestionnaireDet objrm =new CFEQuestionnaireDet();
+                        CFEQuestionnaireDet objrm = new CFEQuestionnaireDet();
                         Session["QUESTIONRID"] = result;
                         for (int i = 0; i < grdApprovals.Rows.Count; i++)
                         {
@@ -815,7 +907,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -1135,7 +1227,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             {
                 throw ex;
-                 //lblmsg0.Text = ex.Message; Failure.Visible = true;
+                //lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -1169,7 +1261,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -1336,7 +1428,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void grdApprovals_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -1357,7 +1449,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
         }
@@ -1366,9 +1458,13 @@ namespace MeghalayaUIP.User.CFE
         {
             MVQues.ActiveViewIndex = 0;
             Link1.ForeColor = Color.Black;
+            Link1.CssClass = "nav-tab";
+            Link2.CssClass = "nav-tab";
+            Link3.CssClass = "nav-tab";
             Link1.Font.Underline = true;
             Link2.Font.Underline = false;
             Link3.Font.Underline = false;
+
 
         }
 

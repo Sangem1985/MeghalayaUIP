@@ -65,7 +65,42 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet RetrieveQuestionnaireDetails(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.RetrieveQuestionnaire, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.RetrieveQuestionnaire;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
 
                 da.Fill(ds);
                 transaction.Commit();
@@ -229,8 +264,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERS1996", objCFEQsnaire.LabourAct1996_Workers);
                 com.Parameters.AddWithValue("@CFEQD_CONTRLABOURACT", objCFEQsnaire.ContractLabourAct);
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERSCONTR", objCFEQsnaire.ContractLabourAct_Workers);
-                com.Parameters.AddWithValue("@CFEQD_CONTRLABOURACT1970", objCFEQsnaire.ContractLabourAct);
-                com.Parameters.AddWithValue("@CFEQD_NOOFWORKERSCONTR1970", objCFEQsnaire.ContractLabourAct_Workers);
+                com.Parameters.AddWithValue("@CFEQD_CONTRLABOURACT1970", objCFEQsnaire.ContractLabourAct1970);
+                com.Parameters.AddWithValue("@CFEQD_NOOFWORKERSCONTR1970", objCFEQsnaire.ContractLabourAct1970_Workers);
                 com.Parameters.AddWithValue("@CFEQD_CREATEDBY", Convert.ToInt32(objCFEQsnaire.CreatedBy));
                 com.Parameters.AddWithValue("@CFEQD_CREATEDBYIP", objCFEQsnaire.IPAddress);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -388,6 +423,573 @@ namespace MeghalayaUIP.DAL.CFEDAL
             catch (Exception ex)
             {
                 transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+
+        public DataSet GetEntrepreneurDetails(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetEntrepreneurDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetEntrepreneurDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string InsertEntrepreneurDet(CFEEntrepreneur objCFEEntrepreneur)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            // connection.Open();
+            // transaction = connection.BeginTransaction();
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertEntrepreneurDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEED_CREATEDBY", Convert.ToInt32(objCFEEntrepreneur.CreatedBy));
+                com.Parameters.AddWithValue("@CFEED_CREATEDBYIP", objCFEEntrepreneur.IPAddress);
+
+                com.Parameters.AddWithValue("@CFEED_CFEQDID", Convert.ToInt32(objCFEEntrepreneur.Questionnariid));
+                com.Parameters.AddWithValue("@CFEED_UNITID", Convert.ToInt32(objCFEEntrepreneur.UNITID));
+
+                com.Parameters.AddWithValue("@CFEED_COMPANYNAME", objCFEEntrepreneur.CompanyName);
+                com.Parameters.AddWithValue("@CFEED_PROMOTERNAME", objCFEEntrepreneur.PromoterName);
+                com.Parameters.AddWithValue("@CFEED_SOWODO", objCFEEntrepreneur.SoWoDoName);
+                com.Parameters.AddWithValue("@CFEED_STATEID", Convert.ToInt32(objCFEEntrepreneur.StateID));
+                com.Parameters.AddWithValue("@CFEED_DISTID", Convert.ToInt32(objCFEEntrepreneur.DistrictID));
+                com.Parameters.AddWithValue("@CFEED_MANDALID", Convert.ToInt32(objCFEEntrepreneur.MandalID));
+                com.Parameters.AddWithValue("@CFEED_VILLAGEID", Convert.ToInt32(objCFEEntrepreneur.VillageID));
+
+                com.Parameters.AddWithValue("@CFEED_STATENAME", objCFEEntrepreneur.StateName);
+                com.Parameters.AddWithValue("@CFEED_DISTNAME", objCFEEntrepreneur.DistrictName);
+                com.Parameters.AddWithValue("@CFEED_MANDALNAME", objCFEEntrepreneur.MandalName);
+                com.Parameters.AddWithValue("@CFEED_VILLAGENAME", objCFEEntrepreneur.VillageName);
+
+                com.Parameters.AddWithValue("@CFEED_STREET", objCFEEntrepreneur.StreetName);
+                com.Parameters.AddWithValue("@CFEED_DOORNO", objCFEEntrepreneur.DoorNo);
+
+                com.Parameters.AddWithValue("@CFEED_PINCODE", Convert.ToInt32(objCFEEntrepreneur.Pincode));
+                com.Parameters.AddWithValue("@CFEED_MOBILE", Convert.ToInt64(objCFEEntrepreneur.MobileNo));
+                com.Parameters.AddWithValue("@CFEED_ALTMOBILE", Convert.ToInt64(objCFEEntrepreneur.AltMobileNo));
+                com.Parameters.AddWithValue("@CFEED_EMAIL", objCFEEntrepreneur.Email);
+                com.Parameters.AddWithValue("@CFEED_COMPANYTYPE", Convert.ToInt32(objCFEEntrepreneur.Organization));
+                com.Parameters.AddWithValue("@CFEED_TELEPHONENO", objCFEEntrepreneur.TelePhoneNo);
+                com.Parameters.AddWithValue("@CFEED_PROPOSALFOR", objCFEEntrepreneur.ProposalFor);
+                com.Parameters.AddWithValue("@CFEED_CASTE", Convert.ToInt32(objCFEEntrepreneur.SocialStatus));
+                com.Parameters.AddWithValue("@CFEED_ISDIFFABLED", objCFEEntrepreneur.IsDiffAbled);
+                com.Parameters.AddWithValue("@CFEED_ISWOMENENTR", objCFEEntrepreneur.IsWomenEntr);
+                com.Parameters.AddWithValue("@CFEED_ISMINORITY", objCFEEntrepreneur.IsMinority);
+
+                com.Parameters.AddWithValue("@CFEED_LANDVALUE", SqlDbType.Decimal).Value = objCFEEntrepreneur.LandValue;
+                com.Parameters.AddWithValue("@CFEED_BUILDINGVALUE", SqlDbType.Decimal).Value = objCFEEntrepreneur.BuildingValue;
+                com.Parameters.AddWithValue("@CFEED_PMCOST", SqlDbType.Decimal).Value = objCFEEntrepreneur.Plant_Machinary;
+                com.Parameters.AddWithValue("@CFEED_TOTALPROJCOST", SqlDbType.Decimal).Value = objCFEEntrepreneur.TotalProjectValue;
+
+                com.Parameters.AddWithValue("@CFEED_DIRECTMALE", Convert.ToInt32(objCFEEntrepreneur.DirectMale));
+                com.Parameters.AddWithValue("@CFEED_DIRECTFEMALE", Convert.ToInt32(objCFEEntrepreneur.DirectFemale));
+                com.Parameters.AddWithValue("@CFEED_INDIRECTMALE", Convert.ToInt32(objCFEEntrepreneur.InDirectMale));
+                com.Parameters.AddWithValue("@CFEED_INDIRECTFEMALE", Convert.ToInt32(objCFEEntrepreneur.InDirectFemale));
+                com.Parameters.AddWithValue("@CFEED_TOTALEMP", Convert.ToInt32(objCFEEntrepreneur.TotalEmp));
+
+                com.Parameters.AddWithValue("@CFEED_REGISTRATIONTYPE", Convert.ToInt32(objCFEEntrepreneur.RegistrationType));
+                com.Parameters.AddWithValue("@CFEED_REGISTRATIONNO", objCFEEntrepreneur.RegistrationNo);
+                com.Parameters.AddWithValue("@CFEED_REGISTRATIONDATE", objCFEEntrepreneur.RegistrationDate);
+                com.Parameters.AddWithValue("@CFEED_FACTORYTYPE", objCFEEntrepreneur.FactoryType);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+               
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFELandDet(CFELand objCFELandDet)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFELandDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFELD_CREATEDBY", Convert.ToInt32(objCFELandDet.CreatedBy));
+                com.Parameters.AddWithValue("@CFELD_CREATEDBYIP", objCFELandDet.IPAddress);
+
+                com.Parameters.AddWithValue("@CFELD_CFEQDID", Convert.ToInt32(objCFELandDet.Questionnariid));
+                com.Parameters.AddWithValue("@CFELD_UNITID", Convert.ToInt32(objCFELandDet.UnitId));
+
+                com.Parameters.AddWithValue("@CFELD_SURVEYNO", objCFELandDet.Survey_Plot);
+                com.Parameters.AddWithValue("@CFELD_DISTID", Convert.ToInt32(objCFELandDet.District));
+                com.Parameters.AddWithValue("@CFELD_MANDALID", Convert.ToInt32(objCFELandDet.Mandal));
+                com.Parameters.AddWithValue("@CFELD_VILLAGEID", Convert.ToInt32(objCFELandDet.Village));
+                com.Parameters.AddWithValue("CFELD_DISTNAME", objCFELandDet.DistrictName);
+                com.Parameters.AddWithValue("CFELD_MANDALNAME", objCFELandDet.MandalName);
+                com.Parameters.AddWithValue("CFELD_VILLAGENAME", objCFELandDet.VillageName);
+
+                com.Parameters.AddWithValue("@CFELD_GRAMPANCHAYAT", objCFELandDet.Name_Grampanchayat);
+                com.Parameters.AddWithValue("@CFELD_PINCODE", Convert.ToInt32(objCFELandDet.Pincode));
+
+                com.Parameters.AddWithValue("@CFELD_TELEPHONENO", objCFELandDet.Landline);
+                com.Parameters.AddWithValue("@CFELD_TOTALEXTEND", Convert.ToInt32(objCFELandDet.Total_Extent_Area));
+
+                //  com.Parameters.AddWithValue("@CFELD_TOTALEXTEND", objCFELandDet.Total_Extent_Area);
+                com.Parameters.AddWithValue("@CFELD_BUILDINGTYPE", Convert.ToInt32(objCFELandDet.Type_Building));
+                com.Parameters.AddWithValue("@CFELD_LAND", Convert.ToInt32(objCFELandDet.Land_Master_Plan));
+                com.Parameters.AddWithValue("@CFELD_AREADEVELOPMENT", Convert.ToInt32(objCFELandDet.Proposed_Area_Develop));
+                //  com.Parameters.AddWithValue("", objCFELandDet.Proposed_Area_Develop);
+                // com.Parameters.AddWithValue("", objCFELandDet.Total_Built_Area);
+                com.Parameters.AddWithValue("@CFELD_TOTALBUILTUP", Convert.ToInt32(objCFELandDet.Total_Built_Area));
+
+                // com.Parameters.AddWithValue("", objCFELandDet.Height_Building);
+                com.Parameters.AddWithValue("@CFELD_BUILDINGHT", SqlDbType.Decimal).Value = objCFELandDet.Height_Building;
+                //  com.Parameters.AddWithValue("", objCFELandDet.Existing_Width);
+                com.Parameters.AddWithValue("@CFELD_EXISTINGWIDTH", Convert.ToInt32(objCFELandDet.Existing_Width));
+
+                com.Parameters.AddWithValue("@CFELD_APPROACHTYPE", Convert.ToInt32(objCFELandDet.Type_ApproachRoad));
+                com.Parameters.AddWithValue("@CFELD_LANDLOACTION", Convert.ToInt32(objCFELandDet.Land_Locationfalls));
+                com.Parameters.AddWithValue("@CFELD_BUILDINGAPPROVAL", Convert.ToInt32(objCFELandDet.Building_Approval));
+                com.Parameters.AddWithValue("@CFELD_INDUSTRYACTIVITY", Convert.ToInt32(objCFELandDet.Industry_Product));
+                //  com.Parameters.AddWithValue("@CFELD_CATEGORYINDUSTRY", Convert.ToInt32(objCFELandDet.Category_Industry));
+                com.Parameters.AddWithValue("@CFELD_CATEGORYINDUSTRY", objCFELandDet.Category_Industry);
+                com.Parameters.AddWithValue("@CFELD_ROADWIDENING", objCFELandDet.Road_Widening);
+                com.Parameters.AddWithValue("@CFELD_LANDPART", objCFELandDet.land_part);
+
+                //  com.Parameters.AddWithValue("", Convert.ToInt32(objCFELandDet.Road_Widening));
+                com.Parameters.AddWithValue("@CFELD_ARCHITECTLICNO", Convert.ToInt32(objCFELandDet.Architect_LICNo));
+                com.Parameters.AddWithValue("@CFELD_ARCHITECTNAME", objCFELandDet.Architect_Name);
+                com.Parameters.AddWithValue("CFELD_ARCHITECTMOBILE", Convert.ToInt64(objCFELandDet.Architect_MobileNo));
+                com.Parameters.AddWithValue("@CFELD_STRUCTURALENGNAME", objCFELandDet.Structural_Engineer);
+                com.Parameters.AddWithValue("CFELD_STRUCTURALENGMOBILE", Convert.ToInt64(objCFELandDet.Structural_Mobile_No));
+                com.Parameters.AddWithValue("CFELD_STRUCTURALLICNO", Convert.ToInt32(objCFELandDet.StructuralLicNo));
+                // com.Parameters.AddWithValue("@CFELD_ARCHITECTURALDWG", SqlDbType.VarBinary).Value = objCFELandDet.Architectural_dwg;
+                //com.Parameters.AddWithValue("@CFELD_AFFIDAVIT", SqlDbType.VarBinary).Value = objCFELandDet.Common_Affidavit;
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetCFELandDet(string UserID, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFELandDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFELandDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(UserID));
+
+                
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+       
+        public string InsertCFEForestDet(CFEForest objCFEQForest)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEForestDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFEFD_CREATEDBY", Convert.ToInt32(objCFEQForest.CreatedBy));
+                com.Parameters.AddWithValue("@CFEFD_CREATEDBYIP", objCFEQForest.IPAddress);
+
+                com.Parameters.AddWithValue("@CFEFD_CFEQDID", Convert.ToInt32(objCFEQForest.Questionnariid));
+                com.Parameters.AddWithValue("@CFEFD_UNITID", Convert.ToInt32(objCFEQForest.UnitId));
+
+                com.Parameters.AddWithValue("@CFEFD_SPECIES", objCFEQForest.Species);
+                com.Parameters.AddWithValue("@CFEFD_TIMBERLENGTH", SqlDbType.Decimal).Value = objCFEQForest.Est_Length_Timber;
+                com.Parameters.AddWithValue("@CFEFD_TIMBERVOLUME", SqlDbType.Decimal).Value = objCFEQForest.Est_Volume_Timber;
+                com.Parameters.AddWithValue("@CFEFD_GIRTH", SqlDbType.Decimal).Value = objCFEQForest.Girth;
+                com.Parameters.AddWithValue("@CFEFD_POLES", Convert.ToInt32(objCFEQForest.No_Poles));
+                com.Parameters.AddWithValue("@CFEFD_NORTH", Convert.ToInt32(objCFEQForest.North));
+                com.Parameters.AddWithValue("@CFEFD_EAST", Convert.ToInt32(objCFEQForest.East));
+                com.Parameters.AddWithValue("@CFEFD_WEST", Convert.ToInt32(objCFEQForest.West));
+                com.Parameters.AddWithValue("@CFEFD_SOUTH", Convert.ToInt32(objCFEQForest.South));
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFEWaterDetails(CFEWater ObjCFEWater)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.INSERTCFEWaterDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.INSERTCFEWaterDet;
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("", ObjCFEWater.BOREWELL);
+                da.SelectCommand.Parameters.AddWithValue("", ObjCFEWater.RIVER);
+                da.SelectCommand.Parameters.AddWithValue("", ObjCFEWater.HMWSSB);
+                da.SelectCommand.Parameters.AddWithValue("", ObjCFEWater.water_Industrial);
+                da.SelectCommand.Parameters.AddWithValue("", ObjCFEWater.Drinking_Water);
+                da.SelectCommand.Parameters.AddWithValue("", ObjCFEWater.Quantity_Water);
+                da.SelectCommand.Parameters.AddWithValue("", ObjCFEWater.Non_Consumptive_water);
+
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex; throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
+        public string InsertCFEPowerDetails(CFEPower objCFEPower)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEPowerDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("CFEPD_CREATEDBY", Convert.ToInt32(objCFEPower.CreatedBy));
+                com.Parameters.AddWithValue("CFEPD_CREATEDBYIP", objCFEPower.IPAddress);
+
+                com.Parameters.AddWithValue("@CFEPD_CFEQDID", Convert.ToInt32(objCFEPower.Questionnariid));
+                com.Parameters.AddWithValue("@CFEPD_UNITID", Convert.ToInt32(objCFEPower.UnitId));
+                com.Parameters.AddWithValue("@CFEPD_CONNECTEDLOAD", Convert.ToInt32(objCFEPower.Con_Load_HP));
+                com.Parameters.AddWithValue("@CFEPD_MAXIMUMDEMAND", objCFEPower.Maximum_KVA);
+                com.Parameters.AddWithValue("@CFEPD_VOLTEAGELEVEL", objCFEPower.Voltage_Level);
+                com.Parameters.AddWithValue("@CFEPD_EXISTINGSERVICE", objCFEPower.Existing_Service);
+                com.Parameters.AddWithValue("@CFEPD_PERDAY", Convert.ToInt32(objCFEPower.Per_Day));
+                com.Parameters.AddWithValue("@CFEPD_PERMONTH", Convert.ToInt32(objCFEPower.Per_Month));
+                com.Parameters.AddWithValue("@CFEPD_TRIALMONTH", objCFEPower.Expected_Month_Trial);
+                com.Parameters.AddWithValue("@CFEPD_POWERDATE", objCFEPower.Probable_Date_Power);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string GetInsertManufacture(CFELineOfManuf objCFEManufacture)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEManufactureDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFELA_CREATEDBY", Convert.ToInt32(objCFEManufacture.CreatedBy));
+                com.Parameters.AddWithValue("@CFELA_CREATEDBYIP", objCFEManufacture.IPAddress);
+                com.Parameters.AddWithValue("@CFELA_CFEQDID", Convert.ToInt32(objCFEManufacture.Questionnariid));
+                com.Parameters.AddWithValue("@CFELA_UNITID", Convert.ToInt32(objCFEManufacture.UnitId));
+                com.Parameters.AddWithValue("@CFELA_LineofActivityMid", Convert.ToInt32(objCFEManufacture.Line_Activity));
+                com.Parameters.AddWithValue("@CFELA_Manf_Item_Quantity", Convert.ToInt32(objCFEManufacture.QuantityLA));
+                com.Parameters.AddWithValue("@CFELA_Manf_ItemName", objCFEManufacture.ItemLA);
+                com.Parameters.AddWithValue("@CFELA_Manf_Item_Quantity_In", Convert.ToInt32(objCFEManufacture.Quantity_InLA));
+                com.Parameters.AddWithValue("@CFELA_Manf_Item_Quantity_Per", Convert.ToInt32(objCFEManufacture.Quantity_PerLA));
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string GetInsertCFERawMaterial(CFELineOfManuf objCFEManufacture)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFERAWMaterialDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFERM_CREATEDBY", Convert.ToInt32(objCFEManufacture.CreatedBy));
+                com.Parameters.AddWithValue("@CFERM_CREATEDBYIP", objCFEManufacture.IPAddress);
+                com.Parameters.AddWithValue("@CFERM_CFEQDID", Convert.ToInt32(objCFEManufacture.Questionnariid));
+                com.Parameters.AddWithValue("@CFERM_UNITID", Convert.ToInt32(objCFEManufacture.UnitId));
+                com.Parameters.AddWithValue("@CFERM_RAW_ITEMNAME", objCFEManufacture.ItemNameRM);
+                com.Parameters.AddWithValue("@CFERM_RAW_ITEM_QUANTITY", Convert.ToInt32(objCFEManufacture.QuantitysRM));
+                com.Parameters.AddWithValue("@CFERM_RAW_ITEM_QUANTITY_IN", Convert.ToInt32(objCFEManufacture.Quantity_InsRM));
+                com.Parameters.AddWithValue("@CFERM_RAW_ITEM_QUANTITY_PER", Convert.ToInt32(objCFEManufacture.Quantity_PersRM));
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFEFireDetails(CFEFire ObjCCFEFireDetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEFierDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFERM_CREATEDBY", Convert.ToInt32(ObjCCFEFireDetails.CreatedBy));
+                com.Parameters.AddWithValue("@CFERM_CREATEDBYIP", ObjCCFEFireDetails.IPAddress);
+                com.Parameters.AddWithValue("@CFERM_CFEQDID", Convert.ToInt32(ObjCCFEFireDetails.Questionnariid));
+                com.Parameters.AddWithValue("@CFERM_UNITID", Convert.ToInt32(ObjCCFEFireDetails.UnitId));
+
+                com.Parameters.AddWithValue("@CFEFD_DISTRICID", Convert.ToInt32(ObjCCFEFireDetails.DistricId));
+                com.Parameters.AddWithValue("@CFEFD_MANDALID", Convert.ToInt32(ObjCCFEFireDetails.MandalId));
+                com.Parameters.AddWithValue("@CFEFD_VILLAGEID", Convert.ToInt32(ObjCCFEFireDetails.VillageId));
+                com.Parameters.AddWithValue("@CFEFD_DISTRICNAME", ObjCCFEFireDetails.DistricName);
+                com.Parameters.AddWithValue("@CFEFD_MANDALNAME", ObjCCFEFireDetails.MandalName);
+                com.Parameters.AddWithValue("@CFEFD_VILLAGENAME", ObjCCFEFireDetails.VillageName);
+                com.Parameters.AddWithValue("@CFEFD_Locality", ObjCCFEFireDetails.Locality);
+                com.Parameters.AddWithValue("@CFEFD_Landmark", ObjCCFEFireDetails.Landmark);
+                com.Parameters.AddWithValue("@CFEFD_Pincode", Convert.ToInt32(ObjCCFEFireDetails.Pincode));
+                com.Parameters.AddWithValue("@CFEFD_BUILDINGHT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.HeightBuilding;
+                com.Parameters.AddWithValue("@CFEFD_FLOORHT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.HeightFloor;
+                com.Parameters.AddWithValue("@CFEFD_PLOTAREA", SqlDbType.Decimal).Value = ObjCCFEFireDetails.PlotArea;
+                com.Parameters.AddWithValue("@CFEFD_BUILDINGAREA", SqlDbType.Decimal).Value = ObjCCFEFireDetails.builoduparea;
+                com.Parameters.AddWithValue("@CFEFD_DRIVEPROPSED", SqlDbType.Decimal).Value = ObjCCFEFireDetails.ProposedDrive;
+                com.Parameters.AddWithValue("@CFEFD_EXISTINGROAD", SqlDbType.Decimal).Value = ObjCCFEFireDetails.ExistingRoad;
+                com.Parameters.AddWithValue("@CFEFD_CATEGORYBUILD", ObjCCFEFireDetails.CategoryBuilding);
+                com.Parameters.AddWithValue("@CFEFD_FEEAMOUNT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.FeeAmount;
+                com.Parameters.AddWithValue("@CFEFD_East", SqlDbType.Decimal).Value = ObjCCFEFireDetails.East;
+                com.Parameters.AddWithValue("@CFEFD_West", SqlDbType.Decimal).Value = ObjCCFEFireDetails.West;
+                com.Parameters.AddWithValue("@CFEFD_North", SqlDbType.Decimal).Value = ObjCCFEFireDetails.North;
+                com.Parameters.AddWithValue("@CFEFD_South", SqlDbType.Decimal).Value = ObjCCFEFireDetails.South;
+                com.Parameters.AddWithValue("@CFEFD_DISTANCEEAST", SqlDbType.Decimal).Value = ObjCCFEFireDetails.Distancebuild;
+                com.Parameters.AddWithValue("@CFEFD_DISTANCEWEST", SqlDbType.Decimal).Value = ObjCCFEFireDetails.Distanceproposed;
+                com.Parameters.AddWithValue("@CFEFD_DISTANCENORTH", SqlDbType.Decimal).Value = ObjCCFEFireDetails.Distancemeter;
+                com.Parameters.AddWithValue("@CFEFD_DISTANCESOUTH", SqlDbType.Decimal).Value = ObjCCFEFireDetails.buildingdist;
+                com.Parameters.AddWithValue("@CFEFD_FIRESTATION", SqlDbType.Decimal).Value = ObjCCFEFireDetails.Firestation;
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally

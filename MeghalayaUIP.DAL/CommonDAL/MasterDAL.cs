@@ -244,6 +244,8 @@ namespace MeghalayaUIP.DAL.CommonDAL
             SqlDataReader drOptions = null;
             try
             {
+                if (Sector == "")
+                    Sector = null;
                 SqlParameter[] param = new SqlParameter[]
                {
                     new SqlParameter("@Sector",Sector)
@@ -502,6 +504,68 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 }
             }
             return lstplants;
+        }
+        public List<MasterCaste> GetCaste()
+        {
+            List<MasterCaste> lstCasteMstr = new List<MasterCaste>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetCastemaster);
+                while (drOptions.Read())
+                {
+                    var caste = new MasterCaste()
+                    {
+
+                        CASTEID = Convert.ToString(drOptions["CASTEID"]),
+                        CASTNAME = Convert.ToString(drOptions["CASTNAME"])
+                    };
+                    lstCasteMstr.Add(caste);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstCasteMstr;
+        }
+        public List<MasterRegistrationType> GetRegistrationType()
+        {
+            List<MasterRegistrationType> lstRegistrationTypeMstr = new List<MasterRegistrationType>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetRegistrationType);
+                while (drOptions.Read())
+                {
+                    var ResistrationType = new MasterRegistrationType()
+                    {
+
+                        REGISTRATIONTYPEID = Convert.ToString(drOptions["REGISTRATIONTYPEID"]),
+                        REGISTRATIONTYPENAME = Convert.ToString(drOptions["REGISTRATIONTYPENAME"])
+                    };
+                    lstRegistrationTypeMstr.Add(ResistrationType);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstRegistrationTypeMstr;
         }
     }
 }

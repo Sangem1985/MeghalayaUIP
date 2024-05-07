@@ -24,6 +24,8 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetIndustryRegDetails(userid, UnitID);
         }
+        public DataSet RetrieveQuestionnaireDetails(string userid, string UnitID)
+        { return objCFEDAL.RetrieveQuestionnaireDetails(userid, UnitID); }
         public DataTable GetApprovalsReqWithFee(CFEQuestionnaireDet objCFEQ)
         { return objCFEDAL.GetApprovalsReqWithFee(objCFEQ); }
         public string InsertQuestionnaireCFE(CFEQuestionnaireDet objCFEQsnaire)
@@ -38,5 +40,46 @@ namespace MeghalayaUIP.BAL.CFEBLL
         { return objCFEDAL.GetApprovalsReqFromTable(objCFEQsnaire); }
         public string InsertCFEDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
         { return objCFEDAL.InsertCFEDepartmentApprovals(objCFEQsnaire); }
+
+        public DataSet GetEntrepreneurDetails(string userid, string UnitID)
+        {
+            return objCFEDAL.GetEntrepreneurDetails(userid, UnitID);
+        }
+        public string InsertEntrepreneurDet(CFEEntrepreneur objCFEEntrepreneur)
+        {
+            return objCFEDAL.InsertEntrepreneurDet(objCFEEntrepreneur);
+        }
+        public string InsertCFELandDet(CFELand objCFELandDet)
+        {
+            return objCFEDAL.InsertCFELandDet(objCFELandDet);
+        }
+        public DataSet GetCFELandDet(string UserID, string UnitID)
+        {
+            return objCFEDAL.GetCFELandDet(UserID, UnitID);
+        }
+        public string InsertCFEForestDet(CFEForest objCFEQForest)
+        {
+            return objCFEDAL.InsertCFEForestDet(objCFEQForest);
+        }
+        public string InsertCFEWaterDetails(CFEWater ObjCFEWater)
+        {
+            return objCFEDAL.InsertCFEWaterDetails(ObjCFEWater);
+        }
+        public string InsertCFEPowerDetails(CFEPower objCFEPower)
+        {
+            return objCFEDAL.InsertCFEPowerDetails(objCFEPower);
+        }
+        public string GetInsertManufacture(CFELineOfManuf objCFEManufacture)
+        {
+            return objCFEDAL.GetInsertManufacture(objCFEManufacture);
+        }
+        public string GetInsertCFERawMaterial(CFELineOfManuf objCFEManufacture)
+        {
+            return objCFEDAL.GetInsertCFERawMaterial(objCFEManufacture);
+        }
+        public string InsertCFEFireDetails(CFEFire ObjCCFEFireDetails)
+        {
+            return objCFEDAL.InsertCFEFireDetails(ObjCCFEFireDetails);
+        }
     }
 }
