@@ -48,7 +48,6 @@ namespace MeghalayaUIP.User.CFE
                     BindCaste();
                     BindRegistrationType();
                     TotalAmount();
-                    lbltotalEmp.Text = "0";
                     BindData();
                 }
             }
@@ -729,6 +728,16 @@ namespace MeghalayaUIP.User.CFE
             }
 
             return result;
+        }
+
+        protected void ddlUnitDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlUnitMandal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -58,15 +58,13 @@
     <div class="page-wrapper">
 
         <div class="content container-fluid">
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Entrepreneur Details</h4>
+                            <h3 class="card-title">Details of Organization, Authorised Representative and Unit Location </h3>
                         </div>
                         <div class="card-body">
-                            <!-- <h4 class="card-title">Personal Information</h4> -->
                             <div class="col-md-12 d-flex">
                                 <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                                     <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -281,7 +279,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">8. Street Name</label>
+                                            <label class="col-lg-6 col-form-label">8. Locality</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtstreet" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
@@ -403,6 +401,84 @@
                                         </div>
                                     </div>
                                 </div>--%>
+                                 <h3 class="card-title ml-4">Location of the Unit</h3>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">1. Survey No/Plot Number(s)/Door No.*</label>
+                                            <div class="col-lg-6">
+                                                <asp:TextBox ID="txtSurveyno" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">2. District</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:DropDownList ID="ddlUnitDistrict" runat="server" class="form-control" OnSelectedIndexChanged="ddlUnitDistrict_SelectedIndexChanged" AutoPostBack="true">
+                                                    <asp:ListItem Text="Select District" Value="0" />
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">3. Mandal</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:DropDownList ID="ddlUnitMandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlUnitMandal_SelectedIndexChanged" AutoPostBack="true">
+                                                    <asp:ListItem Text="Select Mandal" Value="0" />
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">4. Village/Town</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:DropDownList ID="ddlUnitVillage" runat="server" class="form-control">
+                                                    <asp:ListItem Text="Select Village" Value="0" />
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">5. Locality*</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtGrampanchayat" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">6. Pincode</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="TextBox1" runat="server" class="form-control" onkeypress="return validatePincode(event)"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">7. Tel No(Landline)(If available)</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtLandline" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">8. Total Extent of Site Area as Per Documents(in Sq. mts)</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtSiteArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                                 <h5 class="card-title ml-4">Employment Details</h5>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">

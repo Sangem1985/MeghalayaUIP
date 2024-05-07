@@ -362,7 +362,6 @@
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
     <Content Include="forgot-password.aspx" />
-    <Content Include="Home1.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Registration.aspx" />
@@ -520,13 +519,6 @@
     </Compile>
     <Compile Include="forgot-password.aspx.designer.cs">
       <DependentUpon>forgot-password.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Home1.aspx.cs">
-      <DependentUpon>Home1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home1.aspx.designer.cs">
-      <DependentUpon>Home1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
