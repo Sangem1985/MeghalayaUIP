@@ -249,6 +249,15 @@
     <Content Include="assets\images\body2.png" />
     <Content Include="assets\images\bodybg.png" />
     <Content Include="assets\images\bodybg1.png" />
+    <Content Include="assets\images\circle\bridge1.png" />
+    <Content Include="assets\images\circle\circle-1.png" />
+    <Content Include="assets\images\circle\circle-2.png" />
+    <Content Include="assets\images\circle\circle-3.png" />
+    <Content Include="assets\images\circle\circle-4.png" />
+    <Content Include="assets\images\circle\circle1.png" />
+    <Content Include="assets\images\circle\circle2.png" />
+    <Content Include="assets\images\circle\circle3.png" />
+    <Content Include="assets\images\circle\circle4.png" />
     <Content Include="assets\images\count.png" />
     <Content Include="assets\images\da1.png" />
     <Content Include="assets\images\destination\1.jfif" />
@@ -352,6 +361,7 @@
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
     <Content Include="forgot-password.aspx" />
+    <Content Include="Home1.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Registration.aspx" />
@@ -491,6 +501,13 @@
     </Compile>
     <Compile Include="forgot-password.aspx.designer.cs">
       <DependentUpon>forgot-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home1.aspx.cs">
+      <DependentUpon>Home1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home1.aspx.designer.cs">
+      <DependentUpon>Home1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

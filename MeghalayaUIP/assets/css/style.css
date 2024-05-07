@@ -7350,7 +7350,7 @@ nav.navigation.navbar.navbar-default.original {
     font-size: 25px;
     z-index: 9999;
     position: absolute;
-    top: 8.8%;
+    top: 9.8%;
     left: 8%;
 }
 
@@ -7533,4 +7533,208 @@ div#one:hover {
     -o-transform: rotateY(360deg);
     transition: all 3s ease-out .0s !important;
 }
+}
+
+section.testimonials-section img {
+    width: 100%;
+    box-shadow: 0px 9px 9px 4px #ccc;
+    border-radius: 10px;
+}
+    section.testimonials-section img:hover {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+        opacity: 1;
+        transition: .6s ease-in;
+    }
+.partner-grids.partners-slider.owl-carousel.owl-theme.owl-loaded img:hover {
+    transform: scale(1.1);
+    transition: transform .2s;
+}
+
+
+/*new css adding*/
+
+   
+
+        .goinvestor .golist li {
+            list-style: none;
+            display: inline-block;
+        }
+
+            .goinvestor .golist li a {
+                display: block;
+                height: 80px;
+                width:80px;
+                
+                position: relative;
+                color: #999;
+                background-position: center;
+                background-size: 85%;
+                z-index: 2;
+                transition: .3s;
+                background-repeat:no-repeat;
+            }
+h5.mt-3 {
+    transition: .3s;
+}
+
+.goinvestor .golist li:hover a, h5.mt-3 {
+    transform: scale(1.05);
+}
+
+            .goinvestor .golist li:first-child a {
+                background-image: url(../images/circle/circle1.png);
+            }
+
+            .goinvestor .golist li:nth-child(2) a {
+                background-image: url(../images/circle/circle2.png);
+            }
+
+            .goinvestor .golist li:nth-child(3) a {
+                background-image: url(../images/circle/circle3.png);
+            }
+
+            .goinvestor .golist li:nth-child(4) a {
+                background-image: url(../images/circle/circle4.png);
+            }
+
+            
+
+            .goinvestor .golist li:first-child a img {
+                width: 45%;
+            }
+
+.goinvestor .golist li a img {
+    vertical-align: middle;
+    position: relative;
+    transition: 1.2s;
+    transition-timing-function: ease-in-out;
+    height: 100%;
+    width: 45%;
+    object-fit: contain;
+    left: 23px;
+}
+
+            .goinvestor .golist li a:hover img {
+                -webkit-transform: rotateY(360deg); /* Safari */
+                transform: rotateY(360deg); /* Standard syntax */
+            }
+
+            .goinvestor .golist li:nth-child(even) a {
+                top: -100px;
+            }
+
+
+
+            .goinvestor .golist li a:after {
+                position: absolute;
+                z-index: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .goinvestor .golist li:nth-child(1) a:after {
+                content: url(../images/circle/bridge1.png);
+                top: 19px;
+                right: 16px;
+                transform: scalex(1.3);
+                rotate: -26deg;
+            }
+
+            .goinvestor .golist li:nth-child(2) a:after {
+                content: url(../images/circle/bridge1.png);
+                bottom: 57px;
+                left: 104px;
+                transform: scalex(1.3);
+                rotate: 26deg;
+            }
+
+            .goinvestor .golist li:nth-child(3) a:after {
+                content: url(../images/circle/bridge1.png);
+                top: 18px;
+                right: 16px;
+                transform: scalex(1.3);
+                rotate: -24deg;
+            }
+
+            .goinvestor .golist li:nth-child(4) a:after {
+                content: url(../images/circle/bridge1.png);
+                bottom: 43px;
+                left: 74px;
+                transform: scalex(1.3);
+            }
+
+
+
+            .goinvestor .golist li:last-child a:after {
+                display: none;
+            }
+
+            .goinvestor .golist li a .gotext {
+                position: absolute;
+                top: 120px;
+                padding: 10px;
+                left: -80px;
+                right: auto;
+                width: 275px;
+                color: #000;
+            }
+
+          
+
+            
+
+            
+
+ul.golist li {
+    width: 14%;
+}
+
+.col.col-md-6.first img {
+    box-shadow: none !important;
+}
+.boxshadaufirst {
+    box-shadow: 0px 9px 9px 4px #ccc;
+    border-radius: 10px;
+    height: 350px;
+    text-align: center;
+}
+h5.mt-3 {
+    margin-top: 25px;
+}
+.boxshadaufirst img {
+    width: 45% !important;
+}
+.boxshadaufirst .col-md-3 {
+    text-align: left !important;
+}
+.col.col-md-6.first img:after {
+     background-image: url(../images/circle/circle1.png);
+}
+a.img14 {
+    background-image: url(../images/circle/circle4.png) !important;
+}
+a.img11 {
+    background-image: url(../images/circle/circle1.png) !important;
+}
+a.img12 {
+    background-image: url(../images/circle/circle2.png) !important;
+}
+a.img13 {
+    background-image: url(../images/circle/circle3.png) !important;
+}
+.boxshadaufirst.goinvestor .col-md-12:hover {
+    transition: 3s;
+    transform: rotateX(360deg);
+}
+
+.grid img:hover {
+    
+    
+    /*transform: rotateY(180deg);*/
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transform: translateY(-8px);
+    opacity: 1;
+    transition: .6s ease-in;
 }

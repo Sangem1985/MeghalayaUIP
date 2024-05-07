@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="MeghalayaUIP.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="Home1.aspx.cs" Inherits="MeghalayaUIP.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -489,6 +489,11 @@
         <!-- end container -->
     </section>
     <!-- end cta-section -->
+
+    <%--trail map with data--%>
+
+    <%--trail map with Data--%>
+
 
 
     <!--End of the Body Part-->
