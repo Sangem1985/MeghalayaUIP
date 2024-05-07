@@ -336,6 +336,7 @@
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\script.js" />
     <Content Include="Deptlogin.aspx" />
+    <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
     <Content Include="Dept\CFE\demo.aspx" />
     <Content Include="Dept\CFO\demo.aspx" />
     <Content Include="Dept\Dashboard.aspx" />
@@ -383,6 +384,13 @@
     </Compile>
     <Compile Include="Deptlogin.aspx.designer.cs">
       <DependentUpon>Deptlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEDeptDashboard.aspx.cs">
+      <DependentUpon>CFEDeptDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEDeptDashboard.aspx.designer.cs">
+      <DependentUpon>CFEDeptDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\CFE\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
