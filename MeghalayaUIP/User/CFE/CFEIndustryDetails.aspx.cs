@@ -11,8 +11,9 @@ using MeghalayaUIP.Common;
 
 namespace MeghalayaUIP.User.CFE
 {
-    public partial class CFEEntrepreneurDetails : System.Web.UI.Page
+    public partial class CFEIndustryDetails : System.Web.UI.Page
     {
+
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
         string UnitID;
@@ -110,7 +111,6 @@ namespace MeghalayaUIP.User.CFE
                 }
                 else
                 {
-
                     ddlmndl.DataSource = null;
                     ddlmndl.DataBind();
                 }
@@ -119,7 +119,6 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
@@ -255,10 +254,7 @@ namespace MeghalayaUIP.User.CFE
                         rblAbled.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ISDIFFABLED"]);
                         rblWomen.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ISWOMENENTR"]);
                         rblMinority.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ISMINORITY"]);
-                        //txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_LANDVALUE"]);
-                        // txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_BUILDINGVALUE"]);
-                        // txtPlant_Machinery.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_PMCOST"]);
-                        //txtTotalProjValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_TOTALPROJCOST"]);
+                       
                         txtMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DIRECTMALE"]);
                         txtFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DIRECTFEMALE"]);
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_TOTALEMP"]);
@@ -285,11 +281,7 @@ namespace MeghalayaUIP.User.CFE
                         txtEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_EMAIL"]);
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
 
-                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
-                        //txtLandValue.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_LANDVALUE"]);
-                        // txtBuildingValue.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_BUILDINGVALUE"]);
-                        // txtPlant_Machinery.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PMCOST"]);
-                        // txtTotalProjValue.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_TOTALPROJCOST"]);
+                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);                       
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPEMP"]);
                         txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGISTRATIONDATE"]);
                         if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "Y")
@@ -308,11 +300,7 @@ namespace MeghalayaUIP.User.CFE
                     //txtMobileno.Enabled = false;
                     //txtEmail.Enabled = false;
                     //ddlCompanyType.Enabled = false;
-                    //rblproposal.Enabled = false;
-                    //txtLandValue.Enabled = false;
-                    //txtBuildingValue.Enabled = false;
-                    //txtPlant_Machinery.Enabled = false;
-                    //txtTotalProjValue.Enabled = false;
+                    //rblproposal.Enabled = false;                    
                     //lbltotalEmp.Enabled = false;
                     //txtRegDate.Enabled = false;
                     //ddlFactories.Enabled = false;
@@ -721,6 +709,7 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
+
 
 
     }

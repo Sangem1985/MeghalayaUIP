@@ -369,6 +369,7 @@
     <Content Include="User\CFE\CFEEntrepreneurDetails.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
+    <Content Include="User\CFE\CFEIndustryDetails.aspx" />
     <Content Include="User\CFE\CFELabourDetails.aspx" />
     <Content Include="User\CFE\CFELandDetails.aspx" />
     <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
@@ -576,6 +577,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEForestDetails.aspx.designer.cs">
       <DependentUpon>CFEForestDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEIndustryDetails.aspx.cs">
+      <DependentUpon>CFEIndustryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEIndustryDetails.aspx.designer.cs">
+      <DependentUpon>CFEIndustryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFELabourDetails.aspx.cs">
       <DependentUpon>CFELabourDetails.aspx</DependentUpon>

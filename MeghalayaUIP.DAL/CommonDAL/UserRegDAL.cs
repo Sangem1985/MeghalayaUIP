@@ -48,9 +48,14 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.Parameters.AddWithValue("@PanNo", Userregdtls.PANno);
                 com.Parameters.AddWithValue("@dob", Userregdtls.DateofBirth);
                 com.Parameters.AddWithValue("@Ipaddress", Userregdtls.IPAddress);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
 
 
-                valid = Convert.ToString(com.ExecuteNonQuery());
+                //valid = Convert.ToString(com.ExecuteNonQuery());
 
 
 

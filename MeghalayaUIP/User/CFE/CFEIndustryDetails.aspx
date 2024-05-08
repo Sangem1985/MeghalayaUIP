@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEEntrepreneurDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEEntrepreneurDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEIndustryDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEIndustryDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -56,7 +56,6 @@
     </script>
 
     <div class="page-wrapper">
-
         <div class="content container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -507,6 +506,15 @@
 
                                 </div>
                                 <div class="col-md-12 d-flex">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">2.	Architect Name*</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtArchitectName" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1.	Architect License No.*</label>
@@ -515,14 +523,6 @@
                                                 <asp:TextBox ID="txtArchitectLicNo" runat="server" class="form-control"></asp:TextBox>
                                             </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">2.	Architect Name*</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtArchitectName" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -547,20 +547,21 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">2	Structural Mobile No</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtStrEngnrMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">3.	Structural License No.</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtStrLicNo" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">2	Structural Mobile No</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtStrEngnrMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -671,34 +672,18 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
                         <div class="col-md-12 d-flex mt-2">
                             <div class="col-md-6">
-
-
                                 <asp:Button Text="Previous" runat="server" ID="btnPrevious" class="btn  btn-info btn-lg" OnClick="btnPrevious_Click" />
                             </div>
                             <div class="col-md-6 text-right">
                                 <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
-
-
                                 <asp:Button ID="btnNext" Text="Next" runat="server" class="btn  btn-info btn-lg" OnClick="btnNext_Click" />
-
                             </div>
                         </div>
-
                     </div>
-
-
-
                 </div>
             </div>
         </div>
-    </div>
-
-    </div>
     </div>
 </asp:Content>
