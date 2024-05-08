@@ -506,30 +506,17 @@ namespace MeghalayaUIP.Dept.PreReg
                 {
                     if (e.Row.RowType == DataControlRowType.DataRow)
                     {
-                        //ddldepartment = (DropDownList)e.Row.Cells[1].Controls[1];
+                        ddldepartment = (DropDownList)e.Row.Cells[1].Controls[1];
 
-                        //ddldepartment.DataSource = dsdepartments.Tables[0];
-                        //ddldepartment.DataTextField = "MD_DEPT_NAME";
-                        //ddldepartment.DataValueField = "MD_DEPTID";
-                        //ddldepartment.DataBind();
+                        ddldepartment.DataSource = dsdepartments.Tables[0];
+                        ddldepartment.DataTextField = "MD_DEPT_NAME";
+                        ddldepartment.DataValueField = "MD_DEPTID";
+                        ddldepartment.DataBind();
 
-                        //AddSelect(ddldepartment);
+                        AddSelect(ddldepartment);
 
                         //var department = ddldepartment.Items.FindByValue(ddldepartment.SelectedValue);
                         //ddldepartment.Items.Remove(department);
-                        if (ViewState["dtDepartment"] != null)
-                        {
-                            ddldepartment = (DropDownList)e.Row.Cells[1].Controls[1];
-                            ddldepartment.DataSource = ViewState["dtDepartment"].ToString();
-                            //ddldepartment.DataTextField = "MD_DEPT_NAME";
-                            //ddldepartment.DataValueField = "MD_DEPTID";
-                            ddldepartment.DataBind();
-                        }
-                        else
-                        {
-                            ddldepartment = (DropDownList)e.Row.Cells[1].Controls[1];
-                            BindDepartments();
-                        }
 
                         DataTable dt = (DataTable)ViewState["dtDepartmentDtls"];
 
@@ -542,7 +529,6 @@ namespace MeghalayaUIP.Dept.PreReg
 
                                 txtquery.Text = dt.Rows[e.Row.RowIndex]["Query"].ToString();
                                 ddldepartment.SelectedValue = dt.Rows[e.Row.RowIndex]["Departments"].ToString();
-                                ddldepartment.Items.Remove(ddldepartment.SelectedValue);
                             }
                         }
                     }
@@ -555,31 +541,6 @@ namespace MeghalayaUIP.Dept.PreReg
             }
 
         }
-        public void BindDepartments()
-        {
-            var ObjUserInfo = new DeptUserInfo();
-            if (Session["DeptUserInfo"] != null)
-            {
-                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                {
-                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                }
-                // username = ObjUserInfo.UserName;
-            }
-            DataSet dsdepartments = new DataSet();
-            dsdepartments = PreBAL.GetDeptMst(Session["UNITID"].ToString(), ObjUserInfo.UserID);
-            if (dsdepartments != null && dsdepartments.Tables.Count > 0 && dsdepartments.Tables[0].Rows.Count > 0)
-            {
-                ddldepartment.DataSource = dsdepartments.Tables[0];
-                ddldepartment.DataSource = ViewState["dtDepartment"].ToString();
-                ddldepartment.DataTextField = "MD_DEPT_NAME";
-                ddldepartment.DataValueField = "MD_DEPTID";
-                ddldepartment.DataBind();
-                AddSelect(ddldepartment);
-                //DataTable dt = (DataTable)ViewState["dtDepartment"];
-            }
-        }
-
         protected DataTable BindDepartmentGridAdd()
         {
             DataTable dt = new DataTable();

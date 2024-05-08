@@ -160,7 +160,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Name as per PAN *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtUnitName" class="form-control" onkeypress="return validateNames(this)" />
+                                                                <asp:TextBox runat="server" ID="txtUnitName" class="form-control" />
                                                             </div>
                                                         </div>
                                                     </div>
