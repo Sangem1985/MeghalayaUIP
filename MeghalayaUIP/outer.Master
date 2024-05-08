@@ -79,8 +79,8 @@
                                 <div class="contact-info">
                                     <ul>
                                         <li>About Meghalaya</li>
-                                        <li><a href="login.aspx"><i class="fi fi-br-sign-in-alt"></i> Login</a></li>
-                                        <li><a href="Deptlogin.aspx"><i class="fi fi-br-mode-portrait"></i> Dept Login</a></li>
+                                        <li><a href="login.aspx"><i class="fi fi-br-sign-in-alt"></i>Login</a></li>
+                                        <li><a href="Deptlogin.aspx"><i class="fi fi-br-mode-portrait"></i>Dept Login</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <nav class="navigation navbar navbar-default">
-                    <div class="container-fluid" style="background: linear-gradient(90deg, rgb(255 255 255 / 0%) 10%, rgb(255 255 255 / 71%) 90%), url(../assets/images/menubg.jpg) center center no-repeat;background-position: right;background-size: cover;">
+                    <div class="container-fluid" style="background: linear-gradient(90deg, rgb(255 255 255 / 0%) 10%, rgb(255 255 255 / 71%) 90%), url(../assets/images/menubg.jpg) center center no-repeat; background-position: right; background-size: cover;">
                         <div class="navbar-header">
                             <button type="button" class="open-btn">
                                 <span class="sr-only">Toggle navigation</span>
@@ -104,7 +104,7 @@
                             <button class="close-navbar"><i class="ti-close"></i></button>
                             <ul class="nav navbar-nav">
                                 <li class="menu-item-has-children">
-                                    <a href="#">Home</a>
+                                    <a href="Home.aspx">Home</a>
                                 </li>
                                 <%--<li class="menu-item-has-children">
                                 <a href="#">About <i class="fi fi-br-chevron-double-down"></i></a>
@@ -113,55 +113,79 @@
                                 </ul>
                             </li>--%>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Why invest Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <a href="#">Why Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="#">State Profile</a></li>
-                                        <li><a href="#">Advantage Meghalaya</a></li>
-                                        <li><a href="#">Department of Industries</a></li>
-                                        <li><a href="#">Meghalaya at a Glance</a></li>
-                                        <li><a href="#">Meghalaya's Industrial Parks</a></li>
+                                        <li><a href="#">Ease of Doing Business</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog.html">Meghalaya Next Vision 2028</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="resources/homePage/17/megeodb/policies/procure2020.pdf"
-                                            class="text-black">Meghalaya Procurement Preference Policy for Micro and
-                                            small Enterprises, 2020</a></li>
-                                        <li><a href="resources/homePage/17/megeodb/policies/startup2018.pdf"
-                                            class="text-black">Meghalaya Start up Policy, 2018</a></li>
-                                </li>
-                                <li><a href="resources/homePage/17/megeodb/policies/edu2018.pdf"
-                                    class="text-black">Meghalaya State Education Policy, 2018</a></li>
-                                <li><a href="resources/homePage/17/megeodb/policies/health2021.pdf"
-                                    class="text-black">Meghalaya Health Policy, 2021</a></li>
-                                <li><a href="resources/homePage/17/megeodb/policies/telecom2018.pdf"
-                                    class="text-black">Meghalaya Telecom Infrastructure Policy, 2018</a></li>
-                                <li><a href="resources/homePage/17/megeodb/policies/farming2023.pdf"
-                                    class="text-black">Meghalaya State Organic Farming Policy,2023</a>
-                                </li>
-                                <li><a href="resources/homePage/17/megeodb/policies/tourism.pdf"
-                                    class="text-black">Meghalaya Tourism Policy</a>
-                                </li>
-                            </ul>
-                            </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html">Infrastructure</a></li>
-                                <li><a href="blog-left-sidebar.html">Industry Sector</a></li>
+                                        <li><a href=""
+                                            class="text-black">MIIPP, 2024</a></li>
+                                        <li><a href=""
+                                            class="text-black">Meghalaya Tourism Policy</a></li>
 
-                            </ul>
-                        </li>
-                            <li class="menu-item-has-children">
-                                <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog.html">Apply for Services</a></li>
-                                    <li><a href="blog-left-sidebar.html">Auto Renewal</a></li>
+                                        <li><a href=""
+                                            class="text-black">IT/ITES Policy 2024</a></li>
+                                        <li><a href=""
+                                            class="text-black">Meghalaya Power Policy, 2024</a></li>
+                                        <li>Others
+                                            <ul>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya Procurement Preference Policy for Micro and small Enterprises, 2020</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya Start up Policy,2018</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya Mines and Minerals Policy, 2012</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya State Education Policy, 2018</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya Health Policy, 2021</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya Telecom Infrastructure Policy, 2018</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya State Organic Farming Policy,2023</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya State Sports Policy, 2019</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya Public Private Partnership Policy (PPP), 2021</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Meghalaya Electronic Vehicle Policy, 2021</a></li>
+                                                <li><a href=""
+                                                    class="text-black">Industrial and Investment Promotion Policy,2024</a></li>
+                                            </ul>
+                                        </li>
 
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="menu-item-has-children">
+                                    <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="">Intent to Invest</a></li>
+                                        <li><a href="">Registration Under MIIPP 2024</a></li>
+                                        <li><a href="">Information Wizard</a></li>
+                                        <li><a href="">Auto Renewal</a></li>
+                                        <li><a href="">Other Services</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Resources<i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="">Dashboard</a></li>
+                                        <li><a href="">Notifications</a></li>
+                                        <li><a href="">FAQs</a></li>
+                                        <li><a href="">Contact</a></li> 
+                                    </ul>
+                                </li> 
                             </ul>
                         </div>
 
@@ -223,10 +247,11 @@
                                         <h3>Our Address</h3>
                                     </div>
                                     <ul>
-                                        <li>25/19 Duel aveniew, new Southeasten town, Meghalaya</li>
-                                        <li><span>Phone:</span> 84667441</li>
-                                        <li><span>Email:</span> demo@example.com</li>
-                                        <li><span>Office Time:</span> 10AM- 5PM</li>
+                                        <li>Invest Meghalaya Authority,</li>
+                                        <li>Secretariat Main Building, M.G Road,</li>
+                                        <li>Shillong - 793 001, East Khasi Hills District,</li>
+                                        <li>Meghalaya,</li>
+                                        <li><span>Email:</span>investmeghalayaauthority@gmail.com</li>
                                     </ul>
                                 </div>
                             </div>
@@ -324,7 +349,7 @@
                 document.documentElement.scrollTop = 0;
             }
         </script>
-        
+
     </form>
 </body>
 </html>
