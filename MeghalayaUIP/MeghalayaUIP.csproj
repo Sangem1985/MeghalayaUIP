@@ -370,11 +370,11 @@
     <Content Include="login.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="Registration.aspx" />
-    <Content Include="stateprofile.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEEntrepreneurDetails.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
+    <Content Include="User\CFE\CFEIndustryDetails.aspx" />
     <Content Include="User\CFE\CFELabourDetails.aspx" />
     <Content Include="User\CFE\CFELandDetails.aspx" />
     <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
@@ -576,13 +576,6 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="stateprofile.aspx.cs">
-      <DependentUpon>stateprofile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="stateprofile.aspx.designer.cs">
-      <DependentUpon>stateprofile.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -610,6 +603,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEForestDetails.aspx.designer.cs">
       <DependentUpon>CFEForestDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEIndustryDetails.aspx.cs">
+      <DependentUpon>CFEIndustryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEIndustryDetails.aspx.designer.cs">
+      <DependentUpon>CFEIndustryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFELabourDetails.aspx.cs">
       <DependentUpon>CFELabourDetails.aspx</DependentUpon>
@@ -808,6 +808,9 @@
       <Project>{d5c20567-d646-486e-a529-aec0c9f0738d}</Project>
       <Name>MeghalayaUIP.Payments</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documents\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

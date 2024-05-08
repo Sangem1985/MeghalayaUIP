@@ -102,6 +102,59 @@ namespace MeghalayaUIP.Common
         public string ContractLabourAct1970_Workers { get; set; }
 
     }
+   public class CFECommonDet
+    {
+        public string Questionnariid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CompanyName { get; set; }
+        public string CompanyType { get; set; }
+        public string CompanyPraposal { get; set; }
+        public string CompanyRegType { get; set; }
+        public string CompanyRegNo { get; set; }
+        public string CompanyRegDate { get; set; }
+        public string FactoryType { get; set; }
+        public string AuthRep_Name { get; set; }
+        public string AuthRep_SoWoDo { get; set; }
+        public string AuthRep_Email { get; set; }
+        public string AuthRep_Mobile { get; set; }
+        public string AuthRep_AltMobile { get; set; }
+        public string AuthRep_TelNo { get; set; }
+        public string AuthRep_DoorNo { get; set; }
+        public string AuthRep_Locality { get; set; }
+        public string AuthRep_DistrictID { get; set; }
+        public string AuthRep_MandalID { get; set; }
+        public string AuthRep_VillageID { get; set; }       
+        public string AuthRep_Pincode { get; set; }
+        public string AuthRep_Caste { get; set; }
+        public string AuthRep_Minority { get; set; }
+        public string AuthRep_DiffAbled { get; set; }
+        public string AuthRep_Woman { get; set; }
+
+        public string Unit_Location { get; set; }
+        public string Unit_DoorNo { get; set; }
+        public string Unit_Locality { get; set; }
+        public string Unit_DistrictID { get; set; }
+        public string Unit_MandalID { get; set; }
+        public string Unit_VillageID { get; set; }
+        public string Unit_Pincode { get; set; }
+        public string Unit_TelNo { get; set; }
+        public string BuildingHeight { get; set; }
+        public string BuiltUpArea { get; set; }
+        public string ExtentofLand { get; set; }
+
+        public string DevelopmentArea { get; set; }
+        public string ApprchRdType { get; set; }
+        public string ApprchRdWidth { get; set; }
+        public string AffectedRdWdng { get; set; }
+        public string AffectedRdWidth { get; set; }
+        public string DirectMale { get; set; }
+        public string DirectFemale { get; set; }
+        public string TotalEmp { get; set; }
+        public string InDirectMale { get; set; }
+        public string InDirectFemale { get; set; }
+    }
     public class CFEEntrepreneur
     {
         public string Questionnariid { get; set; }

@@ -33,7 +33,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">1. Survey No/Plot Number(s)*</label>
+                                            <label class="col-lg-6 col-form-label">1. Survey No/Plot *</label>
                                             <div class="col-lg-6">
                                                 <asp:TextBox ID="txtSurveyno" runat="server" class="form-control"></asp:TextBox>
                                             </div>

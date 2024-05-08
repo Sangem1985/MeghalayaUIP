@@ -43,7 +43,6 @@ namespace MeghalayaUIP.User.CFE
 
                 if (!IsPostBack)
                 {
-                    BindStates();
                     BindDistricts();
                     BindCaste();
                     BindRegistrationType();
@@ -52,50 +51,17 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
         }
-        protected void BindStates()
-        {
-            try
-            {
-                ddlState.Items.Clear();
 
-                List<MasterStates> objStatesModel = new List<MasterStates>();
-
-                objStatesModel = mstrBAL.GetStates();
-                if (objStatesModel != null)
-                {
-                    ddlState.DataSource = objStatesModel;
-                    ddlState.DataValueField = "StateId";
-                    ddlState.DataTextField = "StateName";
-                    ddlState.DataBind();
-                }
-                else
-                {
-                    ddlState.DataSource = null;
-                    ddlState.DataBind();
-                }
-                AddSelect(ddlState);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         protected void BindDistricts()
         {
-
             try
             {
-
                 ddlDistric.Items.Clear();
                 ddlMandal.Items.Clear();
                 ddlVillage.Items.Clear();
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                string strmode = string.Empty;
-                //if (ObjUserInformation.User_Level == "2")
-                //{
-                strmode = "";
-                //}
+
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -104,18 +70,24 @@ namespace MeghalayaUIP.User.CFE
                     ddlDistric.DataTextField = "DistrictName";
                     ddlDistric.DataBind();
 
-
+                    ddlUnitDistrict.DataSource = objDistrictModel;
+                    ddlUnitDistrict.DataValueField = "DistrictId";
+                    ddlUnitDistrict.DataTextField = "DistrictName";
+                    ddlUnitDistrict.DataBind();
                 }
                 else
                 {
                     ddlDistric.DataSource = null;
                     ddlDistric.DataBind();
-
-
+                    ddlUnitDistrict.DataSource = null;
+                    ddlUnitDistrict.DataBind();
                 }
                 AddSelect(ddlDistric);
                 AddSelect(ddlMandal);
                 AddSelect(ddlVillage);
+                AddSelect(ddlUnitDistrict);
+                AddSelect(ddlUnitMandal);
+                AddSelect(ddlUnitVillage);
 
             }
             catch (Exception ex)
@@ -225,23 +197,23 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                ddlCategory_Reg.Items.Clear();
+                ddlRegType.Items.Clear();
                 List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
                 objRegistrationTypeModel = mstrBAL.GetRegistrationType();
                 if (objRegistrationTypeModel != null)
                 {
 
-                    ddlCategory_Reg.DataSource = objRegistrationTypeModel;
-                    ddlCategory_Reg.DataValueField = "REGISTRATIONTYPEID";
-                    ddlCategory_Reg.DataTextField = "REGISTRATIONTYPENAME";
-                    ddlCategory_Reg.DataBind();
+                    ddlRegType.DataSource = objRegistrationTypeModel;
+                    ddlRegType.DataValueField = "REGISTRATIONTYPEID";
+                    ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
+                    ddlRegType.DataBind();
                 }
                 else
                 {
-                    ddlCategory_Reg.DataSource = null;
-                    ddlCategory_Reg.DataBind();
+                    ddlRegType.DataSource = null;
+                    ddlRegType.DataBind();
                 }
-                AddSelect(ddlCategory_Reg);
+                AddSelect(ddlRegType);
             }
             catch (Exception ex)
             {
@@ -263,19 +235,19 @@ namespace MeghalayaUIP.User.CFE
                         txtIndustryName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_COMPANYNAME"]);
                         txtPromoterName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_PROMOTERNAME"]);
                         txtSoWoDo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_SOWODO"]);
-                        ddlState.SelectedValue = ds.Tables[0].Rows[0]["CFEED_STATEID"].ToString();
+
                         ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DISTID"]);
                         ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_MANDALID"]);
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_VILLAGEID"]);
-                        txtstreet.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_STREET"]);
+                        txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_STREET"]);
                         txtDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DOORNO"]);
                         txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_PINCODE"]);
                         txtMobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ALTMOBILE"]);
                         txtAltMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ALTMOBILE"]);
                         txtEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_EMAIL"]);
-                        ddlOrganization.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_COMPANYTYPE"]);
+                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_COMPANYTYPE"]);
                         txtLandlineno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_TELEPHONENO"]);
 
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_PROPOSALFOR"]);
@@ -292,7 +264,7 @@ namespace MeghalayaUIP.User.CFE
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_TOTALEMP"]);
                         txtIndirectMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_INDIRECTMALE"]);
                         txtIndirectFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_INDIRECTFEMALE"]);
-                        ddlCategory_Reg.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_REGISTRATIONTYPE"]);
+                        ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_REGISTRATIONTYPE"]);
                         txtRegistrationNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_REGISTRATIONNO"]);
                         txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_REGISTRATIONDATE"]);
                         ddlFactories.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_FACTORYTYPE"]);
@@ -301,17 +273,17 @@ namespace MeghalayaUIP.User.CFE
                     {
                         txtIndustryName.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYNAME"]);
                         txtPromoterName.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_NAME"]);
-                        ddlState.SelectedValue = "23";
+
                         ddlDistric.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTID"]);
                         ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALID"]);
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
-                        txtstreet.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_LOCALITY"]);
+                        txtLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_LOCALITY"]);
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
                         txtMobileno.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MOBILE"]);
                         txtEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_EMAIL"]);
-                        ddlOrganization.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
+                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
 
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
                         //txtLandValue.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_LANDVALUE"]);
@@ -331,11 +303,11 @@ namespace MeghalayaUIP.User.CFE
                     //ddlDistric.Enabled = false;
                     //ddlMandal.Enabled = false;
                     //ddlVillage.Enabled = false;
-                    //txtstreet.Enabled = false;
+                    //txtLocality.Enabled = false;
                     //txtpincode.Enabled = false;
                     //txtMobileno.Enabled = false;
                     //txtEmail.Enabled = false;
-                    //ddlOrganization.Enabled = false;
+                    //ddlCompanyType.Enabled = false;
                     //rblproposal.Enabled = false;
                     //txtLandValue.Enabled = false;
                     //txtBuildingValue.Enabled = false;
@@ -352,31 +324,7 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlState.SelectedValue != "23")
-                {
 
-                    ddlDistric.Visible = false;
-                    ddlMandal.Visible = false;
-                    ddlVillage.Visible = false;
-                }
-                else if (ddlState.SelectedValue == "23")
-                {
-                    ddlDistric.Visible = true;
-                    ddlMandal.Visible = true;
-                    ddlVillage.Visible = true;
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         protected void ddlDistric_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -412,7 +360,57 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+        protected void ddlUnitDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlUnitMandal.ClearSelection();
+                ddlUnitVillage.ClearSelection();
+                if (ddlUnitDistrict.SelectedItem.Text != "--Select--")
+                {
+                    BindMandal(ddlUnitMandal, ddlUnitDistrict.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
 
+        protected void ddlUnitMandal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlUnitVillage.ClearSelection();
+                if (ddlUnitMandal.SelectedItem.Text != "--Select--")
+                {
+                    BindVillages(ddlUnitVillage, ddlUnitMandal.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
+
+        protected void rblAffectedroad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblAffectedroad.SelectedValue == "Y")
+                { divAffectArea.Visible = true; }
+                else
+                {
+                    divAffectArea.Visible = false;
+                    txtAffectedArea.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
         protected void txtIndirectMale_TextChanged(object sender, EventArgs e)
         {
             TotalAmount();
@@ -462,21 +460,20 @@ namespace MeghalayaUIP.User.CFE
                     objCFEEntrepreneur.CompanyName = txtIndustryName.Text;
                     objCFEEntrepreneur.PromoterName = txtPromoterName.Text;
                     objCFEEntrepreneur.SoWoDoName = txtSoWoDo.Text;
-                    objCFEEntrepreneur.StateID = ddlState.SelectedValue;
-                    objCFEEntrepreneur.StateName = ddlState.SelectedItem.Text;
+
                     objCFEEntrepreneur.DistrictID = ddlDistric.SelectedValue;
                     objCFEEntrepreneur.DistrictName = ddlDistric.SelectedItem.Text;
                     objCFEEntrepreneur.MandalID = ddlMandal.SelectedValue;
                     objCFEEntrepreneur.MandalName = ddlMandal.SelectedItem.Text;
                     objCFEEntrepreneur.VillageID = ddlVillage.SelectedValue;
                     objCFEEntrepreneur.VillageName = ddlVillage.SelectedItem.Text;
-                    objCFEEntrepreneur.StreetName = txtstreet.Text;
+                    objCFEEntrepreneur.StreetName = txtLocality.Text;
                     objCFEEntrepreneur.DoorNo = txtDoorNo.Text;
                     objCFEEntrepreneur.Pincode = txtpincode.Text;
                     objCFEEntrepreneur.MobileNo = txtMobileno.Text;
                     objCFEEntrepreneur.AltMobileNo = txtAltMobile.Text;
                     objCFEEntrepreneur.Email = txtEmail.Text;
-                    objCFEEntrepreneur.Organization = ddlOrganization.SelectedValue;
+                    objCFEEntrepreneur.Organization = ddlCompanyType.SelectedValue;
                     objCFEEntrepreneur.TelePhoneNo = txtLandlineno.Text;
                     objCFEEntrepreneur.ProposalFor = rblproposal.SelectedValue;
                     objCFEEntrepreneur.SocialStatus = ddlSocialStatus.SelectedValue;
@@ -492,7 +489,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEEntrepreneur.TotalEmp = lbltotalEmp.Text;
                     objCFEEntrepreneur.InDirectMale = txtIndirectMale.Text;
                     objCFEEntrepreneur.InDirectFemale = txtIndirectFemale.Text;
-                    objCFEEntrepreneur.RegistrationType = ddlCategory_Reg.SelectedValue;
+                    objCFEEntrepreneur.RegistrationType = ddlRegType.SelectedValue;
                     objCFEEntrepreneur.RegistrationNo = txtRegistrationNo.Text;
                     objCFEEntrepreneur.RegistrationDate = txtRegDate.Text;
                     objCFEEntrepreneur.FactoryType = ddlFactories.SelectedValue;
@@ -556,11 +553,6 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter S/O  \\n";
                     slno = slno + 1;
                 }
-                if (ddlState.SelectedIndex == -1 || ddlState.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select State \\n";
-                    slno = slno + 1;
-                }
                 if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Distric \\n";
@@ -576,7 +568,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Village \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtstreet.Text) || txtstreet.Text == "" || txtstreet.Text == null)
+                if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Street Name  \\n";
                     slno = slno + 1;
@@ -607,7 +599,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter EmailId No\\n";
                     slno = slno + 1;
                 }
-                if (ddlOrganization.SelectedIndex == -1 || ddlOrganization.SelectedItem.Text == "--Select--")
+                if (ddlCompanyType.SelectedIndex == -1 || ddlCompanyType.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Organization \\n";
                     slno = slno + 1;
@@ -682,7 +674,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Direct Female\\n";
                     slno = slno + 1;
                 }
-                if (ddlCategory_Reg.SelectedIndex == -1 || ddlCategory_Reg.SelectedItem.Text == "--Select--")
+                if (ddlRegType.SelectedIndex == -1 || ddlRegType.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Category Registration  \\n";
                     slno = slno + 1;
@@ -730,14 +722,6 @@ namespace MeghalayaUIP.User.CFE
             return result;
         }
 
-        protected void ddlUnitDistrict_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        protected void ddlUnitMandal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
