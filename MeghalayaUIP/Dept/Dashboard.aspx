@@ -14,8 +14,8 @@
                                     <div class="card-counter primarydashboard5">
                                         <i class="fi fi-rr-square-up-right"></i>
                                         <span class="count-numbers">Registration under MIIPP 2024
-(Principle approval)</span>
-                                        <span class="count-name">(Lorem Ipsum is simply dummy text) </span>
+</span>
+                                        <span class="count-name">(Principle approval)</span>
                                     </div>
                                 </a>
                             </div>
