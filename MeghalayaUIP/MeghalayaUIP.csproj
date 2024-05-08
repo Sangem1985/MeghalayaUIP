@@ -365,6 +365,7 @@
     <Content Include="Home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="RenewalServices.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEEntrepreneurDetails.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
@@ -549,6 +550,13 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RenewalServices.aspx.cs">
+      <DependentUpon>RenewalServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RenewalServices.aspx.designer.cs">
+      <DependentUpon>RenewalServices.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>

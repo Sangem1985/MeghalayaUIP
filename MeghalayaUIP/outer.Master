@@ -119,47 +119,47 @@
                                         <li><a href="#">Ease of Doing Business</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children">
+                                <li class="menu-item-has-children"> 
                                     <a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog.html">Meghalaya Next Vision 2028</a></li>
-                                    </ul>
+                                        <li> <a href="Documents/Meghalaya%20Next%20Vision%202028.pdf">Meghalaya Next Vision 2028</a></li>
+                                    </ul> 
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href=""
-                                            class="text-black">MIIPP, 2024</a></li>
-                                        <li><a href=""
+                                        <li><a href="Documents/MIIPP%202024.pdf" class="text-black">
+                                            MIIPP, 2024</a></li>
+                                        <li><a href="Documents/Meghalaya Tourism.pdf"
                                             class="text-black">Meghalaya Tourism Policy</a></li>
 
-                                        <li><a href=""
+                                        <li><a href="Documents/IT Policy 2024.pdf"
                                             class="text-black">IT/ITES Policy 2024</a></li>
-                                        <li><a href=""
+                                        <li><a href="Documents/Meghalaya Power Policy.pdf"
                                             class="text-black">Meghalaya Power Policy, 2024</a></li>
                                         <li>Others
                                             <ul>
-                                                <li><a href=""
+                                                <li><a href="Documents/Procure MSME.pdf"
                                                     class="text-black">Meghalaya Procurement Preference Policy for Micro and small Enterprises, 2020</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/Meghalaya Startup Policy.pdf"
                                                     class="text-black">Meghalaya Start up Policy,2018</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/Mines and Minerals Policy.pdf"
                                                     class="text-black">Meghalaya Mines and Minerals Policy, 2012</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/Education Policy.pdf"
                                                     class="text-black">Meghalaya State Education Policy, 2018</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/Health Policy.pdf"
                                                     class="text-black">Meghalaya Health Policy, 2021</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/Telecom infrastructure Policy.pdf"
                                                     class="text-black">Meghalaya Telecom Infrastructure Policy, 2018</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/Organic Farming policy.pdf"
                                                     class="text-black">Meghalaya State Organic Farming Policy,2023</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/Sports Policy.pdf"
                                                     class="text-black">Meghalaya State Sports Policy, 2019</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/PPP Policy.pdf"
                                                     class="text-black">Meghalaya Public Private Partnership Policy (PPP), 2021</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/EV Policy.pdf"
                                                     class="text-black">Meghalaya Electronic Vehicle Policy, 2021</a></li>
-                                                <li><a href=""
+                                                <li><a href="Documents/"
                                                     class="text-black">Industrial and Investment Promotion Policy,2024</a></li>
                                             </ul>
                                         </li>
@@ -171,7 +171,7 @@
                                     <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="">Intent to Invest</a></li>
-                                        <li><a href="">Registration Under MIIPP 2024</a></li>
+                                        <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
                                         <li><a href="">Information Wizard</a></li>
                                         <li><a href="">Auto Renewal</a></li>
                                         <li><a href="">Other Services</a></li>
