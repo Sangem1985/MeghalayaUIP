@@ -115,8 +115,8 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">Why Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">State Profile</a></li>
-                                        <li><a href="#">Ease of Doing Business</a></li>
+                                        <li><a href="stateprofile.aspx">State Profile</a></li>
+                                        <li><a href="EODB.aspx">Ease of Doing Business</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children"> 
@@ -173,7 +173,7 @@
                                         <li><a href="">Intent to Invest</a></li>
                                         <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
                                         <li><a href="">Information Wizard</a></li>
-                                        <li><a href="">Auto Renewal</a></li>
+                                        <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                         <li><a href="">Other Services</a></li>
                                     </ul>
                                 </li>
@@ -181,7 +181,7 @@
                                     <a href="#">Resources<i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="">Dashboard</a></li>
-                                        <li><a href="">Notifications</a></li>
+                                        <li><a href="Notifications.aspx">Notifications</a></li>
                                         <li><a href="">FAQs</a></li>
                                         <li><a href="">Contact</a></li> 
                                     </ul>

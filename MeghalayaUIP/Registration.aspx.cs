@@ -18,6 +18,8 @@ namespace MeghalayaUIP
         {
             try
             {
+                success.Visible = false;
+                Failure.Visible = false;
                 if (!IsPostBack)
                 {
                 }
@@ -27,7 +29,7 @@ namespace MeghalayaUIP
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
-        } 
+        }
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -57,9 +59,6 @@ namespace MeghalayaUIP
                 lblmsg0.Text = "";
                 success.Visible = false;
                 Failure.Visible = false;
-
-
-
             }
             catch (Exception ex)
             {
@@ -73,12 +72,11 @@ namespace MeghalayaUIP
         {
             try
             {
-                string Errormsg = "1";
+                string Errormsg = "";
                 string valid = "0";
                 Errormsg = validations();
-                string message = "alert('" + Errormsg + "')";
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                if (!string.IsNullOrEmpty(Errormsg))
+
+                if (string.IsNullOrEmpty( Errormsg))
                 {
                     UserRegDetails Userregdtls = new UserRegDetails();
                     Userregdtls.Fullname = txtName.Text;
@@ -96,10 +94,15 @@ namespace MeghalayaUIP
                         success.Visible = true;
                     }
                 }
+                else
+                {
+                    string message = "alert('" + Errormsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                //Console.WriteLine("Error: " + ex.Message);
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
@@ -140,7 +143,7 @@ namespace MeghalayaUIP
                 {
                     errormsg = errormsg + slno + ". Please Enter Mobile Number \\n";
                     slno = slno + 1;
-                } 
+                }
                 //if (string.IsNullOrEmpty(txtCaptcha.Text) || txtCaptcha.Text == "" || txtCaptcha.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Cpatcha \\n";
