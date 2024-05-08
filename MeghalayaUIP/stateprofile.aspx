@@ -109,7 +109,8 @@
 </table>
                    <img src="assets/images/meghalayamap.png" style="box-shadow: 0px 1px 6px 4px #ccc;">
 
-                    <%--<h3>Advantage Meghalaya</h3>--%>
+                    <h3 style="margin-bottom:0px;">Advantage Meghalaya</h3>
+                    <img src="assets/images/ami.png" />
                 </div>
             </div>
             

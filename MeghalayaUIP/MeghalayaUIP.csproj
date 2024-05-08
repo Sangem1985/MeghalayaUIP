@@ -245,6 +245,7 @@
     <Content Include="assets\images\about.png" />
     <Content Include="assets\images\advant.png" />
     <Content Include="assets\images\ajax-loader.gif" />
+    <Content Include="assets\images\ami.png" />
     <Content Include="assets\images\bg-whatsnew.png" />
     <Content Include="assets\images\body2.png" />
     <Content Include="assets\images\bodybg.png" />
