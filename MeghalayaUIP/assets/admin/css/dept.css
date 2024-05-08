@@ -938,26 +938,60 @@ i.fi {
 .card-counter.primarydashboard5 {
     background-position: center;
     color: #fff;
-    background: linear-gradient(to top right, #68405f85 10%, #cc0033fc 90%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
+    /*background: linear-gradient(to top right, #68405f85 10%, #cc0033fc 90%), url(../../images/bg-whatsnew.png) center 100% no-repeat;*/
+    background: linear-gradient(to top right, #68405f85 10%, #2196f300 90%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
     background-size: 100% auto !important;
 }
 
 .card-counter.primarydashboard1 {
     background-position: center;
     color: #fff;
-    background: linear-gradient(45deg, #1f002475 10%, #ba68c8ad 90%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
+    /*background: linear-gradient(45deg, #1f002475 10%, #ba68c8ad 90%), url(../../images/bg-whatsnew.png) center 100% no-repeat;*/
+    background: linear-gradient(45deg, #00bcd4b0 10%, #ba68c800 90%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
     background-size: 100% auto !important;
 }
 
 
 .card-counter.primarydashboard2 {
-    background: linear-gradient(45deg, #065208 15%, #cff87e 85%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
+    background: linear-gradient(45deg, #009688a3 15%, #cff87e00 85%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
+    /*background: linear-gradient(45deg, #065208 15%, #cff87e 85%), url(../../images/bg-whatsnew.png) center 100% no-repeat;*/
     background-size: 100% auto !important;
     color: #fff;
 }
 
 .card-counter.primarydashboard3 {
-    background: linear-gradient(to bottom, #f94945b0 0%, #ff9e9d 100%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
+    background: linear-gradient(45deg, #ff00f7ad 15%, #7eb70e00 85%), url(../../images/bg-whatsnew.png) center 100% no-repeat;
+    /*background: linear-gradient(to bottom, #f94945b0 0%, #ff9e9d 100%), url(../../images/bg-whatsnew.png) center 100% no-repeat;*/
     background-size: 100% auto !important;
     color: #fff;
+}
+.page-wrapper.CFEdeptdashboard {
+    .info-box {
+    height: 41px;
+    border-radius: 9px;
+}
+.icon h4 {
+    margin-top: 7px;
+}
+.info-box .content .text {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #fff;
+    font-weight: 900;
+}
+i.fi {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 27px;
+    opacity: 0.3;
+    color: #fff;
+}
+.icon h4 {
+    margin-top: 11px !important;
+    margin-left: 10px;
+    font-weight: 900;
+    text-shadow: 1px 2px 3px #000;
+    font-size: 18px;
+}
 }

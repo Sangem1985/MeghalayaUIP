@@ -7738,3 +7738,31 @@ a.img13 {
     opacity: 1;
     transition: .6s ease-in;
 }
+section.innerpages {
+    margin-top: 130px;
+    margin-bottom: 40px;
+}
+    section.innerpages h3 {
+        font-family: "Roboto", sans-serif !important;
+        border-bottom: 1px dotted #ccc;
+        margin-bottom: 20px;
+        color: #2a55a6;
+    }
+    section.innerpages ul {
+        margin-top: 15px;
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+        section.innerpages ul li {
+            padding: 8px 0px;
+            color: #08144e;
+        }
+table.table.table-bordered.table-sm.table-hover th {
+    color: #5b006a;
+}
+table.table.table-bordered.table-sm.table-hover thead th {
+    color: #000;
+}
+section.innerpages p {
+    color: #01151c;
+}

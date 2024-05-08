@@ -288,6 +288,7 @@
     <Content Include="assets\images\desti\9.png" />
     <Content Include="assets\images\dot.png" />
     <Content Include="assets\images\dots.png" />
+    <Content Include="assets\images\eodb.jpg" />
     <Content Include="assets\images\fancybox\blank.gif" />
     <Content Include="assets\images\fancybox\fancybox_loading%402x.gif" />
     <Content Include="assets\images\fancybox\fancybox_loading.gif" />
@@ -314,6 +315,7 @@
     <Content Include="assets\images\Logo_dark.png" />
     <Content Include="assets\images\logo_old.png" />
     <Content Include="assets\images\logo_w.png" />
+    <Content Include="assets\images\meghalayamap.png" />
     <Content Include="assets\images\menubg.jpg" />
     <Content Include="assets\images\page-title.jpg" />
     <Content Include="assets\images\param\icon1.png" />
@@ -344,6 +346,7 @@
     <Content Include="assets\js\jquery-plugin-collection.js" />
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\script.js" />
+    <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
     <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
     <Content Include="Dept\CFE\demo.aspx" />
@@ -361,11 +364,12 @@
     <Content Include="Dept\PreReg\PreRegApplIMADashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
+    <Content Include="EODB.aspx" />
     <Content Include="forgot-password.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="Notifications.aspx" />
     <Content Include="Registration.aspx" />
-    <Content Include="RenewalServices.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEEntrepreneurDetails.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
@@ -389,6 +393,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="demoinnerpage.aspx.cs">
+      <DependentUpon>demoinnerpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demoinnerpage.aspx.designer.cs">
+      <DependentUpon>demoinnerpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Deptlogin.aspx.cs">
       <DependentUpon>Deptlogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -515,6 +526,13 @@
     <Compile Include="Dept\PreReg\PreRegApplIMAView.aspx.designer.cs">
       <DependentUpon>PreRegApplIMAView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EODB.aspx.cs">
+      <DependentUpon>EODB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EODB.aspx.designer.cs">
+      <DependentUpon>EODB.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forgot-password.aspx.cs">
       <DependentUpon>forgot-password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -536,6 +554,13 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
     <Compile Include="outer.Master.cs">
       <DependentUpon>outer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -550,13 +575,6 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RenewalServices.aspx.cs">
-      <DependentUpon>RenewalServices.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RenewalServices.aspx.designer.cs">
-      <DependentUpon>RenewalServices.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
