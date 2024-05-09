@@ -38,16 +38,18 @@
 
                                <%-- <ul class="nav nav-tabs">
                                     <li class="nav-item">--%>
-                                        <asp:LinkButton ID="Link1" runat="server" OnClick="Link1_Click"  Style="padding-right: 20px; font-size: 20px"> 
-                                    1.Project Details</asp:LinkButton>
+                                <ul class="nav nav-tabs">
+                                        <li class="nav-item"><asp:LinkButton ID="Link1" class="nav-link" runat="server" OnClick="Link1_Click"  Style="padding-right: 20px; font-size: 20px"> 
+                                    1.Project Details</asp:LinkButton></li>
                                    <%-- </li>
                                     <li class="nav-item">--%>
-                                        <asp:LinkButton ID="Link2" runat="server" OnClick="Link2_Click"  Style="padding-right: 20px; font-size: 20px">
-                                    2.Project Financials</asp:LinkButton>
+                                       <li class="nav-item"> <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click"  Style="padding-right: 20px; font-size: 20px">
+                                    2.Project Financials</asp:LinkButton></li>
                                    <%-- </li>
                                     <li class="nav-item">--%>
-                                        <asp:LinkButton ID="Link3" runat="server" OnClick="Link3_Click"  Style="padding-right: 10px; font-size: 20px">
-                                    3.Project Requirements</asp:LinkButton>
+                                       <li class="nav-item"> <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click"  Style="padding-right: 10px; font-size: 20px">
+                                    3.Project Requirements</asp:LinkButton></li>
+                                    </ul>
                                     <%--</li>
                                 </ul>--%>
                                 <%--<ul class="nav nav-tabs">
