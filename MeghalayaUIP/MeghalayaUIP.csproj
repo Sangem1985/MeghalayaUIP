@@ -245,6 +245,7 @@
     <Content Include="assets\images\about.png" />
     <Content Include="assets\images\advant.png" />
     <Content Include="assets\images\ajax-loader.gif" />
+    <Content Include="assets\images\ami.png" />
     <Content Include="assets\images\bg-whatsnew.png" />
     <Content Include="assets\images\body2.png" />
     <Content Include="assets\images\bodybg.png" />
@@ -370,6 +371,8 @@
     <Content Include="login.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="RenewalServices.aspx" />
+    <Content Include="stateprofile.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEEntrepreneurDetails.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
@@ -575,6 +578,20 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RenewalServices.aspx.cs">
+      <DependentUpon>RenewalServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RenewalServices.aspx.designer.cs">
+      <DependentUpon>RenewalServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="stateprofile.aspx.cs">
+      <DependentUpon>stateprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stateprofile.aspx.designer.cs">
+      <DependentUpon>stateprofile.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>

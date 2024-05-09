@@ -115,20 +115,20 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">Why Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">State Profile</a></li>
-                                        <li><a href="#">Ease of Doing Business</a></li>
+                                        <li><a href="stateprofile.aspx">State Profile</a></li>
+                                        <li><a href="EODB.aspx">Ease of Doing Business</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children"> 
+                                <li class="menu-item-has-children">
                                     <a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li> <a href="Documents/Meghalaya%20Next%20Vision%202028.pdf" target="_blank">Meghalaya Next Vision 2028</a></li>
-                                    </ul> 
+                                        <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf">Meghalaya Next Vision 2028</a></li>
+                                    </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="Documents/MIIPP%202024.pdf" class="text-black" target="_blank">
+                                        <li><a href="Documents/MIIPP%202024.pdf" class="text-black">
                                             MIIPP, 2024</a></li>
                                         <li><a href="Documents/Meghalaya Tourism.pdf"
                                             class="text-black" target="_blank">Meghalaya Tourism Policy</a></li>
@@ -136,10 +136,10 @@
                                         <li><a href="Documents/IT Policy 2024.pdf"
                                             class="text-black" target="_blank">IT/ITES Policy 2024</a></li>
                                         <li><a href="Documents/Meghalaya Power Policy.pdf"
-                                            class="text-black" target="_blank">Meghalaya Power Policy, 2024</a></li>
+                                            class="text-black">Meghalaya Power Policy, 2024</a></li>
                                         <li>Others
                                             <ul>
-                                                <li><a href="Documents/Procure MSME.pdf" target="_blank"
+                                                <li><a href="Documents/Procure MSME.pdf"
                                                     class="text-black">Meghalaya Procurement Preference Policy for Micro and small Enterprises, 2020</a></li>
                                                 <li><a href="Documents/Meghalaya Startup Policy.pdf"
                                                     class="text-black" target="_blank">Meghalaya Start up Policy,2018</a></li>
@@ -163,29 +163,29 @@
                                                     class="text-black" target="_blank">Industrial and Investment Promotion Policy,2024</a></li>
                                             </ul>
                                         </li>
-
+                                       
                                     </ul>
                                 </li>
 
                                 <li class="menu-item-has-children">
                                     <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="">Intent to Invest</a></li>
+                                        <li><a href="#">Intent to Invest</a></li>
                                         <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
-                                        <li><a href="">Information Wizard</a></li>
-                                        <li><a href="">Auto Renewal</a></li>
-                                        <li><a href="">Other Services</a></li>
+                                        <li><a href="#">Information Wizard</a></li>
+                                        <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
+                                        <li><a href="#">Other Services</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Resources<i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="">Dashboard</a></li>
-                                        <li><a href="">Notifications</a></li>
-                                        <li><a href="">FAQs</a></li>
-                                        <li><a href="">Contact</a></li> 
+                                        <li><a href="#">Dashboard</a></li>
+                                        <li><a href="Notifications.aspx">Notifications</a></li>
+                                        <li><a href="#">FAQs</a></li>
+                                        <li><a href="#">Contact</a></li>
                                     </ul>
-                                </li> 
+                                </li>
                             </ul>
                         </div>
 
@@ -260,7 +260,7 @@
                                     <div class="widget-title">
                                         <h3>Newsletter</h3>
                                     </div>
-                                    <p>You will be notified when somthing new will be appear.</p>                                   
+                                    <p>You will be notified when somthing new will be appear.</p>
                                 </div>
                             </div>
                         </div>

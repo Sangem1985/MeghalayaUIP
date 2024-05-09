@@ -7458,7 +7458,7 @@ i.fi.flaticon-call:before, i.fi.flaticon-contact:before {
 div#one {
     background: url(../images/param/param_bg.png);
     background-size: cover;
-    height: 100% !important;
+    height: 210px !important;
     background-position: center;
     border-radius: 6px;
     padding: 42px 15px 20px;
@@ -7476,6 +7476,7 @@ section#services {
     padding: 52px 0px 0px;
     /*box-shadow: 1px 2px 3px #585656;*/
     border-radius: 3px;
+    height: 145px;
 }
 
 .services .icon-box .icon {
