@@ -60,11 +60,11 @@ namespace MeghalayaUIP.User.CFE
         {
             index = MVQues.ActiveViewIndex;
             if (index == 0)
-            { Link1.CssClass = "Underlined"; }
+            { Link1.CssClass = "Underlined1"; }
             if (index == 1)
-            { Link2.CssClass = "Underlined"; }
+            { Link2.CssClass = "Underlined2"; }
             if (index == 2)
-            { Link3.CssClass = "Underlined"; }
+            { Link3.CssClass = "Underlined3"; }
 
 
         }
