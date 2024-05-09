@@ -150,6 +150,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblProposal;
 
         /// <summary>
+        /// ddlIndustryType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlIndustryType;
+
+        /// <summary>
         /// ddlDistrict control.
         /// </summary>
         /// <remarks>
@@ -222,13 +231,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblPCBCategory;
 
         /// <summary>
-        /// ddlIndustryType control.
+        /// rblMIDCL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIndustryType;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblMIDCL;
 
         /// <summary>
         /// txtUnitLocation control.
@@ -238,15 +247,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUnitLocation;
-
-        /// <summary>
-        /// rblMIDCL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblMIDCL;
 
         /// <summary>
         /// btnsave1 control.
@@ -528,15 +528,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlPowerPlant;
 
         /// <summary>
-        /// divpowerplants2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpowerplants2;
-
-        /// <summary>
         /// txtAggrCapacity control.
         /// </summary>
         /// <remarks>
@@ -544,6 +535,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAggrCapacity;
+
+        /// <summary>
+        /// divpowerplants2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpowerplants2;
 
         /// <summary>
         /// rblfrstDistncLtr control.

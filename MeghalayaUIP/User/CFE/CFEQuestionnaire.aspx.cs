@@ -152,6 +152,7 @@ namespace MeghalayaUIP.User.CFE
                     rblForContr1970.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CONTRLABOURACT1970"]);
                     rblForContr1970_SelectedIndexChanged(null, EventArgs.Empty);
                     txtContr1970wrkrs.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERSCONTR1970"]);
+                    GetApprovals(); ;
                 }
                 else
                 {
@@ -1451,13 +1452,16 @@ namespace MeghalayaUIP.User.CFE
         protected void Link1_Click(object sender, EventArgs e)
         {
             MVQues.ActiveViewIndex = 0;
-            Link1.ForeColor = Color.Black;
-            Link1.CssClass = "nav-tab";
-            Link2.CssClass = "nav-tab";
-            Link3.CssClass = "nav-tab";
-            Link1.Font.Underline = true;
-            Link2.Font.Underline = false;
-            Link3.Font.Underline = false;
+            var cls = Link1.Attributes["class"];
+            Link1.Attributes.Add("class", cls + " nav-tab");
+            //Link1.CssClass = "nav-tab";
+            //Link1.Attributes.Add("data-toggle","tab");
+           // Link2.CssClass = "nav-tab";
+            //Link3.CssClass = "nav-tab";
+            
+            //Link1.Font.Underline = true;
+            //Link2.Font.Underline = false;
+            //Link3.Font.Underline = false;
 
 
         }
