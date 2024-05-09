@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="RenewalServices.aspx.cs" Inherits="MeghalayaUIP.RenewalServices" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,30 +14,30 @@
                             <li class="breadcrumb-item active" aria-current="page">Renewal Services</li>
                         </ol>
                     </nav>
-                    
+
                     <ul>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - Licence as Dealers in
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - Licence as Dealers in
                   Weights &amp; Measures under the Legal Metrology Act, 2009</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - Licence as Repairers of
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - Licence as Repairers of
                   Weights &amp; Measures under the Legal Metrology Act, 2009</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - Licence as Manufacturer
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - Licence as Manufacturer
                   of Weights &amp; Measures under the Legal Metrology Act, 2009</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - Licensing of
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - Licensing of
                   Contractors under the Contract Labour (Regulation and Abolition) Act, 1970</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - Certificate of
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - Certificate of
                   Registration under the Meghalaya Shops &amp; Establishments Act, 2003</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - License to work as a
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - License to work as a
                   Factory</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - Licensing of
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - Licensing of
                   Contractors under the Inter-State Migrant Workmen (Regulation of Employment and Conditions of Service
                   ) Act, 1979</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Retention - Licence to Sell Stock
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Retention - Licence to Sell Stock
                   Exhibit or Offer for Sale or Distribute Drugs specified in Schedule X Form - 19C</li>
-              <li><i class="fi fi-br-star-shooting"></i> Auto Renewal - Business License by Municipal Board</li>
+                        <li><i class="fi fi-br-star-shooting"></i>Auto Renewal - Business License by Municipal Board</li>
 
-            </ul>
-                    </div>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 </asp:Content>

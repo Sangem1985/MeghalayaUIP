@@ -92,7 +92,12 @@ namespace MeghalayaUIP.Common
         public string CapitalSubsidy { get; set; }
         public string PromoterEquity { get; set; }
         public string LoanAmount { get; set; }
-
+        public string BankName { get; set; }
+        public string CetralSchemeAmount { get; set; }
+        public string UnnatiSchemeAmount { get; set; }
+        public string StateSchemeAmount { get; set; }
+        public string DoorNo { get; set; }
+        public string RegistrationNo { get; set; }
         public string Year1Value { get; set; }
         public string Year2Value { get; set; }
         public string Year3Value { get; set; }

@@ -168,8 +168,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Type *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:DropDownList ID="ddlConstType" runat="server"  class="form-control"  >
-                                                                   
+                                                                <asp:DropDownList ID="ddlConstType" runat="server" class="form-control">
                                                                 </asp:DropDownList>
                                                             </div>
                                                         </div>
@@ -182,7 +181,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Company Proposal *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                 <asp:RadioButtonList ID="rblproposal" runat="server"  class="form-control"  RepeatDirection="Horizontal" >
+                                                                <asp:RadioButtonList ID="rblproposal" runat="server" class="form-control" RepeatDirection="Horizontal">
                                                                     <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                     <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
                                                                 </asp:RadioButtonList>
@@ -303,7 +302,7 @@
 
 
                                                 <div class="col-md-12 d-flex">
-                                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Proposed Location of Unit</span></label>
+                                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Location of Unit</span></label>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
@@ -494,7 +493,7 @@
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Main Raw Materials for the Proposed Project*</label>
+                                                            <label class="col-lg-6 col-form-label">Main Raw Materials for the Project*</label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox runat="server" ID="txtRawmaterial" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
                                                             </div>
@@ -529,7 +528,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Land Area (in Sq.ft) *</label>
+                                                            <label class="col-lg-6 col-form-label">Land Area (in Sq. m) *</label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox runat="server" ID="txtLandAreainSqft" class="form-control" onkeypress="return validateNumberAndDot(event)" />
                                                             </div>
@@ -675,17 +674,6 @@
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Finance Revenue Details</span></label>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Capital Subsidy/ Benefit from UNNATI/ other Central / State Scheme (INR)*</label>
-                                                            <div class="col-lg-2 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtCapitalSubsidy" class="form-control" onkeypress="return validateNumbersOnly(event)" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Promoter’s Equity (INR)*</label>
@@ -696,25 +684,61 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Loan Amount (INR)*</label>
+                                                            <label class="col-lg-6 col-form-label">Bank Loan Amount (INR)*</label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Bank Name*</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtBankNAme" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-
-                                                <%--<div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Basic Revenue Projections (INR)</span></label>
-                                </div>
-
-                                <div class="col-md-12">--%>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Capital Subsidy (INR)</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtCapitalSubsidy" class="form-control" onkeypress="return validateNumbersOnly(event)" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Benefit from UNNATI (INR)</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtUNNATI" class="form-control" onkeypress="return validateNumbersOnly(event)" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">other Central  (INR)</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtcentral" class="form-control" onkeypress="return validateNumbersOnly(event)" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">State Scheme (INR)</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtstatescheme" class="form-control" onkeypress="return validateNumbersOnly(event)" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="text-right">
                                                 <asp:Button runat="server" Text="Save" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
-
-
                                                 <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn  btn-info btn-lg" OnClick="btnNext1_Click" />
 
                                             </div>
