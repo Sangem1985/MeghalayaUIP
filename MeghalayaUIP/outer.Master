@@ -79,8 +79,8 @@
                                 <div class="contact-info">
                                     <ul>
                                         <li>About Meghalaya</li>
-                                        <li><a href="login.aspx"><i class="fi fi-br-sign-in-alt"></i>Login</a></li>
-                                        <li><a href="Deptlogin.aspx"><i class="fi fi-br-mode-portrait"></i>Dept Login</a></li>
+                                        <li><a href="login.aspx"><i class="fi fi-br-sign-in-alt"></i> Login</a></li>
+                                        <li><a href="Deptlogin.aspx"><i class="fi fi-br-mode-portrait"></i> Dept Login</a></li>
                                     </ul>
                                 </div>
                             </div>

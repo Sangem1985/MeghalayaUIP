@@ -5793,3 +5793,6 @@ button.btn.btn-rounded.btn-success1.btn-lg {
 	transition-timing-function: ease-in;
 	transition-delay: 0.3s;
 }
+.page-wrapper .col-lg-6 {
+	align-items: center;
+}
