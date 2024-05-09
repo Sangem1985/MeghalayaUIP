@@ -23,7 +23,7 @@ namespace MeghalayaUIP.User
 
         protected void linkCFE_Click(object sender, EventArgs e)
         {
-            string url = "~/User/CFE/CFEDashboard.aspx";
+            string url = "~/User/CFE/CFEUserDashboard.aspx";
             Response.Redirect(url);
         }
     }

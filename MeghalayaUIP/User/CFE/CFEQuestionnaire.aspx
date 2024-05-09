@@ -35,7 +35,7 @@
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
-                               
+
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <asp:LinkButton ID="Link1" runat="server" OnClick="Link1_Click" class="nav-link" data-toggle="nav-tab" Style="padding-right: 20px; font-size: 20px"> 
@@ -92,7 +92,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        Proposal For</label>
+                                                                        3. Proposal For</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="New" Value="New"></asp:ListItem>
@@ -103,12 +103,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <h5>Unit Location</h5>
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        4. Proposed
-																		Location</label>
+                                                                        4.District
+                                                                    </label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
                                                                             <asp:ListItem Text="Select District" Value="0" />
@@ -151,26 +152,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">
-                                                                        In Square
-																		ft
-                                                                    </label>
-                                                                    <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtSquareMeters" runat="server" class="form-control"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">in Acres</label>
-                                                                    <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtAcres" runat="server" class="form-control"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            </div>   
                                                         </div>
 
                                                         <div class="col-md-12 d-flex">
@@ -178,7 +160,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
                                                                         6. Built up
-																		Area (Including Parking Cellars)</label>
+																		Area (In Sq.m)</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control"></asp:TextBox>
                                                                     </div>

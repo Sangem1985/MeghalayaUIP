@@ -88,9 +88,7 @@ namespace MeghalayaUIP.User.CFE
                     ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPVILLAGEID"]);
                     txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
-                    txtAcres.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
-                    txtSquareMeters.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
-
+                    
                     txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILTUPAREA"]);
                     ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_SECTOR"]);
                     ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
@@ -173,9 +171,7 @@ namespace MeghalayaUIP.User.CFE
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
                         txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                        txtAcres.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                        txtSquareMeters.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-
+                        
                         txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
                         lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                         ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
@@ -817,9 +813,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.PropLocMandalID = ddlMandal.SelectedValue;
                     objCFEQsnaire.PropLocVillageID = ddlVillage.SelectedValue;
                     objCFEQsnaire.ExtentofLand = txtLandArea.Text.Trim();
-                    objCFEQsnaire.Acres = txtAcres.Text.Trim();
-                    // objCFEQsnaire.Gunthas =
-                    objCFEQsnaire.Square_Meters = txtSquareMeters.Text.Trim();
+                  
                     objCFEQsnaire.BuiltUpArea = txtBuiltArea.Text.Trim();
                     objCFEQsnaire.SectorName = ddlSector.SelectedItem.Text;
                     objCFEQsnaire.Lineofacitivityid = ddlLine_Activity.SelectedValue;

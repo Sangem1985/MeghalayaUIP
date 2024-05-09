@@ -76,6 +76,7 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
+                            <asp:HiddenField ID="hdnPreRegUID" runat="server" />
 
                             <div class="row">
                                 <div class="col-md-12 d-flex">
@@ -97,7 +98,6 @@
 														Company *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control">
-                                                    <asp:ListItem Text="Select Organization" Value="0" />
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
@@ -570,6 +570,10 @@
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList ID="ddlApproachRoad" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />
+                                                    <asp:ListItem Text="BLACK TOP" Value="BLACK TOP" />
+                                                    <asp:ListItem Text="CC" Value="CC" />
+                                                    <asp:ListItem Text="GRAVEL" Value="GRAVEL" />
+                                                    <asp:ListItem Text="WBM" Value="WBM" />
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
