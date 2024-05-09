@@ -5794,5 +5794,8 @@ button.btn.btn-rounded.btn-success1.btn-lg {
 	transition-delay: 0.3s;
 }
 .page-wrapper .col-lg-6 {
-	align-items: center;
+	display: flex;
+	flex-wrap: nowrap;
+	align-content: space-around;
+	padding-top: 2px;
 }
