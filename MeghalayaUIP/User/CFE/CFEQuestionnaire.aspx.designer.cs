@@ -186,24 +186,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtLandArea;
 
         /// <summary>
-        /// txtSquareMeters control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSquareMeters;
-
-        /// <summary>
-        /// txtAcres control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAcres;
-
-        /// <summary>
         /// txtBuiltArea control.
         /// </summary>
         /// <remarks>

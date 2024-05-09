@@ -47,6 +47,7 @@ namespace MeghalayaUIP.User.CFE
                     BindDistricts();
                     BindCaste();
                     BindRegistrationType();
+                    BindConstitutionType();
                     TotalAmount();
                     BindData();
                 }
@@ -192,6 +193,34 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+        protected void BindConstitutionType()
+        {
+            try
+            {
+                ddlCompanyType.Items.Clear();
+
+                List<MasterConstType> objConsttype = new List<MasterConstType>();
+
+                objConsttype = mstrBAL.GetConstitutionType();
+                if (objConsttype != null)
+                {
+                    ddlCompanyType.DataSource = objConsttype;
+                    ddlCompanyType.DataValueField = "ConstId";
+                    ddlCompanyType.DataTextField = "ConstName";
+                    ddlCompanyType.DataBind();
+                }
+                else
+                {
+                    ddlCompanyType.DataSource = null;
+                    ddlCompanyType.DataBind();
+                }
+                AddSelect(ddlCompanyType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void BindRegistrationType()
         {
             try
@@ -231,59 +260,107 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        txtIndustryName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_COMPANYNAME"]);
-                        txtPromoterName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_PROMOTERNAME"]);
-                        txtSoWoDo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_SOWODO"]);
+                        hdnPreRegUID.Value= Convert.ToString(ds.Tables[0].Rows[0]["CFEID_PREREGUIDNO"]);
+                        txtIndustryName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYNAME"]);
+                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYTYPE"]);
+                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_PROPOSALFOR"]);
+                        ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGTYPE"]);
+                        txtRegistrationNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGNO"]);
+                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGDATE"]);
+                        ddlFactories.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_FACTORYTYPE"]);
 
-                        ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DISTID"]);
+                        txtPromoterName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]);
+                        txtSoWoDo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]);
+                        txtEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPEMAIL"]);
+                        txtMobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPMOBILE"]);
+                        txtAltMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPALTMOBILE"]);
+                        txtLandlineno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPTELPHNO"]);
+                        txtDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPDOORNO"]);
+                        txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPLOCALITY"]);
+                        ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPDISTRICTID"]);
                         ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_MANDALID"]);
+                        ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPMANDALID"]);
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_VILLAGEID"]);
-                        txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_STREET"]);
-                        txtDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DOORNO"]);
-                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_PINCODE"]);
-                        txtMobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ALTMOBILE"]);
-                        txtAltMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ALTMOBILE"]);
-                        txtEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_EMAIL"]);
-                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_COMPANYTYPE"]);
-                        txtLandlineno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_TELEPHONENO"]);
-
-                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_PROPOSALFOR"]);
-                        ddlSocialStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_CASTE"]);
-                        rblAbled.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ISDIFFABLED"]);
-                        rblWomen.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ISWOMENENTR"]);
-                        rblMinority.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_ISMINORITY"]);
+                        ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPVILLAGEID"]);
+                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]);                       
+                        ddlSocialStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPCASTE"]);
+                        rblMinority.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISMINORITY"]);
+                        rblAbled.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISDIFFABLED"]);
+                        rblWomen.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISWOMANENTR"]);                        
+                        
+                        txtUnitLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITLOCATION"]);
+                        txtUnitDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITDOORNO"]);
+                        txtUnitLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITLOCALITY"]);
+                        ddlUnitDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITDISTRICTID"]);
+                        ddlUnitDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlUnitMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITMANDALID"]);
+                        ddlUnitMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlUnitVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITVILLAGEID"]);
+                        txtUnitPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITPINCODE"]);
+                        txtUnitLandlineno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITTELPHNO"]);
+                        txtBuildingHeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_BUILDNGHT"]);
+                        txtBuiltUpArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_BUILTUPAREA"]);
+                        txtSiteArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_LANDEXTENT"]);
+                        txtDevelopmentArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DEVELOPAREA"]);
                        
-                        txtMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DIRECTMALE"]);
-                        txtFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_DIRECTFEMALE"]);
-                        lbltotalEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_TOTALEMP"]);
-                        txtIndirectMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_INDIRECTMALE"]);
-                        txtIndirectFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_INDIRECTFEMALE"]);
-                        ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_REGISTRATIONTYPE"]);
-                        txtRegistrationNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_REGISTRATIONNO"]);
-                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_REGISTRATIONDATE"]);
-                        ddlFactories.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_FACTORYTYPE"]);
+                        txtArchitectName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_ARCHTCTNAME"]);
+                        txtArchitectLicNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_ARCHTCTLICNO"]);
+                        txtArchitectMobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_ARCHTCTMOBILE"]);
+                        txtStrEngnrName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_SRTCTENGNRNAME"]);
+                        txtStrLicNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_SRTCTENGNRLICNO"]);
+                        txtStrEngnrMobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_SRTCTENGNRMOBILE"]);
+                        ddlApproachRoad.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_APPROACHROADTYPE"]);
+                        txtExstngWidth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_APPROACHROADWIDTH"]);
+                        rblAffectedroad.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_AFFECTEDRDWDNG"]);
+                        rblAffectedroad_SelectedIndexChanged(null, EventArgs.Empty);
+
+                        txtAffectedArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_AFFECTEDRDAREA"]);
+                        txtMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DIRECTMALE"]);
+                        txtFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DIRECTFEMALE"]);
+                        lbltotalEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_TOTALEMP"]);
+                        txtIndirectMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_INDIRECTMALE"]);
+                        txtIndirectFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_INDIRECTFEMALE"]);
+                        txtRdCutlenght.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLENGTH"]);
+                        txtRdCutLocations.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLOCATIONS"]);                       
+                       
                     }
                     else
                     {
+                        hdnPreRegUID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PREREGUIDNO"]);
                         txtIndustryName.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYNAME"]);
+                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
+                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
+                        ddlRegType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGTYPE"]);
+                        txtRegistrationNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
+                        txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGISTRATIONDATE"]);                      
+                                               
                         txtPromoterName.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_NAME"]);
-
+                        txtEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_EMAIL"]);
+                        txtMobileno.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MOBILE"]);
+                        txtDoorNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_DOORNO"]);
+                        txtLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_LOCALITY"]);
                         ddlDistric.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTID"]);
                         ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALID"]);
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
-                        txtLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_LOCALITY"]);
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
-                        txtMobileno.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MOBILE"]);
-                        txtEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_EMAIL"]);
-                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
 
-                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);                       
+
+                        txtUnitLocation.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_UNTLOCATION"]);
+                        txtUnitDoorNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DOORNO"]);
+                        txtUnitLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_LOCALITY"]);
+                        ddlUnitDistrict.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]);
+                        ddlUnitDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlUnitMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_MANDALID"]);
+                        ddlUnitMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlUnitVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_VILLAGEID"]);
+                        txtUnitPincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_PINCODE"]);
+                        txtBuildingHeight.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_BUILDINGHT"]);
+                        txtBuiltUpArea.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_BUILTUPAREA"]);
+                        txtSiteArea.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPEMP"]);
-                        txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGISTRATIONDATE"]);
+                        
                         if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "Y")
                             ddlFactories.SelectedValue = "1";
                         else if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "N")
