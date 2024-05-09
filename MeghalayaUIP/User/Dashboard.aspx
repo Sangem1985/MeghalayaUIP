@@ -31,7 +31,7 @@
                                 <asp:LinkButton ID="linkCFE" runat="server" OnClick="linkCFE_Click" >
                                 <div class="card-counter primary" data-toggle="modal" data-target=".bd-example-modal-xl">
                                     <img src="../assets/admin/img/prl.png" alt="logo">
-                                    <span class="count-numbers">Pre-Establishment Approval</span>
+                                    <span class="count-numbers">Pre-Establishment<br /> Approval</span>
                                     <span class="count-name"></span>
                                 </div>
                                 </asp:LinkButton>
@@ -41,7 +41,7 @@
                                 <div class="card-counter danger" data-toggle="modal" data-target=".bd-example-modal-lg" data-original-title="">
 
                                     <img src="../assets/admin/img/poa.png" alt="logo">
-                                    <span class="count-numbers">Pre-Operational Approval</span>
+                                    <span class="count-numbers">Pre-Operational<br /> Approval</span>
                                     <span class="count-name"></span>
                                 </div>
                             </div>

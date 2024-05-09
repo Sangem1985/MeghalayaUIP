@@ -237,10 +237,12 @@ display: block;
 font-size: 16px;
 }
 span.count-numbers {
-font-family: 'Mada';
-font-weight: 600;
-text-shadow: 1px 2px 3px #333;
-font-size: 28px !important;
+    font-family: 'Mada';
+    font-weight: 600;
+    text-shadow: 1px 2px 3px #333;
+    font-size: 23px !important;
+    text-transform: capitalize;
+    text-align: left;
 }
 .card-counter.primary img, .card-counter.danger img, .card-counter.success img {
 width: 28%;
