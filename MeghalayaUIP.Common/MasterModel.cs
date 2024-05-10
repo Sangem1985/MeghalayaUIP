@@ -26,6 +26,10 @@ namespace MeghalayaUIP.Common
         public static string GetRegistrationType = "USP_GETREGISTRATIONTYPEMASTER";
         public static string GetCastemaster = "USP_GETCATSEMASTER";
 
+        public static string InsertInvestment = "USP_INSINTENTTOINVEST";
+        public static string Getsector = "USP_GETSECTORS";
+        public static string GetEnterpriseType = "USP_GETENTERPRISETYPE";
+
 
     }
     public class MasterCountry
@@ -137,6 +141,47 @@ namespace MeghalayaUIP.Common
     {
         public string REGISTRATIONTYPEID { get; set; }
         public string REGISTRATIONTYPENAME { get; set; }
+    }
+    public class MasterSECTORS
+    {
+        public string SECTORID { get; set; }
+        public string SECTORNAME { get; set; }
+    }
+    public class MasterENTERPRISETYPE
+    {
+        public string ENTERPRISETYPECODE { get; set; }
+        public string ENTERPRISETYPE { get; set; }
+    }
+    public class InvtentInvest
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CompanyName { get; set; }
+        public string PAN { get; set; }
+        public string Address { get; set; }
+        public string Country { get; set; }
+        public string Phoneno { get; set; }
+        public string Pincode { get; set; }
+        public string Emailid { get; set; }
+        public string FaxNo { get; set; }
+        public string Website { get; set; }
+        public string Name { get; set; }
+        public string Designation { get; set; }
+        public string Email { get; set; }
+        public string Mobile { get; set; }
+        public string ProjectProposal { get; set; }
+        public string InvestmentPrevious { get; set; }
+        public string ProjectCategory { get; set; }
+        public string Sector { get; set; }
+        public string Proposed_Investment { get; set; }
+        public string Proposed_Employment { get; set; }
+        public string Project_Location { get; set; }
+        public string Expected_Year { get; set; }
+        public string Expectationstate_Govt { get; set; }
+
     }
 
 }

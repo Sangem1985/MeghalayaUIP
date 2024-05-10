@@ -53,9 +53,25 @@ namespace MeghalayaUIP.User.CFE
 
         public void BindApplStatus()
         {
-            try 
+            try
             {
-                
+                lblAppstatus.Text = "Submitted";
+                lblCAFstatus.Text = "Submitted";
+                lblApprovalsReq.Text = "22";
+                lblApprovalsObtained.Text = "0";
+                lblApprovalsApplied.Text = "0";
+                lblApprovalstobeApplied.Text = "0";
+                lblAddlPaymentReq.Text = "0";
+                lblAddlPaymentPaid.Text = "0";
+                lblQueryRaised.Text = "0";
+                lblQueryReplied.Text = "0";
+                lblQueryYettoRespond.Text = "0";
+                lblScrtnyRejected.Text = "0";
+                lblScrtnyCmpltd.Text = "0";
+                lblScrtnyPendng.Text = "0";
+                lblApprovalIssued.Text = "0";
+                lblApprovalPanding.Text = "0";
+                lblApprovalRejected.Text = "0";
             }
             catch (Exception ex)
             {

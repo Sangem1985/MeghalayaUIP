@@ -126,5 +126,30 @@ namespace MeghalayaUIP.User.CFE
             string newurl = "CFEQuestionnaire.aspx";
             Response.Redirect(newurl);
         }
+
+        protected void btnCombndAppl_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            Label lbluniid = (Label)row.FindControl("lblUNITID");
+            Label lblQuestId = (Label)row.FindControl("lblCFEQID");
+            Session["UNITID"] = lbluniid.Text;
+            string newurl = "CFECommonApplication.aspx";
+            Response.Redirect(newurl);
+        }
+
+        protected void btnApplStatus_Click(object sender, EventArgs e)
+        {
+
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            Label lbluniid = (Label)row.FindControl("lblUNITID");
+            Label lblQuestId = (Label)row.FindControl("lblCFEQID");
+            Session["UNITID"] = lbluniid.Text;
+            string newurl = "CFEUserApplStatus.aspx";
+            Response.Redirect(newurl);
+        }
     }
 }

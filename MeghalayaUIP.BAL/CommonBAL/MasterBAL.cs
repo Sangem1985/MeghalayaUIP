@@ -66,6 +66,18 @@ namespace MeghalayaUIP.BAL.CommonBAL
         { return objMasterDAL.GetCaste();}
         public List<MasterRegistrationType> GetRegistrationType()
         { return objMasterDAL.GetRegistrationType();}
+        public string InsertInvestment(InvtentInvest objInvest)
+        {
+            return objMasterDAL.InsertInvestment(objInvest);
+        }
+        public List<MasterSECTORS> GetSector()
+        {
+            return objMasterDAL.GetSector();
+        }
+        public List<MasterENTERPRISETYPE> GetENTERPRISETYPE()
+        {
+            return objMasterDAL.GetENTERPRISETYPE();
+        }
 
     }
 }
