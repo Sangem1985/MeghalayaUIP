@@ -361,12 +361,12 @@ section#dashboardcount\ ima i.fi ::before {
 }
 
 a#ContentPlaceHolder1_Link1 {
-    background: #004c6d;
+    background: #dce775 !important;
     padding: 10px 7px;
     margin: 0px 6px;
-    color: #fff !important;
+    color: #000 !important;
     border-radius: 22px 0px !important;
-    *display: block;
+    font-weight: 500;
 }
 
     a#ContentPlaceHolder1_Link1:active {
@@ -375,19 +375,21 @@ a#ContentPlaceHolder1_Link1 {
     }
 
 a#ContentPlaceHolder1_Link2 {
-    background: #0067b7;
+    background: #aed581 !important;
     padding: 10px 7px;
     margin: 0px 6px;
-    color: #fff !important;
+    color: #000 !important;
     border-radius: 22px 0px !important;
+    font-weight: 500;
 }
 
 a#ContentPlaceHolder1_Link3 {
-    background: #007aff;
+    background: #4db6ac !important;
     padding: 10px 7px;
     margin: 0px 6px;
-    color: #fff !important;
+    color: #000 !important;
     border-radius: 22px 0px !important;
+    font-weight: 500;
 }
 
 div#basictab1 {
@@ -405,20 +407,20 @@ div#basictab3 {
 span.icon {
     position: absolute;
     top: 70px;
-    color: #004c6d;
+    color: #dce775;
 }
 
 span.icon2 {
     position: absolute;
     top: 70px;
-    color: #0067b7;
+    color: #aed581;
     left: 230px;
 }
 
 span.icon3 {
     position: absolute;
     top: 70px;
-    color: #007aff;
+    color: #4db6ac;
     left: 435px;
 }
 
