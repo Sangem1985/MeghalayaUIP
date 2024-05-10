@@ -134,10 +134,10 @@
 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/User/PreReg/IndustryRegistration.aspx">Industry Registration</a>
+                                    <a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/User/CFE/CFEUserDashboard.aspx">Pre-Establishment</a>
+                                    <a class="nav-link" href="../CFE/CFEUserDashboard.aspx">Pre-Establishment</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Pre-Operational</a>
