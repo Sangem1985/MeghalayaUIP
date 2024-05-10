@@ -1436,6 +1436,12 @@ namespace MeghalayaUIP.User.PreReg
         protected void MVprereg_ActiveViewChanged(object sender, EventArgs e)
         {
             index = MVprereg.ActiveViewIndex;
+            if (index == 0)
+            { Link1.CssClass = "Underlined1"; }
+            if (index == 1)
+            { Link2.CssClass = "Underlined2"; }
+            if (index == 2)
+            { Link3.CssClass = "Underlined3"; }
 
         }
         public void BindRegistrationType()

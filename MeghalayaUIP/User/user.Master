@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../assets/admin/css/style.css">
     <link rel="stylesheet" href="../assets/admin/css/menustyle.css">
     <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <style>
         .card-counter.primarydashboard {
             margin: 10px;

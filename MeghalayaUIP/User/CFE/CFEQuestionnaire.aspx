@@ -3,74 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <style type="text/css">
-               ul.nav.nav-tabs li.nav-item {
-    align-content: center;
-}
-               .nav-tabs {
-    border-bottom: 1px solid #ffffff;
-    padding-bottom: 10px;
-}
-               a#ContentPlaceHolder1_Link1 {
-    background: #004c6d;
-    padding: 10px 7px;
-    margin: 0px 6px;
-    color: #fff !important;
-    border-radius: 22px 0px !important;
-}
-               a#ContentPlaceHolder1_Link1:active {
-    background: #e8ebff;
-    padding: 10px 8px;
     
-}
-               
-               
-               a#ContentPlaceHolder1_Link2 {
-    background: #0067b7;
-    padding: 10px 7px;
-    margin: 0px 6px;
-    color: #fff !important;
-    border-radius: 22px 0px !important;
-}
-               a#ContentPlaceHolder1_Link3 {
-    background: #007aff;
-    padding: 10px 7px;
-    margin: 0px 6px;
-    color: #fff !important;
-    border-radius: 22px 0px !important;
-}
-               div#basictab1 {
-    border: 1px solid  #004c6d;
-}
-               div#basictab2 {
-    border: 1px solid  #0067b7;
-}
-               div#basictab3 {
-    border: 1px solid  #007aff;
-}
-               span.icon {
-    position: absolute;
-    top: 70px;
-    color: #004c6d;
-}
-               span.icon2 {
-    position: absolute;
-    top: 70px;
-    color: #0067b7;
-    left: 230px;
-}
-               span.icon3 {
-    position: absolute;
-       top: 70px;
-    color: #007aff;
-    left: 435px;
-}
-                i.fi{
-                   font-size:30px;
-               }
-    </style>
-    <div class="page-wrapper">
+  
+    <div class="page-wrapper tabs">
 
         <div class="content container-fluid">
             <section class="comp-section">
@@ -100,21 +35,24 @@
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
 
-                               <%-- <ul class="nav nav-tabs">
+                                <%-- <ul class="nav nav-tabs">
                                     <li class="nav-item">--%>
                                 <ul class="nav nav-tabs">
-                                        <li class="nav-item"><asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click"  Style="padding-right: 20px; font-size: 20px"> 
+                                    <li class="nav-item">
+                                        <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
                                     1. Project Details</asp:LinkButton></li>
-                                   <%-- </li>
+                                    <%-- </li>
                                     <li class="nav-item">--%>
-                                       <li class="nav-item"> <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click"  Style="padding-right: 20px; font-size: 20px">
+                                    <li class="nav-item">
+                                        <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 20px">
                                     2. Project Financials</asp:LinkButton></li>
-                                   <%-- </li>
+                                    <%-- </li>
                                     <li class="nav-item">--%>
-                                       <li class="nav-item"> <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click"  Style="padding-right: 10px; font-size: 20px">
+                                    <li class="nav-item">
+                                        <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 20px">
                                     3. Project Requirements</asp:LinkButton></li>
-                                    </ul>
-                                    <%--</li>
+                                </ul>
+                                <%--</li>
                                 </ul>--%>
                                 <%--<ul class="nav nav-tabs">
                                     <li class="nav-item" runat="server" id="Li1">
@@ -133,7 +71,7 @@
                                             <div class="tab-pane active" id="basictab1">
                                                 <div class="card-body">
                                                     <span class="icon"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #004c6d;-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 18px;font-weight: 700 !important;font-family: sans-serif;">1. Project Details</h4>
+                                                    <h4 class="card-title" style="background: #004c6d; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
 
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
@@ -331,7 +269,7 @@
                                             <div class="tab-pane active" id="basictab2">
                                                 <div class="card-body">
                                                     <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #0067b7;-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 18px;font-weight: 700 !important;font-family: sans-serif;">2. Project Financials</h4>
+                                                    <h4 class="card-title" style="background: #0067b7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
                                                     <%--<form action="#">--%>
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
@@ -546,7 +484,7 @@
                                             <div class="tab-pane active" id="basictab3">
                                                 <div class="card-body">
                                                     <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #007aff;-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 18px;font-weight: 700 !important;font-family: sans-serif;">3. Project Requirements</h4>
+                                                    <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-6">

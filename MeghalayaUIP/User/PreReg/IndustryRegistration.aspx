@@ -4,96 +4,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        
+       
+    span.icon,span.icon2,span.icon3 {
+        top: 35px !important;
+    }
+        span.icon3 {
+        left: 485px !important;
+    }
     </style>
-    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-        function validateNames(input) {
-            var name = input.value;
-            var charCode = event.charCode || event.keyCode;
-
-
-            if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
-                return true;
-            } else {
-                alert("Enter only alphabets (A-Z, a-z)");
-                input.value = "";
-                return false;
-            }
-        }
-    </script>
-
-    <script type="text/javascript">
-        function checkLength(el) {
-            if (el.value.length != 10) {
-                alert("Mobile number length must be exactly 10 characters")
-            }
-        }
-    </script>
-
-
-
-    <script type="text/javascript">
-        function validateEmail(event) {
-            var email = event.target.value;
-            var isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-            if (!isValidEmail) {
-                event.target.value = "";
-                alert("Enter a valid email address");
-            }
-        }
-
-    </script>
-
-
-    <script type="text/javascript">
-        function validateNumberOnly(input) {
-            var inputValue = input.value.trim();
-            var regex = /^[0-9]+$/;
-
-            if (!regex.test(inputValue)) {
-                alert("Enter numeric values only");
-                input.value = "";
-                input.focus();
-            }
-        }
-
-        function NumberOnly(event) {
-            var input = event.target;
-            validateNumberOnly(input);
-        }
-    </script>
-    <script type="text/javascript">
-        function checkLength1(el) {
-            if (el.value.length !== 12) {
-                alert("Aadhar number length must be exactly 12 characters");
-                el.value = "";
-                el.focus();
-            }
-        }
-
-        function validateAadharOnBlur(event) {
-            var input = event.target;
-            checkLength1(input);
-        }
-    </script>
-    <script type="text/javascript">
-        function ValidatePAN() {
-            var Obj = document.getElementById("txtApplPAN");
-            if (Obj.value != "") {
-                ObjVal = Obj.value;
-                var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
-                if (ObjVal.search(panPat) == -1) {
-                    alert("Invalid Pan No");
-                    Obj.focus();
-                    return false;
-                }
-            }
-        }
-    </script>
-    <div class="page-wrapper">
+    <div class="page-wrapper tabs">
 
         <div class="content container-fluid">
             <%--<section class="comp-section">--%>
@@ -128,7 +47,7 @@
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
                                     <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
-                                    1.Basic Details</asp:LinkButton></li>
+                                    1. Basic Details</asp:LinkButton></li>
                                 <%-- </li>
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
@@ -138,14 +57,15 @@
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
                                     <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 20px">
-                                   3.Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
+                                   3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
                             </ul>
                             <div class="tab-content">
                                 <asp:MultiView ID="MVprereg" runat="server" OnActiveViewChanged="MVprereg_ActiveViewChanged">
                                     <asp:View ID="viewBasic" runat="server">
                                         <div class="tab-pane active" id="basictab1">
                                             <div class="card-body" runat="server" id="divbasic">
-                                                <h4 class="card-title">1. Basic Details</h4>
+                                                <span class="icon"><i class="fi fi-br-caret-down"></i></span>
+                                                    <h4 class="card-title" style="background: #004c6d; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Basic Details</h4>
 
                                                 <div class="row">
 
@@ -771,7 +691,8 @@
                                         <div class="tab-pane active  " id="basictab2">
 
                                             <div class="card-body" runat="server" id="divRevenue">
-                                                <h4 class="card-title">2. Basic Revenue Projections</h4>
+                                               <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
+                                                    <h4 class="card-title" style="background: #0067b7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Basic Revenue Projections</h4>
                                                 <%--<form action="#">--%>
                                                 <div class="row">
 
@@ -868,7 +789,8 @@
                                         <div class="tab-pane active   " id="basictab3">
 
                                             <div class="card-body" runat="server" id="divPromotrs">
-                                                <h4 class="card-title">3. Details of the Applicant / Promoter(s) /
+                                             <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
+                                                    <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Details of the Applicant / Promoter(s) /
 													Partner(s) / Directors(s) / Members</h4>
 
                                                 <div class="row">
@@ -1138,4 +1060,92 @@
     </div>
     <%--  </ContentTemplate>
     </asp:UpdatePanel>--%>
+
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function validateNames(input) {
+            var name = input.value;
+            var charCode = event.charCode || event.keyCode;
+
+
+            if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+                return true;
+            } else {
+                alert("Enter only alphabets (A-Z, a-z)");
+                input.value = "";
+                return false;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function checkLength(el) {
+            if (el.value.length != 10) {
+                alert("Mobile number length must be exactly 10 characters")
+            }
+        }
+    </script>
+
+
+
+    <script type="text/javascript">
+        function validateEmail(event) {
+            var email = event.target.value;
+            var isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+            if (!isValidEmail) {
+                event.target.value = "";
+                alert("Enter a valid email address");
+            }
+        }
+
+    </script>
+
+
+    <script type="text/javascript">
+        function validateNumberOnly(input) {
+            var inputValue = input.value.trim();
+            var regex = /^[0-9]+$/;
+
+            if (!regex.test(inputValue)) {
+                alert("Enter numeric values only");
+                input.value = "";
+                input.focus();
+            }
+        }
+
+        function NumberOnly(event) {
+            var input = event.target;
+            validateNumberOnly(input);
+        }
+    </script>
+    <script type="text/javascript">
+        function checkLength1(el) {
+            if (el.value.length !== 12) {
+                alert("Aadhar number length must be exactly 12 characters");
+                el.value = "";
+                el.focus();
+            }
+        }
+
+        function validateAadharOnBlur(event) {
+            var input = event.target;
+            checkLength1(input);
+        }
+    </script>
+    <script type="text/javascript">
+        function ValidatePAN() {
+            var Obj = document.getElementById("txtApplPAN");
+            if (Obj.value != "") {
+                ObjVal = Obj.value;
+                var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+                if (ObjVal.search(panPat) == -1) {
+                    alert("Invalid Pan No");
+                    Obj.focus();
+                    return false;
+                }
+            }
+        }
+    </script>
 </asp:Content>
