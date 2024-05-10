@@ -50,6 +50,7 @@ namespace MeghalayaUIP.User.PreReg
                         BindConstitutionType();
                         BindRevenueProjectionsMaster();
                         BindSectors();
+                        BindRegistrationType();
                         BindData();
                     }
                 }
@@ -720,7 +721,12 @@ namespace MeghalayaUIP.User.PreReg
                     ID.CapitalSubsidy = txtCapitalSubsidy.Text.Trim();
                     ID.PromoterEquity = txtPromoterEquity.Text.Trim();
                     ID.LoanAmount = txtLoanAmount.Text.Trim();
-                    
+                    ID.BankName = txtBankName.Text.Trim();
+                    ID.CetralSchemeAmount = txtcentral.Text.Trim();
+                    ID.UnnatiSchemeAmount = txtUNNATI.Text.Trim();
+                    ID.StateSchemeAmount = txtstatescheme.Text.Trim();
+                    ID.DoorNo = txtAuthReprDoorNo.Text.Trim();
+                    ID.RegistrationNo = txtLoanAmount.Text.Trim();
                     try
                     {
                         DataTable dt = new DataTable();
@@ -1431,6 +1437,49 @@ namespace MeghalayaUIP.User.PreReg
         {
             index = MVprereg.ActiveViewIndex;
 
+        }
+        public void BindRegistrationType()
+        {
+            try
+            {
+                ddlRegType.Items.Clear();
+                List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
+                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
+                if (objRegistrationTypeModel != null)
+                {
+
+                    ddlRegType.DataSource = objRegistrationTypeModel;
+                    ddlRegType.DataValueField = "REGISTRATIONTYPEID";
+                    ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
+                    ddlRegType.DataBind();
+                }
+                else
+                {
+                    ddlRegType.DataSource = null;
+                    ddlRegType.DataBind();
+                }
+                AddSelect(ddlRegType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                {
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim()+ " No *";
+                }
+                
+            }
+            catch(Exception ex)
+            { }
         }
     }
 }

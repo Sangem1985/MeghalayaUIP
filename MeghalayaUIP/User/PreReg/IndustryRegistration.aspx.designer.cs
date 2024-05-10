@@ -150,15 +150,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.RadioButtonList rblproposal;
 
         /// <summary>
-        /// txtUdyamorIEMNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUdyamorIEMNo;
-
-        /// <summary>
         /// txtGSTNo control.
         /// </summary>
         /// <remarks>
@@ -166,6 +157,33 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGSTNo;
+
+        /// <summary>
+        /// ddlRegType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRegType;
+
+        /// <summary>
+        /// lblregntype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblregntype;
+
+        /// <summary>
+        /// txtUdyamorIEMNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUdyamorIEMNo;
 
         /// <summary>
         /// txtCompnyRegDt control.
@@ -238,6 +256,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAuthReprVillage;
+
+        /// <summary>
+        /// txtAuthReprDoorNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAuthReprDoorNo;
 
         /// <summary>
         /// txtAuthReprPincode control.
@@ -474,13 +501,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtLandAreainSqft;
 
         /// <summary>
-        /// txtBuildingAreaSqm control.
+        /// txtLandValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuildingAreaSqm;
+        protected global::System.Web.UI.WebControls.TextBox txtLandValue;
 
         /// <summary>
         /// txtWaterReqKLD control.
@@ -492,31 +519,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtWaterReqKLD;
 
         /// <summary>
-        /// txtPowerReqKV control.
+        /// txtWaterValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPowerReqKV;
-
-        /// <summary>
-        /// txtMeasurementUnits control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMeasurementUnits;
-
-        /// <summary>
-        /// txtAnnualCapacity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnnualCapacity;
+        protected global::System.Web.UI.WebControls.TextBox txtWaterValue;
 
         /// <summary>
         /// txtEstimatedProjCost control.
@@ -528,6 +537,24 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtEstimatedProjCost;
 
         /// <summary>
+        /// txtBuildingAreaSqm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuildingAreaSqm;
+
+        /// <summary>
+        /// txtBuildingValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuildingValue;
+
+        /// <summary>
         /// txtPlantnMachineryCost control.
         /// </summary>
         /// <remarks>
@@ -535,6 +562,42 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPlantnMachineryCost;
+
+        /// <summary>
+        /// txtAnnualCapacity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAnnualCapacity;
+
+        /// <summary>
+        /// txtMeasurementUnits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMeasurementUnits;
+
+        /// <summary>
+        /// txtPowerReqKV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPowerReqKV;
+
+        /// <summary>
+        /// txtElectricityValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtElectricityValue;
 
         /// <summary>
         /// txtCapitalInvestment control.
@@ -553,42 +616,6 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFixedAssets;
-
-        /// <summary>
-        /// txtLandValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLandValue;
-
-        /// <summary>
-        /// txtBuildingValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuildingValue;
-
-        /// <summary>
-        /// txtWaterValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWaterValue;
-
-        /// <summary>
-        /// txtElectricityValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtElectricityValue;
 
         /// <summary>
         /// txtWorkingCapital control.
@@ -618,13 +645,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtLoanAmount;
 
         /// <summary>
-        /// txtBankNAme control.
+        /// txtBankName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBankNAme;
+        protected global::System.Web.UI.WebControls.TextBox txtBankName;
 
         /// <summary>
         /// txtCapitalSubsidy control.
