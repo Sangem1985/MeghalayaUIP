@@ -22,12 +22,12 @@
                                         <div class="text">
                                             <a href="PreRegApplCommitteeView.aspx?status=COMMTotal" style="color: white">Total Application </a>
                                         </div>
-                                        <div style="font-size: 12px;">Total Revence Hold Application Received</div>
+                                        <div style="font-size: 12px;"></div>
                                         <i class="fi fi-tr-memo-circle-check"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <%--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-cyan hover-expand-effect">
                                     <div class="icon">
                                         <h4>
@@ -42,7 +42,7 @@
                                         <i class="fi fi-tr-file-import"></i>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-cyan hover-expand-effect">
                                     <div class="icon">
@@ -54,7 +54,7 @@
                                         <div class="text">
                                             <a href="PreRegApplCommitteeView.aspx?status=COMMTOBEPROCESSED" style="color: white">To be Processed </a>
                                         </div>
-                                        <div style="font-size: 12px;">Total To be Processed Application</div>
+                                        <div style="font-size: 12px;"></div>
                                         <i class="fi fi-tr-file-import"></i>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                         <div class="text">
                                             <a href="PreRegApplCommitteeView.aspx?status=COMMQUERY" style="color: white">Query Raised</a>
                                         </div>
-                                        <div style="font-size: 12px;">Total To be Processed Application</div>
+                                        <div style="font-size: 12px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                         <div class="text">
                                             <a href="PreRegApplCommitteeView.aspx?status=COMMQUERYREPLIED" style="color: white">Replied by Applicant</a>
                                         </div>
-                                        <div style="font-size: 12px;">Total To be Processed Application</div>
+                                        <div style="font-size: 12px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                                         <div class="text">
                                             <a href="PreRegApplCommitteeView.aspx?status=COMMPPROVED" style="color: white">Approved </a>
                                         </div>
-                                        <div style="font-size: 12px;">Total Query Raised Application Received</div>
+                                        <div style="font-size: 12px;"></div>
 
                                     </div>
                                 </div>

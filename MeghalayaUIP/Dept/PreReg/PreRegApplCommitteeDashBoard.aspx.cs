@@ -45,7 +45,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                     lblTotalApp.Text = dt.Rows[0]["COMMTOTAL"].ToString();
                     lblToBeProcessed.Text = dt.Rows[0]["COMMTOBEPROCESSED"].ToString();
-                    lblprocessed.Text = dt.Rows[0]["COMMPROCESSED"].ToString();
+                    //lblprocessed.Text = dt.Rows[0]["COMMPROCESSED"].ToString();
                     lblApproved.Text = dt.Rows[0]["COMMAPPROVED"].ToString();
                     lblQuery.Text = dt.Rows[0]["COMMQUERY"].ToString();
                     lblQueryReplied.Text = dt.Rows[0]["COMMQUERYREPLIED"].ToString();
