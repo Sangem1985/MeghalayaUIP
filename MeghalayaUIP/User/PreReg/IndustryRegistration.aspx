@@ -4,8 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-       
-    span.icon,span.icon2,span.icon3 {
+       span.icon,span.icon2,span.icon3 {
         top: 35px !important;
     }
         span.icon3 {
@@ -51,12 +50,12 @@
                                 <%-- </li>
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 20px">
+                                    <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click"  Style="padding-right: 10px; font-size: 18px !important;margin-top: -8px !important;padding: 10px 10px 12px !important;">
                                     2. Basic Revenue Projections</asp:LinkButton></li>
                                 <%-- </li>
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 20px">
+                                    <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click"  Style="padding-right: 10px; font-size: 18px !important;margin-top: -8px !important;padding: 10px 10px 12px !important;">
                                    3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
                             </ul>
                             <div class="tab-content">
