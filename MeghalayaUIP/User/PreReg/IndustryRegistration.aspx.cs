@@ -81,19 +81,22 @@ namespace MeghalayaUIP.User.PreReg
                         if (ds.Tables[0].Rows.Count > 0)
                         {
                             ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
+
                             txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                             txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
-                            rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
-                            // txtCompnyRegDt.TextMode = TextBoxMode.Date;
-
-                            txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATEnew"]);
-
+                            ddlConstType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]); 
+                            rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
+                            txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]);
                             txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UDYAMNO"]);
                             txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
+                            ddlRegType.SelectedValue= Convert.ToString(ds.Tables[0].Rows[0]["COMPANYREGTYPE"]);
+
                             txtAuthReprName.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_NAME"]);
                             txtAuthReprMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_MOBILE"]);
                             txtAuthReprEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_EMAIL"]);
                             txtAuthReprLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_LOCALITY"]);
+                            txtAuthReprDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_DOORNO"]);
+                            
                             ddlAuthReprDist.SelectedValue = ds.Tables[0].Rows[0]["REP_DISTRICTID"].ToString();
                             ddlAuthReprDist_SelectedIndexChanged(null, EventArgs.Empty);
                             ddlAuthReprTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
@@ -146,6 +149,11 @@ namespace MeghalayaUIP.User.PreReg
                             txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_CAPITALSUBSIDY"]);
                             txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_PROMOTEREQUITY"]);
                             txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_LOAN"]);
+                            txtBankName.Text= Convert.ToString(ds.Tables[0].Rows[0]["BANKNAME"]);
+                            txtUNNATI.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_UNNATI"]);
+                            txtstatescheme.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_STATE"]);
+                            txtcentral.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_CENTRAL"]);
+
                         }
                     }
                     //if (ds.Tables.Count > 1)
@@ -726,7 +734,8 @@ namespace MeghalayaUIP.User.PreReg
                     ID.UnnatiSchemeAmount = txtUNNATI.Text.Trim();
                     ID.StateSchemeAmount = txtstatescheme.Text.Trim();
                     ID.DoorNo = txtAuthReprDoorNo.Text.Trim();
-                    ID.RegistrationNo = txtLoanAmount.Text.Trim();
+                    ID.RegistrationNo = txtUdyamorIEMNo.Text.Trim();
+                    ID.RegistrationType = ddlRegType.SelectedValue;
                     try
                     {
                         DataTable dt = new DataTable();
@@ -1173,7 +1182,7 @@ namespace MeghalayaUIP.User.PreReg
             {
                 if (string.IsNullOrEmpty(txtApplFrstName.Text) || string.IsNullOrEmpty(txtApplLstName.Text) ||
                     string.IsNullOrEmpty(txtApplAadhar.Text) || string.IsNullOrEmpty(txtApplPAN.Text) ||
-                    string.IsNullOrEmpty(txtApplDIN.Text) || string.IsNullOrEmpty(txtApplNationality.Text) ||
+                     string.IsNullOrEmpty(txtApplNationality.Text) ||
                     string.IsNullOrEmpty(txtApplDoorNo.Text) || string.IsNullOrEmpty(txtApplStreet.Text) ||
                     string.IsNullOrEmpty(txtApplEmail.Text) || string.IsNullOrEmpty(txtApplMobile.Text)
                     // (ddlApplCountry.SelectedItem.Text == "--Select--") || (ddlApplState.SelectedItem.Text == "--Select--") ||

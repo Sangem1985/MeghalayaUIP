@@ -98,6 +98,7 @@ namespace MeghalayaUIP.Common
         public string StateSchemeAmount { get; set; }
         public string DoorNo { get; set; }
         public string RegistrationNo { get; set; }
+        public string RegistrationType { get; set; }
         public string Year1Value { get; set; }
         public string Year2Value { get; set; }
         public string Year3Value { get; set; }

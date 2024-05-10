@@ -71,6 +71,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     gvCFEApplied.DataSource = dsApproved.Tables[1];
                     gvCFEApplied.DataBind();
+                    gvCFEApplied.Visible= false;
                 }
                 else
                 {
@@ -87,19 +88,25 @@ namespace MeghalayaUIP.User.CFE
             {
                 int gvrcnt = gvPreRegApproved.Rows.Count;
                 Button btnApply;
+                Button btnApprvlsReq;
+                Button btnApplstatus;
                 Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
                 for (int i = 0; i <= gvrcnt; i++)
                 {
                     if (lblCFEQuesnrID.Text == "" || lblCFEQuesnrID.Text == null)
                     {
                         btnApply = (Button)e.Row.FindControl("btnApplyCFE");
+                        btnApprvlsReq= (Button)e.Row.FindControl("btnCombndAppl");
+                        btnApplstatus=(Button)e.Row.FindControl("btnApplStatus");
                         btnApply.Enabled = true;
+                        btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                        btnApplstatus.Enabled = false; btnApplstatus.BackColor = System.Drawing.Color.LightGray; btnApplstatus.ForeColor = System.Drawing.Color.Red;
                     }
                     else
                     {
                         btnApply = (Button)e.Row.FindControl("btnApplyCFE");
                         btnApply.Enabled = false;
-                        btnApply.BackColor = System.Drawing.Color.LightGray;
+                        btnApply.BackColor = System.Drawing.Color.LightGray; btnApply.ForeColor = System.Drawing.Color.Red;
                     }
                 }
             }

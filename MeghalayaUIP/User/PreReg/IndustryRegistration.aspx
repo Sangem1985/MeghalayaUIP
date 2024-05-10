@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
-                           <%-- <ul class="nav nav-tabs">
+                            <%-- <ul class="nav nav-tabs">
                                 <li class="nav-item" runat="server" id="Li1">
                                     <a class="nav-link  active" href="#basictab1" data-toggle="tab">1.Basic Details</a>
                                 </li>
@@ -42,7 +42,7 @@
                                     <a class="nav-link" href="#basictab3" data-toggle="tab">3.Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</a>
                                 </li>
                             </ul>
-                         --%>
+                            --%>
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
                                     <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
@@ -50,12 +50,12 @@
                                 <%-- </li>
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click"  Style="padding-right: 10px; font-size: 18px !important;margin-top: -8px !important;padding: 10px 10px 12px !important;">
+                                    <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                     2. Basic Revenue Projections</asp:LinkButton></li>
                                 <%-- </li>
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click"  Style="padding-right: 10px; font-size: 18px !important;margin-top: -8px !important;padding: 10px 10px 12px !important;">
+                                    <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                    3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
                             </ul>
                             <div class="tab-content">
@@ -64,7 +64,7 @@
                                         <div class="tab-pane active" id="basictab1">
                                             <div class="card-body" runat="server" id="divbasic">
                                                 <span class="icon"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #004c6d; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Basic Details</h4>
+                                                <h4 class="card-title" style="background: #004c6d; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Basic Details</h4>
 
                                                 <div class="row">
 
@@ -106,10 +106,12 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Proposal *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Vertical">
+                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Vertical" RepeatColumns="2">
+                                                                        <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
                                                                         <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
-                                                                        <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
+
+
                                                                     </asp:RadioButtonList>
                                                                 </div>
                                                             </div>
@@ -398,7 +400,7 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label ">If Existing – Production no./ Service No.*</label>
+                                                                <label class="col-lg-6 col-form-label ">(If Existing) Service No.*</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtSrviceno" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
                                                                 </div>
@@ -618,7 +620,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Promoter’s Equity (INR)*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtPromoterEquity" class="form-control" />
+                                                                    <asp:TextBox runat="server" ID="txtPromoterEquity" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -658,7 +660,7 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">other Central  (INR)</label>
+                                                                <label class="col-lg-6 col-form-label">Central Scheme  (INR)</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtcentral" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
@@ -690,8 +692,8 @@
                                         <div class="tab-pane active  " id="basictab2">
 
                                             <div class="card-body" runat="server" id="divRevenue">
-                                               <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #0067b7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Basic Revenue Projections</h4>
+                                                <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
+                                                <h4 class="card-title" style="background: #0067b7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Basic Revenue Projections</h4>
                                                 <%--<form action="#">--%>
                                                 <div class="row">
 
@@ -788,8 +790,8 @@
                                         <div class="tab-pane active   " id="basictab3">
 
                                             <div class="card-body" runat="server" id="divPromotrs">
-                                             <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Details of the Applicant / Promoter(s) /
+                                                <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
+                                                <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Details of the Applicant / Promoter(s) /
 													Partner(s) / Directors(s) / Members</h4>
 
                                                 <div class="row">
@@ -1009,10 +1011,10 @@
                                                         </div>
 
                                                         <div class="col-md-4">
-                                                            <a href="#basictab2" data-toggle="tab">
+                                                            <%--<a href="#basictab2" data-toggle="tab">
                                                                 <button type="submit" class="btn btn-warning btn-lg">
                                                                     <i class="fa fa-external-link" aria-hidden="true"></i>Clear All</button>
-                                                            </a>
+                                                            </a>--%>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <asp:Button ID="btnSave3" Text="Save" runat="server" class="btn btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" />

@@ -104,13 +104,13 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.UserID));
                 da.SelectCommand.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
-
-                da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", Convert.ToDateTime(ID.CompnyRegDt).ToString("yyyy-dd-MM"));
+                //Convert.ToDateTime(ID.CompnyRegDt).ToString("yyyy-MM-dd")
+                da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", Convert.ToDateTime(DateTime.ParseExact(ID.CompnyRegDt, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")) );
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYNAME", ID.CompanyName);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYPANNO", ID.CompanyPAN);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYTYPE", ID.CompnyType);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYPRAPOSAL", ID.CompnyProposal);
-                da.SelectCommand.Parameters.AddWithValue("@UDYAMNO", ID.UdyamorIEMNo);
+                da.SelectCommand.Parameters.AddWithValue("@UDYAMNO", ID.RegistrationNo);
                 da.SelectCommand.Parameters.AddWithValue("@GSTNNO", ID.GSTNo);
 
                 da.SelectCommand.Parameters.AddWithValue("@REP_NAME", ID.AuthReprName);
@@ -130,7 +130,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_VILLAGEID", Convert.ToInt32(ID.PropLocVillageID));
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_PINCODE", ID.PropLocPincode);
 
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", Convert.ToDateTime(ID.DCPorOperation).ToString("yyyy-dd-MM"));
+                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", Convert.ToDateTime(DateTime.ParseExact(ID.DCPorOperation, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")));
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_NOA", ID.NatureofActivity);
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFACTIVITY", ID.ManfActivity);
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFPRODUCT", ID.Manfproduct);
@@ -171,6 +171,15 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@STAGEID", 1);
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", ID.UnitID);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", ID.Deptid);
+                da.SelectCommand.Parameters.AddWithValue("@COMPANYREGTYPE",Convert.ToInt32( ID.RegistrationType));
+                da.SelectCommand.Parameters.AddWithValue("@COMPANYREGNO", ID.RegistrationNo);
+                da.SelectCommand.Parameters.AddWithValue("@REP_DOORNO", ID.DoorNo);
+                da.SelectCommand.Parameters.AddWithValue("@BANKNAME", ID.BankName);
+                da.SelectCommand.Parameters.AddWithValue("@FRD_UNNATI", Convert.ToDecimal(ID.UnnatiSchemeAmount));
+                da.SelectCommand.Parameters.AddWithValue("@FRD_CENTRAL", Convert.ToDecimal(ID.CetralSchemeAmount));
+                da.SelectCommand.Parameters.AddWithValue("@FRD_STATE", Convert.ToDecimal(ID.StateSchemeAmount));
+
+
 
                 //da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.UserID));
                 //da.SelectCommand.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
