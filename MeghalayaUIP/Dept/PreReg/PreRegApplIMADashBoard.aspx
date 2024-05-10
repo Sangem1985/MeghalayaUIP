@@ -147,6 +147,83 @@
                 </section>
             </div>
 
+            <div class="card">
+                <div class="card-header">
+                    <h3>Query Details (Committee Queries)</h3>
+                </div>
+                <section id="dashboardcount7">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-orange hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplIMAView.aspx?status=CommitteeQuery" style="color: white">Committee Query Raised </a>
+                                        </div>
+                                        <div style="font-size: 12px;"></div>
+                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-cyan hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblDeptrepliedtoCommittee" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplIMAView.aspx?status=DeptrepliedtoCommittee" style="color: white">Dept Replied to Committee Query </a>
+                                        </div>
+                                        <div style="font-size: 12px;"></div>
+                                        <i class="fi fi-tr-file-import"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-cyan hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblCommitteeQueryforwardedtoAppl" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplIMAView.aspx?status=CommitteeQueryforwardedtoAppl" style="color: white">Committee Query Forwarded to Applicant</a>
+                                        </div>
+                                        <div style="font-size: 12px;"></div>
+                                        <i class="fi fi-tr-file-import"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-orange hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblAPPLREPLIEDTOCommitteeQUERY" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplIMAView.aspx?status=APPLREPLIEDTOCommitteeQUERY" style="color: white">Applicant Replied to Committee Query</a>
+                                        </div>
+                                        <div style="font-size: 12px;"></div>
+                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 </asp:Content>

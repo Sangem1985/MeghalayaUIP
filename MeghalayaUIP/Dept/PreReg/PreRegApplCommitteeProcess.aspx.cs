@@ -616,7 +616,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
                 }
                 btnQuery.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
                 return;
             }
             catch (Exception ex)
