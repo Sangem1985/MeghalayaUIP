@@ -60,31 +60,31 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// Li1 control.
+        /// Link1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li1;
+        protected global::System.Web.UI.WebControls.LinkButton Link1;
 
         /// <summary>
-        /// Li2 control.
+        /// Link2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li2;
+        protected global::System.Web.UI.WebControls.LinkButton Link2;
 
         /// <summary>
-        /// Li3 control.
+        /// Link3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li3;
+        protected global::System.Web.UI.WebControls.LinkButton Link3;
 
         /// <summary>
         /// MVprereg control.

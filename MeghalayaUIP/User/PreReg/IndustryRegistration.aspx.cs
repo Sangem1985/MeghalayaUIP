@@ -1481,5 +1481,24 @@ namespace MeghalayaUIP.User.PreReg
             catch(Exception ex)
             { }
         }
+
+        protected void Link1_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 0;
+            var cls = Link1.Attributes["class"];
+            Link1.Attributes.Add("class", cls + " nav-tab");
+
+        }
+
+        protected void Link2_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 1;
+
+        }
+
+        protected void Link3_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 2;
+        }
     }
 }
