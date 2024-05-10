@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h3><b>Approved Industry Registration Applications</b></h3>
+                    <h3><b>Approved Industry Registrations under MIIPP 2024"</b></h3>
 
                     <div class="col-md-12 d-flex">
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
@@ -93,9 +93,21 @@
                                 <asp:BoundField HeaderText="Application Status" DataField="TM_STAGENAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Application Filed Date" DataField="QUESTDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
-                                <asp:TemplateField HeaderText="View Application" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="View Questionnaire" ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnView" OnClick="btnView_Click" Text="View" CssClass="btn btn-info" />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                 <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:Button runat="server" ID="btnCombndAppl" OnClick="btnCombndAppl_Click" Text="Approvals Required" CssClass="btn btn-info" BackColor="Olive" />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info" BackColor="Tomato" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -111,7 +123,6 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-
                             </Columns>
 
                             <EmptyDataTemplate>

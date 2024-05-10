@@ -8,8 +8,7 @@
             <div class="">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title cfe" id="myLargeModalLabel cfe">Entrepreneur Dashboard - CFE
-											(Pre-Establishment Approval)</h4>
+                        <h4 class="modal-title cfe" id="myLargeModalLabel cfe">Applicant Dashboard - Pre-Establishment Approval</h4>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <div class="col-md-12 d-flex">
@@ -26,12 +25,12 @@
                     <div class="modal-body">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Consent for Establishment</h4>
+                                <h4 class="card-title">Application Status For Application ID: MEG10510012024</h4>
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
 
-                                    <a href="Quesstionniare_cfe.html">
+                                    <a href="#">
                                         <button type="button"
                                             class="btn btn-primary">
                                             <i class="fe fe-document"></i>Application Status <span
@@ -42,7 +41,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="DepartmentApprovalDetails.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Common Application Form
 															Status <span class="badge badge-light text-danger">
@@ -51,7 +50,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Approvals Required as per
 															Invest Meghalaya <span class="badge badge-light">
@@ -60,7 +59,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Approvals already obtained
 															<span class="badge badge-light">
@@ -79,7 +78,7 @@
                                     </div>
                                     <div class="row" id="apstatus">
                                         <div class="col-md-6">
-                                            <a href="index1.html">
+                                            <a href="#">
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fe fe-document"></i>Applied Approvals
                                                     <br />
@@ -89,7 +88,7 @@
                                             </a>
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="index1.html">
+                                            <a href="#" >
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fe fe-document"></i>Yet to be applied
                                                     <br />
@@ -109,7 +108,7 @@
                                     </div>
                                     <div class="row" id="ps">
                                         <div class="col-md-6">
-                                            <a href="index1.html">
+                                            <a href="#">
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fe fe-document"></i>Additional Payment required
 																	<span class="badge badge-light">
@@ -118,7 +117,7 @@
                                             </a>
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="index1.html">
+                                            <a href="#">
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="fe fe-document"></i>Payment Paid
                                                     <br />
@@ -141,7 +140,7 @@
                             </div>
                             <div class="row" id="pss">
                                 <div class="col-md-2">
-                                    <a href="Quesstionniare_cfo.html">
+                                    <a href="#">
                                         <button type="button"
                                             class="btn btn-primary">
                                             <i class="fe fe-document"></i>Query Raised <span
@@ -151,7 +150,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-2">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Query Respond <span class="badge badge-light">
                                                 <asp:Label ID="lblQueryReplied" runat="server"></asp:Label></span>
@@ -159,7 +158,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-2">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Yet to Respond <span
                                                 class="badge badge-light">
@@ -179,7 +178,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-2">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Completed
                                             <br />
@@ -190,7 +189,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-2">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Pending
                                             <br />
@@ -211,7 +210,7 @@
                             </div>
                             <div class="row" id="ais">
                                 <div class="col-md-4">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Approval - Issued
                                             <br />
@@ -221,7 +220,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Approval - Pending
                                             <br />
@@ -231,7 +230,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="index1.html">
+                                    <a href="#">
                                         <button type="button" class="btn btn-primary">
                                             <i class="fe fe-document"></i>Approval - Rejected
                                             <br />
