@@ -567,5 +567,131 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstRegistrationTypeMstr;
         }
+
+        public List<MasterSECTORS> GetSector()
+        {
+            List<MasterSECTORS> lstSECTORMstr = new List<MasterSECTORS>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.Getsector);
+                while (drOptions.Read())
+                {
+                    var Sector = new MasterSECTORS()
+                    {
+                        SECTORID = Convert.ToString(drOptions["SECTORID"]),
+                        SECTORNAME = Convert.ToString(drOptions["SECTORNAME"])
+                    };
+                    lstSECTORMstr.Add(Sector);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstSECTORMstr;
+        }
+        public List<MasterENTERPRISETYPE> GetENTERPRISETYPE()
+        {
+            List<MasterENTERPRISETYPE> lstEnterpriseMstr = new List<MasterENTERPRISETYPE>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetEnterpriseType);
+                while (drOptions.Read())
+                {
+                    var ENTERPRISE = new MasterENTERPRISETYPE()
+                    {
+                        ENTERPRISETYPECODE = Convert.ToString(drOptions["ENTERPRISETYPECODE"]),
+                        ENTERPRISETYPE = Convert.ToString(drOptions["ENTERPRISETYPE"])
+                    };
+                    lstEnterpriseMstr.Add(ENTERPRISE);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstEnterpriseMstr;
+        }
+        public string InsertInvestment(InvtentInvest objInvest)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = MasterConstants.InsertInvestment;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                //   com.Parameters.AddWithValue("", Convert.ToInt32(objInvest.CreatedBy));
+                com.Parameters.AddWithValue("@CREATEDIP", objInvest.IPAddress);
+
+                com.Parameters.AddWithValue("@COMPANYNAME", objInvest.CompanyName);
+                com.Parameters.AddWithValue("@PANNO", objInvest.PAN);
+                com.Parameters.AddWithValue("@REGOFCADDRESS", objInvest.Address);
+
+                com.Parameters.AddWithValue("@REGOFCCOUNTRYID", Convert.ToInt32(objInvest.Country));
+                com.Parameters.AddWithValue("@REGOFCPINCODE", Convert.ToInt32(objInvest.Pincode));
+                com.Parameters.AddWithValue("@REGOFCMOBILE", Convert.ToInt64(objInvest.Phoneno));
+                com.Parameters.AddWithValue("@REGOFCEMAIL", objInvest.Emailid);
+                com.Parameters.AddWithValue("@REGOFCWEBSITE", objInvest.Website);
+                com.Parameters.AddWithValue("@REGOFCFAXNO", objInvest.FaxNo);
+                com.Parameters.AddWithValue("@NAME", objInvest.Name);
+                com.Parameters.AddWithValue("@DESIGNATION", objInvest.Designation);
+                com.Parameters.AddWithValue("@MOBILE", Convert.ToInt64(objInvest.Mobile));
+                com.Parameters.AddWithValue("@EMAIL", objInvest.Email);
+                com.Parameters.AddWithValue("@PROJECTPROPOSAL", objInvest.ProjectProposal);
+                com.Parameters.AddWithValue("@ISMOUSIGNED", objInvest.InvestmentPrevious);
+                com.Parameters.AddWithValue("@PROJECTCATEGORY", objInvest.ProjectCategory);
+                com.Parameters.AddWithValue("@PROJECTSECTOR", Convert.ToInt32(objInvest.Sector));
+                com.Parameters.AddWithValue("@PROJECTINVESTMENT", Convert.ToDecimal(objInvest.Proposed_Investment));
+                com.Parameters.AddWithValue("@PROJECTEMPLOYMENT", Convert.ToInt32(objInvest.Proposed_Employment));
+                com.Parameters.AddWithValue("@PROJECTLOCATION", objInvest.Project_Location);
+                com.Parameters.AddWithValue("@YEAROFCOMMENCEMENT", Convert.ToInt32(objInvest.Expected_Year));
+                com.Parameters.AddWithValue("@GOVTSUPPORT", objInvest.Expectationstate_Govt);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

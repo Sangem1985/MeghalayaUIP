@@ -368,6 +368,7 @@
     <Content Include="EODB.aspx" />
     <Content Include="forgot-password.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="IntentInvest.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="Registration.aspx" />
@@ -550,6 +551,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IntentInvest.aspx.cs">
+      <DependentUpon>IntentInvest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IntentInvest.aspx.designer.cs">
+      <DependentUpon>IntentInvest.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
