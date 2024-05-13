@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="assets/admin/css/style.css">
     <style>
         
-
+        table#ContentPlaceHolder1_rblproposal label, table#ContentPlaceHolder1_rblInvestments label {
+    font-weight: 100;
+}
+        table#ContentPlaceHolder1_rblproposal tr td, table#ContentPlaceHolder1_rblInvestments tr td {
+    padding: 0px 10px;
+}
         label.col-lg-6.col-form-label {
     font-weight: 400;
 }
@@ -18,7 +23,9 @@
         .card-body {
     background: #fff;
 }
-      
+      .widget.link-widget ul {
+    width: 100% !important;
+}
     </style>
     <section class="innerpages IntentInvest">
         <div class="container-fluid">
@@ -210,8 +217,12 @@
                                                 </div>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
+                                                      
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Project Category  *</label>
+                                                            <label class="col-lg-6 col-form-label">Project Category  * <img src="assets/assetsbeta/images/helpImage4.png" title="Micro - Investment in Plant and Machinery or Equipment does not exceed Rs 1 crore and annual turnover does not exceed Rs 5 crore. 
+Small - Investment in Plant and Machinery or Equipment does not exceed Rs 10 crore and annual turnover does not exceed Rs 50 crore. 
+Medium - Investment in Plant and Machinery or Equipment does not exceed Rs 50 crore and annual turnover does not exceed Rs 250 crore.
+Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores." height="12"></label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:DropDownList ID="ddlPCB" runat="server" class="form-control">
                                                                     <asp:ListItem Text="--Select--" Value="0" />

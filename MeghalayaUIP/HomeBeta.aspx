@@ -389,24 +389,28 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Intent to Invest</a></li>
+                                        <li><a href="IntentInvest.aspx">Intent to Invest</a></li>
                                         <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
-                                        <li><a href="#">Information Wizard</a></li>
+                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
                                         <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
-                                        <li><a href="#">Other Services</a></li>
+                                        <li><a href="OtherService.aspx">Other Services</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Resources <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Dashboard</a></li>
+                                        <li><a href="https://mspsdc.meghalaya.gov.in/dashboard1.htm" target="_blank">Dashboard</a></li>
                                         <li><a href="Notifications.aspx">Notifications</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="Faq.aspx">FAQs</a></li>
+                                        <li><a href="Contact.aspx">Contact</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="login.aspx">Login</a>
+                                    <a href="#">Login <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="login.aspx">User Login</a></li>
+                                        <li><a href="Deptlogin.aspx">Dept. Login</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -428,7 +432,7 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="slide-inner slide-bg-image" data-background="assets/assetsbeta/images/slider/slide-7.jpg">
+                            <div class="slide-inner slide-bg-image" data-background="assets/assetsbeta/images/slider/slide-7_1.jpg">
                             </div>
                             <!-- end slide-inner -->
                         </div>
@@ -485,10 +489,10 @@
                                     Investment Promotion Policy (MIIPP) 2024</span> to make
                             your business more profitable.
                             </p>
-                            <marquee style="font-size: 20px; font-family: sans-serif; font-weight: 600;" behavior="alternate" scrollamount="3">
+                            <p style="color:#070799;font-size: 20px; font-family: sans-serif; font-weight: 600;text-align:center;">
                                 <%--<i class="fi fi-ts-rocket-lunch"></i>--%>
-                                <img src="assets/assetsbeta/images/new.gif" style="width: 35px; height: 22px;" />
-                                Registration open till <span class="colorblue">31st March 2026</span></marquee>
+                                
+                                *Registration open till <span class="colorblue">31st March 2026</span></p>
 
                         </div>
 
@@ -579,7 +583,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <p class="text-center head1">Easy Process to Register your Business and Claim Incentives</p>
-                        <img src="assets/assetsbeta/images/flowprocess3.png" style="width: 100%;" />
+                        <img src="assets/assetsbeta/images/flowprocess4.png" style="width: 100%;" />
 
                     </div>
                 </div>
@@ -593,7 +597,9 @@
                         <p class="text-center head1">Priority Sectors</p>
                         <div class="col col-md-12">
                             <div class="col col-md-1">
-                                <div class="box"><i class="fi fi-rr-bed"></i></div>
+                                <div class="box"><i class="fi fi-rr-bed"></i>
+                                    
+                                </div>
                                 <p>
                                     Hotels & Hospitality
                                 </p>
@@ -738,17 +744,17 @@
                                 <h3>For any queries, reach out to us</h3>
                             </div>
                         </div>
-                        <div class="col col-lg-5 col-lg-offset-1 col-md-6">
+                        <div class="col col-lg-6 col-md-6">
                             <div class="contact-info">
                                 <div>
                                     <i class="fi flaticon-call"></i>
                                     <h4>Call us</h4>
-                                    <p>+654894754</p>
+                                    <p>03564 123456</p>
                                 </div>
                                 <div>
                                     <i class="fi flaticon-contact"></i>
                                     <h4>Email us</h4>
-                                    <p>demo@example.com</p>
+                                    <p>investmeghalayaauthority@gmail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -780,7 +786,7 @@
                                             Meghalaya.<br />
                                         </li>
 
-                                        <li><i class="fi fi-br-envelope"></i><span>Email:</span>
+                                        <li><i class="fi fi-br-envelope"></i> <span>Email:</span>
                                             investmeghalayaauthority@gmail.com</li>
 
                                     </ul>
@@ -792,10 +798,10 @@
                                         <h3>Quick Links</h3>
                                     </div>
                                     <ul>
-                                        <li><a href="stateprofile.aspx"><i class="fi fi-br-thumbtack"></i>Why invest in Meghalaya</a></li>
-                                        <li><a href="EODB.aspx"><i class="fi fi-br-thumbtack"></i>About EODB</a></li>
-                                        <li><a href="#"><i class="fi fi-br-thumbtack"></i>Information Wizard</a></li>
-                                        <li><a href="#"><i class="fi fi-br-thumbtack"></i>Site Map</a></li>
+                                        <li><a href="stateprofile.aspx"><i class="fi fi-br-thumbtack"></i> Why invest in Meghalaya</a></li>
+                                        <li><a href="EODB.aspx"><i class="fi fi-br-thumbtack"></i> About EODB</a></li>
+                                        <li><a href="#"><i class="fi fi-br-thumbtack"></i> Information Wizard</a></li>
+                                        <li><a href="#"><i class="fi fi-br-thumbtack"></i> Site Map</a></li>
                                     </ul>
                                 </div>
                             </div>

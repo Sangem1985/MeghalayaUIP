@@ -290,6 +290,8 @@
     <Content Include="assets\assetsbeta\images\flowprocess.png" />
     <Content Include="assets\assetsbeta\images\flowprocess1.png" />
     <Content Include="assets\assetsbeta\images\flowprocess2.png" />
+    <Content Include="assets\assetsbeta\images\flowprocess3.png" />
+    <Content Include="assets\assetsbeta\images\flowprocess4.png" />
     <Content Include="assets\assetsbeta\images\footer-logo.png" />
     <Content Include="assets\assetsbeta\images\fotter1 - Copy.png" />
     <Content Include="assets\assetsbeta\images\fotter1.png" />
@@ -304,6 +306,7 @@
     <Content Include="assets\assetsbeta\images\headerbg_bga1.png" />
     <Content Include="assets\assetsbeta\images\headerbg_bga111.png" />
     <Content Include="assets\assetsbeta\images\headerbg_key.gif" />
+    <Content Include="assets\assetsbeta\images\helpImage4.png" />
     <Content Include="assets\assetsbeta\images\hero-bg.jpg" />
     <Content Include="assets\assetsbeta\images\logo-2.png" />
     <Content Include="assets\assetsbeta\images\Logo.png" />
@@ -345,6 +348,7 @@
     <Content Include="assets\assetsbeta\images\slider\slide-5.jpg" />
     <Content Include="assets\assetsbeta\images\slider\slide-6.jpg" />
     <Content Include="assets\assetsbeta\images\slider\slide-7.jpg" />
+    <Content Include="assets\assetsbeta\images\slider\slide-7_1.jpg" />
     <Content Include="assets\assetsbeta\images\slider\slide-8.jpg" />
     <Content Include="assets\assetsbeta\images\swc.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg-2.png" />
@@ -484,6 +488,7 @@
     <Content Include="assets\js\jquery-plugin-collection.js" />
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\script.js" />
+    <Content Include="Contact.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
     <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
@@ -503,13 +508,16 @@
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
     <Content Include="EODB.aspx" />
+    <Content Include="Faq.aspx" />
     <Content Include="forgot-password.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="HomeBeta.aspx" />
+    <Content Include="InformationWizard.aspx" />
     <Content Include="IntentInvest.aspx" />
     <Content Include="IntenttoInvestPrint.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Notifications.aspx" />
+    <Content Include="OtherService.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
     <Content Include="stateprofile.aspx" />
@@ -538,6 +546,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="demoinnerpage.aspx.cs">
       <DependentUpon>demoinnerpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -678,6 +693,13 @@
     <Compile Include="EODB.aspx.designer.cs">
       <DependentUpon>EODB.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Faq.aspx.cs">
+      <DependentUpon>Faq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faq.aspx.designer.cs">
+      <DependentUpon>Faq.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forgot-password.aspx.cs">
       <DependentUpon>forgot-password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -698,6 +720,13 @@
     </Compile>
     <Compile Include="HomeBeta.aspx.designer.cs">
       <DependentUpon>HomeBeta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationWizard.aspx.cs">
+      <DependentUpon>InformationWizard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationWizard.aspx.designer.cs">
+      <DependentUpon>InformationWizard.aspx</DependentUpon>
     </Compile>
     <Compile Include="IntentInvest.aspx.cs">
       <DependentUpon>IntentInvest.aspx</DependentUpon>
@@ -726,6 +755,13 @@
     </Compile>
     <Compile Include="Notifications.aspx.designer.cs">
       <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OtherService.aspx.cs">
+      <DependentUpon>OtherService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherService.aspx.designer.cs">
+      <DependentUpon>OtherService.aspx</DependentUpon>
     </Compile>
     <Compile Include="outer.Master.cs">
       <DependentUpon>outer.Master</DependentUpon>

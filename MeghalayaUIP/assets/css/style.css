@@ -1153,7 +1153,7 @@ img {
     }
 
     .theme-accordion-s1 .panel-heading a {
-        background: #fd5f17;
+        background: #673AB7;
         font-size: 16px;
         font-size: 1rem;
         font-weight: 600;
@@ -1222,7 +1222,7 @@ img {
 .theme-accordion-s1 .panel-heading + .panel-collapse > .panel-body {
     background-color: #fff;
     border: 0;
-    padding: 40px 25px 15px;
+    padding: 10px 25px 0px;
     -webkit-box-shadow: 0px 5px 15px 0px rgba(68, 68, 68, 0.1);
     box-shadow: 0px 5px 15px 0px rgba(68, 68, 68, 0.1);
 }
@@ -1322,7 +1322,7 @@ img {
         font-size: 0.875rem;
         display: block;
         padding: 13px 20px;
-        color: #131e4a;
+        color: #131e4a !important;
         font-weight: 500;
     }
 
@@ -1710,7 +1710,7 @@ img {
             font-size: 14px;
             font-size: 0.875rem;
             font-weight: 600;
-            color: #9C27B0;
+            color: #fff;
             padding: 30px 10px;
             text-transform: uppercase;
         }
@@ -2457,17 +2457,11 @@ section#destin {
 #0.5	footer
 --------------------------------------------------------------*/
 .site-footer {
-    background-color: #f7f9fb;
-    background-image: url("../images/dots.png");
-    background-size: cover;
     position: relative;
     font-size: 15px;
     overflow: hidden;
-    /*** about-widget ***/
-    /*** link-widget ***/
-    /*** contact-widget ***/
-    /*** newsletter-widget ***/
-    /*** lower-footer ***/
+    background: rgb(61, 42, 108);
+    background: linear-gradient(90deg, rgba(61, 42, 108, 1) 0%, rgba(194, 55, 85, 1) 100%);
 }
 
     .site-footer ul {
@@ -2706,19 +2700,35 @@ section#destin {
 }
 
     .site-footer .lower-footer .row {
-        padding: 20px 0;
+        padding: 15px 0 0px;
         position: relative;
     }
 
         .site-footer .lower-footer .row .separator {
-            background: #e8e8e8;
+            background: #4d2c69;
             width: calc(100% - 30px);
             height: 1px;
             position: absolute;
             left: 15px;
             top: 0;
         }
-
+.site-footer p, .site-footer li {
+    color: #ffe400;
+}
+.contact-info li {
+    color: #fff !important;
+}
+.lower-footer {
+    background: #063666;
+}
+.contact-info ul {
+    float: right;
+    color: #fff;
+    font-size: 15px;
+    font-size: 0.9375rem;
+    display: flex;
+    padding: 4px 0px 18px;
+}
     .site-footer .lower-footer .copyright {
         display: inline-block;
         float: left;
@@ -2826,9 +2836,8 @@ section#destin {
 }
 
 .header-style-1 .sticky-header, .header-style-2 .sticky-header, .header-style-3 .sticky-header {
-    background: #58abf8;
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #ffffff 4%, #3F51B5 35%);
+    background: rgb(61, 42, 108);
+    background: linear-gradient(90deg, rgba(61, 42, 108, 1) 0%, rgba(194, 55, 85, 1) 100%);
 }
 
 .header-style-2 .sticky-header, .header-style-3 .sticky-header {
@@ -4766,9 +4775,9 @@ section.testimonials-section .about-us-section .video-holder i {
 .contact-pg-section .office-info {
     background-color: #131e4a;
     position: relative;
-    padding: 55px 55px;
+    padding: 30px 10px;
     margin-top: -92px;
-    margin-left: 50px;
+    margin-left: 0px;
 }
 
 @media (max-width: 1199px) {
@@ -4798,7 +4807,7 @@ section.testimonials-section .about-us-section .video-holder i {
     font-size: 1.125rem;
     font-weight: normal;
     color: #fff;
-    margin: 0 0 0.8em;
+    margin: 0px 25px 0.8em;
 }
 
 .contact-pg-section .office-info li {
@@ -7294,7 +7303,8 @@ section.testimonials-section i.fi.flaticon-chip::before, i.fi.flaticon-network-1
 }
 
 nav.navigation.navbar.navbar-default.original {
-    background: #fff;
+    background: rgb(61, 42, 108);
+    background: linear-gradient(90deg, rgba(61, 42, 108, 1) 0%, rgba(194, 55, 85, 1) 100%);
 }
 
 
@@ -7375,7 +7385,7 @@ i.fi.fi-br-chevron-double-down {
 }
 
 nav.navigation.navbar.navbar-default.sticky-header.sticky-on li a {
-    color: #3f51b5 !important;
+    color: #fff !important;
 }
 
 p.px-4.btn.btn-primary.btn-custom.login-homepage {
@@ -7740,7 +7750,7 @@ a.img13 {
     transition: .6s ease-in;
 }
 section.innerpages {
-    margin-top: 130px;
+    margin-top: 88px;
     margin-bottom: 40px;
 }
     section.innerpages h3 {
@@ -7766,4 +7776,8 @@ table.table.table-bordered.table-sm.table-hover thead th {
 }
 section.innerpages p {
     color: #01151c;
+}
+.widget.contact-widget.service-link-widget h3, .site-footer .contact-widget ul li, .site-footer .contact-widget li span, .site-footer .widget-title h3, .site-footer .link-widget ul a {
+    color: #fff;
+    font-family: 'Roboto';
 }

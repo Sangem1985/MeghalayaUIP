@@ -60,35 +60,9 @@
 
             <!-- Start header -->
             <header id="header" class="site-header header-style-1">
-                <div class="topbar">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col col-sm-6" style="display: flex;">
-                                <p>Government of Meghalaya</p>
-                                <div class="contact-info">
-                                    <ul>
-
-                                        <li style="padding-top: 2px;"><i class="fi fi-brands-facebook"></i></li>
-                                        <li style="padding-top: 2px;"><i class="fi fi-brands-youtube"></i></li>
-                                        <li style="padding-top: 2px;"><i class="fi fi-brands-twitter-alt-circle"></i></li>
-                                        <li style="padding-top: 2px;"><i class="fi fi-brands-linkedin"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col col-sm-6">
-                                <div class="contact-info">
-                                    <ul>
-                                        <li>About Meghalaya</li>
-                                        <li><a href="login.aspx"><i class="fi fi-br-sign-in-alt"></i> Login</a></li>
-                                        <li><a href="Deptlogin.aspx"><i class="fi fi-br-mode-portrait"></i> Dept Login</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <nav class="navigation navbar navbar-default">
-                    <div class="container-fluid" style="background: linear-gradient(90deg, rgb(255 255 255 / 0%) 10%, rgb(255 255 255 / 71%) 90%), url(assets/images/menubg.jpg) center center no-repeat; background-position: right; background-size: cover;">
+                    <div class="container-fluid">
                         <div class="navbar-header">
                             <button type="button" class="open-btn">
                                 <span class="sr-only">Toggle navigation</span>
@@ -97,7 +71,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="Homebeta.aspx">
-                                <img src="assets/images/Logo.png" alt=""
+                                <img src="assets/images/Logo_dark.png" alt=""
                                     style="margin-top: 6px;"></a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse navigation-holder">
@@ -106,12 +80,7 @@
                                 <li class="menu-item-has-children">
                                     <a href="Homebeta.aspx">Home</a>
                                 </li>
-                                <%--<li class="menu-item-has-children">
-                                <a href="#">About <i class="fi fi-br-chevron-double-down"></i></a>
-                                <ul class="sub-menu">
-                                    
-                                </ul>
-                            </li>--%>
+
                                 <li class="menu-item-has-children">
                                     <a href="#">Why Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
@@ -122,46 +91,49 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf">Meghalaya Next Vision 2028</a></li>
+                                        <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf">Meghalaya Next Vision
+                                            2028</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="Documents/MIIPP%202024.pdf" class="text-black">
-                                            MIIPP, 2024</a></li>
-                                        <li><a href="Documents/Meghalaya Tourism.pdf"
-                                            class="text-black" target="_blank">Meghalaya Tourism Policy</a></li>
+                                        <li><a href="Documents/MIIPP%202024.pdf" class="text-black">MIIPP, 2024</a></li>
+                                        <li><a href="Documents/Meghalaya Tourism.pdf" class="text-black"
+                                            target="_blank">Meghalaya Tourism Policy</a></li>
 
-                                        <li><a href="Documents/IT Policy 2024.pdf"
-                                            class="text-black" target="_blank">IT/ITES Policy 2024</a></li>
-                                        <li><a href="Documents/Meghalaya Power Policy.pdf"
-                                            class="text-black">Meghalaya Power Policy, 2024</a></li>
+                                        <li><a href="Documents/IT Policy 2024.pdf" class="text-black"
+                                            target="_blank">IT/ITES Policy 2024</a></li>
+                                        <li><a href="Documents/Meghalaya Power Policy.pdf" class="text-black">Meghalaya
+                                            Power Policy, 2024</a></li>
                                         <li class="menu-item-has-children">
                                             <a href="#">Others</a>
                                             <ul class="sub-menu">
-                                                 <li><a href="Documents/Procure MSME.pdf"
-                                                    class="text-black">Meghalaya Procurement Preference Policy for Micro and small Enterprises, 2020</a></li>
-                                                <li><a href="Documents/Meghalaya Startup Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya Start up Policy,2018</a></li>
-                                                <li><a href="Documents/Mines and Minerals Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya Mines and Minerals Policy, 2012</a></li>
-                                                <li><a href="Documents/Education Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya State Education Policy, 2018</a></li>
-                                                <li><a href="Documents/Health Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya Health Policy, 2021</a></li>
-                                                <li><a href="Documents/Telecom infrastructure Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya Telecom Infrastructure Policy, 2018</a></li>
-                                                <li><a href="Documents/Organic Farming policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya State Organic Farming Policy,2023</a></li>
-                                                <li><a href="Documents/Sports Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya State Sports Policy, 2019</a></li>
-                                                <li><a href="Documents/PPP Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya Public Private Partnership Policy (PPP), 2021</a></li>
-                                                <li><a href="Documents/EV Policy.pdf"
-                                                    class="text-black" target="_blank">Meghalaya Electronic Vehicle Policy, 2021</a></li>
-                                                <li><a href="Documents/"
-                                                    class="text-black" target="_blank">Industrial and Investment Promotion Policy,2024</a></li>
+                                                <li><a href="Documents/Procure MSME.pdf" class="text-black">Meghalaya
+                                                    Procurement Preference Policy for Micro and small Enterprises,
+                                                    2020</a></li>
+                                                <li><a href="Documents/Meghalaya Startup Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya Start up Policy,2018</a></li>
+                                                <li><a href="Documents/Mines and Minerals Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya Mines and Minerals Policy, 2012</a></li>
+                                                <li><a href="Documents/Education Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya State Education Policy, 2018</a></li>
+                                                <li><a href="Documents/Health Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya Health Policy, 2021</a></li>
+                                                <li><a href="Documents/Telecom infrastructure Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya Telecom Infrastructure Policy, 2018</a>
+                                                </li>
+                                                <li><a href="Documents/Organic Farming policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya State Organic Farming Policy,2023</a></li>
+                                                <li><a href="Documents/Sports Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya State Sports Policy, 2019</a></li>
+                                                <li><a href="Documents/PPP Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya Public Private Partnership Policy (PPP),
+                                                    2021</a></li>
+                                                <li><a href="Documents/EV Policy.pdf" class="text-black"
+                                                    target="_blank">Meghalaya Electronic Vehicle Policy, 2021</a></li>
+                                                <li><a href="Documents/" class="text-black" target="_blank">Industrial and
+                                                    Investment Promotion Policy,2024</a></li>
                                             </ul>
                                         </li>
 
@@ -171,20 +143,27 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Intent to Invest</a></li>
+                                        <li><a href="IntentInvest.aspx">Intent to Invest</a></li>
                                         <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
-                                        <li><a href="#">Information Wizard</a></li>
+                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
                                         <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
-                                        <li><a href="#">Other Services</a></li>
+                                        <li><a href="OtherService.aspx">Other Services</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Resources<i class="fi fi-br-chevron-double-down"></i></a>
+                                    <a href="#">Resources <i class="fi fi-br-chevron-double-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Dashboard</a></li>
+                                        <li><a href="https://mspsdc.meghalaya.gov.in/dashboard1.htm" target="_blank">Dashboard</a></li>
                                         <li><a href="Notifications.aspx">Notifications</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="Faq.aspx">FAQs</a></li>
+                                        <li><a href="Contact.aspx">Contact</a></li>
+                                    </ul>
+                                </li>
+                               <li class="menu-item-has-children">
+                                    <a href="#">Login <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="login.aspx">User Login</a></li>
+                                        <li><a href="Deptlogin.aspx">Dept. Login</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -206,61 +185,39 @@
                 <div class="upper-footer">
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-3 col-sm-6">
-                                <div class="widget about-widget">
-                                    <div class="logo widget-title">
-                                        <img src="assets/images/logo.png" alt>
-                                    </div>
-                                    <p></p>
-                                    <div class="social-icons">
-                                        <ul>
-                                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                            <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="ti-vimeo-alt"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-lg-3 col-md-3 col-sm-6">
-                                <div class="widget link-widget">
-                                    <div class="widget-title">
-                                        <h3>Useful Links</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Our services</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                        <li><a href="#">Meet team</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Testimonials</a></li>
-                                        <li><a href="#">News</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col col-lg-3 col-md-3 col-sm-6">
+                            <div class="col col-lg-6 col-md-6 col-sm-12">
                                 <div class="widget contact-widget service-link-widget">
                                     <div class="widget-title">
-                                        <h3>Our Address</h3>
+                                        <h3>Address</h3>
                                     </div>
                                     <ul>
-                                        <li>Invest Meghalaya Authority, Secretariat Main Building, M.G Road, Shillong - 793 001, East Khasi Hills District, Meghalaya</li>
-                                        <li><span>Email:</span>investmeghalayaauthority@gmail.com</li>
+                                        <li>Invest Meghalaya Authority,<br />
+                                            Secretariat Main Building, M.G Road,<br />
+                                            Shillong - 793 001, East Khasi Hills District,<br />
+                                            Meghalaya.<br />
+                                        </li>
+
+                                        <li><i class="fi fi-br-envelope"></i> <span>Email:</span>
+                                            investmeghalayaauthority@gmail.com</li>
+
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col col-lg-3 col-md-3 col-sm-6">
-                                <div class="widget newsletter-widget">
+                            <div class="col col-lg-6 col-md-6 col-sm-12">
+                                <div class="widget link-widget">
                                     <div class="widget-title">
-                                        <h3>Newsletter</h3>
+                                        <h3>Quick Links</h3>
                                     </div>
-                                    <p>You will be notified when somthing new will be appear.</p>
+                                    <ul>
+                                        <li><a href="stateprofile.aspx"><i class="fi fi-br-thumbtack"></i> Why invest in Meghalaya</a></li>
+                                        <li><a href="EODB.aspx"><i class="fi fi-br-thumbtack"></i> About EODB</a></li>
+                                        <li><a href="#"><i class="fi fi-br-thumbtack"></i> Information Wizard</a></li>
+                                        <li><a href="#"><i class="fi fi-br-thumbtack"></i> Site Map</a></li>
+                                    </ul>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                     <!-- end container -->
@@ -272,15 +229,23 @@
                             <div class="col col-xs-12">
                                 <p class="copyright">
                                     © 2024 Copyright Invest Meghalaya Authority. All Rights Reserved |
-                                Design and Developed By <a href="#" style="color: #131e4a; text-decoration: none; font-weight: 500;">CMS Computers
-                                    Ltd...</a>
+                                Design and Developed By CMS Computers India Pvt Ltd
                                 </p>
-                                <div class="extra-link">
+                                <!-- <div class="extra-link">
+    <ul>
+        <li><a href="#">Privace & Policy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">FAQ</a></li>
+    </ul>
+       </div> -->
+                                <div class="contact-info">
                                     <ul>
-                                        <li><a href="#">Privacy & Policy</a></li>
-                                        <li><a href="#">Terms</a></li>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">FAQ</a></li>
+
+                                        <li><i class="fi fi-brands-facebook"></i></li>
+                                        <li><i class="fi fi-brands-youtube"></i></li>
+                                        <li><i class="fi fi-brands-twitter-alt-circle"></i></li>
+                                        <li><i class="fi fi-brands-linkedin"></i></li>
                                     </ul>
                                 </div>
                             </div>

@@ -1320,7 +1320,7 @@ img {
     font-size: 0.875rem;
     display: block;
     padding: 13px 20px;
-    color: #131e4a;
+    color: #131e4a !important;
     font-weight: 500;
   }
   .site-header #navbar > ul > li > .sub-menu .sub-menu {
@@ -2767,9 +2767,8 @@ section#destin {
 }
 
 .header-style-1 .sticky-header, .header-style-2 .sticky-header, .header-style-3 .sticky-header {
-  background: #58abf8;
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #ffffff 4%, #3F51B5 35%);
+    background: rgb(61, 42, 108);
+    background: linear-gradient(90deg, rgba(61, 42, 108, 1) 0%, rgba(194, 55, 85, 1) 100%);
 }
 
 .header-style-2 .sticky-header, .header-style-3 .sticky-header {
@@ -3922,11 +3921,12 @@ section.testimonials-section .about-us-section .video-holder i {
     text-shadow: 1px 1px 1px #000;
 }
 
-.cta-section h3 {
-  font-size: 30px;
-  font-size: 1.875rem;
-  margin: 0 0 0.6em;
-}
+    .cta-section h3 {
+        font-size: 30px;
+        font-size: 1.875rem;
+        margin: 0 0 0.6em;
+        margin-top: 17px;
+    }
 
 @media (max-width: 991px) {
   .cta-section h3 {
@@ -7295,7 +7295,7 @@ section.about-us-section2 .col-md-5 h3 {
   color: #0070c0;
 }
 .col-md-5.bgcirle2 h3 {
-    color: #7706cb;
+    color: #4f2c69;
 }
 section.about-us-section2 p {
   color: #000;
@@ -7321,27 +7321,29 @@ section.about-us-section3 h3 {
   text-decoration: auto;
   font-family: 'Roboto';
 }
-section.about-us-section3 .col-md-1.sidebar {
-  border-right: 2px dotted #2e2d2d;
-  height: 100px;
-  margin-top: 10px;
-}
+    section.about-us-section3 .col-md-1.sidebar {
+        border-right: 2px dotted #2e2d2d;
+        height: 125px;
+        margin-top: 0px;
+    }
 section.service-section5 .col.col-md-1 {
   width: 12.5% !important;
   text-align: center;
 }
 section.service-section5 .box {
-  background: #ccc;
-  width: 100%;
-  height: 45px;
-  border-radius: 8px;
-  border: 1.2px dotted #0070c0;
+    background: #ccc;
+    width: 100%;
+    height: 65px;
+    border-radius: 4px;
+    border: 1px dotted #0070c0;
+    box-shadow: 0px 5px 25px 0px rgb(103 58 183 / 32%);
+    margin-bottom: 8px;
 }
 section.service-section5 i.fi {
   font-size: 30px;
     color: #fff;
     display: flex;
-    height: 40px;
+    height: 55px;
     flex-direction: column-reverse;
     flex-wrap: wrap;
     align-content: stretch;
@@ -7578,8 +7580,13 @@ h5#exampleModalLongTitle span a {
     margin-top: 10px;
 }
 p.head1 {
-    font-size: 18px !important;
-    font-family: 'Roboto';
-    font-weight: 600;
+    font-size: 20px !important;
+    font-family: 'Roboto' !important;
+    font-weight: 600 !important;
     color: #3f51b5 !important;
+}
+i.fi.fi-br-form, i.fi.fi-br-track {
+    font-size: 40px;
+    vertical-align: middle;
+    font-weight: 100;
 }
