@@ -744,8 +744,8 @@
 
                                                         </div>
 
-                                                        <div class="table-responsive mb-3">
-                                                            <table class="table table-bordered ">
+                                                        <div class="table labertype mb-3">
+                                                            <table class="table">
                                                                 <thead>
                                                                     <tr>
                                                                         <th colspan="3" style="margin: 0px !important; padding: 3px 14px !important;">16. Labour Application Type</th>
