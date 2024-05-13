@@ -31,10 +31,13 @@ namespace MeghalayaUIP.User.PreReg
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        txtPANno.Text = ObjUserInfo.PANno;
+                        txtUnitName.Text = ObjUserInfo.EntityName;
                     }
                     if (hdnUserID.Value == "")
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
+                        
                     }
 
                     Page.MaintainScrollPositionOnPostBack = true;

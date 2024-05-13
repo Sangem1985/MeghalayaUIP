@@ -79,11 +79,12 @@ namespace MeghalayaUIP
                 if (string.IsNullOrEmpty( Errormsg))
                 {
                     UserRegDetails Userregdtls = new UserRegDetails();
-                    Userregdtls.Fullname = txtName.Text;
-                    Userregdtls.PANno = txtPAN.Text;
-                    Userregdtls.Email = txtEmail.Text;
-                    Userregdtls.Password = txtPswd.Text;
-                    Userregdtls.MobileNo = txtMobileNo.Text;
+                    Userregdtls.Fullname = txtName.Text.Trim(); ;
+                    Userregdtls.CompanyName = txtcompanyname.Text.Trim();
+                    Userregdtls.PANno = txtPAN.Text.Trim(); 
+                    Userregdtls.Email = txtEmail.Text.Trim(); 
+                    Userregdtls.Password = txtPswd.Text.Trim();
+                    Userregdtls.MobileNo = txtMobileNo.Text.Trim();
                     Userregdtls.State = "STATE";
                     Userregdtls.DateofBirth = "1988-04-10";
                     Userregdtls.IPAddress = GetIPAddress();
