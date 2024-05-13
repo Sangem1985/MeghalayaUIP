@@ -490,10 +490,10 @@
                                         Investment Promotion Policy (MIIPP) 2024</span> to make
                             your business more profitable.</b>
                             </p>
-                            <marquee style="font-size: 20px; font-family: sans-serif; font-weight: 600;" behavior="alternate" scrollamount="3">
+                            <p style="font-size: 20px; font-family: sans-serif; font-weight: 600;text-align:center;color:#070799;">
                                 <%--<i class="fi fi-ts-rocket-lunch"></i>--%>
-                                <img src="assets/assetsbeta/images/new.gif" style="width: 35px; height: 22px;" />
-                                Registration open till <span class="colorblue">31st March 2026</span></marquee>
+                                <%--<img src="assets/assetsbeta/images/new.gif" style="width: 35px; height: 22px;" />--%>
+                                *Registration open till <span class="colorblue">31st March 2026</span></p>
 
                         </div>
 
