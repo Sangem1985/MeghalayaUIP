@@ -469,19 +469,19 @@
             </div>
         </section>
 
-        <section class="service-section section-padding" style="padding: 30px;">
+        <section class="service-section section-padding" style="padding: 30px 0px 0px;">
             <div class="container-fluid">
                 <div class="row">
 
                     <div class="col col-md-12 text-center">
                         <p><span class="colorblue">Apply for Incentives</span> for your business under <span
                                 class="colorblue">Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024
-                                and Meghalaya Industrial and Investment Promotion Policy (MIIPP) 2024</span> to make
+                                and Meghalaya Industrial and<br /> Investment Promotion Policy (MIIPP) 2024</span> to make
                             your business more profitable.
                         </p>
-                        <marquee behavior="alternate" scrollamount="3"><i class="fi fi-ts-rocket-lunch"></i>
-                            Registration open till <span class="colorblue">31st March 2026</span></marquee>
-                        <p class="mt-4" style="margin-top: 20px;">Empowering Businesses, Empowering you..</p>
+                        <marquee style="font-size:20px;font-family: sans-serif;font-weight: 600;" behavior="alternate" scrollamount="3"> <%--<i class="fi fi-ts-rocket-lunch"></i>--%>
+                           <img src="assets/assetsbeta/images/new.gif"  style="width:35px;height:22px;" /> Registration open till <span class="colorblue">31st March 2026</span></marquee>
+                        
                     </div>
 
                 </div>
@@ -491,6 +491,7 @@
         <section class="about-us-section2">
             <div class="container">
                 <div class="row">
+                    <p style="margin-top: 20px;text-align:center" class="head1">Empowering Businesses, Empowering you..</p>
                     <div class="col col-xs-12 text-center">
 
                         <div class="col-md-5 bgcirle1" type="button" class="btn btn-primary" data-toggle="modal"
@@ -560,8 +561,8 @@
         <section class="service-section section-padding" style="padding: 0px;">
             <div class="container-fluid">
                 <div class="row">
-                    <p class="text-center">Easy Process to Register your Business and Claim Incentives</p>
-                    <img src="assets/assetsbeta/images/flowprocess2.png" style="width: 100%;" />
+                    <p class="text-center head1">Easy Process to Register your Business and Claim Incentives</p>
+                    <img src="assets/assetsbeta/images/flowprocess3.png" style="width: 100%;" />
 
                 </div>
             </div>
@@ -572,7 +573,7 @@
         <section class="service-section5" style="padding: 0px;">
             <div class="container-fluid">
                 <div class="row">
-                    <p class="text-center">Priority Sectors</p>
+                    <p class="text-center head1">Priority Sectors</p>
                     <div class="col col-md-12">
                         <div class="col col-md-1">
                             <div class="box"><i class="fi fi-rr-bed"></i></div>
@@ -659,7 +660,7 @@
         </section>
 
 
-        <section class="about-us-section3 1">
+        <section class="about-us-section3 1" style="margin-top:40px;margin-bottom:45px;">
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12 text-center"

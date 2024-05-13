@@ -7295,7 +7295,7 @@ section.about-us-section2 .col-md-5 h3 {
   color: #0070c0;
 }
 .col-md-5.bgcirle2 h3 {
-  color: #420b6a;
+    color: #7706cb;
 }
 section.about-us-section2 p {
   color: #000;
@@ -7402,23 +7402,22 @@ section.service-section5 .box:hover {
   opacity: 1;
   color: rgb(110, 8, 194);
 }
-} 
+}
 .col-md-5.bgcirle2:hover {
-  transform: translateY(-10px);
-  box-shadow: 10px 10px 5px #9976b1;
- 
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 5px #e1c1f7;
 }
 .col-md-5.bgcirle1:hover {
-  transform: translateY(-10px);
-  box-shadow: 10px 10px 5px #84a8c1;
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 5px #d6e7f3;
 }
 .col-md-5.bgcirle1:hover {
   background: #0c2e54;
-  border-radius: 0px;
+  border-radius: 20px;
 }
 .col-md-5.bgcirle2:hover{
   background: #2a0740;
-  border-radius: 0px;
+  border-radius: 20px;
 }
 .col-md-5.bgcirle1:hover,.col-md-5.bgcirle2:hover { 
   p {
@@ -7577,4 +7576,10 @@ h5#exampleModalLongTitle1 span a {
 h5#exampleModalLongTitle span a {
     color: #9b57ce;
     margin-top: 10px;
+}
+p.head1 {
+    font-size: 18px !important;
+    font-family: 'Roboto';
+    font-weight: 600;
+    color: #3f51b5 !important;
 }
