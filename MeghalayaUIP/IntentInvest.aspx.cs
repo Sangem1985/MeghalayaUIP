@@ -1,6 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.BAL.CommonBAL;
-using MeghalayaUIP.Common; 
+using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,21 +13,11 @@ namespace MeghalayaUIP
     public partial class IntentInvest : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                var ObjUserInfo = new UserInfo();
-                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
-                {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
-                }
-                if (hdnUserID.Value == "")
-                {
-                    hdnUserID.Value = ObjUserInfo.Userid;
-                }
-
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
                 success.Visible = false;
@@ -39,6 +29,11 @@ namespace MeghalayaUIP
 
                 }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
         protected void BtnSave_Click(object sender, EventArgs e)
         {

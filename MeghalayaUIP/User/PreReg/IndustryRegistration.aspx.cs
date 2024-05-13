@@ -452,7 +452,14 @@ namespace MeghalayaUIP.User.PreReg
                 if (ddlSector.SelectedValue.ToString() != "--Select--")
                 {
                     BindLineOfActivity(ddlSector.SelectedItem.Text);
-
+                    if(ddlSector.SelectedItem.Text.Trim()== "Cement, Cement & Concrete Products, Fly Ash Bricks")
+                    {
+                        eligible.Visible = true;
+                    }
+                    else
+                    {
+                        eligible.Visible = false;
+                    }
                 }
             }
             catch (Exception ex)
