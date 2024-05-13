@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h3><b>Approved Industry Registrations under MIIPP 2024"</b></h3>
+                    <h3><b>Approved Industry Registrations under MIIPP 2024</b></h3>
 
                     <div class="col-md-12 d-flex">
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"

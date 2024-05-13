@@ -175,6 +175,8 @@ namespace MeghalayaUIP.User.CFE
                         
                         txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
                         lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
+                        ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
+                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty); 
                         ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
                         if (Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
                             ddlIndustryType.SelectedValue = "1";
@@ -801,6 +803,7 @@ namespace MeghalayaUIP.User.CFE
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
+                    btnApprvlsReq_Click(sender, e);
                     CFEQuestionnaireDet objCFEQsnaire = new CFEQuestionnaireDet();
                     objCFEQsnaire.CFEQDID = "";
                     objCFEQsnaire.UNITID = hdnPreRegUNITID.Value;
