@@ -317,14 +317,14 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html"><img src="assets/assetsbeta/images/Logo_dark.png" alt=""
+                        <a class="navbar-brand" href="homebeta.aspx"><img src="assets/assetsbeta/images/Logo_dark.png" alt=""
                                 style="margin-top: 6px;"></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
                         <ul class="nav navbar-nav">
                             <li class="menu-item-has-children">
-                                <a href="Home.aspx">Home</a>
+                                <a href="Homebeta.aspx">Home</a>
                             </li>
 
                             <li class="menu-item-has-children">
