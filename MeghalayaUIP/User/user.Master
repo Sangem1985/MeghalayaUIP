@@ -55,12 +55,8 @@
             <div class="header">
                 <!-- Logo -->
                 <div class="header-left">
-                    <a href="dashboard.aspx" class="logo">
-                        <img src="../../assets/admin/img/logo.png" alt="Logo">
-                    </a>
-                    <a href="dashboard.aspx" class="logo logo-small">
-                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
-                    </a>
+                   <br/>
+                    <asp:imagebutton runat="server" id="imgLogo" imageurl="~/assets/images/Logo.png" height="25px" width="200px" />
                 </div>
                 <!-- /Logo -->
 
@@ -134,10 +130,14 @@
 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>
+                                    <%--<a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>--%>
+                                    <asp:LinkButton ID="linkIndReg" runat="server" OnClick="linkIndReg_Click" class="nav-link">Industry Registration <span class="sr-only">(current)</span></asp:LinkButton>
+
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../CFE/CFEUserDashboard.aspx">Pre-Establishment</a>
+                                    <%--<a class="nav-link" href="../CFE/CFEUserDashboard.aspx">Pre-Establishment</a>--%>
+                                    <asp:LinkButton ID="linkCFEDashbrd" runat="server" OnClick="linkCFEDashbrd_Click" class="nav-link">Pre-Establishment <span class="sr-only">(current)</span></asp:LinkButton>
+
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Pre-Operational</a>
