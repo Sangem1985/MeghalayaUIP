@@ -4,12 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-       span.icon,span.icon2,span.icon3 {
-        top: 35px !important;
-    }
+        span.icon, span.icon2, span.icon3 {
+            top: 35px !important;
+        }
+
         span.icon3 {
-        left: 485px !important;
-    }
+            left: 485px !important;
+        }
     </style>
     <div class="page-wrapper tabs">
 
@@ -107,8 +108,8 @@
                                                                 <label class="col-lg-6 col-form-label">Company Proposal *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Vertical" RepeatColumns="2">
-                                                                        <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
-                                                                        <asp:ListItem Value="New" Text="New"></asp:ListItem>
+                                                                        <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="New" Text="New" style="padding-right: 10px"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
 
 
@@ -678,13 +679,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="text-right">
-                                                    <asp:Button runat="server" Text="Save" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
-                                                    <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn  btn-info btn-lg" OnClick="btnNext1_Click" />
-
+                                                    <asp:Button runat="server" Text="Save as Draft" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px"/>
+                                                    <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" BackColor="#3333ff" Width="150px"/>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </asp:View>
@@ -765,17 +763,16 @@
                                                     </div>
 
                                                     <div class="col-md-12 d-flex mt-2" id="padding">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-2">
 
 
-                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn  btn-info btn-lg" OnClick="btnPreviuos2_Click" />
+
                                                             <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>--%>
                                                         </div>
-                                                        <div class="col-md-6 text-right">
-                                                            <asp:Button ID="btnsave2" runat="server" OnClick="btnsave2_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
-
-
-                                                            <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn  btn-info btn-lg" OnClick="btnNext2_Click" />
+                                                        <div class="col-md-10 text-right">
+                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos2_Click" BackColor="#009999" Width="150px"/>
+                                                            <asp:Button ID="btnsave2" runat="server" OnClick="btnsave2_Click" Text="Save as Draft" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                                            <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" BackColor="#3333ff" Width="150px" />
 
                                                         </div>
                                                     </div>
@@ -959,7 +956,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label"></label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn  btn-info btn-lg" runat="server" OnClick="btnAddPromtr_Click" Fore-Color="White" BackColor="YellowGreen" />
+                                                                    <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn btn-rounded btn-info btn-lg" runat="server" OnClick="btnAddPromtr_Click" Fore-Color="White" BackColor="YellowGreen" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1006,7 +1003,7 @@
                                                     <div class="col-md-12 mt-4 d-flex text-center">
                                                         <div class="col-md-4">
 
-                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn  btn-info btn-lg" OnClick="btnPreviuos3_Click" />
+                                                            
 
                                                         </div>
 
@@ -1017,7 +1014,9 @@
                                                             </a>--%>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <asp:Button ID="btnSave3" Text="Save" runat="server" class="btn btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" />
+                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" BackColor="#009999" Width="150px" />
+                                                            <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreview_Click" BackColor="#3333ff" Width="150px" />
+                                                            <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px"/>
                                                             <%-- <a href="index.html">
                                                             <button type="submit"
                                                                 class="btn btn-rounded btn-primary btn-lg">

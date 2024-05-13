@@ -1515,5 +1515,10 @@ namespace MeghalayaUIP.User.PreReg
         {
             MVprereg.ActiveViewIndex = 2;
         }
+
+        protected void btnPreview_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
