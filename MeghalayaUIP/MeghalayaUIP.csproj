@@ -528,6 +528,7 @@
     <Content Include="User\CFE\demo.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
+    <Content Include="User\MainDashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryRegistration.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx" />
@@ -859,6 +860,13 @@
     </Compile>
     <Compile Include="User\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\MainDashboard.aspx.cs">
+      <DependentUpon>MainDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\MainDashboard.aspx.designer.cs">
+      <DependentUpon>MainDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\PreReg\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
