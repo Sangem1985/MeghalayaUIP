@@ -482,17 +482,18 @@
                     <div class="row">
 
                         <div class="col col-md-12 text-center">
-                            <p>
-                                <span class="colorblue">Apply for Incentives</span> for your business under <span
-                                    class="colorblue">Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024
+                            <p style="font-size: 20px; font-family: sans-serif;">
+                                <b>
+                                    <span class="colorblue">Apply for Incentives</span> for your business under <span
+                                        class="colorblue">Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024
                                 and Meghalaya Industrial and<br />
-                                    Investment Promotion Policy (MIIPP) 2024</span> to make
-                            your business more profitable.
+                                        Investment Promotion Policy (MIIPP) 2024</span> to make
+                            your business more profitable.</b>
                             </p>
-                            <p style="color:#070799;font-size: 20px; font-family: sans-serif; font-weight: 600;text-align:center;">
+                            <marquee style="font-size: 20px; font-family: sans-serif; font-weight: 600;" behavior="alternate" scrollamount="3">
                                 <%--<i class="fi fi-ts-rocket-lunch"></i>--%>
-                                
-                                *Registration open till <span class="colorblue">31st March 2026</span></p>
+                                <img src="assets/assetsbeta/images/new.gif" style="width: 35px; height: 22px;" />
+                                Registration open till <span class="colorblue">31st March 2026</span></marquee>
 
                         </div>
 
@@ -506,12 +507,12 @@
                         <p style="margin-top: 20px; text-align: center" class="head1">Empowering Businesses, Empowering you..</p>
                         <div class="col col-xs-12 text-center">
 
-                            <div class="col-md-5 bgcirle1" type="button" class="btn btn-primary" data-toggle="modal"
+                            <div class="col-md-5 bgcirle1 text-center" type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target=".exampleModalCenter">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-center">
                                     <img src="assets/assetsbeta/images/circle1.png">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-8 text-center">
                                     <h3>UNNATI 2024</h3>
                                     <p>
                                         Attractive Incentives available.<br />
@@ -526,7 +527,7 @@
                                 <div class="col-md-4">
                                     <img src="assets/assetsbeta/images/circle2.png">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-8 text-center">
                                     <h3>MIIPP 2024</h3>
                                     <p>
                                         Attractive Incentives available.<br />
@@ -937,7 +938,8 @@
 
                         <p class="colorpurpule">
                             <br />
-                            Eligibility</p>
+                            Eligibility
+                        </p>
                         <table class="table table-striped">
                             <thead>
                                 <tr style="background: #2F5596; color: #fff; text-align: center;">
@@ -1129,12 +1131,14 @@
                         </div>
                         <p class="colorblue">
                             <br />
-                            Additional Incentives</p>
+                            Additional Incentives
+                        </p>
                         <img src="assets/assetsbeta/images/modelimg2.jpg" alt="" />
 
                         <p class="colorblue">
                             <br />
-                            Main Eligibility Criteria</p>
+                            Main Eligibility Criteria
+                        </p>
                         <img src="assets/assetsbeta/images/modelimg3.jpg" alt="" />
                     </div>
                     <div class="modal-footer">
