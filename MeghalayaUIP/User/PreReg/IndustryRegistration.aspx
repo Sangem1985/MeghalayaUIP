@@ -379,8 +379,32 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
+                                                    </div>
+                                                    <div class="col-md-12 d-flex" id="divManf1" runat="server" visible="false">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Main Raw Materials for the Project*</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtRawmaterial" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Annual Capacity*</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtAnnualCapacity" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Unit of Measurement*</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtMeasurementUnits" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex" id="divservc" runat="server" visible="false">
                                                         <div class="col-md-4">
@@ -440,14 +464,7 @@
 
                                                     </div>
                                                     <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Main Raw Materials for the Project*</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtRawmaterial" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Details of Waste / Effluent to be generated*</label>
@@ -464,14 +481,22 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                    </div>
-                                                    <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Civil Construction*</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtCivilConstr" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Estimated Project Cost (INR)*</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtEstimatedProjCost" class="form-control" onkeypress="return validateAmount(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -512,9 +537,9 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Estimated Project Cost (INR)*</label>
+                                                                <label class="col-lg-6 col-form-label">Plant & Machinery (INR)*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtEstimatedProjCost" class="form-control" onkeypress="return validateAmount(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtPlantnMachineryCost" class="form-control" onkeypress="return validateAmount(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -538,43 +563,13 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Plant & Machinery (INR)*</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtPlantnMachineryCost" class="form-control" onkeypress="return validateAmount(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Annual Capacity*</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAnnualCapacity" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Unit of Measurement*</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtMeasurementUnits" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Power Required (KV)*</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtPowerReqKV" class="form-control" onkeypress="return validateNumberAndDot(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
-
-
 
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
@@ -616,7 +611,7 @@
                                                     <div class="col-md-12 d-flex" id="eligible" runat="server" visible="false">
                                                         <div class="col-md-12">
                                                             <div class="form-group row">
-                                                                <p>
+                                                                <p style="color:red ;font-family: sans-serif;">
                                                                     <b>
                                                                         <label class="col-lg-12 col-form-label text-center" id="lbleligibletext" runat="server">
                                                                             Note:  Based on your input regarding Sector and year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
@@ -631,7 +626,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Promoter’s Equity (INR)*</label>
+                                                                <label class="col-lg-6 col-form-label">Promoter’s and Contributors (INR)</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtPromoterEquity" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
@@ -639,17 +634,43 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Bank Loan Amount (INR)*</label>
+                                                                <label class="col-lg-6 col-form-label">Equity Amount (INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" onkeypress="return validateNumbersOnly(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtEquityAmount" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Bank Name*</label>
+                                                                <label class="col-lg-6 col-form-label">Term Loan/Working</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtBankName" class="form-control" />
+                                                                    <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Unsecured Loan (INR)</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtUnsecuredLoan" class="form-control" onkeypress="return validateNumbersOnly(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Internal Resources (INR)</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtInternalResources" class="form-control" onkeypress="return validateNumbersOnly(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">State Scheme (INR)</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtstatescheme" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -676,16 +697,6 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                                 <label class="col-lg-6 col-form-label">Central Scheme  (INR)</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtcentral" class="form-control" onkeypress="return validateNumbersOnly(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">State Scheme (INR)</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtstatescheme" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>

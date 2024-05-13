@@ -86,11 +86,12 @@ namespace MeghalayaUIP.User.PreReg
                             txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
                             ddlConstType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]); 
                             rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
-                            txtCompnyRegDt.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]);
+                            txtCompnyRegDt.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]).ToString("dd-MM-yyyy");
                             txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UDYAMNO"]);
                             txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
-                            ddlRegType.SelectedValue= Convert.ToString(ds.Tables[0].Rows[0]["COMPANYREGTYPE"]);
-
+                            ddlRegType.SelectedValue= Convert.ToString(ds.Tables[0].Rows[0]["COMPANYREGTYPE"]); 
+                            ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                            //txtCompnyRegDt.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]).ToString("dd-MM-yyyy");
                             txtAuthReprName.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_NAME"]);
                             txtAuthReprMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_MOBILE"]);
                             txtAuthReprEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_EMAIL"]);
@@ -149,7 +150,9 @@ namespace MeghalayaUIP.User.PreReg
                             txtCapitalSubsidy.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_CAPITALSUBSIDY"]);
                             txtPromoterEquity.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_PROMOTEREQUITY"]);
                             txtLoanAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_LOAN"]);
-                            txtBankName.Text= Convert.ToString(ds.Tables[0].Rows[0]["BANKNAME"]);
+                            txtEquityAmount.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_EQUITY"]);
+                            txtInternalResources.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_INTERNALRESOURCE"]);
+                            txtUnsecuredLoan.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_UNSECUREDLOAN"]);
                             txtUNNATI.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_UNNATI"]);
                             txtstatescheme.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_STATE"]);
                             txtcentral.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_CENTRAL"]);
@@ -393,7 +396,7 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlSector.Items.Clear();
-
+                lblPCBCategory.Text = "";
                 List<MasterSector> objSectorModel = new List<MasterSector>();
 
                 objSectorModel = mstrBAL.GetSectors();
@@ -422,7 +425,7 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 List<MasterLineOfActivity> objLOA = mstrBAL.GetLineOfActivity(Sector);
-
+                lblPCBCategory.Text = "";
                 if (objLOA != null && objLOA.Count > 0)
                 {
                     ddlLineOfActivity.DataSource = objLOA;
@@ -642,6 +645,7 @@ namespace MeghalayaUIP.User.PreReg
                 if (rblNatureofActvty.SelectedItem.Text == "Manufacturing")
                 {
                     divManf.Visible = true;
+                    divManf1.Visible = true;
                     divservc.Visible = false;
                     txtServcActvty.Text = "";
                     txtServctobeprovded.Text = "";
@@ -650,6 +654,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     divservc.Visible = true;
                     divManf.Visible = false;
+                    divManf1.Visible = false;
                     txtMainManf.Text = "";
                     txtManfprodct.Text = "";
                 }
@@ -736,7 +741,9 @@ namespace MeghalayaUIP.User.PreReg
                     ID.CapitalSubsidy = txtCapitalSubsidy.Text.Trim();
                     ID.PromoterEquity = txtPromoterEquity.Text.Trim();
                     ID.LoanAmount = txtLoanAmount.Text.Trim();
-                    ID.BankName = txtBankName.Text.Trim();
+                    ID.EquityAmount = txtEquityAmount.Text.Trim();
+                    ID.UnsecuredLoan = txtUnsecuredLoan.Text.Trim();
+                    ID.InternalResources = txtInternalResources.Text.Trim();
                     ID.CetralSchemeAmount = txtcentral.Text.Trim();
                     ID.UnnatiSchemeAmount = txtUNNATI.Text.Trim();
                     ID.StateSchemeAmount = txtstatescheme.Text.Trim();
