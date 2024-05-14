@@ -159,39 +159,30 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlloadenergy;
 
         /// <summary>
-        /// btnPreviuos1 control.
+        /// btnPrevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPreviuos1;
+        protected global::System.Web.UI.WebControls.Button btnPrevious;
 
         /// <summary>
-        /// btnclear control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnclear;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// btnsave1 control.
+        /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsave1;
-
-        /// <summary>
-        /// btnNext1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext1;
+        protected global::System.Web.UI.WebControls.Button btnNext;
     }
 }

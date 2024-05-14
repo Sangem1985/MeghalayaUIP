@@ -17,7 +17,7 @@ namespace MeghalayaUIP.Common
         public static string GetSectormaster = "USP_GET_Sector";
         public static string GetLineOfActivitymaster = "USP_GET_LineofActivity";
         public static string GetPCBCategory = "USP_GET_PCBCategory";
-        public static string GetConstitutionType=  "USP_GETCONSTITUTIONTYPEMASTER";
+        public static string GetConstitutionType = "USP_GETCONSTITUTIONTYPEMASTER";
         public static string GetPowerRequiredRange = "USP_GETPOWERRANGEMASTER";
         public static string GetElectricRegulations = "USP_GETELECTRICREGULATIONSMASTER";
         public static string GetVoltageMaster = "USP_GETVOLTAGEMASTER";
@@ -32,6 +32,7 @@ namespace MeghalayaUIP.Common
         public static string GetPOWERENERGYLOAD = "USP_GET_POWERENERGYLOAD";
 
         public static string GetVoltages = "USP_GETVOLTAGE";
+        public static string GetForestDivision = "USP_GETRFORESTDIVISIONSMASTER";
 
     }
     public class MasterCountry
@@ -40,7 +41,7 @@ namespace MeghalayaUIP.Common
         public string CountryName { get; set; }
 
     }
-    
+
     public class MasterStates
     {
         public string StateId { get; set; }
@@ -195,5 +196,9 @@ namespace MeghalayaUIP.Common
         public string Expectationstate_Govt { get; set; }
 
     }
-
+    public class MasterForestDivision
+    {
+        public string FORESTDIV_ID { get; set; }
+        public string FORESTDIV_NAME { get; set; }
+    }
 }

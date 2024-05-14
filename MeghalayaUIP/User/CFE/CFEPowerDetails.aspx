@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEPowerDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEPowerDetails" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -59,22 +60,22 @@
                                     </div>
                                 </div>
                                 <div id="EXISTING" runat="server" visible="false">
-                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12 d-flex">
 
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">4	Any Other Services Existing in the Same Premises*</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList ID="ddlPermise" runat="server" class="form-control">
-                                                    <asp:ListItem Text="--Select--" Value="0" />
-                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
-                                                    <asp:ListItem Text="No" Value="2"></asp:ListItem>
-                                                </asp:DropDownList>
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">4	Any Other Services Existing in the Same Premises*</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:DropDownList ID="ddlPermise" runat="server" class="form-control">
+                                                        <asp:ListItem Text="--Select--" Value="0" />
+                                                        <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                        <asp:ListItem Text="No" Value="2"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                    </div>
 
                                 <h5 class="card-title ml-4">Proposed Maximum Working Hours</h5>
                                 <div class="col-md-12 d-flex">
@@ -132,23 +133,14 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-12 text-right">
 
+                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
+                                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
 
-                                <div class="col-md-12 d-flex mt-2">
-                                    <div class="col-md-6">
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos1" class="btn  btn-info btn-lg" />
-                                        <asp:Button Text="Clear" runat="server" ID="btnclear" class="btn  btn-info btn-lg" />
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <asp:Button ID="btnsave1" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" OnClick="btnsave1_Click" />
-                                        <asp:Button ID="btnNext1" Text="Next" runat="server" class="btn  btn-info btn-lg" />
-                                    </div>
                                 </div>
-
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>

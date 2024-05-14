@@ -15,6 +15,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,6 +30,15 @@ namespace MeghalayaUIP.User.CFE
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
                 Page.MaintainScrollPositionOnPostBack = true;
+                if (Convert.ToString(Session["UNITID"]) != "")
+                {
+                    UnitID = Convert.ToString(Session["UNITID"]);
+                }
+                else
+                {
+                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
                 if (!IsPostBack)
                 {
 
@@ -77,64 +87,13 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        public string Validations()
+        protected void btnAddLOM_Click(object sender, EventArgs e)
         {
             try
             {
-                int slno = 1;
-                string errormsg = "";
-                if (string.IsNullOrEmpty(txtManfItemName.Text) || txtManfItemName.Text == "" || txtManfItemName.Text == null)
+                if (string.IsNullOrEmpty(txtManfItemName.Text) || string.IsNullOrEmpty(txtManfAnnualCapacity.Text) || string.IsNullOrEmpty(txtManfValue.Text))
                 {
-                    errormsg = errormsg + slno + ". Please Enter item \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtManfAnnualCapacity.Text) || txtManfAnnualCapacity.Text == "" || txtManfAnnualCapacity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Quantity \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtManfValue.Text) || txtManfValue.Text == "" || txtManfValue.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Raw Material Items \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtquant.Text) || txtquant.Text == "" || txtquant.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Raw Material Quantity \\n";
-                    slno = slno + 1;
-                }
-                return errormsg;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
-
-        protected void btnAddPromtr_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(txtManfItemName.Text) || string.IsNullOrEmpty(txtManfAnnualCapacity.Text))
-                {
-                    lblmsg0.Text = "Please Enter All Details";
+                    lblmsg0.Text = "Please Enter All Details of Manufacture Items";
                     Failure.Visible = true;
                 }
                 else
@@ -143,10 +102,9 @@ namespace MeghalayaUIP.User.CFE
                     dt.Columns.Add("CFELA_UNITID", typeof(string));
                     dt.Columns.Add("CFELA_CREATEDBY", typeof(string));
                     dt.Columns.Add("CFELA_CREATEDBYIP", typeof(string));
-                    dt.Columns.Add("CFELA_Manf_ItemName", typeof(string));
-                    dt.Columns.Add("CFELA_Manf_Item_Quantity", typeof(string));
-                    dt.Columns.Add("CFELA_Manf_Item_Quantity_Per", typeof(string));
-                    dt.Columns.Add("CFELA_Manf_Item_Quantity_In", typeof(string));
+                    dt.Columns.Add("ManfItemName", typeof(string));
+                    dt.Columns.Add("ManfItemQuantity", typeof(string));
+                    dt.Columns.Add("ManfItemValue", typeof(string));
 
 
                     if (ViewState["ManufactureTable"] != null)
@@ -158,10 +116,9 @@ namespace MeghalayaUIP.User.CFE
                     dr["CFELA_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["CFELA_CREATEDBY"] = hdnUserID.Value;
                     dr["CFELA_CREATEDBYIP"] = getclientIP();
-                    dr["CFELA_Manf_Item_Quantity"] = txtManfAnnualCapacity.Text;
-                    // dr["CFELA_LineofActivityMid"] = ddlLineOfActivity.SelectedValue;
-                    dr["CFELA_Manf_ItemName"] = txtManfItemName.Text;
-                  
+                    dr["ManfItemName"] = txtManfItemName.Text;
+                    dr["ManfItemQuantity"] = txtManfAnnualCapacity.Text;
+                    dr["ManfItemValue"] = txtManfValue.Text;
 
                     dt.Rows.Add(dr);
                     gvManufacture.Visible = true;
@@ -175,15 +132,17 @@ namespace MeghalayaUIP.User.CFE
             {
                 throw ex;
             }
+
         }
 
-        protected void btnadd_Click(object sender, EventArgs e)
+        protected void btnaddRM_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrEmpty(txtMaterial.Text) || string.IsNullOrEmpty(txtquant.Text))
+                if (string.IsNullOrEmpty(txtRMItemName.Text) || string.IsNullOrEmpty(txtRMAnnualCapacity.Text)
+                    || string.IsNullOrEmpty(txtRMValue.Text) || string.IsNullOrEmpty(txtRMSource.Text))
                 {
-                    lblmsg0.Text = "Please Enter All Details";
+                    lblmsg0.Text = "Please Enter All Details of Raw-Materials used";
                     Failure.Visible = true;
                 }
                 else
@@ -192,10 +151,10 @@ namespace MeghalayaUIP.User.CFE
                     dt.Columns.Add("CFERM_UNITID", typeof(string));
                     dt.Columns.Add("CFERM_CREATEDBY", typeof(string));
                     dt.Columns.Add("CFERM_CREATEDBYIP", typeof(string));
-                    dt.Columns.Add("CFERM_RAW_ITEMNAME", typeof(string));
-                    dt.Columns.Add("CFERM_RAW_ITEM_QUANTITY", typeof(string));
-                    dt.Columns.Add("CFERM_RAW_ITEM_QUANTITY_IN", typeof(string));
-                    dt.Columns.Add("CFERM_RAW_ITEM_QUANTITY_PER", typeof(string));
+                    dt.Columns.Add("RMName", typeof(string));
+                    dt.Columns.Add("RMAnnualCapacity", typeof(string));
+                    dt.Columns.Add("RMValue", typeof(string));
+                    dt.Columns.Add("RMSource", typeof(string));
 
                     if (ViewState["RawMaterialTable"] != null)
                     {
@@ -205,10 +164,10 @@ namespace MeghalayaUIP.User.CFE
                     dr["CFERM_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["CFERM_CREATEDBY"] = hdnUserID.Value;
                     dr["CFERM_CREATEDBYIP"] = getclientIP();
-                    dr["CFERM_RAW_ITEMNAME"] = txtMaterial.Text;
-                    dr["CFERM_RAW_ITEM_QUANTITY"] = txtquant.Text;
-                    dr["CFERM_RAW_ITEM_QUANTITY_IN"] = ddlinquantity.SelectedValue;
-                    dr["CFERM_RAW_ITEM_QUANTITY_PER"] = ddlPerQuantity.SelectedValue;
+                    dr["RMName"] = txtRMItemName.Text;
+                    dr["RMAnnualCapacity"] = txtRMAnnualCapacity.Text;
+                    dr["RMValue"] = txtRMValue.Text;
+                    dr["RMSource"] = txtRMSource.Text;
 
 
                     dt.Rows.Add(dr);
@@ -224,6 +183,8 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
+
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -237,8 +198,6 @@ namespace MeghalayaUIP.User.CFE
                 if (ErrorMsg == "")
                 {
                     CFELineOfManuf objCFEManufacture = new CFELineOfManuf();
-                    //if (Convert.ToString(ViewState["UnitID"]) != "")
-                    //{ objCFEManufacture.UNITID = Convert.ToString(ViewState["UnitID"]); }
                     objCFEManufacture.UNITID = UNITID;
                     objCFEManufacture.CreatedBy = hdnUserID.Value;
                     objCFEManufacture.IPAddress = getclientIP();
@@ -247,17 +206,10 @@ namespace MeghalayaUIP.User.CFE
                     objCFEManufacture.Line_Activity = ddlLineOfActivity.SelectedValue;
                     objCFEManufacture.ItemLA = txtManfItemName.Text;
                     objCFEManufacture.QuantityLA = txtManfAnnualCapacity.Text;
-                    objCFEManufacture.ItemNameRM = txtMaterial.Text;
-                    objCFEManufacture.QuantitysRM = txtquant.Text;
-                    objCFEManufacture.Quantity_InsRM = ddlinquantity.SelectedValue;
-                    objCFEManufacture.Quantity_PersRM = ddlPerQuantity.SelectedValue;
+
 
                     int count = 0;
-                    //result = objcfebal.GetInsertManufacture(objCFEManufacture);
-                    //if (result != "100")
-                    //{
-                    //  Line_Manufacture objRM = new Line_Manufacture();
-                    // Session["QUESTIONRID"] = result;
+
                     for (int i = 0; i < gvManufacture.Rows.Count; i++)
                     {
                         objCFEManufacture.CreatedBy = hdnUserID.Value;
@@ -280,8 +232,6 @@ namespace MeghalayaUIP.User.CFE
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
-
-
                     for (int i = 0; i < gvRwaMaterial.Rows.Count; i++)
                     {
                         objCFEManufacture.Questionnariid = Quesstionriids;
@@ -306,42 +256,6 @@ namespace MeghalayaUIP.User.CFE
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-                    //DataTable dtManufacture = (DataTable)ViewState["ManufactureTable"];
-                    //// DataTable dt = new DataTable();
-                    //if (gvManufacture.Rows.Count > 0)
-                    // {
-
-                    //     foreach (DataRow row in dtManufacture.Rows)
-                    //     {
-
-                    //          result = objcfebal.GetInsertManufacture(objCFEManufacture);
-
-                    //     }
-
-                    // }
-
-                    //DataTable dtRwaMaterial = (DataTable)ViewState["RwaMaterialTable"];
-                    //if (gvRwaMaterial.Rows.Count > 0)
-                    // {
-
-                    //     foreach (DataRow row in dtRwaMaterial.Rows)
-                    //     {
-
-                    //         result = objcfebal.GetInsertCFERawMaterial(objCFEManufacture);
-
-                    //     }
-
-                    // }
-                    // if (result != "")
-                    // {
-                    //     success.Visible = true;
-                    //     lblmsg.Text = "Application Submitted Successfully";
-                    //     string message = "alert('" + "Application Submitted Successfully" + "')";
-                    //     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    // }
-
-
-
                 }
                 else
                 {
@@ -355,14 +269,77 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-        protected void btnPreviuos_Click(object sender, EventArgs e)
+        public string Validations()
         {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+                if (string.IsNullOrEmpty(txtManfItemName.Text) || txtManfItemName.Text == "" || txtManfItemName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter item \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtManfAnnualCapacity.Text) || txtManfAnnualCapacity.Text == "" || txtManfAnnualCapacity.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Quantity \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtManfValue.Text) || txtManfValue.Text == "" || txtManfValue.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Raw Material Items \\n";
+                    slno = slno + 1;
+                }
 
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
 
+            return result;
+        }
         protected void btnNext_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFELabourDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
 
+
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
     }
 }

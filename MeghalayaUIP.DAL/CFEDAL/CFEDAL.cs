@@ -416,9 +416,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 transaction.Commit();
                 connection.Close();
                 Result = Convert.ToString(DAID);
-
-
-
             }
             catch (Exception ex)
             {
@@ -434,7 +431,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
         }
 
 
-        public DataSet GetEntrepreneurDetails(string userid, string UnitID)
+        public DataSet GetCFEIndustryDetails(string userid, string UnitID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -444,9 +441,9 @@ namespace MeghalayaUIP.DAL.CFEDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(CFEConstants.GetEntrepreneurDet, connection);
+                da = new SqlDataAdapter(CFEConstants.GetCFEIndustryDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFEConstants.GetEntrepreneurDet;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEIndustryDetails;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
@@ -462,6 +459,99 @@ namespace MeghalayaUIP.DAL.CFEDAL
             {
                 throw ex;
             }
+        }
+        public string InsertCFEIndustryDetails(CFECommonDet objCFEEntrepreneur)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEIndustryDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEID_CREATEDBY", Convert.ToInt32(objCFEEntrepreneur.CreatedBy));
+                com.Parameters.AddWithValue("@CFEID_CREATEDBYIP", objCFEEntrepreneur.IPAddress);
+
+                com.Parameters.AddWithValue("@CFEID_PREREGUIDNO", objCFEEntrepreneur.PreRegUID);
+                com.Parameters.AddWithValue("@CFEID_UNITID", Convert.ToInt32(objCFEEntrepreneur.UNITID));
+
+                com.Parameters.AddWithValue("@CFEID_COMPANYNAME", objCFEEntrepreneur.CompanyName);
+                com.Parameters.AddWithValue("@CFEID_COMPANYTYPE", Convert.ToInt32(objCFEEntrepreneur.CompanyType));
+                com.Parameters.AddWithValue("@CFEID_PROPOSALFOR", objCFEEntrepreneur.CompanyPraposal);
+                com.Parameters.AddWithValue("@CFEID_REGTYPE", Convert.ToInt32(objCFEEntrepreneur.CompanyRegType));
+                com.Parameters.AddWithValue("@CFEID_REGNO", objCFEEntrepreneur.CompanyRegNo);
+                com.Parameters.AddWithValue("@CFEID_REGDATE", objCFEEntrepreneur.CompanyRegDate);
+                com.Parameters.AddWithValue("@CFEID_FACTORYTYPE", objCFEEntrepreneur.FactoryType);
+                com.Parameters.AddWithValue("@CFEID_REPNAME", objCFEEntrepreneur.AuthRep_Name);
+                com.Parameters.AddWithValue("@CFEID_REPSoWoDo", objCFEEntrepreneur.AuthRep_SoWoDo);
+                com.Parameters.AddWithValue("@CFEID_REPEMAIL", objCFEEntrepreneur.AuthRep_Email);
+                com.Parameters.AddWithValue("@CFEID_REPMOBILE", Convert.ToInt64(objCFEEntrepreneur.AuthRep_Mobile));
+                com.Parameters.AddWithValue("@CFEID_REPALTMOBILE", objCFEEntrepreneur.AuthRep_AltMobile);
+                com.Parameters.AddWithValue("@CFEID_REPTELPHNO", objCFEEntrepreneur.AuthRep_TelNo);
+                com.Parameters.AddWithValue("@CFEID_REPDOORNO", objCFEEntrepreneur.AuthRep_DoorNo);
+                com.Parameters.AddWithValue("@CFEID_REPLOCALITY", objCFEEntrepreneur.AuthRep_Locality);
+                com.Parameters.AddWithValue("@CFEID_REPDISTRICTID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_DistrictID));
+                com.Parameters.AddWithValue("@CFEID_REPMANDALID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_MandalID));
+                com.Parameters.AddWithValue("@CFEID_REPVILLAGEID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_VillageID));
+                com.Parameters.AddWithValue("@CFEID_REPPINCODE", Convert.ToInt32(objCFEEntrepreneur.AuthRep_Pincode));
+                com.Parameters.AddWithValue("@CFEID_REPISDIFFABLED", objCFEEntrepreneur.AuthRep_DiffAbled);
+                com.Parameters.AddWithValue("@CFEID_REPISWOMANENTR", objCFEEntrepreneur.AuthRep_Woman);
+
+                com.Parameters.AddWithValue("@CFEID_DEVELOPAREA", Convert.ToDecimal(objCFEEntrepreneur.DevelopmentArea));
+
+                com.Parameters.AddWithValue("@CFEID_ARCHTCTNAME", objCFEEntrepreneur.ArchitechtureName);
+                com.Parameters.AddWithValue("@CFEID_ARCHTCTLICNO", objCFEEntrepreneur.ArchitechtureLICNo);
+                com.Parameters.AddWithValue("@CFEID_ARCHTCTMOBILE", Convert.ToInt64(objCFEEntrepreneur.ArchitechtureMobileNo));
+                com.Parameters.AddWithValue("@CFEID_SRTCTENGNRNAME", objCFEEntrepreneur.strctralName);
+                com.Parameters.AddWithValue("@CFEID_SRTCTENGNRLICNO", objCFEEntrepreneur.strctralLicNo);
+                com.Parameters.AddWithValue("@CFEID_SRTCTENGNRMOBILE", Convert.ToInt64(objCFEEntrepreneur.strctralMobileNo));
+
+                com.Parameters.AddWithValue("@CFEID_APPROACHROADTYPE", objCFEEntrepreneur.ApprchRdType);
+                com.Parameters.AddWithValue("@CFEID_APPROACHROADWIDTH", Convert.ToDecimal(objCFEEntrepreneur.ApprchRdWidth));
+                com.Parameters.AddWithValue("@CFEID_AFFECTEDRDWDNG", objCFEEntrepreneur.AffectedRdWdng);
+                com.Parameters.AddWithValue("@CFEID_AFFECTEDRDAREA", objCFEEntrepreneur.AffectedExtended);
+
+                com.Parameters.AddWithValue("@CFEID_TOTALEMP", Convert.ToInt32(objCFEEntrepreneur.TotalEmp));
+
+                com.Parameters.AddWithValue("@CFEID_DIRECTMALE", Convert.ToInt32(objCFEEntrepreneur.DirectMale));
+                com.Parameters.AddWithValue("@CFEID_DIRECTFEMALE", Convert.ToInt32(objCFEEntrepreneur.DirectFemale));
+                com.Parameters.AddWithValue("@CFEID_DIRECTOTHERS", Convert.ToInt32(objCFEEntrepreneur.DirectOthers));
+
+                com.Parameters.AddWithValue("@CFEID_INDIRECTMALE", Convert.ToInt32(objCFEEntrepreneur.InDirectMale));
+                com.Parameters.AddWithValue("@CFEID_INDIRECTFEMALE", Convert.ToInt32(objCFEEntrepreneur.InDirectFemale));
+                com.Parameters.AddWithValue("@CFEID_INDIRECTOTHERS", Convert.ToInt32(objCFEEntrepreneur.InDirectOthers));
+
+                com.Parameters.AddWithValue("@CFEID_RDCUTLENGTH", objCFEEntrepreneur.RoadCut);
+                com.Parameters.AddWithValue("@CFEID_RDCUTLOCATIONS", objCFEEntrepreneur.RoadCutLocation);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
         public string InsertEntrepreneurDet(CFEEntrepreneur objCFEEntrepreneur)
         {
@@ -538,7 +628,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 Result = com.Parameters["@RESULT"].Value.ToString();
                 transaction.Commit();
                 connection.Close();
-               
+
             }
             catch (Exception ex)
             {
@@ -666,7 +756,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(UserID));
 
-                
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -676,8 +766,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 throw ex;
             }
         }
-       
-        public string InsertCFEForestDet(CFEForest objCFEQForest)
+
+        public string InsertCFEForestDet(Forest_Details objCFEQForest)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -946,10 +1036,10 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
 
 
-                com.Parameters.AddWithValue("@CFERM_CREATEDBY", Convert.ToInt32(ObjCCFEFireDetails.CreatedBy));
-                com.Parameters.AddWithValue("@CFERM_CREATEDBYIP", ObjCCFEFireDetails.IPAddress);
-                com.Parameters.AddWithValue("@CFERM_CFEQDID", Convert.ToInt32(ObjCCFEFireDetails.Questionnariid));
-                com.Parameters.AddWithValue("@CFERM_UNITID", Convert.ToInt32(ObjCCFEFireDetails.UnitId));
+                com.Parameters.AddWithValue("@CFEFD_CREATEDBY", Convert.ToInt32(ObjCCFEFireDetails.CreatedBy));
+                com.Parameters.AddWithValue("@CFEFD_CREATEDBYIP", ObjCCFEFireDetails.IPAddress);
+                com.Parameters.AddWithValue("@CFEFD_CFEQDID", Convert.ToInt32(ObjCCFEFireDetails.Questionnariid));
+                com.Parameters.AddWithValue("@CFEFD_UNITID", Convert.ToInt32(ObjCCFEFireDetails.UnitId));
 
                 com.Parameters.AddWithValue("@CFEFD_DISTRICID", Convert.ToInt32(ObjCCFEFireDetails.DistricId));
                 com.Parameters.AddWithValue("@CFEFD_MANDALID", Convert.ToInt32(ObjCCFEFireDetails.MandalId));
@@ -1054,6 +1144,75 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@ID", Convert.ToInt32(ID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public DataSet GetRetriveFireDet(string userid, String UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetRetriveFireDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetRetriveFireDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetForestRetrive(string userid, String UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetForestRetriveDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetForestRetriveDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

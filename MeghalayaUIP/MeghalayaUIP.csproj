@@ -526,13 +526,12 @@
     <Content Include="RenewalServices.aspx" />
     <Content Include="stateprofile.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
-    <Content Include="User\CFE\CFEEntrepreneurDetails.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
     <Content Include="User\CFE\CFEIndustryDetails.aspx" />
     <Content Include="User\CFE\CFELabourDetails.aspx" />
-    <Content Include="User\CFE\CFELandDetails.aspx" />
     <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
+    <Content Include="User\CFE\CFEPaymentPage.aspx" />
     <Content Include="User\CFE\CFEPowerDetails.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
@@ -811,13 +810,6 @@
     <Compile Include="User\CFE\CFECommonApplication.aspx.designer.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\CFE\CFEEntrepreneurDetails.aspx.cs">
-      <DependentUpon>CFEEntrepreneurDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\CFE\CFEEntrepreneurDetails.aspx.designer.cs">
-      <DependentUpon>CFEEntrepreneurDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\CFE\CFEFireDetails.aspx.cs">
       <DependentUpon>CFEFireDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -846,19 +838,19 @@
     <Compile Include="User\CFE\CFELabourDetails.aspx.designer.cs">
       <DependentUpon>CFELabourDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\CFE\CFELandDetails.aspx.cs">
-      <DependentUpon>CFELandDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\CFE\CFELandDetails.aspx.designer.cs">
-      <DependentUpon>CFELandDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\CFE\CFELineOfManufactureDetails.aspx.cs">
       <DependentUpon>CFELineOfManufactureDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\CFE\CFELineOfManufactureDetails.aspx.designer.cs">
       <DependentUpon>CFELineOfManufactureDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEPaymentPage.aspx.cs">
+      <DependentUpon>CFEPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPaymentPage.aspx.designer.cs">
+      <DependentUpon>CFEPaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEPowerDetails.aspx.cs">
       <DependentUpon>CFEPowerDetails.aspx</DependentUpon>

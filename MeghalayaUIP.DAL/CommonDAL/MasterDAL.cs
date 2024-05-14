@@ -755,5 +755,36 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return Result;
         }
+        public List<MasterForestDivision> GetForestDivision()
+        {
+            List<MasterForestDivision> lstForestMstr = new List<MasterForestDivision>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetForestDivision);
+                while (drOptions.Read())
+                {
+                    var Forest = new MasterForestDivision()
+                    {
+
+                        FORESTDIV_ID = Convert.ToString(drOptions["FORESTDIV_ID"]),
+                        FORESTDIV_NAME = Convert.ToString(drOptions["FORESTDIV_NAME"])
+                    };
+                    lstForestMstr.Add(Forest);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstForestMstr;
+        }
     }
 }

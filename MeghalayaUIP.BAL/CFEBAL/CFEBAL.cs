@@ -17,7 +17,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public CFEQuestionnaireDet objCFEQ { get; } = new CFEQuestionnaireDet();
         public CFEDAL objCFEDAL { get; } = new CFEDAL();
         public DataSet GetPREREGandCFEapplications(string USERID)
-        { 
+        {
             return objCFEDAL.GetPREREGandCFEapplications(USERID);
         }
         public DataSet GetIndustryRegDetails(string userid, string UnitID)
@@ -37,14 +37,22 @@ namespace MeghalayaUIP.BAL.CFEBLL
             return objCFEDAL.InsertCFEQuestionnaireApprovals(objCFEQsnaire);
         }
         public DataSet GetApprovalsReqFromTable(CFEQuestionnaireDet objCFEQsnaire)
-        { return objCFEDAL.GetApprovalsReqFromTable(objCFEQsnaire); }
-        public string InsertCFEDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
-        { return objCFEDAL.InsertCFEDepartmentApprovals(objCFEQsnaire); }
-
-        public DataSet GetEntrepreneurDetails(string userid, string UnitID)
         {
-            return objCFEDAL.GetEntrepreneurDetails(userid, UnitID);
+            return objCFEDAL.GetApprovalsReqFromTable(objCFEQsnaire);
         }
+        public string InsertCFEDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
+        {
+            return objCFEDAL.InsertCFEDepartmentApprovals(objCFEQsnaire);
+        }
+        public string InsertCFEIndustryDetails(CFECommonDet objCFEEntrepreneur)
+        {
+            return objCFEDAL.InsertCFEIndustryDetails(objCFEEntrepreneur);
+        }
+        public DataSet GetCFEIndustryDetails(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFEIndustryDetails(userid, UnitID);
+        }
+       
         public string InsertEntrepreneurDet(CFEEntrepreneur objCFEEntrepreneur)
         {
             return objCFEDAL.InsertEntrepreneurDet(objCFEEntrepreneur);
@@ -57,7 +65,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFELandDet(UserID, UnitID);
         }
-        public string InsertCFEForestDet(CFEForest objCFEQForest)
+        public string InsertCFEForestDet(Forest_Details objCFEQForest)
         {
             return objCFEDAL.InsertCFEForestDet(objCFEQForest);
         }
@@ -88,6 +96,14 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public DataSet getIntentInvestPrint(string ID)
         {
             return objCFEDAL.getIntentInvestPrint(ID); // Need to remove later
+        }
+        public DataSet GetRetriveFireDet(string userid, string UNITID)
+        {
+            return objCFEDAL.GetRetriveFireDet(userid, UNITID);
+        }
+        public DataSet GetForestRetrive(string userid, string UNITID)
+        {
+            return objCFEDAL.GetForestRetrive(userid, UNITID);
         }
     }
 }
