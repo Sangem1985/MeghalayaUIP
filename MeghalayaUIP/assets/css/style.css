@@ -7784,3 +7784,6 @@ section.innerpages p {
 i.fi.fi-br-envelope {
     vertical-align: text-top;
 }
+img.rounded {
+    border-radius: 4px;
+}

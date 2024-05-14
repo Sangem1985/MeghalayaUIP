@@ -243,6 +243,7 @@
     <Content Include="assets\assetsbeta\images\about - Copy.png" />
     <Content Include="assets\assetsbeta\images\about.png" />
     <Content Include="assets\assetsbeta\images\advant.png" />
+    <Content Include="assets\assetsbeta\images\advantagemeg.png" />
     <Content Include="assets\assetsbeta\images\ajax-loader.gif" />
     <Content Include="assets\assetsbeta\images\bg-whatsnew.png" />
     <Content Include="assets\assetsbeta\images\body2.png" />
@@ -280,6 +281,7 @@
     <Content Include="assets\assetsbeta\images\desti\9.png" />
     <Content Include="assets\assetsbeta\images\dot.png" />
     <Content Include="assets\assetsbeta\images\dots.png" />
+    <Content Include="assets\assetsbeta\images\eodb_1.jpg" />
     <Content Include="assets\assetsbeta\images\fancybox\blank.gif" />
     <Content Include="assets\assetsbeta\images\fancybox\fancybox_loading%402x.gif" />
     <Content Include="assets\assetsbeta\images\fancybox\fancybox_loading.gif" />
@@ -350,6 +352,7 @@
     <Content Include="assets\assetsbeta\images\slider\slide-7.jpg" />
     <Content Include="assets\assetsbeta\images\slider\slide-7_1.jpg" />
     <Content Include="assets\assetsbeta\images\slider\slide-8.jpg" />
+    <Content Include="assets\assetsbeta\images\stateprofile.png" />
     <Content Include="assets\assetsbeta\images\swc.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg-2.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg.png" />
