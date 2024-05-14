@@ -486,14 +486,14 @@
                                 <b>
                                     <span class="colorblue">Apply for Incentives</span> for your business under <span
                                         class="colorblue">Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024
-                                and Meghalaya Industrial and<br />
+                                and Meghalaya Industrial and
                                         Investment Promotion Policy (MIIPP) 2024</span> to make
                             your business more profitable.</b>
                             </p>
-                            <p style="font-size: 20px; font-family: sans-serif; font-weight: 600;text-align:center;color:#070799;">
+                            <p style="font-size: 22px; font-family: sans-serif; font-weight: 600;text-align:center;color:#070799;">
                                 <%--<i class="fi fi-ts-rocket-lunch"></i>--%>
                                 <%--<img src="assets/assetsbeta/images/new.gif" style="width: 35px; height: 22px;" />--%>
-                                *Registration open till <span class="colorblue">31st March 2026</span></p>
+                                * Registration open till <span class="colorblue">31st March 2026</span></p>
 
                         </div>
 

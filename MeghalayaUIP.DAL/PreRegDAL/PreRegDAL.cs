@@ -921,5 +921,38 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             return ds;
         }
 
+        public DataTable GetIntentInvestDashBoard()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetIntentInvestdash, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetIntentInvestdash;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.Fill(dt);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return dt;
+        }
+
     }
 }
