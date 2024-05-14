@@ -159,7 +159,6 @@ namespace MeghalayaUIP.User.PreReg
                             txtUNNATI.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_UNNATI"]);
                             txtstatescheme.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_STATE"]);
                             txtcentral.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_CENTRAL"]);
-
                         }
                     }
                     //if (ds.Tables.Count > 1)
