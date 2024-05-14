@@ -37,7 +37,7 @@
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Applicant And Unit Details</h3>
+                                        <h3>Applicant and Unit Details</h3>
                                     </div>
                                     <section id="dashboardBasic">
                                         <div class="container-fluid">

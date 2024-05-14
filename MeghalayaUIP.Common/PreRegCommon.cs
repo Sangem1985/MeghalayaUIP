@@ -117,6 +117,7 @@ namespace MeghalayaUIP.Common
         public string Category { get; set; }
         public string QueryID { get; set; }
         public string QueryResponse { get; set; }
+        public string EligibleFlag { get; set; }
     }
     public class PromoterDetails
     {

@@ -159,7 +159,6 @@ namespace MeghalayaUIP.User.PreReg
                             txtUNNATI.Text = Convert.ToString(ds.Tables[0].Rows[0]["FRD_UNNATI"]);
                             txtstatescheme.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_STATE"]);
                             txtcentral.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_CENTRAL"]);
-
                         }
                     }
                     //if (ds.Tables.Count > 1)
@@ -753,6 +752,14 @@ namespace MeghalayaUIP.User.PreReg
                     ID.DoorNo = txtAuthReprDoorNo.Text.Trim();
                     ID.RegistrationNo = txtUdyamorIEMNo.Text.Trim();
                     ID.RegistrationType = ddlRegType.SelectedValue;
+                    if(eligible.Visible==false)
+                    {
+                        ID.EligibleFlag = "Y";
+                    }
+                    else
+                    {
+                        ID.EligibleFlag = "N";
+                    }
                     try
                     {
                         DataTable dt = new DataTable();

@@ -107,10 +107,11 @@
     
   </tbody>
 </table>
-                   <img src="assets/images/meghalayamap.png" style="box-shadow: 0px 1px 6px 4px #ccc;">
+                    <img src="assets/assetsbeta/images/stateprofile.png" style="max-width: 104%;margin-left: -22px;">
 
                     <h3 style="margin-bottom:0px;">Advantage Meghalaya</h3>
-                    <img src="assets/images/ami.png" />
+                    
+                  <br /><br />  <img src="assets/assetsbeta/images/advantagemeg.png" />
                 </div>
             </div>
             

@@ -17,7 +17,7 @@
     font-weight: 400;
 }
         section.innerpages {
-    margin-top: 80px;
+    margin-top: 50px;
     margin-bottom: 10px;
 }
         .card-body {
@@ -222,7 +222,7 @@
                                                             <label class="col-lg-6 col-form-label">Project Category  * <img src="assets/assetsbeta/images/helpImage4.png" title="Micro - Investment in Plant and Machinery or Equipment does not exceed Rs 1 crore and annual turnover does not exceed Rs 5 crore. 
 Small - Investment in Plant and Machinery or Equipment does not exceed Rs 10 crore and annual turnover does not exceed Rs 50 crore. 
 Medium - Investment in Plant and Machinery or Equipment does not exceed Rs 50 crore and annual turnover does not exceed Rs 250 crore.
-Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores." height="12"></label>
+Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores." style="width: 11%;height: 11%;"></label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:DropDownList ID="ddlPCB" runat="server" class="form-control">
                                                                     <asp:ListItem Text="--Select--" Value="0" />

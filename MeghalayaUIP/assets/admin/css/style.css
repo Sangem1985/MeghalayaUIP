@@ -5831,10 +5831,27 @@ th {
 	background: purple !important;
 	border: 5px solid #fff !important;
 	text-align: center;
-	vertical-align:middle;
+	vertical-align: middle;
+	padding: 10px 0px !important;
 }
 
 table.table.table-bordered td {
 	text-align: center;
 }
+}
+
+.col-lg-6.d-flex.radio tr td {
+	margin: 10px !important;
+	padding: 0px 10px !important;
+}
+input[type=radio] {
+	margin: 0px 5px;
+}
+
+.btn.btn-orange {
+	color: #fff;
+	background-color: #FF5722;
+	border: 1px solid #FF5722;
+	width: 100%;
+	border-radius: 8px;
 }

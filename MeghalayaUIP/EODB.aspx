@@ -16,8 +16,10 @@
                     </nav>
                     
                     <h3>About EODB</h3>
+                    
+					<img src="assets/assetsbeta/images/eodb_1.jpg" width="100%" class="rounded">
 
-                    <p>The Government of India has undertaken an all-encompassing systematic approach for carrying
+                    <p><br />The Government of India has undertaken an all-encompassing systematic approach for carrying
 							out sustained efforts to reduce the degree of regulatory compliances which have an adverse
 							impact on time and cost of businesses. Efforts are being made to Simplify, Rationalize and
 							Digitize Government to Business (G2B) and Government to Citizen (G2C) Interfaces to
@@ -67,7 +69,7 @@
 							<li><i class="fi fi-br-star-shooting"></i> Meghalaya- Centralized Inspection System</li>
 
 						</ul>
-                    <img src="assets/images/eodb.jpg" />
+                    <%--<img src="assets/images/eodb.jpg" />--%>
                     </div>
             </div>
             

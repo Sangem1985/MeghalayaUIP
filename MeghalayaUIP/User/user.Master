@@ -46,6 +46,10 @@
             .card-counter.primarydashboard:hover {
                 box-shadow: 10px 12px 0px #ccc;
             }
+           a.logo input#imgLogo {
+    width: 98%;
+    margin-top: 15px;
+}
     </style>
 </head>
 <body>
@@ -55,8 +59,10 @@
             <div class="header">
                 <!-- Logo -->
                 <div class="header-left">
-                    <br />
-                    <asp:ImageButton runat="server" ID="imgLogo" ImageUrl="~/assets/images/Logo.png" Height="25px" Width="200px" />
+                    <a href="#" class="logo">
+					<asp:ImageButton runat="server" ID="imgLogo" ImageUrl="~/assets/images/Logo.png" />
+				</a>
+                    
                 </div>
                 <!-- /Logo -->
 

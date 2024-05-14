@@ -408,23 +408,34 @@ span.icon {
     position: absolute;
     top: 70px;
     color: #dce775;
+    left: 6.2%;
 }
 
 span.icon2 {
     position: absolute;
     top: 70px;
     color: #aed581;
-    left: 230px;
+    left: 22.6%;
 }
 
 span.icon3 {
     position: absolute;
     top: 70px;
     color: #4db6ac;
-    left: 435px;
+    left: 56% !important;
 }
 
 i.fi {
     font-size: 30px;
 }
 }
+.page-wrapper.tabs.cfequestionnaire {
+    span.icon
+{
+    left: 8%;
+}
+span.icon3 {
+    left: 37% !important;
+}
+}
+
