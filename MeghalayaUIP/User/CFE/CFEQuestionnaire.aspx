@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-  
+
+
     <div class="page-wrapper tabs">
 
         <div class="content container-fluid">
@@ -44,12 +44,12 @@
                                     <%-- </li>
                                     <li class="nav-item">--%>
                                     <li class="nav-item">
-                                        <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 18px !important;margin-top: -8px !important;padding: 10px 10px 12px !important;">
+                                        <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                     2. Project Financials</asp:LinkButton></li>
                                     <%-- </li>
                                     <li class="nav-item">--%>
                                     <li class="nav-item">
-                                        <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important;margin-top: -8px !important;padding: 10px 10px 12px !important;">
+                                        <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                     3. Project Requirements</asp:LinkButton></li>
                                 </ul>
                                 <%--</li>
@@ -248,12 +248,14 @@
                                                     </div>
 
 
-                                                    <div class="text-right">
-                                                        <div class="text-right">
-                                                            <asp:Button runat="server" Text="Save" Visible="false" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                    <div class="col-md-12 d-flex mt-2" id="padding">
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                        <div class="col-md-10 text-right">
+                                                            <asp:Button runat="server" Text="Save as Draft" Visible="false" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px" />
 
 
-                                                            <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn  btn-info btn-lg" OnClick="btnNext1_Click" />
+                                                            <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" BackColor="#3333ff" Width="150px" />
 
                                                         </div>
                                                         <%-- <a href="#basictab2" data-toggle="tab">
@@ -450,27 +452,17 @@
                                                             <div class="col-md-6">&nbsp;</div>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex ">
-                                                            <div class="col-md-4">
-                                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn  btn-info btn-lg" OnClick="btnPreviuos2_Click" />
-                                                                <%--  <a href="#basictab1" data-toggle="tab">
-                                                                        <button type="submit"
-                                                                            class="btn btn-rounded btn-success btn-lg">
-                                                                            Previous</button></a>--%>
+                                                        <div class="col-md-12 d-flex mt-2" id="padding">
+                                                            <div class="col-md-2">
+
+
+                                                                <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>--%>
                                                             </div>
-                                                            <div class="col-md-4">
-                                                                <asp:Button ID="btnsave2" runat="server" Text="Save" Visible="false" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" OnClick="btnsave2_Click" />
-                                                                <%--  <a href="#basictab1" data-toggle="tab">
-                                                                        <button type="submit"
-                                                                            class="btn btn-rounded btn-success btn-lg">
-                                                                            Previous</button></a>--%>
-                                                            </div>
-                                                            <div class="col-md-4 ">
-                                                                <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn  btn-info btn-lg" OnClick="btnNext2_Click" />
-                                                                <%--  <a href="#basictab3" data-toggle="tab">
-                                                                        <button type="submit"
-                                                                            class="btn btn-rounded btn-info btn-lg">
-                                                                            Next</button></a>--%>
+                                                            <div class="col-md-10 text-right">
+                                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos2_Click" Width="150px" BackColor="#009999" />
+                                                                <asp:Button ID="btnsave2" runat="server" Text="Save as Draft" Visible="false" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" OnClick="btnsave2_Click" Width="150px" />
+                                                                <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" Width="150px" BackColor="#3333ff" />
+
                                                             </div>
                                                         </div>
 
@@ -744,8 +736,8 @@
 
                                                         </div>
 
-                                                        <div class="table-responsive mb-3">
-                                                            <table class="table table-bordered ">
+                                                        <div class="table labertype mb-3">
+                                                            <table class="table">
                                                                 <thead>
                                                                     <tr>
                                                                         <th colspan="3" style="margin: 0px !important; padding: 3px 14px !important;">16. Labour Application Type</th>
@@ -866,34 +858,15 @@
                                                             </table>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex text-center">
-                                                            <div class="col-md-4">
-                                                                <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn  btn-info btn-lg" OnClick="btnApprvlsReq_Click"></asp:Button>
+                                                        <div class="col-md-12 d-flex mt-2" id="padding">
+                                                            <div class="col-md-2">
+                                                                <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="false"></asp:Button>
 
-                                                                <%--<a href="#basictab2">
-                                                            <button type="submit" class="btn btn-rounded btn-success1 btn-lg"><span class="spinner-border spinner-border-sm mr-2 mb-1" role="status"></span>Show Approvals Required</button></a>--%>
                                                             </div>
-                                                            <div class="col-md-4">
-                                                                <asp:Button ID="btnSave3" Text="Submit Questionnaire" runat="server" class="btn btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" />
+                                                            <div class="col-md-10 text-right">
+                                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" BackColor="#009999" Width="150px" />
+                                                                <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
 
-                                                                <%--<a href="#basictab2">
-                                                            <button type="submit" class="btn btn-rounded btn-success1 btn-lg"><span class="spinner-border spinner-border-sm mr-2 mb-1" role="status"></span>Submit Questionnaire</button></a>--%>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <asp:Button Text="Show Enclousers List" runat="server" ID="btnShowEncl" class="btn  btn-info btn-lg" OnClick="btnShowEncl_Click" />
-
-                                                                <%-- <a href="#basictab2">
-                                                            <button type="submit" class="btn btn-rounded btn-success2 btn-lg">Show Enclousers List</button></a>--%>
-                                                            </div>
-
-
-                                                        </div>
-                                                        <div class="col-md-12 d-flex mt-4">
-                                                            <div class="col-md-6">
-                                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn  btn-info btn-lg" OnClick="btnPreviuos3_Click" />
-
-                                                                <%--<a href="#basictab2" data-toggle="tab">
-                                                                        <button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button></a>--%>
                                                             </div>
 
                                                         </div>

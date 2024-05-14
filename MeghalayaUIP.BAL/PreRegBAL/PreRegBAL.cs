@@ -87,8 +87,13 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         public DataSet GetIndustryRegData(string userid)
         {
             return IRD.GetIndustryRegData(userid);
-        }        
-        
+        }
+
+        public DataTable GetIntentInvestDashBoard()//Need to be removed later
+        {
+            return IRD.GetIntentInvestDashBoard();
+        }
+
     }
 
 }

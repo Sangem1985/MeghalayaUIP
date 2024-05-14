@@ -41,7 +41,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 //@dob datetime,
                 //@Ipaddress varchar(50)
                 com.Parameters.AddWithValue("@Fullname", Userregdtls.Fullname);
-                com.Parameters.AddWithValue("@EntityName", "Test");
+                com.Parameters.AddWithValue("@EntityName", Userregdtls.CompanyName);
                 com.Parameters.AddWithValue("@emailid", Userregdtls.Email);
                 com.Parameters.AddWithValue("@mobile", Userregdtls.MobileNo);
                 com.Parameters.AddWithValue("@pwd", Userregdtls.Password);

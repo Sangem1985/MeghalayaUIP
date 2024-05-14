@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-    <title>Invset Meghalaya - Dashboard</title>
+    <title>Invest Meghalaya - Dashboard</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="shortcut icon" type="image/x-icon" href="../assets/admin/images/favicon.png">
@@ -55,12 +55,8 @@
 
                 <!-- Logo -->
                 <div class="header-left">
-                    <a href="~/dept/dashboard.aspx" class="logo">
-                        <img src="../../assets/admin/img/logo.png" alt="Logo">
-                    </a>
-                    <a href="../dept/dashboard.aspx" class="logo logo-small">
-                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
-                    </a>
+                    <br/>
+                    <asp:imagebutton runat="server" id="imgLogo" imageurl="~/assets/images/Logo.png" height="25px" width="200px" />
                 </div>
                 <!-- /Logo -->
 

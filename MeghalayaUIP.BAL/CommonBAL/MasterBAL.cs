@@ -78,6 +78,13 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetENTERPRISETYPE();
         }
-
+        public List<MasterENERGYLOAD> GetPowerEnergyLoad()
+        {
+            return objMasterDAL.GetPowerEnergyLoad();
+        }
+        public List<MasterVoltage> GetVoltageRange()
+        {
+            return objMasterDAL.GetVoltageRange();
+        }
     }
 }

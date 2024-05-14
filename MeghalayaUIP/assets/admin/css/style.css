@@ -5799,3 +5799,42 @@ button.btn.btn-rounded.btn-success1.btn-lg {
 	align-content: space-around;
 	padding-top: 2px;
 }
+.table.labertype.mb-3 table th {
+	background: white !important;
+	color: #000;
+}
+.table.labertype.mb-3 .table td, tr {
+	border: none !IMPORTANT;
+}
+
+.page-wrapper.griddashboard {
+	.card-counter.primarydashboard:hover
+
+{
+	box-shadow: 10px 12px 0px #ccc;
+}
+
+tr.linedisbale td {
+	border: 2px solid white;
+}
+
+.btn.btn-primary, .btn.btn-info, .btn.btn-success, .btn.btn-danger, .btn.btn-warning {
+	min-height: 42px !important;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	border-radius: 9px;
+	width: 100%;
+}
+
+th {
+	color: #fff;
+	background: purple !important;
+	border: 5px solid #fff !important;
+	text-align: center;
+	vertical-align:middle;
+}
+
+table.table.table-bordered td {
+	text-align: center;
+}
+}

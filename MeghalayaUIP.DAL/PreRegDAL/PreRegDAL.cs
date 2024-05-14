@@ -174,7 +174,9 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYREGTYPE",Convert.ToInt32( ID.RegistrationType));
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYREGNO", ID.RegistrationNo);
                 da.SelectCommand.Parameters.AddWithValue("@REP_DOORNO", ID.DoorNo);
-                da.SelectCommand.Parameters.AddWithValue("@BANKNAME", ID.BankName);
+                da.SelectCommand.Parameters.AddWithValue("@FRD_EQUITY", Convert.ToDecimal(ID.EquityAmount));
+                da.SelectCommand.Parameters.AddWithValue("@FRD_UNSECUREDLOAN", Convert.ToDecimal(ID.UnsecuredLoan));
+                da.SelectCommand.Parameters.AddWithValue("@FRD_INTERNALRESOURCE", Convert.ToDecimal(ID.InternalResources));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_UNNATI", Convert.ToDecimal(ID.UnnatiSchemeAmount));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_CENTRAL", Convert.ToDecimal(ID.CetralSchemeAmount));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_STATE", Convert.ToDecimal(ID.StateSchemeAmount));
@@ -917,6 +919,39 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 connection.Dispose();
             }
             return ds;
+        }
+
+        public DataTable GetIntentInvestDashBoard()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetIntentInvestdash, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetIntentInvestdash;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.Fill(dt);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return dt;
         }
 
     }

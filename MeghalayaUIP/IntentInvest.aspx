@@ -4,17 +4,35 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-    <section class="innerpages">
-        <div class="container">
+    <link rel="stylesheet" href="assets/admin/css/style.css">
+    <style>
+        
+        table#ContentPlaceHolder1_rblproposal label, table#ContentPlaceHolder1_rblInvestments label {
+    font-weight: 100;
+}
+        table#ContentPlaceHolder1_rblproposal tr td, table#ContentPlaceHolder1_rblInvestments tr td {
+    padding: 0px 10px;
+}
+        label.col-lg-6.col-form-label {
+    font-weight: 400;
+}
+        section.innerpages {
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+        .card-body {
+    background: #fff;
+}
+      .widget.link-widget ul {
+    width: 100% !important;
+}
+    </style>
+    <section class="innerpages IntentInvest">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Intent To Invest</li>
-                        </ol>
-                    </nav>
-                    <div class="page-wrapper">
+                 
+                    <div class="">
                         <div class="content container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
@@ -199,8 +217,12 @@
                                                 </div>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
+                                                      
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Project Category  *</label>
+                                                            <label class="col-lg-6 col-form-label">Project Category  * <img src="assets/assetsbeta/images/helpImage4.png" title="Micro - Investment in Plant and Machinery or Equipment does not exceed Rs 1 crore and annual turnover does not exceed Rs 5 crore. 
+Small - Investment in Plant and Machinery or Equipment does not exceed Rs 10 crore and annual turnover does not exceed Rs 50 crore. 
+Medium - Investment in Plant and Machinery or Equipment does not exceed Rs 50 crore and annual turnover does not exceed Rs 250 crore.
+Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores." height="12"></label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:DropDownList ID="ddlPCB" runat="server" class="form-control">
                                                                     <asp:ListItem Text="--Select--" Value="0" />
@@ -261,10 +283,10 @@
 
                                                 </div>--%>
                                                 <div class="col-md-12 d-flex">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-8">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Expectation/Support required from the State Govt</label>
-                                                            <div class="col-lg-2 d-flex">
+                                                            <div class="col-lg-4 d-flex">
                                                                 <asp:TextBox ID="txtExpectation" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                             </div>
                                                         </div>
@@ -273,14 +295,12 @@
                                                 </div>
 
 
-                                                <div class="col-md-12 d-flex mt-2">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 d-flex mt-4" style="margin-top: 17px !important;margin-bottom: 7px;">
+                                                    
+                                                    <div class="col-md-12 text-center">
+                                                        <asp:Button ID="BtnSave" runat="server" Text="Save" class="btn btn-info btn-lg" padding-right="10px" BackColor="Green" OnClick="BtnSave_Click" />
                                                     </div>
-                                                    <div class="col-md-6 text-right">
-                                                        <asp:Button ID="BtnSave" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" OnClick="BtnSave_Click" />
-                                                    </div>
-                                                     <div class="col-md-4">
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

@@ -28,7 +28,7 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";       
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
-
+        public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
     }
     public class IndustryDetails
     {
@@ -92,7 +92,9 @@ namespace MeghalayaUIP.Common
         public string CapitalSubsidy { get; set; }
         public string PromoterEquity { get; set; }
         public string LoanAmount { get; set; }
-        public string BankName { get; set; }
+        public string EquityAmount { get; set; }
+        public string UnsecuredLoan { get; set; }
+        public string InternalResources { get; set; }
         public string CetralSchemeAmount { get; set; }
         public string UnnatiSchemeAmount { get; set; }
         public string StateSchemeAmount { get; set; }

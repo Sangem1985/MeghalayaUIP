@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Invset Meghalaya - Dashboard</title>
+    <title>Invest Meghalaya - Dashboard</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="shortcut icon" type="image/x-icon" href="..assets/admin/images/favicon.png">
@@ -55,10 +55,26 @@
             <div class="header">
                 <!-- Logo -->
                 <div class="header-left">
-                    <br />
-                    <asp:ImageButton runat="server" ID="imgLogo" ImageUrl="~/assets/images/Logo.png" Height="25px" Width="200px" />
-
-
+                    <a href="dashboard.aspx" class="logo">
+                        <img src="../../assets/admin/img/logo.png" alt="Logo">
+                    </a>
+                    <a href="dashboard.aspx" class="logo logo-small">
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
+                        <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                    </a>
                 </div>
                 <!-- /Logo -->
 
@@ -91,12 +107,8 @@
                     <li class="nav-item dropdown has-arrow">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img">
-                                <asp:ImageButton runat="server" class="rounded-circle" ID="imgRndCrcle" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" alt="Ryan Taylor" />
-
-                                <%--  <img class="rounded-circle" src="../../assets/admin/img/profiles/avatar-01.jpg"
-                                    width="31" alt="Ryan Taylor">--%>
-
-                            </span>
+                                <img class="rounded-circle" src="../../assets/admin/img/profiles/avatar-01.jpg"
+                                    width="31" alt="Ryan Taylor"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="user-header">
@@ -133,18 +145,13 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                    <asp:LinkButton ID="linkuserdshbrd" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link">Dashboard <span class="sr-only">(current)</span></asp:LinkButton>
-                                    <%--<a runat="server" id="anchrDashboard" onclick="" class="nav-link" href="/User/Dashboard.aspx">Dashboard <span class="sr-only">(current)</span></a>--%>
+                                    <a class="nav-link" href="/User/Dashboard.aspx">Dashboard <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="linkIndReg" runat="server" OnClick="linkIndReg_Click" class="nav-link">Industry Registration <span class="sr-only">(current)</span></asp:LinkButton>
-
-                                    <%--<a class="nav-link" href="/User/PreReg/IndustryRegistration.aspx">Industry Registration</a>--%>
+                                    <a class="nav-link" href="/User/PreReg/IndustryRegistration.aspx">Industry Registration</a>
                                 </li>
-                                <li class="nav-item">
-                                    <asp:LinkButton ID="linkCFEDashbrd" runat="server" OnClick="linkCFEDashbrd_Click" class="nav-link">Pre-Establishment <span class="sr-only">(current)</span></asp:LinkButton>
-
-                                    <%--<a class="nav-link" href="/User/CFE/CFEUserDashboard.aspx">Pre-Establishment</a>--%>
+                                 <li class="nav-item">
+                                     <a class="nav-link" href="/User/CFE/CFEUserDashboard.aspx">Pre-Establishment</a>                                  
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Pre-Operational</a>

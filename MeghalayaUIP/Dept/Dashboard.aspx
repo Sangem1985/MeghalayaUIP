@@ -20,7 +20,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="IndustryRegistration_tabs.html">
+                                <a href="#">
                                     <div class="card-counter primarydashboard1">
                                         <i class="fi fi-rr-square-up-right"></i>
                                         <span class="count-numbers">CFE</span>
@@ -29,7 +29,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="IndustryRegistration_tabs.html">
+                                <a href="#">
                                     <div class="card-counter primarydashboard2">
                                         <i class="fi fi-rr-square-up-right"></i>
                                         <span class="count-numbers">CFO</span>
@@ -38,7 +38,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="IndustryRegistration_tabs.html">
+                                <a href="#">
                                     <div class="card-counter primarydashboard3">
                                         <i class="fi fi-rr-square-up-right"></i>
                                         <span class="count-numbers">Incentive</span>
