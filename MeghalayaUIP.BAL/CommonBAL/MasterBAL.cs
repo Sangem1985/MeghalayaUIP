@@ -63,9 +63,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public List<MasterIndustryType> GetIndustryTypeMaster()
         { return objMasterDAL.GetIndustryTypeMaster(); }
         public List<MasterCaste> GetCaste()
-        { return objMasterDAL.GetCaste();}
+        { return objMasterDAL.GetCaste(); }
         public List<MasterRegistrationType> GetRegistrationType()
-        { return objMasterDAL.GetRegistrationType();}
+        { return objMasterDAL.GetRegistrationType(); }
         public string InsertInvestment(InvtentInvest objInvest)
         {
             return objMasterDAL.InsertInvestment(objInvest);
@@ -85,6 +85,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public List<MasterVoltage> GetVoltageRange()
         {
             return objMasterDAL.GetVoltageRange();
+        }
+        public List<MasterForestDivision> GetForestDivision()
+        {
+            return objMasterDAL.GetForestDivision();
         }
     }
 }

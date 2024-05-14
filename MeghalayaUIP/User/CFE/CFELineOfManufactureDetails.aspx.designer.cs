@@ -96,6 +96,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtManfValue;
 
         /// <summary>
+        /// btnAddLOM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddLOM;
+
+        /// <summary>
         /// gvManufacture control.
         /// </summary>
         /// <remarks>
@@ -105,49 +114,49 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.GridView gvManufacture;
 
         /// <summary>
-        /// btnAddPromtr control.
+        /// txtRMItemName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPromtr;
+        protected global::System.Web.UI.WebControls.TextBox txtRMItemName;
 
         /// <summary>
-        /// txtMaterial control.
+        /// txtRMAnnualCapacity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMaterial;
+        protected global::System.Web.UI.WebControls.TextBox txtRMAnnualCapacity;
 
         /// <summary>
-        /// ddlPerQuantity control.
+        /// txtRMValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPerQuantity;
+        protected global::System.Web.UI.WebControls.TextBox txtRMValue;
 
         /// <summary>
-        /// txtquant control.
+        /// txtRMSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtquant;
+        protected global::System.Web.UI.WebControls.TextBox txtRMSource;
 
         /// <summary>
-        /// ddlinquantity control.
+        /// btnaddRM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlinquantity;
+        protected global::System.Web.UI.WebControls.Button btnaddRM;
 
         /// <summary>
         /// gvRwaMaterial control.
@@ -159,22 +168,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.GridView gvRwaMaterial;
 
         /// <summary>
-        /// btnadd control.
+        /// btnPrevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnadd;
-
-        /// <summary>
-        /// btnPreviuos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPreviuos;
+        protected global::System.Web.UI.WebControls.Button btnPrevious;
 
         /// <summary>
         /// btnSave control.

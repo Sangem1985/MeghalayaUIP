@@ -1,6 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.BAL.CommonBAL;
-using MeghalayaUIP.Common; 
+using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UNITID;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,11 +29,20 @@ namespace MeghalayaUIP.User.CFE
                 if (hdnUserID.Value == "")
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
+
                 }
-                Session["UNITID"] = "1";
-                UNITID = Convert.ToString(Session["UNITID"]);
+                if (Convert.ToString(Session["UNITID"]) != "")
+                {
+                    UnitID = Convert.ToString(Session["UNITID"]);
+                }
+                else
+                {
+                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
+
                 Failure.Visible = false;
                 success.Visible = false;
                 if (!IsPostBack)
@@ -44,55 +53,7 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
         }
-        protected void btnsave1_Click(object sender, EventArgs e)
-        {
-            String Quesstionriids = "1001";
-            string UnitId = "1";
-            try
-            {
-                string ErrorMsg = "", result = "";
-                ErrorMsg = Stepvalidations();
-                if (ErrorMsg == "")
-                {
-                    CFEPower objCFEPower = new CFEPower();
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    { objCFEPower.UNITID = Convert.ToString(ViewState["UnitID"]); }
-                    objCFEPower.CreatedBy = hdnUserID.Value;
-                    objCFEPower.IPAddress = getclientIP();
-                    objCFEPower.Questionnariid = Quesstionriids;
-                    objCFEPower.UnitId = UnitId;
-                    objCFEPower.Con_Load_HP = txtHP.Text;
-                    objCFEPower.Maximum_KVA = txtMaxDemand.Text;
-                    objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;
-                    objCFEPower.Existing_Service = ddlPermise.SelectedValue;
-                    objCFEPower.Per_Day = txtMaxhours.Text;
-                    objCFEPower.Per_Month = txtMonth.Text;
-                    objCFEPower.Expected_Month_Trial = txttrailProduct.Text;
-                    objCFEPower.Probable_Date_Power = txtPowersupply.Text;
-                    objCFEPower.Energy = txtenergy.Text;
-                    objCFEPower.loadEnergy = ddlloadenergy.SelectedValue;
-
-                    result = objcfebal.InsertCFEPowerDetails(objCFEPower);
-                    ViewState["UnitID"] = result;
-                    if (result != "")
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "POWER Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-                }
-                else
-                {
-                    string message = "alert('" + ErrorMsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
-            }
-            catch (Exception EX)
-            {
-                throw EX;
-            }
-        }
+       
         public string Stepvalidations()
         {
             try
@@ -133,7 +94,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetPowerDetailsRetrive(hdnUserID.Value, UNITID);
+                ds = objcfebal.GetPowerDetailsRetrive(hdnUserID.Value, UnitID);
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -230,6 +191,82 @@ namespace MeghalayaUIP.User.CFE
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFELabourDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            String Quesstionriids = "1001";
+            string UnitId = "1";
+            try
+            {
+                string ErrorMsg = "", result = "";
+                ErrorMsg = Stepvalidations();
+                if (ErrorMsg == "")
+                {
+                    CFEPower objCFEPower = new CFEPower();
+                    if (Convert.ToString(ViewState["UnitID"]) != "")
+                    { objCFEPower.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    objCFEPower.CreatedBy = hdnUserID.Value;
+                    objCFEPower.IPAddress = getclientIP();
+                    objCFEPower.Questionnariid = Quesstionriids;
+                    objCFEPower.UnitId = UnitId;
+                    objCFEPower.Con_Load_HP = txtHP.Text;
+                    objCFEPower.Maximum_KVA = txtMaxDemand.Text;
+                    objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;
+                    objCFEPower.Existing_Service = ddlPermise.SelectedValue;
+                    objCFEPower.Per_Day = txtMaxhours.Text;
+                    objCFEPower.Per_Month = txtMonth.Text;
+                    objCFEPower.Expected_Month_Trial = txttrailProduct.Text;
+                    objCFEPower.Probable_Date_Power = txtPowersupply.Text;
+                    objCFEPower.Energy = txtenergy.Text;
+                    objCFEPower.loadEnergy = ddlloadenergy.SelectedValue;
+
+                    result = objcfebal.InsertCFEPowerDetails(objCFEPower);
+                    ViewState["UnitID"] = result;
+                    if (result != "")
+                    {
+                        success.Visible = true;
+                        lblmsg.Text = "POWER Details Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception EX)
+            {
+                throw EX;
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEFireDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
             }
         }
     }

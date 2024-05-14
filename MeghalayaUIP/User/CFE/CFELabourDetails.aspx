@@ -13,15 +13,26 @@
                         </div>
                         <div class="card-body">
                             <!-- <h4 class="card-title">Personal Information</h4> -->
-
+                            <div class="col-md-12 d-flex">
+                                <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                    <strong>Warning!</strong>
+                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                            <asp:HiddenField ID="hdnUserID" runat="server" />
                             <div class="row">
 
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-12">
+                                    <div class="col-md-5">
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label fw-bold"><span style="font-weight: 900;">1. Category of Establishment</span></label>
+                                            <label class="col-lg-6 col-form-label fw-bold"><span style="font-weight: 900;">1. Category of Establishment</span></label>
                                             <div class="col-lg-6">
-                                                <asp:DropDownList ID="ddlCategory" runat="server">
+                                                <asp:DropDownList ID="ddlCategory" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />
                                                 </asp:DropDownList>
                                             </div>
@@ -315,7 +326,7 @@
                                 <div id="divfalse" runat="server" visible="false">
                                     <div runat="server" visible="false">
                                         <div class="col-md-12">
-                                            <p class="ml-2 text-info"><b>Note: If you are outside Telangana State, enter the address here</b></p>
+                                            <p class="ml-2 text-info"><b>Note: If you are outside Meghalaya State, enter the address here</b></p>
 
                                             <div class="form-group">
                                                 <label class="col-lg-6 col-form-label">Other State Address</label>
@@ -964,36 +975,11 @@
                                 </div>
 
                             </div>
+                            <div class="col-md-12 text-right">
 
-
-                            <div class="col-md-12 mt-4 d-flex text-center">
-                                <div class="col-md-3">
-                                    <a href="EntrepreneurDetails.html">
-                                        <button type="submit"
-                                            class="btn btn-rounded btn-success btn-lg">
-                                            previous</button></a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#basictab2">
-                                        <button type="submit"
-                                            class="btn btn-rounded btn-warning btn-lg">
-                                            Clear
-														all</button></a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#basictab2">
-                                        <button type="submit"
-                                            class="btn btn-rounded btn-primary btn-lg">
-                                            Save</button></a>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <a href="LineofManufacture.html">
-                                        <button type="submit"
-                                            class="btn btn-rounded btn-success btn-lg">
-                                            Next</button></a>
-                                </div>
-
+                                <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
+                                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
 
                             </div>
 

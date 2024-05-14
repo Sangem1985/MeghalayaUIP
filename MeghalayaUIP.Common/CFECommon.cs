@@ -10,13 +10,15 @@ namespace MeghalayaUIP.Common
     {
         public static string GetPREREGandCFEapplications = "USP_GETPREREGANDCFEUSERDASHBOARD";
         public static string GetCFERegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA";
-        public static string RetrieveQuestionnaire= "USP_RETRIEVECFEQUESFILLEDDATA";
+        public static string RetrieveQuestionnaire = "USP_RETRIEVECFEQUESFILLEDDATA";
         public static string GetCFEApprovalsReq = "USP_GETCFEAPPROVALSWITHFEE";
         public static string InsertCFEQuestionnaire = "USP_INSCFEQUESTIONNAREDETAILS";
         public static string InsertCFEQuestionnaireApprovals = "USP_INSCFEREQUIREDAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFEQUESTIONNAIREAPPROVALS";
         public static string InsertCFEDepartmentapprovals = "USP_INSCFEDEPARTMENTAPPROVALS";
-
+        public static string InsertCFEIndustryDetails = "USP_INSCFEINDUSTRYDETAILS";
+       
+        public static string GetRetriveFireDetails = "USP_GETRETRIVEFIRE";
         public static string GetEntrepreneurDet = "USP_GETCFEENTREPRENEURDATA";
         public static string InsertEntrepreneurDetails = "USP_INSCFEENTREPRENEURDETAILS";
         public static string GetSector_Department = "USP_GET_SECTOR_DEPT";
@@ -30,6 +32,8 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
         public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
         public static string GetRetriveIntentInvest = "USP_GETINTENTTOINVESTAPPLDETAILS";
+        public static string GetCFEIndustryDetails = "USP_GETCFEINDUSTRYDETAILS";
+        public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
     }
     public class CFEQuestionnaireDet
     {
@@ -104,12 +108,13 @@ namespace MeghalayaUIP.Common
         public string ContractLabourAct1970_Workers { get; set; }
 
     }
-   public class CFECommonDet
+    public class CFECommonDet
     {
         public string Questionnariid { get; set; }
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
         public string UNITID { get; set; }
+        public string PreRegUID { get; set; }
         public string CompanyName { get; set; }
         public string CompanyType { get; set; }
         public string CompanyPraposal { get; set; }
@@ -126,8 +131,11 @@ namespace MeghalayaUIP.Common
         public string AuthRep_DoorNo { get; set; }
         public string AuthRep_Locality { get; set; }
         public string AuthRep_DistrictID { get; set; }
+        public string AuthRep_DistrictName { get; set; }
         public string AuthRep_MandalID { get; set; }
-        public string AuthRep_VillageID { get; set; }       
+        public string AuthRep_MandalName { get; set; }
+        public string AuthRep_VillageID { get; set; }
+        public string AuthRep_VillageName { get; set; }
         public string AuthRep_Pincode { get; set; }
         public string AuthRep_Caste { get; set; }
         public string AuthRep_Minority { get; set; }
@@ -140,6 +148,9 @@ namespace MeghalayaUIP.Common
         public string Unit_DistrictID { get; set; }
         public string Unit_MandalID { get; set; }
         public string Unit_VillageID { get; set; }
+        public string Unit_DistrictName { get; set; }
+        public string Unit_MandalName { get; set; }
+        public string Unit_VillageName { get; set; }
         public string Unit_Pincode { get; set; }
         public string Unit_TelNo { get; set; }
         public string BuildingHeight { get; set; }
@@ -151,11 +162,25 @@ namespace MeghalayaUIP.Common
         public string ApprchRdWidth { get; set; }
         public string AffectedRdWdng { get; set; }
         public string AffectedRdWidth { get; set; }
+        public string TotalEmp { get; set; }
         public string DirectMale { get; set; }
         public string DirectFemale { get; set; }
-        public string TotalEmp { get; set; }
+        public string DirectOthers { get; set; }
         public string InDirectMale { get; set; }
         public string InDirectFemale { get; set; }
+        public string InDirectOthers { get; set; }
+
+        public string strctralLicNo { get; set; }
+        public string strctralMobileNo { get; set; }
+        public string strctralName { get; set; }
+        public string ArchitechtureName { get; set; }
+        public string ArchitechtureLICNo { get; set; }
+        public string ArchitechtureMobileNo { get; set; }
+        public string AffectedExtended { get; set; }
+        public string RoadCutLocation { get; set; }
+        public string RoadCut { get; set; }
+
+
     }
     public class CFEEntrepreneur
     {
@@ -381,8 +406,8 @@ namespace MeghalayaUIP.Common
         public string Expected_Month_Trial { get; set; }
         public string Probable_Date_Power { get; set; }
         public string Energy { get; set; }
-        public string loadEnergy { get; set; }       
-            
+        public string loadEnergy { get; set; }
+
     }
     public class CFEForest
     {
@@ -440,38 +465,40 @@ namespace MeghalayaUIP.Common
     }
     public class CFEFire
     {
-        public string Questionnariid { get; set; }
-        public string UnitId { get; set; }
-        public string CreatedBy { get; set; }
-        public string IPAddress { get; set; }
-        public string UNITID { get; set; }
-        public string DistricId { get; set; }
-        public string MandalId { get; set; }
-        public string VillageId { get; set; }
-        public string DistricName { get; set; }
-        public string MandalName { get; set; }
-        public string VillageName { get; set; }
-        public string Locality { get; set; }
-        public string Landmark { get; set; }
-        public string Pincode { get; set; }
-        public string HeightBuilding { get; set; }
-        public string HeightFloor { get; set; }
-        public string PlotArea { get; set; }
-        public string builoduparea { get; set; }
-        public string ProposedDrive { get; set; }
-        public string ExistingRoad { get; set; }
-        public string CategoryBuilding { get; set; }
-        public string FeeAmount { get; set; }
-        public string East { get; set; }
-        public string Distancebuild { get; set; }
-        public string West { get; set; }
-        public string Distanceproposed { get; set; }
-        public string North { get; set; }
-        public string Distancemeter { get; set; }
-        public string South { get; set; }
-        public string buildingdist { get; set; }
-        public string Firestation { get; set; }
-    }  
+       
+            public string Questionnariid { get; set; }
+            public string UnitId { get; set; }
+            public string CreatedBy { get; set; }
+            public string IPAddress { get; set; }
+            public string UNITID { get; set; }
+            public string DistricId { get; set; }
+            public string MandalId { get; set; }
+            public string VillageId { get; set; }
+            public string DistricName { get; set; }
+            public string MandalName { get; set; }
+            public string VillageName { get; set; }
+            public string Locality { get; set; }
+            public string Landmark { get; set; }
+            public string Pincode { get; set; }
+            public string HeightBuilding { get; set; }
+            public string HeightFloor { get; set; }
+            public string PlotArea { get; set; }
+            public string builoduparea { get; set; }
+            public string ProposedDrive { get; set; }
+            public string ExistingRoad { get; set; }
+            public string CategoryBuilding { get; set; }
+            public string FeeAmount { get; set; }
+            public string East { get; set; }
+            public string Distancebuild { get; set; }
+            public string West { get; set; }
+            public string Distanceproposed { get; set; }
+            public string North { get; set; }
+            public string Distancemeter { get; set; }
+            public string South { get; set; }
+            public string buildingdist { get; set; }
+            public string Firestation { get; set; }
+        
+    }
     public class Forest_Details
     {
         public string Questionnariid { get; set; }

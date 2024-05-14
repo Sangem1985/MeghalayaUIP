@@ -14,14 +14,42 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["UserInfo"] != null)
             {
-                BindDistric();
+                var ObjUserInfo = new UserInfo();
+                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                {
+                    ObjUserInfo = (UserInfo)Session["UserInfo"];
+                }
+                if (hdnUserID.Value == "")
+                {
+                    hdnUserID.Value = ObjUserInfo.Userid;
+
+                }
+                if (Convert.ToString(Session["UNITID"]) != "")
+                {
+                    UnitID = Convert.ToString(Session["UNITID"]);
+                }
+                else
+                {
+                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
+
+                Page.MaintainScrollPositionOnPostBack = true;
+
+                Failure.Visible = false;
+                success.Visible = false;
+                if (!IsPostBack)
+                {
+                    BindDistricts();
+                }
             }
         }
-        protected void BindDistric()
+        protected void BindDistricts()
         {
             try
             {
@@ -309,7 +337,6 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-
         protected void ddldist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -348,22 +375,7 @@ namespace MeghalayaUIP.User.CFE
 
         }
 
-        //protected void ddlAuthReprTaluka_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ddlAuthReprVillage.ClearSelection();
-        //        if (ddlAuthReprTaluka.SelectedItem.Text != "--Select--")
-        //        {
-        //            BindVillages(ddlAuthReprVillage, ddlAuthReprTaluka.SelectedValue);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
+        
         protected void ddlPropLocDist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -496,5 +508,35 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
     }
 }

@@ -33,7 +33,9 @@ namespace MeghalayaUIP.User.CFE
 
                 }
                 if (Convert.ToString(Session["UNITID"]) != "")
-                { UnitID = Convert.ToString(Session["UNITID"]); }
+                {
+                    UnitID = Convert.ToString(Session["UNITID"]);
+                }
                 else
                 {
                     string newurl = "~/User/CFE/CFEUserDashboard.aspx";
@@ -217,7 +219,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetEntrepreneurDetails(hdnUserID.Value, UnitID);
+                ds = objcfebal.GetCFEIndustryDetails(hdnUserID.Value, UnitID);
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
@@ -266,11 +268,14 @@ namespace MeghalayaUIP.User.CFE
                         rblAffectedroad_SelectedIndexChanged(null, EventArgs.Empty);
 
                         txtAffectedArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_AFFECTEDRDAREA"]);
+                        lbltotalEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_TOTALEMP"]);
                         txtMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DIRECTMALE"]);
                         txtFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DIRECTFEMALE"]);
-                        lbltotalEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_TOTALEMP"]);
+                        txtDirectOthers.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DIRECTOTHERS"]);
+
                         txtIndirectMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_INDIRECTMALE"]);
                         txtIndirectFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_INDIRECTFEMALE"]);
+                        txtInDirectOthers.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_INDIRECTOTHERS"]);
                         txtRdCutlenght.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLENGTH"]);
                         txtRdCutLocations.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLOCATIONS"]);
 
@@ -300,10 +305,6 @@ namespace MeghalayaUIP.User.CFE
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
-
-
-
-
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPEMP"]);
 
                         if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "Y")
@@ -405,83 +406,102 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Response.Redirect("~/User/CFE/CFECommonApplication.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            string Quesstionriids = "1001";
-            string UnitId = "1";
+
+
             try
             {
                 string ErrorMsg = "", result = "";
-                int TotEmp = Convert.ToInt32(txtMale.Text) + Convert.ToInt32(txtFemale.Text) + Convert.ToInt32(txtDirectOthers.Text) +
-                        Convert.ToInt32(txtIndirectMale.Text) + Convert.ToInt32(txtIndirectFemale.Text) + Convert.ToInt32(txtInDirectOthers.Text);
 
-                if (TotEmp != Convert.ToInt32(lbltotalEmp.Text))
-                {
-                    //Failure.Visible = true;
-                    //lblmsg0.Text = "Entered Eployee count should match with total Employee count";
-                    ErrorMsg = ErrorMsg + " Entered Eployee count should match with total Employee count";
-                    //return;
-                }
-                
+
                 ErrorMsg = Validations();
-                
+
                 if (ErrorMsg == "")
                 {
-                    CFEEntrepreneur objCFEEntrepreneur = new CFEEntrepreneur();
+                    int TotEmp = Convert.ToInt32(txtMale.Text) + Convert.ToInt32(txtFemale.Text) + Convert.ToInt32(txtDirectOthers.Text) +
+                        Convert.ToInt32(txtIndirectMale.Text) + Convert.ToInt32(txtIndirectFemale.Text) + Convert.ToInt32(txtInDirectOthers.Text);
+
+                    if (TotEmp != Convert.ToInt32(lbltotalEmp.Text))
+                    {
+                        Failure.Visible = true;
+                        lblmsg0.Text = "Entered Eployee count should match with total Employee count";
+                        return;
+                    }
+                    CFECommonDet objCFEComn = new CFECommonDet();
                     if (Convert.ToString(ViewState["UnitID"]) != "")
                     {
-                        objCFEEntrepreneur.UNITID = Convert.ToString(ViewState["UnitID"]);
+                        objCFEComn.UNITID = Convert.ToString(ViewState["UnitID"]);
                     }
-                    objCFEEntrepreneur.CreatedBy = hdnUserID.Value;
-                    objCFEEntrepreneur.IPAddress = getclientIP();
-                    objCFEEntrepreneur.Questionnariid = Quesstionriids;
-                    objCFEEntrepreneur.UNITID = UnitId;
-                    objCFEEntrepreneur.CompanyName = txtIndustryName.Text;
-                    objCFEEntrepreneur.PromoterName = txtPromoterName.Text;
-                    objCFEEntrepreneur.SoWoDoName = txtSoWoDo.Text;
+                    objCFEComn.CreatedBy = hdnUserID.Value;
+                    objCFEComn.PreRegUID = hdnPreRegUID.Value;
+                    objCFEComn.IPAddress = getclientIP();
+                    objCFEComn.UNITID = UnitID;
+                    objCFEComn.CompanyName = txtIndustryName.Text;
+                    objCFEComn.CompanyType = ddlCompanyType.SelectedValue;
+                    objCFEComn.CompanyPraposal = rblproposal.SelectedValue;
 
-                    objCFEEntrepreneur.DistrictID = ddlDistric.SelectedValue;
-                    objCFEEntrepreneur.DistrictName = ddlDistric.SelectedItem.Text;
-                    objCFEEntrepreneur.MandalID = ddlMandal.SelectedValue;
-                    objCFEEntrepreneur.MandalName = ddlMandal.SelectedItem.Text;
-                    objCFEEntrepreneur.VillageID = ddlVillage.SelectedValue;
-                    objCFEEntrepreneur.VillageName = ddlVillage.SelectedItem.Text;
-                    objCFEEntrepreneur.StreetName = txtLocality.Text;
-                    objCFEEntrepreneur.DoorNo = txtDoorNo.Text;
-                    objCFEEntrepreneur.Pincode = txtpincode.Text;
-                    objCFEEntrepreneur.MobileNo = txtMobileno.Text;
-                    objCFEEntrepreneur.AltMobileNo = txtAltMobile.Text;
-                    objCFEEntrepreneur.Email = txtEmail.Text;
-                    objCFEEntrepreneur.Organization = ddlCompanyType.SelectedValue;
-                    objCFEEntrepreneur.TelePhoneNo = txtLandlineno.Text;
-                    objCFEEntrepreneur.ProposalFor = rblproposal.SelectedValue;
+                    objCFEComn.CompanyRegType = ddlRegType.SelectedValue;
+                    objCFEComn.CompanyRegNo = txtRegistrationNo.Text;
+                    objCFEComn.CompanyRegDate = txtRegDate.Text;
+                    objCFEComn.FactoryType = ddlFactories.SelectedItem.Text;
 
-                    objCFEEntrepreneur.IsDiffAbled = rblAbled.SelectedValue;
-                    objCFEEntrepreneur.IsWomenEntr = rblWomen.SelectedValue;
+                    objCFEComn.AuthRep_Name = txtPromoterName.Text;
+                    objCFEComn.AuthRep_SoWoDo = txtSoWoDo.Text;
+                    objCFEComn.AuthRep_DistrictID = ddlDistric.SelectedValue;
+                    objCFEComn.AuthRep_MandalID = ddlMandal.SelectedValue;
+                    objCFEComn.AuthRep_VillageID = ddlVillage.SelectedValue;
+                    objCFEComn.AuthRep_Locality = txtLocality.Text;
+                    objCFEComn.AuthRep_DoorNo = txtDoorNo.Text;
+                    objCFEComn.AuthRep_Pincode = txtpincode.Text;
+                    objCFEComn.AuthRep_Mobile = txtMobileno.Text;
+                    objCFEComn.AuthRep_AltMobile = txtAltMobile.Text;
+                    objCFEComn.AuthRep_Email = txtEmail.Text;
+                    objCFEComn.AuthRep_TelNo = txtLandlineno.Text;
+                    objCFEComn.AuthRep_DiffAbled = rblAbled.SelectedValue;
+                    objCFEComn.AuthRep_Woman = rblWomen.SelectedValue;
+                    objCFEComn.TotalEmp = lbltotalEmp.Text;
+                    objCFEComn.DirectMale = txtMale.Text;
+                    objCFEComn.DirectFemale = txtFemale.Text;
+                    objCFEComn.DirectOthers = txtDirectOthers.Text;
+                    objCFEComn.InDirectMale = txtIndirectMale.Text;
+                    objCFEComn.InDirectFemale = txtIndirectFemale.Text;
+                    objCFEComn.InDirectOthers = txtInDirectOthers.Text;
 
-                    //objCFEEntrepreneur.LandValue = txtLandValue.Text;
-                    // objCFEEntrepreneur.BuildingValue = txtBuildingValue.Text;
-                    //objCFEEntrepreneur.Plant_Machinary = txtPlant_Machinery.Text;
-                    //objCFEEntrepreneur.TotalProjectValue = txtTotalProjValue.Text;
-                    objCFEEntrepreneur.DirectMale = txtMale.Text;
-                    objCFEEntrepreneur.DirectFemale = txtFemale.Text;
-                    objCFEEntrepreneur.TotalEmp = lbltotalEmp.Text;
-                    objCFEEntrepreneur.InDirectMale = txtIndirectMale.Text;
-                    objCFEEntrepreneur.InDirectFemale = txtIndirectFemale.Text;
-                    objCFEEntrepreneur.RegistrationType = ddlRegType.SelectedValue;
-                    objCFEEntrepreneur.RegistrationNo = txtRegistrationNo.Text;
-                    objCFEEntrepreneur.RegistrationDate = txtRegDate.Text;
-                    objCFEEntrepreneur.FactoryType = ddlFactories.SelectedValue;
 
-                    result = objcfebal.InsertEntrepreneurDet(objCFEEntrepreneur);
+                    objCFEComn.RoadCutLocation = txtRdCutLocations.Text;
+                    objCFEComn.ApprchRdWidth = txtExstngWidth.Text;
+                    objCFEComn.AffectedExtended = txtAffectedArea.Text;
+                    objCFEComn.AffectedRdWdng = rblAffectedroad.SelectedValue;
+                    objCFEComn.ApprchRdType = ddlApproachRoad.SelectedValue;
+                    objCFEComn.strctralLicNo = txtStrLicNo.Text;
+                    objCFEComn.strctralMobileNo = txtStrEngnrMobileno.Text;
+                    objCFEComn.strctralName = txtStrEngnrName.Text;
+                    objCFEComn.ArchitechtureMobileNo = txtArchitectMobileno.Text;
+                    objCFEComn.ArchitechtureName = txtArchitectName.Text;
+                    objCFEComn.ArchitechtureLICNo = txtArchitectLicNo.Text;
+                    objCFEComn.DevelopmentArea = txtDevelopmentArea.Text;
+
+                    objCFEComn.RoadCut = txtRdCutlenght.Text;
+                    objCFEComn.RoadCutLocation = txtRdCutLocations.Text;
+
+                    result = objcfebal.InsertCFEIndustryDetails(objCFEComn);
                     ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "Basic Details Submitted Successfully";
+                        lblmsg.Text = "All Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
