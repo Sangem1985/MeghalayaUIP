@@ -616,18 +616,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12 d-flex" id="eligible" runat="server" visible="false">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group row">
-                                                                <p style="color: red; font-family: sans-serif;">
-                                                                    <b>
-                                                                        <label class="col-lg-12 col-form-label text-center" id="lbleligibletext" runat="server">
-                                                                            Note:  Based on your input regarding Sector and year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
-However, you can register your unit to get required approvals/ clearances.</label></b>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Finance Revenue Details</span></label>
                                                     </div>
@@ -707,6 +696,19 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                                     <asp:TextBox runat="server" ID="txtcentral" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="col-md-12 d-flex" id="eligible" runat="server" visible="false">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <p style="color: red; font-family: sans-serif;">
+                                                                <b>
+                                                                    <label class="col-lg-12 col-form-label text-center" id="lbleligibletext" runat="server">
+                                                                        Note:  Based on your input regarding Sector and year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
+However, you can register your unit to get required approvals/ clearances.</label></b>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1041,7 +1043,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreview_Click" BackColor="#3333ff" Width="150px" />
                                                             <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </div>
 
                                             </div>

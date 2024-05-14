@@ -69,13 +69,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblCompanyPAN;
 
         /// <summary>
-        /// lblCompanyType control.
+        /// lblCompanyProposal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompanyType;
+        protected global::System.Web.UI.WebControls.Label lblCompanyProposal;
 
         /// <summary>
         /// lblregdate control.
@@ -103,6 +103,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGSTIN;
+
+        /// <summary>
+        /// lblcomptype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcomptype;
 
         /// <summary>
         /// lblName control.
@@ -177,6 +186,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblPincode;
 
         /// <summary>
+        /// lbldoorno_authrep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbldoorno_authrep;
+
+        /// <summary>
         /// lbldrno control.
         /// </summary>
         /// <remarks>
@@ -229,6 +247,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPro_Pin;
+
+        /// <summary>
+        /// lblisland control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblisland;
 
         /// <summary>
         /// lblDateofcomm control.
@@ -519,31 +546,94 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblWorkingCapital;
 
         /// <summary>
-        /// lblCapitalSubsidy control.
+        /// lblpromotndcont control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCapitalSubsidy;
+        protected global::System.Web.UI.WebControls.Label lblpromotndcont;
 
         /// <summary>
-        /// lblPromoterEquity control.
+        /// lblequityamount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPromoterEquity;
+        protected global::System.Web.UI.WebControls.Label lblequityamount;
 
         /// <summary>
-        /// lblLoan control.
+        /// lbltermloanworking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoan;
+        protected global::System.Web.UI.WebControls.Label lbltermloanworking;
+
+        /// <summary>
+        /// lblunsecuredloan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblunsecuredloan;
+
+        /// <summary>
+        /// lblinternalresources control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblinternalresources;
+
+        /// <summary>
+        /// lblstatescheme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblstatescheme;
+
+        /// <summary>
+        /// lblcapitalsubsidy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcapitalsubsidy;
+
+        /// <summary>
+        /// lblunnati control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblunnati;
+
+        /// <summary>
+        /// lblcentralscheme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcentralscheme;
+
+        /// <summary>
+        /// lblnote control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblnote;
 
         /// <summary>
         /// grdRevenueProj control.
