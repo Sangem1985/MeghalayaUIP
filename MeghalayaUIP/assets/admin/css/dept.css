@@ -995,3 +995,8 @@ i.fi {
     font-size: 18px;
 }
 }
+
+.bg-darkblue {
+    background: #3F51B5;
+    color: #fff;
+}

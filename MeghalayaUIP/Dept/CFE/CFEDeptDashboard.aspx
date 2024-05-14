@@ -19,17 +19,20 @@
         <div class="content container-fluid">
             <h4>Consent for Establishment</h4>
             <div class="card">
-
+                <button type="button" class="btn btn-primary">
+  Profile <span class="badge badge-light">9</span>
+  <span class="sr-only">unread messages</span>
+</button>
                 <section id="dashboardcount">
                     <div class="container-fluid">
                         <div class="row clearfix">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="card-header">
-                                    <h3 style="font-size: 26px;">Pre-Scrutiny Stage</h3>
+                                    <h3 style="font-size: 26px;margin-bottom: 18px;">Pre-Scrutiny Stage</h3>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="info-box bg-orange hover-expand-effect">
+                                <div class="info-box bg-darkblue hover-expand-effect" style="width: 65%;">
                                     <div class="icon">
                                         <h4>
                                             <asp:Label ID="lblTotalApp1" runat="server">10967</asp:Label>
@@ -105,7 +108,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-red hover-expand-effect">
+                                <div class="info-box bg-purple hover-expand-effect">
                                     <div class="icon">
                                         <h4>
                                             <asp:Label ID="Label5" runat="server">10</asp:Label>
@@ -377,7 +380,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-red hover-expand-effect">
+                                <div class="info-box bg-purple hover-expand-effect">
                                     <div class="icon">
                                         <h4>
                                             <asp:Label ID="Label20" runat="server">10</asp:Label>
