@@ -466,7 +466,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEEntrepreneurDetails.aspx");
+                Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx");
             }
             catch (Exception ex)
             {

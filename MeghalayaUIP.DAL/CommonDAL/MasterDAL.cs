@@ -628,6 +628,68 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstEnterpriseMstr;
         }
+
+        public List<MasterENERGYLOAD> GetPowerEnergyLoad()
+        {
+            List<MasterENERGYLOAD> lstENERGYMstr = new List<MasterENERGYLOAD>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetPOWERENERGYLOAD);
+                while (drOptions.Read())
+                {
+                    var ENERGY = new MasterENERGYLOAD()
+                    {
+
+                        ENERGYLOAD_ID = Convert.ToString(drOptions["ENERGYLOAD_ID"]),
+                        ENERGYLOAD_NAME = Convert.ToString(drOptions["ENERGYLOAD_NAME"])
+                    };
+                    lstENERGYMstr.Add(ENERGY);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstENERGYMstr;
+        }
+        public List<MasterVoltage> GetVoltageRange()
+        {
+            List<MasterVoltage> lstVOLTAGEMstr = new List<MasterVoltage>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetVoltages);
+                while (drOptions.Read())
+                {
+                    var VOLTAGE = new MasterVoltage()
+                    {
+                        VOLTAGEID = Convert.ToString(drOptions["VOLTAGEID"]),
+                        VOLTAGERANGE = Convert.ToString(drOptions["VOLTAGERANGE"])
+                    };
+                    lstVOLTAGEMstr.Add(VOLTAGE);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstVOLTAGEMstr;
+        }
         public string InsertInvestment(InvtentInvest objInvest)
         {
             string Result = "";

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div class="page-wrapper tabs">
+    <div class="page-wrapper tabs cfequestionnaire">
 
         <div class="content container-fluid">
             <section class="comp-section">
@@ -221,8 +221,8 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         13. Whether land purchased from MIDCL</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <div class="form-check form-check-inline">
-                                                                            <asp:RadioButtonList ID="rblMIDCL" runat="server" RepeatDirection="Horizontal">
+                                                                        <div class="form-check form-check-inline "> 
+                                                                            <asp:RadioButtonList ID="rblMIDCL" runat="server" RepeatDirection="Horizontal"  >
                                                                                 <asp:ListItem Text="Yes" Value="1" />
                                                                                 <asp:ListItem Text="No" Value="2" />
                                                                             </asp:RadioButtonList>
@@ -498,7 +498,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         2. Generator
 																		Requirement</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                                    <div class="col-lg-6 d-flex ">
                                                                         <asp:RadioButtonList ID="rblGenerator" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                                             <asp:ListItem Text="No" Value="N" />

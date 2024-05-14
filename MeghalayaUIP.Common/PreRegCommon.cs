@@ -28,7 +28,7 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";       
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
-
+        public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
     }
     public class IndustryDetails
     {
@@ -117,6 +117,7 @@ namespace MeghalayaUIP.Common
         public string Category { get; set; }
         public string QueryID { get; set; }
         public string QueryResponse { get; set; }
+        public string EligibleFlag { get; set; }
     }
     public class PromoterDetails
     {

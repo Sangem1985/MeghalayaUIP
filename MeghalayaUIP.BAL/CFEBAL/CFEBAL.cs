@@ -81,5 +81,13 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEFireDetails(ObjCCFEFireDetails);
         }
+        public DataSet GetPowerDetailsRetrive(string userid, string UNITID)
+        {
+            return objCFEDAL.GetPowerDetailsRetrive(userid, UNITID);
+        }
+        public DataSet getIntentInvestPrint(string ID)
+        {
+            return objCFEDAL.getIntentInvestPrint(ID); // Need to remove later
+        }
     }
 }

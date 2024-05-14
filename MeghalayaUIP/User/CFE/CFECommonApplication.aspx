@@ -124,36 +124,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 d-flex">
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <div class="col-lg-4 d-flex">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <div class="col-lg-4 d-flex">
-                                    <asp:Button ID="btnClear" runat="server" class="btn btn-rounded btn-info btn-lg" BackColor="Orange" Text="Clear" OnClick="btnClear_Click" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <div class="col-lg-4 d-flex">
-                                    <asp:Button ID="btnSubmit" runat="server" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Text="Submit" OnClick="btnSubmit_Click" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <div class="col-lg-4 d-flex">
-                                    <asp:Button ID="btnNext" runat="server" class="btn btn-rounded btn-info btn-lg" BackColor="Brown" Text="Next" OnClick="btnNext_Click" />
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-10 text-right">
+                        <asp:Button ID="btnClear" runat="server"  Text="Clear" OnClick="btnClear_Click" class="btn btn-rounded btn-info btn-lg"  BackColor="#009999" Width="150px"  />
+                        <asp:Button ID="btnSubmit" runat="server"   Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                        <asp:Button ID="btnNext" runat="server"   Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
 
-                        <div class="col-md-3"></div>
                     </div>
                 </div>
             </section>
