@@ -19,20 +19,20 @@
 									<thead>
 									  <tr>
 										<th scope="col">&nbsp;</th>
+										<th scope="col">Total Applications</th>
 										<th scope="col">Total Approved</th>
-										<th scope="col">Total Proceesd</th>
-										<th scope="col">Toatl Rejected</th>
-										<th scope="col">Query Raised</th>
+										<th scope="col">Total Rejected</th>
+										<th scope="col">Under Process</th>
 									  </tr>
 									</thead>
 									<tbody>
 										<tr style="border-bottom: 3px solid #fff !important;">
-										<th scope="row">Registration under  MIIPP 2024</th>
+										<th scope="row" style="width: 25%;">Registration under  MIIPP 2024</th>
 										<td><a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">10</a>
 										</td>
 										<td><a class="btn btn-info" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">5</a>
 										</td>
-										<td><a class="btn btn-danger" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
+										<td><a class="btn btn-orange" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
 										</td>
 										<td><a class="btn btn-warning" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">20</a>
 										</td>
@@ -81,7 +81,7 @@
 										</td>
 										<td><a class="btn btn-info" data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false" aria-controls="collapseExample">5</a>
 										</td>
-										<td><a class="btn btn-danger" data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
+										<td><a class="btn btn-orange" data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
 										</td>
 										<td><a class="btn btn-warning" data-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false" aria-controls="collapseExample">20</a>
 										</td>
@@ -129,7 +129,7 @@
 										</td>
 										<td><a class="btn btn-info" data-toggle="collapse" href="#collapseExample9" role="button" aria-expanded="false" aria-controls="collapseExample">5</a>
 										</td>
-										<td><a class="btn btn-danger" data-toggle="collapse" href="#collapseExample10" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
+										<td><a class="btn btn-orange" data-toggle="collapse" href="#collapseExample10" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
 										</td>
 										<td><a class="btn btn-warning" data-toggle="collapse" href="#collapseExample11" role="button" aria-expanded="false" aria-controls="collapseExample">20</a>
 										</td>
@@ -177,7 +177,7 @@
 										</td>
 										<td><a class="btn btn-info" data-toggle="collapse" href="#collapseExample13" role="button" aria-expanded="false" aria-controls="collapseExample">5</a>
 										</td>
-										<td><a class="btn btn-danger" data-toggle="collapse" href="#collapseExample14" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
+										<td><a class="btn btn-orange" data-toggle="collapse" href="#collapseExample14" role="button" aria-expanded="false" aria-controls="collapseExample">15</a>
 										</td>
 										<td><a class="btn btn-warning" data-toggle="collapse" href="#collapseExample15" role="button" aria-expanded="false" aria-controls="collapseExample">20</a>
 										</td>

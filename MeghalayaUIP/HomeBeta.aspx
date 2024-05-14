@@ -35,7 +35,9 @@
         .navbar-nav {
             float: right;
         }
-
+        i.fi.fi-br-envelope {
+    vertical-align: text-top;
+}
         .topbar {
             background: #131e4a;
             background-color: #4158D0;
@@ -580,7 +582,7 @@
             </section>
 
 
-            <section class="service-section section-padding" style="padding: 0px;">
+            <section class="service-section section-padding" style="padding: 8px 0px;">
                 <div class="container-fluid">
                     <div class="row">
                         <p class="text-center head1">Easy Process to Register your Business and Claim Incentives</p>
@@ -639,7 +641,10 @@
                             </div>
 
                         </div>
+                        
                         <div class="col col-md-12">
+                            <br />
+                        
                             <div class="col col-md-1">
                                 <div class="box"><i class="fi fi-tr-charging-station"></i></div>
                                 <p>
@@ -703,7 +708,7 @@
 
                                 <div class="col-md-12">
                                     <a href="login.aspx" target="_blank">
-                                        <h3><i class="fi fi-br-form"></i>Apply for Clearance/ approvals for your business</h3>
+                                        <h3><i class="fi fi-br-form"></i> Apply for Clearance/ approvals for your business</h3>
                                     </a>
 
 
@@ -715,7 +720,7 @@
 
                                 <div class="col-md-12">
                                     <a href="login.aspx" target="_blank">
-                                        <h3><i class="fi fi-br-track"></i>Track Application Status</h3>
+                                        <h3><i class="fi fi-br-track"></i> Track Application Status</h3>
                                     </a>
                                 </div>
                             </div>

@@ -533,9 +533,9 @@
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">
+                                                                 <label class="col-lg-6 col-form-label">
                                                                         5. Do you manufacture, store, sale, transport explosives</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                                    <div class="col-lg-6 d-flex radio">
                                                                         <asp:RadioButtonList ID="rblexplosives" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                                             <asp:ListItem Text="No" Value="N" />
