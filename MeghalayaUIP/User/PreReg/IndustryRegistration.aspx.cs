@@ -753,6 +753,14 @@ namespace MeghalayaUIP.User.PreReg
                     ID.DoorNo = txtAuthReprDoorNo.Text.Trim();
                     ID.RegistrationNo = txtUdyamorIEMNo.Text.Trim();
                     ID.RegistrationType = ddlRegType.SelectedValue;
+                    if(eligible.Visible==false)
+                    {
+                        ID.EligibleFlag = "Y";
+                    }
+                    else
+                    {
+                        ID.EligibleFlag = "N";
+                    }
                     try
                     {
                         DataTable dt = new DataTable();
