@@ -104,5 +104,19 @@ namespace MeghalayaUIP.User
             Response.Cookies.Clear();
             Request.Cookies.Clear();
         }
+        protected void linkuserdshbrd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Dashboard.aspx");
+        }
+        protected void linkIndReg_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/PreReg/IndustryRegistration.aspx");
+        }
+
+        protected void linkCFEDashbrd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/CFE/CFEUserDashboard.aspx");
+
+        }
     }
 }

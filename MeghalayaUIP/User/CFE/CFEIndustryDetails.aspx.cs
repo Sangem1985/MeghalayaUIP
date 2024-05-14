@@ -45,10 +45,8 @@ namespace MeghalayaUIP.User.CFE
                 if (!IsPostBack)
                 {
                     BindDistricts();
-
                     BindRegistrationType();
                     BindConstitutionType();
-                    TotalAmount();
                     BindData();
                 }
             }
@@ -372,8 +370,6 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-
-
         protected void rblAffectedroad_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -391,15 +387,9 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-        protected void txtIndirectMale_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
 
-        protected void txtIndirectFemale_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
+
+
         public void TotalAmount()
         {
             if (int.TryParse(txtMale.Text, out int maleCount) && int.TryParse(txtFemale.Text, out int femaleCount))
@@ -425,7 +415,19 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 string ErrorMsg = "", result = "";
+                int TotEmp = Convert.ToInt32(txtMale.Text) + Convert.ToInt32(txtFemale.Text) + Convert.ToInt32(txtDirectOthers.Text) +
+                        Convert.ToInt32(txtIndirectMale.Text) + Convert.ToInt32(txtIndirectFemale.Text) + Convert.ToInt32(txtInDirectOthers.Text);
+
+                if (TotEmp != Convert.ToInt32(lbltotalEmp.Text))
+                {
+                    //Failure.Visible = true;
+                    //lblmsg0.Text = "Entered Eployee count should match with total Employee count";
+                    ErrorMsg = ErrorMsg + " Entered Eployee count should match with total Employee count";
+                    //return;
+                }
+                
                 ErrorMsg = Validations();
+                
                 if (ErrorMsg == "")
                 {
                     CFEEntrepreneur objCFEEntrepreneur = new CFEEntrepreneur();
@@ -502,7 +504,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFELandDetails.aspx");
+                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
             }
             catch (Exception ex)
             {

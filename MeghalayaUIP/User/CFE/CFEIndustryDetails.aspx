@@ -575,7 +575,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">10. 	Affected in Road Widening*</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <div class="col-lg-6 d-flex radio">
                                                 <asp:RadioButtonList ID="rblAffectedroad" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAffectedroad_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -594,14 +594,15 @@
                                 </div>
 
                                 <h5 class="card-title ml-4">Employment Details: </h5>
-                                 <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 " >(Total Employee-Direct:</label>
-                                            <div >
-                                                <asp:Label ID="lbltotalEmp" runat="server" value="40"> </asp:Label> )
-                                            </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 ">(Total Employee-Direct:</label>
+                                        <div>
+                                            <asp:Label ID="lbltotalEmp" runat="server" value="40"> </asp:Label>
+                                            )
                                         </div>
                                     </div>
+                                </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
@@ -627,7 +628,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -656,7 +657,7 @@
                                     </div>
                                 </div>
 
-                                <h5 id="hdngRdCtng" visible="false" runat="server"  >Road Cutting Details</h5>
+                                <h5 id="hdngRdCtng" visible="false" runat="server">Road Cutting Details</h5>
                                 <div class="col-md-12 d-flex" id="divRDctng" runat="server" visible="false">
                                     <div class="col-md-4">
                                         <div class="form-group row">
@@ -677,14 +678,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 d-flex mt-2">
-                            <div class="col-md-6">
-                                <asp:Button Text="Previous" runat="server" ID="btnPrevious" class="btn  btn-info btn-lg" OnClick="btnPrevious_Click" />
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
-                                <asp:Button ID="btnNext" Text="Next" runat="server" class="btn  btn-info btn-lg" OnClick="btnNext_Click" />
-                            </div>
+                        <div class="col-md-12 text-right">
+                            <asp:Button Text="Previous" runat="server" ID="btnPrevious" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
+                            <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                            <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
+
                         </div>
                     </div>
                 </div>

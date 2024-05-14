@@ -498,7 +498,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         2. Generator
 																		Requirement</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                                    <div class="col-lg-6 d-flex ">
                                                                         <asp:RadioButtonList ID="rblGenerator" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                                             <asp:ListItem Text="No" Value="N" />
