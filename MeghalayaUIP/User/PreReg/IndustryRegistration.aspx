@@ -11,6 +11,14 @@
         span.icon3 {
             left: 485px !important;
         }
+
+        div#basictab2 input {
+            border: 1px solid #fff;
+        }
+
+        tr.GridviewScrollC1Item td, tr.GridviewScrollC1Item2 td {
+            padding: 2px 5px 2px 10px;
+        }
     </style>
     <div class="page-wrapper tabs">
 
@@ -611,7 +619,7 @@
                                                     <div class="col-md-12 d-flex" id="eligible" runat="server" visible="false">
                                                         <div class="col-md-12">
                                                             <div class="form-group row">
-                                                                <p style="color:red ;font-family: sans-serif;">
+                                                                <p style="color: red; font-family: sans-serif;">
                                                                     <b>
                                                                         <label class="col-lg-12 col-form-label text-center" id="lbleligibletext" runat="server">
                                                                             Note:  Based on your input regarding Sector and year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
@@ -642,7 +650,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Term Loan/Working</label>
+                                                                <label class="col-lg-6 col-form-label">Term/ Working loan</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" />
                                                                 </div>
@@ -739,7 +747,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                                         <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="left">
+                                                                <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="42%" HeaderStyle-HorizontalAlign="left">
                                                                     <ItemTemplate>
                                                                         <itemstyle horizontalalign="Center" />
                                                                         <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
@@ -1021,47 +1029,19 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                         </asp:GridView>
                                                     </div>
 
+                                                    <div class="col-md-12 d-flex mt-2" id="padding">
+                                                        <div class="col-md-2">
 
 
-                                                    <div class="col-md-12 mt-4 d-flex text-center">
-                                                        <div class="col-md-4">
+
+                                                            <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>--%>
                                                         </div>
-
-                                                        <div class="col-md-4">
-                                                            <%--<a href="#basictab2" data-toggle="tab">
-                                                                <button type="submit" class="btn btn-warning btn-lg">
-                                                                    <i class="fa fa-external-link" aria-hidden="true"></i>Clear All</button>
-                                                            </a>--%>
-                                                        </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-10 text-right">
                                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" BackColor="#009999" Width="150px" />
                                                             <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreview_Click" BackColor="#3333ff" Width="150px" />
                                                             <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
-                                                            <%-- <a href="index.html">
-                                                            <button type="submit"
-                                                                class="btn btn-rounded btn-primary btn-lg">
-                                                                <i
-                                                                    class="fa fa-floppy-o" aria-hidden="true"></i>
-                                                                Sumbit</button></a>--%>
                                                         </div>
-
-                                                        <!-- <div class="col-md-3">k
-																	<a href="LineofManufacture.html">
-																		<button type="submit"
-																			class="btn btn-rounded btn-success btn-lg"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Next</button></a>
-																</div> -->
-
-
-                                                    </div>
-
-                                                    <!-- <div class="col-md-12 d-flex mt-4" id="padding">
-															<div class="col-md-6">
-																<a href="#basictab2" data-toggle="tab"><button type="submit"
-																		class="btn btn-rounded btn-success btn-lg">Previous</button></a>
-															</div>
-															
-														</div> -->
-
+                                                    </div> 
                                                 </div>
 
                                             </div>

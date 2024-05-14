@@ -29,7 +29,9 @@ namespace MeghalayaUIP.Common
         public static string InsertInvestment = "USP_INSINTENTTOINVEST";
         public static string Getsector = "USP_GETSECTORS";
         public static string GetEnterpriseType = "USP_GETENTERPRISETYPE";
+        public static string GetPOWERENERGYLOAD = "USP_GET_POWERENERGYLOAD";
 
+        public static string GetVoltages = "USP_GETVOLTAGE";
 
     }
     public class MasterCountry
@@ -151,6 +153,16 @@ namespace MeghalayaUIP.Common
     {
         public string ENTERPRISETYPECODE { get; set; }
         public string ENTERPRISETYPE { get; set; }
+    }
+    public class MasterENERGYLOAD
+    {
+        public string ENERGYLOAD_ID { get; set; }
+        public string ENERGYLOAD_NAME { get; set; }
+    }
+    public class MasterVoltage
+    {
+        public string VOLTAGEID { get; set; }
+        public string VOLTAGERANGE { get; set; }
     }
     public class InvtentInvest
     {

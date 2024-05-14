@@ -28,6 +28,8 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEManufactureDetails = "USP_INSCFELINE_ACTIVITYDETAILS";
         public static string InsertCFERAWMaterialDetails = "USP_INSCFERAWMATERIALDETAILS";
         public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
+        public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
+        public static string GetRetriveIntentInvest = "USP_GETINTENTTOINVESTAPPLDETAILS";
     }
     public class CFEQuestionnaireDet
     {
@@ -378,6 +380,9 @@ namespace MeghalayaUIP.Common
         public string Per_Month { get; set; }
         public string Expected_Month_Trial { get; set; }
         public string Probable_Date_Power { get; set; }
+        public string Energy { get; set; }
+        public string loadEnergy { get; set; }       
+            
     }
     public class CFEForest
     {
@@ -466,6 +471,58 @@ namespace MeghalayaUIP.Common
         public string South { get; set; }
         public string buildingdist { get; set; }
         public string Firestation { get; set; }
+    }  
+    public class Forest_Details
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string Address { get; set; }
+        public string Lattitude { get; set; }
+
+        //   public string Degrees { get; set; }
+        // public string Minutes { get; set; }
+        //   public string Seconds { get; set; }
+        public string Logitude { get; set; }
+        //public string Degree { get; set; }
+        //public string Minute { get; set; }
+        //public string Second { get; set; }
+        public string GPSCoodinates { get; set; }
+        public string Application { get; set; }
+        public string Forest { get; set; }
+        public string information { get; set; }
+        public string Species { get; set; }
+        public string Est_Length_Timber { get; set; }
+        public string Est_Volume_Timber { get; set; }
+        public string Girth { get; set; }
+        public string Est_Firewood { get; set; }
+        public string No_Poles { get; set; }
+        public string North { get; set; }
+        public string East { get; set; }
+        public string West { get; set; }
+        public string South { get; set; }
+        public string Area_Land { get; set; }
+        public string Non_Forest_land_cet { get; set; }
+        public string Loc_Address_Land { get; set; }
+        public string State { get; set; }
+        public string District { get; set; }
+        public string Village { get; set; }
+        public string Pincode { get; set; }
+        public string Geographic_Land { get; set; }
+        public string ordinates_desc { get; set; }
+        public string Latitude { get; set; }
+        public string Degrees { get; set; }
+        public string Minutes { get; set; }
+        public string Seconds { get; set; }
+        public string Degree { get; set; }
+        public string Minute { get; set; }
+        public string Second { get; set; }
+        public string GPS_Coordinates { get; set; }
+        public string pur_Application { get; set; }
+        public string Forest_Division { get; set; }
+
     }
-    
+
 }

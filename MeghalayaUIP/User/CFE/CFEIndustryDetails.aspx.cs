@@ -45,10 +45,8 @@ namespace MeghalayaUIP.User.CFE
                 if (!IsPostBack)
                 {
                     BindDistricts();
-                    BindCaste();
                     BindRegistrationType();
                     BindConstitutionType();
-                    TotalAmount();
                     BindData();
                 }
             }
@@ -71,26 +69,16 @@ namespace MeghalayaUIP.User.CFE
                     ddlDistric.DataValueField = "DistrictId";
                     ddlDistric.DataTextField = "DistrictName";
                     ddlDistric.DataBind();
-
-                    ddlUnitDistrict.DataSource = objDistrictModel;
-                    ddlUnitDistrict.DataValueField = "DistrictId";
-                    ddlUnitDistrict.DataTextField = "DistrictName";
-                    ddlUnitDistrict.DataBind();
                 }
                 else
                 {
                     ddlDistric.DataSource = null;
                     ddlDistric.DataBind();
-                    ddlUnitDistrict.DataSource = null;
-                    ddlUnitDistrict.DataBind();
+
                 }
                 AddSelect(ddlDistric);
                 AddSelect(ddlMandal);
                 AddSelect(ddlVillage);
-                AddSelect(ddlUnitDistrict);
-                AddSelect(ddlUnitMandal);
-                AddSelect(ddlUnitVillage);
-
             }
             catch (Exception ex)
             {
@@ -166,33 +154,7 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        public void BindCaste()
-        {
-            try
-            {
-                ddlSocialStatus.Items.Clear();
 
-                List<MasterCaste> objCasteModel = new List<MasterCaste>();
-                objCasteModel = mstrBAL.GetCaste();
-                if (objCasteModel != null)
-                {
-                    ddlSocialStatus.DataSource = objCasteModel;
-                    ddlSocialStatus.DataValueField = "CASTEID";
-                    ddlSocialStatus.DataTextField = "CASTNAME";
-                    ddlSocialStatus.DataBind();
-                }
-                else
-                {
-                    ddlSocialStatus.DataSource = null;
-                    ddlSocialStatus.DataBind();
-                }
-                AddSelect(ddlSocialStatus);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         protected void BindConstitutionType()
         {
             try
@@ -260,13 +222,17 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        hdnPreRegUID.Value= Convert.ToString(ds.Tables[0].Rows[0]["CFEID_PREREGUIDNO"]);
+                        hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_PREREGUIDNO"]);
                         txtIndustryName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYNAME"]);
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYTYPE"]);
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGTYPE"]);
                         txtRegistrationNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGNO"]);
-                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGDATE"]);
+                        string date = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGDATE"]);
+                        date = "2024 - 01 - 01 00:00:00.000";
+                        DateTime FnlDt = Convert.ToDateTime(date);
+                        txtRegDate.Text = Convert.ToString(FnlDt);
+
                         ddlFactories.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_FACTORYTYPE"]);
 
                         txtPromoterName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]);
@@ -282,27 +248,12 @@ namespace MeghalayaUIP.User.CFE
                         ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPMANDALID"]);
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPVILLAGEID"]);
-                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]);                       
-                        ddlSocialStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPCASTE"]);
-                        rblMinority.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISMINORITY"]);
+                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]);
+
                         rblAbled.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISDIFFABLED"]);
-                        rblWomen.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISWOMANENTR"]);                        
-                        
-                        txtUnitLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITLOCATION"]);
-                        txtUnitDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITDOORNO"]);
-                        txtUnitLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITLOCALITY"]);
-                        ddlUnitDistrict.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITDISTRICTID"]);
-                        ddlUnitDistrict_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlUnitMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITMANDALID"]);
-                        ddlUnitMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlUnitVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITVILLAGEID"]);
-                        txtUnitPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITPINCODE"]);
-                        txtUnitLandlineno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_UNITTELPHNO"]);
-                        txtBuildingHeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_BUILDNGHT"]);
-                        txtBuiltUpArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_BUILTUPAREA"]);
-                        txtSiteArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_LANDEXTENT"]);
+                        rblWomen.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISWOMANENTR"]);
                         txtDevelopmentArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DEVELOPAREA"]);
-                       
+
                         txtArchitectName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_ARCHTCTNAME"]);
                         txtArchitectLicNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_ARCHTCTLICNO"]);
                         txtArchitectMobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_ARCHTCTMOBILE"]);
@@ -321,8 +272,8 @@ namespace MeghalayaUIP.User.CFE
                         txtIndirectMale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_INDIRECTMALE"]);
                         txtIndirectFemale.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_INDIRECTFEMALE"]);
                         txtRdCutlenght.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLENGTH"]);
-                        txtRdCutLocations.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLOCATIONS"]);                       
-                       
+                        txtRdCutLocations.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLOCATIONS"]);
+
                     }
                     else
                     {
@@ -332,8 +283,12 @@ namespace MeghalayaUIP.User.CFE
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGTYPE"]);
                         txtRegistrationNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
-                        txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGISTRATIONDATE"]);                      
-                                               
+                        string date = Convert.ToString(ds.Tables[1].Rows[0]["REGISTRATIONDATE"]);
+                        date = "2024 - 01 - 01 00:00:00.000";
+                        DateTime FnlDt = Convert.ToDateTime(date);
+                        txtRegDate.Text = Convert.ToString(FnlDt);
+                        //txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGISTRATIONDATE"]);                      
+
                         txtPromoterName.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_NAME"]);
                         txtEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_EMAIL"]);
                         txtMobileno.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MOBILE"]);
@@ -347,20 +302,10 @@ namespace MeghalayaUIP.User.CFE
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
 
 
-                        txtUnitLocation.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_UNTLOCATION"]);
-                        txtUnitDoorNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DOORNO"]);
-                        txtUnitLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_LOCALITY"]);
-                        ddlUnitDistrict.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]);
-                        ddlUnitDistrict_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlUnitMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_MANDALID"]);
-                        ddlUnitMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlUnitVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_VILLAGEID"]);
-                        txtUnitPincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["UNIT_PINCODE"]);
-                        txtBuildingHeight.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_BUILDINGHT"]);
-                        txtBuiltUpArea.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_BUILTUPAREA"]);
-                        txtSiteArea.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
+
+
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPEMP"]);
-                        
+
                         if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "Y")
                             ddlFactories.SelectedValue = "1";
                         else if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "N")
@@ -425,40 +370,6 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        protected void ddlUnitDistrict_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlUnitMandal.ClearSelection();
-                ddlUnitVillage.ClearSelection();
-                if (ddlUnitDistrict.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlUnitMandal, ddlUnitDistrict.SelectedValue);
-                }
-                else return;
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-            }
-        }
-
-        protected void ddlUnitMandal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlUnitVillage.ClearSelection();
-                if (ddlUnitMandal.SelectedItem.Text != "--Select--")
-                {
-                    BindVillages(ddlUnitVillage, ddlUnitMandal.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-            }
-        }
-
         protected void rblAffectedroad_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -476,15 +387,9 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-        protected void txtIndirectMale_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
 
-        protected void txtIndirectFemale_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
+
+
         public void TotalAmount()
         {
             if (int.TryParse(txtMale.Text, out int maleCount) && int.TryParse(txtFemale.Text, out int femaleCount))
@@ -510,7 +415,19 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 string ErrorMsg = "", result = "";
+                int TotEmp = Convert.ToInt32(txtMale.Text) + Convert.ToInt32(txtFemale.Text) + Convert.ToInt32(txtDirectOthers.Text) +
+                        Convert.ToInt32(txtIndirectMale.Text) + Convert.ToInt32(txtIndirectFemale.Text) + Convert.ToInt32(txtInDirectOthers.Text);
+
+                if (TotEmp != Convert.ToInt32(lbltotalEmp.Text))
+                {
+                    //Failure.Visible = true;
+                    //lblmsg0.Text = "Entered Eployee count should match with total Employee count";
+                    ErrorMsg = ErrorMsg + " Entered Eployee count should match with total Employee count";
+                    //return;
+                }
+                
                 ErrorMsg = Validations();
+                
                 if (ErrorMsg == "")
                 {
                     CFEEntrepreneur objCFEEntrepreneur = new CFEEntrepreneur();
@@ -541,10 +458,10 @@ namespace MeghalayaUIP.User.CFE
                     objCFEEntrepreneur.Organization = ddlCompanyType.SelectedValue;
                     objCFEEntrepreneur.TelePhoneNo = txtLandlineno.Text;
                     objCFEEntrepreneur.ProposalFor = rblproposal.SelectedValue;
-                    objCFEEntrepreneur.SocialStatus = ddlSocialStatus.SelectedValue;
+
                     objCFEEntrepreneur.IsDiffAbled = rblAbled.SelectedValue;
                     objCFEEntrepreneur.IsWomenEntr = rblWomen.SelectedValue;
-                    objCFEEntrepreneur.IsMinority = rblMinority.SelectedValue;
+
                     //objCFEEntrepreneur.LandValue = txtLandValue.Text;
                     // objCFEEntrepreneur.BuildingValue = txtBuildingValue.Text;
                     //objCFEEntrepreneur.Plant_Machinary = txtPlant_Machinery.Text;
@@ -587,7 +504,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFELandDetails.aspx");
+                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
             }
             catch (Exception ex)
             {
@@ -679,11 +596,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Proposal For \\n";
                     slno = slno + 1;
                 }
-                if (ddlSocialStatus.SelectedIndex == -1 || ddlSocialStatus.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Social Status \\n";
-                    slno = slno + 1;
-                }
+
                 if (rblAbled.SelectedIndex == -1 || rblAbled.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Differently Abled \\n";
@@ -694,11 +607,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select WOMEN \\n";
                     slno = slno + 1;
                 }
-                if (rblMinority.SelectedIndex == -1 || rblMinority.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Minority \\n";
-                    slno = slno + 1;
-                }
+
                 //if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Land Value in Lakh\\n";

@@ -497,6 +497,7 @@
     <Content Include="Dept\Dashboard.aspx" />
     <Content Include="Dept\Demo.aspx" />
     <Content Include="Dept\DeptDashboard.aspx" />
+    <Content Include="Dept\IntenttoInvestDashboard.aspx" />
     <Content Include="Dept\PreReg\demo.aspx" />
     <Content Include="Dept\PreReg\PreRegApplCommitteeDashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplCommitteeProcess.aspx" />
@@ -616,6 +617,13 @@
     </Compile>
     <Compile Include="Dept\DeptDashboard.aspx.designer.cs">
       <DependentUpon>DeptDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\IntenttoInvestDashboard.aspx.cs">
+      <DependentUpon>IntenttoInvestDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\IntenttoInvestDashboard.aspx.designer.cs">
+      <DependentUpon>IntenttoInvestDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\PreReg\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
