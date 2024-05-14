@@ -45,6 +45,7 @@
     <Compile Include="CFEDAL\CFEDAL.cs" />
     <Compile Include="CommonDAL\LoginDAL.cs" />
     <Compile Include="CommonDAL\MasterDAL.cs" />
+    <Compile Include="CommonDAL\MGCommonDAL.cs" />
     <Compile Include="CommonDAL\UserRegDAL.cs" />
     <Compile Include="PreRegDAL\PreRegDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

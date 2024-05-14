@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
@@ -306,8 +307,19 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -621,8 +633,19 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
 
@@ -634,8 +657,19 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
     }

@@ -1,17 +1,46 @@
-﻿using System;
+﻿using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.BAL.PreRegBAL;
+using MeghalayaUIP.Common;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace MeghalayaUIP.User
 {
     public partial class MainDashboard : System.Web.UI.Page
     {
+        MasterBAL mstrBAL = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
 
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        // txtPANno.Text = ObjUserInfo.PANno;
+                        unitname.InnerText = ObjUserInfo.EntityName;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                //Failure.Visible = true;
+                throw ex;
+            }
+        }
+        protected void RegistrationMIIPPTotal_Click(object sender, EventArgs e)
+        {
         }
     }
 }
