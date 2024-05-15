@@ -288,7 +288,7 @@ table.table td h2 span {
 }
 
 .table-hover tbody tr:hover {
-	background-color: #f7f7f7;
+	background-color: #00d0f105 !important;
 }
 
 .table-hover tbody tr:hover td {
@@ -5875,6 +5875,9 @@ th {
 table.table.table-bordered td {
 	text-align: center;
 }
+}
+table th, td {
+	text-align: center;
 }
 
 

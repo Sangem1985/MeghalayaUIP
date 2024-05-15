@@ -99,14 +99,16 @@ namespace MeghalayaUIP.User.CFE
                         btnApprvlsReq= (Button)e.Row.FindControl("btnCombndAppl");
                         btnApplstatus=(Button)e.Row.FindControl("btnApplStatus");
                         btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                        btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
                         btnApplstatus.Enabled = false; btnApplstatus.BackColor = System.Drawing.Color.LightGray; btnApplstatus.ForeColor = System.Drawing.Color.Red;
                     }
                     else
                     {
                         btnApply = (Button)e.Row.FindControl("btnApplyCFE");
                         btnApply.Enabled = false;
-                        btnApply.BackColor = System.Drawing.Color.LightGray; btnApply.ForeColor = System.Drawing.Color.Red;
+                        btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
+                        btnApply.Style.Add("border", "none");
+                        btnApply.Style.Add("color", "black");
                     }
                 }
             }

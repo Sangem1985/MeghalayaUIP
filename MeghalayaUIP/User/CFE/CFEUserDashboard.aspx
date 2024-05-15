@@ -25,11 +25,11 @@
 
                     <div class="col-md-12 d-flex">
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-striped table-hover" ForeColor="#333333"
                             GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                            <AlternatingRowStyle BackColor="LightGray" />
+                            <AlternatingRowStyle />
                             <Columns>
                                 <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                     <HeaderStyle HorizontalAlign="Center" />
