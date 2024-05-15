@@ -5562,8 +5562,45 @@ table.table-inbox tbody tr.checked {
 	}
 }
 
+input[type=radio] {
+	margin: 0px 5px;
+}
 
+.btn.btn-orange {
+	color: #fff;
+	background-color: #FF5722;
+	border: 1px solid #FF5722;
+	width: 100%;
+	border-radius: 8px;
+}
 
+.col-lg-6.d-flex.radio tr td {
+	padding: 2px 12px !important;
+	margin: 10px 0px !important;
+	display: contents;
+}
+.col-lg-6.d-flex.radio label {
+	display: inline-block;
+	margin: 2px 0px;
+	padding-right: 5px;
+}
+.datepicker-days th {
+	background: #fff !important;
+	color: #000 !important;
+}
+.datepicker-dropdown {
+	margin-top: 54px;
+}
+i.fi.fi-rr-calendar-lines {
+	position: absolute;
+	right: 29px;
+	top: 13px;
+	font-weight: 500;
+	font-size: 14px !important;
+}
+/*.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top {
+	top: 179px !important;
+}*/
 /* .btn-info {
 	background-image: linear-gradient(to right, #1e3c72 0%, #0b89a5  51%, #1e3c72  100%);
 	
@@ -5840,18 +5877,4 @@ table.table.table-bordered td {
 }
 }
 
-.col-lg-6.d-flex.radio tr td {
-	margin: 10px !important;
-	padding: 0px 10px !important;
-}
-input[type=radio] {
-	margin: 0px 5px;
-}
 
-.btn.btn-orange {
-	color: #fff;
-	background-color: #FF5722;
-	border: 1px solid #FF5722;
-	width: 100%;
-	border-radius: 8px;
-}

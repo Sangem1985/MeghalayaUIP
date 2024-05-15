@@ -114,10 +114,10 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Proposal *</label>
-                                                                <div class="col-lg-6 d-flex">
+                                                                <div class="col-lg-6 d-flex radio">
                                                                     <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Vertical" RepeatColumns="2">
-                                                                        <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
-                                                                        <asp:ListItem Value="New" Text="New" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
+                                                                        <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
 
 
@@ -160,7 +160,8 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" type="date" />
+                                                                    <asp:TextBox runat="server" ID="txtCompnyRegDt" class="date form-control" type="text" />
+                                                                    <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -262,12 +263,12 @@
                                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Location of Unit</span></label>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Is Land Required *</label>
-                                                                <div class="col-lg-6 d-flex">
+                                                                <label class="col-lg-4 col-form-label">Is Land Required *</label>
+                                                                <div class="col-lg-8 d-flex radio">
                                                                     <asp:RadioButtonList runat="server" ID="rblLandType" RepeatDirection="Horizontal">
-                                                                        <asp:ListItem Value="Own" Text="Own Land" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="Own" Text="Own Land"></asp:ListItem>
                                                                         <asp:ListItem Value="Required" Text="Required"></asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                 </div>
@@ -343,16 +344,17 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox type="date" runat="server" ID="txtDCPorOperation" class="form-control" />
+                                                                    <asp:TextBox runat="server" placeholder="dd-mm-yyyy" name="datefile" ID="txtDCPorOperation" class="date form-control" type="text" />
+                                                                    <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-5 col-form-label">Nature of Activity*</label>
-                                                                <div class="col-lg-7 d-flex">
+                                                                <label class="col-lg-4 col-form-label">Nature of Activity*</label>
+                                                                <div class="col-lg-6 d-flex">
                                                                     <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblNatureofActvty_SelectedIndexChanged">
-                                                                        <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Text="Manufacturing" Value="Manufacturing"></asp:ListItem>
                                                                         <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                     <%-- <asp:TextBox runat="server" ID="txtNatureofActivity" class="form-control" />--%>
