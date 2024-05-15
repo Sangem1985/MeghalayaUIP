@@ -7611,3 +7611,9 @@ section.about-us-section3 h3 {
 i.fi.fi-br-search {
     padding: 0px 9px;
 }
+
+section.about-us-section3 h3 {
+    text-align: center !important;
+    display: block !important;
+    margin-left: 0px !important;
+}

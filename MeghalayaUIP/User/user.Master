@@ -97,7 +97,7 @@
                     <li class="nav-item dropdown has-arrow">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img">
-                                <asp:ImageButton runat="server" ID="Imagebutton1" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" />
+                                <asp:ImageButton runat="server" ID="Imagebutton1" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="avatar-img rounded-circle" />
                             </span>
                         </a>
                         <div class="dropdown-menu">

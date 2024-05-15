@@ -5881,3 +5881,211 @@ table th, td {
 }
 
 
+.page-wrapper.griddesignmulticount {
+	.card-header
+
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.card-counter.primarydashboard:hover {
+	box-shadow: 10px 12px 0px #ccc;
+}
+
+tr.linedisbale td {
+}
+
+.btn.btn-primary, .btn.btn-info, .btn.btn-success, .btn.btn-danger, .btn.btn-warning {
+	min-height: 42px !important;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	border-radius: 4px;
+	width: 100%;
+}
+
+th {
+	color: #fff;
+	background: purple;
+	text-align: center;
+}
+
+table.table.table-bordered td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.table.table-bordered th {
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+tr.linedisbale td {
+	border: 2px solid #ccc;
+	margin-top: 7px !important;
+}
+
+div#collapseExample .card {
+	border: 1px solid #fff;
+	margin-bottom: 0px;
+	box-shadow: 0px 0px 1px 1px #ccc;
+	margin-top: -4px;
+}
+
+table.table.table-bordered td {
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 10px !important;
+	padding: 0px !important;
+	border: 2px solid #fff;
+}
+
+.table-hover tbody tr:hover {
+	background-color: #e9ddff !important;
+}
+
+.table-responsive.under {
+	.table-responsive
+
+{
+	white-space: nowrap;
+}
+
+.table-responsive {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.table-bordered {
+	border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.table {
+	color: #333;
+	max-width: 100%;
+	margin-bottom: 0;
+	width: 100%;
+}
+
+.mb-0, .my-0 {
+	margin-bottom: 0 !important;
+}
+
+.table thead {
+	background-color: #f8f9fa;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+	.table thead tr th {
+		font-weight: 600;
+		border: 0;
+		color: #081a7c;
+		text-shadow: 1px 2px 3px #ccc;
+		background: none !important;
+	}
+
+.table-bordered thead td, .table-bordered thead th {
+	border-bottom-width: 2px;
+}
+
+.table thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.table td, .table th {
+	padding: .75rem;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+	background: none !important;
+}
+
+th {
+	text-align: inherit;
+}
+
+.table tbody tr {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.table-bordered th, .table-bordered td {
+	border-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-bordered td, .table-bordered th {
+	border: 1px solid #dee2e6;
+}
+
+.table td, .table th {
+	padding: .75rem;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+}
+
+.table td, .table th {
+	padding: .75rem !important;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+}
+
+}
+
+.card.card-body th {
+	background-color: #f8f9fa;
+	color: #046dab;
+}
+
+td span {
+	padding: 10px 25px;
+	background: #02b702;
+	border-radius: 12px 5px;
+	width: 20% !important;
+	height: 21px;
+	color: #fff;
+	box-shadow: 0px 14.5714px 6px rgb(7 88 106 / 2%), 0px 8.57143px 5.14286px rgba(7, 150, 182, 0.08), 0px 3.42857px 3.42857px rgb(7 150 182 / 22%), 0px 0.857143px 1.71429px rgb(154 159 161 / 90%), 0px 0px 0px rgb(15 190 229 / 96%);
+	font-size: 18px;
+	font-weight: 900;
+}
+
+	td span:hover {
+		border-radius: 2px 12px;
+	}
+
+span.status {
+	background: #00a152;
+}
+
+span.status1 {
+	background: #b26500;
+}
+
+span.status2 {
+	background-color: #b2102f;
+}
+
+span.status3 {
+	background-color: #9500ae;
+}
+
+tr.head {
+	/* background: #009efb !important; */
+	color: #fff !important;
+	font-weight: 900;
+	background-color: #0093E9;
+	background-image: linear-gradient(125deg, #673ab7 1%, #00BCD4 10%, #01bcd4 20%);
+}
+
+span.status4 {
+	border-radius: .75rem;
+	background-image: linear-gradient(195deg, #49a3f1, #1a73e8);
+	color: #fff;
+}
+
+td.count {
+	font-weight: 900;
+	color: darkblue;
+}
+}
