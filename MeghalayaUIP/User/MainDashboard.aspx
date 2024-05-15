@@ -27,7 +27,7 @@
                                 <tbody>
                                     <tr style="border-bottom: 3px solid #fff !important;">
                                         <th scope="row" style="width: 25%;">Registration under  MIIPP 2024</th>
-                                        <td><a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="RegistrationMIIPPTotal" onclick="RegistrationMIIPPTotal_Click"></a>
+                                        <td><a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="RegistrationMIIPPTotal" onclick="RegistrationMIIPPTotal_Click">10</a>
                                         </td>
                                         <td><a class="btn btn-info" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">5</a>
                                         </td>
@@ -62,14 +62,6 @@
                                                             <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                                             <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                                             <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-
-                                                            <asp:TemplateField HeaderText="Queries Count" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton ID="lnkQueryCount" runat="server" Text='<%#Eval("QUERYCOUNT")%>' OnClick="lnkQueryCount_Click" ForeColor="Red" Font-Underline="true"></asp:LinkButton>
-                                                                    <%--PostBackUrl='<%#Eval("INVESTERID","QueryResponse.aspx?Appid={0}")%>'--%>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
                                                             <asp:BoundField HeaderText="Status Description" DataField="statusdescription" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                                         </Columns>
                                                     </asp:GridView>
