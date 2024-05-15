@@ -74,6 +74,7 @@
     <Content Include="assets\admin\css\bootstrap.min.css" />
     <Content Include="assets\admin\css\dashboard.css" />
     <Content Include="assets\admin\css\dept.css" />
+    <Content Include="assets\admin\css\deptdashbaords.css" />
     <Content Include="assets\admin\css\feathericon.min.css" />
     <Content Include="assets\admin\css\font-awesome.min.css" />
     <Content Include="assets\admin\css\menustyle.css" />
