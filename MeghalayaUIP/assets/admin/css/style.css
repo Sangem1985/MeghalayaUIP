@@ -6089,3 +6089,30 @@ td.count {
 	color: darkblue;
 }
 }
+	/*Css created by kalyan disbale purpose*/
+input:disabled, select:disabled, input[type=radio]:disabled {
+	border: 1px solid #767575b5;
+	box-shadow: none;
+	height: 35px !important;
+	display: block;
+	width: 100%;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	border-radius: .25rem;
+	background: #e7e7e7d4;
+}
+span.aspNetDisabled {
+	display: inline-flex;
+	align-content: flex-start;
+	justify-content: space-evenly;
+	align-items: center;
+}
+input[type=submit]:disabled {
+	display: inline;
+	height: 49px !important;
+	border-radius: 50px;
+	background: #ccc !important;
+	font-weight: 600;
+}
