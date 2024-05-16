@@ -44,15 +44,26 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEDepartmentApprovals(objCFEQsnaire);
         }
-        public string InsertCFEIndustryDetails(CFECommonDet objCFEEntrepreneur)
-        {
-            return objCFEDAL.InsertCFEIndustryDetails(objCFEEntrepreneur);
-        }
         public DataSet GetCFEIndustryDetails(string userid, string UnitID)
         {
             return objCFEDAL.GetCFEIndustryDetails(userid, UnitID);
         }
-       
+        public string InsertCFEIndustryDetails(CFECommonDet objCFEEntrepreneur)
+        {
+            return objCFEDAL.InsertCFEIndustryDetails(objCFEEntrepreneur);
+        }
+        public DataSet GetCFELOMandRMDetails(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFELOMandRMDetails(userid, UnitID);
+        }
+        public string InsertCFELineofManf(CFELineOfManuf objCFEManufacture)
+        {
+            return objCFEDAL.InsertCFELineofManf(objCFEManufacture);
+        }
+        public string InsertCFERawMaterial(CFELineOfManuf objCFEManufacture)
+        {
+            return objCFEDAL.InsertCFERawMaterial(objCFEManufacture);
+        }
         public string InsertEntrepreneurDet(CFEEntrepreneur objCFEEntrepreneur)
         {
             return objCFEDAL.InsertEntrepreneurDet(objCFEEntrepreneur);
@@ -77,14 +88,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEPowerDetails(objCFEPower);
         }
-        public string GetInsertManufacture(CFELineOfManuf objCFEManufacture)
-        {
-            return objCFEDAL.GetInsertManufacture(objCFEManufacture);
-        }
-        public string GetInsertCFERawMaterial(CFELineOfManuf objCFEManufacture)
-        {
-            return objCFEDAL.GetInsertCFERawMaterial(objCFEManufacture);
-        }
+
         public string InsertCFEFireDetails(CFEFire ObjCCFEFireDetails)
         {
             return objCFEDAL.InsertCFEFireDetails(ObjCCFEFireDetails);
@@ -104,6 +108,14 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public DataSet GetForestRetrive(string userid, string UNITID)
         {
             return objCFEDAL.GetForestRetrive(userid, UNITID);
+        }
+        public DataSet GetPaymentAmounttoPay(string userid, string UNITID)
+        {
+            return objCFEDAL.GetPaymentAmounttoPay(userid, UNITID);
+        }
+        public string InsertPaymentDetails(CFEPayments objpay)
+        {
+            return objCFEDAL.InsertPaymentDetails(objpay);
         }
     }
 }

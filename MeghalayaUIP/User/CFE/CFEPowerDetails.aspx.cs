@@ -47,7 +47,7 @@ namespace MeghalayaUIP.User.CFE
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                    BindData();
+                    BindVoltages();
                     BindENERGYLOAD();
                     BINDDATA();
                 }
@@ -165,7 +165,7 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
             }
         }
-        public void BindData()
+        public void BindVoltages()
         {
             try
             {
@@ -209,8 +209,8 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1";
+            
+          
             try
             {
                 string ErrorMsg = "", result = "";
@@ -222,8 +222,8 @@ namespace MeghalayaUIP.User.CFE
                     { objCFEPower.UNITID = Convert.ToString(ViewState["UnitID"]); }
                     objCFEPower.CreatedBy = hdnUserID.Value;
                     objCFEPower.IPAddress = getclientIP();
-                    objCFEPower.Questionnariid = Quesstionriids;
-                    objCFEPower.UnitId = UnitId;
+                    objCFEPower.Questionnariid = "106";
+                    objCFEPower.UnitId = Convert.ToString(Session["UNITID"]);
                     objCFEPower.Con_Load_HP = txtHP.Text;
                     objCFEPower.Maximum_KVA = txtMaxDemand.Text;
                     objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;

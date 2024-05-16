@@ -161,15 +161,7 @@ namespace MeghalayaUIP.User.PreReg
                             txtcentral.Text= Convert.ToString(ds.Tables[0].Rows[0]["FRD_CENTRAL"]);
                         }
                     }
-                    //if (ds.Tables.Count > 1)
-                    //{
-                    //    //ViewState["MRPID"].ToString();
-                    //    //DataTable dt = jrresult                       
-
-                    //    grdRevenueProj.Visible = true;
-                    //    grdRevenueProj.DataSource = ds.Tables[0];
-                    //    grdRevenueProj.DataBind();
-                    //}
+                   
                 }
 
 

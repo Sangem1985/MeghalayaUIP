@@ -78,6 +78,24 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtspecies;
 
         /// <summary>
+        /// txtfathername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtfathername;
+
+        /// <summary>
+        /// txtbirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbirth;
+
+        /// <summary>
         /// txtmobileno control.
         /// </summary>
         /// <remarks>
@@ -94,15 +112,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtemailid;
-
-        /// <summary>
-        /// txtfathername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfathername;
 
         /// <summary>
         /// txtdoorno control.
@@ -157,15 +166,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox6;
-
-        /// <summary>
-        /// txtbirth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbirth;
 
         /// <summary>
         /// txtname1 control.
@@ -267,51 +267,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlPropLocVillage;
 
         /// <summary>
-        /// txtNameEmployer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNameEmployer;
-
-        /// <summary>
-        /// txtlocality2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlocality2;
-
-        /// <summary>
-        /// ddlApplDist control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlApplDist;
-
-        /// <summary>
-        /// ddlApplTaluka control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlApplTaluka;
-
-        /// <summary>
-        /// ddlApplVillage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlApplVillage;
-
-        /// <summary>
         /// TXTPIN control.
         /// </summary>
         /// <remarks>
@@ -384,13 +339,22 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtPincode1;
 
         /// <summary>
-        /// TextBox40 control.
+        /// txtnames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox40;
+        protected global::System.Web.UI.WebControls.TextBox txtnames;
+
+        /// <summary>
+        /// TextBox4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
 
         /// <summary>
         /// TextBox1 control.
@@ -402,49 +366,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
-        /// ddlDistricdist control.
+        /// TextBox5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDistricdist;
-
-        /// <summary>
-        /// ddlMandalmand control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMandalmand;
-
-        /// <summary>
-        /// ddlvillagevill control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlvillagevill;
-
-        /// <summary>
-        /// TextBox2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-
-        /// <summary>
-        /// txtnames control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnames;
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
 
         /// <summary>
         /// TextBox3 control.
@@ -463,15 +391,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-
-        /// <summary>
-        /// TextBox4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
 
         /// <summary>
         /// txtDoor1 control.
@@ -526,15 +445,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtpincode;
-
-        /// <summary>
-        /// TextBox5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
 
         /// <summary>
         /// txtComencedate control.

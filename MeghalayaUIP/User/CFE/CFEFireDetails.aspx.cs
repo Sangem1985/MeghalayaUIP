@@ -260,11 +260,11 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Existing or proposed Approach Road \\n";
                     slno = slno + 1;
                 }
-                if (ddlbuilding.SelectedIndex == -1 || ddlbuilding.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Category of Building \\n";
-                    slno = slno + 1;
-                }
+                //if (ddlbuilding.SelectedIndex == -1 || ddlbuilding.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Category of Building \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Fee amount RS \\n";
@@ -426,7 +426,7 @@ namespace MeghalayaUIP.User.CFE
         protected void btnSave_Click(object sender, EventArgs e)
         {
             String Quesstionriids = "1001";
-            string UnitId = "1";
+          
             try
             {
 
@@ -435,12 +435,12 @@ namespace MeghalayaUIP.User.CFE
                 if (ErrorMsg == "")
                 {
                     CFEFire ObjCCFEFireDetails = new CFEFire();
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    { ObjCCFEFireDetails.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                 
+                    ObjCCFEFireDetails.UNITID = Convert.ToString(Session["UNITID"]); 
                     ObjCCFEFireDetails.CreatedBy = hdnUserID.Value;
                     ObjCCFEFireDetails.IPAddress = getclientIP();
                     ObjCCFEFireDetails.Questionnariid = Quesstionriids;
-                    ObjCCFEFireDetails.UnitId = UnitId;
+                    ObjCCFEFireDetails.UnitId = Convert.ToString(Session["UNITID"]);
                     ObjCCFEFireDetails.DistricId = ddldistric.SelectedValue;
                     ObjCCFEFireDetails.MandalId = ddlmandal.SelectedValue;
                     ObjCCFEFireDetails.VillageId = ddlvillage.SelectedValue;
@@ -467,8 +467,6 @@ namespace MeghalayaUIP.User.CFE
                     ObjCCFEFireDetails.South = txtsouth.Text;
                     ObjCCFEFireDetails.buildingdist = txtdistancebuild.Text;
                     ObjCCFEFireDetails.Firestation = txtstation.Text;
-
-
 
                     result = objcfebal.InsertCFEFireDetails(ObjCCFEFireDetails);
                     ViewState["UnitID"] = result;

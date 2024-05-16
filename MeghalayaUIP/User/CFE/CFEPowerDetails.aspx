@@ -32,10 +32,10 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">1	Connected Load in HP*</label>
+                                            <label class="col-lg-6 col-form-label">1	Connected Load in KW*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtHP" runat="server" class="form-control"></asp:TextBox>
-                                                <span class="form-text text-muted mt-2 ml-2">HP</span>
+                                                <span class="form-text text-muted mt-2 ml-2"></span>
                                                 <!-- <span class="mt-2">HP</span> -->
                                             </div>
                                         </div>
