@@ -13,5 +13,86 @@ namespace MeghalayaUIP.Dept.CFE
 
     public partial class CFEDeptDashboard
     {
+
+        /// <summary>
+        /// lblTOTALAPPLICATIONS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTOTALAPPLICATIONS;
+
+        /// <summary>
+        /// lblPRESCRUTINYCOMPLETED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPRESCRUTINYCOMPLETED;
+
+        /// <summary>
+        /// lblPREREJECTED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPREREJECTED;
+
+        /// <summary>
+        /// lblPRESCRUTINYPENDING control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPRESCRUTINYPENDING;
+
+        /// <summary>
+        /// lblADDITIONALPAYMENTRAISED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblADDITIONALPAYMENTRAISED;
+
+        /// <summary>
+        /// lblQUERYPENDING control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQUERYPENDING;
+
+        /// <summary>
+        /// lblTOTALAPPROVALISSUED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTOTALAPPROVALISSUED;
+
+        /// <summary>
+        /// lblREJECTED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblREJECTED;
+
+        /// <summary>
+        /// lblAPPROVALPENDING control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAPPROVALPENDING;
     }
 }

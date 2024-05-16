@@ -117,5 +117,16 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertPaymentDetails(objpay);
         }
+
+        //------------------DEPARTMENT STARTED HERE ---------------------------------//
+
+        public DataTable GetCFEDashBoard(CFEDtls objCFE)
+        {
+            return objCFEDAL.GetCFEDashBoard(objCFE);
+        }
+        public DataTable GetCFEDashBoardView(CFEDtls objCFE)
+        {
+            return objCFEDAL.GetCFEDashBoardView(objCFE);
+        }
     }
 }
