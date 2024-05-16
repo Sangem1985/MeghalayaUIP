@@ -60,9 +60,9 @@
                                                             <asp:Label ID="lblCompanyPAN" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>Company Praposal For :</label>
+                                                            <label>Company Proposal For :</label>
 
-                                                            <asp:Label ID="lblCompanyType" runat="server"></asp:Label>
+                                                            <asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
@@ -81,6 +81,14 @@
 
                                                             <asp:Label ID="lblGSTIN" runat="server"></asp:Label>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="col-md-4">
+                                                            <label>Company Type:</label>
+
+                                                            <asp:Label ID="lblcomptype" runat="server"></asp:Label>
+                                                        </div>
+
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
@@ -160,15 +168,25 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
+                                                        <div class="col-md-3">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-4 col-form-label">Door No :</label>
+                                                                <div class="col-lg-8 d-flex">
+                                                                    <asp:Label ID="lbldoorno_authrep" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label ">
                                                             <span
-                                                                style="font-weight: 600; font-size: 20px;">Proposed Location of Unit</span></label>
+                                                                style="font-weight: 600; font-size: 20px;">Location of Unit</span></label>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-3">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Door No. :</label>
+                                                                    Door No :</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lbldrno" runat="server"></asp:Label>
                                                                 </div>
@@ -225,6 +243,15 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">
+                                                                    Is Land Required :</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:Label ID="lblisland" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">
@@ -235,7 +262,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Date of Commencement of Production/Operation* :</label>
+                                                                    Date of Commencement of Production/Operation :</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lblDateofcomm" runat="server"></asp:Label>
                                                                 </div>
@@ -244,7 +271,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Nature of Activity* :</label>
+                                                                    Nature of Activity :</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lblNatureofAct" runat="server"></asp:Label>
                                                                 </div>
@@ -342,7 +369,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Main Raw-Materials
+                                                                    Main Raw-Materials :
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lblmainRM" runat="server"></asp:Label>
@@ -355,7 +382,7 @@
                                                                 <label class="col-lg-6 col-form-label">
                                                                     Details of Waste
 																			/ Effluent to be
-																			generated</label>
+																			generated :</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lblwastedtls" runat="server"></asp:Label>
                                                                 </div>
@@ -366,7 +393,7 @@
                                                                 <label class="col-lg-6 col-form-label">
                                                                     Details of
 																			Hazardous Waste to be
-																			generated</label>
+																			generated :</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lblhazdtls" runat="server"></asp:Label>
                                                                 </div>
@@ -377,7 +404,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Civil Construction* :</label>
+                                                                    Civil Construction :</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lblcivilConstr" runat="server"></asp:Label>
                                                                 </div>
@@ -386,7 +413,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Land*(in Sq.ft)</label>
+                                                                    Land (in Sq.ft)</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lbllandArea" runat="server"></asp:Label>
                                                                 </div>
@@ -484,7 +511,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
                                                                     Building / Shed
-																			(INR)</label>
+																			(INR) :</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label ID="lblBuldingValue" runat="server"></asp:Label>
                                                                 </div>
@@ -545,11 +572,9 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-8 col-form-label">
-                                                                    Capital Subsidy/
-																			Benefit from
-																			UNNATI/ other Central / State Scheme (INR)</label>
+                                                                    Promoter's and Contributors (INR) :</label>
                                                                 <div class="col-lg-4 d-flex">
-                                                                    <asp:Label ID="lblCapitalSubsidy" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblpromotndcont" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -558,23 +583,103 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Promoter’s Equity
-																			(INR)</label>
+                                                                    Equity Amount
+																			(INR) :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lblPromoterEquity" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblequityamount" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    Loan
-																			(INR)</label>
+                                                                    Term Loan/Working
+																			(INR) :</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Label ID="lblLoan" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lbltermloanworking" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-8 col-form-label">
+                                                                    Unsecured Loan (INR) :</label>
+                                                                <div class="col-lg-4 d-flex">
+                                                                    <asp:Label ID="lblunsecuredloan" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">
+                                                                    Internal Resources
+																			(INR) :</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:Label ID="lblinternalresources" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">
+                                                                    State Scheme (INR) :</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:Label ID="lblstatescheme" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-8 col-form-label">
+                                                                    Capital Subsidy (INR) :</label>
+                                                                <div class="col-lg-4 d-flex">
+                                                                    <asp:Label ID="lblcapitalsubsidy" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">
+                                                                    Benifit from UNNATI
+																			(INR) :</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:Label ID="lblunnati" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">
+                                                                    Central Scheme
+																			(INR) :</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:Label ID="lblcentralscheme" runat="server"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12 d-flex">
+                                                                    <p style="color: red; font-family: sans-serif;">
+                                                                        <b>
+                                                                            <asp:Label ID="lblnote" runat="server" Visible="false">Note: Based on your input regarding Sector and year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
+However, you can register your unit to get required approvals/ clearances.</asp:Label></b>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div> 
+
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold">

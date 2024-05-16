@@ -45,6 +45,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CommonBAL\LoginBAL.cs" />
     <Compile Include="CommonBAL\MasterBAL.cs" />
+    <Compile Include="CommonBAL\MGCommonBAL.cs" />
     <Compile Include="PreRegBAL\PreRegBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -180,7 +180,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@FRD_UNNATI", Convert.ToDecimal(ID.UnnatiSchemeAmount));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_CENTRAL", Convert.ToDecimal(ID.CetralSchemeAmount));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_STATE", Convert.ToDecimal(ID.StateSchemeAmount));
-                da.SelectCommand.Parameters.AddWithValue("@ELIGIBLE_FLAG", Convert.ToDecimal(ID.EligibleFlag));                 
+                da.SelectCommand.Parameters.AddWithValue("@ELIGIBLE_FLAG", ID.EligibleFlag);                 
 
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)

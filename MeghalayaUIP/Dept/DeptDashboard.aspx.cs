@@ -20,7 +20,14 @@ namespace MeghalayaUIP.Dept
                 {
                     ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                 }
-                // username = ObjUserInfo.UserName;
+                if (ObjUserInfo.Roleid == "1")
+                {
+                    intenttoinvest.Visible = true;
+                }
+                else
+                {
+                    intenttoinvest.Visible = false;
+                }
             }
             else
             { Response.Redirect("~/DeptLogin.aspx"); }
@@ -29,7 +36,7 @@ namespace MeghalayaUIP.Dept
         }
 
         protected void linkPreReg_Click(object sender, EventArgs e)
-        { 
+        {
             if (ObjUserInfo.Roleid == "4")
             {
                 string url = "~/Dept/PreReg/PreRegApplDeptDashBoard.aspx";

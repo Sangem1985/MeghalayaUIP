@@ -585,9 +585,8 @@
             <section class="service-section section-padding" style="padding: 8px 0px;">
                 <div class="container-fluid">
                     <div class="row">
-                        <p class="text-center head1">Easy Process to Register your Business and Claim Incentives</p>
-                        <img src="assets/assetsbeta/images/flowprocess4.png" style="width: 100%;" />
-
+                        <p class="text-center head1">Easy Process to Register your Business and Claim Incentives</p> 
+                         <img src="assets/assetsbeta/images/flowprocess4.png" style="width: 100%;" />
                     </div>
                 </div>
             </section>
@@ -708,7 +707,7 @@
 
                                 <div class="col-md-12">
                                     <a href="login.aspx" target="_blank">
-                                        <h3><i class="fi fi-br-form"></i> Apply for Clearance/ approvals for your business</h3>
+                                        <h3><i class="fi fi-br-form"></i> Apply for Clearance/<br /> approvals for your business</h3>
                                     </a>
 
 
@@ -720,7 +719,7 @@
 
                                 <div class="col-md-12">
                                     <a href="login.aspx" target="_blank">
-                                        <h3><i class="fi fi-br-track"></i> Track Application Status</h3>
+                                        <h3><i class="fi fi-br-search"></i> Track Application Status</h3>
                                     </a>
                                 </div>
                             </div>

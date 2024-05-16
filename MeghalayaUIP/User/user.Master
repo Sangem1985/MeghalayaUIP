@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="../assets/admin/css/menustyle.css">
     <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet" />
+	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
         .card-counter.primarydashboard {
             margin: 10px;
@@ -95,7 +97,7 @@
                     <li class="nav-item dropdown has-arrow">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img">
-                                <asp:ImageButton runat="server" ID="Imagebutton1" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" />
+                                <asp:ImageButton runat="server" ID="Imagebutton1" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="avatar-img rounded-circle" />
                             </span>
                         </a>
                         <div class="dropdown-menu">
@@ -249,6 +251,17 @@
                 if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
                 return i;
             }
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"> </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script>
+        <script>
+
+            $(".date").datepicker({
+                format: "dd-mm-yyyy",
+            });
+
+            $('.date').datepicker('setDate', new Date());
+
         </script>
     </form>
 </body>

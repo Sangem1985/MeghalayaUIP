@@ -3,418 +3,393 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .box {
-            padding: 3px;
-            border: 1px solid #673AB7;
-            border-radius: 8px;
-        }
-
-        .col-lg-2.col-md-2.col-sm-6.col-xs-12 {
-            max-width: 20% !important;
-            min-width: 20% !important;
-        }
-    </style>
-    <div class="page-wrapper CFEdeptdashboard">
+    <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
+    <div class="page-wrapper">
         <div class="content container-fluid">
-            <h4>Consent for Establishment</h4>
             <div class="card">
-
-                <section id="dashboardcount">
-                    <div class="container-fluid">
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="card-header">
-                                    <h3 style="font-size: 26px;">Pre-Scrutiny Stage</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="info-box bg-orange hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblTotalApp1" runat="server">10967</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">No of Application Received</a>
-                                        </div>
-                                        <div style="font-size: 12px;"></div>
-                                        <i class="fi fi-tr-memo-circle-check"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </section>
-                <%-- </div>
-                <div class="card">--%>
                 <div class="card-header">
-                    <h3>Pre-Scrutiny-Completed</h3>
+                    <h3>Pre-Scrutiny Stage</h3>
                 </div>
-                <section id="dashboardcount4">
+                <section id="dashboardcount1">
                     <div class="container-fluid">
-                        <div class="row clearfix">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-pink hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label1" runat="server">99</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">With in 3 Days</a>
+                        <div class="row">
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                           <i class="fi fi-rr-file-download"></i>
                                         </div>
-                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Stage</p>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">No. of Applications Recevied</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-cyan hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label2" runat="server">2</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Beyond 3 Days</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                           <i class="fi fi-rr-search-alt"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Completed</p>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">With in 3 Days <br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-yellow hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label3" runat="server">10099</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Total</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-file-circle-info"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Completed</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Beyond 3 Days<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-red hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label5" runat="server">10</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">No of Applications Rejected</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                           <i class="fi fi-rr-memo-circle-check"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Completed</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Total Applications<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-orange hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label6" runat="server">100</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">No of Approvals Awaiting Payment
-                                            </a>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-vote-nay"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Completed</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">No. of Applications Rejected</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-pending"></i>
+                                        </div>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Completed</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Approvals Awaiting Payment</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
-                </section>
-                <%--</div>
-                <div class="card">--%>
-                <div class="card-header">
-                    <h3>Pre-Scrutiny-Pending</h3>
-                </div>
-                <section id="dashboardcount4">
-                    <div class="container-fluid">
-                        <div class="row clearfix">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-pink hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label4" runat="server">99</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">With in 3 Days</a>
+                        <br />
+                        
+                        <div class="row">
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4"></div>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                           <i class="fi fi-rr-search-alt"></i>
                                         </div>
-                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Pending</p>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">With in 3 Days<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-cyan hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label7" runat="server">2</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Beyond 3 Days</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-file-circle-info"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Pending</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Beyond 3 Days<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-blue hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label8" runat="server">10099</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Today Last Day</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-file-import"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Pending</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Today Last Day<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-yellow hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label9" runat="server">10</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Total</a>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-memo-circle-check"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Pending</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Total Applications<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-orange hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label10" runat="server">100</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">No of Applications Awaiting Query Response</a>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-pending"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Pending</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Applications Awaiting Query Response</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </section>
             </div>
-
-           <%-- <div class="card">
-                <div class="card-header" style="padding-top: 23px;">
-                                    <h3 style="font-size: 26px;"></h3>
-                                </div>
-                
-                </div>--%>
-                <div class="card">
+            <%--*************************************--%>
+             <div class="card">
                 <div class="card-header">
-                    <h3 style="font-size: 26px;margin-bottom: 10px;">Approval Stages</h3>
+                    <h3>Approval Stages</h3>
                 </div>
-                <section id="dashboardcount4">
-                    <div class="card-header">
-                    <h3>Approval UnderProcess</h3>
-                </div>
+                <section id="dashboardcount1">
                     <div class="container-fluid">
-                        <div class="row clearfix">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-pink hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label12" runat="server">99</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">With in Time Limits</a>
+                        <div class="row">
+                           
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                           <i class="fi fi-rr-search-alt"></i>
                                         </div>
-                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Under Process</p>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">With in 3 Days<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-cyan hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label13" runat="server">2</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Beyond Time Limits</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-file-circle-info"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Under Process</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Beyond 3 Days<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-blue hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label14" runat="server">10099</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Today Last Day</a>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-file-import"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Under Process</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Today Last Day<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-yellow hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label15" runat="server">10</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Total</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                           <i class="fi fi-rr-memo-circle-check"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Under Process</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Total Applications<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
                             
+                            
                         </div>
-
-
-                    </div>
-                </section>
-                <%--</div>
-                <div class="card">--%>
-                <div class="card-header">
-                    <h3>Approval Issued</h3>
-                </div>
-                <section id="dashboardcount4">
-                    <div class="container-fluid">
-                        <div class="row clearfix">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-pink hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label17" runat="server">99</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">With in Time Limits</a>
+                        <br />
+                        
+                        <div class="row">
+                            
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                           <i class="fi fi-rr-search-alt"></i>
                                         </div>
-                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">With in 3 Days<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-cyan hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label18" runat="server">2</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Beyond Time Limits</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-file-circle-info"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Beyond 3 Days<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-yellow hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label19" runat="server">10099</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">Total</a>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-memo-circle-check"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Total Applications<br />&nbsp;</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="info-box bg-red hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label20" runat="server">10</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">No of Applications Rejected</a>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-vote-nay"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                           <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">No. of Applications Rejected</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-orange hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="Label21" runat="server">100</asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="#" style="color: white">No of Applications Appeal against Rejection</a>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <div class="card-header p-3 pt-2">
+                                        <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                            <i class="fi fi-rr-vote-nay"></i>
                                         </div>
-
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="text-end pt-1">
+                                            <h4 class="mb-0">10</h4>
+                                            <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
+                                        </div>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer p-3">
+                                        <p class="mb-0">Applications Appeal Against Rejection</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </section>
             </div>
+
         </div>
     </div>
+   
 				
 </asp:Content>
