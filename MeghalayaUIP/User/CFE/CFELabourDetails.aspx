@@ -56,6 +56,25 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Father's Name</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtfathername" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label ">Age</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtbirth" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Mobile No.*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtmobileno" runat="server" class="form-control"></asp:TextBox>
@@ -70,16 +89,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Father's Name</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtfathername" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Door No. *</label>
@@ -88,6 +97,10 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                </div>
+
+                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Locality *</label>
@@ -96,9 +109,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">District *</label>
@@ -119,6 +129,9 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                </div>
+                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Village *</label>
@@ -129,8 +142,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Pincode *</label>
@@ -139,14 +150,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label fw-bold">Date of birth (in case of individuals)</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtbirth" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
 
 
@@ -257,63 +261,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Details of the Principal Employer</span></label>
-
-
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Name of Principal Employer*</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtNameEmployer" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Door No & Locality *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtlocality2" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">District *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlApplDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApplDist_SelectedIndexChanged">
-                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Mandal *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlApplTaluka" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApplTaluka_SelectedIndexChanged">
-                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                </asp:DropDownList>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Village *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlApplVillage" class="form-control">
-                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Pin Code *</label>
@@ -323,7 +270,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="divfalse" runat="server" visible="false">
+
+
+
+
+                                <div id="divfalse" runat="server" visible="true">
                                     <div runat="server" visible="false">
                                         <div class="col-md-12">
                                             <p class="ml-2 text-info"><b>Note: If you are outside Meghalaya State, enter the address here</b></p>
@@ -408,62 +359,9 @@
                                     </div>
 
 
-                                    <div class="col-md-12 d-flex">
-                                        <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">8. Name and address of the Director / Partners (in case of companies/firm)</span></label>
 
 
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Full Name *</label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="TextBox40" runat="server" class="form-control"></asp:TextBox>
-                                                    <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">District *</label>
-                                                <div class="col-lg-6">
-                                                    <asp:DropDownList ID="ddlDistricdist" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistricdist_SelectedIndexChanged">
-                                                        <asp:ListItem Text="--Select--" Value="0" />
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Mandal *</label>
-                                                <div class="col-lg-6">
-                                                    <asp:DropDownList ID="ddlMandalmand" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandalmand_SelectedIndexChanged">
-                                                        <asp:ListItem Text="--Select--" Value="0" />
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Village *</label>
-                                                <div class="col-lg-6">
-                                                    <asp:DropDownList ID="ddlvillagevill" runat="server" class="form-control" AutoPostBack="true">
-                                                        <asp:ListItem Text="--Select--" Value="0" />
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Door No *</label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                     <div class="col-md-12 d-flex">
                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">9. Full name and Address of the Manager or person responsible for the Supervision and control of the Establishment</span></label>
@@ -476,6 +374,33 @@
                                                 <label class="col-lg-6 col-form-label">Name*</label>
                                                 <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtnames" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Father's Name</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Age *</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 d-flex">
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Designation *</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -497,14 +422,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 d-flex">
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Father's Name</label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Door No. *</label>
@@ -521,10 +439,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="col-md-12 d-flex">
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">District *</label>
@@ -535,6 +449,11 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+
+
+                                    <div class="col-md-12 d-flex">
+                                        
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Mandal *</label>
@@ -555,11 +474,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="col-md-12 d-flex">
-
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Pincode *</label>
@@ -568,24 +482,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Designation *</label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Address *</label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <textarea cols="1" rows="1" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
 
+
+                                   
 
                                     <div class="col-md-12 d-flex">
                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">11. Duration of the proposed contract work(give particulars of proposed date of commencing and ending)</span></label>

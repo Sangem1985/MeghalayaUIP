@@ -30,7 +30,7 @@ namespace MeghalayaUIP.User.CFE
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-                Session["UNITID"] = "1";
+                
                 UNITID = Convert.ToString(Session["UNITID"]);
 
 
@@ -262,7 +262,7 @@ namespace MeghalayaUIP.User.CFE
         protected void btnSave_Click(object sender, EventArgs e)
         {
             String Quesstionriids = "1001";
-            string UnitId = "1";
+            
 
             try
             {
@@ -276,7 +276,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQForest.CreatedBy = hdnUserID.Value;
                     objCFEQForest.IPAddress = getclientIP();
                     objCFEQForest.Questionnariid = Quesstionriids;
-                    objCFEQForest.UnitId = UnitId;
+                    objCFEQForest.UnitId = Convert.ToString(Session["UNITID"]);
                     objCFEQForest.Address = txtAddress.Text;
                     objCFEQForest.Latitude = RblLatitude.SelectedValue;
                     objCFEQForest.Degrees = txtDegree.Text;

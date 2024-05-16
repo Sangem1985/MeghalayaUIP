@@ -9,13 +9,25 @@
 
             <div class="row">
                 <div class="col-md-12">
-
-                    <!-- Recent Orders -->
+                    <div class="col-md-12 d-flex">
+                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                            <strong>Warning!</strong>
+                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <asp:HiddenField ID="hdnUserID" runat="server" />
+                    <asp:HiddenField ID="hdnQuesID" runat="server" />
+                     <asp:HiddenField ID="hdnUIDNo" runat="server" />
                     <div class="card card-table">
                         <div class="card-header">
                             <h4 class="card-title">Department Payments</h4>
                             <hr />
-                            <h6 class="text-danger"><b>Select the approvals for which you wish to make payment now</b></h6>
+                           
                         </div>
                         <div class="col-md-12 row mt-3 d-flex">
 
@@ -31,93 +43,48 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-bordered table-center mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Sl.<br />
-                                                    No.</th>
-                                                <th>Approval Required</th>
-                                                <th>Dept. Name</th>
-                                                <th>Fee(&#x20b9;)</th>
-                                                <th>Pay For
-                                                    <br />
-                                                    Dept.</th>
-                                                <th class="text-right">Amount(&#x20b9;)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>BUILDING
-                                                    <br />
-                                                    PERMIT RELEASE FEE</td>
-                                                <td>PANCHAYAT<br />
-                                                    RAJ</td>
-                                                <td>5000
-                                                </td>
+                                <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                    CssClass="GRD" ForeColor="#333333" Width="95%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" >
+                                    <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                    <AlternatingRowStyle BackColor="White" />
+                                    <Columns>
+                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                            <ItemTemplate>
+                                                <%# Container.DataItemIndex + 1%>
+                                                <asp:HiddenField ID="HdfQueid" runat="server" />
+                                                <asp:HiddenField ID="HdfApprovalid" runat="server" />
+                                                <asp:HiddenField ID="HdfDeptid" runat="server" />
+                                            </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle Width="50px" />
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
+                                            <ItemStyle Width="450px" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
+                                            <ItemStyle Width="180px" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="CFEDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
+                                            <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                            <HeaderStyle HorizontalAlign="Right" />
+                                            <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Center" />
+                                        </asp:BoundField>
 
-                                                <td>
-                                                    <div class="status-toggle">
-                                                        <input type="checkbox" id="status_1" class="check" checked="">
-                                                        <label for="status_1" class="checktoggle">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">5000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>CONSENT
-                                                    <br />
-                                                    FOR ESTABLISHMENT
-                                                    <br />
-                                                    FROM POLLUTUION
-                                                    <br />
-                                                    CONTROL BOARD</td>
-                                                <td>POLLUTION<br />
-                                                    CONTROL BOARD</td>
-                                                <td>15000
-                                                </td>
-
-                                                <td>
-                                                    <div class="status-toggle">
-                                                        <input type="checkbox" id="status_2" class="check" checked="">
-                                                        <label for="status_2" class="checktoggle">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">15000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>ELECTRICAL
-                                                    <br />
-                                                    DRAWING APPROVAL<br />
-                                                    FROM ELECTRICAL<br />
-                                                    INSPECTORATE</td>
-                                                <td>ELECTRICAL<br />
-                                                    INSPECTORATE</td>
-                                                <td>1000
-                                                </td>
-
-                                                <td>
-                                                    <div class="status-toggle">
-                                                        <input type="checkbox" id="status_3" class="check" checked="">
-                                                        <label for="status_3" class="checktoggle">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">1000</td>
-                                            </tr>
-
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="5" class="text-center text-danger"><b>Total</b></td>
-                                                    <td class="text-right text-danger"><b>26000</b></td>
-                                                </tr>
-                                            </tfoot>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        
+                                        <asp:TemplateField HeaderText="Approval ID" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("CFEDA_APPROVALID") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText=" Dept ID" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("CFEDA_DEPTID") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                             <div class="col-md-6">
                                 &nbsp;
@@ -149,7 +116,7 @@
                             <div class="col-md-12 text-right">
                                 <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
 
-                                <asp:Button ID="btnPay" runat="server" Text="Pay" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                <asp:Button ID="btnPay" runat="server" Text="Pay"  OnClick="btnPay_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
 
 
 

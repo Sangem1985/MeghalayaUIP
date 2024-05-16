@@ -16,8 +16,12 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEQuestionnaireApprovals = "USP_INSCFEREQUIREDAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFEQUESTIONNAIREAPPROVALS";
         public static string InsertCFEDepartmentapprovals = "USP_INSCFEDEPARTMENTAPPROVALS";
+        public static string GetCFEIndustryDetails = "USP_GETCFEINDUSTRYDETAILS";
         public static string InsertCFEIndustryDetails = "USP_INSCFEINDUSTRYDETAILS";
-       
+        public static string GetCFELOMANDRMDetails = "USP_GETCFELOMANDRMDETAILS";
+        public static string InsertCFEManufactureDetails = "USP_INSCFELINEOFMANFDETAILS";
+        public static string InsertCFERAWMaterialDetails = "USP_INSCFERAWMATERIALDETAILS";
+
         public static string GetRetriveFireDetails = "USP_GETRETRIVEFIRE";
         public static string GetEntrepreneurDet = "USP_GETCFEENTREPRENEURDATA";
         public static string InsertEntrepreneurDetails = "USP_INSCFEENTREPRENEURDETAILS";
@@ -27,13 +31,14 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";
         public static string INSERTCFEWaterDet = "";
         public static string InsertCFEPowerDet = "USP_INSCFEPOWERDETAILS";
-        public static string InsertCFEManufactureDetails = "USP_INSCFELINE_ACTIVITYDETAILS";
-        public static string InsertCFERAWMaterialDetails = "USP_INSCFERAWMATERIALDETAILS";
+       
         public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
         public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
         public static string GetRetriveIntentInvest = "USP_GETINTENTTOINVESTAPPLDETAILS";
-        public static string GetCFEIndustryDetails = "USP_GETCFEINDUSTRYDETAILS";
         public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
+
+        public static string GetCFEApprovalsAmounttoPay = "USP_GETCFEAPPROVALSAMOUNTTOPAY";
+        public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS";
     }
     public class CFEQuestionnaireDet
     {
@@ -448,20 +453,19 @@ namespace MeghalayaUIP.Common
     }
     public class CFELineOfManuf
     {
-        public string Questionnariid { get; set; }
-        public string UnitId { get; set; }
+        public string Questionnareid { get; set; }
+       
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
         public string UNITID { get; set; }
-        public string Line_Activity { get; set; }
-        public string ItemLA { get; set; }
-        public string Quantity_PerLA { get; set; }
-        public string QuantityLA { get; set; }
-        public string Quantity_InLA { get; set; }
-        public string ItemNameRM { get; set; }
-        public string Quantity_PersRM { get; set; }
-        public string QuantitysRM { get; set; }
-        public string Quantity_InsRM { get; set; }
+        public string LOAID { get; set; }
+        public string ManfItemName { get; set; }
+        public string ManfItemAnnualCapacity { get; set; }
+        public string ManfItemValue { get; set; }
+        public string RMItemName { get; set; }
+        public string RMItemAnnualCapacity { get; set; }
+        public string RMItemValue { get; set; }
+        public string RMSourceofSupply { get; set; }
     }
     public class CFEFire
     {
@@ -551,5 +555,21 @@ namespace MeghalayaUIP.Common
         public string Forest_Division { get; set; }
 
     }
+    public class CFEPayments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string OnlineOrderNo { get; set; }
+        public string OnlineOrderAmount { get; set; }
+        public string PaymentFlag { get; set; }
+        public string TransactionNo { get; set; }
+        public string TransactionDate { get; set; }
+        public string BankName { get; set; }
 
+    }
 }
