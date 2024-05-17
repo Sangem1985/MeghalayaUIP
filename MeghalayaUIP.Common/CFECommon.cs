@@ -33,10 +33,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFELandDet = "USP_GETRETRIVECFELANDDET";
         public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";
         public static string INSERTCFEWaterDet = "";
-        public static string InsertCFEPowerDet = "USP_INSCFEPOWERDETAILS";
        
-        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
-        public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
         public static string GetRetriveIntentInvest = "USP_GETINTENTTOINVESTAPPLDETAILS";
         public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
 
