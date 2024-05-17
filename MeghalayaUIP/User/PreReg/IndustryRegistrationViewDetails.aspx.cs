@@ -66,12 +66,13 @@ namespace MeghalayaUIP.User.PreReg
                     DataRow row = ds.Tables[0].Rows[0];
                     lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
                     lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
-                    lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]); 
+                    lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
                     lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
                     lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
                     lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
-                    lblcomptype.Text = Convert.ToString(row["COMPANYTYPE"]);
+                    lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
+                    lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
                     lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                     lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
 
@@ -86,7 +87,7 @@ namespace MeghalayaUIP.User.PreReg
                     lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
                     lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
                     lblcentralscheme.Text = Convert.ToString(row["FRD_CENTRAL"]);
-                    if(Convert.ToString(row["ELIGIBLE_FLAG"]).Trim()=="N")
+                    if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim()=="N")
                     {
                         lblnote.Visible = true;
                     }

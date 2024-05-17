@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="IndustryRegistration.aspx.cs" Inherits="MeghalayaUIP.User.PreReg.IndustryRegistration" %>
-
+ 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
     <style>
         span.icon, span.icon2, span.icon3 {
             top: 35px !important;
@@ -102,7 +104,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Type *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlConstType" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control">
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -114,10 +116,10 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Proposal *</label>
-                                                                <div class="col-lg-6 d-flex radio">
+                                                                <div class="col-lg-6 d-flex">
                                                                     <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Vertical" RepeatColumns="2">
-                                                                        <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
-                                                                        <asp:ListItem Value="New" Text="New"></asp:ListItem>
+                                                                        <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="New" Text="New" style="padding-right: 10px"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
 
 
@@ -152,7 +154,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">Registraion No *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtUdyamorIEMNo" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -160,8 +162,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtCompnyRegDt" class="date form-control" type="text" />
-                                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                                    <asp:TextBox type="text" runat="server" ID="txtCompnyRegDt" class="date form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -176,7 +177,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Name *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAuthReprName" class="form-control" onkeypress="return validateNames(this)" />
+                                                                    <asp:TextBox runat="server" ID="txtAuthReprName" class="form-control" onkeypress="return Names(this)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -202,7 +203,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Locality *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAuthReprLocality" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtAuthReprLocality" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -263,12 +264,12 @@
                                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Location of Unit</span></label>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">Is Land Required *</label>
-                                                                <div class="col-lg-8 d-flex radio">
+                                                                <label class="col-lg-6 col-form-label">Is Land Required *</label>
+                                                                <div class="col-lg-6 d-flex">
                                                                     <asp:RadioButtonList runat="server" ID="rblLandType" RepeatDirection="Horizontal">
-                                                                        <asp:ListItem Value="Own" Text="Own Land"></asp:ListItem>
+                                                                        <asp:ListItem Value="Own" Text="Own Land" style="padding-right: 10px"></asp:ListItem>
                                                                         <asp:ListItem Value="Required" Text="Required"></asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                 </div>
@@ -288,7 +289,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Locality *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtPropLocLocality" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtPropLocLocality" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -344,17 +345,16 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" placeholder="dd-mm-yyyy" name="datefile" ID="txtDCPorOperation" class="date form-control" type="text" />
-                                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                                    <asp:TextBox type="text" runat="server" ID="txtDCPorOperation" class="date form-control" />
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">Nature of Activity*</label>
-                                                                <div class="col-lg-6 d-flex">
+                                                                <label class="col-lg-5 col-form-label">Nature of Activity*</label>
+                                                                <div class="col-lg-7 d-flex">
                                                                     <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblNatureofActvty_SelectedIndexChanged">
-                                                                        <asp:ListItem Text="Manufacturing" Value="Manufacturing"></asp:ListItem>
+                                                                        <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
                                                                         <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                     <%-- <asp:TextBox runat="server" ID="txtNatureofActivity" class="form-control" />--%>
@@ -368,7 +368,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Main Manufacturing Activity*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtMainManf" class="form-control" Visible="true" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtMainManf" class="form-control" Visible="true" onkeypress="return Names(event)" />
                                                                     <%--<asp:TextBox runat="server" ID="txtServcActvty" class="form-control" Visible="false" ></asp:TextBox> --%>
                                                                 </div>
                                                             </div>
@@ -377,7 +377,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Product to be Manufactured </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtManfprodct" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtManfprodct" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -395,7 +395,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Main Raw Materials for the Project*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtRawmaterial" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtRawmaterial" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -403,7 +403,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Annual Capacity*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAnnualCapacity" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtAnnualCapacity" class="form-control" onkeypress="return validateNumberAndDot(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -479,7 +479,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Details of Waste / Effluent to be generated*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtWasteDetails" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtWasteDetails" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -487,7 +487,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Details of Hazardous Waste to be generated*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtHazWasteDetails" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtHazWasteDetails" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -495,7 +495,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Civil Construction*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtCivilConstr" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtCivilConstr" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -641,9 +641,9 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Term/ Working loan</label>
+                                                                <label class="col-lg-6 col-form-label">Term/ Working loan (INR)</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" />
+                                                                    <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" onkeypress="return validateNumbersOnly(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -731,7 +731,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                 <div class="row">
 
                                                     <div class="col-md-12">
-                                                        <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="false">
+                                                        <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="false" OnRowDataBound="grdRevenueProj_RowDataBound">
                                                             <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                             <RowStyle CssClass="GridviewScrollC1Item" />
                                                             <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -793,7 +793,16 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <label class="col-lg-6 col-form-label">Upload Detailed Project Report (DPR)</label>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:FileUpload ID="fupDPR" runat="server" />
+                                                                <asp:HyperLink ID="hypdpr" runat="server"  Target="_blank"></asp:HyperLink>
+                                                                <asp:Label ID="lbldpr"  runat="server" />
+                                                                <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-info btn-lg" OnClick="btndpr_Click" BackColor="#009999" Width="150px" />
+                                                               
+
                                                             </div>
+                                                             
+
+
+
                                                         </div>
                                                     </div>
 
@@ -832,7 +841,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">First Name *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtApplFrstName" class="form-control" onkeypress="return validateNames(this)" />
+                                                                    <asp:TextBox runat="server" ID="txtApplFrstName" class="form-control" onkeypress="return Names(this)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -840,7 +849,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Last Name *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtApplLstName" class="form-control" onkeypress="return validateNames(this)" />
+                                                                    <asp:TextBox runat="server" ID="txtApplLstName" class="form-control" onkeypress="return Names(this)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -895,75 +904,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Street *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtApplStreet" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Country *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList runat="server" ID="ddlApplCountry" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApplCountry_SelectedIndexChanged">
-                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">State *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList runat="server" ID="ddlApplState" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApplState_SelectedIndexChanged">
-                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                    <asp:TextBox runat="server" ID="txtApplState" class="form-control" Visible="false"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">District *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList runat="server" ID="ddlApplDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApplDist_SelectedIndexChanged">
-                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                    <asp:TextBox runat="server" ID="txtApplDist" class="form-control" Visible="false"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Taluka *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList runat="server" ID="ddlApplTaluka" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApplTaluka_SelectedIndexChanged">
-                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                    <asp:TextBox runat="server" ID="txtApplTaluka" class="form-control" Visible="false"></asp:TextBox>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">City / Town / Village *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList runat="server" ID="ddlApplVillage" class="form-control">
-                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                    <asp:TextBox runat="server" ID="txtApplVillage" class="form-control" Visible="false"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Pin Code *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtApplPincode" class="form-control" onkeypress="return validatePincode(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtApplStreet" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -975,7 +916,114 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
+                                                    <div class="col-md-12 d-flex" runat="server">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Pin Code *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox runat="server" ID="txtApplPincode" class="form-control" onkeypress="return validatePincode(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Country *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList runat="server" ID="ddlApplCountry" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApplCountry_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">State *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList runat="server" ID="ddlApplState" class="form-control" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplState_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                    <asp:TextBox runat="server" ID="txtApplState" class="form-control" Visible="false"></asp:TextBox>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex" runat="server" id="traddredddropdowns">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">District *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList runat="server" ID="ddlApplDist" class="form-control" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplDist_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                    </asp:DropDownList>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Taluka *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList runat="server" ID="ddlApplTaluka" class="form-control" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplTaluka_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                    </asp:DropDownList>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">City / Town / Village *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList runat="server" ID="ddlApplVillage" class="form-control" Enabled="false">
+                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                    </asp:DropDownList>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="col-md-12 d-flex" runat="server" id="trothercountry" visible="false">
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">District *</label>
+                                                                <div class="col-lg-6 d-flex">
+
+                                                                    <asp:TextBox runat="server" ID="txtApplDist" class="form-control"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Taluka *</label>
+                                                                <div class="col-lg-6 d-flex">
+
+                                                                    <asp:TextBox runat="server" ID="txtApplTaluka" class="form-control"></asp:TextBox>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">City / Town / Village *</label>
+                                                                <div class="col-lg-6 d-flex">
+
+                                                                    <asp:TextBox runat="server" ID="txtApplVillage" class="form-control"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
@@ -1018,11 +1066,12 @@ However, you can register your unit to get required approvals/ clearances.</labe
 
                                                                 <asp:BoundField HeaderText="Door No." DataField="IDD_DOORNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                                 <asp:BoundField HeaderText="Street" DataField="IDD_STREET" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Village" DataField="IDD_CITYName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Mandal" DataField="IDD_MANDALName" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="District" DataField="IDD_DISTRICTName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="State" DataField="IDD_STATEName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                                 <asp:BoundField HeaderText="Country" DataField="IDD_COUNTRYName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="State" DataField="IDD_STATEName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="District" DataField="IDD_DISTRICTName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Mandal" DataField="IDD_MANDALName" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Village" DataField="IDD_CITYName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+
                                                                 <asp:BoundField HeaderText="Pincode" DataField="IDD_PINCODE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                                 <asp:BoundField HeaderText="E-mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                                 <asp:BoundField HeaderText="Mobile" DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -1042,12 +1091,11 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                         </div>
                                                         <div class="col-md-10 text-right">
                                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" BackColor="#009999" Width="150px" />
-                                                            <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreview_Click" BackColor="#3333ff" Width="150px" />
+                                                            <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-info btn-lg" Enabled="false" OnClick="btnPreview_Click" BackColor="#3333ff" Width="150px" />
                                                             <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
 
                                         </div>
@@ -1152,4 +1200,17 @@ However, you can register your unit to get required approvals/ clearances.</labe
             }
         }
     </script>
+
+
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script>
+    <script>
+
+        $(".date").datepicker({
+            format: "dd-mm-yyyy",
+        });
+
+        $('.date').datepicker('setDate', new Date());
+
+    </script>--%>
 </asp:Content>

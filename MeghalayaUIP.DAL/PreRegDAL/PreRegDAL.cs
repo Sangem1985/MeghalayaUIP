@@ -83,9 +83,9 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
             return dt;
         }
-        public string InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
+        public int InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
         {
-            string valid = "";
+            int valid = 0;
             IDno = "";
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
@@ -105,7 +105,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.UserID));
                 da.SelectCommand.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
                 //Convert.ToDateTime(ID.CompnyRegDt).ToString("yyyy-MM-dd")
-                da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", Convert.ToDateTime(DateTime.ParseExact(ID.CompnyRegDt, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")) );
+                da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", Convert.ToDateTime(ID.CompnyRegDt));
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYNAME", ID.CompanyName);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYPANNO", ID.CompanyPAN);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYTYPE", ID.CompnyType);
@@ -130,7 +130,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_VILLAGEID", Convert.ToInt32(ID.PropLocVillageID));
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_PINCODE", ID.PropLocPincode);
 
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", Convert.ToDateTime(DateTime.ParseExact(ID.DCPorOperation, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")));
+                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", Convert.ToDateTime(ID.DCPorOperation));
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_NOA", ID.NatureofActivity);
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFACTIVITY", ID.ManfActivity);
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFPRODUCT", ID.Manfproduct);
@@ -171,7 +171,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@STAGEID", 1);
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", ID.UnitID);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", ID.Deptid);
-                da.SelectCommand.Parameters.AddWithValue("@COMPANYREGTYPE",Convert.ToInt32( ID.RegistrationType));
+                da.SelectCommand.Parameters.AddWithValue("@COMPANYREGTYPE", Convert.ToInt32(ID.RegistrationType));
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYREGNO", ID.RegistrationNo);
                 da.SelectCommand.Parameters.AddWithValue("@REP_DOORNO", ID.DoorNo);
                 da.SelectCommand.Parameters.AddWithValue("@FRD_EQUITY", Convert.ToDecimal(ID.EquityAmount));
@@ -180,12 +180,13 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@FRD_UNNATI", Convert.ToDecimal(ID.UnnatiSchemeAmount));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_CENTRAL", Convert.ToDecimal(ID.CetralSchemeAmount));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_STATE", Convert.ToDecimal(ID.StateSchemeAmount));
-                da.SelectCommand.Parameters.AddWithValue("@ELIGIBLE_FLAG", ID.EligibleFlag);                 
+                da.SelectCommand.Parameters.AddWithValue("@ELIGIBLE_FLAG", (ID.EligibleFlag));
 
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-                    valid = Convert.ToString(dt.Rows[0]["UNITID"]);
-                IDno = valid;
+                da.SelectCommand.Parameters.Add("@Valid", SqlDbType.Int, 500);
+                da.SelectCommand.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                da.SelectCommand.ExecuteNonQuery();
+                valid = (Int32)da.SelectCommand.Parameters["@Valid"].Value;
+
 
                 transaction.Commit();
                 connection.Close();
@@ -202,7 +203,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
-        public string InsertIndRegRevenueDetails(DataTable dt)
+        public string InsertIndRegRevenueDetails(DataTable dt, string UNITID, string USERID)
         {
             string valid = "";
 
@@ -213,8 +214,12 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             try
             {
                 SqlParameter[] p = new SqlParameter[] {
-                 new SqlParameter("@TVP",SqlDbType.Structured) };
+         new SqlParameter("@TVP",SqlDbType.Structured),
+         new SqlParameter("@UNITID",SqlDbType.Structured),
+        new SqlParameter("@INVESTERID",SqlDbType.Structured) };
                 p[0].Value = dt;
+                p[1].Value = UNITID;
+                p[2].Value = USERID;
                 p[0].TypeName = "dbo.REVENUE_PROJEECTIONS";
                 valid = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertIndRegRevenueDetails, p));
 
@@ -234,7 +239,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
-        public string InsertIndPromotersDetails(DataTable dt)
+        public string InsertIndustryRegDetails(DataTable dt, string UNITID, string USERID)
         {
             string valid = "";
 
@@ -245,11 +250,100 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             try
             {
                 SqlParameter[] p = new SqlParameter[] {
-                 new SqlParameter("@TVP",SqlDbType.Structured) };
+         new SqlParameter("@TVP",SqlDbType.Structured),
+         new SqlParameter("@UNITID",SqlDbType.Structured),
+        new SqlParameter("@INVESTERID",SqlDbType.Structured) };
                 p[0].Value = dt;
+                p[1].Value = UNITID;
+                p[2].Value = USERID;
+                p[0].TypeName = "dbo.DIRECTOR_DETAILS";
+                valid = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertIndustryRegistration, p));
+
+                //transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                // transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
+        public string InsertIndPromotersDetails(DataTable dt, string UNITID, string USERID)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            //SqlTransaction transaction = null;
+            connection.Open();
+            //transaction = connection.BeginTransaction();
+            try
+            {
+                SqlParameter[] p = new SqlParameter[] {
+         new SqlParameter("@TVP",SqlDbType.Structured),
+         new SqlParameter("@UNITID",SqlDbType.Structured),
+        new SqlParameter("@INVESTERID",SqlDbType.Structured) };
+                p[0].Value = dt;
+                p[1].Value = UNITID;
+                p[2].Value = USERID;
                 p[0].TypeName = "dbo.DIRECTOR_DETAILS";
                 valid = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertIndRegPromotersDetails, p));
 
+                //transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                // transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
+        public int InsertAttachments_PREREG(IndustryDetails objattachments)
+        {
+            int valid = 0;
+
+            SqlConnection connection = new SqlConnection(connstr);
+            //SqlTransaction transaction = null;
+            connection.Open();
+            //transaction = connection.BeginTransaction();
+            try
+            {
+                SqlParameter[] p = new SqlParameter[] {
+         new SqlParameter("@UNITID",SqlDbType.Structured),
+         new SqlParameter("@INVESTORID",SqlDbType.Structured),
+        new SqlParameter("@FILETYPE",SqlDbType.Structured),
+        new SqlParameter("@FILEPATH",SqlDbType.Structured),
+        new SqlParameter("@FILENAME",SqlDbType.Structured),
+        new SqlParameter("@FILEDESCRIPTION",SqlDbType.Structured),
+        new SqlParameter("@DEPTID",SqlDbType.Structured),
+        new SqlParameter("@APPROVALID",SqlDbType.Structured),
+        };
+
+                p[0].Value = objattachments.UnitID;
+                p[1].Value = objattachments.UserID;
+                p[2].Value = objattachments.FileType;
+
+                p[3].Value = objattachments.Filepath;
+                p[4].Value = objattachments.FileName;
+                p[5].Value = objattachments.FileDescription;
+                p[6].Value = objattachments.Deptid;
+                p[7].Value = objattachments.ApprovalId;
+                string A = "";
+                A = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertAttachmentDetails, p));
+                valid = Convert.ToInt16(A);
                 //transaction.Commit();
                 connection.Close();
             }

@@ -25,17 +25,25 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.GetSectorDepartments(sectorname);
         }
-        public string InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
+        public int InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
         {
             return IRD.InsertIndRegBasicDetails(ID, out IDno);
         }
-        public string InsertIndRegRevenueDetails(DataTable dt)
+        public string InsertIndRegRevenueDetails(DataTable dt, string UNITID, string USERID)
         {
-            return IRD.InsertIndRegRevenueDetails(dt);
+            return IRD.InsertIndRegRevenueDetails(dt, UNITID, USERID);
         }
-        public string InsertIndPromotersDetails(DataTable dt)
+        public string InsertIndustryRegDetails(DataTable dt, string UNITID, string USERID)
         {
-            return IRD.InsertIndPromotersDetails(dt);
+            return IRD.InsertIndustryRegDetails(dt, UNITID, USERID);
+        }
+        public string InsertIndPromotersDetails(DataTable dt, string UNITID, string USERID)
+        {
+            return IRD.InsertIndPromotersDetails(dt, UNITID, USERID);
+        }
+        public int InsertAttachments_PREREG(IndustryDetails objattachments)
+        {
+            return IRD.InsertAttachments_PREREG(objattachments);
         }
         public DataSet GetIndustryRegUserDashboard(string userid)
         {

@@ -14,6 +14,8 @@ namespace MeghalayaUIP.Common
         public static string InsertIndRegBasicDetails = "USP_INS_PREREGBASICDETAILS"; /* "USP_INS_Insvester_basicdetails";*/
         public static string InsertIndRegRevenueDetails = "USP_INS_INVESTER_BASICREVENUE_PROJECTIONS";
         public static string InsertIndRegPromotersDetails = "USP_INS_INSVESTER_DIRECTOR_DETAILS";
+        public static string InsertAttachmentDetails = "SP_INSERT_PREREGATTACHMENTS";
+        public static string InsertIndustryRegistration = "USP_INS_INDUSTRY_REG_APPLICATION";
         public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
         public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDASHBOARDVIEWDETAILS";
         public static string UpdateIndRegApplQueryRespose = "USP_UPDATEPREREGAPPLQUERYRESPONSE"; 
@@ -108,10 +110,13 @@ namespace MeghalayaUIP.Common
         public string Year5Value { get; set; }
         public string RevProjID { get; set; }
 
-        public string DPRFilepath { get; set; }
-        public string DPRFileName { get; set; }
+        public string Filepath { get; set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public string FileDescription { get; set; }
         public string UnitID { get; set; }
-        public string Deptid { get; set; }        
+        public string Deptid { get; set; }
+        public string ApprovalId { get; set; }
         public string SectorName { get; set; }
         public string Lineofacitivityid { get; set; }
         public string Category { get; set; }
