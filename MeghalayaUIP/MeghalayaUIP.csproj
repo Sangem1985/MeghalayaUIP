@@ -495,6 +495,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
+    <Content Include="Dept\CFE\CFEApplDeptView.aspx" />
     <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
     <Content Include="Dept\CFE\demo.aspx" />
     <Content Include="Dept\CFO\demo.aspx" />
@@ -573,6 +574,13 @@
     </Compile>
     <Compile Include="Deptlogin.aspx.designer.cs">
       <DependentUpon>Deptlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEApplDeptView.aspx.cs">
+      <DependentUpon>CFEApplDeptView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEApplDeptView.aspx.designer.cs">
+      <DependentUpon>CFEApplDeptView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\CFE\CFEDeptDashboard.aspx.cs">
       <DependentUpon>CFEDeptDashboard.aspx</DependentUpon>
