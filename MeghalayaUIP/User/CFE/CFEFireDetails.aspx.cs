@@ -73,15 +73,11 @@ namespace MeghalayaUIP.User.CFE
                     ddldistric.DataValueField = "DistrictId";
                     ddldistric.DataTextField = "DistrictName";
                     ddldistric.DataBind();
-
-
                 }
                 else
                 {
                     ddldistric.DataSource = null;
                     ddldistric.DataBind();
-
-
                 }
                 AddSelect(ddldistric);
                 AddSelect(ddlmandal);

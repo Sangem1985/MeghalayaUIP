@@ -26,94 +26,106 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
+                            <asp:HiddenField ID="hdnQuesid" runat="server" />
                             <div class="row">
-                               
+
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">1. Aadhar Card </label>
+                                            <label class="col-lg-4 col-form-label">1. Aadhar Card </label>
+                                            <div class="col-lg-1 d-flex">: </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="fupAadhar" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldAadhar" Text="Upload" OnClick="btnUpldAadhar_Click"  class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:HyperLink ID="hplAadhar" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-9">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">2. EPIC Document </label>
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                               <asp:FileUpload runat="server" ID="fupAadhar" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px"  />
-                                               <br />
-                                                <asp:HyperLink ID="lblFileName" Text="Aadhar" runat="server"  Target="_blank"></asp:HyperLink>
+                                                <asp:FileUpload runat="server" ID="fupEPIC" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
-                                             <asp:Button runat="server" ID="btnUpldAadhar" Text="Upload Aadhar" class="btn btn-info btn-lg" Height="40px"   Width="150px" />
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldEPIC" Text="Upload" OnClick="btnUpldEPIC_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:HyperLink ID="hplEPIC" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">2. EPIC Document </label>
+                                            <label class="col-lg-4 col-form-label">3. Applicant Photograpgh </label>
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                               <asp:FileUpload runat="server" ID="FileUpload1" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px"  />
+                                                <asp:FileUpload runat="server" ID="fupApplPhoto" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
-                                             <asp:Button runat="server" ID="Button1" Text="Upload EPIC" class="btn btn-info btn-lg" Height="40px"   Width="150px" />
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldPhoto" Text="Upload" OnClick="btnUpldPhoto_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:HyperLink ID="hplApplPhoto" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">3. Applicant Photograpgh </label>
+                                            <label class="col-lg-4 col-form-label">4. Land Document /Sale Deed </label>
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                               <asp:FileUpload runat="server" ID="FileUpload2" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px"  />
+                                                <asp:FileUpload runat="server" ID="fupLandDoc" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
-                                             <asp:Button runat="server" ID="Button2" Text="Upload Photo" class="btn btn-info btn-lg" Height="40px"   Width="150px" />
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUplLandDoc" Text="Upload" OnClick="btnUplLandDoc_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:HyperLink ID="hplLandDoc" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">4. Land Document /Sale Deed </label>
+                                            <label class="col-lg-4 col-form-label">5.Site plan </label>
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                               <asp:FileUpload runat="server" ID="FileUpload3" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px"  />
+                                                <asp:FileUpload runat="server" ID="fupSitePlan" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
-                                             <asp:Button runat="server" ID="Button3" Text="Upload" class="btn btn-info btn-lg" Height="40px"  Width="150px" />
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldSitePlan" Text="Upload" OnClick="btnUpldSitePlan_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:HyperLink ID="hplSitePlan" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">5.Site plan </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                               <asp:FileUpload runat="server" ID="FileUpload4" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px"  />
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                             <asp:Button runat="server" ID="Button4" Text="Upload " class="btn btn-info btn-lg" Height="40px"   Width="150px" />
-                                            </div>
-                                        </div>
-                                    </div> 
-                                </div>
-                                  <div class="col-md-12 d-flex">
                                     <br />
-                                  </div>
-                             
+                                </div>
+
                                 <div class="col-md-12 text-right">
 
                                     <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />

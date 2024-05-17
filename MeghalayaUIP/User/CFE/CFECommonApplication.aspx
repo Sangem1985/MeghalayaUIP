@@ -14,7 +14,7 @@
                                 <h5 style="color: red"><b>The following are the Approvals required for Establishment of your Unit. Please
                                                     select the Approvals for which you intend to apply for.</b></h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
-                                <asp:HiddenField ID="hdnQuestionnaireID" runat="server" />
+                                <asp:HiddenField ID="hdnQuesid" runat="server" />
                                 <div class="col-md-12 d-flex">
                                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -137,328 +137,577 @@
                             <div class="card-body">
                                 <h4><b>Upload Offline Approvals which are already obtained:</b></h4>
                                 <br />
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=1--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divPCB">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Pre Establishment Approval from Pollution Control Board </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="fupAadhar" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
-                                                <br />
-                                                <asp:HyperLink ID="lblFileName"  runat="server" Target="_blank"></asp:HyperLink>
+                                            <label class="col-lg-4 col-form-label">Pre Establishment Approval from Pollution Control Board </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldAadhar" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup1PCB" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld1PCB" Text="Upload" OnClick="btnUpld1PCB_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl1PCB"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=2--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divHazPCB">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Service Connection Certificate  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload1" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Authorization under the Hazardous and Other Waste (Management and Transboundary Movement) Rules 2016 </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button1" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup2HazPCB" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld2HazPCB" Text="Upload" OnClick="btnUpld2HazPCB_Click"  class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl2HazPCB"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=3--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divSrvcCon">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Electricity Connection Certificate  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload2" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label"> Service Connection Certificate </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button2" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup3SrvcCon" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld3SrvcCon"  OnClick="btnUpld3SrvcCon_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl3SrvcCon"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=4--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divEleCon">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Factory Plan Approval   </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload3" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Obtaining Electricity Connection </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button3" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup4EleCon" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld4EleCon" OnClick="btnUpld4EleCon_Click"  Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl4EleCon"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=5--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divFctryPlan">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">DG Set NOC   </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload4" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Factory Plan Approval  </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button4" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup5FctryPlan" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld5FctryPlan" OnClick="btnUpld5FctryPlan_Click"  Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl5FctryPlan"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=6--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divDGsetNOC">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Provisional Fire Safety Certificate  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload5" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">NOC DG Set </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button5" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup6DGsetNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld6DGsetNOC" OnClick="btnUpld6DGsetNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl6DGsetNOC"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=7--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divFireSfty">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Licence to store RS, DS  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload6" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Provisional Fire Safety Certificate </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button6" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup7FireSfty" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld7FireSfty" OnClick="btnUpld7FireSfty_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl7FireSfty"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=8--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divRSDSLic">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">NOC required for setting up of Explosives Manufacturing, Storage, Sale, Transport </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload7" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Licence to store RS, DS </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button7" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup8RSDSLic" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld8RSDSLic" OnClick="btnUpld8RSDSLic_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hplRSDSLic"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=9--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divExplsvNOC">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">NOC Required for Setting Up of Petroleum, Diesel & Naphtha Manufacturing, Storage, Sale, Transport  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload8" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">NOC required for setting up of Explosives Manufacturing, Storage, Sale, Transport </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button8" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup9ExplsvNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld9ExplsvNOC" OnClick="btnUpld9ExplsvNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl9ExplsvNOC"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=10--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divPtrlNOC">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Road Cutting Permission Letter  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload9" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">NOC Required for Setting Up of Petroleum, Diesel & Naphtha Manufacturing, Storage, Sale, Transport</label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button9" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup10PtrlNOC"  Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld10PtrlNOC" OnClick="btnUpld10PtrlNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl10PtrlNOC"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=11--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divRdCtng">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Non Encumbrance Certificate </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload10" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Road Cutting Permission Letter </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button10" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup11RdCtng" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld11RdCtng" OnClick="btnUpld11RdCtng_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl11RdCtng"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=12--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divNonEncmb">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Certificate of Registration of Professional Tax   </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload11" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Non Encumbrance Certificate</label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button11" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup12NonEncmb" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld12NonEncmb" OnClick="btnUpld12NonEncmb_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl12NonEncmb"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=13--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divProfTax">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Electrical Drawing Approval from Electrical Inspectorate </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload12" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Certificate of Registration of Professional Tax under the Meghalaya Professions Trades Callings and Employment Taxation Rules </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button12" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup13ProfTax" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld13ProfTax" OnClick="btnUpld13ProfTax_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl13ProfTax"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=14--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divElcInsp">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Letter for distance from Forest  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload13" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Electrical Drawing Approval from Electrical Inspectorate </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button13" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup14ElcInsp" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld14ElcInsp" OnClick="btnUpld14ElcInsp_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl14ElcInsp"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=15--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divForstDist">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Non-Forest Land Certificate  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload14" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Letter for distance from Forest </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button14" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup15ForstDist" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld15ForstDist" OnClick="btnUpld15ForstDist_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl15ForstDist"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=16--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divNonForstLand">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">FTL NOC for Change of Land use (Irrigation)  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload15" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Non-Forest Land Certificate </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button15" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup16NonForstLand"  Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld16NonForstLand" OnClick="btnUpld16NonForstLand_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl16NonForstLand"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=17--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divIrrgNOC">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">FTL NOC for Change of Land use (Revenue)  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload16" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">FTL NOC for Change of Land use (Irrigation) </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button16" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup17IrrgNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld17IrrgNOC" OnClick="btnUpld17IrrgNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl17IrrgNOC"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=18--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divRevNOC">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label"> NOC for Ground Water Abstraction for Commercial Connection  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload17" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">FTL NOC for Change of Land use (Revenue) </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button17" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fup18RevNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld18RevNOC"  OnClick="btnUpld18RevNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl18RevNOC"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divGrndWtrNOC">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Certificate for non-availability of water supply from water supply agency </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload18" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">NoC for Ground Water Abstraction for Commercial Connection </label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button18" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fupGrndWtrNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldGrndWtrNOC" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hplGrndWtrNOC"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-10">
+                                <%-- Approvalid=--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divNoWtrSplyCertfct">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">Permission to Draw Water from River/Public Tanks  </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:FileUpload runat="server" ID="FileUpload19" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <label class="col-lg-4 col-form-label">Certificate for non-availability of water supply from water supply agency</label>
+                                            <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="Button19" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:FileUpload runat="server" ID="fupNoWtrSply" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldNoWtrSply" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hplNoWtrSply"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <%-- Approvalid=--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divPrmsntoDrawWtr">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Permission to Draw Water from River/Public Tanks</label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fupToDrawWtr" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldToDrawWtr" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hplToDrawWtr"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divMunicipalWatr">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Water Connection for the Municipal Area </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fupMunicipalWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldMunicipalWatr" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hplMunicipalWatr"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divUrbanWatr">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Grant of Water Connection to Non Municipal urban areas </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fupUrbanWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldUrbanWatr" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hplUrbanWatr"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=25--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divLbrAct1970">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Registration of Establishments/Principal Employer Employing Contract Labour Act 1970</label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup25LbrAct1970" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld25LbrAct1970" OnClick="btnUpld25LbrAct1970_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl25LbrAct1970"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=26--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divLbrAct1979">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Registration of establishment under the Interstate Migrant Workmen Act 1979 </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup26LbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld26LbrAct1979" OnClick="btnUpld26LbrAct1979_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl26LbrAct1979"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=27--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divLbrAct1996">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Registration of Establishments employing Building Workers under the Building and Other Construction Work Act 1996 </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup27LbrAct1996" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld27LbrAct1996" OnClick="btnUpld27LbrAct1996_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl27LbrAct1996"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=28--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divContrLbrAct">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">License under Contract Labour Act (Contractor) </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup28ContrLbrAct" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld28ContrLbrAct" OnClick="btnUpld28ContrLbrAct_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl28ContrLbrAct"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=29--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divContrLbrAct1979">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Registration under Inter State Migrant Workman Act 1979 (For Contractor) </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup29ContrLbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld29ContrLbrAct1979" OnClick="btnUpld29ContrLbrAct1979_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl29ContrLbrAct1979"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=30--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divConstrPermit">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Construction Permit Approval </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup30ConstrPermit" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld30ConstrPermit" OnClick="btnUpld30ConstrPermit_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl30ConstrPermit"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- Approvalid=31--%>
+                                <div class="col-md-12 d-flex" runat="server" id="divBldngPlan">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Industrial Building Plan Approval </label>
+                                            <div class="col-lg-1 d-flex">:
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup31BldngPlan" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpld31BldngPlan" OnClick="btnUpld31BldngPlan_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:HyperLink ID="hpl31BldngPlan"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

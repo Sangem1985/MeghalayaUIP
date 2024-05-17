@@ -8,6 +8,15 @@ namespace MeghalayaUIP.Common
 {
     public class CFEConstants
     {
+        public static string GetEntrepreneurDet = "USP_GETCFEENTREPRENEURDATA";
+        public static string InsertEntrepreneurDetails = "USP_INSCFEENTREPRENEURDETAILS";
+        public static string GetSector_Department = "USP_GET_SECTOR_DEPT";
+        public static string InsertCFELandDetails = "USP_INSCFELANDDETAILS";
+        public static string GetCFELandDet = "USP_GETRETRIVECFELANDDET";
+        //Intent To Invest 
+        public static string GetRetriveIntentInvest = "USP_GETINTENTTOINVESTAPPLDETAILS";
+        //Intent To Invest 
+
         public static string GetPREREGandCFEapplications = "USP_GETPREREGANDCFEUSERDASHBOARD";
         public static string GetCFERegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA";
         public static string RetrieveQuestionnaire = "USP_RETRIEVECFEQUESFILLEDDATA";
@@ -24,22 +33,14 @@ namespace MeghalayaUIP.Common
         public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
         public static string InsertCFEPowerDet = "USP_INSCFEPOWERDETAILS";
         public static string GetRetriveFireDetails = "USP_GETRETRIVEFIRE";
-        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
- 
-        public static string GetEntrepreneurDet = "USP_GETCFEENTREPRENEURDATA";
-        public static string InsertEntrepreneurDetails = "USP_INSCFEENTREPRENEURDETAILS";
-        public static string GetSector_Department = "USP_GET_SECTOR_DEPT";
-        public static string InsertCFELandDetails = "USP_INSCFELANDDETAILS";
-        public static string GetCFELandDet = "USP_GETRETRIVECFELANDDET";
-        public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";
-        public static string INSERTCFEWaterDet = "";
-       
-        public static string GetRetriveIntentInvest = "USP_GETINTENTTOINVESTAPPLDETAILS";
+        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";        
+        public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";           
         public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
-
+        public static string INSERTCFEWaterDet = "";       
         public static string GetCFEApprovalsAmounttoPay = "USP_GETCFEAPPROVALSAMOUNTTOPAY";
         public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS";
-
+        public static string InsertCFEAttachments = "USP_INSCFEATTACHMENTS";
+        public static string GetCFEAttachments = "USP_GETCFEATTACHMENTS";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>
@@ -584,6 +585,22 @@ namespace MeghalayaUIP.Common
         public string TransactionNo { get; set; }
         public string TransactionDate { get; set; }
         public string BankName { get; set; }
+
+    }
+    public class CFEAttachments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string FileDescription { get; set; }
+        public string FileType { get; set; }
+        public string MasterID { get; set; }
 
     }
 }

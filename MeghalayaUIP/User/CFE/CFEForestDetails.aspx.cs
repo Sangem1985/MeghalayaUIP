@@ -329,7 +329,9 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEPaymentPage.aspx");
+                Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx");
+
+                //Response.Redirect("~/User/CFE/CFEPaymentPage.aspx");
             }
             catch (Exception ex)
             {

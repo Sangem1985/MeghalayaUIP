@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -20,9 +22,9 @@ namespace MeghalayaUIP.User.CFE
         decimal TotalFee, TotalFeeAmount;
         decimal amounts1;
         decimal amounts22 = 0;
-        string UnitID;
+        string UnitID, result;
 
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,8 +42,8 @@ namespace MeghalayaUIP.User.CFE
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
                     if (Convert.ToString(Session["UNITID"]) != "")
-                    { 
-                        UnitID = Convert.ToString(Session["UNITID"]); 
+                    {
+                        UnitID = Convert.ToString(Session["UNITID"]);
                     }
                     else
                     {
@@ -63,7 +65,7 @@ namespace MeghalayaUIP.User.CFE
                                 {
                                     grdApprovals.DataSource = dsApprovals.Tables[0];
                                     grdApprovals.DataBind();
-                                    hdnQuestionnaireID.Value = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFEQA_CFEQDID"]);
+                                    hdnQuesid.Value = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFEQA_CFEQDID"]);
                                 }
                             }
                         }
@@ -212,7 +214,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (((CheckBox)row1.FindControl("ChkApproval")).Checked)
                         {
-                            row1.Cells[6].Text = row1.Cells[3].Text;                            
+                            row1.Cells[6].Text = row1.Cells[3].Text;
                             amount = amount + Convert.ToDecimal(row1.Cells[6].Text);
 
                         }
@@ -415,7 +417,7 @@ namespace MeghalayaUIP.User.CFE
                         RadioButtonList rbloffline = (RadioButtonList)row.FindControl("rblAlrdyObtained");
 
                         objCFEQsnaire.UNITID = Convert.ToString(Session["UNITID"]);
-                        objCFEQsnaire.CFEQDID = hdnQuestionnaireID.Value;
+                        objCFEQsnaire.CFEQDID = hdnQuesid.Value;
                         objCFEQsnaire.DeptID = DeptID.Text;
                         objCFEQsnaire.ApprovalID = ApprovalID.Text;
                         objCFEQsnaire.ApprovalFee = row.Cells[3].Text;
@@ -467,6 +469,245 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
+
+        protected void btnUpld1PCB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup1PCB.HasFile)
+                {
+                    Error = validations(fup1PCB);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\"+"OfflineApprovals"+ "\\" + "1" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fup1PCB.PostedFile.SaveAs(serverpath + "\\" + fup1PCB.PostedFile.FileName);
+
+                        CFEAttachments objPCBNOC = new CFEAttachments();
+                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.Questionnareid = hdnQuesid.Value;
+                        objPCBNOC.MasterID = "1";
+                        objPCBNOC.FilePath = serverpath + fup1PCB.PostedFile.FileName;
+                        objPCBNOC.FileName = fup1PCB.PostedFile.FileName;
+                        objPCBNOC.FileType = fup1PCB.PostedFile.ContentType;
+                        objPCBNOC.FileDescription = "Offline Approval PCB NOC";
+                        objPCBNOC.CreatedBy = hdnUserID.Value;
+                        objPCBNOC.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objPCBNOC);
+                        if (result != "")
+                        {
+                            hpl1PCB.Text = fup1PCB.PostedFile.FileName;
+                            hpl1PCB.NavigateUrl = serverpath;
+                            hpl1PCB.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnUpld2HazPCB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld3SrvcCon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld4EleCon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld5FctryPlan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld6DGsetNOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld7FireSfty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld8RSDSLic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld9ExplsvNOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld10PtrlNOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld11RdCtng_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld12NonEncmb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld13ProfTax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld14ElcInsp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld15ForstDist_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld16NonForstLand_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld17IrrgNOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld18RevNOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld25LbrAct1970_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld26LbrAct1979_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld27LbrAct1996_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld28ContrLbrAct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld29ContrLbrAct1979_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld30ConstrPermit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpld31BldngPlan_Click(object sender, EventArgs e)
+        {
+
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
         public static string getclientIP()
         {
             string result = string.Empty;
