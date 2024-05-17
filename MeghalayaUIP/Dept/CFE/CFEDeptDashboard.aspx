@@ -64,7 +64,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblPREREJECTED" runat="server"></asp:Label></h4>
+                                                    <asp:Label ID="lblPREREJECTED" runat="server"></asp:Label>0</h4>
                                                 <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Rejected</p>
                                             </div>
                                         </div>
@@ -79,8 +79,8 @@
                                 <div class="card">
                                     <a href="CFEApplDeptView.aspx?status=PRESCRUTINYPENDING" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
-                                            <div class="icon icon-lg icon-shape bg-gradient-success shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-search-alt"></i>
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=ADDITIONALPAYMENTRAISED" style="text-decoration: none;">
+                                    <a href="CFEApplDeptView.aspx?status=ADDITIONALPAYMENTRAISED" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-pending"></i>
@@ -107,7 +107,7 @@
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
                                                     <asp:Label ID="lblADDITIONALPAYMENTRAISED" runat="server"></asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Completed with Additional Payment</p>
+                                                <p class="text-sm mb-0 text-capitalize">With Additional Payment</p>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
@@ -156,7 +156,7 @@
                                 <div class="card">
                                     <a href="CFEApplDeptView.aspx?status=TOTALAPPROVALISSUED" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
-                                            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                            <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
                                             </div>
                                             <div class="text-end pt-1">
@@ -174,32 +174,13 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-sm-6">
-                                <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=REJECTED" style="text-decoration: none;">
-                                        <div class="card-header p-3 pt-2">
-                                            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                                                <i class="fi fi-rr-vote-nay"></i>
-                                            </div>
-                                            <div class="text-end pt-1">
-                                                <h4 class="mb-0">
-                                                    <asp:Label ID="lblREJECTED" runat="server"></asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Approval Rejected</p>
-                                            </div>
-                                        </div>
-                                        <hr class="dark horizontal my-0">
-                                        <div class="card-footer p-3">
-                                            <p class="mb-0">No. of Applications Rejected</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
                                     <a href="CFEApplDeptView.aspx?status=APPROVALPENDING" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
-                                            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                               <i class="fi fi-rr-search-alt"></i>
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
@@ -216,7 +197,26 @@
                                     </a>
                                 </div>
                             </div>
-
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=REJECTED" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-vote-nay"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="lblREJECTED" runat="server"></asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Approval Rejected</p>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Applications Rejected</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
 
                         </div>
                         <br />

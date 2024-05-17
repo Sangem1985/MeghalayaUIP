@@ -206,6 +206,7 @@ section#dashboardcount1 {
     background: #fff;
     padding: 8px 12px !important;
     border: none !important;
+    font-weight: 500;
 }
 
 .card-header.p-3.pt-2 {
@@ -227,8 +228,12 @@ i.fi {
 section#dashboardcount1 .card {
     border: none !important;
     padding-bottom: 2px !important;
+    *height: 170px;
+    background:#fff !important;
 }
-
+.card a {
+    color: #343a40;
+}
     section#dashboardcount1 .card:hover {
         i.fi{
     /*transition: transform 1s cubic-bezier(0.1, 0.2, 0.3, 0.4) ;*/
@@ -240,4 +245,21 @@ section#dashboardcount1 .card {
     background: #9C27B0;
     border: 1.5px dotted #d7d7d7;
 }
+}
+section#dashboardcount2 .card {
+    border: none !important;
+    padding-bottom: 2px !important;
+    *height: 170px;
+    background: #fff !important;
+}
+section#dashboardcount2 {
+    padding: 32px 0px 0px;
+}
+section#dashboardcount2 .card:hover {
+    i .fi
+
+{
+    /*transition: transform 1s cubic-bezier(0.1, 0.2, 0.3, 0.4) ;*/
+    //transition: transform 1s ease-in-out;
+    transform: rotateY(360deg);
 }

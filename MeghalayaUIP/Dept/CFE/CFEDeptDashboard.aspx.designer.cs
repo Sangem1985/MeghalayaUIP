@@ -78,15 +78,6 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Label lblTOTALAPPROVALISSUED;
 
         /// <summary>
-        /// lblREJECTED control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblREJECTED;
-
-        /// <summary>
         /// lblAPPROVALPENDING control.
         /// </summary>
         /// <remarks>
@@ -94,5 +85,14 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAPPROVALPENDING;
+
+        /// <summary>
+        /// lblREJECTED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblREJECTED;
     }
 }
