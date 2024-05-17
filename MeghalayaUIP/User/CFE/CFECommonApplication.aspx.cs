@@ -212,16 +212,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (((CheckBox)row1.FindControl("ChkApproval")).Checked)
                         {
-                            row1.Cells[6].Text = row1.Cells[3].Text;
-
-                            //if (row1.Cells[6].Text == "")
-                            //{
-                            //    if (row1.Cells[3].Text != "")
-
-                            //        row1.Cells[6].Text = row1.Cells[3].Text;
-                            //    else
-                            //        row1.Cells[6].Text = "0";
-                            //}
+                            row1.Cells[6].Text = row1.Cells[3].Text;                            
                             amount = amount + Convert.ToDecimal(row1.Cells[6].Text);
 
                         }
@@ -236,6 +227,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
                         chkCheck.Enabled = false;
+
 
                     }
                 }

@@ -57,12 +57,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Species \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtlength.Text) || txtlength.Text == "" || txtlength.Text == null)
+                if (string.IsNullOrEmpty(txtTimberlength.Text) || txtTimberlength.Text == "" || txtTimberlength.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Length Of Timber (in Meters) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtTimber.Text) || txtTimber.Text == "" || txtTimber.Text == null)
+                if (string.IsNullOrEmpty(txtTimberVolume.Text) || txtTimberVolume.Text == "" || txtTimberVolume.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter  Volume Of Timber (in Meters) \\n";
                     slno = slno + 1;
@@ -168,21 +168,21 @@ namespace MeghalayaUIP.User.CFE
                     ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
                     txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_ADDRESS"]);
                     RblLatitude.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LATTITUDE"].ToString();
-                    txtDegree.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DEGREES"]);
-                    txtMinute.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MINUTES"]);
-                    txtSeconds.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SECONDS"]);
-                    rbllong.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LONGITUDE"].ToString();
-                    txtDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DEGREE"]);
-                    txtMinut.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MINUTE"]);
-                    txtSecond.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SECOND"]);
-                    txtGPS.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_GPSCOORDINATES"]);
-                    txtApplicant.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
+                    txtLatDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DEGREES"]);
+                    txtLatMinutes.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MINUTES"]);
+                    txtLatSeconds.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SECONDS"]);
+                    rblLongitude.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LONGITUDE"].ToString();
+                    txtLongDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DEGREE"]);
+                    txtLongMinutes.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MINUTE"]);
+                    txtLongSeconds.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SECOND"]);
+                    txtGPSCordinates.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_GPSCOORDINATES"]);
+                    txtPurpose.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
                     ddlForest.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_FORESTDIVISION"].ToString();
                     txtInformation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_INFORMATION"]);
 
                     txtspecies.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SPECIES"]);
-                    txtlength.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_TIMBERLENGTH"]);
-                    txtTimber.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_TIMBERVOLUME"]);
+                    txtTimberlength.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_TIMBERLENGTH"]);
+                    txtTimberVolume.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_TIMBERVOLUME"]);
                     txtGirth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_GIRTH"]);
                     txtEstimated.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_ESTIMATED"]);
                     txtpole.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_POLES"]);
@@ -261,7 +261,7 @@ namespace MeghalayaUIP.User.CFE
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
+            String Quesstionriids = "106";
             
 
             try
@@ -278,22 +278,22 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQForest.Questionnariid = Quesstionriids;
                     objCFEQForest.UnitId = Convert.ToString(Session["UNITID"]);
                     objCFEQForest.Address = txtAddress.Text;
-                    objCFEQForest.Latitude = RblLatitude.SelectedValue;
-                    objCFEQForest.Degrees = txtDegree.Text;
-                    objCFEQForest.Minutes = txtMinute.Text;
-                    objCFEQForest.Seconds = txtSeconds.Text;
-                    objCFEQForest.Logitude = rbllong.SelectedValue;
-                    objCFEQForest.Degree = txtDegrees.Text;
-                    objCFEQForest.Minute = txtMinut.Text;
-                    objCFEQForest.Second = txtSecond.Text;
-                    objCFEQForest.GPSCoodinates = txtGPS.Text;
-                    objCFEQForest.Application = txtApplicant.Text;
-                    objCFEQForest.Forest = ddlForest.SelectedValue;
+                    objCFEQForest.Lattitude = RblLatitude.SelectedValue;
+                    objCFEQForest.LatDegrees = txtLatDegrees.Text;
+                    objCFEQForest.LatMinutes = txtLatMinutes.Text;
+                    objCFEQForest.LatSeconds = txtLatSeconds.Text;
+                    objCFEQForest.Longitude = rblLongitude.SelectedValue;
+                    objCFEQForest.LongDegrees = txtLongDegrees.Text;
+                    objCFEQForest.LongMinutes = txtLongMinutes.Text;
+                    objCFEQForest.LongSeconds = txtLongSeconds.Text;
+                    objCFEQForest.GPSCoodinates = txtGPSCordinates.Text;
+                    objCFEQForest.Purpose = txtPurpose.Text;
+                    objCFEQForest.ForestDivision = ddlForest.SelectedValue;
                     objCFEQForest.information = txtInformation.Text;
                     //  objCFEQForest
                     objCFEQForest.Species = txtspecies.Text;
-                    objCFEQForest.Est_Length_Timber = txtlength.Text;
-                    objCFEQForest.Est_Volume_Timber = txtTimber.Text;
+                    objCFEQForest.EstTimberLength = txtTimberlength.Text;
+                    objCFEQForest.EstTimberVolume = txtTimberVolume.Text;
                     objCFEQForest.Girth = txtGirth.Text;
                     objCFEQForest.Est_Firewood = txtEstimated.Text;
                     objCFEQForest.No_Poles = txtpole.Text;

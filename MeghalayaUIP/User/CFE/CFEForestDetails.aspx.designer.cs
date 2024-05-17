@@ -78,85 +78,85 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList RblLatitude;
 
         /// <summary>
-        /// txtDegree control.
+        /// txtLatDegrees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDegree;
+        protected global::System.Web.UI.WebControls.TextBox txtLatDegrees;
 
         /// <summary>
-        /// txtMinute control.
+        /// txtLatMinutes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMinute;
+        protected global::System.Web.UI.WebControls.TextBox txtLatMinutes;
 
         /// <summary>
-        /// txtSeconds control.
+        /// txtLatSeconds control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSeconds;
+        protected global::System.Web.UI.WebControls.TextBox txtLatSeconds;
 
         /// <summary>
-        /// rbllong control.
+        /// rblLongitude control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbllong;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblLongitude;
 
         /// <summary>
-        /// txtDegrees control.
+        /// txtLongDegrees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDegrees;
+        protected global::System.Web.UI.WebControls.TextBox txtLongDegrees;
 
         /// <summary>
-        /// txtMinut control.
+        /// txtLongMinutes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMinut;
+        protected global::System.Web.UI.WebControls.TextBox txtLongMinutes;
 
         /// <summary>
-        /// txtSecond control.
+        /// txtLongSeconds control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSecond;
+        protected global::System.Web.UI.WebControls.TextBox txtLongSeconds;
 
         /// <summary>
-        /// txtGPS control.
+        /// txtGPSCordinates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGPS;
+        protected global::System.Web.UI.WebControls.TextBox txtGPSCordinates;
 
         /// <summary>
-        /// txtApplicant control.
+        /// txtPurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApplicant;
+        protected global::System.Web.UI.WebControls.TextBox txtPurpose;
 
         /// <summary>
         /// ddlForest control.
@@ -186,22 +186,22 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtspecies;
 
         /// <summary>
-        /// txtlength control.
+        /// txtTimberlength control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlength;
+        protected global::System.Web.UI.WebControls.TextBox txtTimberlength;
 
         /// <summary>
-        /// txtTimber control.
+        /// txtTimberVolume control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTimber;
+        protected global::System.Web.UI.WebControls.TextBox txtTimberVolume;
 
         /// <summary>
         /// txtGirth control.

@@ -102,14 +102,14 @@ namespace MeghalayaUIP.User.CFE
                     txtHP.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CONNECTEDLOAD"]);
                     txtMaxDemand.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_MAXIMUMDEMAND"]);
                     ddlvtglevel.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_VOLTEAGELEVEL"].ToString();
-                    ddlPermise.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_EXISTINGSERVICE"].ToString();
-                    txtMaxhours.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_PERDAY"]);
-                    txtMonth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_PERMONTH"]);
-                    txttrailProduct.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_TRIALMONTH"]);
-                    txtPowersupply.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_POWERDATE"]);
-                    txtenergy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_ENERGY"]);
-                    ddlloadenergy.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_LOADENERGY"].ToString();
-
+                    //ddlPermise.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_EXISTINGSERVICE"].ToString();
+                    txtMaxhours.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_WRKNGHRSPERDAY"]);
+                    txtMonth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_WRKNGHRSPERMONTH"]);
+                    txttrailProduct.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_TRIALPRODUCTIONDATE"]);
+                    txtPowersupply.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_POWERREQDATE"]);
+                    txtenergy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_REQLOAD"]);
+                    ddlloadenergy.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_ENERGYSOURCE"].ToString();
+                    
                 }
                 else
                 {
@@ -232,8 +232,8 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.Per_Month = txtMonth.Text;
                     objCFEPower.Expected_Month_Trial = txttrailProduct.Text;
                     objCFEPower.Probable_Date_Power = txtPowersupply.Text;
-                    objCFEPower.Energy = txtenergy.Text;
-                    objCFEPower.loadEnergy = ddlloadenergy.SelectedValue;
+                    objCFEPower.LoadReq = txtenergy.Text;
+                    objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
 
                     result = objcfebal.InsertCFEPowerDetails(objCFEPower);
                     ViewState["UnitID"] = result;

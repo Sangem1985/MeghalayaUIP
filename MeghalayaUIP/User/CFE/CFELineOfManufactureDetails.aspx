@@ -30,11 +30,11 @@
                             <asp:HiddenField ID="hdnUserID" runat="server" />
                               <asp:HiddenField ID="hdnQuesID" runat="server" />
                             <div class="row">
-                                <div class="col-md-12 d-flex ml-2 ">
+                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Line of Activity*</label>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control">
                                                 </asp:DropDownList>
                                             </div>
@@ -171,7 +171,9 @@
                                         <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </div>
-                                <br />
+                                 <div class="col-md-12 d-flex">
+                                    <br />
+                                  </div>
 
                                 <div class="col-md-12 text-right">
 

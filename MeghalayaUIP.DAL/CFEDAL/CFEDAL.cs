@@ -726,23 +726,21 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.CommandText = CFEConstants.InsertCFEPowerDet;
 
                 com.Transaction = transaction;
-                com.Connection = connection;
-
-                com.Parameters.AddWithValue("CFEPD_CREATEDBY", Convert.ToInt32(objCFEPower.CreatedBy));
-                com.Parameters.AddWithValue("CFEPD_CREATEDBYIP", objCFEPower.IPAddress);
+                com.Connection = connection;              
 
                 com.Parameters.AddWithValue("@CFEPD_CFEQDID", Convert.ToInt32(objCFEPower.Questionnariid));
                 com.Parameters.AddWithValue("@CFEPD_UNITID", Convert.ToInt32(objCFEPower.UnitId));
-                com.Parameters.AddWithValue("@CFEPD_CONNECTEDLOAD", Convert.ToInt32(objCFEPower.Con_Load_HP));
-                com.Parameters.AddWithValue("@CFEPD_MAXIMUMDEMAND", objCFEPower.Maximum_KVA);
-                com.Parameters.AddWithValue("@CFEPD_VOLTEAGELEVEL", objCFEPower.Voltage_Level);
-                com.Parameters.AddWithValue("@CFEPD_EXISTINGSERVICE", objCFEPower.Existing_Service);
-                com.Parameters.AddWithValue("@CFEPD_PERDAY", Convert.ToInt32(objCFEPower.Per_Day));
-                com.Parameters.AddWithValue("@CFEPD_PERMONTH", Convert.ToInt32(objCFEPower.Per_Month));
-                com.Parameters.AddWithValue("@CFEPD_TRIALMONTH", DateTime.ParseExact(objCFEPower.Expected_Month_Trial, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFEPD_POWERDATE", DateTime.ParseExact(objCFEPower.Probable_Date_Power, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFEPD_ENERGY", Convert.ToInt32(objCFEPower.Energy));
-                com.Parameters.AddWithValue("@CFEPD_LOADENERGY", Convert.ToInt32(objCFEPower.Energy));
+                com.Parameters.AddWithValue("@CFEPD_CONNECTEDLOAD", Convert.ToDecimal(objCFEPower.Con_Load_HP));
+                com.Parameters.AddWithValue("@CFEPD_MAXIMUMDEMAND", Convert.ToDecimal(objCFEPower.Maximum_KVA));
+                com.Parameters.AddWithValue("@CFEPD_VOLTEAGELEVEL", Convert.ToInt32(objCFEPower.Voltage_Level));
+                com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERDAY", Convert.ToInt32(objCFEPower.Per_Day));
+                com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERMONTH", Convert.ToInt32(objCFEPower.Per_Month));
+                com.Parameters.AddWithValue("@CFEPD_TRIALPRODUCTIONDATE", DateTime.ParseExact(objCFEPower.Expected_Month_Trial, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEPD_POWERREQDATE", DateTime.ParseExact(objCFEPower.Probable_Date_Power, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEPD_REQLOAD", Convert.ToDecimal(objCFEPower.LoadReq));
+                com.Parameters.AddWithValue("@CFEPD_ENERGYSOURCE", Convert.ToInt32(objCFEPower.EnergySource));
+                com.Parameters.AddWithValue("CFEPD_CREATEDBY", Convert.ToInt32(objCFEPower.CreatedBy));
+                com.Parameters.AddWithValue("CFEPD_CREATEDBYIP", objCFEPower.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -1111,16 +1109,30 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Parameters.AddWithValue("@CFEFD_CFEQDID", Convert.ToInt32(objCFEQForest.Questionnariid));
                 com.Parameters.AddWithValue("@CFEFD_UNITID", Convert.ToInt32(objCFEQForest.UnitId));
-
+                com.Parameters.AddWithValue("@CFEFD_ADDRESS", objCFEQForest.Address);
+                com.Parameters.AddWithValue("@CFEFD_LATTITUDE", objCFEQForest.Lattitude);
+                com.Parameters.AddWithValue("@CFEFD_DEGREES", objCFEQForest.LatDegrees);
+                com.Parameters.AddWithValue("@CFEFD_MINUTES", objCFEQForest.LatMinutes);
+                com.Parameters.AddWithValue("@CFEFD_SECONDS", objCFEQForest.LatSeconds);
+                com.Parameters.AddWithValue("@CFEFD_LONGITUDE", objCFEQForest.Longitude);
+                com.Parameters.AddWithValue("@CFEFD_DEGREE", objCFEQForest.LongDegrees);
+                com.Parameters.AddWithValue("@CFEFD_MINUTE", objCFEQForest.LongMinutes);
+                com.Parameters.AddWithValue("@CFEFD_SECOND", objCFEQForest.LongSeconds);
+                com.Parameters.AddWithValue("@CFEFD_GPSCOORDINATES", objCFEQForest.GPSCoodinates);
+                com.Parameters.AddWithValue("@CFEFD_PURPOSEAPPLICATION", objCFEQForest.Purpose);
+                com.Parameters.AddWithValue("@CFEFD_FORESTDIVISION", objCFEQForest.ForestDivision);
+                com.Parameters.AddWithValue("@CFEFD_INFORMATION", objCFEQForest.information);
                 com.Parameters.AddWithValue("@CFEFD_SPECIES", objCFEQForest.Species);
-                com.Parameters.AddWithValue("@CFEFD_TIMBERLENGTH", SqlDbType.Decimal).Value = objCFEQForest.Est_Length_Timber;
-                com.Parameters.AddWithValue("@CFEFD_TIMBERVOLUME", SqlDbType.Decimal).Value = objCFEQForest.Est_Volume_Timber;
-                com.Parameters.AddWithValue("@CFEFD_GIRTH", SqlDbType.Decimal).Value = objCFEQForest.Girth;
+                com.Parameters.AddWithValue("@CFEFD_TIMBERLENGTH",  objCFEQForest.EstTimberLength);
+                com.Parameters.AddWithValue("@CFEFD_TIMBERVOLUME", objCFEQForest.EstTimberVolume);
+                com.Parameters.AddWithValue("@CFEFD_GIRTH",objCFEQForest.Girth);
+                com.Parameters.AddWithValue("@CFEFD_ESTIMATED", objCFEQForest.Est_Firewood);
+                
                 com.Parameters.AddWithValue("@CFEFD_POLES", Convert.ToInt32(objCFEQForest.No_Poles));
-                com.Parameters.AddWithValue("@CFEFD_NORTH", Convert.ToInt32(objCFEQForest.North));
-                com.Parameters.AddWithValue("@CFEFD_EAST", Convert.ToInt32(objCFEQForest.East));
-                com.Parameters.AddWithValue("@CFEFD_WEST", Convert.ToInt32(objCFEQForest.West));
-                com.Parameters.AddWithValue("@CFEFD_SOUTH", Convert.ToInt32(objCFEQForest.South));
+                com.Parameters.AddWithValue("@CFEFD_NORTH", objCFEQForest.North);
+                com.Parameters.AddWithValue("@CFEFD_EAST", objCFEQForest.East);
+                com.Parameters.AddWithValue("@CFEFD_WEST",objCFEQForest.West);
+                com.Parameters.AddWithValue("@CFEFD_SOUTH", objCFEQForest.South);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

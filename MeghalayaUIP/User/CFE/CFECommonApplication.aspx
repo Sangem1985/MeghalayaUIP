@@ -124,13 +124,345 @@
                     </div>
                 </div>
 
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-right">
                     <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Save" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
                     <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
 
                 </div>
-
+                <br />
+                <div class="row" runat="server" visible="true">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4><b>Upload Offline Approvals which are already obtained:</b></h4>
+                                <br />
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Pre Establishment Approval from Pollution Control Board </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="fupAadhar" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                                <br />
+                                                <asp:HyperLink ID="lblFileName"  runat="server" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="btnUpldAadhar" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Service Connection Certificate  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload1" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button1" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Electricity Connection Certificate  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload2" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button2" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Factory Plan Approval   </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload3" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button3" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">DG Set NOC   </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload4" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button4" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Provisional Fire Safety Certificate  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload5" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button5" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Licence to store RS, DS  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload6" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button6" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">NOC required for setting up of Explosives Manufacturing, Storage, Sale, Transport </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload7" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button7" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">NOC Required for Setting Up of Petroleum, Diesel & Naphtha Manufacturing, Storage, Sale, Transport  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload8" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button8" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Road Cutting Permission Letter  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload9" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button9" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Non Encumbrance Certificate </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload10" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button10" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Certificate of Registration of Professional Tax   </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload11" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button11" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Electrical Drawing Approval from Electrical Inspectorate </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload12" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button12" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Letter for distance from Forest  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload13" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button13" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Non-Forest Land Certificate  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload14" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button14" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">FTL NOC for Change of Land use (Irrigation)  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload15" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button15" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">FTL NOC for Change of Land use (Revenue)  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload16" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button16" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label"> NOC for Ground Water Abstraction for Commercial Connection  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload17" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button17" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Certificate for non-availability of water supply from water supply agency </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload18" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button18" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-10">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Permission to Draw Water from River/Public Tanks  </label>
+                                            <div class="col-lg-1 d-flex">
+                                                :
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <asp:FileUpload runat="server" ID="FileUpload19" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            </div>
+                                            <div class="col-lg-2 d-flex">
+                                                <asp:Button runat="server" ID="Button19" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </div>

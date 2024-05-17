@@ -535,6 +535,7 @@
     <Content Include="User\CFE\CFEPaymentPage.aspx" />
     <Content Include="User\CFE\CFEPowerDetails.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
+    <Content Include="User\CFE\CFEUploadEnclosures.aspx" />
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
     <Content Include="User\CFE\CFEUserDashboard.aspx" />
     <Content Include="User\CFE\demo.aspx" />
@@ -867,6 +868,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEQuestionnaire.aspx.designer.cs">
       <DependentUpon>CFEQuestionnaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEUploadEnclosures.aspx.cs">
+      <DependentUpon>CFEUploadEnclosures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEUploadEnclosures.aspx.designer.cs">
+      <DependentUpon>CFEUploadEnclosures.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEUserApplStatus.aspx.cs">
       <DependentUpon>CFEUserApplStatus.aspx</DependentUpon>

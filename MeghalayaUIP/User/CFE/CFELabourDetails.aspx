@@ -274,7 +274,7 @@
 
 
 
-                                <div id="divfalse" runat="server" visible="true">
+                                <div id="divfalse" runat="server" visible="false">
                                     <div runat="server" visible="false">
                                         <div class="col-md-12">
                                             <p class="ml-2 text-info"><b>Note: If you are outside Meghalaya State, enter the address here</b></p>
@@ -453,7 +453,7 @@
 
 
                                     <div class="col-md-12 d-flex">
-                                        
+
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Mandal *</label>
@@ -485,7 +485,7 @@
                                     </div>
 
 
-                                   
+
 
                                     <div class="col-md-12 d-flex">
                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">11. Duration of the proposed contract work(give particulars of proposed date of commencing and ending)</span></label>
@@ -874,6 +874,9 @@
                                     </div>
                                 </div>
 
+                            </div>
+                            <div class="col-md-12 d-flex">
+                               
                             </div>
                             <div class="col-md-12 text-right">
 

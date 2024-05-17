@@ -21,8 +21,11 @@ namespace MeghalayaUIP.Common
         public static string GetCFELOMANDRMDetails = "USP_GETCFELOMANDRMDETAILS";
         public static string InsertCFEManufactureDetails = "USP_INSCFELINEOFMANFDETAILS";
         public static string InsertCFERAWMaterialDetails = "USP_INSCFERAWMATERIALDETAILS";
-
+        public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
+        public static string InsertCFEPowerDet = "USP_INSCFEPOWERDETAILS";
         public static string GetRetriveFireDetails = "USP_GETRETRIVEFIRE";
+        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
+ 
         public static string GetEntrepreneurDet = "USP_GETCFEENTREPRENEURDATA";
         public static string InsertEntrepreneurDetails = "USP_INSCFEENTREPRENEURDETAILS";
         public static string GetSector_Department = "USP_GET_SECTOR_DEPT";
@@ -30,10 +33,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFELandDet = "USP_GETRETRIVECFELANDDET";
         public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";
         public static string INSERTCFEWaterDet = "";
-        public static string InsertCFEPowerDet = "USP_INSCFEPOWERDETAILS";
        
-        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
-        public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
         public static string GetRetriveIntentInvest = "USP_GETINTENTTOINVESTAPPLDETAILS";
         public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
 
@@ -410,8 +410,8 @@ namespace MeghalayaUIP.Common
         public string Per_Month { get; set; }
         public string Expected_Month_Trial { get; set; }
         public string Probable_Date_Power { get; set; }
-        public string Energy { get; set; }
-        public string loadEnergy { get; set; }
+        public string LoadReq { get; set; }
+        public string EnergySource { get; set; }
 
     }
     public class CFEForest
@@ -512,21 +512,20 @@ namespace MeghalayaUIP.Common
         public string UNITID { get; set; }
         public string Address { get; set; }
         public string Lattitude { get; set; }
-
-        //   public string Degrees { get; set; }
-        // public string Minutes { get; set; }
-        //   public string Seconds { get; set; }
-        public string Logitude { get; set; }
-        //public string Degree { get; set; }
-        //public string Minute { get; set; }
-        //public string Second { get; set; }
+        public string LatDegrees { get; set; }
+        public string LatMinutes { get; set; }
+        public string LatSeconds { get; set; }
+        public string Longitude { get; set; }        
+        public string LongDegrees { get; set; }
+        public string LongMinutes { get; set; }
+        public string LongSeconds { get; set; }
         public string GPSCoodinates { get; set; }
-        public string Application { get; set; }
-        public string Forest { get; set; }
+        public string Purpose { get; set; }
+        public string ForestDivision { get; set; }
         public string information { get; set; }
         public string Species { get; set; }
-        public string Est_Length_Timber { get; set; }
-        public string Est_Volume_Timber { get; set; }
+        public string EstTimberLength { get; set; }
+        public string EstTimberVolume { get; set; }
         public string Girth { get; set; }
         public string Est_Firewood { get; set; }
         public string No_Poles { get; set; }
@@ -535,24 +534,14 @@ namespace MeghalayaUIP.Common
         public string West { get; set; }
         public string South { get; set; }
         public string Area_Land { get; set; }
-        public string Non_Forest_land_cet { get; set; }
+        public string Non_Forest_land_cert { get; set; }
         public string Loc_Address_Land { get; set; }
         public string State { get; set; }
         public string District { get; set; }
         public string Village { get; set; }
         public string Pincode { get; set; }
         public string Geographic_Land { get; set; }
-        public string ordinates_desc { get; set; }
-        public string Latitude { get; set; }
-        public string Degrees { get; set; }
-        public string Minutes { get; set; }
-        public string Seconds { get; set; }
-        public string Degree { get; set; }
-        public string Minute { get; set; }
-        public string Second { get; set; }
-        public string GPS_Coordinates { get; set; }
-        public string pur_Application { get; set; }
-        public string Forest_Division { get; set; }
+        public string ordinates_desc { get; set; }      
 
     }
     public class CFEPayments
