@@ -80,6 +80,7 @@
     <Content Include="assets\admin\css\menustyle.css" />
     <Content Include="assets\admin\css\select2.min.css" />
     <Content Include="assets\admin\css\style.css" />
+    <Content Include="assets\admin\css\user.css" />
     <Content Include="assets\admin\fonts\feathericon.svg" />
     <Content Include="assets\admin\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\admin\fonts\MaterialIcons-Regular.svg" />
@@ -493,6 +494,7 @@
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\script.js" />
     <Content Include="Contact.aspx" />
+    <Content Include="Dashboarddrill.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
     <Content Include="Dept\CFE\CFEApplDeptView.aspx" />
@@ -542,6 +544,8 @@
     <Content Include="User\CFE\demo.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
+    <Content Include="User\DashboardDrill.aspx" />
+    <Content Include="User\Dashboardstatus.aspx" />
     <Content Include="User\MainDashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryPrintPage.aspx" />
@@ -560,6 +564,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboarddrill.aspx.cs">
+      <DependentUpon>Dashboarddrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboarddrill.aspx.designer.cs">
+      <DependentUpon>Dashboarddrill.aspx</DependentUpon>
     </Compile>
     <Compile Include="demoinnerpage.aspx.cs">
       <DependentUpon>demoinnerpage.aspx</DependentUpon>
@@ -918,6 +929,20 @@
     </Compile>
     <Compile Include="User\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\DashboardDrill.aspx.cs">
+      <DependentUpon>DashboardDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\DashboardDrill.aspx.designer.cs">
+      <DependentUpon>DashboardDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Dashboardstatus.aspx.cs">
+      <DependentUpon>Dashboardstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Dashboardstatus.aspx.designer.cs">
+      <DependentUpon>Dashboardstatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\MainDashboard.aspx.cs">
       <DependentUpon>MainDashboard.aspx</DependentUpon>
