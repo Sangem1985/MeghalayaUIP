@@ -766,7 +766,7 @@
                                 aria-labelledby="headingFour" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Query Response Attachments Check Lists</h3>
+                                        <h3>Attachments in Response to Query Raised</h3>
                                     </div>
                                     <section id="dashboardQueryattachmnts">
                                         <div class="container-fluid">

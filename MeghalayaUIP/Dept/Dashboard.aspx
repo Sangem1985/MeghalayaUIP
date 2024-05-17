@@ -14,7 +14,7 @@
                                 <a href="DeptDashboard.aspx">
                                     <div class="card-counter primarydashboard5">
                                         <i class="fi fi-rr-square-up-right"></i>
-                                        <span class="count-numbers">Registration under MIIPP 2024
+                                        <span class="count-numbers">Registration under<br /> MIIPP 2024
                                         </span>
                                         <span class="count-name">(Principle approval)</span>
                                     </div>
@@ -25,7 +25,7 @@
                                     <div class="card-counter primarydashboard1">
                                         <i class="fi fi-rr-square-up-right"></i>
                                         <span class="count-numbers">CFE</span>
-                                        <span class="count-name">(Pre-Establishment Approval)</span>
+                                        <span class="count-name">(Pre-Establishment<br /> Approval)</span>
                                     </div>
                                 </a>
                             </div>
@@ -34,7 +34,7 @@
                                     <div class="card-counter primarydashboard2">
                                         <i class="fi fi-rr-square-up-right"></i>
                                         <span class="count-numbers">CFO</span>
-                                        <span class="count-name">(Pre-Operational Approval)</span>
+                                        <span class="count-name">(Pre-Operational<br/> Approval)</span>
                                     </div>
                                 </a>
                             </div>

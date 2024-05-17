@@ -97,18 +97,23 @@
                     <li class="nav-item dropdown has-arrow">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img">
-                                <asp:ImageButton runat="server" ID="Imagebutton1" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="avatar-img rounded-circle" />
+                                <img class="rounded-circle" src="../../assets/admin/img/profiles/avatar-01.jpg"
+                                    width="31" alt="Ryan Taylor">
+                                <%--<asp:ImageButton runat="server" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="rounded-circle" />--%>
+                            <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>
                             </span>
+                            
                         </a>
                         <div class="dropdown-menu">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
                                     <img src="../../assets/admin/img/profiles/avatar-01.jpg" alt="User Image"
                                         class="avatar-img rounded-circle">
+
+                                    
                                 </div>
                                 <div class="user-text">
-                                    <h6>
-                                        <asp:Label ID="lblUser" runat="server"></asp:Label></h6>
+                                   
                                     <p class="text-muted mb-0">User</p>
                                 </div>
                             </div>
@@ -236,7 +241,7 @@
             function startTime() {
                 var today = new Date();
                 var day = today.getDate();
-                var month = today.getMonth();
+                var month = 1 + today.getMonth();
                 var year = today.getFullYear();
                 var h = today.getHours();
                 var m = today.getMinutes();

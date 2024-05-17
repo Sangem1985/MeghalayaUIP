@@ -21,12 +21,12 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2">
                             <div class="col-md-3">
                                 <div class="card-counter primarydashboard5">
                                     <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
 									<i class="fi fi-rr-square-up-right"></i>
-									<span class="count-numbers">Registration under MIIPP 2024</span>
+									<span class="count-numbers">Registration under<br /> MIIPP 2024</span>
 									<span class="count-name">(Principle approval)</span>
                                     </asp:LinkButton>
                                 </div>
@@ -35,7 +35,7 @@
                                 <div class="card-counter primarydashboard1">
                                     <asp:LinkButton runat="server" ID="linkCFE" OnClick="linkCFE_Click">
 									<i class="fi fi-rr-square-up-right"></i>
-									<span class="count-numbers">Pre-establishment Approval</span>
+									<span class="count-numbers">Pre-establishment<br /> Approval</span>
 									<span class="count-name"></span>
                                     </asp:LinkButton>
                                 </div>
@@ -46,7 +46,7 @@
                                 <div class="card-counter primarydashboard2">
                                     <asp:LinkButton runat="server" ID="linkCFO" OnClick="linkCFO_Click">
                                     <i class="fi fi-rr-square-up-right"></i>
-                                    <span class="count-numbers">Pre-Operational Approval</span>
+                                    <span class="count-numbers">Pre-Operational<br /> Approval</span>
                                     <span class="count-name"></span>
                                     </asp:LinkButton>
                                 </div>

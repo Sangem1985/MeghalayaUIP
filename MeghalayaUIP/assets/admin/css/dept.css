@@ -1,14 +1,16 @@
 /* Infobox ===================================== */
 .info-box {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  height: 80px;
-  display: flex;
-  cursor: default;
-  background-color: #fff;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    height: 80px;
+    display: flex;
+    cursor: default;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 18px;
+    border-radius: 4px;
 }
+
 
 .icon h4 {
   margin-top: 27px;
@@ -58,16 +60,18 @@
 }
 
 .info-box .content {
-  display: inline-block;
-  padding: 7px 10px;
-  font-weight: 600;
+    padding: 7px 10px;
+    font-weight: 500;
+    vertical-align: middle;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .info-box .content .text {
-  font-size: 20px;
-  margin-top: 11px;
+  font-size: 18px;
   color: #fff;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .info-box .content .number {
@@ -826,7 +830,7 @@ div#app {
 
 .row.clearfix {
   padding: 19px 0px 0px;
-  border: 1px dotted #795548;
+  border: 1px solid #c9c8c8;
   margin: 10px 0px 0px;
 
 }
@@ -894,33 +898,33 @@ table.table.table-bordered.status tr.cy {
 }
 
 .bg-yellow {
-  background-color: #ff9800 !important;
-  color: #fff;
+    background: linear-gradient(to bottom, #86930b 0%, #918308 100%) !important;
+    color: #fff;
 }
 
 .bg-orange {
-  background-color: #FF5722 !important;
-  color: #fff;
+    background: linear-gradient(to bottom, #3F51B5 10%, #132585 90%) !important;
+    color: #fff;
 }
 .bg-red {
   background-color: #D32F2F !important;
   color: #fff;
 }
-.bg-green{
-  background-color: #008000 !important;
-  color: #fff;
+.bg-green {
+    background: linear-gradient(to bottom, #2e971d 10%, #147008 90%) !important;
+    color: #fff;
 }
-.bg-pink{
-  background-color: #C2185B !important;
-  color: #fff;
+.bg-pink {
+    background: linear-gradient(to bottom, #a33359 0%, #72062b 100%) !important;
+    color: #fff;
 }
 i.fi {
-  position: absolute;
-  top: 15px;
-  right: 8px;
-  font-size: 50px;
-  opacity: 0.3;
-  color: #fff;
+    position: absolute;
+    top: 18px;
+    right: 9px;
+    font-size: 40px;
+    opacity: 0.4;
+    color: #f9f9f9;
 }
 .card h3 {
   font-size: 20px;
@@ -999,4 +1003,8 @@ i.fi {
 .bg-darkblue {
     background: #3F51B5;
     color: #fff;
+}
+section#dashboardcount .col-lg-2 {
+    width: 20% !important;
+    min-width: 20%;
 }

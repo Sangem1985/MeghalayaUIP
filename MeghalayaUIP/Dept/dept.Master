@@ -40,10 +40,14 @@
          color: #fff;
         }
         .bg-light {
-         background: url(../../assets/admin/img/deptbg2.png);
+         background: linear-gradient(to bottom, #0f7f8f 0%, #185784 100%);
          background-size: cover;
         background-position: center;
         }
+         a.logo input#imgLogo {
+    width: 98%;
+    margin-top: 15px;
+}
    </style>
 </head>
 <body>
@@ -55,8 +59,9 @@
 
                 <!-- Logo -->
                 <div class="header-left">
-                    <br/>
-                    <asp:imagebutton runat="server" id="imgLogo" imageurl="~/assets/images/Logo.png" height="25px" width="200px" />
+                    <a href="#" class="logo">
+                    <asp:imagebutton runat="server" id="imgLogo" imageurl="~/assets/images/Logo.png"/>
+                        </a>
                 </div>
                 <!-- /Logo -->
 
@@ -82,6 +87,7 @@
                             <span class="user-img">
                                 <img class="rounded-circle" src="../../assets/admin/img/profiles/avatar-01.jpg"
                                     width="31" alt="Ryan Taylor"></span>
+                            <span class="text-dark" id="lblUser" runat="server"></span>&nbsp;&nbsp;
                         </a>
                         <div class="dropdown-menu">
                             <div class="user-header">
@@ -90,7 +96,7 @@
                                         class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
-                                    <h6> <span id="lblUser" runat="server"></span></h6>
+                                    
                                     <p class="text-muted mb-0"><span id="lblrole" runat="server"></span></p>
                                 </div>
                             </div>
@@ -176,7 +182,7 @@
             function startTime() {
                 var today = new Date();
                 var day = today.getDate();
-                var month = today.getMonth();
+                var month = 1+ today.getMonth();
                 var year = today.getFullYear();
                 var h = today.getHours();
                 var m = today.getMinutes();
