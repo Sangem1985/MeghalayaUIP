@@ -55,18 +55,18 @@ namespace MeghalayaUIP.Dept.CFE
                 //int RowIndex = gvr.RowIndex;
 
                 string[] Arguents = e.CommandArgument.ToString().Split('$');
-                string UNITID = Arguents[0];
+                string CFEQDID = Arguents[0];
                 string INVESTERID = Arguents[1];
 
                 int stage = 3;
 
-                //prd.Unitid = UNITID;
-                //prd.Investerid = INVESTERID;
-                //prd.Stage = stage;
-                //Session["UNITID"] = UNITID;
-                //Session["INVESTERID"] = INVESTERID;
-                //Session["stage"] = stage;
-                //Response.Redirect("PreRegApplDeptProcess.aspx?status=" + Request.QueryString["status"].ToString());
+                objcfedtls.Questionnaireid = CFEQDID;
+                objcfedtls.Investerid = INVESTERID;
+                objcfedtls.Stage = stage; 
+                Session["Questionnaireid"] = CFEQDID;
+                Session["INVESTERID"] = INVESTERID;
+                Session["stage"] = stage;
+                Response.Redirect("CFEApplDeptProcess.aspx?status=" + Request.QueryString["status"].ToString());
             }
         }
     }

@@ -11,5 +11,6 @@ namespace MeghalayaUIP.Common
         public static string LogEorror = "USP_INS_ERRORLOG";
 
         public static string GetMainApplicantDashBoard = "USP_GET_APPLICATIONS_STATUS_COUNT";
+        public static string InsertGrievance = "USP_INS_GRIEVANCE";
     }
 }

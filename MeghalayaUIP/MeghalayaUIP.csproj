@@ -497,6 +497,7 @@
     <Content Include="Dashboarddrill.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
+    <Content Include="Dept\CFE\CFEApplDeptProcess.aspx" />
     <Content Include="Dept\CFE\CFEApplDeptView.aspx" />
     <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
     <Content Include="Dept\CFE\demo.aspx" />
@@ -542,10 +543,12 @@
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
     <Content Include="User\CFE\CFEUserDashboard.aspx" />
     <Content Include="User\CFE\demo.aspx" />
+    <Content Include="User\CFO\CFOQuestionnaire.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
+    <Content Include="User\Grievance\Grievance.aspx" />
     <Content Include="User\MainDashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryPrintPage.aspx" />
@@ -585,6 +588,13 @@
     </Compile>
     <Compile Include="Deptlogin.aspx.designer.cs">
       <DependentUpon>Deptlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEApplDeptProcess.aspx.cs">
+      <DependentUpon>CFEApplDeptProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEApplDeptProcess.aspx.designer.cs">
+      <DependentUpon>CFEApplDeptProcess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\CFE\CFEApplDeptView.aspx.cs">
       <DependentUpon>CFEApplDeptView.aspx</DependentUpon>
@@ -916,6 +926,13 @@
     <Compile Include="User\CFE\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFO\CFOQuestionnaire.aspx.cs">
+      <DependentUpon>CFOQuestionnaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOQuestionnaire.aspx.designer.cs">
+      <DependentUpon>CFOQuestionnaire.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFO\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -943,6 +960,13 @@
     </Compile>
     <Compile Include="User\Dashboardstatus.aspx.designer.cs">
       <DependentUpon>Dashboardstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Grievance\Grievance.aspx.cs">
+      <DependentUpon>Grievance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Grievance\Grievance.aspx.designer.cs">
+      <DependentUpon>Grievance.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\MainDashboard.aspx.cs">
       <DependentUpon>MainDashboard.aspx</DependentUpon>

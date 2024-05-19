@@ -74,6 +74,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetSector();
         }
+        public List<MasterDepartment> GetDepartment()
+        {
+            return objMasterDAL.GetDepartment();
+        }
         public List<MasterENTERPRISETYPE> GetENTERPRISETYPE()
         {
             return objMasterDAL.GetENTERPRISETYPE();

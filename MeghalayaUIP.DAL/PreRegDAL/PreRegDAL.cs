@@ -951,7 +951,6 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return ds;
         }
-
         public DataTable GetIntentInvestDashBoard()
         {
             DataTable dt = new DataTable();

@@ -47,6 +47,8 @@ namespace MeghalayaUIP.Common
 
         public static string GetCFEDashBoard = "USP_CFEDASHBOARDCOUNT";
         public static string GetCFEDashBoardView = "USP_CFEDASHBOARDVIEW";
+        public static string GetCFEApplicationDet = "USP_GETCFEAPPLICATIONDETAILS";
+        public static string UpdateCFEDepartmentProcess = "USP_UPDATECFESCRUTINYACTION";
         ///END///
 
     }
@@ -63,6 +65,9 @@ namespace MeghalayaUIP.Common
         public string ViewStatus { get; set; }
         public string Remarks { get; set; }
         public int? deptid { get; set; }
+        public int? ApprovalId { get; set; }
+        public string AdditionalAmount { get; set; }
+        public string PrescrutinyRejectionFlag { get; set; }
         public string DeptDesc { get; set; }
         public string IPAddress { get; set; }       
     }
