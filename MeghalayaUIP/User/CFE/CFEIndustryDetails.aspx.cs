@@ -279,6 +279,9 @@ namespace MeghalayaUIP.User.CFE
                         txtRdCutlenght.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLENGTH"]);
                         txtRdCutLocations.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLOCATIONS"]);
 
+                        if (txtRdCutlenght.Text != "")
+                        { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
+
                     }
                     else
                     {
@@ -311,6 +314,8 @@ namespace MeghalayaUIP.User.CFE
                             ddlFactories.SelectedValue = "1";
                         else if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "N")
                             ddlFactories.SelectedValue = "2";
+                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_RDCTNGREQ"]) == "Y")
+                        { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
                     }
                     //txtIndustryName.Enabled = false;
                     //txtPromoterName.Enabled = false;

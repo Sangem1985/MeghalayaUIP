@@ -657,8 +657,8 @@
                                     </div>
                                 </div>
 
-                                <h5 id="hdngRdCtng" visible="true" runat="server">Road Cutting Details</h5>
-                                <div class="col-md-12 d-flex" id="divRDctng" runat="server" visible="true">
+                                <h5 id="hdngRdCtng" visible="false" runat="server">Road Cutting Details</h5>
+                                <div class="col-md-12 d-flex" id="divRDctng" runat="server" visible="false">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Length of road to be cut:(in mtrs) *</label>
