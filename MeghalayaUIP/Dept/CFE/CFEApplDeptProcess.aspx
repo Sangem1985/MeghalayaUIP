@@ -40,7 +40,7 @@
                                         <h3>CFE Questionnaire Details</h3>
                                     </div>
                                     <div class="alldetails" id="bodypart">
-                                        <div class="row ">
+                                        <div class="row mt-4">
                                             <div class="col-xl-12 col-sm-12 col-12">
                                                 <div class="card">
                                                     <div class="card-body">
@@ -965,7 +965,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-xl-8 col-sm-12 col-12">
+                                            <div class="col-xl-12 col-sm-12 col-12">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="col-md-12">
@@ -973,19 +973,16 @@
                                                             <hr />
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex tablepadding">
+                                                        <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Category of Establishment</div>
                                                                 <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEstablish" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <h5>Full name and address of the Principal Employer(furnish father's name in the case of individuals) with Phone No: </h5>
-                                                            <hr />
-                                                        </div>
+                                                        <h6 class="ml-3"><b>Full name and address of the Principal Employer(furnish father's name in the case of individuals) with Phone No: </b></h6>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
-                                                                <div class="col-md-6">Namet</div>
+                                                                <div class="col-md-6">Name</div>
                                                                 <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblNames" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
@@ -1106,6 +1103,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
