@@ -5876,3 +5876,55 @@ input[type=submit]:disabled {
 	background: #ccc !important;
 	font-weight: 600;
 }
+
+
+.alldetails {
+	div #bodypart
+
+{
+	margin-top: 5rem !important;
+}
+
+.card-body {
+	padding: 5px 7px !important;
+}
+
+.col-md-12.d-flex.tablepadding .col-md-6.d-flex .col-md-6,
+.col-md-12.d-flex.tablepadding1 .col-md-6,
+.col-md-12.d-flex.tablepadding .col-md-4.d-flex .col-md-6,
+.col-md-12.d-flex.tablepadding3 .col-md-4,
+.col-md-12.d-flex.tablepadding2 .col-md-6,
+.col-md-12.d-flex.tablepadding4,
+.col-md-2,
+.col-md-3 {
+	border: 1px solid #ccc;
+	padding: 3px 15px;
+	margin: 0px 0px;
+}
+
+.card {
+	border: 1px solid #3879a6;
+	margin-bottom: 1.875rem;
+}
+
+h5 {
+	color: #fff;
+	padding: 2px 13px;
+	border-radius: 4px;
+	text-align: center;
+	margin-bottom: 0px !important;
+	padding-bottom: 0px !important;
+	text-transform: capitalize;
+	background: #4B9CD3;
+	margin-top: -18px;
+	text-shadow: 1px 2px 3px #000;
+	border: 1px solid #066f22;
+}
+
+div#bodypart {
+	background: url(../images/background/bg1.jpg);
+	background-size: contain;
+	background-position: top;
+}
+}
+
