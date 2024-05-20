@@ -384,13 +384,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Button btnUpld8RSDSLic;
 
         /// <summary>
-        /// hplRSDSLic control.
+        /// hpl8RSDSLic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplRSDSLic;
+        protected global::System.Web.UI.WebControls.HyperLink hpl8RSDSLic;
 
         /// <summary>
         /// divExplsvNOC control.

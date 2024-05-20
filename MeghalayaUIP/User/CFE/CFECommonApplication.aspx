@@ -284,7 +284,7 @@
                                                 <asp:Button runat="server" ID="btnUpld8RSDSLic" OnClick="btnUpld8RSDSLic_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hplRSDSLic"  runat="server" Target="_blank"></asp:HyperLink>
+                                                <asp:HyperLink ID="hpl8RSDSLic"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>

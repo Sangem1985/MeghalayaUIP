@@ -93,7 +93,6 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-
                 if ((e.Row.RowType == DataControlRowType.DataRow))
                 {
                     decimal TotalFee1 = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "CFEQA_APPROVALFEE"));
@@ -148,43 +147,6 @@ namespace MeghalayaUIP.User.CFE
                     e.Row.Cells[5].Text = "Total Fee";
                     e.Row.Cells[6].Text = amounts22.ToString("#,##0");
                 }
-
-
-
-
-
-                ////if ((e.Row.RowType == DataControlRowType.DataRow))
-                ////{
-                ////    Label lblFee = e.Row.FindControl("lblAmounts") as Label;
-                ////    CheckBox ChkApproval = (CheckBox)e.Row.FindControl("ChkApproval");
-                ////    RadioButtonList rblAlrdyObtained = (RadioButtonList)e.Row.FindControl("rblAlrdyObtained");
-                ////    decimal Fee = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "CFEQA_APPROVALFEE"));
-                ////    lblFee.Text = Convert.ToString(Fee);
-                ////    TotalFee = TotalFee + Fee;
-                ////    //e.Row.Cells[6].Text = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "CFEQA_APPROVALFEE")).ToString("#,##0");
-                ////    decimal amounts = Convert.ToDecimal(lblFee.Text.ToString());
-
-                ////    ChkApproval.Checked = true;
-                ////    if (ChkApproval.Checked == true && amounts != 0)
-                ////    {
-                ////        e.Row.Cells[6].Text = e.Row.Cells[3].Text;
-                ////    }
-                ////    if (e.Row.Cells[6].Text != "" && amounts != 0)
-                ////    {
-                ////        decimal TotalFeeAmount1 = Convert.ToDecimal(e.Row.Cells[6].Text);
-                ////        TotalFeeAmount = TotalFeeAmount + TotalFeeAmount1;
-                ////        if (e.Row.Cells[6].Text != "")
-                ////            e.Row.Cells[6].Text = Convert.ToDecimal(e.Row.Cells[6].Text).ToString("#,##0");
-                ////    }
-                ////}
-                ////if ((e.Row.RowType == DataControlRowType.Footer))
-                ////{
-                ////    e.Row.Cells[2].Text = "Total Fee";
-                ////    e.Row.Cells[3].Text = TotalFee.ToString("#,##0");
-                ////    e.Row.Cells[5].Text = "Total Fee";
-                ////    e.Row.Cells[6].Text = TotalFee.ToString("#,##0");
-
-                ////}
             }
             catch (Exception ex)
             {
@@ -229,93 +191,8 @@ namespace MeghalayaUIP.User.CFE
                     {
                         row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
                         chkCheck.Enabled = false;
-
-
                     }
                 }
-
-
-                //if (lblAmount.Text != "Label" && rdbCheck.SelectedItem.Value == "Y")
-                //{
-                //    amounts3 = Convert.ToDecimal(lblAmount.Text.ToString());
-                //    amounts3 = 0;
-                //}
-                //else if (lblAmount.Text == "Label" && rdbCheck.SelectedItem.Value != "Y")
-                //{
-                //    string feees = hdAmountCheck.Value.ToString();
-                //    feees = feees.Replace(",", "");
-                //    amounts3 = Convert.ToDecimal(feees);
-                //}
-                //else if (lblAmount.Text == "Label" && rdbCheck.SelectedItem.Value == "Y")
-                //{
-                //    string feees = hdAmountCheck.Value.ToString();
-                //    feees = feees.Replace(",", "");
-                //    amounts3 = Convert.ToDecimal(feees);
-                //}
-                //else
-                //{
-                //    string feees = hdAmountCheck.Value.ToString();
-                //    feees = feees.Replace(",", "");
-                //    amounts3 = Convert.ToDecimal(feees);
-                //}
-                //decimal amounts4 = 0;
-                //int initailRowindex = 0;
-                //CheckBox ChkApproval = (CheckBox)row.FindControl("ChkApproval");
-
-                //HiddenField HdfAmount = (HiddenField)row.FindControl("HdfAmount");
-                //if (rblobtained.Items[0].Selected == true)
-                //{
-                //    ChkApproval.Visible = false;
-                //    row.Cells[6].Text = "0";
-                //    initailRowindex = row.RowIndex;
-                //}
-                //else
-                //{
-                //    ChkApproval.Visible = true;
-                //    ChkApproval.Enabled = false;
-                //    if (chkCheck.Checked == true)
-                //    {
-                //        row.Cells[6].Text = row.Cells[3].Text;
-                //        rblobtained.Items[1].Selected = true;
-                //        rblobtained.Enabled = false;
-                //    }
-                //    else
-                //    {
-                //        row.Cells[6].Text = "0";
-                //        initailRowindex = row.RowIndex;
-                //    }
-
-                //}
-
-                //int totalRowindex = grdApprovals.Rows.Count;
-                //int incRowindex = 0;
-
-                //while (incRowindex < totalRowindex)
-                //{
-                //    string ApprovalNameCheck = grdApprovals.Rows[incRowindex].Cells[2].Text.ToString();
-                //    rdbCheck = (RadioButtonList)grdApprovals.Rows[incRowindex].FindControl("rblAlrdyObtained");
-                //    if (incRowindex != totalRowindex && rdbCheck.SelectedItem.Value != "Y")
-                //    {
-                //        amounts3 = Convert.ToDecimal(grdApprovals.Rows[incRowindex].Cells[4].Text.ToString());
-                //        grdApprovals.Rows[incRowindex].Cells[6].Text = grdApprovals.Rows[incRowindex].Cells[4].Text;
-                //        amounts4 = amounts4 + amounts3;
-                //    }
-                //    else if (incRowindex <= totalRowindex || rdbCheck.SelectedItem.Value == "Y")
-                //    {
-                //        if (rdbCheck.SelectedItem.Value == "Y")
-                //        {
-                //            amounts3 = 0;
-                //            grdApprovals.Rows[incRowindex].Cells[6].Text = "0";
-                //        }
-
-                //        string testing = grdApprovals.Rows[incRowindex].Cells[6].Text;
-                //        amounts4 = amounts4 + amounts3;
-                //    }
-                //    string amountCheck = grdApprovals.Rows[incRowindex].Cells[6].Text.ToString();
-                //    incRowindex = incRowindex + 1;
-                //}  
-
-                //string TEXT = amounts4.ToString();
                 grdApprovals.FooterRow.Cells[6].Text = amount.ToString();
             }
             catch (Exception ex)
@@ -432,9 +309,12 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (grdApprovals.Rows.Count == count)
                 {
+                    DataSet dsOffline= new DataSet();
+                    dsOffline = GetCFEOfflineObtained(Convert.ToString(Session["UNITID"]), "106");
                     success.Visible = true;
                     lblmsg.Text = "Details Submitted Successfully";
                     string message = "alert('" + lblmsg.Text + "')";
+
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
@@ -481,7 +361,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\"+"OfflineApprovals"+ "\\" + "1" + "\\");
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -492,11 +372,12 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objPCBNOC = new CFEAttachments();
                         objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
-                        objPCBNOC.MasterID = "1";
+                        objPCBNOC.ApprovalID = "1";
+                        objPCBNOC.DeptID = "12";
                         objPCBNOC.FilePath = serverpath + fup1PCB.PostedFile.FileName;
                         objPCBNOC.FileName = fup1PCB.PostedFile.FileName;
                         objPCBNOC.FileType = fup1PCB.PostedFile.ContentType;
-                        objPCBNOC.FileDescription = "Offline Approval PCB NOC";
+                        objPCBNOC.FileDescription = "OfflineApprovalPCBNOC";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
                         result = objcfebal.InsertCFEAttachments(objPCBNOC);
@@ -530,121 +411,1423 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnUpld2HazPCB_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup2HazPCB.HasFile)
+                {
+                    Error = validations(fup2HazPCB);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "2" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fup2HazPCB.PostedFile.SaveAs(serverpath + "\\" + fup2HazPCB.PostedFile.FileName);
+
+                        CFEAttachments objHAZNOC = new CFEAttachments();
+                        objHAZNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objHAZNOC.Questionnareid = hdnQuesid.Value;
+                        objHAZNOC.ApprovalID = "2";
+                        objHAZNOC.DeptID = "12";
+                        objHAZNOC.FilePath = serverpath + fup2HazPCB.PostedFile.FileName;
+                        objHAZNOC.FileName = fup2HazPCB.PostedFile.FileName;
+                        objHAZNOC.FileType = fup2HazPCB.PostedFile.ContentType;
+                        objHAZNOC.FileDescription = "OfflineApprovalPCBHAZNOC";
+                        objHAZNOC.CreatedBy = hdnUserID.Value;
+                        objHAZNOC.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objHAZNOC);
+                        if (result != "")
+                        {
+                            hpl2HazPCB.Text = fup2HazPCB.PostedFile.FileName;
+                            hpl2HazPCB.NavigateUrl = serverpath;
+                            hpl2HazPCB.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld3SrvcCon_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup3SrvcCon.HasFile)
+                {
+                    Error = validations(fup3SrvcCon);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "3" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup3SrvcCon.PostedFile.SaveAs(serverpath + "\\" + fup3SrvcCon.PostedFile.FileName);
+
+                        CFEAttachments objSrvcCon = new CFEAttachments();
+                        objSrvcCon.UNITID = Convert.ToString(Session["UNITID"]);
+                        objSrvcCon.Questionnareid = hdnQuesid.Value;
+                        objSrvcCon.ApprovalID = "3";
+                        objSrvcCon.DeptID = "14";
+                        objSrvcCon.FilePath = serverpath + fup3SrvcCon.PostedFile.FileName;
+                        objSrvcCon.FileName = fup3SrvcCon.PostedFile.FileName;
+                        objSrvcCon.FileType = fup3SrvcCon.PostedFile.ContentType;
+                        objSrvcCon.FileDescription = "OfflineApprovalServiceConnection";
+                        objSrvcCon.CreatedBy = hdnUserID.Value;
+                        objSrvcCon.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objSrvcCon);
+                        if (result != "")
+                        {
+                            hpl3SrvcCon.Text = fup3SrvcCon.PostedFile.FileName;
+                            hpl3SrvcCon.NavigateUrl = serverpath;
+                            hpl3SrvcCon.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld4EleCon_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup4EleCon.HasFile)
+                {
+                    Error = validations(fup4EleCon);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "4" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup4EleCon.PostedFile.SaveAs(serverpath + "\\" + fup4EleCon.PostedFile.FileName);
+
+                        CFEAttachments objEleCon = new CFEAttachments();
+                        objEleCon.UNITID = Convert.ToString(Session["UNITID"]);
+                        objEleCon.Questionnareid = hdnQuesid.Value;
+                        objEleCon.ApprovalID = "4";
+                        objEleCon.DeptID = "14";
+                        objEleCon.FilePath = serverpath + fup4EleCon.PostedFile.FileName;
+                        objEleCon.FileName = fup4EleCon.PostedFile.FileName;
+                        objEleCon.FileType = fup4EleCon.PostedFile.ContentType;
+                        objEleCon.FileDescription = "OfflineApprovalElectricConnection";
+                        objEleCon.CreatedBy = hdnUserID.Value;
+                        objEleCon.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objEleCon);
+                        if (result != "")
+                        {
+                            hpl4EleCon.Text = fup4EleCon.PostedFile.FileName;
+                            hpl4EleCon.NavigateUrl = serverpath;
+                            hpl4EleCon.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld5FctryPlan_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup5FctryPlan.HasFile)
+                {
+                    Error = validations(fup5FctryPlan);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "5" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup5FctryPlan.PostedFile.SaveAs(serverpath + "\\" + fup5FctryPlan.PostedFile.FileName);
+
+                        CFEAttachments objFctryPlan = new CFEAttachments();
+                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.ApprovalID = "5";
+                        objFctryPlan.DeptID = "19";
+                        objFctryPlan.FilePath = serverpath + fup5FctryPlan.PostedFile.FileName;
+                        objFctryPlan.FileName = fup5FctryPlan.PostedFile.FileName;
+                        objFctryPlan.FileType = fup5FctryPlan.PostedFile.ContentType;
+                        objFctryPlan.FileDescription = "OfflineApprovalFactoryPlan";
+                        objFctryPlan.CreatedBy = hdnUserID.Value;
+                        objFctryPlan.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objFctryPlan);
+                        if (result != "")
+                        {
+                            hpl5FctryPlan.Text = fup5FctryPlan.PostedFile.FileName;
+                            hpl5FctryPlan.NavigateUrl = serverpath;
+                            hpl5FctryPlan.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld6DGsetNOC_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup6DGsetNOC.HasFile)
+                {
+                    Error = validations(fup6DGsetNOC);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "6" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup6DGsetNOC.PostedFile.SaveAs(serverpath + "\\" + fup6DGsetNOC.PostedFile.FileName);
+
+                        CFEAttachments objDGsetNOC = new CFEAttachments();
+                        objDGsetNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objDGsetNOC.Questionnareid = hdnQuesid.Value;
+                        objDGsetNOC.ApprovalID = "6";
+                        objDGsetNOC.DeptID = "14";
+                        objDGsetNOC.FilePath = serverpath + fup6DGsetNOC.PostedFile.FileName;
+                        objDGsetNOC.FileName = fup6DGsetNOC.PostedFile.FileName;
+                        objDGsetNOC.FileType = fup6DGsetNOC.PostedFile.ContentType;
+                        objDGsetNOC.FileDescription = "OfflineApprovalDGsetNOC";
+                        objDGsetNOC.CreatedBy = hdnUserID.Value;
+                        objDGsetNOC.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objDGsetNOC);
+                        if (result != "")
+                        {
+                            hpl6DGsetNOC.Text = fup6DGsetNOC.PostedFile.FileName;
+                            hpl6DGsetNOC.NavigateUrl = serverpath;
+                            hpl6DGsetNOC.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld7FireSfty_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup7FireSfty.HasFile)
+                {
+                    Error = validations(fup7FireSfty);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "7" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fup7FireSfty.PostedFile.SaveAs(serverpath + "\\" + fup7FireSfty.PostedFile.FileName);
+
+                        CFEAttachments objFireSfty = new CFEAttachments();
+                        objFireSfty.UNITID = Convert.ToString(Session["UNITID"]);
+                        objFireSfty.Questionnareid = hdnQuesid.Value;
+                        objFireSfty.ApprovalID = "7";
+                        objFireSfty.DeptID = "9";
+                        objFireSfty.FilePath = serverpath + fup7FireSfty.PostedFile.FileName;
+                        objFireSfty.FileName = fup7FireSfty.PostedFile.FileName;
+                        objFireSfty.FileType = fup7FireSfty.PostedFile.ContentType;
+                        objFireSfty.FileDescription = "OfflineApprovalFireSafetyCertificate";
+                        objFireSfty.CreatedBy = hdnUserID.Value;
+                        objFireSfty.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objFireSfty);
+                        if (result != "")
+                        {
+                            hpl7FireSfty.Text = fup7FireSfty.PostedFile.FileName;
+                            hpl7FireSfty.NavigateUrl = serverpath;
+                            hpl7FireSfty.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld8RSDSLic_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup8RSDSLic.HasFile)
+                {
+                    Error = validations(fup8RSDSLic);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "8" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup8RSDSLic.PostedFile.SaveAs(serverpath + "\\" + fup8RSDSLic.PostedFile.FileName);
+
+                        CFEAttachments objRSDSLic = new CFEAttachments();
+                        objRSDSLic.UNITID = Convert.ToString(Session["UNITID"]);
+                        objRSDSLic.Questionnareid = hdnQuesid.Value;
+                        objRSDSLic.ApprovalID = "8";
+                        objRSDSLic.DeptID = "7";
+                        objRSDSLic.FilePath = serverpath + fup8RSDSLic.PostedFile.FileName;
+                        objRSDSLic.FileName = fup8RSDSLic.PostedFile.FileName;
+                        objRSDSLic.FileType = fup8RSDSLic.PostedFile.ContentType;
+                        objRSDSLic.FileDescription = "OfflineApprovalRSDSLicence";
+                        objRSDSLic.CreatedBy = hdnUserID.Value;
+                        objRSDSLic.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objRSDSLic);
+                        if (result != "")
+                        {
+                            hpl8RSDSLic.Text = fup8RSDSLic.PostedFile.FileName;
+                            hpl8RSDSLic.NavigateUrl = serverpath;
+                            hpl8RSDSLic.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld9ExplsvNOC_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup9ExplsvNOC.HasFile)
+                {
+                    Error = validations(fup9ExplsvNOC);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "9" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup9ExplsvNOC.PostedFile.SaveAs(serverpath + "\\" + fup9ExplsvNOC.PostedFile.FileName);
+
+                        CFEAttachments objExplsvNOC = new CFEAttachments();
+                        objExplsvNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objExplsvNOC.Questionnareid = hdnQuesid.Value;
+                        objExplsvNOC.ApprovalID = "9";
+                        objExplsvNOC.DeptID = "13";
+                        objExplsvNOC.FilePath = serverpath + fup9ExplsvNOC.PostedFile.FileName;
+                        objExplsvNOC.FileName = fup9ExplsvNOC.PostedFile.FileName;
+                        objExplsvNOC.FileType = fup9ExplsvNOC.PostedFile.ContentType;
+                        objExplsvNOC.FileDescription = "OfflineApprovalExplosivesManufactureNOC";
+                        objExplsvNOC.CreatedBy = hdnUserID.Value;
+                        objExplsvNOC.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objExplsvNOC);
+                        if (result != "")
+                        {
+                            hpl9ExplsvNOC.Text = fup9ExplsvNOC.PostedFile.FileName;
+                            hpl9ExplsvNOC.NavigateUrl = serverpath;
+                            hpl9ExplsvNOC.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld10PtrlNOC_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup10PtrlNOC.HasFile)
+                {
+                    Error = validations(fup10PtrlNOC);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "10" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fup10PtrlNOC.PostedFile.SaveAs(serverpath + "\\" + fup10PtrlNOC.PostedFile.FileName);
+
+                        CFEAttachments objPtrlNOC = new CFEAttachments();
+                        objPtrlNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPtrlNOC.Questionnareid = hdnQuesid.Value;
+                        objPtrlNOC.ApprovalID = "10";
+                        objPtrlNOC.DeptID = "13";
+                        objPtrlNOC.FilePath = serverpath + fup10PtrlNOC.PostedFile.FileName;
+                        objPtrlNOC.FileName = fup10PtrlNOC.PostedFile.FileName;
+                        objPtrlNOC.FileType = fup10PtrlNOC.PostedFile.ContentType;
+                        objPtrlNOC.FileDescription = "OfflineApprovalPetrolManfactureNOC";
+                        objPtrlNOC.CreatedBy = hdnUserID.Value;
+                        objPtrlNOC.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objPtrlNOC);
+                        if (result != "")
+                        {
+                            hpl10PtrlNOC.Text = fup10PtrlNOC.PostedFile.FileName;
+                            hpl10PtrlNOC.NavigateUrl = serverpath;
+                            hpl10PtrlNOC.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld11RdCtng_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup11RdCtng.HasFile)
+                {
+                    Error = validations(fup11RdCtng);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "11" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        fup11RdCtng.PostedFile.SaveAs(serverpath + "\\" + fup11RdCtng.PostedFile.FileName);
+
+                        CFEAttachments objRdCtng = new CFEAttachments();
+                        objRdCtng.UNITID = Convert.ToString(Session["UNITID"]);
+                        objRdCtng.Questionnareid = hdnQuesid.Value;
+                        objRdCtng.ApprovalID = "11";
+                        objRdCtng.DeptID = "16";
+                        objRdCtng.FilePath = serverpath + fup11RdCtng.PostedFile.FileName;
+                        objRdCtng.FileName = fup11RdCtng.PostedFile.FileName;
+                        objRdCtng.FileType = fup11RdCtng.PostedFile.ContentType;
+                        objRdCtng.FileDescription = "OfflineApprovalRoadCuttingPermission";
+                        objRdCtng.CreatedBy = hdnUserID.Value;
+                        objRdCtng.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objRdCtng);
+                        if (result != "")
+                        {
+                            hpl11RdCtng.Text = fup11RdCtng.PostedFile.FileName;
+                            hpl11RdCtng.NavigateUrl = serverpath;
+                            hpl11RdCtng.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld12NonEncmb_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup12NonEncmb.HasFile)
+                {
+                    Error = validations(fup12NonEncmb);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "12" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup12NonEncmb.PostedFile.SaveAs(serverpath + "\\" + fup12NonEncmb.PostedFile.FileName);
+
+                        CFEAttachments objNonEncmb = new CFEAttachments();
+                        objNonEncmb.UNITID = Convert.ToString(Session["UNITID"]);
+                        objNonEncmb.Questionnareid = hdnQuesid.Value;
+                        objNonEncmb.ApprovalID = "12";
+                        objNonEncmb.DeptID = "13";
+                        objNonEncmb.FilePath = serverpath + fup12NonEncmb.PostedFile.FileName;
+                        objNonEncmb.FileName = fup12NonEncmb.PostedFile.FileName;
+                        objNonEncmb.FileType = fup12NonEncmb.PostedFile.ContentType;
+                        objNonEncmb.FileDescription = "OfflineApprovalNonEncumbrance";
+                        objNonEncmb.CreatedBy = hdnUserID.Value;
+                        objNonEncmb.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objNonEncmb);
+                        if (result != "")
+                        {
+                            hpl12NonEncmb.Text = fup12NonEncmb.PostedFile.FileName;
+                            hpl12NonEncmb.NavigateUrl = serverpath;
+                            hpl12NonEncmb.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld13ProfTax_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup13ProfTax.HasFile)
+                {
+                    Error = validations(fup13ProfTax);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "13" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fup13ProfTax.PostedFile.SaveAs(serverpath + "\\" + fup13ProfTax.PostedFile.FileName);
+
+                        CFEAttachments objProfTax = new CFEAttachments();
+                        objProfTax.UNITID = Convert.ToString(Session["UNITID"]);
+                        objProfTax.Questionnareid = hdnQuesid.Value;
+                        objProfTax.ApprovalID = "13";
+                        objProfTax.DeptID = "6";
+                        objProfTax.FilePath = serverpath + fup13ProfTax.PostedFile.FileName;
+                        objProfTax.FileName = fup13ProfTax.PostedFile.FileName;
+                        objProfTax.FileType = fup13ProfTax.PostedFile.ContentType;
+                        objProfTax.FileDescription = "OfflineApprovalProffessionalTax";
+                        objProfTax.CreatedBy = hdnUserID.Value;
+                        objProfTax.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objProfTax);
+                        if (result != "")
+                        {
+                            hpl13ProfTax.Text = fup13ProfTax.PostedFile.FileName;
+                            hpl13ProfTax.NavigateUrl = serverpath;
+                            hpl13ProfTax.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld14ElcInsp_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup14ElcInsp.HasFile)
+                {
+                    Error = validations(fup14ElcInsp);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "14" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fup14ElcInsp.PostedFile.SaveAs(serverpath + "\\" + fup14ElcInsp.PostedFile.FileName);
+
+                        CFEAttachments objElcInsp = new CFEAttachments();
+                        objElcInsp.UNITID = Convert.ToString(Session["UNITID"]);
+                        objElcInsp.Questionnareid = hdnQuesid.Value;
+                        objElcInsp.ApprovalID = "14";
+                        objElcInsp.DeptID = "18";
+                        objElcInsp.FilePath = serverpath + fup14ElcInsp.PostedFile.FileName;
+                        objElcInsp.FileName = fup14ElcInsp.PostedFile.FileName;
+                        objElcInsp.FileType = fup14ElcInsp.PostedFile.ContentType;
+                        objElcInsp.FileDescription = "OfflineApprovalElectricalInspectorate";
+                        objElcInsp.CreatedBy = hdnUserID.Value;
+                        objElcInsp.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objElcInsp);
+                        if (result != "")
+                        {
+                            hpl14ElcInsp.Text = fup14ElcInsp.PostedFile.FileName;
+                            hpl14ElcInsp.NavigateUrl = serverpath;
+                            hpl14ElcInsp.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld15ForstDist_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup15ForstDist.HasFile)
+                {
+                    Error = validations(fup15ForstDist);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "15" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup15ForstDist.PostedFile.SaveAs(serverpath + "\\" + fup15ForstDist.PostedFile.FileName);
+
+                        CFEAttachments objForstDist = new CFEAttachments();
+                        objForstDist.UNITID = Convert.ToString(Session["UNITID"]);
+                        objForstDist.Questionnareid = hdnQuesid.Value;
+                        objForstDist.ApprovalID = "15";
+                        objForstDist.DeptID = "4";
+                        objForstDist.FilePath = serverpath + fup15ForstDist.PostedFile.FileName;
+                        objForstDist.FileName = fup15ForstDist.PostedFile.FileName;
+                        objForstDist.FileType = fup15ForstDist.PostedFile.ContentType;
+                        objForstDist.FileDescription = "OfflineApprovalDistancefromForestLetter";
+                        objForstDist.CreatedBy = hdnUserID.Value;
+                        objForstDist.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objForstDist);
+                        if (result != "")
+                        {
+                            hpl15ForstDist.Text = fup15ForstDist.PostedFile.FileName;
+                            hpl15ForstDist.NavigateUrl = serverpath;
+                            hpl15ForstDist.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld16NonForstLand_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup16NonForstLand.HasFile)
+                {
+                    Error = validations(fup16NonForstLand);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "16" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup16NonForstLand.PostedFile.SaveAs(serverpath + "\\" + fup16NonForstLand.PostedFile.FileName);
+
+                        CFEAttachments objNonForstLand = new CFEAttachments();
+                        objNonForstLand.UNITID = Convert.ToString(Session["UNITID"]);
+                        objNonForstLand.Questionnareid = hdnQuesid.Value;
+                        objNonForstLand.ApprovalID = "16";
+                        objNonForstLand.DeptID = "4";
+                        objNonForstLand.FilePath = serverpath + fup16NonForstLand.PostedFile.FileName;
+                        objNonForstLand.FileName = fup16NonForstLand.PostedFile.FileName;
+                        objNonForstLand.FileType = fup16NonForstLand.PostedFile.ContentType;
+                        objNonForstLand.FileDescription = "OfflineApprovalNonForestLandCertificate";
+                        objNonForstLand.CreatedBy = hdnUserID.Value;
+                        objNonForstLand.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objNonForstLand);
+                        if (result != "")
+                        {
+                            hpl16NonForstLand.Text = fup16NonForstLand.PostedFile.FileName;
+                            hpl16NonForstLand.NavigateUrl = serverpath;
+                            hpl16NonForstLand.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld17IrrgNOC_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup17IrrgNOC.HasFile)
+                {
+                    Error = validations(fup17IrrgNOC);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "17" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup17IrrgNOC.PostedFile.SaveAs(serverpath + "\\" + fup17IrrgNOC.PostedFile.FileName);
+
+                        CFEAttachments objIrrgNOC = new CFEAttachments();
+                        objIrrgNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objIrrgNOC.Questionnareid = hdnQuesid.Value;
+                        objIrrgNOC.ApprovalID = "17";
+                        objIrrgNOC.DeptID = "20";
+                        objIrrgNOC.FilePath = serverpath + fup17IrrgNOC.PostedFile.FileName;
+                        objIrrgNOC.FileName = fup17IrrgNOC.PostedFile.FileName;
+                        objIrrgNOC.FileType = fup17IrrgNOC.PostedFile.ContentType;
+                        objIrrgNOC.FileDescription = "OfflineApprovalFTLIrrigationNOC";
+                        objIrrgNOC.CreatedBy = hdnUserID.Value;
+                        objIrrgNOC.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objIrrgNOC);
+                        if (result != "")
+                        {
+                            hpl17IrrgNOC.Text = fup17IrrgNOC.PostedFile.FileName;
+                            hpl17IrrgNOC.NavigateUrl = serverpath;
+                            hpl17IrrgNOC.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld18RevNOC_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup18RevNOC.HasFile)
+                {
+                    Error = validations(fup18RevNOC);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "18" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup18RevNOC.PostedFile.SaveAs(serverpath + "\\" + fup18RevNOC.PostedFile.FileName);
+
+                        CFEAttachments objFctryPlan = new CFEAttachments();
+                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.ApprovalID = "18";
+                        objFctryPlan.DeptID = "20";
+                        objFctryPlan.FilePath = serverpath + fup18RevNOC.PostedFile.FileName;
+                        objFctryPlan.FileName = fup18RevNOC.PostedFile.FileName;
+                        objFctryPlan.FileType = fup18RevNOC.PostedFile.ContentType;
+                        objFctryPlan.FileDescription = "OfflineApprovalFTLRevenueNOC";
+                        objFctryPlan.CreatedBy = hdnUserID.Value;
+                        objFctryPlan.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objFctryPlan);
+                        if (result != "")
+                        {
+                            hpl18RevNOC.Text = fup18RevNOC.PostedFile.FileName;
+                            hpl18RevNOC.NavigateUrl = serverpath;
+                            hpl18RevNOC.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld25LbrAct1970_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup25LbrAct1970.HasFile)
+                {
+                    Error = validations(fup25LbrAct1970);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "25" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup25LbrAct1970.PostedFile.SaveAs(serverpath + "\\" + fup25LbrAct1970.PostedFile.FileName);
+
+                        CFEAttachments objLbrAct1970 = new CFEAttachments();
+                        objLbrAct1970.UNITID = Convert.ToString(Session["UNITID"]);
+                        objLbrAct1970.Questionnareid = hdnQuesid.Value;
+                        objLbrAct1970.ApprovalID = "25";
+                        objLbrAct1970.DeptID = "10";
+                        objLbrAct1970.FilePath = serverpath + fup25LbrAct1970.PostedFile.FileName;
+                        objLbrAct1970.FileName = fup25LbrAct1970.PostedFile.FileName;
+                        objLbrAct1970.FileType = fup25LbrAct1970.PostedFile.ContentType;
+                        objLbrAct1970.FileDescription = "OfflineApprovalRegistrationunderLAbourAct1970";
+                        objLbrAct1970.CreatedBy = hdnUserID.Value;
+                        objLbrAct1970.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objLbrAct1970);
+                        if (result != "")
+                        {
+                            hpl25LbrAct1970.Text = fup25LbrAct1970.PostedFile.FileName;
+                            hpl25LbrAct1970.NavigateUrl = serverpath;
+                            hpl25LbrAct1970.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld26LbrAct1979_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup26LbrAct1979.HasFile)
+                {
+                    Error = validations(fup26LbrAct1979);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "26" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup26LbrAct1979.PostedFile.SaveAs(serverpath + "\\" + fup26LbrAct1979.PostedFile.FileName);
+
+                        CFEAttachments objLbrAct1979 = new CFEAttachments();
+                        objLbrAct1979.UNITID = Convert.ToString(Session["UNITID"]);
+                        objLbrAct1979.Questionnareid = hdnQuesid.Value;
+                        objLbrAct1979.ApprovalID = "26";
+                        objLbrAct1979.DeptID = "10";
+                        objLbrAct1979.FilePath = serverpath + fup26LbrAct1979.PostedFile.FileName;
+                        objLbrAct1979.FileName = fup26LbrAct1979.PostedFile.FileName;
+                        objLbrAct1979.FileType = fup26LbrAct1979.PostedFile.ContentType;
+                        objLbrAct1979.FileDescription = "OfflineApprovalRegistrationunderLAbourAct1979";
+                        objLbrAct1979.CreatedBy = hdnUserID.Value;
+                        objLbrAct1979.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objLbrAct1979);
+                        if (result != "")
+                        {
+                            hpl26LbrAct1979.Text = fup26LbrAct1979.PostedFile.FileName;
+                            hpl26LbrAct1979.NavigateUrl = serverpath;
+                            hpl26LbrAct1979.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld27LbrAct1996_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup27LbrAct1996.HasFile)
+                {
+                    Error = validations(fup27LbrAct1996);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "27" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup27LbrAct1996.PostedFile.SaveAs(serverpath + "\\" + fup27LbrAct1996.PostedFile.FileName);
+
+                        CFEAttachments objFctryPlan = new CFEAttachments();
+                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.ApprovalID = "27";
+                        objFctryPlan.DeptID = "10";
+                        objFctryPlan.FilePath = serverpath + fup27LbrAct1996.PostedFile.FileName;
+                        objFctryPlan.FileName = fup27LbrAct1996.PostedFile.FileName;
+                        objFctryPlan.FileType = fup27LbrAct1996.PostedFile.ContentType;
+                        objFctryPlan.FileDescription = "OfflineApprovalRegistrationunderLAbourAct1996";
+                        objFctryPlan.CreatedBy = hdnUserID.Value;
+                        objFctryPlan.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objFctryPlan);
+                        if (result != "")
+                        {
+                            hpl27LbrAct1996.Text = fup27LbrAct1996.PostedFile.FileName;
+                            hpl27LbrAct1996.NavigateUrl = serverpath;
+                            hpl27LbrAct1996.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld28ContrLbrAct_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup28ContrLbrAct.HasFile)
+                {
+                    Error = validations(fup28ContrLbrAct);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "28" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        fup28ContrLbrAct.PostedFile.SaveAs(serverpath + "\\" + fup28ContrLbrAct.PostedFile.FileName);
+
+                        CFEAttachments objContrLbrAct = new CFEAttachments();
+                        objContrLbrAct.UNITID = Convert.ToString(Session["UNITID"]);
+                        objContrLbrAct.Questionnareid = hdnQuesid.Value;
+                        objContrLbrAct.ApprovalID = "28";
+                        objContrLbrAct.DeptID = "10";
+                        objContrLbrAct.FilePath = serverpath + fup28ContrLbrAct.PostedFile.FileName;
+                        objContrLbrAct.FileName = fup28ContrLbrAct.PostedFile.FileName;
+                        objContrLbrAct.FileType = fup28ContrLbrAct.PostedFile.ContentType;
+                        objContrLbrAct.FileDescription = "OfflineApprovalRegistrationunderContractLAbourAct";
+                        objContrLbrAct.CreatedBy = hdnUserID.Value;
+                        objContrLbrAct.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objContrLbrAct);
+                        if (result != "")
+                        {
+                            hpl5FctryPlan.Text = fup28ContrLbrAct.PostedFile.FileName;
+                            hpl5FctryPlan.NavigateUrl = serverpath;
+                            hpl5FctryPlan.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnUpld29ContrLbrAct1979_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup29ContrLbrAct1979.HasFile)
+                {
+                    Error = validations(fup29ContrLbrAct1979);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "29" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        fup29ContrLbrAct1979.PostedFile.SaveAs(serverpath + "\\" + fup29ContrLbrAct1979.PostedFile.FileName);
+
+                        CFEAttachments objContrLbrAct1979 = new CFEAttachments();
+                        objContrLbrAct1979.UNITID = Convert.ToString(Session["UNITID"]);
+                        objContrLbrAct1979.Questionnareid = hdnQuesid.Value;
+                        objContrLbrAct1979.ApprovalID = "29";
+                        objContrLbrAct1979.DeptID = "10";
+                        objContrLbrAct1979.FilePath = serverpath + fup29ContrLbrAct1979.PostedFile.FileName;
+                        objContrLbrAct1979.FileName = fup29ContrLbrAct1979.PostedFile.FileName;
+                        objContrLbrAct1979.FileType = fup29ContrLbrAct1979.PostedFile.ContentType;
+                        objContrLbrAct1979.FileDescription = "OfflineApprovalRegistrationunderConractLAbourAct1979";
+                        objContrLbrAct1979.CreatedBy = hdnUserID.Value;
+                        objContrLbrAct1979.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objContrLbrAct1979);
+                        if (result != "")
+                        {
+                            hpl5FctryPlan.Text = fup29ContrLbrAct1979.PostedFile.FileName;
+                            hpl5FctryPlan.NavigateUrl = serverpath;
+                            hpl5FctryPlan.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld30ConstrPermit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup30ConstrPermit.HasFile)
+                {
+                    Error = validations(fup30ConstrPermit);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "30" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fup30ConstrPermit.PostedFile.SaveAs(serverpath + "\\" + fup30ConstrPermit.PostedFile.FileName);
+
+                        CFEAttachments objFctryPlan = new CFEAttachments();
+                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.ApprovalID = "30";
+                        objFctryPlan.DeptID = "0";
+                        objFctryPlan.FilePath = serverpath + fup30ConstrPermit.PostedFile.FileName;
+                        objFctryPlan.FileName = fup30ConstrPermit.PostedFile.FileName;
+                        objFctryPlan.FileType = fup30ConstrPermit.PostedFile.ContentType;
+                        objFctryPlan.FileDescription = "OfflineApprovalConstructionPermit";
+                        objFctryPlan.CreatedBy = hdnUserID.Value;
+                        objFctryPlan.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objFctryPlan);
+                        if (result != "")
+                        {
+                            hpl30ConstrPermit.Text = fup30ConstrPermit.PostedFile.FileName;
+                            hpl30ConstrPermit.NavigateUrl = serverpath;
+                            hpl30ConstrPermit.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnUpld31BldngPlan_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fup31BldngPlan.HasFile)
+                {
+                    Error = validations(fup31BldngPlan);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "31" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        fup31BldngPlan.PostedFile.SaveAs(serverpath + "\\" + fup31BldngPlan.PostedFile.FileName);
+
+                        CFEAttachments objBldngPlan = new CFEAttachments();
+                        objBldngPlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objBldngPlan.Questionnareid = hdnQuesid.Value;
+                        objBldngPlan.ApprovalID = "31";
+                        objBldngPlan.DeptID = "0";
+                        objBldngPlan.FilePath = serverpath + fup31BldngPlan.PostedFile.FileName;
+                        objBldngPlan.FileName = fup31BldngPlan.PostedFile.FileName;
+                        objBldngPlan.FileType = fup31BldngPlan.PostedFile.ContentType;
+                        objBldngPlan.FileDescription = "OfflineApprovalBuildingPlanApproval";
+                        objBldngPlan.CreatedBy = hdnUserID.Value;
+                        objBldngPlan.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objBldngPlan);
+                        if (result != "")
+                        {
+                            hpl5FctryPlan.Text = fup31BldngPlan.PostedFile.FileName;
+                            hpl5FctryPlan.NavigateUrl = serverpath;
+                            hpl5FctryPlan.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
         public string validations(FileUpload Attachment)
@@ -724,6 +1907,12 @@ namespace MeghalayaUIP.User.CFE
             }
 
             return result;
+        }
+        public DataSet GetCFEOfflineObtained(string UserID, string QuesID)
+        {
+            //return objCFEDAL.getIntentInvestPrint(ID);
+            DataSet ds = new DataSet();
+            return ds;
         }
     }
 }
