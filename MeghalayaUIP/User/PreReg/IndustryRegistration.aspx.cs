@@ -1640,7 +1640,7 @@ namespace MeghalayaUIP.User.PreReg
                 if (gvPromoters.Rows.Count > 0)
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
-                   // dt.Columns.Remove("IDD_COUNTRYName");
+                    // dt.Columns.Remove("IDD_COUNTRYName");
                     result = indstregBAL.InsertIndustryRegDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
                     if (result != "")
                     {
@@ -1869,30 +1869,15 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 string newPath = "";
-                //string sFileDir = "E:\\Satishkumar\\Applicaitons\\TMCWebsite\\TMC website\\TenderNotice";
-                //string sFileDir = "~\\TenderNotice";
                 string sFileDir = Server.MapPath("~\\PreRegAttachments");
-
-                // General t1 = new General();
                 if (fupDPR.HasFile)
                 {
                     if ((fupDPR.PostedFile != null) && (fupDPR.PostedFile.ContentLength > 0))
                     {
-                        //determine file name
                         string sFileName = System.IO.Path.GetFileName(fupDPR.PostedFile.FileName);
                         try
                         {
-                            //if (FileUpload1.PostedFile.ContentLength <= lMaxFileSize)
-                            //{
-                            //    //Save File on disk
 
-
-                            //if (FileUpload1.FileContent.Length > 102400 * 18)
-                            //{
-                            //     lblmsg0.Text = "size should be less than 600KB";
-                            //     Response.Write("<script>alert('size should be less than 600KB')</script> ");
-                            //    return;
-                            //}
 
                             string[] fileType = fupDPR.PostedFile.FileName.Split('.');
                             int i = fileType.Length;

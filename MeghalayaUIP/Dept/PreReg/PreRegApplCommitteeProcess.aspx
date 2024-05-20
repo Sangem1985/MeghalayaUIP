@@ -901,7 +901,7 @@
                                                         <asp:ListItem Text="Reject" Value="14"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
-                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
+                                                <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
                                                     <asp:TextBox ID="txtReject" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
                                                 </td>
                                                 <td>
@@ -956,7 +956,7 @@
                                                             <td>
                                                                 <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
                                                             </td>
-                                                             <td>
+                                                            <td>
                                                                 <asp:Label ID="lblDeptWaterReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
@@ -972,7 +972,7 @@
                                                             <td>
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
-                                                             <td>
+                                                            <td>
                                                                 <asp:Label ID="lblDeptWastedtls" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
@@ -989,7 +989,7 @@
                                                             <td>
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                             </td>
-                                                             <td>
+                                                            <td>
                                                                 <asp:Label ID="lblDeptHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
@@ -1019,7 +1019,7 @@
                                                 <td style="vertical-align: central" id="tdquery" runat="server" visible="false" colspan="3">
                                                     <asp:GridView ID="gvdeptquery" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                                                        GridLines="None"  Width="100%" EnableModelValidation="True" OnRowCommand="gvdeptquery_RowCommand" OnRowDataBound="gvdeptquery_RowDataBound">
+                                                        GridLines="None" Width="100%" EnableModelValidation="True" OnRowCommand="gvdeptquery_RowCommand" OnRowDataBound="gvdeptquery_RowDataBound">
                                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
                                                         <Columns>
@@ -1056,8 +1056,8 @@
                                                         <AlternatingRowStyle BackColor="White" />
                                                     </asp:GridView>
                                                 </td>
-                                                 <td>
-                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query"  OnClick="btnQuery_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                <td>
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" OnClick="btnQuery_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
                                                 </td>
                                             </tr>
                                         </table>

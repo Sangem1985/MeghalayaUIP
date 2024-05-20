@@ -1545,5 +1545,101 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return dt;
         }
+
+        public DataSet GetCFEApplicationDetails(string UnitID, string InvesterID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFEApplicationDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEApplicationDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        //// DEPARTMENT DASHBOARD///
+        ///
+
+        /////
+        ///CFE
+        ///
+        public string UpdateCFEDepartmentProcess(CFEDtls Objcfedtls)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.UpdateCFEDepartmentProcess;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@UNITID", Objcfedtls.Unitid);
+                com.Parameters.AddWithValue("@CFEQDID", Objcfedtls.Investerid);
+                if (Objcfedtls.deptid != null && Objcfedtls.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@DEPTID", Objcfedtls.deptid);
+                }
+                com.Parameters.AddWithValue("@APPROVALID", Objcfedtls.status);
+                com.Parameters.AddWithValue("@ACTIONID", Objcfedtls.status);                
+                com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
+                com.Parameters.AddWithValue("@CFDA_SCRUTINYREJECTIONFLAG", Objcfedtls.PrescrutinyRejectionFlag);
+                if (Objcfedtls.AdditionalAmount != null && Objcfedtls.AdditionalAmount != "")
+                {
+                    com.Parameters.AddWithValue("@ADDLAMOUNT", Objcfedtls.AdditionalAmount);
+                }
+                
+                com.Parameters.AddWithValue("@IPADDRESS", Objcfedtls.IPAddress);
+                com.Parameters.AddWithValue("@CREATEDBY", Objcfedtls.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
+        }
     }
 }

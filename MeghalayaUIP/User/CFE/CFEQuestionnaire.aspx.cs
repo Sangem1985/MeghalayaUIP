@@ -201,7 +201,6 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
         protected void BindConstitutionType()
         {
             try
@@ -230,7 +229,6 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
         protected void BindIndustryType()
         {
             try
