@@ -69,15 +69,6 @@ namespace MeghalayaUIP.User.Grievance
         protected global::System.Web.UI.WebControls.Label LabelHeading;
 
         /// <summary>
-        /// trgrivenance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trgrivenance;
-
-        /// <summary>
         /// ddlRegisterAs control.
         /// </summary>
         /// <remarks>
@@ -87,6 +78,15 @@ namespace MeghalayaUIP.User.Grievance
         protected global::System.Web.UI.WebControls.DropDownList ddlRegisterAs;
 
         /// <summary>
+        /// ddlModule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlModule;
+
+        /// <summary>
         /// trData control.
         /// </summary>
         /// <remarks>
@@ -94,6 +94,105 @@ namespace MeghalayaUIP.User.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trData;
+
+        /// <summary>
+        /// divPreReg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPreReg;
+
+        /// <summary>
+        /// ddlPreRegUnits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPreRegUnits;
+
+        /// <summary>
+        /// divCFE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCFE;
+
+        /// <summary>
+        /// ddlCFEUnits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCFEUnits;
+
+        /// <summary>
+        /// divCFO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCFO;
+
+        /// <summary>
+        /// ddlCFOUnits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCFOUnits;
+
+        /// <summary>
+        /// divIncentives control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIncentives;
+
+        /// <summary>
+        /// ddlIncUnits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlIncUnits;
+
+        /// <summary>
+        /// divRenewals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRenewals;
+
+        /// <summary>
+        /// ddlRENUnits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRENUnits;
+
+        /// <summary>
+        /// divapplname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divapplname;
 
         /// <summary>
         /// txtuidno control.

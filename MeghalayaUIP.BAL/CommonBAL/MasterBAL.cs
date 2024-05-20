@@ -94,5 +94,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetForestDivision();
         }
+        public List<MasterModule> GetMasterModules()
+        {
+            return objMasterDAL.GetMasterModules();
+        }
     }
 }

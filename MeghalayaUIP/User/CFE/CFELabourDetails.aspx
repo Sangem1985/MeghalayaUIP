@@ -32,7 +32,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label fw-bold"><span style="font-weight: 900;">1. Category of Establishment</span></label>
                                             <div class="col-lg-6">
-                                                <asp:DropDownList ID="ddlCategory" runat="server" class="form-control">
+                                                <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />
                                                 </asp:DropDownList>
                                             </div>

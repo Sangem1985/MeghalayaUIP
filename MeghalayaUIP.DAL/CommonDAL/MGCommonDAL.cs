@@ -73,7 +73,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Connection = connection;
 
 
-                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Investerid); 
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Investerid);
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
 
@@ -182,7 +182,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.Parameters.Add("@valid", SqlDbType.Int, 500);
                 com.Parameters["@valid"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
-                valid = (Int32)com.Parameters["@valid"].Value; 
+                valid = (Int32)com.Parameters["@valid"].Value;
 
                 transaction.Commit();
                 connection.Close();
@@ -199,6 +199,45 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
             return valid;
+        }
+        public DataSet GetApplByModuleName(string UserID, string ModuleID)
+        {
+            DataSet ds = new DataSet();
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetApplbyModuleName, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetApplbyModuleName;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", UserID);
+                da.SelectCommand.Parameters.AddWithValue("@MODULETYPE", ModuleID);
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
         }
     }
 }

@@ -820,5 +820,37 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstForestMstr;
         }
+
+        public List<MasterModule> GetMasterModules()
+        {
+            List<MasterModule> lstModules = new List<MasterModule>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetModulesMaster);
+                while (drOptions.Read())
+                {
+                    var Modules = new MasterModule()
+                    {
+
+                        ModuleID = Convert.ToString(drOptions["MODULEID"]),
+                        ModuleName = Convert.ToString(drOptions["MODULENAME"])
+                    };
+                    lstModules.Add(Modules);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstModules;
+        }
     }
 }

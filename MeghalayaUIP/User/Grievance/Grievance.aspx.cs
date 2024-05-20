@@ -27,7 +27,6 @@ namespace MeghalayaUIP.User.Grievance
         {
             try
             {
-
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();
@@ -35,11 +34,18 @@ namespace MeghalayaUIP.User.Grievance
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
                     }
-                    BindDistricts();
-                    BindDepartment();
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    if (!IsPostBack)
+                    {
+                        BindDistricts();
+                        BindDepartment();
+                        BindModuleType();
+                    }
                 }
             }
-
             catch (Exception ex)
             {
                 lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
@@ -49,15 +55,9 @@ namespace MeghalayaUIP.User.Grievance
         }
         protected void BindDistricts()
         {
-
             try
             {
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                string strmode = string.Empty;
-                //if (ObjUserInformation.User_Level == "2")
-                //{
-                strmode = "";
-                //}
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -65,15 +65,13 @@ namespace MeghalayaUIP.User.Grievance
                     ddldist.DataValueField = "DistrictId";
                     ddldist.DataTextField = "DistrictName";
                     ddldist.DataBind();
-
                 }
                 else
                 {
                     ddldist.DataSource = null;
                     ddldist.DataBind();
-
                 }
-
+                AddSelect(ddldist);
             }
             catch (Exception ex)
             {
@@ -86,11 +84,6 @@ namespace MeghalayaUIP.User.Grievance
             try
             {
                 List<MasterDepartment> objDepartmentModel = new List<MasterDepartment>();
-                string strmode = string.Empty;
-                //if (ObjUserInformation.User_Level == "2")
-                //{
-                strmode = "";
-                //}
                 objDepartmentModel = mstrBAL.GetDepartment();
                 if (objDepartmentModel != null)
                 {
@@ -98,28 +91,67 @@ namespace MeghalayaUIP.User.Grievance
                     ddldept.DataValueField = "DepartmentId";
                     ddldept.DataTextField = "DepartmentName";
                     ddldept.DataBind();
-
                 }
                 else
                 {
                     ddldept.DataSource = null;
                     ddldept.DataBind();
-
                 }
-
+                AddSelect(ddldept);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        protected void BindModuleType()
+        {
+            try
+            {
+                ddlModule.Items.Clear();
 
+                List<MasterModule> objConsttype = new List<MasterModule>();
+
+                objConsttype = mstrBAL.GetMasterModules();
+                if (objConsttype != null)
+                {
+                    ddlModule.DataSource = objConsttype;
+                    ddlModule.DataValueField = "ModuleID";
+                    ddlModule.DataTextField = "ModuleName";
+                    ddlModule.DataBind();
+                }
+                else
+                {
+                    ddlModule.DataSource = null;
+                    ddlModule.DataBind();
+                }
+                AddSelect(ddlModule);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         protected void ddlRegisterAs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlRegisterAs.SelectedIndex <= 0)
             {
-                trData.Visible = false;
-                trgrivenance.Visible = true;
+                //trData.Visible = false;
+                //trgrivenance.Visible = true;
 
             }
             else if (ddlRegisterAs.SelectedValue == "G")
@@ -131,7 +163,7 @@ namespace MeghalayaUIP.User.Grievance
                 trSubject.Visible = true;
                 trdepartment.Visible = true;
                 trData.Visible = true;
-                trgrivenance.Visible = false;
+                //trgrivenance.Visible = false;
 
             }
             else if (ddlRegisterAs.SelectedValue == "F")
@@ -143,7 +175,7 @@ namespace MeghalayaUIP.User.Grievance
                 trSubject.Visible = true;
                 trdepartment.Visible = true;
                 trData.Visible = true;
-                trgrivenance.Visible = false;
+                //trgrivenance.Visible = false;
             }
             else if (ddlRegisterAs.SelectedValue == "Q")
             {
@@ -154,7 +186,7 @@ namespace MeghalayaUIP.User.Grievance
                 trSubject.Visible = false;
                 trdepartment.Visible = false;
                 trData.Visible = true;
-                trgrivenance.Visible = false;
+                //trgrivenance.Visible = false;
             }
             else
             {
@@ -268,6 +300,124 @@ namespace MeghalayaUIP.User.Grievance
                 Failure.Visible = true;
                 throw ex;
             }
+        }
+
+        protected void ddlModule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlModule.SelectedIndex != 0)
+                {
+                    DataSet dsUnits = new DataSet();
+                    dsUnits = objcommon.GetApplByModuleName(hdnUserID.Value, ddlModule.SelectedValue);
+                    if (ddlModule.SelectedValue == "1")
+                    {
+                       
+                        divCFE.Visible= false; divCFO.Visible= false; divRenewals.Visible= false; divIncentives.Visible= false;
+                        if (dsUnits.Tables[0].Rows.Count > 0)
+                        {
+                            divapplname.Visible = false; 
+                            divPreReg.Visible = true;
+                            ddlPreRegUnits.DataSource = dsUnits.Tables[0];
+                            ddlPreRegUnits.DataTextField = "COMPANYNAME";
+                            ddlPreRegUnits.DataValueField = "UNITID";
+                            ddlPreRegUnits.DataBind();
+                        }
+                        else { divapplname.Visible = true; }
+                    }
+                    if (ddlModule.SelectedValue == "2")
+                    {
+                        divPreReg.Visible = false; divCFO.Visible = false; divRenewals.Visible = false; divIncentives.Visible = false;
+
+                        if (dsUnits.Tables[0].Rows.Count > 0)
+                        {
+                            divapplname.Visible = false;
+                            divCFE.Visible = true;
+                            ddlCFEUnits.DataSource = dsUnits.Tables[0];
+                            ddlCFEUnits.DataTextField = "CFEQD_COMPANYNAME";
+                            ddlCFEUnits.DataValueField = "CFEQD_UNITID";
+                            ddlCFEUnits.DataBind();
+                        }
+                    }
+                    if (ddlModule.SelectedValue == "3")
+                    {
+                        divPreReg.Visible = false; divCFE.Visible = false; divRenewals.Visible = false; divIncentives.Visible = false;
+
+                        if (dsUnits.Tables[0].Rows.Count > 0)
+                        {
+                            divapplname.Visible = false;
+                            divCFO.Visible = true;
+                            ddlCFOUnits.DataSource = dsUnits.Tables[0];
+                            ddlCFOUnits.DataTextField = "CFEQD_COMPANYNAME";
+                            ddlCFOUnits.DataValueField = "CFEQD_UNITID";
+                            ddlCFOUnits.DataBind();
+                        }
+                        else { divapplname.Visible = true; }
+                    }
+                    if (ddlModule.SelectedValue == "4")
+                    {
+                        divPreReg.Visible = false; divCFE.Visible = false; divCFO.Visible = false; divIncentives.Visible = false;
+
+                        if (dsUnits.Tables[0].Rows.Count > 0)
+                        {
+                            divapplname.Visible = false;
+                            divRenewals.Visible = true;
+                            ddlRENUnits.DataSource = dsUnits.Tables[0];
+                            ddlRENUnits.DataTextField = "CFEQD_COMPANYNAME";
+                            ddlRENUnits.DataValueField = "CFEQD_UNITID";
+                            ddlRENUnits.DataBind();
+                        }
+                        else { divapplname.Visible = true; }
+                    }
+                    if (ddlModule.SelectedValue == "5")
+                    {
+                        divPreReg.Visible = false; divCFE.Visible = false; divCFO.Visible = false; divRenewals.Visible = false;
+
+                        if (dsUnits.Tables[0].Rows.Count > 0)
+                        {
+                            divapplname.Visible = false;
+                            divIncentives.Visible = true;
+                            ddlIncUnits.DataSource = dsUnits.Tables[0];
+                            ddlIncUnits.DataTextField = "CFEQD_COMPANYNAME";
+                            ddlIncUnits.DataValueField = "CFEQD_UNITID";
+                            ddlIncUnits.DataBind();
+                        }
+                        else { divapplname.Visible = true; }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+
+            }
+        }
+
+        protected void ddlPreRegUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlCFEUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlCFOUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlIncUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlRENUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         protected void txtuidno_TextChanged(object sender, EventArgs e)

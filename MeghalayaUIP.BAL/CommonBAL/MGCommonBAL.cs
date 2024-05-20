@@ -23,5 +23,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.InsertGrievance(IndustryName,  intDistrictid,  Email,  MobileNumber,  intDeptid,  Grivance_Subject,  Grievance_Description,  Grivance_File_Path,  Grivance_File_Type,  Grievnace_FileName,  Created_by,  Register_Your,  uidno,  Grivance_ID);
         }
+        public DataSet GetApplByModuleName(string UserID, string ModuleID)
+        { 
+            return objCommonDAL.GetApplByModuleName(UserID, ModuleID);
+        }
     }
 }

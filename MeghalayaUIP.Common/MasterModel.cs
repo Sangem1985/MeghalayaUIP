@@ -34,6 +34,8 @@ namespace MeghalayaUIP.Common
         public static string GetVoltages = "USP_GETVOLTAGE";
         public static string GetForestDivision = "USP_GETRFORESTDIVISIONSMASTER";
         public static string GetDepartmentmaster = "USP_GET_DEPARTMETS";//Departments for Grievance
+        public static string GetModulesMaster = "USP_GETMODULESMASTER";//Modules for Grievance
+
 
     }
     public class MasterCountry
@@ -207,5 +209,10 @@ namespace MeghalayaUIP.Common
     {
         public string FORESTDIV_ID { get; set; }
         public string FORESTDIV_NAME { get; set; }
+    }
+    public class MasterModule
+    {
+        public string ModuleID { get; set; }
+        public string ModuleName { get; set; }
     }
 }

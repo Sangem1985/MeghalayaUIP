@@ -46,7 +46,36 @@ namespace MeghalayaUIP.User.CFE
                 if (!IsPostBack)
                 {
                     BindDistricts();
+                    BindConstitutionType();
                 }
+            }
+        }
+        protected void BindConstitutionType()
+        {
+            try
+            {
+                ddlCompanyType.Items.Clear();
+
+                List<MasterConstType> objConsttype = new List<MasterConstType>();
+
+                objConsttype = mstrBAL.GetConstitutionType();
+                if (objConsttype != null)
+                {
+                    ddlCompanyType.DataSource = objConsttype;
+                    ddlCompanyType.DataValueField = "ConstId";
+                    ddlCompanyType.DataTextField = "ConstName";
+                    ddlCompanyType.DataBind();
+                }
+                else
+                {
+                    ddlCompanyType.DataSource = null;
+                    ddlCompanyType.DataBind();
+                }
+                AddSelect(ddlCompanyType);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindDistricts()
@@ -69,11 +98,11 @@ namespace MeghalayaUIP.User.CFE
                 ddlPropLocDist.Items.Clear();
                 ddlPropLocTaluka.Items.Clear();
                 ddlPropLocVillage.Items.Clear();
-               
+
                 ddlappdistric.Items.Clear();
                 ddlappMandal.Items.Clear();
                 ddlappVilage.Items.Clear();
-                
+
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
                 string strmode = string.Empty;
@@ -110,14 +139,14 @@ namespace MeghalayaUIP.User.CFE
                     ddlPropLocDist.DataTextField = "DistrictName";
                     ddlPropLocDist.DataBind();
 
-                   
+
 
                     ddlappdistric.DataSource = objDistrictModel;
                     ddlappdistric.DataValueField = "DistrictId";
                     ddlappdistric.DataTextField = "DistrictName";
                     ddlappdistric.DataBind();
 
-                   
+
                 }
                 else
                 {
@@ -129,12 +158,12 @@ namespace MeghalayaUIP.User.CFE
 
                     ddldist.DataSource = null;
                     ddldist.DataBind();
-                   
+
                     ddlPropLocDist.DataSource = null;
-                    ddlPropLocDist.DataBind();                    
+                    ddlPropLocDist.DataBind();
 
                     ddlappdistric.DataSource = null;
-                    ddlappdistric.DataBind();                  
+                    ddlappdistric.DataBind();
                 }
                 AddSelect(ddlDistric);
                 AddSelect(ddlMandals);
@@ -154,7 +183,7 @@ namespace MeghalayaUIP.User.CFE
 
                 AddSelect(ddlPropLocDist);
                 AddSelect(ddlPropLocTaluka);
-                AddSelect(ddlPropLocVillage);               
+                AddSelect(ddlPropLocVillage);
 
                 AddSelect(ddlappdistric);
                 AddSelect(ddlappMandal);
