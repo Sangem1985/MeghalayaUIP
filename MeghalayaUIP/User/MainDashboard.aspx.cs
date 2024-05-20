@@ -15,7 +15,9 @@ namespace MeghalayaUIP.User
 {
     public partial class MainDashboard : System.Web.UI.Page
     {
+        readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
+        PreRegBAL indstregBAL = new PreRegBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -41,6 +43,28 @@ namespace MeghalayaUIP.User
         }
         protected void RegistrationMIIPPTotal_Click(object sender, EventArgs e)
         {
+        }
+        public void BindData(string userid)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = indstregBAL.GetIndustryRegUserDashboard(userid);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    gvPreRegUserDashboard.DataSource = ds;
+                    gvPreRegUserDashboard.DataBind();
+                }
+                //if (lnkbtn.Text != "0")
+                //{
+                //    LinkButton lnkbtn = (LinkButton)sender;
+                //    lnkbtn.Style["text-decoration"] = "none";
+                //}
+            }
+            catch (Exception ex)
+            {
+            }
+
         }
     }
 }

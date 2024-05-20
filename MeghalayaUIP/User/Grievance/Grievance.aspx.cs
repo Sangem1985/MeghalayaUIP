@@ -120,12 +120,7 @@ namespace MeghalayaUIP.User.Grievance
                     ddlModule.DataTextField = "ModuleName";
                     ddlModule.DataBind();
                 }
-                else
-                {
-                    ddlModule.DataSource = null;
-                    ddlModule.DataBind();
-                }
-                AddSelect(ddlModule);
+
             }
             catch (Exception ex)
             {
@@ -146,6 +141,7 @@ namespace MeghalayaUIP.User.Grievance
                 throw ex;
             }
         }
+
         protected void ddlRegisterAs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlRegisterAs.SelectedIndex <= 0)

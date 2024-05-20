@@ -55,7 +55,10 @@ namespace MeghalayaUIP.Dept.CFE
                     ds = objcfebal.GetCFEApplicationDetails(UnitID, InvesterID);
 
                     DataRow row = ds.Tables[0].Rows[0];
-                    lblnameUnit.Text = Convert.ToString(row["CFEQD_UNITID"]);
+                    lblnameUnit.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+                    lblunitname1.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+                    lblApplNo.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
+                    lblapplDate.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
                     lblconstitution.Text = Convert.ToString(row["CONST_TYPE"]);
                     lblProposal.Text = Convert.ToString(row["CFEQD_PROPOSALFOR"]);
                     lblLocation.Text = Convert.ToString(row["DistrictName"]);
