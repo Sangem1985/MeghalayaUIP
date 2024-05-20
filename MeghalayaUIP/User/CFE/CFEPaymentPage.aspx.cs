@@ -76,12 +76,8 @@ namespace MeghalayaUIP.User.CFE
                             grdApprovals.DataSource = ds.Tables[0];
                             grdApprovals.DataBind();
                             grdApprovals.Visible = true;
-
                         }
-
                     }
-
-
                 }
             }
             catch (Exception ex)
@@ -94,7 +90,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEFactoryDetails.aspx");
+                Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx");
             }
             catch (Exception ex)
             {

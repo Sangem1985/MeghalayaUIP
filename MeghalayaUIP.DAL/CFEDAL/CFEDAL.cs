@@ -431,7 +431,41 @@ namespace MeghalayaUIP.DAL.CFEDAL
             return Result;
         }
 
+        public DataSet GetCFEAlreadyObtainedApprovals(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFEObtainedOffline, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEObtainedOffline;
 
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CRETAEDBY", Convert.ToInt32(userid));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
         public DataSet GetCFEIndustryDetails(string userid, string UnitID)
         {
             DataSet ds = new DataSet();

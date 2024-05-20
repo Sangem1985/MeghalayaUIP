@@ -346,8 +346,6 @@ namespace MeghalayaUIP.User.CFE
         {
 
         }
-
-        
         protected void ddlPropLocDist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -381,10 +379,6 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-      
-
-       
-
         protected void ddlappdistric_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -417,10 +411,6 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-
-       
-
-       
 
         protected void btnPrevious_Click(object sender, EventArgs e)
         {

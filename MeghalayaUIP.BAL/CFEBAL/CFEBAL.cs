@@ -44,6 +44,8 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEDepartmentApprovals(objCFEQsnaire);
         }
+        public DataSet GetCFEAlreadyObtainedApprovals(string userid, string UnitID)
+        { return objCFEDAL.GetCFEAlreadyObtainedApprovals(userid, UnitID); }
         public DataSet GetCFEIndustryDetails(string userid, string UnitID)
         {
             return objCFEDAL.GetCFEIndustryDetails(userid, UnitID);

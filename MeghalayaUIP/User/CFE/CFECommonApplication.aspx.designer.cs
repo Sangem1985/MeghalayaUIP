@@ -105,6 +105,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Button btnNext;
 
         /// <summary>
+        /// divOffline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOffline;
+
+        /// <summary>
         /// divPCB control.
         /// </summary>
         /// <remarks>
@@ -762,31 +771,31 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGrndWtrNOC;
 
         /// <summary>
-        /// fupGrndWtrNOC control.
+        /// fup19GrndWtrNOC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupGrndWtrNOC;
+        protected global::System.Web.UI.WebControls.FileUpload fup19GrndWtrNOC;
 
         /// <summary>
-        /// btnUpldGrndWtrNOC control.
+        /// btnUpld19GrndWtrNOC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpldGrndWtrNOC;
+        protected global::System.Web.UI.WebControls.Button btnUpld19GrndWtrNOC;
 
         /// <summary>
-        /// hplGrndWtrNOC control.
+        /// hpl19GrndWtrNOC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplGrndWtrNOC;
+        protected global::System.Web.UI.WebControls.HyperLink hpl19GrndWtrNOC;
 
         /// <summary>
         /// divNoWtrSplyCertfct control.
@@ -798,31 +807,31 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNoWtrSplyCertfct;
 
         /// <summary>
-        /// fupNoWtrSply control.
+        /// fup20NoWtrSply control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupNoWtrSply;
+        protected global::System.Web.UI.WebControls.FileUpload fup20NoWtrSply;
 
         /// <summary>
-        /// btnUpldNoWtrSply control.
+        /// btnUpld20NoWtrSply control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpldNoWtrSply;
+        protected global::System.Web.UI.WebControls.Button btnUpld20NoWtrSply;
 
         /// <summary>
-        /// hplNoWtrSply control.
+        /// hpl20NoWtrSply control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplNoWtrSply;
+        protected global::System.Web.UI.WebControls.HyperLink hpl20NoWtrSply;
 
         /// <summary>
         /// divPrmsntoDrawWtr control.
@@ -834,31 +843,31 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPrmsntoDrawWtr;
 
         /// <summary>
-        /// fupToDrawWtr control.
+        /// fup21ToDrawWtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupToDrawWtr;
+        protected global::System.Web.UI.WebControls.FileUpload fup21ToDrawWtr;
 
         /// <summary>
-        /// btnUpldToDrawWtr control.
+        /// btnUpld21ToDrawWtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpldToDrawWtr;
+        protected global::System.Web.UI.WebControls.Button btnUpld21ToDrawWtr;
 
         /// <summary>
-        /// hplToDrawWtr control.
+        /// hpl21ToDrawWtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplToDrawWtr;
+        protected global::System.Web.UI.WebControls.HyperLink hpl21ToDrawWtr;
 
         /// <summary>
         /// divMunicipalWatr control.
@@ -870,31 +879,31 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMunicipalWatr;
 
         /// <summary>
-        /// fupMunicipalWatr control.
+        /// fup22MunicipalWatr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupMunicipalWatr;
+        protected global::System.Web.UI.WebControls.FileUpload fup22MunicipalWatr;
 
         /// <summary>
-        /// btnUpldMunicipalWatr control.
+        /// btnUpld22MunicipalWatr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpldMunicipalWatr;
+        protected global::System.Web.UI.WebControls.Button btnUpld22MunicipalWatr;
 
         /// <summary>
-        /// hplMunicipalWatr control.
+        /// hpl22MunicipalWatr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplMunicipalWatr;
+        protected global::System.Web.UI.WebControls.HyperLink hpl22MunicipalWatr;
 
         /// <summary>
         /// divUrbanWatr control.
@@ -906,31 +915,31 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUrbanWatr;
 
         /// <summary>
-        /// fupUrbanWatr control.
+        /// fup23UrbanWatr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupUrbanWatr;
+        protected global::System.Web.UI.WebControls.FileUpload fup23UrbanWatr;
 
         /// <summary>
-        /// btnUpldUrbanWatr control.
+        /// btnUpld23UrbanWatr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpldUrbanWatr;
+        protected global::System.Web.UI.WebControls.Button btnUpld23UrbanWatr;
 
         /// <summary>
-        /// hplUrbanWatr control.
+        /// hpl23UrbanWatr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplUrbanWatr;
+        protected global::System.Web.UI.WebControls.HyperLink hpl23UrbanWatr;
 
         /// <summary>
         /// divLbrAct1970 control.

@@ -57,7 +57,7 @@
                                             </asp:BoundField>
                                             <asp:TemplateField HeaderText="Whether Approval Already Obtained">
                                                 <ItemTemplate>
-                                                    <asp:RadioButtonList ID="rblAlrdyObtained" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAlrdyObtained_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblAlrdyObtained" runat="server" SelectedValue='<%# Eval("CFEQA_ISOFFLINE") %>' AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAlrdyObtained_SelectedIndexChanged">
                                                         <asp:ListItem Value="Y">Yes</asp:ListItem>
                                                         <asp:ListItem Selected="True" Value="N">No</asp:ListItem>
                                                     </asp:RadioButtonList>
@@ -131,14 +131,14 @@
 
                 </div>
                 <br />
-                <div class="row" runat="server" visible="true">
+                <div class="row" runat="server" visible="false" id="divOffline" >
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4><b>Upload Offline Approvals which are already obtained:</b></h4>
+                                <h4><b>Upload Approval Documents which are already obtained:</b></h4>
                                 <br />
                                 <%-- Approvalid=1--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divPCB">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divPCB">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Pre Establishment Approval from Pollution Control Board </label>
@@ -157,7 +157,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=2--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divHazPCB">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divHazPCB">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Authorization under the Hazardous and Other Waste (Management and Transboundary Movement) Rules 2016 </label>
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=3--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divSrvcCon">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divSrvcCon">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label"> Service Connection Certificate </label>
@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=4--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divEleCon">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divEleCon">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Obtaining Electricity Connection </label>
@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=5--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divFctryPlan">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divFctryPlan">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Factory Plan Approval  </label>
@@ -233,7 +233,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=6--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divDGsetNOC">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divDGsetNOC">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">NOC DG Set </label>
@@ -252,7 +252,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=7--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divFireSfty">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divFireSfty">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Provisional Fire Safety Certificate </label>
@@ -271,7 +271,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=8--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divRSDSLic">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divRSDSLic">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Licence to store RS, DS </label>
@@ -290,7 +290,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=9--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divExplsvNOC">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divExplsvNOC">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">NOC required for setting up of Explosives Manufacturing, Storage, Sale, Transport </label>
@@ -309,7 +309,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=10--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divPtrlNOC">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divPtrlNOC">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">NOC Required for Setting Up of Petroleum, Diesel & Naphtha Manufacturing, Storage, Sale, Transport</label>
@@ -328,7 +328,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=11--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divRdCtng">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divRdCtng">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Road Cutting Permission Letter </label>
@@ -347,7 +347,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=12--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divNonEncmb">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divNonEncmb">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Non Encumbrance Certificate</label>
@@ -366,7 +366,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=13--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divProfTax">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divProfTax">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Certificate of Registration of Professional Tax under the Meghalaya Professions Trades Callings and Employment Taxation Rules </label>
@@ -385,7 +385,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=14--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divElcInsp">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divElcInsp">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Electrical Drawing Approval from Electrical Inspectorate </label>
@@ -404,7 +404,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=15--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divForstDist">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divForstDist">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Letter for distance from Forest </label>
@@ -423,7 +423,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=16--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divNonForstLand">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divNonForstLand">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Non-Forest Land Certificate </label>
@@ -442,7 +442,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=17--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divIrrgNOC">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divIrrgNOC">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">FTL NOC for Change of Land use (Irrigation) </label>
@@ -461,7 +461,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=18--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divRevNOC">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divRevNOC">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">FTL NOC for Change of Land use (Revenue) </label>
@@ -479,103 +479,103 @@
                                         </div>
                                     </div>
                                 </div>
-                                <%-- Approvalid=--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divGrndWtrNOC">
+                                <%-- Approvalid=19--%>
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divGrndWtrNOC">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">NoC for Ground Water Abstraction for Commercial Connection </label>
                                             <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fupGrndWtrNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:FileUpload runat="server" ID="fup19GrndWtrNOC" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldGrndWtrNOC" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpld19GrndWtrNOC" OnClick="btnUpld19GrndWtrNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hplGrndWtrNOC"  runat="server" Target="_blank"></asp:HyperLink>
+                                                <asp:HyperLink ID="hpl19GrndWtrNOC"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <%-- Approvalid=--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divNoWtrSplyCertfct">
+                                <%-- Approvalid=20--%>
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divNoWtrSplyCertfct">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Certificate for non-availability of water supply from water supply agency</label>
                                             <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fupNoWtrSply" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:FileUpload runat="server" ID="fup20NoWtrSply" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldNoWtrSply" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpld20NoWtrSply" OnClick="btnUpld20NoWtrSply_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hplNoWtrSply"  runat="server" Target="_blank"></asp:HyperLink>
+                                                <asp:HyperLink ID="hpl20NoWtrSply"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <%-- Approvalid=--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divPrmsntoDrawWtr">
+                                <%-- Approvalid=21--%>
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divPrmsntoDrawWtr">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Permission to Draw Water from River/Public Tanks</label>
                                             <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fupToDrawWtr" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:FileUpload runat="server" ID="fup21ToDrawWtr" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldToDrawWtr" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpld21ToDrawWtr" OnClick="btnUpld21ToDrawWtr_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hplToDrawWtr"  runat="server" Target="_blank"></asp:HyperLink>
+                                                <asp:HyperLink ID="hpl21ToDrawWtr"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <%-- Approvalid=--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divMunicipalWatr">
+                                <%-- Approvalid=22--%>
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divMunicipalWatr">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Water Connection for the Municipal Area </label>
                                             <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fupMunicipalWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:FileUpload runat="server" ID="fup22MunicipalWatr" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldMunicipalWatr" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpld22MunicipalWatr" OnClick="btnUpld22MunicipalWatr_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hplMunicipalWatr"  runat="server" Target="_blank"></asp:HyperLink>
+                                                <asp:HyperLink ID="hpl22MunicipalWatr"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <%-- Approvalid=--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divUrbanWatr">
+                                <%-- Approvalid=23--%>
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divUrbanWatr">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Grant of Water Connection to Non Municipal urban areas </label>
                                             <div class="col-lg-1 d-flex">:
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fupUrbanWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:FileUpload runat="server" ID="fup23UrbanWatr" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldUrbanWatr" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpld23UrbanWatr" OnClick="btnUpld23UrbanWatr_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hplUrbanWatr"  runat="server" Target="_blank"></asp:HyperLink>
+                                                <asp:HyperLink ID="hpl23UrbanWatr"  runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <%-- Approvalid=25--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divLbrAct1970">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divLbrAct1970">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Registration of Establishments/Principal Employer Employing Contract Labour Act 1970</label>
@@ -594,7 +594,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=26--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divLbrAct1979">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divLbrAct1979">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Registration of establishment under the Interstate Migrant Workmen Act 1979 </label>
@@ -613,7 +613,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=27--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divLbrAct1996">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divLbrAct1996">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Registration of Establishments employing Building Workers under the Building and Other Construction Work Act 1996 </label>
@@ -632,7 +632,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=28--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divContrLbrAct">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divContrLbrAct">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">License under Contract Labour Act (Contractor) </label>
@@ -651,7 +651,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=29--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divContrLbrAct1979">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divContrLbrAct1979">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Registration under Inter State Migrant Workman Act 1979 (For Contractor) </label>
@@ -670,7 +670,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=30--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divConstrPermit">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divConstrPermit">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Construction Permit Approval </label>
@@ -689,7 +689,7 @@
                                     </div>
                                 </div>
                                 <%-- Approvalid=31--%>
-                                <div class="col-md-12 d-flex" runat="server" id="divBldngPlan">
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divBldngPlan">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Industrial Building Plan Approval </label>
