@@ -95,8 +95,8 @@ namespace MeghalayaUIP.User.Grievance
                 if (objDepartmentModel != null)
                 {
                     ddldept.DataSource = objDepartmentModel;
-                    ddldept.DataValueField = "TMD_DEPTID";
-                    ddldept.DataTextField = "TMD_DeptName";
+                    ddldept.DataValueField = "DepartmentId";
+                    ddldept.DataTextField = "DepartmentName";
                     ddldept.DataBind();
 
                 }
