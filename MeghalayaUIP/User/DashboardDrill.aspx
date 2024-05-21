@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="card card-body">
-                                <div class="table-responsive under table-striped table-hover drilldown">
+                                <div class="table-responsive under table-striped table-hover drilldown preEstablishment">
                                     <table class="table table-bordered mb-0">
                                         <thead>
 

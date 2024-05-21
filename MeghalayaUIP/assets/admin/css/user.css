@@ -200,14 +200,16 @@ section#dashboardcount tr {
     line-height: 26px;
     color: #000;
 }
-
+.table-responsive.under.table-striped.table-hover.drilldown.preEstablishment tr {
+    line-height: 49px !important;
+}
 section#dashboardcount a {
     color: #9C27B0;
     font-weight: 900;
     text-transform: capitalize;
 }
 table th {
-    background: #2d3564 !important;
+    background: #3b4474 !important;
     text-align: center;
     opacity: 1;
     color: #fff;
