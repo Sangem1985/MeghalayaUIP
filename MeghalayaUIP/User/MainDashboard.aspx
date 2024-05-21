@@ -23,6 +23,8 @@
                         <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                            <br />
+                            <asp:HyperLink  ID="hplIndReg" runat="server" Visible="false"></asp:HyperLink>
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />

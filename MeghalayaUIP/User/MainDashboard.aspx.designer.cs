@@ -60,6 +60,15 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
+        /// hplIndReg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplIndReg;
+
+        /// <summary>
         /// hdnPreRegUNITID control.
         /// </summary>
         /// <remarks>

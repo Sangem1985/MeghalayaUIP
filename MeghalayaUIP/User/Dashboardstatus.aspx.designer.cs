@@ -15,6 +15,15 @@ namespace MeghalayaUIP.User
     {
 
         /// <summary>
+        /// unitname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl unitname;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -60,13 +69,40 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// unitname control.
+        /// lblUnitID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl unitname;
+        protected global::System.Web.UI.WebControls.Label lblUnitID;
+
+        /// <summary>
+        /// lblDOA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDOA;
+
+        /// <summary>
+        /// lblUnitNmae control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnitNmae;
+
+        /// <summary>
+        /// lblProjCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProjCategory;
 
         /// <summary>
         /// grdTrackerDetails control.

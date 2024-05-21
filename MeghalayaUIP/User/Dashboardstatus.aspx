@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
     <div class="page-wrapper griddesignmulticount">
-			<div class="content container-fluid">		
+        <div class="content container-fluid">
 
-				<div class="card">
-					<div class="card-header d-flex justify-content-between">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">Welcome to Dashboard</h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
@@ -17,6 +17,18 @@
                 <section id="dashboardcount" class="mt-2">
                     <div class="container-fluid">
                         <div class="row">
+                            <div class="col-md-12 d-flex">
+                                <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                    <strong>Warning!</strong>
+                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                            <asp:HiddenField ID="hdnUserID" runat="server" />
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -24,26 +36,26 @@
                                             <div class="col-md-2">1. Unit ID</div>
 
                                             <div class="col-md-3 fw-bold text-info">
-                                                <spna class="dots">:</spna>APRJY200C</b>
+                                                <spna class="dots">:</spna><asp:Label ID="lblUnitID"  runat="server"></asp:Label>
                                             </div>
                                             <div class="col-md-2">&nbsp;</div>
                                             <div class="col-md-2">3. Date of Unit Application</div>
 
-                                            <div class="col-md-3">
-                                                <spna class="dots">:</spna>03-05-2024
+                                            <div class="col-md-3 fw-bold text-info">
+                                                <spna class="dots">:</spna><asp:Label ID="lblDOA"  runat="server"></asp:Label>
                                             </div>
                                         </div>
                                         <div class="col-md-12 row mt-2 mb-4">
                                             <div class="col-md-2">2. Unit Name</div>
 
-                                            <div class="col-md-3">
-                                                <spna class="dots">:</spna>Ajantha Company Pvt ltd...
+                                            <div class="col-md-3 fw-bold text-info">
+                                                <spna class="dots">:</spna><asp:Label ID="lblUnitNmae"  runat="server"></asp:Label>
                                             </div>
                                             <div class="col-md-2">&nbsp;</div>
                                             <div class="col-md-2">4. Category of Industry</div>
 
-                                            <div class="col-md-3">
-                                                <spna class="dots">:</spna>Small
+                                            <div class="col-md-3 fw-bold text-info">
+                                                <spna class="dots">:</spna><asp:Label ID="lblProjCategory" Text="Mega Project"  runat="server"></asp:Label>
                                             </div>
                                         </div>
 
@@ -124,7 +136,7 @@
                                         </div>
                                         <div class="col-md-12 d-flex  ">
                                             <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
-                                                OnRowCreated="grdTrackerDetails_RowCreated" EnableModelValidation="True" Width="100%" >
+                                                OnRowCreated="grdTrackerDetails_RowCreated" EnableModelValidation="True" Width="100%">
                                                 <HeaderStyle BackColor="#363670" ForeColor="White" />
                                                 <AlternatingRowStyle />
                                                 <Columns>

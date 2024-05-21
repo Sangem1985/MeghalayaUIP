@@ -61,11 +61,19 @@ namespace MeghalayaUIP.User
                     gvUserDashboard.DataSource = ds.Tables[0];
                     gvUserDashboard.DataBind();
                 }
-                //if (lnkbtn.Text != "0")
-                //{
-                //    LinkButton lnkbtn = (LinkButton)sender;
-                //    lnkbtn.Style["text-decoration"] = "none";
-                //}
+                else
+                {
+                    
+                    Failure.Visible = true;
+                    hplIndReg.Visible = true;
+                    hplIndReg.ForeColor = System.Drawing.Color.Green;
+                    hplIndReg.Text = "Click here to Apply Registration under MIIPP (2024)";
+                    hplIndReg.NavigateUrl = "PreReg/IndustryRegistration.aspx";
+                    lblmsg0.Text = "There are no Applications to Show " ;
+                    gvUserDashboard.DataSource = null;
+                    gvUserDashboard.DataBind();
+
+                }
             }
             catch (Exception ex)
             {
@@ -86,45 +94,31 @@ namespace MeghalayaUIP.User
 
                 decimal Incentives = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "INCENTIVES"));
                 IncentivesTotal = Incentives + IncentivesTotal;
-                
-                HyperLink h1 = (HyperLink)e.Row.Cells[4].Controls[0];
 
-                h1.NavigateUrl = "~/IndustryRegistrationUserDashboard.aspx?Unit=" + hdnUserID.Value + "&Module=MIIPP";
+                HyperLink h1 = (HyperLink)e.Row.Cells[4].Controls[0];
+                if (h1.Text != "0")
+                    h1.NavigateUrl = "PreReg/IndustryRegistrationViewDetails.aspx?Unit=" + DataBinder.Eval(e.Row.DataItem, "UNITID") + "&Module=MIIPP";
+
 
                 HyperLink h2 = (HyperLink)e.Row.Cells[5].Controls[0];
+                if (h2.Text != "0")
+                    h2.NavigateUrl = "DashboardDrill.aspx?Unit=" + DataBinder.Eval(e.Row.DataItem, "UNITID") + "&Module=PreEstablishment";
 
-                h2.NavigateUrl = "DashboardDrill.aspx?Unit=" + hdnUserID.Value + "&Module=PreEstablishment";
-
+                
                 HyperLink h3 = (HyperLink)e.Row.Cells[6].Controls[0];
+                if (h3.Text != "0")
+                    h3.NavigateUrl = "DashboardDrill.aspx?Unit=" + DataBinder.Eval(e.Row.DataItem, "UNITID") + "&Module=PreOperational";
 
-                h3.NavigateUrl = "DashboardDrill.aspx?Unit=" + hdnUserID.Value + "&Module=PreOperational";
-
+                
                 HyperLink h4 = (HyperLink)e.Row.Cells[7].Controls[0];
-
-                h4.NavigateUrl = "DashboardDrill.aspx?Unit=" + hdnUserID.Value + "&Module=Incentives";
-
-
+                if (h4.Text != "0")
+                    h4.NavigateUrl = "DashboardDrill.aspx?Unit=" + DataBinder.Eval(e.Row.DataItem, "UNITID") + "&Module=Incentives";
 
             }
 
             if (e.Row.RowType == DataControlRowType.Footer)
-            {              
+            {
 
-            //    e.Row.Cells[1].Text = "Total";
-            //    // Label lblTotal = new Label();
-            //    HyperLink Total = new HyperLink();
-            //    Total.ForeColor = System.Drawing.Color.White;
-            //    Total.NavigateUrl = "FrmDistDrilldownold2New.aspx?status=" + ddlType.SelectedValue.ToString() + "&lbl=Total Applications Received&dist=" + district + "&fromdate=" + txtFromDate.Text + "&todate=" + txtTodate.Text;
-            //    Total.Text = NumberTotal.ToString();
-            //    //e.Row.Cells[2].Controls.RemoveAt(0);
-            //    //lblTotal.Text = NumberTotal.ToString();
-            //    e.Row.Cells[2].Text = NumberTotal.ToString();
-            //    e.Row.Cells[2].Controls.Add(Total);
-            //    // e.Row.Cells[2].Controls.Add(lblTotal);
-            //    //e.Row.Cells[2].Text = NumberTotal.ToString();
-            //    e.Row.Cells[3].Text = InvestmnetTotal.ToString();
-            //    e.Row.Cells[4].Text = EmploymentTotal.ToString();
-                //lblTotal.Visible = false;
             }
         }
     }

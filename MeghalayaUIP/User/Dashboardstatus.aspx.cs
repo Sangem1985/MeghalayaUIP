@@ -31,16 +31,16 @@ namespace MeghalayaUIP.User
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-                UnitID = "1007";
-                //if (Request.QueryString.Count < 0)
-                //{
-                //    UnitID = Convert.ToString(Request.QueryString[0]);
-                //}
-                //else
-                //{
-                //    string newurl = "~/User/MainDashboard.aspx";
-                //    Response.Redirect(newurl);
-                //}
+               // UnitID = "1007";
+                if (Request.QueryString.Count >0)
+                {
+                    UnitID = Convert.ToString(Request.QueryString[0]);
+                }
+                else
+                {
+                    string newurl = "~/User/MainDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
 
@@ -60,15 +60,22 @@ namespace MeghalayaUIP.User
             try
             {
                 DataSet dsApprovals = new DataSet();
-                //UnitID = Convert.ToString(Request.QueryString[0]);
-                UnitID = "1007";
-                //dsApprovals = objcommonBAL.GetCFEUserDashboardStatus(hdnUserID.Value, UnitID);
+                UnitID = Convert.ToString(Request.QueryString[0]);
+                //UnitID = "1007";
+                dsApprovals = objcommonBAL.GetCFEUserDashboardStatus(hdnUserID.Value, UnitID);
                 if (dsApprovals.Tables.Count > 0)
                 {
                     if (dsApprovals.Tables[0].Rows.Count > 0)
                     {
                         grdTrackerDetails.DataSource = dsApprovals.Tables[0];
                         grdTrackerDetails.DataBind();
+                        lblDOA.Text = Convert.ToString(dsApprovals.Tables[0].Rows[0]["DATEOFAPPLICATION"]);
+                    }
+                    if (dsApprovals.Tables[1].Rows.Count > 0)
+                    {
+                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_UNITID"]);
+                        lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_COMPANYNAME"]);
+                      
                     }
                 }
             }
