@@ -140,7 +140,7 @@ namespace MeghalayaUIP.User
                     }
                     else
                     {
-                        url = "Dashboardstatus.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                        url = "Dashboardstatus.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Module=Pre - Establishment"; 
                         Response.Redirect(url);
                     }
                 }
