@@ -136,11 +136,7 @@ namespace MeghalayaUIP.User
                         url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]);
                         Response.Redirect(url);
                     }
-                    else
-                    {
-                        url = "Dashboardstatus.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                        Response.Redirect(url);
-                    }
+                    
                 }
             }
             catch (Exception ex)

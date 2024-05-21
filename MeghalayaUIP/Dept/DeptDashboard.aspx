@@ -9,8 +9,10 @@
             <div class="card">
                 <section id="dashboardcount">
                     <div class="container-fluid">
-                         <div  class="row" id="intenttoinvest" runat="server" visible="false">
-                            <div class="col-md-3">
+                        <div class="row">
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
                                 <a href="IntenttoInvestDashboard.aspx">
                                     <div class="card-counter primarydashboard5">
                                         <i class="fi fi-rr-square-up-right"></i>
@@ -20,8 +22,6 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
-                        <div class="row mt-2">
                             <div class="col-md-3" id="prereg" runat="server" visible="false">
                                 <div class="card-counter primarydashboard5">
                                     <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
@@ -31,7 +31,7 @@
                                     </asp:LinkButton>
                                 </div>
                             </div>
-                            <div class="col-md-3"  id="Preestablishment" runat="server" visible="false">
+                            <div class="col-md-3" id="Preestablishment" runat="server" visible="false">
                                 <div class="card-counter primarydashboard1">
                                     <asp:LinkButton runat="server" ID="linkCFE" OnClick="linkCFE_Click">
 									<i class="fi fi-rr-square-up-right"></i>

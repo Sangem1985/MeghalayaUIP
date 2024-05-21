@@ -16,21 +16,23 @@ namespace MeghalayaUIP.Dept
     {
         MasterBAL mstrBAL = new MasterBAL();
         PreRegBAL indstregBAL = new PreRegBAL();
+        DeptUserInfo ObjUserInfo = new DeptUserInfo();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
 
-                if (Session["UserInfo"] != null)
+                if (Session["DeptUserInfo"] != null)
                 {
-                    var ObjUserInfo = new UserInfo();
-                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
-                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
+                    // username = ObjUserInfo.UserName;
+
                     if (hdnUserID.Value == "")
                     {
-                        hdnUserID.Value = ObjUserInfo.Userid;
+                        hdnUserID.Value = ObjUserInfo.UserID;
                     }
 
                     Page.MaintainScrollPositionOnPostBack = true;
@@ -39,11 +41,12 @@ namespace MeghalayaUIP.Dept
                     if (!IsPostBack)
                     {
                         BindData();
+
                     }
                 }
                 else
                 {
-                    Response.Redirect("~/Login.aspx");
+                    Response.Redirect("~/DeptLogin.aspx");
                 }
             }
             catch (Exception ex)
