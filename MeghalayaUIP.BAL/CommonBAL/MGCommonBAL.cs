@@ -15,7 +15,7 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.LogerrorDB(ex, path, CreatedBy);
         }
-        public DataTable GetMainApplicantDashBoard(String Investerid)
+        public DataSet GetMainApplicantDashBoard(String Investerid)
         {
             return objCommonDAL.GetMainApplicantDashBoard(Investerid);
         }

@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.DAL.CommonDAL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,6 +19,7 @@ namespace MeghalayaUIP.User
         readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
         PreRegBAL indstregBAL = new PreRegBAL();
+        MGCommonDAL objcommonDAL = new MGCommonDAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -49,11 +51,11 @@ namespace MeghalayaUIP.User
             try
             {
                 DataSet ds = new DataSet();
-                ds = indstregBAL.GetIndustryRegUserDashboard(userid);
+                ds = objcommonDAL.GetMainApplicantDashBoard(userid);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    gvPreRegUserDashboard.DataSource = ds;
-                    gvPreRegUserDashboard.DataBind();
+                    gvUserDashboard.DataSource = ds;
+                    gvUserDashboard.DataBind();
                 }
                 //if (lnkbtn.Text != "0")
                 //{

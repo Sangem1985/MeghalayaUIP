@@ -52,9 +52,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return valid;
         }
 
-        public DataTable GetMainApplicantDashBoard(string Investerid)
+        public DataSet GetMainApplicantDashBoard(string Investerid)
         {
-            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
             string valid = "";
             //  IDno = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -74,10 +74,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Investerid);
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                da.Fill(ds);
 
-                    transaction.Commit();
+                transaction.Commit();
                 connection.Close();
             }
             catch (Exception ex)
@@ -90,7 +89,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Close();
                 connection.Dispose();
             }
-            return dt;
+            return ds;
         }
 
         public int InsertGrievance(string IndustryName, string intDistrictid, string Email, string MobileNumber, string intDeptid, string Grivance_Subject, string Grievance_Description, string Grivance_File_Path, string Grivance_File_Type, string Grievnace_FileName, string Created_by, string Register_Your, string uidno, string Grivance_ID)

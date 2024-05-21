@@ -56,6 +56,11 @@ namespace MeghalayaUIP.Dept
 
         protected void linkCFE_Click(object sender, EventArgs e)
         {
+            if (ObjUserInfo.Roleid == "4")
+            {
+                string url = "~/Dept/CFE/CFEDeptDashboard.aspx";
+                Response.Redirect(url);
+            }
 
         }
 
