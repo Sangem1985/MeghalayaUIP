@@ -11,7 +11,7 @@
                 <section id="dashboardcount">
                     <div class="container-fluid">
                         <div class="row clearfix">
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-orange hover-expand-effect">
                                     <div class="icon">
                                         <h4>
@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <%--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <%--<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-cyan hover-expand-effect">
                                     <div class="icon">
                                         <h4>
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                             </div>--%>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-cyan hover-expand-effect">
                                     <div class="icon">
                                         <h4>
@@ -71,7 +71,7 @@
                     <div class="container-fluid">
                         <div class="row clearfix">
 
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-blue hover-expand-effect">
                                     <div class="icon">
                                         <h4>
@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-pink hover-expand-effect">
                                     <div class="icon">
                                         <h4>
@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-green hover-expand-effect">
                                     <div class="icon">
                                         <h4>

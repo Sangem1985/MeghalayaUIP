@@ -1637,12 +1637,12 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
                 com.Parameters.AddWithValue("@UNITID", Objcfedtls.Unitid);
-                com.Parameters.AddWithValue("@CFEQDID", Objcfedtls.Investerid);
+                com.Parameters.AddWithValue("@CFEQDID", Objcfedtls.Questionnaireid);
                 if (Objcfedtls.deptid != null && Objcfedtls.deptid != 0)
                 {
                     com.Parameters.AddWithValue("@DEPTID", Objcfedtls.deptid);
                 }
-                com.Parameters.AddWithValue("@APPROVALID", Objcfedtls.status);
+                com.Parameters.AddWithValue("@APPROVALID", Objcfedtls.ApprovalId);
                 com.Parameters.AddWithValue("@ACTIONID", Objcfedtls.status);                
                 com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
                 com.Parameters.AddWithValue("@CFDA_SCRUTINYREJECTIONFLAG", Objcfedtls.PrescrutinyRejectionFlag);

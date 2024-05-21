@@ -107,5 +107,10 @@ namespace MeghalayaUIP.Dept
             Response.Cookies.Clear();
             Request.Cookies.Clear();
         }
+
+        protected void linkDeptdshbrd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Dept/DeptDashBoard.aspx");
+        }
     }
 }
