@@ -69,13 +69,13 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblCompanyPAN;
 
         /// <summary>
-        /// lblCompanyType control.
+        /// lblCompanyProposal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompanyType;
+        protected global::System.Web.UI.WebControls.Label lblCompanyProposal;
 
         /// <summary>
         /// lblregdate control.
@@ -103,6 +103,24 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGSTIN;
+
+        /// <summary>
+        /// lblcomptype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcomptype;
+
+        /// <summary>
+        /// lblcatreg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcatreg;
 
         /// <summary>
         /// lblName control.
@@ -177,6 +195,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblPincode;
 
         /// <summary>
+        /// lbldoorno_authrep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbldoorno_authrep;
+
+        /// <summary>
         /// lbldrno control.
         /// </summary>
         /// <remarks>
@@ -231,6 +258,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblPro_Pin;
 
         /// <summary>
+        /// lblisland control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblisland;
+
+        /// <summary>
         /// lblDateofcomm control.
         /// </summary>
         /// <remarks>
@@ -283,6 +319,33 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProdNo;
+
+        /// <summary>
+        /// lblmainRM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmainRM;
+
+        /// <summary>
+        /// lblAnnualCap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnnualCap;
+
+        /// <summary>
+        /// lblunitofmeasure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblunitofmeasure;
 
         /// <summary>
         /// divServc control.
@@ -348,15 +411,6 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblPCBcatogry;
 
         /// <summary>
-        /// lblmainRM control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmainRM;
-
-        /// <summary>
         /// lblwastedtls control.
         /// </summary>
         /// <remarks>
@@ -384,6 +438,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblcivilConstr;
 
         /// <summary>
+        /// lblEstProjcost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstProjcost;
+
+        /// <summary>
         /// lbllandArea control.
         /// </summary>
         /// <remarks>
@@ -393,13 +456,13 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lbllandArea;
 
         /// <summary>
-        /// lblBuildingArea control.
+        /// lblLandValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuildingArea;
+        protected global::System.Web.UI.WebControls.Label lblLandValue;
 
         /// <summary>
         /// lblWaterReq control.
@@ -411,40 +474,13 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblWaterReq;
 
         /// <summary>
-        /// lblPowerReq control.
+        /// lblWaterValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPowerReq;
-
-        /// <summary>
-        /// lblunitofmeasure control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblunitofmeasure;
-
-        /// <summary>
-        /// lblAnnualCap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAnnualCap;
-
-        /// <summary>
-        /// lblEstProjcost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEstProjcost;
+        protected global::System.Web.UI.WebControls.Label lblWaterValue;
 
         /// <summary>
         /// lblPMCost control.
@@ -454,6 +490,42 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPMCost;
+
+        /// <summary>
+        /// lblBuildingArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBuildingArea;
+
+        /// <summary>
+        /// lblBuldingValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBuldingValue;
+
+        /// <summary>
+        /// lblPowerReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPowerReq;
+
+        /// <summary>
+        /// lblElectricityValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblElectricityValue;
 
         /// <summary>
         /// lblIFC control.
@@ -474,42 +546,6 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblDFA;
 
         /// <summary>
-        /// lblBuldingValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuldingValue;
-
-        /// <summary>
-        /// lblLandValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLandValue;
-
-        /// <summary>
-        /// lblWaterValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWaterValue;
-
-        /// <summary>
-        /// lblElectricityValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblElectricityValue;
-
-        /// <summary>
         /// lblWorkingCapital control.
         /// </summary>
         /// <remarks>
@@ -519,31 +555,94 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblWorkingCapital;
 
         /// <summary>
-        /// lblCapitalSubsidy control.
+        /// lblpromotndcont control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCapitalSubsidy;
+        protected global::System.Web.UI.WebControls.Label lblpromotndcont;
 
         /// <summary>
-        /// lblPromoterEquity control.
+        /// lblequityamount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPromoterEquity;
+        protected global::System.Web.UI.WebControls.Label lblequityamount;
 
         /// <summary>
-        /// lblLoan control.
+        /// lbltermloanworking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoan;
+        protected global::System.Web.UI.WebControls.Label lbltermloanworking;
+
+        /// <summary>
+        /// lblunsecuredloan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblunsecuredloan;
+
+        /// <summary>
+        /// lblinternalresources control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblinternalresources;
+
+        /// <summary>
+        /// lblstatescheme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblstatescheme;
+
+        /// <summary>
+        /// lblcapitalsubsidy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcapitalsubsidy;
+
+        /// <summary>
+        /// lblunnati control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblunnati;
+
+        /// <summary>
+        /// lblcentralscheme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcentralscheme;
+
+        /// <summary>
+        /// lblnote control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblnote;
 
         /// <summary>
         /// grdRevenueProj control.

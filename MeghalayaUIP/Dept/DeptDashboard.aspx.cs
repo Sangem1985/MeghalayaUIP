@@ -23,6 +23,12 @@ namespace MeghalayaUIP.Dept
                 if (ObjUserInfo.Roleid == "1")
                 {
                     intenttoinvest.Visible = true;
+                    prereg.Visible = true;
+                }
+                else if (ObjUserInfo.Roleid == "4")
+                {
+                    intenttoinvest.Visible = false;
+                    prereg.Visible = true;
                 }
                 else
                 {
