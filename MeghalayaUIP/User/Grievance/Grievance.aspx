@@ -202,7 +202,7 @@
                                 <div class="col-md-12 d-flex"> 
                                     <div class="col-md-12 float-end">
                                         <div class="form-group row justify-content-end">
-                                            <asp:Button runat="server" Text="Save as Draft" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg mr-2" BackColor="Green" Width="150px" />
+                                            <asp:Button runat="server" Text="Submit" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg mr-2" BackColor="Green" Width="150px" />
                                             <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnClear_Click" BackColor="#3333ff" Width="150px" />
                                         </div>
                                     </div>
