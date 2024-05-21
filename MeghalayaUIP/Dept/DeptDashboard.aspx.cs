@@ -24,11 +24,19 @@ namespace MeghalayaUIP.Dept
                 {
                     intenttoinvest.Visible = true;
                     prereg.Visible = true;
+                    Preestablishment.Visible = false;
                 }
                 else if (ObjUserInfo.Roleid == "4")
                 {
                     intenttoinvest.Visible = false;
                     prereg.Visible = true;
+                    Preestablishment.Visible = false;
+                }
+                else if (ObjUserInfo.Roleid == "5")
+                {
+                    intenttoinvest.Visible = false;
+                    prereg.Visible = false;
+                    Preestablishment.Visible = true;
                 }
                 else
                 {
@@ -65,7 +73,7 @@ namespace MeghalayaUIP.Dept
 
         protected void linkCFE_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "4")
+            if (ObjUserInfo.Roleid == "5")
             {
                 Preestablishment.Visible = true;
                 string url = "~/Dept/CFE/CFEDeptDashboard.aspx";

@@ -49,7 +49,7 @@ namespace MeghalayaUIP.Dept.CFE
 
                     lblAPPROVALPENDING.Text = dt.Rows[0]["APPROVALPENDING"].ToString();
                     lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
-                    lblPREREJECTED.Text = dt.Rows[0]["PREREJECTED"].ToString(); 
+                    //lblPREREJECTED.Text = dt.Rows[0]["PREREJECTED"].ToString(); 
                 }
             }
             catch (Exception ex)
