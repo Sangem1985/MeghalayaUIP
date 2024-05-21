@@ -106,7 +106,7 @@ namespace MeghalayaUIP.User
         }
         protected void linkuserdshbrd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/Dashboard.aspx");
+            Response.Redirect("~/User/MainDashboard.aspx");
         }
         protected void linkIndReg_Click(object sender, EventArgs e)
         {
@@ -117,6 +117,11 @@ namespace MeghalayaUIP.User
         {
             Response.Redirect("~/User/CFE/CFEUserDashboard.aspx");
 
+        }
+
+        protected void lnkGrievance_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Grievance/Grievance.aspx");
         }
     }
 }

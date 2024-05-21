@@ -5707,8 +5707,8 @@ h4.card-title {
 }
 
 h4.card-title {
-	background: #1BAEDF;
-	background: linear-gradient(to right, #1b5a90 0%, #00d0f1 51%, #FF512F 100%);
+	background: #0B3654;
+	*background: linear-gradient(to right, #1b5a90 0%, #00d0f1 51%, #FF512F 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-size: 18px;

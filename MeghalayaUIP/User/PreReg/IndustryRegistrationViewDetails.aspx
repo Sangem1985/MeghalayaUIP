@@ -9,7 +9,7 @@
         <div class="content container-fluid">
             <div class="card flex-fill">
 
-                <h4 class="mt-2 ml-4">View Details</h4>
+                <h4 class="mt-2 ml-4">MIIP Registration Details</h4>
                 <div class="col-md-12 d-flex">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>

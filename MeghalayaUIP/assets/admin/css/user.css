@@ -197,7 +197,7 @@ td.count {
 }
 
 section#dashboardcount tr {
-    line-height: 49px;
+    line-height: 26px;
     color: #000;
 }
 
@@ -207,9 +207,9 @@ section#dashboardcount a {
     text-transform: capitalize;
 }
 table th {
-    background: #000c50 !important;
+    background: #2d3564 !important;
     text-align: center;
-    opacity: 0.8;
+    opacity: 1;
     color: #fff;
 }
 td.count {

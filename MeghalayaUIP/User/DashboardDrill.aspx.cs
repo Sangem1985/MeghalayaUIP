@@ -61,10 +61,12 @@ namespace MeghalayaUIP.User
                 int ModuleID = 0;
                 DataSet dsStatus = new DataSet();
                 UnitID = Convert.ToString(Request.QueryString[0]);
+                ddlUnitNames.SelectedValue = UnitID;
                 string module = Convert.ToString(Request.QueryString[1]);
                 if (module == "PreEstablishment")
                 {
                     ModuleID = 1; trCFE.Visible = true; trCFO.Visible = false; trINC.Visible = false;
+                    lblmodule.Text = "Pre - Establishment";
                 }
                 else if (module == "PreOperational")
                 {
@@ -133,10 +135,14 @@ namespace MeghalayaUIP.User
                 {
                     if (ddlUnitNames.SelectedItem.Text == "--Select--")
                     {
-                        url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]);
+                        url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]) + "&Module=Pre - Establishment";
                         Response.Redirect(url);
                     }
-                    
+                    else
+                    {
+                        url = "Dashboardstatus.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                        Response.Redirect(url);
+                    }
                 }
             }
             catch (Exception ex)
@@ -155,6 +161,11 @@ namespace MeghalayaUIP.User
                     if (ddlUnitNames.SelectedItem.Text == "--Select--")
                     {
                         string url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]);
+                        Response.Redirect(url);
+                    }
+                    else
+                    {
+                        string url = "Dashboardstatus.aspx?UnitID=" + ddlUnitNames.SelectedValue;
                         Response.Redirect(url);
                     }
                 }
