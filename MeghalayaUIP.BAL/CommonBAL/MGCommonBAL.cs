@@ -27,5 +27,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         { 
             return objCommonDAL.GetApplByModuleName(UserID, ModuleID);
         }
+        public DataSet GetCFEUserDashboardStatus(string UserID, string UnitID)
+        {
+            return objCommonDAL.GetCFEUserDashboardStatus(UserID, UnitID);
+        }
     }
 }

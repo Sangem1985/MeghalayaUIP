@@ -136,7 +136,7 @@ namespace MeghalayaUIP
                         {
                             Session["UserInfo"] = ObjUserInfo;
                             //objloginBAL.LogUserLoginHistory(ObjUserInfo.Userid, getclientIP());
-                            Response.Redirect("~/User/Dashboard.aspx", false);
+                            Response.Redirect("~/User/MainDashboard.aspx", false);
                         }
                         else
                         {

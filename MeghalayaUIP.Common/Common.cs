@@ -10,8 +10,9 @@ namespace MeghalayaUIP.Common
     {
         public static string LogEorror = "USP_INS_ERRORLOG";
 
-        public static string GetMainApplicantDashBoard = "USP_GET_APPLICATIONS_STATUS_COUNT";
+        public static string GetMainApplicantDashBoard = "USP_GET_UNITS_BY_INVESTORS";
         public static string InsertGrievance = "USP_INS_GRIEVANCE";
         public static string GetApplbyModuleName = "USP_GETAPPLBYMODULENAME";
+        public static string GetUserCFETracker = "USP_GETUSERCFEAPPLTRACKER";
     }
 }

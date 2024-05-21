@@ -4,24 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
-    <div class="page-wrapper "> <%--griddesignmulticount--%>
+    <div class="page-wrapper griddesignmulticount">
+			<div class="content container-fluid">		
 
-        <div class="content container-fluid">
-            <div class="card">
-                <div class="col-md-12 d-flex">
-                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
-                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                    </div>
-                </div>
-                <div class="col-md-12 d-flex">
-                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
-                        <strong>Warning!</strong>
-                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                    </div>
-                </div>
-                <asp:HiddenField ID="hdnUserID" runat="server" />
-
-                <div class="card-header d-flex justify-content-between">
+				<div class="card">
+					<div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">Welcome to Dashboard</h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>

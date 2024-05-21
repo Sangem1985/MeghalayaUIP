@@ -24,6 +24,15 @@ namespace MeghalayaUIP.Dept
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl intenttoinvest;
 
         /// <summary>
+        /// prereg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl prereg;
+
+        /// <summary>
         /// linkPreReg control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace MeghalayaUIP.Dept
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkPreReg;
+
+        /// <summary>
+        /// Preestablishment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Preestablishment;
 
         /// <summary>
         /// linkCFE control.
@@ -42,6 +60,15 @@ namespace MeghalayaUIP.Dept
         protected global::System.Web.UI.WebControls.LinkButton linkCFE;
 
         /// <summary>
+        /// PreOperational control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PreOperational;
+
+        /// <summary>
         /// linkCFO control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace MeghalayaUIP.Dept
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkCFO;
+
+        /// <summary>
+        /// Incentive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Incentive;
 
         /// <summary>
         /// linkIncentive control.

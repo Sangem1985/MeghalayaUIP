@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-3">
+                            <div class="col-md-3" id="prereg" runat="server" visible="false">
                                 <div class="card-counter primarydashboard5">
                                     <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
 									<i class="fi fi-rr-square-up-right"></i>
@@ -31,7 +31,7 @@
                                     </asp:LinkButton>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3"  id="Preestablishment" runat="server" visible="false">
                                 <div class="card-counter primarydashboard1">
                                     <asp:LinkButton runat="server" ID="linkCFE" OnClick="linkCFE_Click">
 									<i class="fi fi-rr-square-up-right"></i>
@@ -41,7 +41,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3" id="PreOperational" runat="server" visible="false">
 
                                 <div class="card-counter primarydashboard2">
                                     <asp:LinkButton runat="server" ID="linkCFO" OnClick="linkCFO_Click">
@@ -52,9 +52,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-3">
-
-
+                            <div class="col-md-3" id="Incentive" runat="server" visible="false">
                                 <div class="card-counter primarydashboard3">
                                     <asp:LinkButton runat="server" ID="linkIncentive" OnClick="linkIncentive_Click">
                                     <i class="fi fi-rr-square-up-right"></i>

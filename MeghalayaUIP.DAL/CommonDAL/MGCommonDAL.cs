@@ -72,7 +72,6 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Investerid);
                 da.Fill(ds);
 
@@ -220,6 +219,42 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@USERID", UserID);
                 da.SelectCommand.Parameters.AddWithValue("@MODULETYPE", ModuleID);
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+        public DataSet GetCFEUserDashboardStatus(string UserID, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetUserCFETracker, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetUserCFETracker;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@USERID", UserID);
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
 
                 da.Fill(ds);
 

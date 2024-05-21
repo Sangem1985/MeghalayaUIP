@@ -39,16 +39,19 @@ namespace MeghalayaUIP.Dept
         {
             if (ObjUserInfo.Roleid == "4")
             {
+                prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegApplDeptDashBoard.aspx";
                 Response.Redirect(url);
             }
             else if (ObjUserInfo.Roleid == "1")
             {
+                prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegApplIMADashBoard.aspx";
                 Response.Redirect(url);
             }
             else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
             {
+                prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegApplCommitteeDashBoard.aspx";
                 Response.Redirect(url);
             }
@@ -58,6 +61,7 @@ namespace MeghalayaUIP.Dept
         {
             if (ObjUserInfo.Roleid == "4")
             {
+                Preestablishment.Visible = true;
                 string url = "~/Dept/CFE/CFEDeptDashboard.aspx";
                 Response.Redirect(url);
             }
