@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CFEDAL\CFEDAL.cs" />
+    <Compile Include="CFODAL\CFODAL.cs" />
     <Compile Include="CommonDAL\LoginDAL.cs" />
     <Compile Include="CommonDAL\MasterDAL.cs" />
     <Compile Include="CommonDAL\MGCommonDAL.cs" />
@@ -65,8 +66,6 @@
       <Name>MeghalayaUIP.Payments</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CFODAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

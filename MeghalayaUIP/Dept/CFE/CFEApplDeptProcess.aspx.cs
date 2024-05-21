@@ -4,12 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.IO;
 using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MeghalayaUIP.CommonClass;
 using MeghalayaUIP.BAL.CFEBLL;
+using System.Text.RegularExpressions;
+
 namespace MeghalayaUIP.Dept.CFE
 {
     public partial class CFEApplDeptProcess : System.Web.UI.Page
@@ -18,7 +21,7 @@ namespace MeghalayaUIP.Dept.CFE
         PreRegDtls prd = new PreRegDtls();
         CFEBAL objcfebal = new CFEBAL();
         CFEDtls objcfeDtls = new CFEDtls();
-        string userid;
+        string userid, result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -59,7 +62,7 @@ namespace MeghalayaUIP.Dept.CFE
                     }
                     // username = ObjUserInfo.UserName;
                 }
-                if(Request.QueryString.Count>0 )
+                if (Request.QueryString.Count > 0)
                 {
                     if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING" || Request.QueryString["status"].ToString() == "APPROVALPENDING")
                     {
@@ -583,7 +586,10 @@ namespace MeghalayaUIP.Dept.CFE
                         objcfeDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                         objcfeDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
                         objcfeDtls.Questionnaireid = Session["Questionnaireid"].ToString();
-                        objcfeDtls.Remarks = txtRejection.Text;
+                        if(ddlapproval.SelectedValue=="16")
+                        { objcfeDtls.Remarks = txtRejection.Text; }
+                        if (ddlapproval.SelectedValue == "13")
+                        { objcfeDtls.ReferenceNumber = txtreferenceno.Text; }                         
                         objcfeDtls.PrescrutinyRejectionFlag = "N";
                         //if (Request.QueryString["status"].ToString() == "APPROVALPENDING")
                         //{
@@ -642,16 +648,26 @@ namespace MeghalayaUIP.Dept.CFE
                 }
                 if (ddlapproval.SelectedValue == "16")
                 {
+                    trapproval.Visible = false;
+                    trapprovalupload.Visible = false;
                     trrejection.Visible = true;
                     txtRejection.Visible = true;
                     tdapproverejection.Visible = true;
                     lblremarks.Text = "Please Enter Rejection Reason";
+                    tdapprovalAction.Visible = true;
+                    btnreject.Visible = true;
+                    btnApprove.Visible = false;
                 }
                 else
                 {
+                    trapproval.Visible = true;
+                    trapprovalupload.Visible = true;
                     trrejection.Visible = false;
                     txtRejection.Visible = false;
                     tdapproverejection.Visible = false;
+                    tdapprovalAction.Visible = false;
+                    btnreject.Visible = false;
+                    btnApprove.Visible = true;
                 }
 
             }
@@ -660,6 +676,136 @@ namespace MeghalayaUIP.Dept.CFE
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
             }
+        }
+
+        protected void btnUpldapproval_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fuApproval.HasFile)
+                {
+                    Error = validations(fuApproval);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + Session["INVESTERID"].ToString() + "\\"
+                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + "31" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        fuApproval.PostedFile.SaveAs(serverpath + "\\" + fuApproval.PostedFile.FileName);
+
+                        CFEAttachments objBldngPlan = new CFEAttachments();
+                        objBldngPlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objBldngPlan.Questionnareid = Session["Questionnaireid"].ToString();
+                        objBldngPlan.ApprovalID = "31";
+                        objBldngPlan.DeptID = "0";
+                        objBldngPlan.FilePath = serverpath + fuApproval.PostedFile.FileName;
+                        objBldngPlan.FileName = fuApproval.PostedFile.FileName;
+                        objBldngPlan.FileType = fuApproval.PostedFile.ContentType;
+                        objBldngPlan.FileDescription = "ApprovalDocuments";
+                        objBldngPlan.CreatedBy = Session["INVESTERID"].ToString();
+                        objBldngPlan.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objBldngPlan);
+                        if (result != "")
+                        {
+                            hplApproval.Text = fuApproval.PostedFile.FileName;
+                            hplApproval.NavigateUrl = serverpath;
+                            hplApproval.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+        protected void btnreject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnApprove_Click(sender, e);
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }

@@ -543,6 +543,11 @@
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
     <Content Include="User\CFE\CFEUserDashboard.aspx" />
     <Content Include="User\CFE\demo.aspx" />
+    <Content Include="User\CFO\CFOExcise.aspx" />
+    <Content Include="User\CFO\CFOHealthWelfare.aspx" />
+    <Content Include="User\CFO\CFOHomeDepartment.aspx" />
+    <Content Include="User\CFO\CFOLabour.aspx" />
+    <Content Include="User\CFO\CFOLegalMeterology.aspx" />
     <Content Include="User\CFO\CFOQuestionnaire.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
@@ -925,6 +930,41 @@
     </Compile>
     <Compile Include="User\CFE\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOExcise.aspx.cs">
+      <DependentUpon>CFOExcise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOExcise.aspx.designer.cs">
+      <DependentUpon>CFOExcise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOHealthWelfare.aspx.cs">
+      <DependentUpon>CFOHealthWelfare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOHealthWelfare.aspx.designer.cs">
+      <DependentUpon>CFOHealthWelfare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOHomeDepartment.aspx.cs">
+      <DependentUpon>CFOHomeDepartment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOHomeDepartment.aspx.designer.cs">
+      <DependentUpon>CFOHomeDepartment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOLabour.aspx.cs">
+      <DependentUpon>CFOLabour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOLabour.aspx.designer.cs">
+      <DependentUpon>CFOLabour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOLegalMeterology.aspx.cs">
+      <DependentUpon>CFOLegalMeterology.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOLegalMeterology.aspx.designer.cs">
+      <DependentUpon>CFOLegalMeterology.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOQuestionnaire.aspx.cs">
       <DependentUpon>CFOQuestionnaire.aspx</DependentUpon>

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CFEBAL\CFEBAL.cs" />
+    <Compile Include="CFOBAL\CFOBAL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CommonBAL\LoginBAL.cs" />
     <Compile Include="CommonBAL\MasterBAL.cs" />
@@ -67,8 +68,6 @@
       <Name>MeghalayaUIP.Payments</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CFOBAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

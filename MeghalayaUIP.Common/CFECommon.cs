@@ -70,6 +70,7 @@ namespace MeghalayaUIP.Common
         public string AdditionalAmount { get; set; }
         public string PrescrutinyRejectionFlag { get; set; }
         public string DeptDesc { get; set; }
+        public string ReferenceNumber { get; set; }
         public string IPAddress { get; set; }       
     }
     public class CFEQuestionnaireDet
