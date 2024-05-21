@@ -47,72 +47,86 @@
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Name of Unit</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblnameUnit" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblnameUnit" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Constitution of the unit</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblconstitution" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblconstitution" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Proposal For</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblProposal" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblProposal" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Proposed Location</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblLocation" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblLocation" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mandalr</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMandal" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMandal" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Village</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblVillage" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblVillage" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Total Extent of Land (in sq.m)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblExtentland" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblExtentland" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Built up Area (Including Parking Cellars)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblBuilt" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblBuilt" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Sector</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblSectors" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblSectors" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Line of Activity</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblActivity" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblActivity" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Pollution Category of Enterprise</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblPollution" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblPollution" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Type of Industry</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblIndustry" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblIndustry" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Location of the uni</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblUnitLocation" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblUnitLocation" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Whether land purchased from MIDCL</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMIDCL" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMIDCL" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
@@ -149,37 +163,44 @@
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Proposed Employment</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblproposeEMP" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblproposeEMP" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Value of Land as per saleDeed(In INR)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblLANDINR" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblLANDINR" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Value of Building(In INR)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblBuildingINR" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblBuildingINR" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Value of Plant & Machinery(In INR)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMachineryINR" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMachineryINR" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Expected Annual Turnover(In INR)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblExpectTurnINR" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblExpectTurnINR" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Total Project Cost(in Crores)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblTPCost" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblTPCost" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Enterprise Category</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEnterpriseCat" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblEnterpriseCat" runat="server"></asp:Label></div>
                                                             </div>
                                                             <%--<div class="col-md-4 d-flex">
 									<div class="col-md-6">Telephone</div>
@@ -261,41 +282,47 @@
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Name of Company</div>
                                                                 <div class="col-md-6">
-                                                                    <span class="dots">:</span><asp:Label ID="lblBNameCompany" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblBNameCompany" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Type of Company</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblTypecompany" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblTypecompany" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Company Proposal</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblCompanyProposal" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblCompanyProposal" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Category of Registration</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblCategory" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblCategory" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Registration No</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblRegistration" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblRegistration" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Registration Date(dd-MM-yyyy)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDate" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDate" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Type of Factory</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblFactory" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblFactory" runat="server"></asp:Label></div>
                                                             </div>
                                                             <%--<div class="col-md-6 d-flex">
 									<div class="col-md-6">Mandal</div>
@@ -323,71 +350,85 @@
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Name</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblName" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblName" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">S/o.D/o.W/o</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblso" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblso" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Email</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEmail" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblEmail" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mobile No</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMobile" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMobile" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Alternative MobileNo</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblAlternative" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblAlternative" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Landline Tel No</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbllandline" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lbllandline" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Door No</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDoor" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDoor" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Locality</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblLocality" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblLocality" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">District</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDistrict" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDistrict" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mandal</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMandals" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMandals" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Village/Town</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblVillages" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblVillages" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Pincode</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblPincode" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblPincode" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Differently Abled</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblAbled" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblAbled" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Women Entrepreneur</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblWomen" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblWomen" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -403,7 +444,8 @@
 
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Proposed Area for Development(in Sq. mts)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDevelopment" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblDevelopment" runat="server"></asp:Label></div>
                                                         </div>
                                                         <%--	<div class="col-md-12 d-flex tablepadding1">
 								Proposed Investment
@@ -411,50 +453,61 @@
 
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Architect License No</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblARCLIC" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblARCLIC" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">>Architect Name</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblARCNAME" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblARCNAME" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Architect Mobile No</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblARCMOBILE" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblARCMOBILE" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Structural Engineer Name</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblStrEng" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblStrEng" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Structural Mobile No</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblStrMobile" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblStrMobile" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Structural License No</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblStrLICNO" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblStrLICNO" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Type of Approach Road</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblApproacheRoad" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblApproacheRoad" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Existing Width of Approach Road(in feet)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblWidening" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblWidening" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Extend of affected area in sq.mts</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblAffectedArea" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblAffectedArea" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             Road Cutting Details
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Length of road to be cut:(in mtrs)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblroadlength" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblroadlength" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Number of locations</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblNumber" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblNumber" runat="server"></asp:Label></div>
                                                         </div>
 
                                                     </div>
@@ -473,7 +526,8 @@
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding2">
                                                             <div class="col-md-6">Line of Activity</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbllineActivity" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lbllineActivity" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 tablepadding4">
                                                             <b>Details Of Manufacture Items</b>
@@ -484,9 +538,12 @@
                                                             <div class="col-md-2">Approx. Value in Lakh</div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding2">
-                                                            <div class="col-md-2"><span class="dots">:</span><asp:Label ID="lblitem" runat="server"></asp:Label></div>
-                                                            <div class="col-md-3"><span class="dots">:</span><asp:Label ID="lblQuantityper" runat="server"></asp:Label></div>
-                                                            <div class="col-md-2"><span class="dots">:</span><asp:Label ID="lblQuantity" runat="server"></asp:Label></div>
+                                                            <div class="col-md-2">
+                                                                <asp:Label ID="lblitem" runat="server"></asp:Label></div>
+                                                            <div class="col-md-3">
+                                                                <asp:Label ID="lblQuantityper" runat="server"></asp:Label></div>
+                                                            <div class="col-md-2">
+                                                                <asp:Label ID="lblQuantity" runat="server"></asp:Label></div>
 
                                                         </div>
 
@@ -508,18 +565,24 @@
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding3">
                                                             <div class="col-md-4">DIRECT</div>
-                                                            <div class="col-md-4"><span class="dots">:</span><asp:Label ID="lblDirectMale" runat="server"></asp:Label></div>
-                                                            <div class="col-md-4"><span class="dots">:</span><asp:Label ID="lblDirectFemale" runat="server"></asp:Label></div>
+                                                            <div class="col-md-4">
+                                                                <asp:Label ID="lblDirectMale" runat="server"></asp:Label></div>
+                                                            <div class="col-md-4">
+                                                                <asp:Label ID="lblDirectFemale" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding3">
                                                             <div class="col-md-4">INDIRECT</div>
-                                                            <div class="col-md-4"><span class="dots">:</span><asp:Label ID="InMale" runat="server"></asp:Label></div>
-                                                            <div class="col-md-4"><span class="dots">:</span><asp:Label ID="InFemale" runat="server"></asp:Label></div>
+                                                            <div class="col-md-4">
+                                                                <asp:Label ID="InMale" runat="server"></asp:Label></div>
+                                                            <div class="col-md-4">
+                                                                <asp:Label ID="InFemale" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 mb-5 d-flex tablepadding3">
                                                             <div class="col-md-4">TOTAL</div>
-                                                            <div class="col-md-4"><span class="dots">:</span><asp:Label ID="lblEmployees" runat="server"></asp:Label></div>
-                                                            <div class="col-md-4"><span class="dots">:</span><asp:Label ID="lblother" runat="server"></asp:Label></div>
+                                                            <div class="col-md-4">
+                                                                <asp:Label ID="lblEmployees" runat="server"></asp:Label></div>
+                                                            <div class="col-md-4">
+                                                                <asp:Label ID="lblother" runat="server"></asp:Label></div>
                                                         </div>
 
 
@@ -541,23 +604,26 @@
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Connected Load in HP</div>
                                                                 <div class="col-md-6">
-                                                                    <span class="dots">:</span><asp:Label ID="lblHP" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblHP" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Contracted Maximum Demand in KVA</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMaxDemand" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMaxDemand" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Required Voltage Level</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblVoltageLevel" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblVoltageLevel" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Any Other Services Existing in the Same Premises</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblPermise" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblPermise" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
@@ -574,23 +640,28 @@
 
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Per Month</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMonth" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblMonth" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Expected Month and Year of Trial Production(DD/MM/YYYY)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblYear" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblYear" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Probable Date of Requirement of Power Supply(DD/MM/YYYY)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblPowersupply" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblPowersupply" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Quantum of energy/load required (in KW)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblQuantum" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblQuantum" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Proposed source of energy/load</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEngeryLaod" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblEngeryLaod" runat="server"></asp:Label></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -710,11 +781,13 @@
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">District</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDistrics" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDistrics" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mandal</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMan" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMan" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <%--<div class="col-md-12 tablepadding4">
@@ -724,22 +797,26 @@
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Village</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblVill" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblVill" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Locality</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbllocal" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lbllocal" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Nearest Landmark</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbNear" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lbNear" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Pincode</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblPincodes" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblPincodes" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
@@ -749,40 +826,47 @@
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Height of the building (in mtrs.)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblheight" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblheight" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Height of each floor (in mtrs.)*(min 2.9 mtrs)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEachfloor" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblEachfloor" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Plot Area (in Sq m)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblArea" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblArea" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Proposed build up area (in Sq m)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblbuild" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblbuild" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Proposed Drive way (Breadth with units in meters) </div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbldriveway" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lbldriveway" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Category of Building for which Fire Clearance is applied</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblcategoryBuild" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblcategoryBuild" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Fee Amount in Rs (Note: This is an aprrox. value. The amount may change tentatively)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="feeamount" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="feeamount" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6"></div>
@@ -796,51 +880,60 @@
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">East</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEast" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblEast" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">
                                                                     Distance from proposed Building (in meters) 
                                                                 </div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDistanceprop" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDistanceprop" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">West</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblwest" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblwest" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Distance from proposed Building (in meters)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblbUILDDIST" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblbUILDDIST" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">North</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblNorth" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblNorth" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Distance from proposed Building (in meters)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDistBuild" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDistBuild" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">South</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblSouth" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblSouth" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Distance from proposed Building (in meters)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblbuildProp" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblbuildProp" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Distance from the nearest Fire Station (in meters)</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblFireStation" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblFireStation" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
@@ -860,27 +953,33 @@
 
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Species</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblspice" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblspice" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Timber Length</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblLength" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblLength" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Timber Volume</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblvolume" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblvolume" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Timber Girth</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblGirth" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblGirth" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Estimated Firewood</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblFirewood" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblFirewood" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Pole</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblpole" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblpole" runat="server"></asp:Label></div>
                                                         </div>
 
                                                         <div class="col-md-12 tablepadding4">
@@ -888,74 +987,91 @@
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">North</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblNorths" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblNorths" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">East</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEasts" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblEasts" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">West</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblWests" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblWests" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">South</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblSouths" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblSouths" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 tablepadding4">
                                                             <b>C. GPS Coordinates Details</b>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Establishment Location Address(For which application is being Done)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblAddress" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblAddress" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Latitude</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbllatitude" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lbllatitude" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Degrees(L)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDegreess" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblDegreess" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Minutes(L)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMinte" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblMinte" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Seconds(L)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblseconds" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblseconds" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Longitude</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbllongitude" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lbllongitude" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Degrees</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDegrees" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblDegrees" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Minutes</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMinutes" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblMinutes" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Seconds</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblsecond" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblsecond" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">GPS Coordinates (Description)</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblCoordinates" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblCoordinates" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Purpose of Application</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblApplication" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblApplication" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Forest Division</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDivision" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblDivision" runat="server"></asp:Label></div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             <div class="col-md-6">Any other information</div>
-                                                            <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblinformation" runat="server"></asp:Label></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="lblinformation" runat="server"></asp:Label></div>
                                                         </div>
 
                                                     </div>
@@ -976,68 +1092,81 @@
                                                         <div class="col-md-12 mb-4 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Category of Establishment</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEstablish" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblEstablish" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <h6 class="ml-3"><b>Full name and address of the Principal Employer(furnish father's name in the case of individuals) with Phone No: </b></h6>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Name</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblNames" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblNames" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Father's Name</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblFather" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblFather" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Age</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblAge" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblAge" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Designation</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDesignation" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDesignation" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mobile</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMobiles" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMobiles" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Email</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMail" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMail" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Distric</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbldist" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lbldist" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mandal</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMandalsmandal" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMandalsmandal" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Village</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblVILLAS" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblVILLAS" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Door</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDoors" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDoors" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Locality</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblLocalitys" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblLocalitys" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Pincode</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblPins" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblPins" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 tablepadding4">
@@ -1046,57 +1175,68 @@
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Name of the Contractor/Firm</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblcontractor" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblcontractor" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Father's Name</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblfafname" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblfafname" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Age</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblages" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblages" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mobileno</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblMobileno" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblMobileno" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Emailid</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblEmailId" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblEmailId" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Distric</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDistr" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDistr" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Mandal</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbltaluka" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lbltaluka" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Village</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblVillvillage" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblVillvillage" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Door</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblDoorno" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblDoorno" runat="server"></asp:Label></div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Locality</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lbllocals" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lbllocals" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Pincode</div>
-                                                                <div class="col-md-6"><span class="dots">:</span><asp:Label ID="lblPincodeno" runat="server"></asp:Label></div>
+                                                                <div class="col-md-6">
+                                                                    <asp:Label ID="lblPincodeno" runat="server"></asp:Label></div>
                                                             </div>
                                                         </div>
 
@@ -1326,7 +1466,7 @@
                             <div id="collapseSix" class="panel-collapse show" role="tabpanel"
                                 aria-labelledby="headingSix" aria-expanded="false">
 
-                                <div class="card">
+                                <div class="card" id="scrutiny" runat="server" visible="false">
                                     <div class="table-responsive">
                                         <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
                                             <tr style="border-color: brown; background-color: midnightblue; color: azure">
@@ -1370,6 +1510,54 @@
 
                                                 <td>
                                                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="card" id="Approval" runat="server" visible="false">
+                                    <div class="table-responsive">
+                                        <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
+                                            <tr style="border-color: brown; background-color: midnightblue; color: azure">
+                                                <td><b>Name</b></td>
+                                                <td><b>Unit Name</b></td>
+                                                <td><b>Application No</b></td>
+                                                <td style="width: 150px"><b>Application Date</b></td>
+                                                <td style="width: 200px"><b>Select Action</b></td>
+                                                <td id="tdapproverejection" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter RejectionReason" ID="Label1"></asp:Label></b>
+                                                </td>
+                                                <td id="td2" runat="server" visible="true">
+                                                    <b>Submit Action</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lbl_Name1Approval"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblunitname1Approval" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblApplNoApproval" runat="server"></asp:Label></td>
+                                                <td tyle="width: 100px">
+                                                    <asp:Label ID="lblapplDateApproval" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="width: 200px">
+                                                    <asp:DropDownList ID="ddlapproval" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlapproval_SelectedIndexChanged">
+                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Approve" Value="13"></asp:ListItem>                                                         
+                                                        <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td style="vertical-align: central" id="trrejection" runat="server" visible="false">
+                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>                                                    
+                                                </td>
+
+
+                                                <td>
+                                                    <asp:Button ID="btnApprove" runat="server" Text="Submit" OnClick="btnApprove_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
                                                 </td>
 
                                             </tr>
