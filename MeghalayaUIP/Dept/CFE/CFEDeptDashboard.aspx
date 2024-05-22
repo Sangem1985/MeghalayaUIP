@@ -64,7 +64,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblPREREJECTED" runat="server"></asp:Label>0</h4>
+                                                    <asp:Label ID="lblPREREJECTED" runat="server"></asp:Label></h4>
                                                 <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Rejected</p>
                                             </div>
                                         </div>

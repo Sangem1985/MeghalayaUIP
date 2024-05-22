@@ -31,6 +31,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet" />
 	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
+        table#ContentPlaceHolder1_rblLbrAct1970 tr td,
+        table#ContentPlaceHolder1_rblLbrAct1979 tr td,
+        table#ContentPlaceHolder1_rblLbrAct1996 tr td,
+        table#ContentPlaceHolder1_rblLabourAct tr td,
+        table#ContentPlaceHolder1_rblForContr1970 tr td{
+    border: none;
+}
         .card-counter.primarydashboard {
             margin: 10px;
             padding: 15px 45px;

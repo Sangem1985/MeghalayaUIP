@@ -39,7 +39,7 @@
                                 <div class="card 4">
                                     <div class="card-headr">
                                         <div class="text">Beyond in 3 Days</div>
-                                         <div class="iocn"><i class="fi fi-tr-file-circle-info"></i></div>
+                                         <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
                                         <div class="count">56</div>
                                     </div>
                                         
@@ -87,7 +87,7 @@
                                 <div class="card 4">
                                     <div class="card-headr">
                                         <div class="text">Beyond in 3 Days</div>
-                                         <div class="iocn"><i class="fi fi-tr-file-circle-info"></i></div>
+                                         <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
                                         <div class="count">56</div>
                                     </div>
                                         
@@ -98,7 +98,7 @@
                                 <div class="card 3">
                                     <div class="card-headr">
                                         <div class="text">Today Last Day</div>
-                                         <div class="iocn"><i class="fi fi-tr-file-exclamation"></i></div>
+                                         <div class="iocn"><i class="fi fi-tr-file-circle-info"></i></div>
                                         <div class="count">56</div>
                                     </div>
                                         
@@ -145,7 +145,7 @@
                                 <div class="card 4">
                                     <div class="card-headr">
                                         <div class="text">Beyond in 3 Days</div>
-                                         <div class="iocn"><i class="fi fi-tr-file-circle-info"></i></div>
+                                         <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
                                         <div class="count">56</div>
                                     </div>
                                         
@@ -202,7 +202,7 @@
                                 <div class="card 4">
                                     <div class="card-headr">
                                         <div class="text">Beyond in 3 Days</div>
-                                         <div class="iocn"><i class="fi fi-tr-file-circle-info"></i></div>
+                                         <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
                                         <div class="count">56</div>
                                     </div>
                                         

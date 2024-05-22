@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h3><b>Pre Establishment - Approvals Abstract:</b></h3>
+                                <h4><b>Pre Establishment - Approvals Abstract:</b></h4>
                                 <h5 style="color: red"><b>The following are the Approvals required for Establishment of your Unit. Please
                                                     select the Approvals for which you intend to apply for.</b></h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -30,8 +30,8 @@
                                     <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
                                         CssClass="GRD" ForeColor="#333333" Width="95%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
@@ -44,8 +44,8 @@
                                                 <HeaderStyle HorizontalAlign="Center" />
                                                 <ItemStyle Width="50px" />
                                             </asp:TemplateField>
-                                            <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
-                                                <ItemStyle Width="450px" />
+                                            <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required" ItemStyle-HorizontalAlign="Center">
+                                                <ItemStyle Width="450px"/>
                                             </asp:BoundField>
                                             <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
                                                 <ItemStyle Width="180px" />
@@ -125,9 +125,9 @@
                 </div>
 
                 <div class="col-md-12 text-right">
-                    <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
-                    <asp:Button ID="btnSubmit" runat="server" Text="Save" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
+                    <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" class="btn btn-rounded btn-warning btn-lg" Width="150px" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Save" OnClick="btnSubmit_Click" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                 </div>
                 <br />

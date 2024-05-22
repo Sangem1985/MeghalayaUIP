@@ -5926,3 +5926,69 @@ div#bodypart {
 }
 }
 
+/* button Added newly changes */
+.btn {
+	width: 100%;
+}
+
+.btn-green {
+	background: #009688;
+	color: #fff;
+	border: 1px solid #009688;
+}
+
+.btn-update {
+	background: #3F51B5;
+	border: 1px solid #3F51B5;
+	color: #fff;
+}
+
+.btn-cancle {
+	background: #F44336;
+	border: 1px solid #F44336;
+	color: #fff;
+}
+
+.btn-approved {
+	background: #004D40;
+	border: 1px solid #004D40;
+	color: #fff;
+}
+
+.btn-rejected {
+	background: #D50000;
+	border: 1px solid #D50000;
+	color: #fff;
+}
+
+.btn-edit {
+	background: #1E88E5;
+	border: 1px solid #1E88E5;
+	color: #fff;
+}
+
+.btn-pending {
+	background: #F57C00;
+	border: 1px solid #F57C00;
+	color: #fff;
+}
+
+.btn-submit {
+	background-image: linear-gradient(310deg, #9C27B0, #0aa5b9);
+	border: 1px solid #cfcfcf;
+	color: #fff;
+	font-weight: 600;
+}
+
+button.btn.btn-update:hover {
+	color: #fff;
+}
+
+.btn:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.btn:hover {
+	opacity: 0.9;
+}

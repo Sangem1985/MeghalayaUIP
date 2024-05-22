@@ -73,7 +73,7 @@
                                         <div class="tab-pane active" id="basictab1">
                                             <div class="card-body" runat="server" id="divbasic">
                                                 <span class="icon"><i class="fi fi-br-caret-down"></i></span>
-                                                <h4 class="card-title" style="background: #004c6d; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Basic Details</h4>
+                                                <h4 class="card-title" style="background: #abbd07; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Basic Details</h4>
 
                                                 <div class="row">
 
@@ -116,8 +116,8 @@
                                                                 <label class="col-lg-6 col-form-label">Company Proposal *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Vertical" RepeatColumns="2">
-                                                                        <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
-                                                                        <asp:ListItem Value="New" Text="New" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
+                                                                        <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
 
 
@@ -161,6 +161,7 @@
                                                                 <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox type="text" runat="server" ID="txtCompnyRegDt" class="date form-control" />
+                                                                    <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -262,12 +263,12 @@
                                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Location of Unit</span></label>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Is Land Required *</label>
+                                                                <label class="col-lg-4 col-form-label">Is Land Required *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:RadioButtonList runat="server" ID="rblLandType" RepeatDirection="Horizontal">
-                                                                        <asp:ListItem Value="Own" Text="Own Land" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="Own" Text="Own Land"></asp:ListItem>
                                                                         <asp:ListItem Value="Required" Text="Required"></asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                 </div>
@@ -344,6 +345,7 @@
                                                                 <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation*</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox type="text" runat="server" ID="txtDCPorOperation" class="date form-control" />
+                                                                    <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -712,9 +714,9 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="text-right">
-                                                    <asp:Button runat="server" Text="Save as Draft" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px" />
-                                                    <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" BackColor="#3333ff" Width="150px" />
+                                                <div class="text-right mb-3">
+                                                    <asp:Button runat="server" Text="Save as Draft" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                    <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click"  Width="150px" />
                                                 </div>
                                             </div>
                                         </div>
@@ -786,14 +788,14 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>
-                                                    <div class="col-md-12" style="padding-top: 20px">
+                                                    <div class="col-md-12" style="padding-top: 10px">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Upload Detailed Project Report (DPR)</label>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:FileUpload ID="fupDPR" runat="server" />
                                                                 <asp:HyperLink ID="hypdpr" runat="server"  Target="_blank"></asp:HyperLink>
                                                                 <asp:Label ID="lbldpr"  runat="server" />
-                                                                <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-info btn-lg" OnClick="btndpr_Click" BackColor="#009999" Width="150px" />
+                                                                <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
                                                                
 
                                                             </div>
@@ -804,7 +806,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 d-flex mt-2" id="padding">
+                                                    <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
                                                         <div class="col-md-2">
 
 
@@ -812,9 +814,9 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>--%>
                                                         </div>
                                                         <div class="col-md-10 text-right">
-                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos2_Click" BackColor="#009999" Width="150px" />
-                                                            <asp:Button ID="btnsave2" runat="server" OnClick="btnsave2_Click" Text="Save as Draft" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                                            <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" BackColor="#3333ff" Width="150px" />
+                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos2_Click" Width="150px" />
+                                                            <asp:Button ID="btnsave2" runat="server" OnClick="btnsave2_Click" Text="Save as Draft" class="btn btn-rounded btn-success btn-lg" padding-right="10px" Width="150px" />
+                                                            <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" Width="150px" />
 
                                                         </div>
                                                     </div>
@@ -1037,7 +1039,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label"></label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn btn-rounded btn-info btn-lg" runat="server" OnClick="btnAddPromtr_Click" Fore-Color="White" BackColor="YellowGreen" />
+                                                                    <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAddPromtr_Click"  Width="110px" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1080,7 +1082,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                         </asp:GridView>
                                                     </div>
 
-                                                    <div class="col-md-12 d-flex mt-2" id="padding">
+                                                    <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
                                                         <div class="col-md-2">
 
 
@@ -1088,9 +1090,9 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>--%>
                                                         </div>
                                                         <div class="col-md-10 text-right">
-                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" BackColor="#009999" Width="150px" />
-                                                            <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-info btn-lg" Enabled="false" OnClick="btnPreview_Click" BackColor="#3333ff" Width="150px" />
-                                                            <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
+                                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
+                                                            <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-update btn-lg" Enabled="false" OnClick="btnPreview_Click" Width="150px" />
+                                                            <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
                                                         </div>
                                                     </div>
                                                 </div>
