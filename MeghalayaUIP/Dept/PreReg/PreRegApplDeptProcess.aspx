@@ -1104,7 +1104,6 @@ However, you can register your unit to get required approvals/ clearances.</asp:
 
                                                 <td colspan="2" align="Center">
                                                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
-
                                                 </td>
 
                                             </tr>
