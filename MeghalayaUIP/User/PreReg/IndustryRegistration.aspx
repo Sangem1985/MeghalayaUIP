@@ -724,7 +724,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
 
                                             <div class="card-body" runat="server" id="divRevenue">
                                                 <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
-                                                <h4 class="card-title" style="background: #0067b7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Basic Revenue Projections</h4>
+                                                <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Basic Revenue Projections</h4>
                                                 <%--<form action="#">--%>
                                                 <div class="row">
 
@@ -830,7 +830,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
 
                                             <div class="card-body" runat="server" id="divPromotrs">
                                                 <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
-                                                <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Details of the Applicant / Promoter(s) /
+                                                <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Details of the Applicant / Promoter(s) /
 													Partner(s) / Directors(s) / Members</h4>
 
                                                 <div class="row">

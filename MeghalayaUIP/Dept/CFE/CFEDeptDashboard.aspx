@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=PRESCRUTINYCOMPLETED" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>

@@ -38,10 +38,10 @@
                                             <div class="col-md-3 fw-bold text-info">
                                                 <spna class="dots">:</spna><asp:Label ID="lblUnitID"  runat="server"></asp:Label>
                                             </div>
-                                            <div class="col-md-2">&nbsp;</div>
-                                            <div class="col-md-2">3. Date of Unit Application</div>
+                                            <div class="col-md-1">&nbsp;</div>
+                                            <div class="col-md-3">3. Date of Unit Application</div>
 
-                                            <div class="col-md-3 fw-bold text-info">
+                                            <div class="col-md-3">
                                                 <spna class="dots">:</spna><asp:Label ID="lblDOA"  runat="server"></asp:Label>
                                             </div>
                                         </div>
@@ -51,142 +51,69 @@
                                             <div class="col-md-3 fw-bold text-info">
                                                 <spna class="dots">:</spna><asp:Label ID="lblUnitNmae"  runat="server"></asp:Label>
                                             </div>
-                                            <div class="col-md-2">&nbsp;</div>
-                                            <div class="col-md-2">4. Category of Industry</div>
+                                            <div class="col-md-1">&nbsp;</div>
+                                            <div class="col-md-3">4. Category of Industry</div>
 
-                                            <div class="col-md-3 fw-bold text-info">
+                                            <div class="col-md-3">
                                                 <spna class="dots">:</spna><asp:Label ID="lblProjCategory" Text="Mega Project"  runat="server"></asp:Label>
                                             </div>
                                         </div>
 
-                                        <div class="card-body table fix">
-                                            <div class="table-responsive table-hover table-striped table-bordered">
-                                                <table class="table table-bordered mb-0" runat="server" visible="false">
-                                                    <thead>
-                                                        <tr>
-                                                            <th colspan="4"></th>
-
-                                                            <th colspan="3" style="text-align: center;">Pre-Scrutiny Status</th>
-                                                            <th></th>
-                                                            <th colspan="2" style="text-align: center;">Approval Stage</th>
-                                                            <th></th>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <th rowspan="2">Sl.No.</th>
-                                                            <th>Name of Approval</th>
-                                                            <th>Approval Applied<br />
-                                                                Date</th>
-                                                            <th>Date of Payment</th>
-                                                            <th>Date of Query</th>
-                                                            <th>Date of Query
-                                                    <br />
-                                                                Response</th>
-                                                            <th>Pre-Scrutiny
-                                                    <br />
-                                                                Completion
-                                                    <br />
-                                                                Date</th>
-                                                            <th>Date of
-                                                    <br />
-                                                                Additional<br />
-                                                                Payment</th>
-                                                            <th>Date Recevied<br />
-                                                                to Approval<br />
-                                                                Stage</th>
-                                                            <th>Date of
-                                                    <br />
-                                                                Completion</th>
-                                                            <th>Status</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Factory Licence</td>
-                                                            <td>03-01-2024</td>
-                                                            <td class="text-info">09-03-2024</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td>09-03-2024</td>
-                                                            <td>09-03-2024</td>
-                                                            <td>09-03-2024</td>
-                                                            <td>09-03-2024</td>
-                                                            <td class="text-info">Approved</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Factory Licence</td>
-                                                            <td>03-01-2024</td>
-                                                            <td class="text-info">09-03-2024</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td>09-03-2024</td>
-                                                            <td>09-03-2024</td>
-                                                            <td>09-03-2024</td>
-                                                            <td>09-03-2024</td>
-                                                            <td class="text-info">Approved</td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                                <br />
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex  ">
+                                      
+                                        <div class="col-md-12 d-flex">
                                             <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
                                                 OnRowCreated="grdTrackerDetails_RowCreated" EnableModelValidation="True" Width="100%">
-                                                <HeaderStyle BackColor="#363670" ForeColor="White" />
+                                                <HeaderStyle BackColor="#3b4474" ForeColor="White"  />
                                                 <AlternatingRowStyle />
                                                 <Columns>
-                                                    <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S.No">
+                                                    <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="S.No">
                                                         <ItemTemplate>
                                                             <%# Container.DataItemIndex +1 %>
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Center" />
                                                     </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName"></asp:BoundField>
-                                                    <asp:BoundField HeaderText="Date of Application" DataField="DATEOFAPPLICATION" />
-                                                    <asp:TemplateField HeaderText="Date of Payment">
+                                                    <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
+                                                    <asp:BoundField HeaderText="Date of Application" DataField="DATEOFAPPLICATION" ItemStyle-HorizontalAlign="Center" />
+                                                    <asp:TemplateField HeaderText="Date of Payment" ItemStyle-HorizontalAlign="Center">
                                                         <ItemTemplate>
-                                                            <asp:HyperLink ID="hplPayment" Text='<%#Eval("DATEOFPAYMENT")%>' Target="_blank" runat="server" />
+                                                            <asp:HyperLink ID="hplPayment" Text='<%#Eval("DATEOFPAYMENT")%>' Target="_blank" runat="server" ItemStyle-HorizontalAlign="Center" />
                                                         </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Left" Width="100px" />
+                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Date of Query">
+                                                    <asp:TemplateField HeaderText="Date of Query" ItemStyle-HorizontalAlign="Center">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="hplQuery" Text='<%#Eval("DATEOFQUERY")%>' Target="_blank" runat="server" />
                                                         </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Left" Width="100px" />
+                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Date of Query Response">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="hplQueryResponse" Text='<%#Eval("DATEOFQUERYRRESPONSE")%>' Target="_blank" runat="server" />
                                                         </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Left" Width="100px" />
+                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Date of Scrutiny Completion ">
                                                         <ItemTemplate>
-                                                            <asp:HyperLink ID="lblScrutiny" Text='<%#Eval("DATEOFSCRUTINY")%>' runat="server" Visible="true"></asp:HyperLink>
+                                                            <asp:HyperLink ID="lblScrutiny" Text='<%#Eval("DATEOFSCRUTINY")%>' runat="server" Visible="true" ItemStyle-HorizontalAlign="Center"></asp:HyperLink>
                                                         </ItemTemplate>
+                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Date of Additional Payment">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="hplAddlPmntDate" Text='<%#Eval("DATEOFADDLPAYMENT")%>' Target="_blank" runat="server" />
                                                         </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Left" Width="100px" />
+                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
 
                                                     <asp:BoundField DataField="" HeaderText="Date of Receival For Approval" />
-                                                    <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" />
+                                                    <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" ItemStyle-HorizontalAlign="Center" />
                                                     <asp:TemplateField HeaderText="Status">
                                                         <ItemTemplate>
                                                             <%--<asp:HyperLink ID="HyperLinkSubsidy" Text='<%#Eval("Status of Approval Approved Rejected")%>'
                                                         NavigateUrl='<%#Eval("ApprovalDocNEW")%>' Target="_blank" runat="server" />--%>
-                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' runat="server" Visible="true"></asp:HyperLink>
+                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' runat="server" Visible="true" ></asp:HyperLink>
                                                         </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Left" Width="100px" />
+                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
