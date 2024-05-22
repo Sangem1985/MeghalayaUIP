@@ -186,24 +186,6 @@ namespace MeghalayaUIP.User.Grievance
         protected global::System.Web.UI.WebControls.DropDownList ddlRENUnits;
 
         /// <summary>
-        /// divapplname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divapplname;
-
-        /// <summary>
-        /// txtuidno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtuidno;
-
-        /// <summary>
         /// LabelUnitname control.
         /// </summary>
         /// <remarks>
@@ -222,31 +204,22 @@ namespace MeghalayaUIP.User.Grievance
         protected global::System.Web.UI.WebControls.TextBox txtindname;
 
         /// <summary>
-        /// trdepartment control.
+        /// divapplname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trdepartment;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divapplname;
 
         /// <summary>
-        /// ddldept control.
+        /// txtApplcantName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddldept;
-
-        /// <summary>
-        /// ddldist control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddldist;
+        protected global::System.Web.UI.WebControls.TextBox txtApplcantName;
 
         /// <summary>
         /// txtEmail control.
@@ -265,6 +238,33 @@ namespace MeghalayaUIP.User.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMob;
+
+        /// <summary>
+        /// ddldist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddldist;
+
+        /// <summary>
+        /// trdepartment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trdepartment;
+
+        /// <summary>
+        /// ddldept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddldept;
 
         /// <summary>
         /// trSubject control.

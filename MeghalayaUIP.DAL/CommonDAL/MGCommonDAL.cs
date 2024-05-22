@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Data.SqlTypes;
 using MeghalayaUIP.Common;
+using System.Reflection;
+using System.Xml.Linq;
 
 namespace MeghalayaUIP.DAL.CommonDAL
 {
@@ -91,7 +93,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return ds;
         }
 
-        public int InsertGrievance(string IndustryName, string intDistrictid, string Email, string MobileNumber, string intDeptid, string Grivance_Subject, string Grievance_Description, string Grivance_File_Path, string Grivance_File_Type, string Grievnace_FileName, string Created_by, string Register_Your, string uidno, string Grivance_ID)
+        public int InsertGrievance(string RegisterType, string ModuleType, string UIDNo, string UnitID, string UnitName, string ApplcantName, 
+            string DistID, string Email, string Mobile, string intDeptid, string Subject, string Description, string Grivance_FilePath, 
+            string Grivance_FileType, string GrievnaceFileName, string Createdby,  string IPAddress )
         {
             int valid = 0;
 
@@ -106,76 +110,93 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.CommandText = CommonConstants.InsertGrievance;
 
                 com.Transaction = transaction;
-                com.Connection = connection;
-                if (IndustryName.Trim() == "" || IndustryName.Trim() == null)
-                    com.Parameters.Add("@IndustryName", SqlDbType.VarChar).Value = IndustryName.Trim();
-                else
-                    com.Parameters.Add("@IndustryName", SqlDbType.VarChar).Value = IndustryName.Trim();
+                com.Connection = connection;            
 
-                if (intDistrictid.Trim() == "" || intDistrictid == null)
-                    com.Parameters.Add("@intDistrictid", SqlDbType.VarChar).Value = DBNull.Value;
+
+                if (RegisterType.Trim() == "" || RegisterType.Trim() == null)
+                    com.Parameters.Add("@REGISTERTYPE", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@intDistrictid", SqlDbType.VarChar).Value = intDistrictid.Trim();
+                    com.Parameters.Add("@REGISTERTYPE", SqlDbType.VarChar).Value = RegisterType.Trim();
+
+                if (ModuleType.ToString().Trim() == "" || ModuleType.ToString().Trim() == null)
+                    com.Parameters.Add("@MODULETYPE", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@MODULETYPE", SqlDbType.VarChar).Value = ModuleType.Trim();
+
+                if (UIDNo.Trim() == "" || UIDNo.Trim() == null)
+                    com.Parameters.Add("@UID_NO", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@UID_NO", SqlDbType.VarChar).Value = UIDNo.Trim();
+
+                if (UnitID.ToString().Trim() == "" || UnitID.ToString().Trim() == null)
+                    com.Parameters.Add("@UNITID", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@UNITID", SqlDbType.VarChar).Value = UnitID.Trim();
+
+                if (UnitName.ToString().Trim() == "" || UnitName.ToString().Trim() == null)
+                    com.Parameters.Add("@UNITNAME", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@UNITNAME", SqlDbType.VarChar).Value = UnitName.Trim();
+
+                if (ApplcantName.ToString().Trim() == "" || ApplcantName.ToString().Trim() == null)
+                    com.Parameters.Add("@APPLICANTNAME", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@APPLICANTNAME", SqlDbType.VarChar).Value = ApplcantName.Trim();                
+
+                if (DistID.Trim() == "" || DistID == null)
+                    com.Parameters.Add("@DISTRICTID", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@DISTRICTID", SqlDbType.VarChar).Value = DistID.Trim();
 
                 if (Email.Trim() == "" || Email.Trim() == null)
-                    com.Parameters.Add("@Email", SqlDbType.VarChar).Value = Email.Trim();
+                    com.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Email", SqlDbType.VarChar).Value = Email.Trim();
-
-                if (MobileNumber.Trim() == "" || MobileNumber.Trim() == null)
-                    com.Parameters.Add("@MobileNumber", SqlDbType.VarChar).Value = DBNull.Value;
+                    com.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = Email.Trim();
+               
+                if (Mobile.Trim() == "" || Mobile.Trim() == null)
+                    com.Parameters.Add("@MOBILE", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@MobileNumber", SqlDbType.VarChar).Value = MobileNumber.Trim();
+                    com.Parameters.Add("@MOBILE", SqlDbType.VarChar).Value = Mobile.Trim();
 
                 if (intDeptid.Trim() == "" || intDeptid.Trim() == null || intDeptid.Trim() == "--Select--")
-                    com.Parameters.Add("@intDeptid", SqlDbType.VarChar).Value = DBNull.Value;
+                    com.Parameters.Add("@INTDEPTID", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@intDeptid", SqlDbType.VarChar).Value = intDeptid.Trim();
+                    com.Parameters.Add("@INTDEPTID", SqlDbType.VarChar).Value = intDeptid.Trim();
 
-                if (Grivance_Subject.Trim() == "" || Grivance_Subject.Trim() == null)
-                    com.Parameters.Add("@Grivance_Subject", SqlDbType.VarChar).Value = Grivance_Subject.Trim();
+                if (Subject.Trim() == "" || Subject.Trim() == null)
+                    com.Parameters.Add("@SUBJECT", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Grivance_Subject", SqlDbType.VarChar).Value = Grivance_Subject.Trim();
+                    com.Parameters.Add("@SUBJECT", SqlDbType.VarChar).Value = Subject.Trim();
 
-                if (Grievance_Description.Trim() == "" || Grievance_Description.Trim() == null)
-                    com.Parameters.Add("@Grievance_Description", SqlDbType.VarChar).Value = DBNull.Value;
+                if (Description.Trim() == "" || Description.Trim() == null)
+                    com.Parameters.Add("@DESCRIPTION", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Grievance_Description", SqlDbType.VarChar).Value = Grievance_Description.Trim();
+                    com.Parameters.Add("@DESCRIPTION", SqlDbType.VarChar).Value = Description.Trim();
 
-                if (Grivance_File_Path.Trim() == "" || Grivance_File_Path.Trim() == null)
-                    com.Parameters.Add("@Grivance_File_Path", SqlDbType.VarChar).Value = DBNull.Value;
+                if (Grivance_FilePath.Trim() == "" || Grivance_FilePath.Trim() == null)
+                    com.Parameters.Add("@GRIVANCE_FILEPATH", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Grivance_File_Path", SqlDbType.VarChar).Value = Grivance_File_Path.Trim();
+                    com.Parameters.Add("@GRIVANCE_FILEPATH", SqlDbType.VarChar).Value = Grivance_FilePath.Trim();
 
-                if (Grivance_File_Type.Trim() == "" || Grivance_File_Type.Trim() == null)
-                    com.Parameters.Add("@Grivance_File_Type", SqlDbType.VarChar).Value = DBNull.Value;
+                if (Grivance_FileType.Trim() == "" || Grivance_FileType.Trim() == null)
+                    com.Parameters.Add("@GRIVANCE_FILETYPE", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Grivance_File_Type", SqlDbType.VarChar).Value = Grivance_File_Type.Trim();
+                    com.Parameters.Add("@GRIVANCE_FILETYPE", SqlDbType.VarChar).Value = Grivance_FileType.Trim();
 
-                if (Grievnace_FileName.Trim() == "" || Grievnace_FileName.Trim() == null)
-                    com.Parameters.Add("@Grievnace_FileName", SqlDbType.VarChar).Value = DBNull.Value;
+                if (GrievnaceFileName.Trim() == "" || GrievnaceFileName.Trim() == null)
+                    com.Parameters.Add("@GRIEVNACE_FILENAME", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Grievnace_FileName", SqlDbType.VarChar).Value = Grievnace_FileName.Trim();
+                    com.Parameters.Add("@GRIEVNACE_FILENAME", SqlDbType.VarChar).Value = GrievnaceFileName.Trim();
 
 
-                if (Created_by.Trim() == "" || Created_by.Trim() == null)
-                    com.Parameters.Add("@Created_by", SqlDbType.VarChar).Value = DBNull.Value;
+                if (Createdby.Trim() == "" || Createdby.Trim() == null)
+                    com.Parameters.Add("@CREATEDBY", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Created_by", SqlDbType.VarChar).Value = Created_by.Trim();
-                if (Register_Your.Trim() == "" || Register_Your.Trim() == null)
-                    com.Parameters.Add("@Register_Your", SqlDbType.VarChar).Value = DBNull.Value;
+                    com.Parameters.Add("@CREATEDBY", SqlDbType.VarChar).Value = Createdby.Trim();
+                if (IPAddress.Trim() == "" || IPAddress.Trim() == null)
+                    com.Parameters.Add("@CREATEDBYIP", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@Register_Your", SqlDbType.VarChar).Value = Register_Your.Trim();
-
-                if (uidno.Trim() == "" || uidno.Trim() == null)
-                    com.Parameters.Add("@Uidno", SqlDbType.VarChar).Value = DBNull.Value;
-                else
-                    com.Parameters.Add("@Uidno", SqlDbType.VarChar).Value = uidno.Trim();
-
-                if (Grivance_ID.ToString().Trim() == "" || Grivance_ID.ToString().Trim() == null)
-                    com.Parameters.Add("@Grivance_ID", SqlDbType.VarChar).Value = DBNull.Value;
-                else
-                    com.Parameters.Add("@Grivance_ID", SqlDbType.VarChar).Value = Grivance_ID.Trim();
+                    com.Parameters.Add("@CREATEDBYIP", SqlDbType.VarChar).Value = IPAddress.Trim();
 
                 com.Parameters.Add("@valid", SqlDbType.Int, 500);
                 com.Parameters["@valid"].Direction = ParameterDirection.Output;

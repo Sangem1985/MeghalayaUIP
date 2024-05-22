@@ -59,74 +59,53 @@
                                         <div class="form-group row" runat="server" id="divPreReg" visible="false">
                                             <label class="col-lg-6 col-form-label">Select Unit *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlPreRegUnits" class="form-control" OnSelectedIndexChanged="ddlPreRegUnits_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="ddlPreRegUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlPreRegUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group row" runat="server" id="divCFE" visible="false">
                                             <label class="col-lg-6 col-form-label">Select Unit *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlCFEUnits" class="form-control" OnSelectedIndexChanged="ddlCFEUnits_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="ddlCFEUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlCFEUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group row" runat="server" id="divCFO" visible="false">
                                             <label class="col-lg-6 col-form-label">Select Unit *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlCFOUnits" class="form-control" OnSelectedIndexChanged="ddlCFOUnits_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="ddlCFOUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlCFOUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
-                                        <div class="form-group row" runat="server" id="divIncentives" visible="false" >
+                                        <div class="form-group row" runat="server" id="divIncentives" visible="false">
                                             <label class="col-lg-6 col-form-label">Select Unit *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlIncUnits" class="form-control" OnSelectedIndexChanged="ddlIncUnits_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="ddlIncUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlIncUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group row" runat="server" id="divRenewals" visible="false">
                                             <label class="col-lg-6 col-form-label">Select Unit *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList runat="server" ID="ddlRENUnits" class="form-control" OnSelectedIndexChanged="ddlRENUnits_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="ddlRENUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlRENUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
-                                        <div class="form-group row" runat="server" id="divapplname" visible="false">
-                                            <label class="col-lg-6 col-form-label" >Applicant Name *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtuidno" runat="server" class="form-control txtbox"
-                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"
-                                                    AutoPostBack="True" OnTextChanged="txtuidno_TextChanged"></asp:TextBox>
-                                            </div>
-                                        </div>
+
                                     </div>
 
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label" id="LabelUnitname" runat="server">Unit Name *</label>
+                                            <label class="col-lg-6 col-form-label" id="LabelUnitname" runat="server">Industry Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtindname" runat="server" class="form-control txtbox"
                                                     MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4" id="trdepartment" runat="server">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Department Name *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList ID="ddldept" runat="server" class="form-control txtbox"
-                                                    TabIndex="1">
-                                                    <asp:ListItem>--Select--</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">District Name *</label>
+                                        <div class="form-group row" runat="server" id="divapplname" visible="true">
+                                            <label class="col-lg-6 col-form-label">Applicant Name *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList ID="ddldist" runat="server" class="form-control txtbox"
-                                                    TabIndex="1">
-                                                    <asp:ListItem>--Select--</asp:ListItem>
-                                                </asp:DropDownList>
+                                                <asp:TextBox ID="txtApplcantName" runat="server" class="form-control txtbox"
+                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -139,11 +118,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
+                                    </div>
+                                   <div class="col-md-12 d-flex">
+                                       <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Mobile Number *</label>
                                             <div class="col-lg-6 d-flex">
@@ -152,6 +129,31 @@
                                             </div>
                                         </div>
                                     </div>
+                                       <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">District Name *</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:DropDownList ID="ddldist" runat="server" class="form-control txtbox"
+                                                    TabIndex="1">
+                                                    <asp:ListItem>--Select--</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="trdepartment" runat="server">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Select Department *</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:DropDownList ID="ddldept" runat="server" class="form-control txtbox"
+                                                    TabIndex="1">
+                                                    <asp:ListItem>--Select--</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>                                
+                                </div>
+
+                                <div class="col-md-12 d-flex">                                    
                                     <div class="col-md-4" runat="server" id="trSubject">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Subject *</label>
@@ -162,12 +164,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Description *</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <label class="col-lg-3 col-form-label">Description *</label>
+                                            <div class="col-lg-9 d-flex">
                                                 <asp:TextBox ID="txtDesc" runat="server" class="form-control txtbox"
-                                                    MaxLength="40" TabIndex="1" TextMode="MultiLine"
+                                                   TabIndex="1" TextMode="MultiLine"
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
@@ -199,7 +201,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex"> 
+                                <div class="col-md-12 d-flex">
                                     <div class="col-md-12 float-end">
                                         <div class="form-group row justify-content-end">
                                             <asp:Button runat="server" Text="Submit" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg mr-2" BackColor="Green" Width="150px" />

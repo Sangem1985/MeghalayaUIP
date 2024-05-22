@@ -194,13 +194,17 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstVillagesMstr;
         }
-        public List<MasterDepartment> GetDepartment()
+        public List<MasterDepartment> GetDepartment(string ModuleType)
         {
             List<MasterDepartment> lstDeptMstr = new List<MasterDepartment>();
             SqlDataReader drOptions = null;
             try
             {
-                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetDepartmentmaster);
+                SqlParameter[] param = new SqlParameter[]
+                {
+                    new SqlParameter("@MODULETYPE",Convert.ToInt32(ModuleType))
+                };
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetDepartmentmaster, param);
 
                 if (drOptions != null && drOptions.HasRows)
                 {
