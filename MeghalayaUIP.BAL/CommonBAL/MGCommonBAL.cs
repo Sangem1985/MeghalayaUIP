@@ -19,10 +19,13 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetMainApplicantDashBoard(Investerid);
         }
-        public int InsertGrievance(string IndustryName, string intDistrictid, string Email, string MobileNumber, string intDeptid, string Grivance_Subject, string Grievance_Description, string Grivance_File_Path, string Grivance_File_Type, string Grievnace_FileName, string Created_by, string Register_Your, string uidno, string Grivance_ID)
+        public int InsertGrievance(string RegisterType, string ModuleType, string UIDNo, string UnitID, string UnitName, string ApplcantName,
+            string DistID, string Email, string Mobile, string intDeptid, string Subject, string Description, string Grivance_FilePath,
+            string Grivance_FileType, string GrievnaceFileName, string Createdby, string IPAddress)
         {
-            return objCommonDAL.InsertGrievance(IndustryName,  intDistrictid,  Email,  MobileNumber,  intDeptid,  Grivance_Subject,  Grievance_Description,  Grivance_File_Path,  Grivance_File_Type,  Grievnace_FileName,  Created_by,  Register_Your,  uidno,  Grivance_ID);
-        }
+            return objCommonDAL.InsertGrievance(  RegisterType,   ModuleType,   UIDNo,   UnitID,   UnitName,   ApplcantName,
+              DistID,   Email,   Mobile,   intDeptid,   Subject,   Description,   Grivance_FilePath,
+              Grivance_FileType,   GrievnaceFileName,   Createdby,   IPAddress);  }
         public DataSet GetApplByModuleName(string UserID, string ModuleID)
         { 
             return objCommonDAL.GetApplByModuleName(UserID, ModuleID);
