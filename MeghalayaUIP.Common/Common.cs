@@ -15,6 +15,7 @@ namespace MeghalayaUIP.Common
         public static string GetApplbyModuleName = "USP_GETAPPLBYMODULENAME";
         public static string GetUserCFETracker = "USP_GETUSERCFEAPPLTRACKER";
         public static string GetUserStatusByModule = "USP_GET_APPLICATIONS_STATUS_COUNT";
+        public static string UpdateGrievanceDeptProcess = "USP_UPDATEGRIEVANCEDEPTPROCESS";
 
         //-----dept----
         public static string GetDepGrievanceList = "USP_GETGRIEVANCEBYDEPT";

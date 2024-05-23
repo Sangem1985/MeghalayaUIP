@@ -60,6 +60,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// hdnGrvID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnGrvID;
+
+        /// <summary>
         /// lblindustry control.
         /// </summary>
         /// <remarks>
@@ -159,30 +168,30 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.DropDownList ddlProcess;
 
         /// <summary>
-        /// FileUploads control.
+        /// fupReplyFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUploads;
+        protected global::System.Web.UI.WebControls.FileUpload fupReplyFile;
 
         /// <summary>
-        /// txtRemark control.
+        /// txtRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRemark;
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
 
         /// <summary>
-        /// btnSave control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }
