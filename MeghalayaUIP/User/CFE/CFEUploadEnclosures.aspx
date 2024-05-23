@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Pre Establishment: Enclosures Details</h4>
+                            <h3 class="card-title">Pre Establishment: Enclosures Details</h3>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -38,7 +38,7 @@
                                                 <asp:FileUpload runat="server" ID="fupAadhar" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldAadhar" Text="Upload" OnClick="btnUpldAadhar_Click"  class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpldAadhar" Text="Upload" OnClick="btnUpldAadhar_Click"  class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hplAadhar" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
@@ -57,7 +57,7 @@
                                                 <asp:FileUpload runat="server" ID="fupEPIC" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldEPIC" Text="Upload" OnClick="btnUpldEPIC_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpldEPIC" Text="Upload" OnClick="btnUpldEPIC_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hplEPIC" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
@@ -76,7 +76,7 @@
                                                 <asp:FileUpload runat="server" ID="fupApplPhoto" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldPhoto" Text="Upload" OnClick="btnUpldPhoto_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpldPhoto" Text="Upload" OnClick="btnUpldPhoto_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hplApplPhoto" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
@@ -95,7 +95,7 @@
                                                 <asp:FileUpload runat="server" ID="fupLandDoc" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUplLandDoc" Text="Upload" OnClick="btnUplLandDoc_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUplLandDoc" Text="Upload" OnClick="btnUplLandDoc_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hplLandDoc" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
@@ -106,7 +106,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-9">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label">5.Site plan </label>
+                                            <label class="col-lg-4 col-form-label">5. Site plan </label>
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
@@ -114,7 +114,7 @@
                                                 <asp:FileUpload runat="server" ID="fupSitePlan" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpldSitePlan" Text="Upload" OnClick="btnUpldSitePlan_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                <asp:Button runat="server" ID="btnUpldSitePlan" Text="Upload" OnClick="btnUpldSitePlan_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hplSitePlan" runat="server" Target="_blank" ForeColor="Black" ></asp:HyperLink>
@@ -126,11 +126,11 @@
                                     <br />
                                 </div>
 
-                                <div class="col-md-12 text-right">
+                                <div class="col-md-12 text-right mb-3">
 
-                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
-                                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
+                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                 </div>
                                 <%-- <div class="col-md-12 d-flex mt-2">

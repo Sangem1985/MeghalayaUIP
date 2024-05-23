@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Forest Details</h4>
+                            <h3 class="card-title">Forest Details</h3>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -27,14 +27,12 @@
                             <asp:HiddenField ID="hdnUserID" runat="server" />
                             <div class="row">
 
-                                <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">GPS Coordinates Details</span></label>
-
-                                </div>
+                                
+                                <h4 class="card-title ml-3">GPS Coordinates Details</h4>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">1	Establishment Location Address (For which application is being Done)*</label>
+                                            <label class="col-lg-6 col-form-label">1. Establishment Location Address (For which application is being Done)*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtAddress" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -43,7 +41,7 @@
                                     <%--<h5 class="col-lg-4 col-form-label">2 GPS Coordinates</h5>--%>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">GPS Coordinates Latitude*</label>
+                                            <label class="col-lg-6 col-form-label">2. GPS Coordinates Latitude*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:RadioButtonList ID="RblLatitude" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="N" Value="N" />
@@ -57,7 +55,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Degrees(L)*</label>
+                                            <label class="col-lg-6 col-form-label">a. Degrees(L)*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtLatDegrees" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -65,7 +63,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Minutes(L) *</label>
+                                            <label class="col-lg-6 col-form-label">b. Minutes(L) *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtLatMinutes" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -73,7 +71,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Seconds(L)*</label>
+                                            <label class="col-lg-6 col-form-label">c. Seconds(L)*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtLatSeconds" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -84,7 +82,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Longitude*</label>
+                                            <label class="col-lg-6 col-form-label">d. Longitude*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:RadioButtonList ID="rblLongitude" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="E" Value="E" />
@@ -95,7 +93,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Degrees*</label>
+                                            <label class="col-lg-6 col-form-label">e. Degrees*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtLongDegrees" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -103,7 +101,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Minutes*</label>
+                                            <label class="col-lg-6 col-form-label">f. Minutes*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtLongMinutes" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -114,7 +112,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Seconds*</label>
+                                            <label class="col-lg-6 col-form-label">g. Seconds*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtLongSeconds" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -122,7 +120,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">3 GPS Coordinates (Description) *</label>
+                                            <label class="col-lg-6 col-form-label">3. GPS Coordinates (Description) *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtGPSCordinates" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -130,7 +128,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">4 Purpose of Application  *</label>
+                                            <label class="col-lg-6 col-form-label">4. Purpose of Application  *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtPurpose" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -140,7 +138,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">5 Forest Division</label>
+                                            <label class="col-lg-6 col-form-label">5. Forest Division</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList ID="ddlForest" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />
@@ -150,7 +148,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">6 Any other information *</label>
+                                            <label class="col-lg-6 col-form-label">6. Any other information *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtInformation" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -159,7 +157,7 @@
                                 </div>
 
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">A)Forest</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">A) Forest</span></label>
 
                                 </div>
 
@@ -167,7 +165,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">1	Species*</label>
+                                            <label class="col-lg-6 col-form-label">1. Species*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtspecies" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -175,7 +173,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">2	Estimated Length Of Timber (in Meters)*</label>
+                                            <label class="col-lg-6 col-form-label">2. Estimated Length Of Timber (in Meters)*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtTimberlength" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -183,7 +181,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">3 	Estimated Volume Of Timber (in Meters)*</label>
+                                            <label class="col-lg-6 col-form-label">3. Estimated Volume Of Timber (in Meters)*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtTimberVolume" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -193,7 +191,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">4	Girth (in Meters)*</label>
+                                            <label class="col-lg-6 col-form-label">4. Girth (in Meters)*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtGirth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -201,7 +199,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">5	Estimated Firewood/Rootwood/Faggot*	</label>
+                                            <label class="col-lg-6 col-form-label">5. Estimated Firewood/Rootwood/Faggot*	</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtEstimated" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -209,7 +207,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">6	No. of Pole's*</label>
+                                            <label class="col-lg-6 col-form-label">6. No. of Pole's*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtpole" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -314,7 +312,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">1	North*</label>
+                                            <label class="col-lg-6 col-form-label">1. North*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtNorth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -322,7 +320,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">2	East*</label>
+                                            <label class="col-lg-6 col-form-label">2. East*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtEast" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -332,7 +330,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">3	West*</label>
+                                            <label class="col-lg-6 col-form-label">3. West*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtWest" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -340,7 +338,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">4 	South*</label>
+                                            <label class="col-lg-6 col-form-label">4. South*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtSouth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -356,9 +354,9 @@
                                 </div>
                                 <div class="col-md-12 text-right">
 
-                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
-                                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#3333ff" Width="150px" />
+                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                 </div>
 

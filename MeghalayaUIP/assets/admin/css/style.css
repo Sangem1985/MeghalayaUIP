@@ -5936,7 +5936,11 @@ div#bodypart {
 	color: #fff;
 	border: 1px solid #009688;
 }
-
+.btn-save {
+	background-color: #699834;
+	border: 1px solid #699834;
+	color: #fff;
+}
 .btn-update {
 	background: #3F51B5;
 	border: 1px solid #3F51B5;
@@ -5991,4 +5995,9 @@ button.btn.btn-update:hover {
 
 .btn:hover {
 	opacity: 0.9;
+}
+h3.card-title {
+	font-size: 22px;
+	color: #323f8b;
+	margin-left:5px;
 }
