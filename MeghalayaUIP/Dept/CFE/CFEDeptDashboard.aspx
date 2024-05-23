@@ -144,12 +144,12 @@
                     </div>
                 </section>
             </div>
-            <%--*************************************--%>
+           
             <div class="card">
                 <div class="card-header">
                     <h3>Approval Stages</h3>
                 </div>
-                <section id="dashboardcount2">
+                <section id="dashboardcount2" class="dashboardcount2">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
@@ -219,7 +219,7 @@
                             </div>
 
                         </div>
-                        <br />
+                        
 
                     </div>
                 </section>
