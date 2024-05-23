@@ -75,6 +75,7 @@
     <Content Include="assets\admin\css\dashboard.css" />
     <Content Include="assets\admin\css\dept.css" />
     <Content Include="assets\admin\css\deptdashbaords.css" />
+    <Content Include="assets\admin\css\deptdashboard3.css" />
     <Content Include="assets\admin\css\feathericon.min.css" />
     <Content Include="assets\admin\css\font-awesome.min.css" />
     <Content Include="assets\admin\css\menustyle.css" />
@@ -84,6 +85,11 @@
     <Content Include="assets\admin\fonts\feathericon.svg" />
     <Content Include="assets\admin\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\admin\fonts\MaterialIcons-Regular.svg" />
+    <Content Include="assets\admin\img\card1.png" />
+    <Content Include="assets\admin\img\card2.png" />
+    <Content Include="assets\admin\img\card3.png" />
+    <Content Include="assets\admin\img\card4.png" />
+    <Content Include="assets\admin\img\card5.png" />
     <Content Include="assets\admin\img\dbg.jpg" />
     <Content Include="assets\admin\img\dbg1.jpg" />
     <Content Include="assets\admin\img\dbg2.jpg" />
@@ -497,6 +503,7 @@
     <Content Include="Dashboarddrill.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
+    <Content Include="Dept\CFE\CFEApplDeptdrill.aspx" />
     <Content Include="Dept\CFE\CFEApplDeptProcess.aspx" />
     <Content Include="Dept\CFE\CFEApplDeptView.aspx" />
     <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
@@ -596,6 +603,13 @@
     </Compile>
     <Compile Include="Deptlogin.aspx.designer.cs">
       <DependentUpon>Deptlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEApplDeptdrill.aspx.cs">
+      <DependentUpon>CFEApplDeptdrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFE\CFEApplDeptdrill.aspx.designer.cs">
+      <DependentUpon>CFEApplDeptdrill.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\CFE\CFEApplDeptProcess.aspx.cs">
       <DependentUpon>CFEApplDeptProcess.aspx</DependentUpon>

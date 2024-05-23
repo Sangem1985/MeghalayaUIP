@@ -28,11 +28,11 @@
                             <asp:HiddenField ID="hdnUserID" runat="server" />
                             <div class="row">
 
-                                <h5 class="card-title ml-4">Power*</h5>
+                                <h4 class="card-title ml-3">Power*</h4>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">1	Connected Load in KW*</label>
+                                            <label class="col-lg-6 col-form-label">1. Connected Load in KW*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtHP" runat="server" class="form-control"></asp:TextBox>
                                                 <span class="form-text text-muted mt-2 ml-2"></span>
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">2	Contracted Maximum Demand in KVA *</label>
+                                            <label class="col-lg-6 col-form-label">2. Contracted Maximum Demand in KVA *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtMaxDemand" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">3 	Required Voltage Level*</label>
+                                            <label class="col-lg-6 col-form-label">3. Required Voltage Level*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList ID="ddlvtglevel" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />
@@ -64,7 +64,7 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">4	Any Other Services Existing in the Same Premises*</label>
+                                                <label class="col-lg-6 col-form-label">4. Any Other Services Existing in the Same Premises*</label>
                                                 <div class="col-lg-6 d-flex">
                                                     <asp:DropDownList ID="ddlPermise" runat="server" class="form-control">
                                                         <asp:ListItem Text="--Select--" Value="0" />
@@ -77,11 +77,11 @@
                                     </div>
                                 </div>
 
-                                <h5 class="card-title ml-4">Proposed Maximum Working Hours</h5>
+                                <h4 class="card-title ml-3">Proposed Maximum Working Hours</h4>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">1	Per Day*</label>
+                                            <label class="col-lg-6 col-form-label">1. Per Day*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtMaxhours" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">2	Per Month*</label>
+                                            <label class="col-lg-6 col-form-label">2. Per Month*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtMonth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -97,9 +97,10 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">3	Expected Month and Year of Trial Production(DD/MM/YYYY)</label>
+                                            <label class="col-lg-6 col-form-label">3. Expected Month and Year of Trial Production</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txttrailProduct" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txttrailProduct" runat="server" class="date form-control"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -107,15 +108,16 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">4	Probable Date of Requirement of Power Supply(DD/MM/YYYY)*</label>
+                                            <label class="col-lg-6 col-form-label">4. Probable Date of Requirement of Power Supply*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtPowersupply" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtPowersupply" runat="server" class="date form-control"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">5 Quantum of energy/load required (in KW) *</label>
+                                            <label class="col-lg-6 col-form-label">5. Quantum of energy/load required (in KW) *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtenergy" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -123,7 +125,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">6	Proposed source of energy/load*</label>
+                                            <label class="col-lg-6 col-form-label">6. Proposed source of energy/load*</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList ID="ddlloadenergy" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />

@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=PRESCRUTINYCOMPLETED" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -64,7 +64,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblPREREJECTED" runat="server"></asp:Label>0</h4>
+                                                    <asp:Label ID="lblPREREJECTED" runat="server"></asp:Label></h4>
                                                 <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Rejected</p>
                                             </div>
                                         </div>

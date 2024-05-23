@@ -31,6 +31,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet" />
 	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
+        table#ContentPlaceHolder1_rblLbrAct1970 tr td,
+        table#ContentPlaceHolder1_rblLbrAct1979 tr td,
+        table#ContentPlaceHolder1_rblLbrAct1996 tr td,
+        table#ContentPlaceHolder1_rblLabourAct tr td,
+        table#ContentPlaceHolder1_rblForContr1970 tr td{
+    border: none;
+}
         .card-counter.primarydashboard {
             margin: 10px;
             padding: 15px 45px;
@@ -98,7 +105,7 @@
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img">
                                 <img class="rounded-circle" src="../../assets/admin/img/profiles/avatar-01.jpg"
-                                    width="31" alt="Ryan Taylor">
+                                    width="31" alt="Img">
                                 <%--<asp:ImageButton runat="server" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="rounded-circle" />--%>
                             <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>
                             </span>

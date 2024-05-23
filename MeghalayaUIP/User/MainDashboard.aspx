@@ -38,12 +38,12 @@
                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-striped table-hover" ForeColor="#333333"
                                 GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvUserDashboard_RowDataBound">
                                 <RowStyle />
-                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" Height="30px" />
                                 <AlternatingRowStyle BackColor="" />
                                 <Columns>
                                     <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="5%">
                                         <HeaderStyle HorizontalAlign="Center" />
-                                        <ItemStyle HorizontalAlign="Left" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                         <ItemTemplate>
                                             <%# Container.DataItemIndex + 1%>
                                         </ItemTemplate>
@@ -51,7 +51,7 @@
                                     <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
                                     <asp:BoundField HeaderText="Unit ID" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
                                     <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%"/>
                                     <asp:HyperLinkField ControlStyle-Font-Underline="false" ControlStyle-ForeColor="Black"
                                         FooterStyle-CssClass="text-center" DataTextField="STATUS" HeaderText="Registration Under MIIPP 2024 Status">
                                         <FooterStyle HorizontalAlign="Center" Font-Underline="false" Font-Bold="true" CssClass="text-center" />

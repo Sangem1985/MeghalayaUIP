@@ -71,7 +71,7 @@
                                             <div class="tab-pane active" id="basictab1">
                                                 <div class="card-body">
                                                     <span class="icon"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #004c6d; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
+                                                    <h4 class="card-title" style="background: #abbd07; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
 
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
@@ -236,8 +236,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        14. Location
-																		of the unit</label>
+                                                                        14. Location of the unit</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control"></asp:TextBox>
                                                                     </div>
@@ -248,14 +247,14 @@
                                                     </div>
 
 
-                                                    <div class="col-md-12 d-flex mt-2" id="padding">
+                                                    <div class="col-md-12 d-flex mt-2 mb-2" id="padding">
                                                         <div class="col-md-2">
                                                         </div>
                                                         <div class="col-md-10 text-right">
-                                                            <asp:Button runat="server" Text="Save as Draft" Visible="false" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px" />
+                                                            <asp:Button runat="server" Text="Save as Draft" Visible="false" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-success btn-lg" Width="150px" />
 
 
-                                                            <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" BackColor="#3333ff" Width="150px" />
+                                                            <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" Width="150px" />
 
                                                         </div>
                                                         <%-- <a href="#basictab2" data-toggle="tab">
@@ -271,7 +270,7 @@
                                             <div class="tab-pane active" id="basictab2">
                                                 <div class="card-body">
                                                     <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #0067b7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
+                                                    <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
                                                     <%--<form action="#">--%>
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
@@ -444,8 +443,8 @@
                                                                     </label>
 
                                                                     <div class="col-lg-4">
-                                                                        <h4>
-                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h4>
+                                                                        <h5>
+                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h5>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -458,10 +457,10 @@
 
                                                                 <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>--%>
                                                             </div>
-                                                            <div class="col-md-10 text-right">
+                                                            <div class="col-md-10 text-right mb-2">
                                                                 <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos2_Click" Width="150px" BackColor="#009999" />
-                                                                <asp:Button ID="btnsave2" runat="server" Text="Save as Draft" Visible="false" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" OnClick="btnsave2_Click" Width="150px" />
-                                                                <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" Width="150px" BackColor="#3333ff" />
+                                                                <asp:Button ID="btnsave2" runat="server" Text="Save as Draft" Visible="false" class="btn btn-rounded btn-info btn-lg" OnClick="btnsave2_Click" Width="150px" />
+                                                                <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" Width="150px" />
 
                                                             </div>
                                                         </div>
@@ -476,7 +475,7 @@
                                             <div class="tab-pane active" id="basictab3">
                                                 <div class="card-body">
                                                     <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
+                                                    <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-6">
@@ -863,9 +862,9 @@
                                                                 <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="false"></asp:Button>
 
                                                             </div>
-                                                            <div class="col-md-10 text-right">
-                                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" BackColor="#009999" Width="150px" />
-                                                                <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
+                                                            <div class="col-md-10 text-right mb-2">
+                                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
+                                                                <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" />
 
                                                             </div>
 
