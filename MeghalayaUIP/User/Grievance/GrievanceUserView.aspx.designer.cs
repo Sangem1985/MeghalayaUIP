@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.Dept.Grievance
+namespace MeghalayaUIP.User.Grievance
 {
 
 
-    public partial class GrievanceDeptDashbord
+    public partial class GrievanceUserView
     {
 
         /// <summary>
@@ -60,39 +60,39 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// lbltotal control.
+        /// gvGrvncTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltotal;
+        protected global::System.Web.UI.WebControls.GridView gvGrvncTotal;
 
         /// <summary>
-        /// lblpendingTotal control.
+        /// gvGrvncPending control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblpendingTotal;
+        protected global::System.Web.UI.WebControls.GridView gvGrvncPending;
 
         /// <summary>
-        /// lblRedressedTotal control.
+        /// gvGrvncRedressed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRedressedTotal;
+        protected global::System.Web.UI.WebControls.GridView gvGrvncRedressed;
 
         /// <summary>
-        /// lblRejectedTotal control.
+        /// gvGrvncRejected control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRejectedTotal;
+        protected global::System.Web.UI.WebControls.GridView gvGrvncRejected;
     }
 }

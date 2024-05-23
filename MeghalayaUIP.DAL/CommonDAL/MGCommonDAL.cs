@@ -334,6 +334,78 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return ds;
         }
 
+        public DataSet GetUserGrievanceList(string UserID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetUserGrievanceList, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetUserGrievanceList;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@USERID", UserID);
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+        //---------------------------------dept------------------------//
+        public DataSet GetDepGrievanceDashboard(string DeptID, string Userid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetDeptGrievanceDashboard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetDeptGrievanceDashboard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", Userid);
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
         public DataSet GetDepGrievanceList(string DeptID, string GrvncID)
         {
             DataSet ds = new DataSet();
@@ -386,29 +458,29 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.CommandText = CommonConstants.UpdateGrievanceDeptProcess;
 
                 com.Transaction = transaction;
-                com.Connection = connection;               
+                com.Connection = connection;
 
                 if (Process.Trim() == "" || Process.Trim() == null)
                     com.Parameters.Add("@PROCESS", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@PROCESS", SqlDbType.VarChar).Value = Process.Trim();
-               
+
                 if (ProcessFalg.Trim() == "" || ProcessFalg.Trim() == null)
                     com.Parameters.Add("@PROCESSFLAG", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@PROCESSFLAG", SqlDbType.VarChar).Value = ProcessFalg.Trim();
 
-                if (Remarks.ToString().Trim() == "" )
+                if (Remarks.ToString().Trim() == "")
                     com.Parameters.Add("@REMARKS", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@REMARKS", SqlDbType.VarChar).Value = Remarks.Trim();
 
-                if (ReplyFilePath.Trim() == "" )
+                if (ReplyFilePath.Trim() == "")
                     com.Parameters.Add("@REPLYFILEPATH", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@REPLYFILEPATH", SqlDbType.VarChar).Value = ReplyFilePath.Trim();
 
-                if (ReplyFileType.ToString().Trim() == "" )
+                if (ReplyFileType.ToString().Trim() == "")
                     com.Parameters.Add("@REPLYFILETYPE", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@REPLYFILETYPE", SqlDbType.VarChar).Value = ReplyFileType.Trim();

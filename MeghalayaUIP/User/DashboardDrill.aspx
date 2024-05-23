@@ -69,6 +69,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <tr id="trPreReg" runat="server" visible="true">
+                                                <th scope="col" style="text-align: left !important;">MIIPP Application</th>
+                                                <td>
+                                                    <span class="status4">
+                                                        <asp:LinkButton ID="LinkButton1" runat="server"  Font-Underline="false" ForeColor="White">1</asp:LinkButton>
+                                                    </span>
+                                                </td>
+                                                <td><span class="status">
+                                                    <asp:LinkButton ID="LinkButton2" runat="server"  Font-Underline="false" ForeColor="White">1</asp:LinkButton>
+                                                </span>
+                                                </td>
+                                                <td><span class="status1">
+                                                    <asp:LinkButton ID="LinkButton3" runat="server"  Font-Underline="false" ForeColor="White">0</asp:LinkButton>
+                                                </span>
+                                                </td>
+                                                <td><span class="status2">
+                                                    <asp:LinkButton ID="LinkButton4" runat="server" Font-Underline="false" ForeColor="White">0</asp:LinkButton>
+                                                </span>
+
+                                                </td>
+                                                <td><span class="status3">
+                                                    <asp:LinkButton ID="LinkButton5" runat="server"  Font-Underline="false" ForeColor="White">0</asp:LinkButton>
+                                                </span>
+                                                </td>
+                                            </tr>
                                             <tr id="trCFE" runat="server" visible="true">
                                                 <th scope="col" style="text-align: left !important;">Pre-Establishment Approvals</th>
                                                 <td>
@@ -94,7 +119,7 @@
                                                 </span>
                                                 </td>
                                             </tr>
-                                            <tr id="trCFO" runat="server" visible="false">
+                                            <tr id="trCFO" runat="server" visible="true">
                                                 <th scope="col" style="text-align: left !important;">Pre-Operational Approvals</th>
                                                 <td><a href="Dashboardstatus.aspx" target="_blank"><span class="status4">15</span></a></td>
                                                 <td><span class="status">2</span></td>
@@ -103,7 +128,7 @@
                                                 <td><span class="status3">1</span></td>
                                             </tr>
 
-                                            <tr id="trINC" runat="server" visible="false">
+                                            <tr id="trINC" runat="server" visible="true">
                                                 <th scope="col" style="text-align: left !important;">Incentives</th>
                                                 <td><a href="Dashboardstatus.aspx" target="_blank"><span class="status4">15</span></a></td>
                                                 <td><span class="status">2</span></td>

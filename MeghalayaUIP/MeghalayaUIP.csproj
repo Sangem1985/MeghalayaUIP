@@ -565,6 +565,7 @@
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
     <Content Include="User\Grievance\Grievance.aspx" />
+    <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\MainDashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryPrintPage.aspx" />
@@ -1053,6 +1054,13 @@
     </Compile>
     <Compile Include="User\Grievance\Grievance.aspx.designer.cs">
       <DependentUpon>Grievance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Grievance\GrievanceUserView.aspx.cs">
+      <DependentUpon>GrievanceUserView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Grievance\GrievanceUserView.aspx.designer.cs">
+      <DependentUpon>GrievanceUserView.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\MainDashboard.aspx.cs">
       <DependentUpon>MainDashboard.aspx</DependentUpon>

@@ -65,16 +65,16 @@ namespace MeghalayaUIP.User
                 string module = Convert.ToString(Request.QueryString[1]);
                 if (module == "PreEstablishment")
                 {
-                    ModuleID = 1; trCFE.Visible = true; trCFO.Visible = false; trINC.Visible = false;
+                    ModuleID = 1; 
                     lblmodule.Text = "Pre - Establishment";
                 }
                 else if (module == "PreOperational")
                 {
-                    ModuleID = 2; trCFE.Visible = false; trCFO.Visible = true; trINC.Visible = false;
+                    ModuleID = 2; 
                 }
                 else if (module == "Incentives")
                 {
-                    ModuleID = 3; trCFE.Visible = false; trCFO.Visible = false; trINC.Visible = true;
+                    ModuleID = 3; 
                 }
 
                 dsStatus = objcommonBAL.GetUserDashboardStatusByModule(ModuleID, UnitID);
