@@ -43,5 +43,11 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetDepGrievanceList(DeptID, GrvncID);
         }
+        public int UpdateGrievanceDeptProcess(string Process, string ProcessFalg, string Remarks, string ReplyFilePath, string ReplyFileType, 
+            string ReplyFileName, string GrvncID, string UserID, string DeptID, string IPAddress)
+        {
+            return objCommonDAL.UpdateGrievanceDeptProcess(Process, ProcessFalg, Remarks, ReplyFilePath, ReplyFileType, ReplyFileName,
+                GrvncID, UserID, DeptID, IPAddress);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace MeghalayaUIP.User.Grievance
     public partial class Grievance : System.Web.UI.Page
     {
         readonly LoginBAL objloginBAL = new LoginBAL();
-        string Grivance_File_Path, Grivance_File_Type, Grievnace_FileName;
+        string Grivance_File_Path="", Grivance_File_Type="", Grievnace_FileName="";
         MGCommonBAL objcommon = new MGCommonBAL();
         MasterBAL mstrBAL = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
@@ -357,13 +357,8 @@ namespace MeghalayaUIP.User.Grievance
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
-
-                    Grivance_File_Path = "";
-                    Grivance_File_Type = "";
-                    Grievnace_FileName = "";
-
                     string newPath = "";
-                    string sFileDir = Server.MapPath("~\\Grievance");
+                    string sFileDir = Server.MapPath("~\\GrievanceAttachments");
 
                     if (FileUpload.HasFile)
                     {

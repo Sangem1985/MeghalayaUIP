@@ -19,7 +19,9 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                     <h4>Grievence Department Process</h4>
+                    <asp:HiddenField ID="hdnGrvID" runat="server" />
+
+                    <h4>Grievence Department Process</h4>
                     <div class="row">
                         <div class="col-md-12 d-flex">
                             <div class="col-md-4">
@@ -31,7 +33,7 @@
                                     </div>
                                 </div>
                             </div>
-                              <div class="col-md-4">
+                            <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
                                         UID No:</label>
@@ -39,10 +41,10 @@
                                         <asp:Label ID="lblUID" runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </div>                          
+                            </div>
                         </div>
                         <div class="col-md-12 d-flex">
-                             <div class="col-md-4">
+                            <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
                                         Name:</label>
@@ -51,7 +53,7 @@
                                     </div>
                                 </div>
                             </div>
-                              <div class="col-md-4">
+                            <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
                                         Email:</label>
@@ -59,11 +61,11 @@
                                         <asp:Label ID="lblEmail" runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </div>                         
-                           
+                            </div>
+
                         </div>
                         <div class="col-md-12 d-flex">
-                             <div class="col-md-4">
+                            <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
                                         Mobile Number:</label>
@@ -71,7 +73,7 @@
                                         <asp:Label ID="lblNumber" runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </div>                           
+                            </div>
                             <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
@@ -92,7 +94,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-md-4">
+                            <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
                                         Subject:</label>
@@ -108,7 +110,7 @@
                                     <label class="col-lg-6 col-form-label">
                                         Attachment:</label>
                                     <div class="col-lg-6">
-                                        <asp:HyperLink ID="hplAttach"  runat="server" Target="_blank"></asp:HyperLink>
+                                        <asp:HyperLink ID="hplAttach" runat="server" Target="_blank"></asp:HyperLink>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +128,7 @@
                             </div>
 
                         </div>
-                        
+
                         <div class="col-md-12 d-flex">
                             <div class="col-md-4">
                                 <div class="form-group row">
@@ -134,8 +136,8 @@
                                     <div class="col-lg-6 d-flex">
                                         <asp:DropDownList ID="ddlProcess" runat="server" class="form-control">
                                             <asp:ListItem Text="--Select--" Value="0" />
-                                            <asp:ListItem Text="Redressed" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Reject" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="Redressed" Value="C"></asp:ListItem>
+                                            <asp:ListItem Text="Reject" Value="R"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -145,7 +147,7 @@
                                     <label class="col-lg-6 col-form-label">
                                         Reply File (if any):</label>
                                     <div class="col-lg-6">
-                                        <asp:FileUpload ID="FileUploads" runat="server" />
+                                        <asp:FileUpload ID="fupReplyFile" runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -155,17 +157,17 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label">Remarks:* </label>
                                     <div class="col-lg-9">
-                                        <asp:TextBox ID="txtRemark" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                        <asp:TextBox ID="txtRemarks" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                         </div>
                         <div class="col-md-12 d-flex mt-2" id="padding">
-                           
+
                             <div class="col-md-8 text-center">
-                                <asp:Button runat="server" Text="Save" ID="btnSave" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px" />
+                                <asp:Button runat="server" Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px" />
 
                             </div>
                         </div>
@@ -173,5 +175,5 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </asp:Content>

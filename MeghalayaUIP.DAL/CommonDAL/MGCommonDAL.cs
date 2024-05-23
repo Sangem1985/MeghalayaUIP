@@ -11,6 +11,8 @@ using System.Data.SqlTypes;
 using MeghalayaUIP.Common;
 using System.Reflection;
 using System.Xml.Linq;
+using System.Diagnostics;
+using System.Net;
 
 namespace MeghalayaUIP.DAL.CommonDAL
 {
@@ -93,9 +95,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return ds;
         }
 
-        public int InsertGrievance(string RegisterType, string ModuleType, string UIDNo, string UnitID, string UnitName, string ApplcantName, 
-            string DistID, string Email, string Mobile, string intDeptid, string Subject, string Description, string Grivance_FilePath, 
-            string Grivance_FileType, string GrievnaceFileName, string Createdby,  string IPAddress )
+        public int InsertGrievance(string RegisterType, string ModuleType, string UIDNo, string UnitID, string UnitName, string ApplcantName,
+            string DistID, string Email, string Mobile, string intDeptid, string Subject, string Description, string Grivance_FilePath,
+            string Grivance_FileType, string GrievnaceFileName, string Createdby, string IPAddress)
         {
             int valid = 0;
 
@@ -110,7 +112,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.CommandText = CommonConstants.InsertGrievance;
 
                 com.Transaction = transaction;
-                com.Connection = connection;            
+                com.Connection = connection;
 
 
                 if (RegisterType.Trim() == "" || RegisterType.Trim() == null)
@@ -141,7 +143,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 if (ApplcantName.ToString().Trim() == "" || ApplcantName.ToString().Trim() == null)
                     com.Parameters.Add("@APPLICANTNAME", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@APPLICANTNAME", SqlDbType.VarChar).Value = ApplcantName.Trim();                
+                    com.Parameters.Add("@APPLICANTNAME", SqlDbType.VarChar).Value = ApplcantName.Trim();
 
                 if (DistID.Trim() == "" || DistID == null)
                     com.Parameters.Add("@DISTRICTID", SqlDbType.VarChar).Value = DBNull.Value;
@@ -152,7 +154,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                     com.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = Email.Trim();
-               
+
                 if (Mobile.Trim() == "" || Mobile.Trim() == null)
                     com.Parameters.Add("@MOBILE", SqlDbType.VarChar).Value = DBNull.Value;
                 else
@@ -367,6 +369,94 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
             return ds;
+        }
+        public int UpdateGrievanceDeptProcess(string Process, string ProcessFalg, string Remarks, string ReplyFilePath, string ReplyFileType, string ReplyFileName,
+                string GrvncID, string UserID, string DeptID, string IPAddress)
+        {
+            int valid = 0;
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CommonConstants.UpdateGrievanceDeptProcess;
+
+                com.Transaction = transaction;
+                com.Connection = connection;               
+
+                if (Process.Trim() == "" || Process.Trim() == null)
+                    com.Parameters.Add("@PROCESS", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@PROCESS", SqlDbType.VarChar).Value = Process.Trim();
+               
+                if (ProcessFalg.Trim() == "" || ProcessFalg.Trim() == null)
+                    com.Parameters.Add("@PROCESSFLAG", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@PROCESSFLAG", SqlDbType.VarChar).Value = ProcessFalg.Trim();
+
+                if (Remarks.ToString().Trim() == "" )
+                    com.Parameters.Add("@REMARKS", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@REMARKS", SqlDbType.VarChar).Value = Remarks.Trim();
+
+                if (ReplyFilePath.Trim() == "" )
+                    com.Parameters.Add("@REPLYFILEPATH", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@REPLYFILEPATH", SqlDbType.VarChar).Value = ReplyFilePath.Trim();
+
+                if (ReplyFileType.ToString().Trim() == "" )
+                    com.Parameters.Add("@REPLYFILETYPE", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@REPLYFILETYPE", SqlDbType.VarChar).Value = ReplyFileType.Trim();
+
+                if (ReplyFileName.ToString().Trim() == "" || ReplyFileName.ToString().Trim() == null)
+                    com.Parameters.Add("@REPLYFILENAME", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@REPLYFILENAME", SqlDbType.VarChar).Value = ReplyFileName.Trim();
+
+                if (GrvncID.ToString().Trim() == "" || GrvncID.ToString().Trim() == null)
+                    com.Parameters.Add("@GRIEVANCEID", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@GRIEVANCEID", SqlDbType.VarChar).Value = GrvncID.Trim();
+
+                if (UserID.Trim() == "" || UserID == null)
+                    com.Parameters.Add("@PROCESSBY", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@PROCESSBY", SqlDbType.VarChar).Value = UserID.Trim();
+
+                if (DeptID.Trim() == "" || DeptID.Trim() == null)
+                    com.Parameters.Add("@DEPTID", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@DEPTID", SqlDbType.VarChar).Value = DeptID.Trim();
+
+                if (DeptID.Trim() == "" || DeptID.Trim() == null)
+                    com.Parameters.Add("@PROCESSBYIP", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@PROCESSBYIP", SqlDbType.VarChar).Value = IPAddress.Trim();
+                com.Parameters.Add("@VALID", SqlDbType.Int, 500);
+                com.Parameters["@VALID"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+                valid = (Int32)com.Parameters["@VALID"].Value;
+
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
         }
     }
 }
