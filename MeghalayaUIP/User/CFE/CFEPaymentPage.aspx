@@ -29,9 +29,9 @@
                             <hr />
                            
                         </div>
-                        <div class="col-md-12 row mt-3 d-flex">
+                        <div class="col-md-12 row mt-3 ml-1 d-flex">
 
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="alert alert-warning" role="alert">
                                     <b>Terms and Conditions:</b>
                                     <p>1. Do not press F5 or refresh the page while the transaction is in process.</p>
@@ -42,15 +42,15 @@
                                     <p>6. All the details regarding the payments are secure and confidential. We do not store the bank details entered by the entrepreneur.</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                    CssClass="GRD" ForeColor="#333333" Width="95%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" >
-                                    <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                    CssClass="GRD" ForeColor="#333333" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" >
+                                    <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
-                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S. No.">
                                             <ItemTemplate>
                                                 <%# Container.DataItemIndex + 1%>
                                                 <asp:HiddenField ID="HdfQueid" runat="server" />
@@ -58,7 +58,7 @@
                                                 <asp:HiddenField ID="HdfDeptid" runat="server" />
                                             </ItemTemplate>
                                             <HeaderStyle HorizontalAlign="Center" />
-                                            <ItemStyle Width="50px" />
+                                            <ItemStyle Width="10%" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
                                             <ItemStyle Width="450px" />
@@ -114,9 +114,9 @@
                                 </div>
                             </div>
                             <div class="col-md-12 text-right">
-                                <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
+                                <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg"  Width="150px" />
 
-                                <asp:Button ID="btnPay" runat="server" Text="Pay"  OnClick="btnPay_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                <asp:Button ID="btnPay" runat="server" Text="Pay"  OnClick="btnPay_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
 
 
 

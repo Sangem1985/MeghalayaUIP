@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Labour Details</h4>
+                            <h3 class="card-title">Labour Details</h3>
                         </div>
                         <div class="card-body">
                             <!-- <h4 class="card-title">Personal Information</h4> -->
