@@ -38,5 +38,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetUserDashboardStatusByModule(ModuleID, UnitID);
         }
+
+        public DataSet GetDepGrievanceList( string DeptID, string GrvncID)
+        {
+            return objCommonDAL.GetDepGrievanceList(DeptID, GrvncID);
+        }
     }
 }

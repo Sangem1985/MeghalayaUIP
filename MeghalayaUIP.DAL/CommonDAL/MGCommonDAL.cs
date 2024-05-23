@@ -331,5 +331,42 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
+
+        public DataSet GetDepGrievanceList(string DeptID, string GrvncID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetDepGrievanceList, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetDepGrievanceList;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
+                da.SelectCommand.Parameters.AddWithValue("@GRIEVANCEID", GrvncID);
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
     }
 }

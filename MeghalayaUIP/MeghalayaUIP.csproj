@@ -505,6 +505,9 @@
     <Content Include="Dept\Dashboard.aspx" />
     <Content Include="Dept\Demo.aspx" />
     <Content Include="Dept\DeptDashboard.aspx" />
+    <Content Include="Dept\Grievance\GrievanceDeptDashbord.aspx" />
+    <Content Include="Dept\Grievance\GrievanceDeptProcess.aspx" />
+    <Content Include="Dept\Grievance\GrievanceDeptView.aspx" />
     <Content Include="Dept\IntenttoInvestDashboard.aspx" />
     <Content Include="Dept\PreReg\demo.aspx" />
     <Content Include="Dept\PreReg\PreRegApplCommitteeDashBoard.aspx" />
@@ -656,6 +659,27 @@
     </Compile>
     <Compile Include="Dept\DeptDashboard.aspx.designer.cs">
       <DependentUpon>DeptDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Grievance\GrievanceDeptDashbord.aspx.cs">
+      <DependentUpon>GrievanceDeptDashbord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Grievance\GrievanceDeptDashbord.aspx.designer.cs">
+      <DependentUpon>GrievanceDeptDashbord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Grievance\GrievanceDeptProcess.aspx.cs">
+      <DependentUpon>GrievanceDeptProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Grievance\GrievanceDeptProcess.aspx.designer.cs">
+      <DependentUpon>GrievanceDeptProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Grievance\GrievanceDeptView.aspx.cs">
+      <DependentUpon>GrievanceDeptView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Grievance\GrievanceDeptView.aspx.designer.cs">
+      <DependentUpon>GrievanceDeptView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\IntenttoInvestDashboard.aspx.cs">
       <DependentUpon>IntenttoInvestDashboard.aspx</DependentUpon>
