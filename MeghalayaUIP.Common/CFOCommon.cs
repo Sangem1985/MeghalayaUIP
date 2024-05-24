@@ -97,4 +97,77 @@ namespace MeghalayaUIP.Common
         public string FULLDAY { get; set; }
 
     }
+
+    public class CFOExciseDetails
+    {
+        public int CFOExciseID { get; set; }
+        public int CFOunitid { get; set; }
+        public int CFOQID { get; set; }
+        public string Artical5Selection { get; set; }
+        public string ApplicantSelection { get; set; }
+        public string MemberSelection { get; set; }
+        public string TaxSelection { get; set; }
+        public string SaleTaxSelection { get; set; }
+        public string ProfessionSelection { get; set; }
+        public string GovernmentSelection { get; set; }
+        public string GovernmentDetails { get; set; }
+        public string ViolationSelection { get; set; }
+        public string ViolationDetails { get; set; }
+        public string ConvictedSelection { get; set; }
+        public string ConvictedDetails { get; set; }
+        public string RenewBrand { get; set; }
+        public DateTime? RegFromDate { get; set; }
+        public DateTime? RegToDate { get; set; }
+        public string FirmAddress { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedIp { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedIp { get; set; }
+        public string Flag { get; set; }
+        public List<CFOExciseBrandDetails> brandgridlist { get; set; }
+        public List<CFOExciseLiquorDetails> liquorgridlist { get; set; }
+
+    }
+    [Serializable]
+    public class CFOExciseBrandDetails
+    {
+        public int CFOExciseBrandID { get; set; }
+        public int CFOunitid { get; set; }
+        public int CFOQID { get; set; }
+        public string NameOfBrand { get; set; }
+        public string Strength { get; set; }
+        public string Size { get; set; }
+        public string NumberOfBottles { get; set; }
+        public string MRPRs { get; set; }
+        public string BulkLiter { get; set; }
+        public string LandOnProof { get; set; }
+        public string BottlePlant { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedIp { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedIp { get; set; }
+        public string Flag { get; set; }
+    }
+    [Serializable]
+    public class CFOExciseLiquorDetails
+    {
+        public int CFOExciseLiquorID { get; set; }
+        public int CFOunitid { get; set; }
+        public int CFOQID { get; set; }
+        public string CountryID { get; set; }
+        public string CountryName { get; set; }
+        public string MRPSSelection { get; set; }
+        public string BrandName { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedIp { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedIp { get; set; }
+        public string Flag { get; set; }
+    }
 }

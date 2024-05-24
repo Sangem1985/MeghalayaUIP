@@ -19,5 +19,13 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.InsertCFOlabourContractor(ObjCFOLabourDet);
         }
+        public string InsertCFOExciseData(CFOExciseDetails data, List<CFOExciseBrandDetails> brandDetails, List<CFOExciseLiquorDetails> liquorDetails)
+        {
+            return objCFODAL.InsertCFOExciseData(data, brandDetails, liquorDetails);
+        }
+        public CFOExciseDetails GetCFOExciseData(int CFOunitid, int CFOQID)
+        {
+            return objCFODAL.GetCFOExciseData(CFOunitid, CFOQID);
+        }
     }
 }
