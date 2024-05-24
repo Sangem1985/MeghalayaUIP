@@ -276,13 +276,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// GVHealthy control.
+        /// gvBrandDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVHealthy;
+        protected global::System.Web.UI.WebControls.GridView gvBrandDetails;
 
         /// <summary>
         /// ddlCountry control.
@@ -330,13 +330,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Button AddBtn;
 
         /// <summary>
-        /// GvTax control.
+        /// GvLiquor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvTax;
+        protected global::System.Web.UI.WebControls.GridView GvLiquor;
 
         /// <summary>
         /// rblBrand control.

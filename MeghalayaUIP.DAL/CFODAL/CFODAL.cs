@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Linq;
 
 namespace MeghalayaUIP.DAL.CFODAL
 {
@@ -166,6 +166,213 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
             return Result;
+        }
+
+        public string InsertCFOExciseData(CFOExciseDetails data, List<CFOExciseBrandDetails> brandDetails, List<CFOExciseLiquorDetails> liquorDetails)
+        {
+            string res = "Fail";
+
+            using (SqlConnection conn = new SqlConnection(connstr))
+            {
+                using (SqlCommand cmd = new SqlCommand("InsertCFOExciseData", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Add parameters for CFOExciseDetails
+                    cmd.Parameters.AddWithValue("@CFOunitid", data.CFOunitid);
+                    cmd.Parameters.AddWithValue("@CFOQID", data.CFOQID);
+                    cmd.Parameters.AddWithValue("@Artical5Selection", data.Artical5Selection);
+                    cmd.Parameters.AddWithValue("@ApplicantSelection", data.ApplicantSelection);
+                    cmd.Parameters.AddWithValue("@MemberSelection", data.MemberSelection);
+                    cmd.Parameters.AddWithValue("@TaxSelection", data.TaxSelection);
+                    cmd.Parameters.AddWithValue("@SaleTaxSelection", data.SaleTaxSelection);
+                    cmd.Parameters.AddWithValue("@ProfessionSelection", data.ProfessionSelection);
+                    cmd.Parameters.AddWithValue("@GovernmentSelection", data.GovernmentSelection);
+                    cmd.Parameters.AddWithValue("@GovernmentDetails", data.GovernmentDetails);
+                    cmd.Parameters.AddWithValue("@ViolationSelection", data.ViolationSelection);
+                    cmd.Parameters.AddWithValue("@ViolationDetails", data.ViolationDetails);
+                    cmd.Parameters.AddWithValue("@ConvictedSelection", data.ConvictedSelection);
+                    cmd.Parameters.AddWithValue("@ConvictedDetails", data.ConvictedDetails);
+                    cmd.Parameters.AddWithValue("@RenewBrand", data.RenewBrand);
+                    cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate);
+                    cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate);
+                    cmd.Parameters.AddWithValue("@FirmAddress", data.FirmAddress);
+                    cmd.Parameters.AddWithValue("@CreatedBy", data.CreatedBy);
+                    cmd.Parameters.AddWithValue("@CreatedIp", data.CreatedIp);
+                    cmd.Parameters.AddWithValue("@UpdatedBy", data.UpdatedBy);
+                    cmd.Parameters.AddWithValue("@UpdatedDate", data.UpdatedDate);
+                    cmd.Parameters.AddWithValue("@UpdatedIp", data.UpdatedIp);
+                    cmd.Parameters.AddWithValue("@flag", data.Flag);
+
+                    // Convert BrandDetails to XML
+                    XDocument brandDetailsXml = null;
+                    if (brandDetails.Count > 0)
+                    {
+                        brandDetailsXml = new XDocument(
+                            new XElement("BrandDetails",
+                                brandDetails.ConvertAll(brand =>
+                                    new XElement("BrandDetail",
+                                        new XElement("NameOfBrand", brand.NameOfBrand),
+                                        new XElement("Strength", brand.Strength),
+                                        new XElement("Size", brand.Size),
+                                        new XElement("NumberOfBottles", brand.NumberOfBottles),
+                                        new XElement("MRPRs", brand.MRPRs),
+                                        new XElement("BulkLiter", brand.BulkLiter),
+                                        new XElement("LandOnProof", brand.LandOnProof),
+                                        new XElement("BottlePlant", brand.BottlePlant),
+                                        new XElement("CreatedBy", brand.CreatedBy),
+                                        new XElement("CreatedIp", brand.CreatedIp),
+                                        new XElement("UpdatedBy", brand.UpdatedBy),
+                                        new XElement("UpdatedDate", brand.UpdatedDate),
+                                        new XElement("UpdatedIp", brand.UpdatedIp),
+                                        new XElement("flag", brand.Flag)
+                                    )
+                                )
+                            )
+                        );
+                    }
+                    // Convert LiquorDetails to XML
+                    XDocument liquorDetailsXml = null;
+                    if (liquorDetails != null)
+                    {
+                        liquorDetailsXml = new XDocument(
+                            new XElement("LiquorDetails",
+                                liquorDetails.ConvertAll(liquor =>
+                                    new XElement("LiquorDetail",
+                                        new XElement("CountryID", liquor.CountryID),
+                                        new XElement("CountryName", liquor.CountryName),
+                                        new XElement("MRPSSelection", liquor.MRPSSelection),
+                                        new XElement("BrandName", liquor.BrandName),
+                                        new XElement("CreatedBy", liquor.CreatedBy),
+                                        new XElement("CreatedIp", liquor.CreatedIp),
+                                        new XElement("UpdatedBy", liquor.UpdatedBy),
+                                        new XElement("UpdatedDate", liquor.UpdatedDate),
+                                        new XElement("UpdatedIp", liquor.UpdatedIp),
+                                        new XElement("flag", liquor.Flag)
+                                    )
+                                )
+                            )
+                        );
+                    }
+                    cmd.Parameters.AddWithValue("@BrandDetailsXml", brandDetailsXml.ToString());
+                    cmd.Parameters.AddWithValue("@LiquorDetailsXml", liquorDetailsXml == null ? "" : liquorDetailsXml.ToString());
+
+                    conn.Open();
+                    int cnt = cmd.ExecuteNonQuery();
+                    if (cnt > 0)
+                    {
+                        res = "Success";
+                    }
+                }
+            }
+            return res;
+        }
+        public CFOExciseDetails GetCFOExciseData(int CFOunitid, int CFOQID)
+        {
+            CFOExciseDetails data = new CFOExciseDetails();
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetCFOExciseData", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CFOunitid", CFOunitid);
+                    cmd.Parameters.AddWithValue("@CFOQID", CFOQID);
+
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Read CFOExciseDetails
+                        if (reader.Read())
+                        {
+                            data = new CFOExciseDetails
+                            {
+                                CFOunitid = reader.GetInt32(0),
+                                CFOQID = reader.GetInt32(1),
+                                Artical5Selection = reader.GetString(2),
+                                ApplicantSelection = reader.GetString(3),
+                                MemberSelection = reader.GetString(4),
+                                TaxSelection = reader.GetString(5),
+                                SaleTaxSelection = reader.GetString(6),
+                                ProfessionSelection = reader.GetString(7),
+                                GovernmentSelection = reader.GetString(8),
+                                GovernmentDetails = reader.IsDBNull(9) ? null : reader.GetString(9),
+                                ViolationSelection = reader.GetString(10),
+                                ViolationDetails = reader.IsDBNull(11) ? null : reader.GetString(11),
+                                ConvictedSelection = reader.GetString(12),
+                                ConvictedDetails = reader.IsDBNull(13) ? null : reader.GetString(13),
+                                RenewBrand = reader.GetString(14),
+                                RegFromDate = reader.IsDBNull(15) ? (DateTime?)null : reader.GetDateTime(15),
+                                RegToDate = reader.IsDBNull(16) ? (DateTime?)null : reader.GetDateTime(16),
+                                FirmAddress = reader.IsDBNull(17) ? null : reader.GetString(17),
+                                CreatedBy = reader.GetString(18),
+                                CreatedDate = reader.GetDateTime(19),
+                                CreatedIp = reader.GetString(20),
+                                UpdatedBy = reader.IsDBNull(21) ? null : reader.GetString(21),
+                                UpdatedDate = reader.IsDBNull(22) ? (DateTime?)null : reader.GetDateTime(22),
+                                UpdatedIp = reader.IsDBNull(23) ? null : reader.GetString(23),
+                                Flag = reader.GetString(24)
+                            };
+                        }
+
+                        // Move to next result set (CFOExciseBrandDetails)
+                        if (reader.NextResult())
+                        {
+                            data.brandgridlist = new List<CFOExciseBrandDetails>();
+                            while (reader.Read())
+                            {
+                                CFOExciseBrandDetails brandDetail = new CFOExciseBrandDetails
+                                {
+                                    CFOunitid = reader.GetInt32(0),
+                                    CFOQID = reader.GetInt32(1),
+                                    NameOfBrand = reader.GetString(2),
+                                    Strength = reader.GetString(3),
+                                    Size = reader.GetString(4),
+                                    NumberOfBottles = reader.GetString(5),
+                                    MRPRs = reader.GetString(6),
+                                    BulkLiter = reader.GetString(7),
+                                    LandOnProof = reader.GetString(8),
+                                    BottlePlant = reader.GetString(9),
+                                    CreatedBy = reader.GetString(10),
+                                    CreatedDate = reader.GetDateTime(11),
+                                    CreatedIp = reader.GetString(12),
+                                    UpdatedBy = reader.IsDBNull(13) ? null : reader.GetString(13),
+                                    UpdatedDate = reader.IsDBNull(14) ? (DateTime?)null : reader.GetDateTime(14),
+                                    UpdatedIp = reader.IsDBNull(15) ? null : reader.GetString(15),
+                                    Flag = reader.GetString(16)
+                                };
+                                data.brandgridlist.Add(brandDetail);
+                            }
+                        }
+
+                        // Move to next result set (CFOExciseLiquorDetails)
+                        if (reader.NextResult())
+                        {
+                            data.liquorgridlist = new List<CFOExciseLiquorDetails>();
+                            while (reader.Read())
+                            {
+                                CFOExciseLiquorDetails liquorDetail = new CFOExciseLiquorDetails
+                                {
+                                    CFOunitid = reader.GetInt32(0),
+                                    CFOQID = reader.GetInt32(1),
+                                    CountryID = reader.GetString(2),
+                                    CountryName = reader.IsDBNull(3) ? null : reader.GetString(3),
+                                    MRPSSelection = reader.GetString(4),
+                                    BrandName = reader.GetString(5),
+                                    CreatedBy = reader.GetString(6)
+                                    //CreatedDate = reader.GetDateTime(7),
+                                    //CreatedIp = reader.GetString(8),
+                                    //UpdatedBy = reader.IsDBNull(9) ? null : reader.GetString(9),
+                                    //UpdatedDate = reader.IsDBNull(10) ? (DateTime?)null : reader.GetDateTime(10),
+                                    //UpdatedIp = reader.IsDBNull(11) ? null : reader.GetString(11),
+                                    //Flag = reader.GetString(12)
+                                };
+                                data.liquorgridlist.Add(liquorDetail);
+                            }
+                        }
+                    }
+                }
+            }
+            return data;
         }
 
     }
