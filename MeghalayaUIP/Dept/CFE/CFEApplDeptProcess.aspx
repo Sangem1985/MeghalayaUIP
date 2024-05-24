@@ -1415,7 +1415,7 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Attachment Name</th>
-                                                                    <th></th>
+                                                                    <th>Status</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -1425,7 +1425,7 @@
                                                                     <td class="fw-bold">DPR</td>
 
                                                                     <td>
-                                                                        <button type="button" class="btn btn-rounded btn-dark">View</button>
+                                                                        <button type="button" class="btn btn-rounded btn-green" style="width:150px;">View</button>
                                                                     </td>
                                                                 </tr>
 

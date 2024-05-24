@@ -12,22 +12,21 @@
                             <h4 class="card-title">Grievance</h4>
                         </div>
                         <div class="card-body">
-                            <div class="col-md-12 d-flex">
+                            <div class="col-md-12 justify-content-center d-flex">
                                 <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
-                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                    <strong>Success!</strong> <asp:Label ID="lblmsg" runat="server"></asp:Label>
                                 </div>
                             </div>
-                            <div class="col-md-12 d-flex">
+                            <div class="col-md-12 justify-content-center d-flex">
                                 <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
-                                    <strong>Warning!</strong>
-                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    <strong>Warning!</strong> <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
                             <div class="row">
                                 <div class="col-md-12 d-flex">
-                                    <asp:Label ID="LabelHeading" runat="server" CssClass="LBLBLACK" Font-Bold="True"
-                                        Width="199px"></asp:Label>
+                                   <h4 class="card-title ml-3"> <asp:Label ID="LabelHeading" runat="server" CssClass="LBLBLACK" Font-Bold="True"
+                                        Width="199px"></asp:Label></h4>
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -204,8 +203,9 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12 float-end">
                                         <div class="form-group row justify-content-end">
-                                            <asp:Button runat="server" Text="Submit" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg mr-2" BackColor="Green" Width="150px" />
-                                            <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnClear_Click" BackColor="#3333ff" Width="150px" />
+                                            <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-warning btn-lg" OnClick="btnClear_Click" Width="150px" />
+                                            <asp:Button runat="server" Text="Submit" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-submit btn-lg mr-2" Width="150px" />
+                                            
                                         </div>
                                     </div>
                                 </div>
