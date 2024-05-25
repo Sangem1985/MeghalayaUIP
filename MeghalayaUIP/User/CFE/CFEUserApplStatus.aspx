@@ -4,23 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
-    <style>
-    .page-wrapper.cfeuserapplstatus .card h3 {
-    font-size: 20px;
-    margin-left: 15px;
-    margin-top: 3px;
-    margin-bottom: -10px;
-    font-weight: 600;
-    color: #0b3654;
-}
-        .page-wrapper.cfeuserapplstatus i.fi {
-    top: 19% !important;
-    position: absolute;
-}
-        .page-wrapper.cfeuserapplstatus .card .card-header {
-    border-bottom: none !important;
-}
-    </style>
+
     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <div class="col-md-12 d-flex">
                         <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
