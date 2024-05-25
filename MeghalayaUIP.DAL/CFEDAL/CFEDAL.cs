@@ -15,7 +15,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
     {
         string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
 
-        public DataSet GetPREREGandCFEapplications(string userid)
+        public DataSet GetPREREGandCFEapplications(string userid, string UnitID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -33,6 +33,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
+                
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

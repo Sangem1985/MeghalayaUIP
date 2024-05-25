@@ -34,9 +34,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetCFEUserDashboardStatus(UserID, UnitID);
         }
-        public DataSet GetUserDashboardStatusByModule(int ModuleID, string UnitID)
+        public DataSet GetUserDashboardStatusByModule(string UserID, string UnitID)
         {
-            return objCommonDAL.GetUserDashboardStatusByModule(ModuleID, UnitID);
+            return objCommonDAL.GetUserDashboardStatusByModule(UserID, UnitID);
         }
         public DataSet GetDepGrievanceDashboard(string DeptID, string Userid)
         {

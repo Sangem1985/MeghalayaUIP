@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User
     public partial class DashboardDrill : System.Web.UI.Page
     {
         MGCommonBAL objcommonBAL = new MGCommonBAL();
-        string UnitID;
+        string UnitID; string url;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,21 +29,12 @@ namespace MeghalayaUIP.User
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-                //UnitID = "1007";
-                if (Request.QueryString.Count > 0)
-                {
-                    UnitID = Convert.ToString(Request.QueryString[0]);
-                }
-                else
-                {
-                    string newurl = "~/User/MainDashboard.aspx";
-                    Response.Redirect(newurl);
-                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
 
                 if (!IsPostBack)
                 {
+                    BindUnits();
                     BindApplStatus();
                 }
             }
@@ -54,53 +45,59 @@ namespace MeghalayaUIP.User
 
 
         }
+        protected void BindUnits()
+        {
+            try
+            {
+                DataSet dsUnits = new DataSet();
+                dsUnits = objcommonBAL.GetApplByModuleName(hdnUserID.Value, "1");
+                ddlUnitNames.DataSource = dsUnits.Tables[0];
+                ddlUnitNames.DataTextField = "COMPANYNAME";
+                ddlUnitNames.DataValueField = "UNITID";
+                ddlUnitNames.DataBind();
+                AddSelect(ddlUnitNames);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
         protected void BindApplStatus()
         {
             try
             {
-                int ModuleID = 0;
                 DataSet dsStatus = new DataSet();
-                UnitID = Convert.ToString(Request.QueryString[0]);
-                ddlUnitNames.SelectedValue = UnitID;
-                string module = Convert.ToString(Request.QueryString[1]);
-                if (module == "PreEstablishment")
-                {
-                    ModuleID = 1; 
-                    lblmodule.Text = "Pre - Establishment";
-                }
-                else if (module == "PreOperational")
-                {
-                    ModuleID = 2; 
-                }
-                else if (module == "Incentives")
-                {
-                    ModuleID = 3; 
-                }
+                UnitID = ddlUnitNames.SelectedValue;
 
-                dsStatus = objcommonBAL.GetUserDashboardStatusByModule(ModuleID, UnitID);
+                dsStatus = objcommonBAL.GetUserDashboardStatusByModule(hdnUserID.Value, UnitID);
                 if (dsStatus.Tables.Count > 0)
                 {
-                    if (dsStatus.Tables[0].Rows.Count > 0)
-                    {
-                        lblUnitID.Text = Convert.ToString(dsStatus.Tables[0].Rows[0]["UNITID"]);
-                        lblUnitName.Text = Convert.ToString(dsStatus.Tables[0].Rows[0]["COMPANYNAME"]);
-                    }
                     if (dsStatus.Tables[1].Rows.Count > 0)
                     {
-                        ddlUnitNames.DataSource = dsStatus.Tables[1];
-                        ddlUnitNames.DataTextField = "COMPANYNAME";
-                        ddlUnitNames.DataValueField = "UNITID";
-                        ddlUnitNames.DataBind();
-                        AddSelect(ddlUnitNames);
-                    }
+                        btnPreRegTotal.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["PRTOTAL"]);
+                        btnPreRegApproved.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["PRAPPROVED"]);
+                        btnPreRegRejected.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["PRREJECTED"]);
+                        btnPreRegUnderProcess.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["PRUNDERPROCESS"]);
+                        btnPreRegQuery.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["PRQUERYRAISED"]);
 
-                    if (dsStatus.Tables[2].Rows.Count > 0)
-                    {
-                        btnCFETotal.Text = Convert.ToString(dsStatus.Tables[2].Rows[0]["TotalApplications"]);
-                        btnCFEApproved.Text = Convert.ToString(dsStatus.Tables[2].Rows[0]["ApprovedApplications"]);
-                        btnCFERejected.Text = Convert.ToString(dsStatus.Tables[2].Rows[0]["RejectedApplications"]);
-                        btnCFEUnderProcess.Text = Convert.ToString(dsStatus.Tables[2].Rows[0]["UnderProcessApplications"]);
-                        btnCFEQuery.Text = Convert.ToString(dsStatus.Tables[2].Rows[0]["Query"]);
+                        btnCFETotal.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFETOTAL"]);
+                        btnCFEApproved.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFEAPPROVED"]);
+                        btnCFERejected.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFEREJECTED"]);
+                        btnCFEUnderProcess.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFEUNDERPROCESS"]);
+                        btnCFEQuery.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFEQUERYRAISED"]);
+
+                        btnCFOTotal.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFOTOTAL"]);
+                        btnCFOApproved.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFOAPPROVED"]);
+                        btnCFORejected.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFOREJECTED"]);
+                        btnCFOUnderProcess.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFOUNDERPROCESS"]);
+                        btnCFOQuery.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["CFOQUERYRAISED"]);
+
+                        btnINCTotal.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["INCTOTAL"]);
+                        btnINCApproved.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["INCAPPROVED"]);
+                        btnINCRejected.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["INCREJECTED"]);
+                        btnINCUnderProcess.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["INCUNDERPROCESS"]);
+                        btnINCQuery.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["INCQUERYRAISED"]);
 
                     }
                 }
@@ -117,7 +114,7 @@ namespace MeghalayaUIP.User
             {
                 System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
                 li.Text = "--Select--";
-                li.Value = "0";
+                li.Value = "%";
                 ddl.Items.Insert(0, li);
             }
             catch (Exception ex)
@@ -126,24 +123,108 @@ namespace MeghalayaUIP.User
                 Failure.Visible = true;
             }
         }
+        protected void ddlUnitNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                BindApplStatus();
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        protected void btnPreRegTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (btnPreRegTotal.Text != "0")
+                {
+                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
+                else
+                {
+                    url = "~/User/PreReg/IndustryRegistration.aspx";
+                    Response.Redirect(url);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnPreRegApproved_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void btnPreRegUnderProcess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnPreRegRejected_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void btnPreRegQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnPreRegQuery.Text != "0")
+                {
+                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
         protected void btnCFETotal_Click(object sender, EventArgs e)
         {
             try
             {
-                string url;
-                if (btnCFETotal.Text != "0")
-                {
-                    if (ddlUnitNames.SelectedItem.Text == "--Select--")
-                    {
-                        url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]) + "&Module=Pre - Establishment";
-                        Response.Redirect(url);
-                    }
-                    else
-                    {
-                        url = "Dashboardstatus.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Module=Pre - Establishment"; 
-                        Response.Redirect(url);
-                    }
-                }
+                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
             }
             catch (Exception ex)
             {
@@ -156,37 +237,22 @@ namespace MeghalayaUIP.User
         {
             try
             {
-                if (btnCFEApproved.Text != "0")
-                {
-                    if (ddlUnitNames.SelectedItem.Text == "--Select--")
-                    {
-                        string url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]);
-                        Response.Redirect(url);
-                    }
-                    else
-                    {
-                        string url = "Dashboardstatus.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                        Response.Redirect(url);
-                    }
-                }
+                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
             }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
-
         }
 
         protected void btnCFEUnderProcess_Click(object sender, EventArgs e)
         {
             try
             {
-                if (btnCFEUnderProcess.Text != "0")
-                {
-                    string url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]);
-                    Response.Redirect(url);
-                }
+                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
             }
             catch (Exception ex)
             {
@@ -199,11 +265,8 @@ namespace MeghalayaUIP.User
         {
             try
             {
-                if (btnCFERejected.Text != "0")
-                {
-                    string url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]);
-                    Response.Redirect(url);
-                }
+                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
             }
             catch (Exception ex)
             {
@@ -216,11 +279,8 @@ namespace MeghalayaUIP.User
         {
             try
             {
-                if (btnCFEQuery.Text != "0")
-                {
-                    string url = "Dashboardstatus.aspx?UnitID=" + Convert.ToString(Request.QueryString[0]);
-                    Response.Redirect(url);
-                }
+                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
             }
             catch (Exception ex)
             {
@@ -229,20 +289,30 @@ namespace MeghalayaUIP.User
             }
         }
 
-        protected void ddlUnitNames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlUnitNames.SelectedItem.Text != "--Select--")
-                {
 
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
+        protected void btnCFOTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCFOApproved_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCFOUnderProcess_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCFORejected_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCFOQuery_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
