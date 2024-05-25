@@ -275,4 +275,20 @@ section#dashboardcount2 {
 
 
 
- 
+.page-wrapper.cfeuserapplstatus .card h3 {
+    font-size: 20px;
+    margin-left: 15px;
+    margin-top: 3px;
+    margin-bottom: -10px;
+    font-weight: 600;
+    color: #0b3654;
+}
+
+.page-wrapper.cfeuserapplstatus i.fi {
+    top: 19% !important;
+    position: absolute;
+}
+
+.page-wrapper.cfeuserapplstatus .card .card-header {
+    border-bottom: none !important;
+}
