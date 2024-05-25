@@ -20,15 +20,15 @@
                                 <div class="tab-content">
                                     <div class="tab-pane show active" id="basictab1">
                                         <div class="card-body">
-                                            <h4 class="card-title"></h4>
+                                            <%--<h4 class="card-title"></h4>--%>
                                             <div class="row">
                                                 <div class="panel-body" id="divAttachmentQuery" runat="server">
 
-                                                    <asp:GridView ID="gvAttachmentsQuery" CssClass="" runat="server" AllowPaging="false" AutoGenerateColumns="False"
+                                                    <asp:GridView ID="gvAttachmentsQuery" CssClass="table-borderd" runat="server" AllowPaging="false" AutoGenerateColumns="False"
                                                         CellPadding="4" Height="62px" EmptyDataText="No Queries Found" ShowHeaderWhenEmpty="true"
-                                                        PageSize="20" Width="100%" Font-Names="Verdana" Font-Size="12px" GridLines="Both" OnRowDataBound="gvAttachmentsQuery_RowDataBound">
-                                                        <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" />
-                                                        <RowStyle CssClass="GridviewScrollC1Item" />
+                                                        PageSize="20" Width="100%" Font-Names="Verdana" Font-Size="13px" GridLines="Both" OnRowDataBound="gvAttachmentsQuery_RowDataBound">
+                                                        <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
+                                                        <RowStyle CssClass="GridviewScrollC1Item" HorizontalAlign="Center" />
                                                         <PagerStyle CssClass="GridviewScrollC1Pager" />
                                                         <FooterStyle BackColor="#013161" Height="40px" CssClass="GridviewScrollC1Header" />
                                                         <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -82,7 +82,7 @@
                                                             <%--ApplicantQueryResponse.aspx--%>
                                                             <asp:TemplateField HeaderText="Query Respond" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
-                                                       <asp:LinkButton ID="lnkQueryCount" runat="server" Text="Respond to Query" PostBackUrl='<%#Eval("UNITID","~/User/PreReg/IRQueryReason.aspx?UNITID={0}")%>'></asp:LinkButton>
+                                                       <asp:LinkButton ID="lnkQueryCount" CssClass="btn btn-info" runat="server" Text="Respond to Query" PostBackUrl='<%#Eval("UNITID","~/User/PreReg/IRQueryReason.aspx?UNITID={0}")%>'></asp:LinkButton>
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>

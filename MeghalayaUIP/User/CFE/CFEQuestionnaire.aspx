@@ -893,11 +893,11 @@
                             </div>
                             <div class="card-body">
                                 <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                    CssClass="GRD" ForeColor="#333333" Width="90%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
+                                    CssClass="GRD table-bordered table-hover" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" HorizontalAlign="Center" VerticalAlign="Middle">
                                     <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                    <RowStyle CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
                                     <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
-                                    <AlternatingRowStyle BackColor="White" />
+                                    
                                     <Columns>
                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
                                             <ItemTemplate>
@@ -907,15 +907,15 @@
                                             <ItemStyle Width="50px" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
-                                            <ItemStyle Width="450px" />
+                                            <ItemStyle Width="750px" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
-                                            <ItemStyle Width="180px" />
+                                            <ItemStyle Width="280px" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fees (Rs.)">
-                                            <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
+                                        <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Left" HeaderText="Fees (Rs.)">
+                                            <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
                                             <HeaderStyle HorizontalAlign="Right" />
-                                            <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Right" />
+                                            <ItemStyle CssClass="GRDITEM2" Width="100px" HorizontalAlign="Left" />
                                         </asp:BoundField>
                                         <asp:TemplateField HeaderText="Approval ID" Visible="false">
                                             <ItemTemplate>
