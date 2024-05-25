@@ -50,7 +50,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h5 class="mb-0">
-                                                    <asp:Label ID="lblTOTALAPPLICATIONS" runat="server">Submiteed</asp:Label></h5>
+                                                    <asp:Label ID="lblAppstatus" runat="server">Submiteed</asp:Label></h5>
                                                 <%--<p class="text-sm mb-0 text-capitalize">Sumbitted</p>--%>
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h5 class="mb-0">
-                                                    <asp:Label ID="lblPRESCRUTINYCOMPLETED" runat="server">Draft</asp:Label></h5>
+                                                    <asp:Label ID="lblCAFstatus" runat="server">Draft</asp:Label></h5>
                                                 <%--<p class="text-sm mb-0 text-capitalize">Draft</p>--%>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblPREREJECTED" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblApprovalsReq" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblPRESCRUTINYPENDING" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblApprovalsObtained" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label7" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblApprovalsApplied" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label8" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblApprovalstobeApplied" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -206,7 +206,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label9" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblAddlPaymentReq" runat="server">0</asp:Label></h4>
                                                <%-- <p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -227,7 +227,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label10" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblAddlPaymentPaid" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -263,7 +263,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label1" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblQueryRaised" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -283,7 +283,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label2" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblQueryReplied" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -305,7 +305,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label3" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblQueryYettoRespond" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -325,7 +325,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label4" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblScrtnyRejected" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -345,7 +345,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label5" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblScrtnyCmpltd" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
@@ -365,7 +365,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="Label6" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblScrtnyPendng" runat="server">0</asp:Label></h4>
                                                 <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
 
                                             </div>
@@ -398,7 +398,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblTOTALAPPROVALISSUED" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblApprovalIssued" runat="server">0</asp:Label></h4>
                                                 <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
                                             </div>
                                         </div>
@@ -421,7 +421,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblAPPROVALPENDING" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblApprovalPending" runat="server">0</asp:Label></h4>
                                                 <p class="text-sm mb-0 text-capitalize">Approval Under Process</p>
                                             </div>
                                         </div>
@@ -443,7 +443,7 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblREJECTED" runat="server">0</asp:Label></h4>
+                                                    <asp:Label ID="lblApprovalRejected" runat="server">0</asp:Label></h4>
                                                 <p class="text-sm mb-0 text-capitalize">Approval Rejected</p>
                                             </div>
                                         </div>
