@@ -348,15 +348,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblunitofmeasure;
 
         /// <summary>
-        /// divServc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divServc;
-
-        /// <summary>
         /// lblMainSrvc control.
         /// </summary>
         /// <remarks>
@@ -364,6 +355,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMainSrvc;
+
+        /// <summary>
+        /// divServc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divServc;
 
         /// <summary>
         /// lblSrvcProvdng control.

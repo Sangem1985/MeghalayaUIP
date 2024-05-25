@@ -10,6 +10,7 @@
             margin-right: 24px;
             color: #000;
             font-weight: 100;
+            visibility:hidden;
         }
 
         .col-md-2 {
@@ -18,8 +19,27 @@
         div#collapseOne h4 {
     margin-bottom: 5px;
     margin-top: 20px;
-    border-bottom: 1px dotted #e1e1e1;
+    
     padding-left: 0px;
+}
+        .col-md-2 {
+    border: 1px solid #ccc;
+    padding: 0px 10px;
+    margin: -2px 0px;
+}
+        h4.card-title1 {
+    color: #fff;
+    width: 98.7%;
+    padding: 1px 0px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    text-transform: capitalize;
+    background: #2b6698;
+    text-shadow: 1px 2px 3px #000;
+    border: 1px solid #066f22;
+    font-size: 20px;
 }
     </style>
 
@@ -62,8 +82,8 @@
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="card-body" style="padding: 0px 25px 0px;">
-                                                    <div class="col-md-12 d-flex">
-                                                        <h4 class="card-title col-lg-12">Company/Unit Details</h4>
+                                                    <div class="col-md-12 d-flex" style="width: 99%;">
+                                                        <h4 class="card-title1 col-lg-12">Company/Unit Details</h4>
                                                     </div>
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -134,7 +154,7 @@
 
 
 
-                                                    <h4 class="card-title col-lg-12">Correspodence Details of Authorised Representative</h4>
+                                                    <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -205,18 +225,9 @@
                                                         </div>
 
                                                     </div>
-                                                    <%--   <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label></label></div>
-						<div class="col-md-2"><spna class="dots">:</spna></div>
+                                                   
 
-						<div class="col-md-2"><label></label></div>
-						<div class="col-md-2"><spna class="dots">:</spna></div>
-                                                        <div class="col-md-2"><label></label></div>
-						<div class="col-md-2"><spna class="dots">:</spna></div>
-                        
-					                                </div>--%>
-
-                                                    <h4 class="card-title col-lg-12">Location of Unit</h4>
+                                                    <h4 class="card-title1 col-lg-12">Location of Unit</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -277,7 +288,7 @@
 
                         
 
-                                                    <h4 class="card-title col-lg-12">Project Details</h4>
+                                                    <h4 class="card-title1 col-lg-12">Project Details</h4>
                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
 						<div class="col-md-2"><label>1. Date of Commencement of Production/Operation</label></div>
 						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblDateofcomm" runat="server"></asp:Label></div>
@@ -418,7 +429,7 @@
 						<div class="col-md-2"><spna class="dots">:</spna></div>
                         
 					     </div>--%>
-                           <h4 class="card-title col-lg-12">Finance Revenue Details</h4>
+                           <h4 class="card-title1 col-lg-12">Finance Revenue Details</h4>
                                                     
                               <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
 						<div class="col-md-2"><label>1. Promoter's and Contributors (INR)</label></div>
