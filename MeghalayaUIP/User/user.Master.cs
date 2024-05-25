@@ -106,7 +106,7 @@ namespace MeghalayaUIP.User
         }
         protected void linkuserdshbrd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/MainDashboard.aspx");
+            Response.Redirect("~/User/Dashboarddrill.aspx");
         }
         protected void linkIndReg_Click(object sender, EventArgs e)
         {

@@ -14,6 +14,7 @@ namespace MeghalayaUIP.User.CFE
     {
         CFEBAL objcfebal = new CFEBAL();
         string UnitID;
+        int TotApplied, TotApproved, TotRejected, TotQueryRaised, TotUnderProcess;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -97,28 +98,52 @@ namespace MeghalayaUIP.User.CFE
                 Button btnApprvlsReq;
                 Button btnApplstatus;
                 Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
-                for (int i = 0; i <= gvrcnt; i++)
-                {
-                    if (lblCFEQuesnrID.Text == "" || lblCFEQuesnrID.Text == null)
-                    {
-                        btnApply = (Button)e.Row.FindControl("btnApplyCFE");
-                        btnApprvlsReq= (Button)e.Row.FindControl("btnCombndAppl");
-                        btnApplstatus=(Button)e.Row.FindControl("btnApplStatus");
-                        btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Enabled = false; btnApplstatus.BackColor = System.Drawing.Color.LightGray; btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                    }
-                    else
-                    {
-                        btnApply = (Button)e.Row.FindControl("btnApplyCFE");
-                        btnApply.Enabled = false;
-                        btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
-                        btnApply.Style.Add("border", "none");
-                        btnApply.Style.Add("color", "black");
-                    }
-                }
-            }
+                Label APPLSTATUS = (Label)e.Row.FindControl("lblCFEAPPLSTATUS");
 
+                int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
+                TotApplied = TotApplied + TotalAppl;
+
+                int TotalAppr = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPROVEDDCOUNT"));
+                TotApproved = TotApproved + TotalAppr;
+
+                int TotalUndrPrcs = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "UNDERPROCESSCOUNT"));
+                TotUnderProcess = TotUnderProcess + TotalUndrPrcs;
+
+                int TotalRej = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "REJECTEDDCOUNT"));
+                TotRejected = TotRejected + TotalRej;
+
+                int TotalQuery = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "QUERYCOUNT"));
+                TotQueryRaised = TotQueryRaised + TotalQuery;
+
+
+                if (lblCFEQuesnrID.Text == "" || lblCFEQuesnrID.Text == null)
+                {
+                    btnApply = (Button)e.Row.FindControl("btnApplyCFE");
+                    btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
+                    btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
+                    btnApply.Enabled = true;
+                    btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                    btnApplstatus.Enabled = false; btnApplstatus.BackColor = System.Drawing.Color.LightGray; btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    btnApply = (Button)e.Row.FindControl("btnApplyCFE");
+                    btnApply.Enabled = false;
+                    btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
+                    btnApply.Style.Add("border", "none");
+                    btnApply.Style.Add("color", "black");
+                }
+
+            }
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Cells[6].Text = "Total";
+                e.Row.Cells[7].Text = TotApplied.ToString();
+                e.Row.Cells[8].Text = TotApproved.ToString();
+                e.Row.Cells[9].Text = TotUnderProcess.ToString();
+                e.Row.Cells[10].Text = TotRejected.ToString();
+                e.Row.Cells[11].Text = TotQueryRaised.ToString();
+            }
         }
         protected void btnApplyCFE_Click(object sender, EventArgs e)
         {

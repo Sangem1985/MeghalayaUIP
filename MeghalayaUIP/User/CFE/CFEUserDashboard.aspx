@@ -26,9 +26,10 @@
                     <div class="col-md-12 d-flex">
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-striped table-hover" ForeColor="#333333"
-                            GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound">
+                            GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound" ShowFooter="true">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                            <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <AlternatingRowStyle />
                             <Columns>
                                 <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
@@ -46,12 +47,8 @@
                                 <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
-                                <asp:TemplateField HeaderText="Apply For Pre-Establishment" ItemStyle-Width="12%">
-                                    <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply" CssClass="btn btn-info" />
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:TemplateField>
+
+                                <%--8--%>
                                 <asp:TemplateField HeaderText="Approvals Applied" ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPLIEDCOUNT")%>' />
@@ -76,19 +73,25 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-
                                 <asp:TemplateField HeaderText="Query Raised" ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplQueryRaised" Text='<%#Eval("QUERYCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Apply For Pre-Establishment" ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply" CssClass="btn btn-info" />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="12%" Visible="false">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnCombndAppl" OnClick="btnCombndAppl_Click" Text="Approvals Required" CssClass="btn btn-info" BackColor="Olive" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
+
                                 <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info" BackColor="Tomato" />
@@ -104,6 +107,12 @@
                                 <asp:TemplateField HeaderText="CFEQID" ItemStyle-Width="12%" Visible="false">
                                     <ItemTemplate>
                                         <asp:Label runat="server" ID="lblCFEQID" Text='<%#Eval("CFEQDID") %>'> </asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="CFEQSTATUS" ItemStyle-Width="12%" Visible="false">
+                                    <ItemTemplate>
+                                        <asp:Label runat="server" ID="lblCFEAPPLSTATUS" Text='<%#Eval("CFEAPPLSTATUS") %>'> </asp:Label>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

@@ -127,6 +127,12 @@ namespace MeghalayaUIP.User
         {
             try
             {
+                if (ddlUnitNames.SelectedValue != "%")
+                {
+                    divUnit.Visible = true;
+                    lblUnitID.Text = ddlUnitNames.SelectedValue;
+                    lblUnitName.Text = Convert.ToString(ddlUnitNames.SelectedItem.Text);
+                }
                 BindApplStatus();
             }
             catch (Exception ex)
@@ -139,7 +145,6 @@ namespace MeghalayaUIP.User
         {
             try
             {
-
                 if (btnPreRegTotal.Text != "0")
                 {
                     url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
