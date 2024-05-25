@@ -43,12 +43,43 @@
                                 <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                 <asp:TemplateField HeaderText="Apply For Pre-Establishment" ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply For Pre Establishment" CssClass="btn btn-info" />
+                                        <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply" CssClass="btn btn-info" />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Approvals Applied" ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPLIEDCOUNT")%>' />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Approvals Approved" ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPROVEDDCOUNT")%>' />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Approvals Under Process" ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("UNDERPROCESSCOUNT")%>' />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Approvals Rejected" ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("REJECTEDDCOUNT")%>' />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="Query Raised" ItemStyle-Width="12%">
+                                    <ItemTemplate>
+                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("QUERYCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

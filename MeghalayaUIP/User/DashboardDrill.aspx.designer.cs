@@ -15,15 +15,6 @@ namespace MeghalayaUIP.User
     {
 
         /// <summary>
-        /// lblmodule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmodule;
-
-        /// <summary>
         /// unitname control.
         /// </summary>
         /// <remarks>
@@ -114,49 +105,49 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trPreReg;
 
         /// <summary>
-        /// LinkButton1 control.
+        /// btnPreRegTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton btnPreRegTotal;
 
         /// <summary>
-        /// LinkButton2 control.
+        /// btnPreRegApproved control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.LinkButton btnPreRegApproved;
 
         /// <summary>
-        /// LinkButton3 control.
+        /// btnPreRegUnderProcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        protected global::System.Web.UI.WebControls.LinkButton btnPreRegUnderProcess;
 
         /// <summary>
-        /// LinkButton4 control.
+        /// btnPreRegRejected control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        protected global::System.Web.UI.WebControls.LinkButton btnPreRegRejected;
 
         /// <summary>
-        /// LinkButton5 control.
+        /// btnPreRegQuery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
+        protected global::System.Web.UI.WebControls.LinkButton btnPreRegQuery;
 
         /// <summary>
         /// trCFE control.
@@ -222,6 +213,51 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trCFO;
 
         /// <summary>
+        /// btnCFOTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCFOTotal;
+
+        /// <summary>
+        /// btnCFOApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCFOApproved;
+
+        /// <summary>
+        /// btnCFOUnderProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCFOUnderProcess;
+
+        /// <summary>
+        /// btnCFORejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCFORejected;
+
+        /// <summary>
+        /// btnCFOQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCFOQuery;
+
+        /// <summary>
         /// trINC control.
         /// </summary>
         /// <remarks>
@@ -229,5 +265,50 @@ namespace MeghalayaUIP.User
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trINC;
+
+        /// <summary>
+        /// btnINCTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnINCTotal;
+
+        /// <summary>
+        /// btnINCApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnINCApproved;
+
+        /// <summary>
+        /// btnINCUnderProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnINCUnderProcess;
+
+        /// <summary>
+        /// btnINCRejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnINCRejected;
+
+        /// <summary>
+        /// btnINCQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnINCQuery;
     }
 }

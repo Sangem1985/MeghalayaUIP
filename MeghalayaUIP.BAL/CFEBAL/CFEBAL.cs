@@ -16,9 +16,9 @@ namespace MeghalayaUIP.BAL.CFEBLL
     {
         public CFEQuestionnaireDet objCFEQ { get; } = new CFEQuestionnaireDet();
         public CFEDAL objCFEDAL { get; } = new CFEDAL();
-        public DataSet GetPREREGandCFEapplications(string USERID)
+        public DataSet GetPREREGandCFEapplications(string USERID, string UnitID)
         {
-            return objCFEDAL.GetPREREGandCFEapplications(USERID);
+            return objCFEDAL.GetPREREGandCFEapplications(USERID, UnitID);
         }
         public DataSet GetIndustryRegDetails(string userid, string UnitID)
         {

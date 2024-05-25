@@ -13,6 +13,7 @@ namespace MeghalayaUIP.User.CFE
     public partial class CFEUserDashboard : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -54,7 +55,11 @@ namespace MeghalayaUIP.User.CFE
         public void BindApproved()
         {
             DataSet dsApproved = new DataSet();
-            dsApproved = objcfebal.GetPREREGandCFEapplications(hdnUserID.Value);
+            if (Request.QueryString.Count > 0)
+            {
+                UnitID = Request.QueryString[0];
+            }
+            dsApproved = objcfebal.GetPREREGandCFEapplications(hdnUserID.Value, UnitID);
             if (dsApproved.Tables.Count > 0)
             {
                 if (dsApproved.Tables[0].Rows.Count > 0)
