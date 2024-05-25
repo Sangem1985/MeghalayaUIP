@@ -10,10 +10,15 @@
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title">Welcome to Dashboard <asp:Label ID="lblmodule" runat="server"></asp:Label></h4>
+                    <h4 class="card-title"><b>Welcome to Dashboard <asp:Label ID="lblmodule" runat="server"></asp:Label></b></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
                     </h4>
+                </div>
+                <div class="card m-2 mb-0 pb-0" style="border-radius:0px;">
+                    <div class="card-header d-flex justify-content-between" style="background:#f3f3f3;">
+                    <h4 class="card-title">Showing Status of All Applications</h4>
+                    
                 </div>
                 <section id="dashboardcount" class="mt-2">
                     <div class="container-fluid">
@@ -30,31 +35,21 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
-                            <div class="col-md-12 row mt-4">
-                                <div class="col-md-2">1. Unit ID</div>
-
-                                <div class="col-md-3 fw-bold text-info">
-                                    <spna class="dots">:</spna>
-                                    <b>
-                                        <asp:Label ID="lblUnitID" runat="server"></asp:Label></b>
-                                </div>
-                                <div class="col-md-3">Select other Unit to view the Status</div>
-
-                                <div class="col-md-2 d-flex">
-                                    <spna class="dots">:</spna>
-                                    <asp:DropDownList ID="ddlUnitNames" runat="server" class="form-control" OnSelectedIndexChanged="ddlUnitNames_SelectedIndexChanged"></asp:DropDownList>
+                            <div class="col-md-12 d-flex mb-2 bg-default-light justify-content-around" style="border: 1px dotted #96ccf3;align-items: center;background-color:rgb(68 141 255 / 12%) !important;">
+                                <div class="col-md-1">Unit ID</div>
+                                <div class="col-md-2"><spna class="dots">:</spna>
+                                        <b><asp:Label ID="lblUnitID" runat="server"></asp:Label></b></div>
+                                <div class="col-md-1">Unit Name</div>
+                                <div class="col-md-2"><spna class="dots">:</spna><b><asp:Label ID="lblUnitName" runat="server"></asp:Label></b></div>
+                                <div class="col-md-3">Select Unit to view the Status</div>
+                                <div class="col-md-3 d-flex">
+                                   <spna class="dots">:</spna>
+                                    <asp:DropDownList Width="150px" ID="ddlUnitNames" runat="server" class="form-control" OnSelectedIndexChanged="ddlUnitNames_SelectedIndexChanged"></asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="col-md-12 row mt-2 mb-4">
-                                <div class="col-md-2">2. Unit Name</div>
+                            
 
-                                <div class="col-md-3 fw-bold text-info">
-                                    <spna class="dots">:</spna><b><asp:Label ID="lblUnitName" runat="server"></asp:Label></b>
-                                </div>
-
-                            </div>
-
-                            <div class="card card-body">
+                            <div class="card" style="width:100%;">
                                 <div class="table-responsive under table-striped table-hover drilldown preEstablishment">
                                     <table class="table table-bordered mb-0">
                                         <thead>
@@ -73,11 +68,11 @@
                                                 <th scope="col" style="text-align: left !important;">MIIPP Application</th>
                                                 <td>
                                                     <span class="status4">
-                                                        <asp:LinkButton ID="LinkButton1" runat="server"  Font-Underline="false" ForeColor="White">1</asp:LinkButton>
+                                                        <asp:LinkButton ID="LinkButton1" runat="server"  Font-Underline="false" ForeColor="White">&nbsp;0&nbsp;&nbsp;</asp:LinkButton>
                                                     </span>
                                                 </td>
                                                 <td><span class="status">
-                                                    <asp:LinkButton ID="LinkButton2" runat="server"  Font-Underline="false" ForeColor="White">1</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton2" runat="server"  Font-Underline="false" ForeColor="White">0</asp:LinkButton>
                                                 </span>
                                                 </td>
                                                 <td><span class="status1">
@@ -143,7 +138,7 @@
                         </div>
                     </div>
                 </section>
-
+                    </div>
             </div>
 
 

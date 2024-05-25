@@ -14,8 +14,8 @@
                         <div class="row mt-2">
                             <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
                                 <a href="IntenttoInvestDashboard.aspx">
-                                    <div class="card-counter primarydashboard5">
-                                        <i class="fi fi-rr-square-up-right"></i>
+                                    <div class="card-counter primarydashboard1">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
                                         <span class="count-numbers">Intent to Invest 
                                         </span>
                                         <span class="count-name"></span>
@@ -23,18 +23,18 @@
                                 </a>
                             </div>
                             <div class="col-md-3" id="prereg" runat="server" visible="false">
-                                <div class="card-counter primarydashboard5">
+                                <div class="card-counter info">
                                     <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
-									<i class="fi fi-rr-square-up-right"></i>
+									<i class="fa fa-users"></i>
 									<span class="count-numbers">Registration under<br /> MIIPP 2024</span>
 									<span class="count-name">(Principle approval)</span>
                                     </asp:LinkButton>
                                 </div>
                             </div>
                             <div class="col-md-3" id="Preestablishment" runat="server" visible="false">
-                                <div class="card-counter primarydashboard1">
+                                <div class="card-counter primary">
                                     <asp:LinkButton runat="server" ID="linkCFE" OnClick="linkCFE_Click">
-									<i class="fi fi-rr-square-up-right"></i>
+									<img src="../assets/admin/img/prl.png" alt="logo">
 									<span class="count-numbers">Pre-establishment<br /> Approval</span>
 									<span class="count-name"></span>
                                     </asp:LinkButton>
@@ -43,9 +43,9 @@
                             </div>
                             <div class="col-md-3" id="PreOperational" runat="server" visible="false">
 
-                                <div class="card-counter primarydashboard2">
+                                <div class="card-counter danger">
                                     <asp:LinkButton runat="server" ID="linkCFO" OnClick="linkCFO_Click">
-                                    <i class="fi fi-rr-square-up-right"></i>
+                                     <img src="../assets/admin/img/poa.png" alt="logo">
                                     <span class="count-numbers">Pre-Operational<br /> Approval</span>
                                     <span class="count-name"></span>
                                     </asp:LinkButton>
@@ -53,9 +53,9 @@
 
                             </div>
                             <div class="col-md-3" id="Incentive" runat="server" visible="false">
-                                <div class="card-counter primarydashboard3">
+                                <div class="card-counter success">
                                     <asp:LinkButton runat="server" ID="linkIncentive" OnClick="linkIncentive_Click">
-                                    <i class="fi fi-rr-square-up-right"></i>
+                                    <img src="../assets/admin/img/inc.png" alt="logo">
                                     <span class="count-numbers">Incentive</span>
                                     <span class="count-name"></span>
                                     </asp:LinkButton>
