@@ -59,6 +59,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 UnitID = Request.QueryString[0];
             }
+            else UnitID = "%";
             dsApproved = objcfebal.GetPREREGandCFEapplications(hdnUserID.Value, UnitID);
             if (dsApproved.Tables.Count > 0)
             {
@@ -72,17 +73,17 @@ namespace MeghalayaUIP.User.CFE
                     gvPreRegApproved.DataSource = null;
                     gvPreRegApproved.DataBind();
                 }
-                if (dsApproved.Tables[1].Rows.Count > 0)
-                {
-                    gvCFEApplied.DataSource = dsApproved.Tables[1];
-                    gvCFEApplied.DataBind();
-                    gvCFEApplied.Visible= false;
-                }
-                else
-                {
-                    gvCFEApplied.DataSource = null;
-                    gvCFEApplied.DataBind();
-                }
+                //if (dsApproved.Tables[1].Rows.Count > 0)
+                //{
+                //    gvCFEApplied.DataSource = dsApproved.Tables[1];
+                //    gvCFEApplied.DataBind();
+                //    gvCFEApplied.Visible= false;
+                //}
+                //else
+                //{
+                //    gvCFEApplied.DataSource = null;
+                //    gvCFEApplied.DataBind();
+                //}
 
             }
         }

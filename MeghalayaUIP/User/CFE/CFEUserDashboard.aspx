@@ -60,26 +60,26 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Approvals Approved" ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPROVEDDCOUNT")%>' />
+                                        <asp:HyperLink runat="server" ID="hplApproved" Text='<%#Eval("APPROVEDDCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Approvals Under Process" ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("UNDERPROCESSCOUNT")%>' />
+                                        <asp:HyperLink runat="server" ID="hplundrProcess" Text='<%#Eval("UNDERPROCESSCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Approvals Rejected" ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("REJECTEDDCOUNT")%>' />
+                                        <asp:HyperLink runat="server" ID="hplRejected" Text='<%#Eval("REJECTEDDCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
                                 <asp:TemplateField HeaderText="Query Raised" ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("QUERYCOUNT")%>' />
+                                        <asp:HyperLink runat="server" ID="hplQueryRaised" Text='<%#Eval("QUERYCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
