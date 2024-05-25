@@ -297,7 +297,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return ds;
         }
 
-        public DataSet GetUserDashboardStatusByModule(int ModuleID, string UnitID)
+        public DataSet GetUserDashboardStatusByModule(string UserID, string UnitID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -313,7 +313,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@REQID", ModuleID);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", UserID);
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
 
                 da.Fill(ds);

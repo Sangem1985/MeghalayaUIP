@@ -13,7 +13,9 @@ namespace MeghalayaUIP.Common
         public static string GetMainApplicantDashBoard = "USP_GET_UNITS_BY_INVESTORS";
         public static string GetApplbyModuleName = "USP_GETAPPLBYMODULENAME";
         public static string GetUserCFETracker = "USP_GETUSERCFEAPPLTRACKER";
-        public static string GetUserStatusByModule = "USP_GET_APPLICATIONS_STATUS_COUNT";
+        //public static string GetUserStatusByModule = "USP_GET_APPLICATIONS_STATUS_COUNT";
+        public static string GetUserStatusByModule = "USP_GETUSERALLAPPLSTATUS";
+
         public static string InsertGrievance = "USP_INS_GRIEVANCE";
         public static string GetUserGrievanceList= "USP_GETUSERGRIEVANCES";
 
