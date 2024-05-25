@@ -14,12 +14,12 @@
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-striped table-hover" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True"  >
                         <RowStyle />
-                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                         <AlternatingRowStyle BackColor="" />
                         <Columns>
                             <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="5%">
                                 <HeaderStyle HorizontalAlign="Center" />
-                                <ItemStyle HorizontalAlign="Left" />
+                                <ItemStyle HorizontalAlign="Center" />
                                 <ItemTemplate>
                                     <%# Container.DataItemIndex + 1%>
                                 </ItemTemplate>
