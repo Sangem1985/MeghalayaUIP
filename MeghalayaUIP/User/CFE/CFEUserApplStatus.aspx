@@ -5,13 +5,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
     <style>
-        .card h3 {
+    .page-wrapper.cfeuserapplstatus .card h3 {
     font-size: 20px;
     margin-left: 15px;
     margin-top: 3px;
     margin-bottom: -10px;
     font-weight: 600;
     color: #0b3654;
+}
+        .page-wrapper.cfeuserapplstatus i.fi {
+    top: 19% !important;
+    position: absolute;
+}
+        .page-wrapper.cfeuserapplstatus .card .card-header {
+    border-bottom: none !important;
 }
     </style>
     <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -26,11 +33,26 @@
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                         </div>
                     </div>
-    <div class="page-wrapper">
+    <div class="card mt-2">
+        <div class="modal-header" style="padding: 3px 30px;">
+                        <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Establishment Approval</h4>
+            <h5 class="modal-title cfe" id="myLargeModalLabel cfe2">Status View : 
+                <select class="form-select" aria-label="Default select example">
+  <option selected>Open this select Status</option>
+  <option value="1" href="AS">Application Stage</option>
+  <option value="2" href="PS">Payment Stage</option>
+  <option value="3" href="PSS">Pre-Scrutiny Stage</option>
+  <option value="4" href="#APS">Approval Stage</option>
+</select>
+
+            </h5>
+                    </div>
+        
+    <div class="page-wrapper cfeuserapplstatus">
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3>Pre-Scrutiny Stage</h3>
+                    <h3>Application Status For Application ID: MEG10510012024</h3>
                 </div>
                 <section id="dashboardcount1">
                     <div class="container-fluid">
@@ -43,14 +65,14 @@
                                                 <i class="fi fi-rr-file-download"></i>
                                             </div>
                                             <div class="text-end pt-1">
-                                                <h4 class="mb-0">
-                                                    <asp:Label ID="lblTOTALAPPLICATIONS" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Stage</p>
+                                                <h5 class="mb-0">
+                                                    <asp:Label ID="lblTOTALAPPLICATIONS" runat="server">Submiteed</asp:Label></h5>
+                                                <%--<p class="text-sm mb-0 text-capitalize">Sumbitted</p>--%>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
-                                            <p class="mb-0">No. of Applications Recevied</p>
+                                            <p class="mb-0">Application<br />&nbsp;</p>
                                         </div>
                                     </a>
                                 </div>
@@ -63,15 +85,15 @@
                                                 <i class="fi fi-rr-memo-circle-check"></i>
                                             </div>
                                             <div class="text-end pt-1">
-                                                <h4 class="mb-0">
-                                                    <asp:Label ID="lblPRESCRUTINYCOMPLETED" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Completed</p>
+                                                <h5 class="mb-0">
+                                                    <asp:Label ID="lblPRESCRUTINYCOMPLETED" runat="server">Draft</asp:Label></h5>
+                                                <%--<p class="text-sm mb-0 text-capitalize">Draft</p>--%>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Applications Completed Scrutiny 
+                                                Combined Application Form
                                             </p>
                                         </div>
                                     </a>
@@ -87,12 +109,12 @@
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
                                                     <asp:Label ID="lblPREREJECTED" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Rejected</p>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
-                                            <p class="mb-0">No. of Applications Rejected</p>
+                                            <p class="mb-0">Approvals Required as per IMA</p>
                                         </div>
                                     </a>
                                 </div>
@@ -107,14 +129,225 @@
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
                                                     <asp:Label ID="lblPRESCRUTINYPENDING" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Pre-Scrutiny Pending</p>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Scrutiny Pending Applications                                             
+                                                Approvals already obtained                                         
                                             </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </section>
+            </div>
+           
+            <div class="card">
+                <div class="card-header">
+                    <h3>Application Stages</h3>
+                </div>
+                <section id="dashboardcount2" class="dashboardcount2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=TOTALAPPROVALISSUED" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label7" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Applied Approvals</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=APPROVALPENDING" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                               <i class="fi fi-rr-search-alt"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label8" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0"> Yet to be applied </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                        
+
+                    </div>
+                </section>
+            </div>
+            
+
+            <div class="card" id="AS">
+                <div class="card-header">
+                    <h3>Payment Stages</h3>
+                </div>
+                <section id="dashboardcount2" class="dashboardcount2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=TOTALAPPROVALISSUED" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label9" runat="server">0</asp:Label></h4>
+                                               <%-- <p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Additional Payment required</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=APPROVALPENDING" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                               <i class="fi fi-rr-search-alt"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label10" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Payment Paid<br />&nbsp;</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                        
+
+                    </div>
+                </section>
+            </div>
+
+            <div class="card" id="PSS">
+                <div class="card-header">
+                    <h3>Pre-Scrutiny Stages</h3>
+                </div>
+                <section id="dashboardcount1">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=TOTALAPPLICATIONS" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-file-download"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label1" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Query Raised </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptdrill.aspx" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label2" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">
+                                               Query Respond 
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=REJECTED" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-vote-nay"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label3" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Yet to Respond </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?status=PRESCRUTINYPENDING" style="text-decoration: none;">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-search-alt"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label4" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Rejected</p>
                                         </div>
                                     </a>
                                 </div>
@@ -128,13 +361,13 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblADDITIONALPAYMENTRAISED" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">With Additional Payment</p>
+                                                    <asp:Label ID="Label5" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
-                                            <p class="mb-0">Approvals Awaiting Payment</p>
+                                            <p class="mb-0">Completed</p>
                                         </div>
                                     </a>
                                 </div>
@@ -148,16 +381,14 @@
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblQUERYPENDING" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Query Raised</p>
+                                                    <asp:Label ID="Label6" runat="server">0</asp:Label></h4>
+                                                <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
 
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
-                                            <p class="mb-0">
-                                                Query Response Pending<br />
-                                            </p>
+                                            <p class="mb-0">Pending</p>
                                         </div>
                                     </a>
                                 </div>
@@ -166,8 +397,8 @@
                     </div>
                 </section>
             </div>
-           
-            <div class="card">
+
+            <div class="card" id="APS">
                 <div class="card-header">
                     <h3>Approval Stages</h3>
                 </div>
@@ -246,11 +477,10 @@
                     </div>
                 </section>
             </div>
-
         </div>
     </div>
-
-
+        </div>
+    
 
     <%--<div class="card">
         <div class="">
@@ -484,4 +714,5 @@
             </div>
         </div>
     </div>--%>
+    
 </asp:Content>
