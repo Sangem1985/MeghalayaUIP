@@ -759,11 +759,11 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                             <div class="row clearfix">
                                                 <div class="col-sm-12">
                                                     <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
                                                         GridLines="None" Width="100%" EnableModelValidation="True">
                                                         <RowStyle />
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                        <AlternatingRowStyle BackColor="LightGray" />
+                                                        
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                                                 <HeaderStyle HorizontalAlign="Center" />

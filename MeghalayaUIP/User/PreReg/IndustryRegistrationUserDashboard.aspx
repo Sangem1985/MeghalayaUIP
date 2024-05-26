@@ -11,11 +11,11 @@
                 <div class="card-body">
                     <h4>View Industry Registration Applications</h4>
                     <asp:GridView ID="gvPreRegUserDashboard" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-striped table-hover" ForeColor="#333333"
+                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True"  >
                         <RowStyle />
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                        <AlternatingRowStyle BackColor="" />
+                        
                         <Columns>
                             <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="5%">
                                 <HeaderStyle HorizontalAlign="Center" />

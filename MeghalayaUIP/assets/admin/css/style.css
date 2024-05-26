@@ -288,7 +288,14 @@ table.table td h2 span {
 }
 
 .table-hover tbody tr:hover {
-	background-color: #00d0f105 !important;
+	background-color: #95a0df24 !important;
+}
+.table-hover tbody tr:hover {
+	td
+{
+	font-weight: 900;
+}
+	
 }
 
 .table-hover tbody tr:hover td {
@@ -6000,4 +6007,9 @@ h3.card-title {
 	font-size: 22px;
 	color: #323f8b;
 	margin-left:5px;
+}
+spna.dots {
+	margin-right: 10px;
+	margin-left: -12px;
+	align-content: normal;
 }

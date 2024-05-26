@@ -22,7 +22,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane show active" id="basictab1">
                                     <div class="card-body">
-                                        <h4 class="card-title"></h4>
+                                        <%--<h4 class="card-title"></h4>--%>
                                         <div class="row">
                                             <div class="col-md-12 d-flex justify-content-center text-center">
                                                 <div id="success" runat="server" visible="false" class="alert alert-success">
@@ -36,93 +36,74 @@
                                                     <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                                                 </div>
                                             </div>     
-                                            <div class="container">
-                                                <div class="row">
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">
-                                                            Application Number:</label>
-                                                        <div class="col-lg-6 text-center">
-                                                            <asp:Label runat="server" ID="lblRmId"></asp:Label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">
-                                                            Unit Name:</label>
-                                                        <div class="col-lg-6 d-flex text-center">
-                                                            <asp:Label runat="server" ID="lblUnitName"></asp:Label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                    </div>
-                                                </div>
-                                            <div class="container">
-                                                <div class="row">
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">
-                                                            Query raised by:</label>
-                                                        <div class="col-lg-6 d-flex text-center">                                                       
-                                                            <asp:Label runat="server" ID="lblQueryRaised"></asp:Label>                                                     
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row align-content-center">
-                                                        <label class="col-lg-6 col-form-label">
-                                                            Query raise date:</label>
-                                                        <div class="col-lg-6 d-flex text-center">
-                                                            <asp:Label runat="server" ID="lblQueryRaisedDate"></asp:Label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Application Number</label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblRmId"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Unit Name</label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblUnitName"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Query raised by</label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryRaised"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                     </div>
 
-                                             <div class="container">
-                                                <div class="row">
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Query Description:</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:Label runat="server" ID="lblQueryDescription"></asp:Label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Query Response:</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox runat="server" class="form-control" Style="height: 100px; width: 800px; resize: vertical;" TextMode="MultiLine" ID="txtQueryResponse" placeholder="Enter Query Response" name="QueryResponse" />
+                                            <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Query raise date</label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryRaisedDate"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Query Description</label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryDescription"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Query Response</label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:TextBox runat="server" class="form-control" Style="height: 100px; width: 800px; resize: vertical;" TextMode="MultiLine" ID="txtQueryResponse" placeholder="Enter Query Response" name="QueryResponse" /></div>
+                                        </div>
+                                    </div>
+                                     </div>
+                                            
+                                            <div class="col-md-12 d-flex">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Response Attachment</label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:FileUpload ID="fupResAttachment" runat="server" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-12 col-form-label"><asp:Button ID="btnAttach" runat="server" class="form-control" Text="Attach Files" CssClass="btn btn-green" Width="100px" OnClick="btnAttach_Click" /></label>
+                                            <%--<div class="col-lg-6 d-flex"><spna class="dots">:</spna></div>--%>
+                                        </div>
+                                    </div>
+                                    <%--<div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label"></label>
+                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna></div>
+                                        </div>
+                                    </div>--%>
+                                     </div>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>   
-                                                    </div>
-                                                 </div>
+                                             
                                               <div class="container">
                                                 <div class="row">
                                             <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-8">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">
-                                                            Response Attachment:</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:FileUpload ID="fupResAttachment" runat="server" />
-                                                            <div class="col-md-4">
-                                                                <asp:Button ID="btnAttach" runat="server" class="form-control" Text="Attach Files" CssClass="btn btn-warning" Width="100px" OnClick="btnAttach_Click" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="col-md-4" id="ddunit" runat="server" visible="false">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">UNIDID:</label>
@@ -196,7 +177,7 @@
                                                 <div class="row">
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <div>
-                                                    <asp:Button runat="server" ID="btnSubmit" Style="width: 130px;" CssClass="btn btn-success" Text="Submit" OnClick="btnSubmit_Click" />
+                                                    <asp:Button runat="server" ID="btnSubmit" Style="width: 130px;" CssClass="btn btn-success btn-submit" Text="Submit" OnClick="btnSubmit_Click" />
                                                 </div>
                                             </div>
                                                     </div>
