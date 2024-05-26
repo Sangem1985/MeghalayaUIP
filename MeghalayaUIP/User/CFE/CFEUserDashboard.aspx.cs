@@ -47,112 +47,157 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                throw ex;
+                //throw ex;
             }
 
         }
         public void BindApproved()
         {
-            DataSet dsApproved = new DataSet();
-            if (Request.QueryString.Count > 0)
+            try
             {
-                UnitID = Request.QueryString[0];
-            }
-            else UnitID = "%";
-            dsApproved = objcfebal.GetPREREGandCFEapplications(hdnUserID.Value, UnitID);
-            if (dsApproved.Tables.Count > 0)
-            {
-                if (dsApproved.Tables[0].Rows.Count > 0)
+                DataSet dsApproved = new DataSet();
+                if (Request.QueryString.Count > 0)
                 {
-                    gvPreRegApproved.DataSource = dsApproved.Tables[0];
-                    gvPreRegApproved.DataBind();
+                    UnitID = Request.QueryString[0];
                 }
-                else
+                else UnitID = "%";
+                dsApproved = objcfebal.GetPREREGandCFEapplications(hdnUserID.Value, UnitID);
+                if (dsApproved.Tables.Count > 0)
                 {
-                    gvPreRegApproved.DataSource = null;
-                    gvPreRegApproved.DataBind();
-                }
-                //if (dsApproved.Tables[1].Rows.Count > 0)
-                //{
-                //    gvCFEApplied.DataSource = dsApproved.Tables[1];
-                //    gvCFEApplied.DataBind();
-                //    gvCFEApplied.Visible= false;
-                //}
-                //else
-                //{
-                //    gvCFEApplied.DataSource = null;
-                //    gvCFEApplied.DataBind();
-                //}
+                    if (dsApproved.Tables[0].Rows.Count > 0)
+                    {
+                        gvPreRegApproved.DataSource = dsApproved.Tables[0];
+                        gvPreRegApproved.DataBind();
+                    }
+                    else
+                    {
+                        gvPreRegApproved.DataSource = null;
+                        gvPreRegApproved.DataBind();
+                    }
+                    //if (dsApproved.Tables[1].Rows.Count > 0)
+                    //{
+                    //    gvCFEApplied.DataSource = dsApproved.Tables[1];
+                    //    gvCFEApplied.DataBind();
+                    //    gvCFEApplied.Visible= false;
+                    //}
+                    //else
+                    //{
+                    //    gvCFEApplied.DataSource = null;
+                    //    gvCFEApplied.DataBind();
+                    //}
 
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
             }
         }
 
         protected void gvPreRegApproved_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            try
             {
-                int gvrcnt = gvPreRegApproved.Rows.Count;
-                Button btnApply;
-                Button btnApprvlsReq;
-                Button btnApplstatus;
-                Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
-                Label APPLSTATUS = (Label)e.Row.FindControl("lblCFEAPPLSTATUS");
-
-                int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
-                TotApplied = TotApplied + TotalAppl;
-
-                int TotalAppr = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPROVEDDCOUNT"));
-                TotApproved = TotApproved + TotalAppr;
-
-                int TotalUndrPrcs = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "UNDERPROCESSCOUNT"));
-                TotUnderProcess = TotUnderProcess + TotalUndrPrcs;
-
-                int TotalRej = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "REJECTEDDCOUNT"));
-                TotRejected = TotRejected + TotalRej;
-
-                int TotalQuery = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "QUERYCOUNT"));
-                TotQueryRaised = TotQueryRaised + TotalQuery;
-
-
-                if (lblCFEQuesnrID.Text == "" || lblCFEQuesnrID.Text == null)
+                if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    btnApply = (Button)e.Row.FindControl("btnApplyCFE");
-                    btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
-                    btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
-                    btnApply.Enabled = true;
-                    btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                    btnApplstatus.Enabled = false; btnApplstatus.BackColor = System.Drawing.Color.LightGray; btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                }
-                else
-                {
-                    btnApply = (Button)e.Row.FindControl("btnApplyCFE");
-                    btnApply.Enabled = false;
-                    btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
-                    btnApply.Style.Add("border", "none");
-                    btnApply.Style.Add("color", "black");
-                }
+                    int gvrcnt = gvPreRegApproved.Rows.Count;
+                    Button btnApply;
+                    Button btnApprvlsReq;
+                    Button btnApplstatus;
+                    Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
+                    Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
+                    Label APPLSTATUS = (Label)e.Row.FindControl("lblCFEAPPLSTATUS");
+                    HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
+                    HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
+                    HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
+                    HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
+                    HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
+                    if (hplAppld.Text != "0")
+                        hplAppld.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
+                    if (hplApprvd.Text != "0")
+                        hplApprvd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
+                    if (hplUndrPrc.Text != "0")
+                        hplUndrPrc.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
+                    if (hplRejctd.Text != "0")
+                        hplRejctd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
+                    if (hplQryRaised.Text != "0")
+                        hplQryRaised.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
 
+                    int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
+                    TotApplied = TotApplied + TotalAppl;
+
+                    int TotalAppr = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPROVEDDCOUNT"));
+                    TotApproved = TotApproved + TotalAppr;
+
+                    int TotalUndrPrcs = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "UNDERPROCESSCOUNT"));
+                    TotUnderProcess = TotUnderProcess + TotalUndrPrcs;
+
+                    int TotalRej = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "REJECTEDDCOUNT"));
+                    TotRejected = TotRejected + TotalRej;
+
+                    int TotalQuery = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "QUERYCOUNT"));
+                    TotQueryRaised = TotQueryRaised + TotalQuery;
+
+
+                    if (lblCFEQuesnrID.Text == "" || lblCFEQuesnrID.Text == null)
+                    {
+                        btnApply = (Button)e.Row.FindControl("btnApplyCFE");
+                        btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
+                        btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
+                        btnApply.Enabled = true;
+                        btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                        btnApplstatus.Enabled = false; btnApplstatus.BackColor = System.Drawing.Color.LightGray; btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        btnApply = (Button)e.Row.FindControl("btnApplyCFE");
+                        btnApply.Enabled = false;
+                        btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
+                        btnApply.Style.Add("border", "none");
+                        btnApply.Style.Add("color", "black");
+                    }
+
+                }
+                if (e.Row.RowType == DataControlRowType.Footer)
+                {
+                    e.Row.Cells[6].Text = "Total";
+                    e.Row.Cells[7].Text = TotApplied.ToString();
+                    e.Row.Cells[8].Text = TotApproved.ToString();
+                    e.Row.Cells[9].Text = TotUnderProcess.ToString();
+                    e.Row.Cells[10].Text = TotRejected.ToString();
+                    e.Row.Cells[11].Text = TotQueryRaised.ToString();
+                }
             }
-            if (e.Row.RowType == DataControlRowType.Footer)
+            catch (Exception ex)
             {
-                e.Row.Cells[6].Text = "Total";
-                e.Row.Cells[7].Text = TotApplied.ToString();
-                e.Row.Cells[8].Text = TotApproved.ToString();
-                e.Row.Cells[9].Text = TotUnderProcess.ToString();
-                e.Row.Cells[10].Text = TotRejected.ToString();
-                e.Row.Cells[11].Text = TotQueryRaised.ToString();
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
             }
         }
+
+        
         protected void btnApplyCFE_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-            Label lblunitId = (Label)row.FindControl("lblUNITID");
-            Session["UNITID"] = lblunitId.Text;
-            string newurl = "CFEQuestionnaire.aspx";
-            Response.Redirect(newurl);
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Session["UNITID"] = lblunitId.Text;
+                string newurl = "CFEQuestionnaire.aspx";
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
         }
 
         protected void btnView_Click(object sender, EventArgs e)
@@ -169,27 +214,44 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnCombndAppl_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-            Label lbluniid = (Label)row.FindControl("lblUNITID");
-            Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-            Session["UNITID"] = lbluniid.Text;
-            string newurl = "CFECommonApplication.aspx";
-            Response.Redirect(newurl);
+                Label lbluniid = (Label)row.FindControl("lblUNITID");
+                Label lblQuestId = (Label)row.FindControl("lblCFEQID");
+                Session["UNITID"] = lbluniid.Text;
+                string newurl = "CFECommonApplication.aspx";
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
         }
 
         protected void btnApplStatus_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-
-            Label lbluniid = (Label)row.FindControl("lblUNITID");
-            Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-            Session["UNITID"] = lbluniid.Text;
-            string newurl = "CFEUserApplStatus.aspx";
-            Response.Redirect(newurl);
+                Label lbluniid = (Label)row.FindControl("lblUNITID");
+                Label lblQuestId = (Label)row.FindControl("lblCFEQID");
+                Session["UNITID"] = lbluniid.Text;
+                string newurl = "CFEUserApplStatus.aspx";
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
         }
     }
 }

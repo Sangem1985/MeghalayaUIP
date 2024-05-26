@@ -757,7 +757,7 @@
                                         <asp:Button ID="savebtn" runat="server" OnClick="savebtn_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
 
 
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" class="btn  btn-info btn-lg" />
+                                        <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" />
 
                                     </div>
                                 </div>
@@ -768,4 +768,5 @@
             </div>
         </div>
     </div>
+
 </asp:Content>

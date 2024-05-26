@@ -11,6 +11,100 @@ namespace MeghalayaUIP.Common
 
         public static string InsertCFOLabourDet = "USP_INSCFOLABOURDETAILS";
         public static string InsertCFOLabourContractorDetails = "USP_INSCFOCONTRACTLABOURDETAILS";
+
+        public static string InsertCFOLegalMetrologyDep = "USP_INSCFOLEGALMETROLOGYDETAILS";
+        public static string InsertCFOMetrologyDet = "USP_INSCFOLMINSTRUMENTDETAILS";
+        public static string InsertCFOProfessionalTax = "USP_INSCFOPROFTAXDETAILS";
+        public static string INSERTCFOPROFESSIONALTAXSTATE = "USP_INSCFOPROFTAXSTATE";
+        public static string INSERTCFOPROFESSIONALTAXCOUNTRY = "USP_INSCFOPROFTAXCOUNTRY";
+        public static string INSERTCFOPROFESSIONALTAXFOREIGN = "USP_INSCFOPROFTAXFOREIGN";
+        public static string InsertCFOExicseDept = "";
+        public static string InsertCFOFireDepartment = "USP_INSCFOFIREDETAILS";
+        public static string InsertPollutionControlBoardDet = "USP_INSCFOBNUSINESSNATURE";
+        public static string InsertCFOPollutioncontrolDet = "USP_INSCFOBUSINESSLICDETAILS";
+        public static string InsertCFOPublicWorkDep = "USP_INSCFOWORKCONTRACTORDETAILS";
+        public static string IncerstCFOManufactureDet = "USP_INSCFODRUGLICMANFSTAFF";
+        public static string IncerstCFOTestingDet = "USP_INSCFODRUGLICTESTINGSTAFF";
+        public static string InsertCFODrugLicense = "USP_INSCFODRUGDETAILS";
+        public static string InsertCFODrugLicenseDetails = "USP_INSCFODRUGLICDETAILS";
+        public static string GetCFOObtainedOffline = "USP_GETCFOQUESTIONNAIREAPPROVALS";
+        public static string GetApprovalsReqFromTable = "USP_GETCFOQUESTIONNAIREAPPROVALS";
+        public static string InsertCFOAttachments = "USP_INSCFOATTACHMENTS";
+        public static string GetCFOApplicationDet = "";
+        public static string InsertCFODepartmentapprovals = "USP_INSCFODEPARTMENTAPPROVALS";
+
+    }
+    public class CFOExciseDetails
+    {
+        public int CFOExciseID { get; set; }
+        public int CFOunitid { get; set; }
+        public int CFOQID { get; set; }
+        public string Artical5Selection { get; set; }
+        public string ApplicantSelection { get; set; }
+        public string MemberSelection { get; set; }
+        public string TaxSelection { get; set; }
+        public string SaleTaxSelection { get; set; }
+        public string ProfessionSelection { get; set; }
+        public string GovernmentSelection { get; set; }
+        public string GovernmentDetails { get; set; }
+        public string ViolationSelection { get; set; }
+        public string ViolationDetails { get; set; }
+        public string ConvictedSelection { get; set; }
+        public string ConvictedDetails { get; set; }
+        public string RenewBrand { get; set; }
+        public DateTime? RegFromDate { get; set; }
+        public DateTime? RegToDate { get; set; }
+        public string FirmAddress { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedIp { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedIp { get; set; }
+        public string Flag { get; set; }
+        public List<CFOExciseBrandDetails> brandgridlist { get; set; }
+        public List<CFOExciseLiquorDetails> liquorgridlist { get; set; }
+
+    }
+    [Serializable]
+    public class CFOExciseBrandDetails
+    {
+        public int CFOExciseBrandID { get; set; }
+        public int CFOunitid { get; set; }
+        public int CFOQID { get; set; }
+        public string NameOfBrand { get; set; }
+        public string Strength { get; set; }
+        public string Size { get; set; }
+        public string NumberOfBottles { get; set; }
+        public string MRPRs { get; set; }
+        public string BulkLiter { get; set; }
+        public string LandOnProof { get; set; }
+        public string BottlePlant { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedIp { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedIp { get; set; }
+        public string Flag { get; set; }
+    }
+    [Serializable]
+    public class CFOExciseLiquorDetails
+    {
+        public int CFOExciseLiquorID { get; set; }
+        public int CFOunitid { get; set; }
+        public int CFOQID { get; set; }
+        public string CountryID { get; set; }
+        public string CountryName { get; set; }
+        public string MRPSSelection { get; set; }
+        public string BrandName { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedIp { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedIp { get; set; }
+        public string Flag { get; set; }
     }
 
     public class CFOLabourDet
@@ -97,77 +191,318 @@ namespace MeghalayaUIP.Common
         public string FULLDAY { get; set; }
 
     }
-
-    public class CFOExciseDetails
+    public class CFOLEGALMETROLOGYDEP
     {
-        public int CFOExciseID { get; set; }
-        public int CFOunitid { get; set; }
-        public int CFOQID { get; set; }
-        public string Artical5Selection { get; set; }
-        public string ApplicantSelection { get; set; }
-        public string MemberSelection { get; set; }
-        public string TaxSelection { get; set; }
-        public string SaleTaxSelection { get; set; }
-        public string ProfessionSelection { get; set; }
-        public string GovernmentSelection { get; set; }
-        public string GovernmentDetails { get; set; }
-        public string ViolationSelection { get; set; }
-        public string ViolationDetails { get; set; }
-        public string ConvictedSelection { get; set; }
-        public string ConvictedDetails { get; set; }
-        public string RenewBrand { get; set; }
-        public DateTime? RegFromDate { get; set; }
-        public DateTime? RegToDate { get; set; }
-        public string FirmAddress { get; set; }
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string CreatedIp { get; set; }
-        public string UpdatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public string UpdatedIp { get; set; }
-        public string Flag { get; set; }
-        public List<CFOExciseBrandDetails> brandgridlist { get; set; }
-        public List<CFOExciseLiquorDetails> liquorgridlist { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string DateEstablish { get; set; }
+        public string RegFactoryShop { get; set; }
+        public string DateReg { get; set; }
+        public string CurrentRegNumber { get; set; }
+        public string LicADCnO { get; set; }
+        public string RegDateNo { get; set; }
+        public string RegCurrentNo { get; set; }
+        public string PatnershipFirm { get; set; }
+        public string CompanyLimited { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Weight { get; set; }
+        public string Measures { get; set; }
+        public string WeightingIns { get; set; }
+        public string ProfessionalTax { get; set; }
+        public string GST { get; set; }
+        public string ITNUMBER { get; set; }
+        public string StateCountry { get; set; }
+        public string LICNUMBER { get; set; }
+        public string WeightMeasure { get; set; }
+        public string StateSide { get; set; }
+        public string LICDeal { get; set; }
+        public string GiveDetails { get; set; }
+        public string Skilled { get; set; }
+        public string SemiSkilled { get; set; }
+        public string Unskilled { get; set; }
+        public string SpecialistTrain { get; set; }
+        public string MachinaryOwn { get; set; }
+        public string ownershiplong { get; set; }
+        public string FacilitiesSteel { get; set; }
+        public string ElectricEnergy { get; set; }
+        public string LICState { get; set; }
+        public string Institution { get; set; }
+        public string NameBankers { get; set; }
+        public string GiveDetailsin { get; set; }
+        public string stock { get; set; }
+        public string GetDetails { get; set; }
+        public string repairerLic { get; set; }
+        public string results { get; set; }
+        public string DetailsDet { get; set; }
+        public string Instrumenttype { get; set; }
+        public string Class { get; set; }
+        public string Capacity { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public string SerialNo { get; set; }
+        public string Product { get; set; }
+        public string Quantity { get; set; }
 
     }
-    [Serializable]
-    public class CFOExciseBrandDetails
+    public class CFOTAXDEPARTMENT
     {
-        public int CFOExciseBrandID { get; set; }
-        public int CFOunitid { get; set; }
-        public int CFOQID { get; set; }
-        public string NameOfBrand { get; set; }
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string Article5 { get; set; }
+        public string EXICISELIC { get; set; }
+        public string EXICISESHOP { get; set; }
+        public string INCOMETAX { get; set; }
+        public string SALETAX { get; set; }
+        public string PROFESSIONALTAX { get; set; }
+        public string EXCISEDEP { get; set; }
+        public string PROVIDE { get; set; }
+        public string EXCISELAWRULE { get; set; }
+        public string NONBALABEL { get; set; }
+        public string COURTOFFENCE { get; set; }
+        public string courtbailable { get; set; }
+        public string BrandName { get; set; }
         public string Strength { get; set; }
         public string Size { get; set; }
-        public string NumberOfBottles { get; set; }
-        public string MRPRs { get; set; }
-        public string BulkLiter { get; set; }
-        public string LandOnProof { get; set; }
-        public string BottlePlant { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string CreatedIp { get; set; }
-        public string UpdatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public string UpdatedIp { get; set; }
-        public string Flag { get; set; }
+        public string bottlesOne { get; set; }
+        public string MRP { get; set; }
+        public string Bulkliter { get; set; }
+        public string LondonProof { get; set; }
+        public string Nameaddress { get; set; }
+        public string LiquorOrigin { get; set; }
+        public string MRPRS { get; set; }
+        public string Brand { get; set; }
+        public string BrandsBIO { get; set; }
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
+        public string Firm { get; set; }
     }
-    [Serializable]
-    public class CFOExciseLiquorDetails
+    public class CFOPROFESSIONALTAX
     {
-        public int CFOExciseLiquorID { get; set; }
-        public int CFOunitid { get; set; }
-        public int CFOQID { get; set; }
-        public string CountryID { get; set; }
-        public string CountryName { get; set; }
-        public string MRPSSelection { get; set; }
-        public string BrandName { get; set; }
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string CreatedIp { get; set; }
-        public string UpdatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public string UpdatedIp { get; set; }
-        public string Flag { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string NameEst { get; set; }
+        public string AddressEst { get; set; }
+        public string DistrictEst { get; set; }
+        public string PinCode { get; set; }
+        public string TotalEMP { get; set; }
+        public string SERVIOCEEST { get; set; }
+        public string Date { get; set; }
+        public string GrossAnnual { get; set; }
+        public string BusinessPlace { get; set; }
+        public string Business { get; set; }
+        public string Address { get; set; }
+        public string District { get; set; }
+        public string TotalworkingEMP { get; set; }
+        public string BUSINESS { get; set; }
+        public string PlaceBUSINESS { get; set; }
+        public string AddressEST { get; set; }
+        public string State { get; set; }
+        public string Totalworkingemployees { get; set; }
+        public string FORIGEN { get; set; }
+        public string PrincipalWORK { get; set; }
+        public string AddressWORK { get; set; }
+        public string EmployerName { get; set; }
+        public string MontlySalary { get; set; }
+        public string Branch { get; set; }
+        public string RegUnderAct { get; set; }
+        public string RegistrationType { get; set; }
+        public string RegisrationNo { get; set; }
+    }
+    public class HOMEDEPARTMENT
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+
+        public string BuildingName { get; set; }
+        public string CategoryBuild { get; set; }
+        public string FeeAmount { get; set; }
+        public string District { get; set; }
+        public string Mandal { get; set; }
+        public string Village { get; set; }
+        public string Locality { get; set; }
+        public string Landmark { get; set; }
+        public string Pincode { get; set; }
+        public string PlotArea { get; set; }
+        public string Breadth { get; set; }
+        public string BuildUpArea { get; set; }
+        public string RoadApproach { get; set; }
+        public string East { get; set; }
+        public string West { get; set; }
+        public string North { get; set; }
+        public string South { get; set; }
+        public string DistanceEAST { get; set; }
+        public string DistanceWEST { get; set; }
+        public string DistanceNORTH { get; set; }
+        public string DistanceSOUTH { get; set; }
+        public string FireStation { get; set; }
+
+
+    }
+    public class PollutionControlBoard
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string DateEst { get; set; }
+        public string LocationStall { get; set; }
+        public string HoldingNumber { get; set; }
+        public string MarketName { get; set; }
+        public string DistrictEST { get; set; }
+        public string Stallnumber { get; set; }
+        public string Municipality { get; set; }
+        public string Details { get; set; }
+        public string AnnualGross { get; set; }
+        public string TotalAmount { get; set; }
+        public string MainCategory { get; set; }
+        public string SubCategory { get; set; }
+        public string Fees { get; set; }
+
+    }
+    public class PublicWorKDepartment
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+
+        public string PurposeApplicant { get; set; }
+        public string ContractorReg { get; set; }
+        public string BankerName { get; set; }
+        public string Director { get; set; }
+        public string Circle { get; set; }
+        public string Division { get; set; }
+        public string Turnover { get; set; }
+        public string financialYear { get; set; }
+        public string Datework { get; set; }
+
+    }
+    public class CFOHealthyWelfare
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+
+        public string TypeApplication { get; set; }
+        public string TradingLICDate { get; set; }
+        public string Valideuptodate { get; set; }
+        public string coldstorage { get; set; }
+        public string cancelledlicense { get; set; }
+        public string specifylicense { get; set; }
+        public string readyinspection { get; set; }
+        public string inceptionDate { get; set; }
+
+
+        public string ManufName { get; set; }
+        public string ManufQualification { get; set; }
+        public string ManufExperience { get; set; }
+        public string testingName { get; set; }
+        public string testingQualification { get; set; }
+        public string testingExperience { get; set; }
+        public string NameDrug { get; set; }
+
+    }
+    public class CFOQuestionnaireDet
+    {
+        public string UNITID { get; set; }
+        public string PREREGUIDNO { get; set; }
+        public string CFEQDID { get; set; }
+        public string CFOQDID { get; set; }
+        public string CreatedBy { get; set; }
+        public string ApprovalID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalFee { get; set; }
+        public string IsOffline { get; set; }
+        public string IPAddress { get; set; }
+        public string CompanyName { get; set; }
+        public string CompanyType { get; set; }
+        public string ProposalFor { get; set; }
+        public string LandFromMIDCL { get; set; }
+        public string PropLocDitrictID { get; set; }
+        public string PropLocMandalID { get; set; }
+        public string PropLocVillageID { get; set; }
+        public string ExtentofLand { get; set; }
+        public string Acres { get; set; }
+        public string Gunthas { get; set; }
+        public string Square_Meters { get; set; }
+        public string BuiltUpArea { get; set; }
+        public string SectorName { get; set; }
+        public string Lineofacitivityid { get; set; }
+        public string PCBCategory { get; set; }
+        public string NatureofActivity { get; set; }
+        public string UnitLocation { get; set; }
+
+        public string PropEmployment { get; set; }
+        public string ProjectCost { get; set; }
+        public string LandValue { get; set; }
+        public string BuildingValue { get; set; }
+        public string PlantnMachineryCost { get; set; }
+        public string ExpectedTurnover { get; set; }
+        public string TotalProjCost { get; set; }
+        public string EnterpriseCategory { get; set; }
+
+        public string LabourAct2020 { get; set; }
+        public string BoilerManfreg { get; set; }
+        public string WorkContractorsReg { get; set; }
+        public string BoilerReg { get; set; }
+        public string FactoryLicence { get; set; }
+        public string Labouract1979 { get; set; }
+        public string Labouract1970 { get; set; }
+        public string DrugLic { get; set; }
+        public string Wandmreparerlic { get; set; }
+        public string Wandmmanflic { get; set; }
+        public string Wandmdealerlic { get; set; }
+        public string Wandmverification { get; set; }
+        public string Firesaftycert { get; set; }
+        public string Exciselic { get; set; }
+        public string Druglicconstchange { get; set; }
+        public string Brandlabelreg { get; set; }
+        public string Druglicmanffortest { get; set; }
+        public string Drugloanlicmanfshedulec { get; set; }
+        public string Drugloanlicmanfnotshedulec { get; set; }
+        public string Druglicrepacksale { get; set; }
+        public string Druglicmanfsalevaccnotshedulex { get; set; }
+        public string Proftaxcert { get; set; }
+        public string Cfopcb { get; set; }
+        public string Occupancycert { get; set; }
+        public string Boilerstmpipelineerection { get; set; }
+        public string Boilerstmpipelineregistration { get; set; }
+        public string Shpsestbreg_forma { get; set; }
+        public string Businessslic { get; set; }
+        public string Liquorlic { get; set; }
+        public string Stateexciseverfcert { get; set; }
+    }
+    public class CFOAttachments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string FileDescription { get; set; }
+        public string FileType { get; set; }
+        public string MasterID { get; set; }
+
     }
 }

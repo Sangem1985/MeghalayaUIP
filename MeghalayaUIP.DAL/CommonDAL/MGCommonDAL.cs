@@ -260,7 +260,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
-        public DataSet GetCFEUserDashboardStatus(string UserID, string UnitID)
+        public DataSet GetCFEUserDashboardStatus(string UserID, string UnitID, string Type)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -278,7 +278,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@USERID", UserID);
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
-
+                da.SelectCommand.Parameters.AddWithValue("@TYPE", Type);
                 da.Fill(ds);
 
                 transaction.Commit();

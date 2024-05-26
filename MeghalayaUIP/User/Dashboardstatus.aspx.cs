@@ -31,11 +31,11 @@ namespace MeghalayaUIP.User
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-               // UnitID = "1007";
+              
                 if (Request.QueryString.Count >0)
                 {
                     UnitID = Convert.ToString(Request.QueryString[0]);
-                    lblmodule.Text = Request.QueryString[1].ToString();
+                    lblType.Text = Request.QueryString[1].ToString();
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace MeghalayaUIP.User
                 DataSet dsApprovals = new DataSet();
                 UnitID = Convert.ToString(Request.QueryString[0]);
                 //UnitID = "1007";
-                dsApprovals = objcommonBAL.GetCFEUserDashboardStatus(hdnUserID.Value, UnitID);
+                dsApprovals = objcommonBAL.GetCFEUserDashboardStatus(hdnUserID.Value, UnitID, lblType.Text);
                 if (dsApprovals.Tables.Count > 0)
                 {
                     if (dsApprovals.Tables[0].Rows.Count > 0)

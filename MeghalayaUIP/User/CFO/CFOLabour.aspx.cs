@@ -1,6 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.BAL.CommonBAL;
-using MeghalayaUIP.Common; 
+using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -348,6 +348,11 @@ namespace MeghalayaUIP.User.CFO
                 fiveyear.Visible = false;
                 nature.Visible = false;
             }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CFOLegalMetrologyDepartment.aspx");
         }
     }
 }

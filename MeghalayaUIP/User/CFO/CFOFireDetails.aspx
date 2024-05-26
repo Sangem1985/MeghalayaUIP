@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOHomeDepartment.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOHomeDepartment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOFireDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOFireDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -67,7 +67,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">District</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control">
+                                                <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
                                                     <asp:ListItem Text="Select District" Value="0" />
                                                 </asp:DropDownList>
                                             </div>
@@ -77,7 +77,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Mandal</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList ID="ddlMandal" runat="server" class="form-control">
+                                                <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                     <asp:ListItem Text="Select Mandal" Value="0" />
                                                 </asp:DropDownList>
                                             </div>
@@ -165,7 +165,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1 (a) East *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtEast" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +173,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">1 (a) Distance from proposed Building (in meters) *  *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtStrength" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtDistEast" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +183,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1 (b) West *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtSize" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtWest" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -191,7 +191,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">1 (b) Distance from proposed Building (in meters)*</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtDistWest" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1 (c) North   *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtNorth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">1 (c) Distance from proposed Building (in meters) *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtDistNorth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -219,7 +219,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1 (d) South *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtSouth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -227,7 +227,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">1 (d) Distance from proposed Building (in meters)   *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="TextBox6" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtDistSouth" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -237,20 +237,22 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Distance from the nearest Fire Station (in meters)*</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="TextBox7" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtFire" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex mt-2">
                                     <div class="col-md-6">
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn  btn-info btn-lg" />
+
+
+                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" />
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
+                                        <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" OnClick="btnsave_Click" padding-right="10px" BackColor="Green" />
 
 
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" class="btn  btn-info btn-lg" />
+                                        <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" />
 
                                     </div>
                                 </div>
@@ -262,6 +264,5 @@
             </div>
         </div>
     </div>
-
 
 </asp:Content>

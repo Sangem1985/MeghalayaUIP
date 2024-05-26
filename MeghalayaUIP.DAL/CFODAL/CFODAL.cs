@@ -1,4 +1,4 @@
-﻿using MeghalayaUIP.Common; 
+﻿using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,160 +14,6 @@ namespace MeghalayaUIP.DAL.CFODAL
     public class CFODAL
     {
         string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
-
-        public string InsertCFOLabourDetails(CFOLabourDet ObjCFOLabourDet)
-        {
-            string Result = "";
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-
-            try
-            {
-                connection.Open();
-                transaction = connection.BeginTransaction();
-
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = CFOConstants.InsertCFOLabourDet;
-
-                com.Transaction = transaction;
-                com.Connection = connection;
-
-
-
-                com.Parameters.AddWithValue("@CFOLD_CREATEDBY", Convert.ToInt32(ObjCFOLabourDet.CreatedBy));
-                com.Parameters.AddWithValue("@CFOLD_CREATEDBYIP", ObjCFOLabourDet.IPAddress);
-                com.Parameters.AddWithValue("@CFOLD_CFOQDID", Convert.ToInt32(ObjCFOLabourDet.Questionnariid));
-                com.Parameters.AddWithValue("@CFOLD_UNITID", Convert.ToInt32(ObjCFOLabourDet.UnitId));
-
-                com.Parameters.AddWithValue("@CFOLD_DIRECTINDIRECT", ObjCFOLabourDet.DirectorateBoiler);
-                com.Parameters.AddWithValue("@CFOLD_APPLIED", ObjCFOLabourDet.Classification);
-                com.Parameters.AddWithValue("@CFOLD_PROVIDEDETAILS", ObjCFOLabourDet.ProvideDetails);
-                com.Parameters.AddWithValue("@CFOLD_YEAR", Convert.ToInt32(ObjCFOLabourDet.Establishmentyear));
-                com.Parameters.AddWithValue("@CFOLD_TEMPMATERIAL", ObjCFOLabourDet.temperature);
-                com.Parameters.AddWithValue("@CFOLD_REGULATION1950", ObjCFOLabourDet.BoilerRegulation);
-                com.Parameters.AddWithValue("@CFOLD_GENGRINDE", ObjCFOLabourDet.generatortool);
-                com.Parameters.AddWithValue("@CFOLD_DESIGNATION", ObjCFOLabourDet.Document);
-                com.Parameters.AddWithValue("@CFOLD_SITES", Convert.ToInt32(ObjCFOLabourDet.firm));
-                com.Parameters.AddWithValue("@CFOLD_REGULATION81", ObjCFOLabourDet.regulationstrictly);
-                com.Parameters.AddWithValue("@CFOLD_CONTROVERSIAL", ObjCFOLabourDet.controversial);
-                com.Parameters.AddWithValue("@CFOLD_MATERIAL", ObjCFOLabourDet.materials);
-                com.Parameters.AddWithValue("@CFOLD_OWNSYSTEM", ObjCFOLabourDet.OwnSystem);
-                com.Parameters.AddWithValue("@CFOLD_UPLOADDOCUMENT", ObjCFOLabourDet.Upload_Document);
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTURENAME", ObjCFOLabourDet.NameManufacture);
-                com.Parameters.AddWithValue("@CFOLD_MANUYEAR", Convert.ToInt32(ObjCFOLabourDet.manufactureYear));
-                com.Parameters.AddWithValue("@CFOLD_MANUPLACE", ObjCFOLabourDet.manufactureplace);
-                com.Parameters.AddWithValue("@CFOLD_BOILERNUMBER", Convert.ToInt32(ObjCFOLabourDet.BoilerNumber));
-                com.Parameters.AddWithValue("@CFOLD_INTENDED", ObjCFOLabourDet.Intendedpressure);
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTUREPLACE", ObjCFOLabourDet.manufacture);
-                com.Parameters.AddWithValue("@CFOLD_HEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.HeaterRating));
-                com.Parameters.AddWithValue("@CFOLD_ECONOMISERRATING", Convert.ToDecimal(ObjCFOLabourDet.Economiser));
-                com.Parameters.AddWithValue("@CFOLD_EVAPORATION", Convert.ToDecimal(ObjCFOLabourDet.MaximumTonne));
-                com.Parameters.AddWithValue("@CFOLD_REHEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.RatingHeaters));
-                com.Parameters.AddWithValue("@CFOLD_SEASON", ObjCFOLabourDet.WorkingSeason);
-                com.Parameters.AddWithValue("@CFOLD_PRESSURE", Convert.ToDecimal(ObjCFOLabourDet.PressurePSI));
-                com.Parameters.AddWithValue("@CFOLD_OWNERNAME", ObjCFOLabourDet.NameOwner);
-                com.Parameters.AddWithValue("@CFOLD_TYPEBOILER", ObjCFOLabourDet.BoilerType);
-                com.Parameters.AddWithValue("@CFOLD_DESCBOILER", ObjCFOLabourDet.DescriptionBoiler);
-                com.Parameters.AddWithValue("@CFOLD_BOILERRATING", Convert.ToInt32(ObjCFOLabourDet.BoilerRating));
-                com.Parameters.AddWithValue("@CFOLD_BOILEROWNERTRANSF", ObjCFOLabourDet.ownershipBoiler);
-                com.Parameters.AddWithValue("@CFOLD_REMARK", ObjCFOLabourDet.Remarks);
-                com.Parameters.AddWithValue("@CFOLD_MANUNAME", ObjCFOLabourDet.ManufactureNames);
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTUREYEAR", Convert.ToInt32(ObjCFOLabourDet.ManufactureYears));
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTPLACE", ObjCFOLabourDet.Placemanu);
-                com.Parameters.AddWithValue("@CFOLD_NAMEAGENT", ObjCFOLabourDet.NameAgent);
-                com.Parameters.AddWithValue("@CFOLD_ADDRESSAGENT", ObjCFOLabourDet.Address);
-                com.Parameters.AddWithValue("@CFOLD_DAYSLABOUR", Convert.ToInt32(ObjCFOLabourDet.contractorlabour));
-                com.Parameters.AddWithValue("@CFOLD_ESTDATE", ObjCFOLabourDet.Estimateddate);
-                com.Parameters.AddWithValue("@CFOLD_ENDDATE", ObjCFOLabourDet.Endingdate);
-                com.Parameters.AddWithValue("@CFOLD_CONTRACTEMP", Convert.ToInt32(ObjCFOLabourDet.Maximumemployed));
-                com.Parameters.AddWithValue("@CFOLD_FIVEYEARCONVICTED", ObjCFOLabourDet.withinfiveyear);
-                com.Parameters.AddWithValue("@CFOLD_DETAILS", ObjCFOLabourDet.Details);
-                com.Parameters.AddWithValue("@CFOLD_REVORKING", ObjCFOLabourDet.licenseDeposite);
-                com.Parameters.AddWithValue("@CFOLD_ORDERDAET", ObjCFOLabourDet.OrderDate);
-                com.Parameters.AddWithValue("@CFOLD_ESTCONTRACTOR", ObjCFOLabourDet.establishmentpast);
-                com.Parameters.AddWithValue("@CFOLD_PRINCIPLEEMP", ObjCFOLabourDet.PrincipalEMP);
-                com.Parameters.AddWithValue("@CFOLD_ESTDETAILS", ObjCFOLabourDet.EstablishmentDET);
-                com.Parameters.AddWithValue("@CFOLD_NATUREWORK", ObjCFOLabourDet.NatureWORK);
-                com.Parameters.AddWithValue("@CFOLD_MANAGERNAME", ObjCFOLabourDet.generalManagement);
-                com.Parameters.AddWithValue("@CFOLD_ADDRESSMANAGER", ObjCFOLabourDet.AddressAgent);
-                com.Parameters.AddWithValue("@CFOLD_CATEGORYEST", ObjCFOLabourDet.CategoryEst);
-                com.Parameters.AddWithValue("@CFOLD_NATUREBUSINESS", ObjCFOLabourDet.NatureBusiness);
-                com.Parameters.AddWithValue("@CFOLD_FAMILYEMP", ObjCFOLabourDet.establishmentfamily);
-                com.Parameters.AddWithValue("@CFOLD_EMPEST", ObjCFOLabourDet.employeeswork);
-                com.Parameters.AddWithValue("@CFOLD_TOTALEMP", Convert.ToInt32(ObjCFOLabourDet.TotalNumberEMP));
-
-
-                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
-                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
-                com.ExecuteNonQuery();
-
-                Result = com.Parameters["@RESULT"].Value.ToString();
-                transaction.Commit();
-                connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return Result;
-        }
-        public string InsertCFOlabourContractor(CFOLabourDet ObjCFOLabourDet)
-        {
-            string Result = "";
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            try
-            {
-                connection.Open();
-                transaction = connection.BeginTransaction();
-
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = CFOConstants.InsertCFOLabourContractorDetails;
-
-                com.Transaction = transaction;
-                com.Connection = connection;
-
-                com.Parameters.AddWithValue("@CFOLD_CFOQDID", Convert.ToInt32(ObjCFOLabourDet.Questionnariid));
-                com.Parameters.AddWithValue("@CFOLD_CREATEDBY", Convert.ToInt32(ObjCFOLabourDet.CreatedBy));
-                com.Parameters.AddWithValue("@CFOLD_CREATEDBYIP", ObjCFOLabourDet.IPAddress);
-                com.Parameters.AddWithValue("@CFOLD_UNITID", Convert.ToInt32(ObjCFOLabourDet.UNITID));
-                com.Parameters.AddWithValue("@CFOLD_NAME", ObjCFOLabourDet.NAME);
-                com.Parameters.AddWithValue("@CFOLD_GENDER", ObjCFOLabourDet.GENDER);
-                com.Parameters.AddWithValue("@CFOLD_AGE", Convert.ToInt32(ObjCFOLabourDet.AGE));
-                com.Parameters.AddWithValue("@CFOLD_COMMUNITY", ObjCFOLabourDet.COMMUNITY);
-                com.Parameters.AddWithValue("@CFOLD_FULLADDRESS", ObjCFOLabourDet.FULLADDRESS);
-                com.Parameters.AddWithValue("@CFOLD_ADDRESS", ObjCFOLabourDet.ADDRESS);
-                com.Parameters.AddWithValue("@CFOLD_HALFDAY", ObjCFOLabourDet.HALFDAY);
-                com.Parameters.AddWithValue("@CFOLD_FULLDAY", ObjCFOLabourDet.FULLDAY);
-
-                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
-                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
-                com.ExecuteNonQuery();
-
-                Result = com.Parameters["@RESULT"].Value.ToString();
-                transaction.Commit();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return Result;
-        }
-
         public string InsertCFOExciseData(CFOExciseDetails data, List<CFOExciseBrandDetails> brandDetails, List<CFOExciseLiquorDetails> liquorDetails)
         {
             string res = "Fail";
@@ -374,6 +220,1220 @@ namespace MeghalayaUIP.DAL.CFODAL
             }
             return data;
         }
+
+        public string InsertCFOLabourDetails(CFOLabourDet ObjCFOLabourDet)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOLabourDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOLD_CREATEDBY", Convert.ToInt32(ObjCFOLabourDet.CreatedBy));
+                com.Parameters.AddWithValue("@CFOLD_CREATEDBYIP", ObjCFOLabourDet.IPAddress);
+                com.Parameters.AddWithValue("@CFOLD_CFOQDID", Convert.ToInt32(ObjCFOLabourDet.Questionnariid));
+                com.Parameters.AddWithValue("@CFOLD_UNITID", Convert.ToInt32(ObjCFOLabourDet.UnitId));
+
+                com.Parameters.AddWithValue("@CFOLD_DIRECTINDIRECT", ObjCFOLabourDet.DirectorateBoiler);
+                com.Parameters.AddWithValue("@CFOLD_APPLIED", ObjCFOLabourDet.Classification);
+                com.Parameters.AddWithValue("@CFOLD_PROVIDEDETAILS", ObjCFOLabourDet.ProvideDetails);
+                com.Parameters.AddWithValue("@CFOLD_YEAR", Convert.ToInt32(ObjCFOLabourDet.Establishmentyear));
+                com.Parameters.AddWithValue("@CFOLD_TEMPMATERIAL", ObjCFOLabourDet.temperature);
+                com.Parameters.AddWithValue("@CFOLD_REGULATION1950", ObjCFOLabourDet.BoilerRegulation);
+                com.Parameters.AddWithValue("@CFOLD_GENGRINDE", ObjCFOLabourDet.generatortool);
+                com.Parameters.AddWithValue("@CFOLD_DESIGNATION", ObjCFOLabourDet.Document);
+                com.Parameters.AddWithValue("@CFOLD_SITES", Convert.ToInt32(ObjCFOLabourDet.firm));
+                com.Parameters.AddWithValue("@CFOLD_REGULATION81", ObjCFOLabourDet.regulationstrictly);
+                com.Parameters.AddWithValue("@CFOLD_CONTROVERSIAL", ObjCFOLabourDet.controversial);
+                com.Parameters.AddWithValue("@CFOLD_MATERIAL", ObjCFOLabourDet.materials);
+                com.Parameters.AddWithValue("@CFOLD_OWNSYSTEM", ObjCFOLabourDet.OwnSystem);
+                com.Parameters.AddWithValue("@CFOLD_UPLOADDOCUMENT", ObjCFOLabourDet.Upload_Document);
+                com.Parameters.AddWithValue("@CFOLD_MANUFACTURENAME", ObjCFOLabourDet.NameManufacture);
+                com.Parameters.AddWithValue("@CFOLD_MANUYEAR", Convert.ToInt32(ObjCFOLabourDet.manufactureYear));
+                com.Parameters.AddWithValue("@CFOLD_MANUPLACE", ObjCFOLabourDet.manufactureplace);
+                com.Parameters.AddWithValue("@CFOLD_BOILERNUMBER", Convert.ToInt32(ObjCFOLabourDet.BoilerNumber));
+                com.Parameters.AddWithValue("@CFOLD_INTENDED", ObjCFOLabourDet.Intendedpressure);
+                com.Parameters.AddWithValue("@CFOLD_MANUFACTUREPLACE", ObjCFOLabourDet.manufacture);
+                com.Parameters.AddWithValue("@CFOLD_HEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.HeaterRating));
+                com.Parameters.AddWithValue("@CFOLD_ECONOMISERRATING", Convert.ToDecimal(ObjCFOLabourDet.Economiser));
+                com.Parameters.AddWithValue("@CFOLD_EVAPORATION", Convert.ToDecimal(ObjCFOLabourDet.MaximumTonne));
+                com.Parameters.AddWithValue("@CFOLD_REHEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.RatingHeaters));
+                com.Parameters.AddWithValue("@CFOLD_SEASON", ObjCFOLabourDet.WorkingSeason);
+                com.Parameters.AddWithValue("@CFOLD_PRESSURE", Convert.ToDecimal(ObjCFOLabourDet.PressurePSI));
+                com.Parameters.AddWithValue("@CFOLD_OWNERNAME", ObjCFOLabourDet.NameOwner);
+                com.Parameters.AddWithValue("@CFOLD_TYPEBOILER", ObjCFOLabourDet.BoilerType);
+                com.Parameters.AddWithValue("@CFOLD_DESCBOILER", ObjCFOLabourDet.DescriptionBoiler);
+                com.Parameters.AddWithValue("@CFOLD_BOILERRATING", Convert.ToInt32(ObjCFOLabourDet.BoilerRating));
+                com.Parameters.AddWithValue("@CFOLD_BOILEROWNERTRANSF", ObjCFOLabourDet.ownershipBoiler);
+                com.Parameters.AddWithValue("@CFOLD_REMARK", ObjCFOLabourDet.Remarks);
+                com.Parameters.AddWithValue("@CFOLD_MANUNAME", ObjCFOLabourDet.ManufactureNames);
+                com.Parameters.AddWithValue("@CFOLD_MANUFACTUREYEAR", Convert.ToInt32(ObjCFOLabourDet.ManufactureYears));
+                com.Parameters.AddWithValue("@CFOLD_MANUFACTPLACE", ObjCFOLabourDet.Placemanu);
+                com.Parameters.AddWithValue("@CFOLD_NAMEAGENT", ObjCFOLabourDet.NameAgent);
+                com.Parameters.AddWithValue("@CFOLD_ADDRESSAGENT", ObjCFOLabourDet.Address);
+                com.Parameters.AddWithValue("@CFOLD_DAYSLABOUR", Convert.ToInt32(ObjCFOLabourDet.contractorlabour));
+                com.Parameters.AddWithValue("@CFOLD_ESTDATE", ObjCFOLabourDet.Estimateddate);
+                com.Parameters.AddWithValue("@CFOLD_ENDDATE", ObjCFOLabourDet.Endingdate);
+                com.Parameters.AddWithValue("@CFOLD_CONTRACTEMP", Convert.ToInt32(ObjCFOLabourDet.Maximumemployed));
+                com.Parameters.AddWithValue("@CFOLD_FIVEYEARCONVICTED", ObjCFOLabourDet.withinfiveyear);
+                com.Parameters.AddWithValue("@CFOLD_DETAILS", ObjCFOLabourDet.Details);
+                com.Parameters.AddWithValue("@CFOLD_REVORKING", ObjCFOLabourDet.licenseDeposite);
+                com.Parameters.AddWithValue("@CFOLD_ORDERDAET", ObjCFOLabourDet.OrderDate);
+                com.Parameters.AddWithValue("@CFOLD_ESTCONTRACTOR", ObjCFOLabourDet.establishmentpast);
+                com.Parameters.AddWithValue("@CFOLD_PRINCIPLEEMP", ObjCFOLabourDet.PrincipalEMP);
+                com.Parameters.AddWithValue("@CFOLD_ESTDETAILS", ObjCFOLabourDet.EstablishmentDET);
+                com.Parameters.AddWithValue("@CFOLD_NATUREWORK", ObjCFOLabourDet.NatureWORK);
+                com.Parameters.AddWithValue("@CFOLD_MANAGERNAME", ObjCFOLabourDet.generalManagement);
+                com.Parameters.AddWithValue("@CFOLD_ADDRESSMANAGER", ObjCFOLabourDet.AddressAgent);
+                com.Parameters.AddWithValue("@CFOLD_CATEGORYEST", ObjCFOLabourDet.CategoryEst);
+                com.Parameters.AddWithValue("@CFOLD_NATUREBUSINESS", ObjCFOLabourDet.NatureBusiness);
+                com.Parameters.AddWithValue("@CFOLD_FAMILYEMP", ObjCFOLabourDet.establishmentfamily);
+                com.Parameters.AddWithValue("@CFOLD_EMPEST", ObjCFOLabourDet.employeeswork);
+                com.Parameters.AddWithValue("@CFOLD_TOTALEMP", Convert.ToInt32(ObjCFOLabourDet.TotalNumberEMP));
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFOlabourContractor(CFOLabourDet ObjCFOLabourDet)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOLabourContractorDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOLD_CFOQDID", Convert.ToInt32(ObjCFOLabourDet.Questionnariid));
+                com.Parameters.AddWithValue("@CFOLD_CREATEDBY", Convert.ToInt32(ObjCFOLabourDet.CreatedBy));
+                com.Parameters.AddWithValue("@CFOLD_CREATEDBYIP", ObjCFOLabourDet.IPAddress);
+                com.Parameters.AddWithValue("@CFOLD_UNITID", Convert.ToInt32(ObjCFOLabourDet.UNITID));
+                com.Parameters.AddWithValue("@CFOLD_NAME", ObjCFOLabourDet.NAME);
+                com.Parameters.AddWithValue("@CFOLD_GENDER", ObjCFOLabourDet.GENDER);
+                com.Parameters.AddWithValue("@CFOLD_AGE", Convert.ToInt32(ObjCFOLabourDet.AGE));
+                com.Parameters.AddWithValue("@CFOLD_COMMUNITY", ObjCFOLabourDet.COMMUNITY);
+                com.Parameters.AddWithValue("@CFOLD_FULLADDRESS", ObjCFOLabourDet.FULLADDRESS);
+                com.Parameters.AddWithValue("@CFOLD_ADDRESS", ObjCFOLabourDet.ADDRESS);
+                com.Parameters.AddWithValue("@CFOLD_HALFDAY", ObjCFOLabourDet.HALFDAY);
+                com.Parameters.AddWithValue("@CFOLD_FULLDAY", ObjCFOLabourDet.FULLDAY);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string InsertCFOLegalMetrologyDetails(CFOLEGALMETROLOGYDEP ObjCFOlegalDet)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOLegalMetrologyDep;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOLGM_CREATEDBY", Convert.ToInt32(ObjCFOlegalDet.CreatedBy));
+                com.Parameters.AddWithValue("@CFOLGM_CREATEDBYIP", ObjCFOlegalDet.IPAddress);
+                com.Parameters.AddWithValue("@CFOLGM_CFOUNITID", Convert.ToInt32(ObjCFOlegalDet.Questionnariid));
+                com.Parameters.AddWithValue("@CFOLGM_CFOQDID", Convert.ToInt32(ObjCFOlegalDet.UnitId));
+
+                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHDATE", ObjCFOlegalDet.DateEstablish);
+                com.Parameters.AddWithValue("@CFOLGM_HADESTBLSHREG", ObjCFOlegalDet.RegFactoryShop);
+                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE", ObjCFOlegalDet.DateReg);
+                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGNO", ObjCFOlegalDet.CurrentRegNumber);
+                com.Parameters.AddWithValue("@CFOLGM_HADMTLREG", ObjCFOlegalDet.LicADCnO);
+                com.Parameters.AddWithValue("@CFOLGM_MTLREGDATE", ObjCFOlegalDet.RegDateNo);
+                com.Parameters.AddWithValue("@CFOLGM_MTLREGNO", ObjCFOlegalDet.RegCurrentNo);
+                com.Parameters.AddWithValue("@CFOLGM_WEIGHS", ObjCFOlegalDet.Weight);
+                com.Parameters.AddWithValue("@CFOLGM_MEASURES", ObjCFOlegalDet.Measures);
+                com.Parameters.AddWithValue("@CFOLGM_WEIGHINGINSTR", ObjCFOlegalDet.WeightingIns);
+                com.Parameters.AddWithValue("@CFOLGM_PROFTAXREGNO", ObjCFOlegalDet.ProfessionalTax);
+                com.Parameters.AddWithValue("@CFOLGM_GSTREGNO", ObjCFOlegalDet.GST);
+                com.Parameters.AddWithValue("@CFOLGM_ITNO", ObjCFOlegalDet.ITNUMBER);
+                com.Parameters.AddWithValue("@CFOLGM_ISIMPORTING", ObjCFOlegalDet.StateCountry);
+                com.Parameters.AddWithValue("@CFOLGM_IMPORTLICNO", ObjCFOlegalDet.LICNUMBER);
+                com.Parameters.AddWithValue("@CFOLGM_REGOFIMPORTER", ObjCFOlegalDet.WeightMeasure);
+                com.Parameters.AddWithValue("@CFOLGM_SELLINGPLACE", ObjCFOlegalDet.StateSide);
+                com.Parameters.AddWithValue("@CFOLGM_SKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.Skilled));
+                com.Parameters.AddWithValue("@CFOLGM_SEMISKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.SemiSkilled));
+                com.Parameters.AddWithValue("@CFOLGM_UNSKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.Unskilled));
+                com.Parameters.AddWithValue("@CFOLGM_TRAINEDEMP", Convert.ToInt32(ObjCFOlegalDet.SpecialistTrain));
+                com.Parameters.AddWithValue("@CFOLGM_MACHINERYDETAILS", ObjCFOlegalDet.MachinaryOwn);
+                com.Parameters.AddWithValue("@CFOLGM_WORKSHOPDETAILS", ObjCFOlegalDet.ownershiplong);
+                com.Parameters.AddWithValue("@CFOLGM_TESTFACILITIES", ObjCFOlegalDet.FacilitiesSteel);
+                com.Parameters.AddWithValue("@CFOLGM_ELCENRGYAVLBL", ObjCFOlegalDet.ElectricEnergy);
+                com.Parameters.AddWithValue("@CFOLGM_LOANAVAILED", ObjCFOlegalDet.Institution);
+                com.Parameters.AddWithValue("@CFOLGM_LOANBANKERS", ObjCFOlegalDet.NameBankers);
+                com.Parameters.AddWithValue("@CFOLGM_LOANDETAILS", ObjCFOlegalDet.DetailsDet);
+                com.Parameters.AddWithValue("@CFOLGM_MANFLICAPPLIED", ObjCFOlegalDet.LICState);
+                com.Parameters.AddWithValue("@CFOLGM_MANFLICDETAILS", ObjCFOlegalDet.GiveDetailsin);
+                com.Parameters.AddWithValue("@CFOLGM_DEALERLICAPPLIED", ObjCFOlegalDet.LICDeal);
+                com.Parameters.AddWithValue("@CFOLGM_DEALERLICDETAILS", ObjCFOlegalDet.GiveDetails);
+                com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICAPPLIED", ObjCFOlegalDet.repairerLic);
+                com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICDETAILS", ObjCFOlegalDet.results);
+                com.Parameters.AddWithValue("@CFOLGM_HADSUFFSTOCK", ObjCFOlegalDet.stock);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFOLegalMetrologyDet(CFOLEGALMETROLOGYDEP ObjCFOlegalDet)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOMetrologyDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOLMI_CFOQDID", Convert.ToInt32(ObjCFOlegalDet.Questionnariid));
+                com.Parameters.AddWithValue("@CFOLMI_CREATEDBY", Convert.ToInt32(ObjCFOlegalDet.CreatedBy));
+                com.Parameters.AddWithValue("@CFOLMI_CREATEDBYIP", ObjCFOlegalDet.IPAddress);
+                com.Parameters.AddWithValue("@CFOLMI_CFOUNITID", Convert.ToInt32(ObjCFOlegalDet.UNITID));
+                com.Parameters.AddWithValue("@CFOLMI_INSTRTYPE", ObjCFOlegalDet.Instrumenttype);
+                com.Parameters.AddWithValue("@CFOLMI_INSTRCLASS", ObjCFOlegalDet.Class);
+                com.Parameters.AddWithValue("@CFOLMI_INSTRCAPACITY", ObjCFOlegalDet.Capacity);
+                com.Parameters.AddWithValue("@CFOLMI_INSTRMAKE", ObjCFOlegalDet.Make);
+                com.Parameters.AddWithValue("@CFOLMI_INSTRMODELNO", ObjCFOlegalDet.Model);
+                com.Parameters.AddWithValue("@CFOLMI_INSTRSLNO", ObjCFOlegalDet.SerialNo);
+                com.Parameters.AddWithValue("@CFOLMI_INSTRPRODUCT", ObjCFOlegalDet.Product);
+                com.Parameters.AddWithValue("@CFOLMI_INSTRQUANTITY", ObjCFOlegalDet.Quantity);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+
+        }
+
+        public string InsertCFOProfessionalTax(CFOPROFESSIONALTAX ObjCFOPROFESSIONALTAX)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOProfessionalTax;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOPT_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
+                com.Parameters.AddWithValue("@CFOPT_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
+                com.Parameters.AddWithValue("@CFOPT_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
+                com.Parameters.AddWithValue("@CFOPT_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+
+                com.Parameters.AddWithValue("@CFOPT_ESTBLSHNAME", ObjCFOPROFESSIONALTAX.NameEst);
+                com.Parameters.AddWithValue("@CFOPT_ESTBLSHADDRESS", ObjCFOPROFESSIONALTAX.AddressEst);
+                com.Parameters.AddWithValue("@CFOPT_ESTBLSHDISTID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.DistrictEst));
+                com.Parameters.AddWithValue("@CFOPT_ESTBLSHPINCODE", Convert.ToInt32(ObjCFOPROFESSIONALTAX.PinCode));
+                com.Parameters.AddWithValue("@CFOPT_ESTBLSHEMP", ObjCFOPROFESSIONALTAX.TotalEMP);
+                com.Parameters.AddWithValue("@CFOPT_ESTBLSHGOODS", ObjCFOPROFESSIONALTAX.SERVIOCEEST);
+                com.Parameters.AddWithValue("@CFOPT_COMMENCEDDATE", ObjCFOPROFESSIONALTAX.Date);
+                com.Parameters.AddWithValue("@CFOPT_ANNUALINCOME", ObjCFOPROFESSIONALTAX.GrossAnnual);
+                com.Parameters.AddWithValue("@CFOPT_ADDLBSNESTATE", ObjCFOPROFESSIONALTAX.BusinessPlace);
+                com.Parameters.AddWithValue("@CFOPT_ADDLBSNECOUNTRY", ObjCFOPROFESSIONALTAX.BUSINESS);
+                com.Parameters.AddWithValue("@CFOPT_ADDLBSNEFOREIGN", ObjCFOPROFESSIONALTAX.FORIGEN);
+                com.Parameters.AddWithValue("@CFOPT_BRANCHCERTNO", ObjCFOPROFESSIONALTAX.Branch);
+                com.Parameters.AddWithValue("@CFOPT_HADANYREG", ObjCFOPROFESSIONALTAX.RegUnderAct);
+                com.Parameters.AddWithValue("@CFOPT_REGTYPE", ObjCFOPROFESSIONALTAX.RegistrationType);
+                com.Parameters.AddWithValue("@CFOPT_REGNO", ObjCFOPROFESSIONALTAX.RegisrationNo);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string INSERTCFOSTATETAX(CFOPROFESSIONALTAX ObjCFOPROFESSIONALTAX)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.INSERTCFOPROFESSIONALTAXSTATE;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOPS_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
+                com.Parameters.AddWithValue("@CFOPS_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
+                com.Parameters.AddWithValue("CFOPS_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
+                com.Parameters.AddWithValue("@CFOPS_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+
+                com.Parameters.AddWithValue("@CFOPS_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.Business);
+                com.Parameters.AddWithValue("@CFOPS_ADDRESS", ObjCFOPROFESSIONALTAX.Address);
+                com.Parameters.AddWithValue("@CFOPS_DISTRIC", ObjCFOPROFESSIONALTAX.District);
+                com.Parameters.AddWithValue("@CFOPS_TOTALEMP", ObjCFOPROFESSIONALTAX.TotalworkingEMP);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string INSERTCFOCOUNTRYTAX(CFOPROFESSIONALTAX ObjCFOPROFESSIONALTAX)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.INSERTCFOPROFESSIONALTAXCOUNTRY;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOPC_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
+                com.Parameters.AddWithValue("@CFOPC_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
+                com.Parameters.AddWithValue("@CFOPC_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
+                com.Parameters.AddWithValue("@CFOPC_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+
+                com.Parameters.AddWithValue("@CFOPC_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.PlaceBUSINESS);
+                com.Parameters.AddWithValue("@CFOPC_ADDRESS", ObjCFOPROFESSIONALTAX.AddressEST);
+                com.Parameters.AddWithValue("@CFOPC_STATE", ObjCFOPROFESSIONALTAX.State);
+                com.Parameters.AddWithValue("@CFOPC_TOTALEMP", ObjCFOPROFESSIONALTAX.Totalworkingemployees);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string INSERTCFOFOREIGNTAX(CFOPROFESSIONALTAX ObjCFOPROFESSIONALTAX)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.INSERTCFOPROFESSIONALTAXFOREIGN;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOPF_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
+                com.Parameters.AddWithValue("@CFOPF_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
+                com.Parameters.AddWithValue("@CFOPF_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
+                com.Parameters.AddWithValue("@CFOPF_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+
+                com.Parameters.AddWithValue("@CFOPF_PRINCIPLEWORK", ObjCFOPROFESSIONALTAX.PrincipalWORK);
+                com.Parameters.AddWithValue("@CFOPF_ADDRESS", ObjCFOPROFESSIONALTAX.AddressWORK);
+                com.Parameters.AddWithValue("@CFOPF_EMPNAME", ObjCFOPROFESSIONALTAX.EmployerName);
+                com.Parameters.AddWithValue("@CFOPF_MONTHLYWAGES", ObjCFOPROFESSIONALTAX.MontlySalary);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string InsertCFOExciseDepaertment(CFOTAXDEPARTMENT ObjCFOExcise)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOExicseDept;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOPT_CREATEDBY", Convert.ToInt32(ObjCFOExcise.CreatedBy));
+                com.Parameters.AddWithValue("@CFOPT_CREATEDBYIP", ObjCFOExcise.IPAddress);
+                com.Parameters.AddWithValue("@CFOPT_CFOQDID", Convert.ToInt32(ObjCFOExcise.Questionnariid));
+                com.Parameters.AddWithValue("@CFOPT_CFOUNITID", Convert.ToInt32(ObjCFOExcise.UnitId));
+
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("@", Convert.ToInt32(ObjCFOExcise));
+                com.Parameters.AddWithValue("", Convert.ToInt32(ObjCFOExcise));
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+                com.Parameters.AddWithValue("", ObjCFOExcise);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string InsertCFOFIREDEPT(HOMEDEPARTMENT ObjCFOFireDepartment)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOFireDepartment;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOFD_CFOQDID", Convert.ToInt32(ObjCFOFireDepartment.Questionnariid));
+                com.Parameters.AddWithValue("@CFOFD_CREATEDBY", Convert.ToInt32(ObjCFOFireDepartment.CreatedBy));
+                com.Parameters.AddWithValue("@CFOFD_CREATEDBYIP", ObjCFOFireDepartment.IPAddress);
+                com.Parameters.AddWithValue("@CFOFD_UNITID", Convert.ToInt32(ObjCFOFireDepartment.UnitId));
+
+                com.Parameters.AddWithValue("@CFOFD_BUILDNAME", ObjCFOFireDepartment.BuildingName);
+                com.Parameters.AddWithValue("@CFOFD_CATEGORYBUILD", ObjCFOFireDepartment.CategoryBuild);
+                com.Parameters.AddWithValue("@CFOFD_FEEAMOUNT", Convert.ToDecimal(ObjCFOFireDepartment.FeeAmount));
+                com.Parameters.AddWithValue("@CFOFD_DISTRICID", Convert.ToInt32(ObjCFOFireDepartment.District));
+                com.Parameters.AddWithValue("@CFOFD_MANDALID", Convert.ToInt32(ObjCFOFireDepartment.Mandal));
+                com.Parameters.AddWithValue("@CFOFD_VILLAGEID", Convert.ToInt32(ObjCFOFireDepartment.Village));
+                com.Parameters.AddWithValue("@CFOFD_Locality", ObjCFOFireDepartment.Locality);
+                com.Parameters.AddWithValue("@CFOFD_Landmark", ObjCFOFireDepartment.Landmark);
+                com.Parameters.AddWithValue("@CFOFD_Pincode", Convert.ToInt32(ObjCFOFireDepartment.Pincode));
+                com.Parameters.AddWithValue("@CFOFD_PLOTAREA", Convert.ToDecimal(ObjCFOFireDepartment.PlotArea));
+                com.Parameters.AddWithValue("@CFOFD_DRIVEPROPSED", Convert.ToDecimal(ObjCFOFireDepartment.Breadth));
+                com.Parameters.AddWithValue("@CFOFD_BUILDUPAREA ", Convert.ToDecimal(ObjCFOFireDepartment.BuildUpArea));
+                com.Parameters.AddWithValue("@CFOFD_EXISTINGROAD", Convert.ToDecimal(ObjCFOFireDepartment.RoadApproach));
+                com.Parameters.AddWithValue("@CFOFD_East ", Convert.ToDecimal(ObjCFOFireDepartment.East));
+                com.Parameters.AddWithValue("@CFOFD_West ", Convert.ToDecimal(ObjCFOFireDepartment.West));
+                com.Parameters.AddWithValue("@CFOFD_North", Convert.ToDecimal(ObjCFOFireDepartment.North));
+                com.Parameters.AddWithValue("@CFOFD_South", Convert.ToDecimal(ObjCFOFireDepartment.South));
+                com.Parameters.AddWithValue("@CFOFD_DISTANCEEAST ", Convert.ToDecimal(ObjCFOFireDepartment.DistanceEAST));
+                com.Parameters.AddWithValue("@CFOFD_DISTANCEWEST ", Convert.ToDecimal(ObjCFOFireDepartment.DistanceWEST));
+                com.Parameters.AddWithValue("@CFOFD_DISTANCENORTH", Convert.ToDecimal(ObjCFOFireDepartment.DistanceNORTH));
+                com.Parameters.AddWithValue("@CFOFD_DISTANCESOUTH", Convert.ToDecimal(ObjCFOFireDepartment.DistanceSOUTH));
+                com.Parameters.AddWithValue("@CFOFD_FIRESTATION", Convert.ToDecimal(ObjCFOFireDepartment.FireStation));
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string InsertCFOPollutionControlBoard(PollutionControlBoard ObjCFOPollutionControl)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertPollutionControlBoardDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOBN_CREATEDBY", Convert.ToInt32(ObjCFOPollutionControl.CreatedBy));
+                com.Parameters.AddWithValue("@CFOBN_CREATEDBYIP", ObjCFOPollutionControl.IPAddress);
+                com.Parameters.AddWithValue("@CFOBN_CFOQDID", Convert.ToInt32(ObjCFOPollutionControl.Questionnariid));
+                com.Parameters.AddWithValue("@CFOBN_UNITID ", Convert.ToInt32(ObjCFOPollutionControl.UnitId));
+
+                com.Parameters.AddWithValue("@CFOBN_MAINCATEGORY", ObjCFOPollutionControl.MainCategory);
+                com.Parameters.AddWithValue("@CFOBN_SUBCATEGORY", ObjCFOPollutionControl.SubCategory);
+                com.Parameters.AddWithValue("@CFOBN_FEE", Convert.ToDecimal(ObjCFOPollutionControl.Fees));
+
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public string InsertCFOPollutioncontrol(PollutionControlBoard ObjCFOPollutionControl)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOPollutioncontrolDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOB_CREATEDBY", Convert.ToInt32(ObjCFOPollutionControl.CreatedBy));
+                com.Parameters.AddWithValue("@CFOB_CREATEDBYIP", ObjCFOPollutionControl.IPAddress);
+                com.Parameters.AddWithValue("@CFOB_CFOQDID", Convert.ToInt32(ObjCFOPollutionControl.Questionnariid));
+                com.Parameters.AddWithValue("@CFOB_UNITID", Convert.ToInt32(ObjCFOPollutionControl.UnitId));
+
+                com.Parameters.AddWithValue("@CFOB_ESTBDATE", ObjCFOPollutionControl.DateEst);
+                com.Parameters.AddWithValue("@CFOB_STALLLOCATION", ObjCFOPollutionControl.LocationStall);
+                com.Parameters.AddWithValue("@CFOB_HOLDINGNO", ObjCFOPollutionControl.HoldingNumber);
+                com.Parameters.AddWithValue("@CFOB_MARKETNAME", ObjCFOPollutionControl.MarketName);
+                com.Parameters.AddWithValue("@CFOB_ESTBDISTRICT", ObjCFOPollutionControl.DistrictEST);
+                com.Parameters.AddWithValue("@CFOB_STALLNO", ObjCFOPollutionControl.Stallnumber);
+                com.Parameters.AddWithValue("@CFOB_ANYBUSINESS", ObjCFOPollutionControl.Municipality);
+                com.Parameters.AddWithValue("@CFOB_BUSINESSDETAILS", ObjCFOPollutionControl.Details);
+                com.Parameters.AddWithValue("@CFOB_ANNUALGROSSTURNOVER", ObjCFOPollutionControl.AnnualGross);
+                com.Parameters.AddWithValue("@CFOB_TOTALFEE", ObjCFOPollutionControl.TotalAmount);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFOPublicworkDetails(PublicWorKDepartment ObjCFOWorkDepartment)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOPublicWorkDep;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFOWC_CREATEDBY", Convert.ToInt32(ObjCFOWorkDepartment.CreatedBy));
+                com.Parameters.AddWithValue("@CFOWC_CREATEDBYIP", ObjCFOWorkDepartment.IPAddress);
+                com.Parameters.AddWithValue("@CFOWC_CFOQDID", Convert.ToInt32(ObjCFOWorkDepartment.Questionnariid));
+                com.Parameters.AddWithValue("@CFOWC_UNITID", Convert.ToInt32(ObjCFOWorkDepartment.UnitId));
+
+                com.Parameters.AddWithValue("@CFOWC_APPLPURPOSE", ObjCFOWorkDepartment.PurposeApplicant);
+                com.Parameters.AddWithValue("@CFOWC_CONTRREGCLASS", ObjCFOWorkDepartment.ContractorReg);
+                com.Parameters.AddWithValue("@CFOWC_DIRECTORATE", ObjCFOWorkDepartment.Director);
+                com.Parameters.AddWithValue("@CFOWC_CIRCLE", ObjCFOWorkDepartment.Circle);
+                com.Parameters.AddWithValue("@CFOWC_DIVISION", ObjCFOWorkDepartment.Division);
+                com.Parameters.AddWithValue("@CFOWC_CONTRBANKNAME", ObjCFOWorkDepartment.BankerName);
+                com.Parameters.AddWithValue("@CFOWC_CONTRTURNOVER", Convert.ToDecimal(ObjCFOWorkDepartment.Turnover));
+                com.Parameters.AddWithValue("@CFOWC_CONTR3YRSTURNOVER", Convert.ToDecimal(ObjCFOWorkDepartment.financialYear));
+                com.Parameters.AddWithValue("@CFOWC_CONTRSTARTDATE", ObjCFOWorkDepartment.Datework);
+
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string INSERTCFOManufactureDetails(CFOHealthyWelfare ObjCFOHealthyWelfare)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.IncerstCFOManufactureDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFODM_CREATEDBY", Convert.ToInt32(ObjCFOHealthyWelfare.CreatedBy));
+                com.Parameters.AddWithValue("@CFODM_CREATEDBYIP", ObjCFOHealthyWelfare.IPAddress);
+                com.Parameters.AddWithValue("@CFODM_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
+                com.Parameters.AddWithValue("@CFODM_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
+
+                com.Parameters.AddWithValue("@CFODM_EMPNAME", ObjCFOHealthyWelfare.ManufName);
+                com.Parameters.AddWithValue("@CFODM_EMPQLFCATION", ObjCFOHealthyWelfare.ManufQualification);
+                com.Parameters.AddWithValue("@CFODM_EMPEXPRNC", ObjCFOHealthyWelfare.ManufExperience);
+
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string INSERTCFOTestingDetails(CFOHealthyWelfare ObjCFOHealthyWelfare)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.IncerstCFOTestingDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@CFODT_CREATEDBY", Convert.ToInt32(ObjCFOHealthyWelfare.CreatedBy));
+                com.Parameters.AddWithValue("@CFODT_CREATEDBYIP", ObjCFOHealthyWelfare.IPAddress);
+                com.Parameters.AddWithValue("@CFODT_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
+                com.Parameters.AddWithValue("@CFODT_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
+
+                com.Parameters.AddWithValue("@CFODT_EMPNAME", ObjCFOHealthyWelfare.testingName);
+                com.Parameters.AddWithValue("@CFODT_EMPQLFCATION", ObjCFOHealthyWelfare.testingQualification);
+                com.Parameters.AddWithValue("@CFODT_EMPEXPRNC", ObjCFOHealthyWelfare.testingExperience);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFODRUGLICDetails(CFOHealthyWelfare ObjCFOHealthyWelfare)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFODrugLicense;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOD_CREATEDBY", Convert.ToInt32(ObjCFOHealthyWelfare.CreatedBy));
+                com.Parameters.AddWithValue("@CFOD_CREATEDBYIP", ObjCFOHealthyWelfare.IPAddress);
+                com.Parameters.AddWithValue("@CFOD_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
+                com.Parameters.AddWithValue("@CFOD_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
+
+                com.Parameters.AddWithValue("@CFOD_DRUGNAME", ObjCFOHealthyWelfare.NameDrug);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFODrugLicenseDet(CFOHealthyWelfare ObjCFOHealthyWelfare)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFODrugLicenseDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFODL_CREATEDBY", Convert.ToInt32(ObjCFOHealthyWelfare.CreatedBy));
+                com.Parameters.AddWithValue("@CFODL_CREATEDBYIP", ObjCFOHealthyWelfare.IPAddress);
+                com.Parameters.AddWithValue("@CFODL_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
+                com.Parameters.AddWithValue("@CFODL_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
+
+                com.Parameters.AddWithValue("@CFODL_APPLTYPE", ObjCFOHealthyWelfare.TypeApplication);
+                com.Parameters.AddWithValue("@CFODL_TRADELICVALDTYDATE", ObjCFOHealthyWelfare.TradingLICDate);
+                com.Parameters.AddWithValue("@CFODL_MUNCPERMVALDTYDATE", ObjCFOHealthyWelfare.Valideuptodate);
+                com.Parameters.AddWithValue("@CFODL_COLDSTORGDETAILS", ObjCFOHealthyWelfare.coldstorage);
+                com.Parameters.AddWithValue("@CFODL_ANYPREVLIC", ObjCFOHealthyWelfare.cancelledlicense);
+                com.Parameters.AddWithValue("@CFODL_PREVLICDETAILS", ObjCFOHealthyWelfare.specifylicense);
+                com.Parameters.AddWithValue("@CFODL_PREMISERDYFORINSP", ObjCFOHealthyWelfare.readyinspection);
+                com.Parameters.AddWithValue("@CFODL_DATEOFINSP", ObjCFOHealthyWelfare.inceptionDate);
+
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFODepartmentApprovals(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            string Result = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            //connection.Open();
+            //transaction = connection.BeginTransaction();
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFODepartmentapprovals;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFODA_UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
+                com.Parameters.AddWithValue("@CFODA_CFOQDID", Convert.ToInt32(objCFOQsnaire.CFEQDID));
+                com.Parameters.AddWithValue("@CFODA_DEPTID", Convert.ToInt32(objCFOQsnaire.DeptID));
+                com.Parameters.AddWithValue("@CFODA_APPROVALID", Convert.ToInt32(objCFOQsnaire.ApprovalID));
+                com.Parameters.AddWithValue("@CFODA_APPROVALFEE", Convert.ToDecimal(objCFOQsnaire.ApprovalFee));
+                com.Parameters.AddWithValue("@CFODA_ISOFFLINE", objCFOQsnaire.IsOffline);
+                com.Parameters.AddWithValue("@CFODA_CREATEDBY", Convert.ToInt32(objCFOQsnaire.CreatedBy));
+                com.Parameters.AddWithValue("@CFODA_CREATEDBYIP", objCFOQsnaire.IPAddress);
+
+                int DAID = Convert.ToInt32(com.ExecuteScalar());
+                transaction.Commit();
+                connection.Close();
+                Result = Convert.ToString(DAID);
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetCFOAlreadyObtainedApprovals(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOObtainedOffline, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOObtainedOffline;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CRETAEDBY", Convert.ToInt32(userid));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetApprovalsReqFromTable(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetApprovalsReqFromTable, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetApprovalsReqFromTable;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CRETAEDBY", Convert.ToInt32(objCFOQsnaire.CreatedBy));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string InsertCFOAttachments(CFOAttachments objAttachments)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOAttachments;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOA_UNITID", Convert.ToInt32(objAttachments.UNITID));
+                com.Parameters.AddWithValue("@CFOA_CFEQDID", Convert.ToInt32(objAttachments.Questionnareid));
+                com.Parameters.AddWithValue("@CFOA_MASTERAID", objAttachments.MasterID);
+                com.Parameters.AddWithValue("@CFOA_FILEPATH", objAttachments.FilePath);
+                com.Parameters.AddWithValue("@CFOA_FILENAME", objAttachments.FileName);
+                com.Parameters.AddWithValue("@CFOA_FILETYPE", objAttachments.FileType);
+                com.Parameters.AddWithValue("@CFOA_FILEDESCRIPTION", objAttachments.FileDescription);
+                com.Parameters.AddWithValue("@CFOA_DEPTID", objAttachments.DeptID);
+                com.Parameters.AddWithValue("@CFOA_APPROVALID", objAttachments.ApprovalID);
+                com.Parameters.AddWithValue("@CFOA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
+                com.Parameters.AddWithValue("@CFOA_CREATEDBYIP", objAttachments.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetCFOApplicationDetails(string UnitID, string InvesterID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOApplicationDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOApplicationDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
 
     }
 }

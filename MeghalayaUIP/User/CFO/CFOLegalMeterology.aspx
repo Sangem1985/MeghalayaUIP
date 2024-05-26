@@ -117,14 +117,14 @@
                                         <RowStyle BackColor="#ffffff" />
                                         <Columns>
                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Instrument type" DataField="Instrument" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Class" DataField="Class" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Capacity" DataField="Capacity" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Make" DataField="Make" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Model" DataField="Model" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Serial No" DataField="Serial" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Product" DataField="Product" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Quantity" DataField="Quantity" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Instrument type" DataField="CFOLMI_INSTRTYPE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Class" DataField="CFOLMI_INSTRCLASS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Capacity" DataField="CFOLMI_INSTRCAPACITY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Make" DataField="CFOLMI_INSTRMAKE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Model" DataField="CFOLMI_INSTRMODELNO" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Serial No" DataField="CFOLMI_INSTRSLNO" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Product" DataField="CFOLMI_INSTRPRODUCT" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:BoundField HeaderText="Quantity" DataField="CFOLMI_INSTRQUANTITY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
 
                                         </Columns>
@@ -149,8 +149,8 @@
                                             <label class="col-lg-8 col-form-label">Have you obtain any current registration number of factory/ shop/ establishment?  *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfactory_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -181,8 +181,8 @@
                                             <label class="col-lg-8 col-form-label">Have you obtain any current registration number of Municipal Trade licence/ADC?  *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblMunicipal" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblMunicipal_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -212,8 +212,8 @@
                                             <label class="col-lg-6 col-form-label">Is it a partnership firm?   *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblFirm" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -223,8 +223,8 @@
                                             <label class="col-lg-6 col-form-label">Is it a limited company?   *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -235,7 +235,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtName" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Address  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtAddress" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -273,7 +273,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Weighing Instruments: *</label>
+                                            <label class="col-lg-6 col-form-label">Weighting Instruments: *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtInstruWeight" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -313,8 +313,8 @@
                                             <label class="col-lg-6 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblState" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblState_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -341,9 +341,9 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
                                             <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Within State" Value="1" />
-                                                    <asp:ListItem Text="Outside State" Value="2" />
+                                                <asp:RadioButtonList ID="rblstateside" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:ListItem Text="Within State" Value="Y" />
+                                                    <asp:ListItem Text="Outside State" Value="N" />
                                                     <asp:ListItem Text="Both" Value="3" />
                                                 </asp:RadioButtonList>
                                             </div>
@@ -356,8 +356,8 @@
                                             <label class="col-lg-6 col-form-label">Have you applied previously for a dealer's licence,either in this State or elsewhere ?   *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblDealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDealer_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -440,34 +440,26 @@
                                             <label class="col-lg-6 col-form-label">Availability of electric energy  *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblelectric" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Have you applied previously for a dealer's licence,either in this State or elsewhere ?   *</label>
+                                            <label class="col-lg-6 col-form-label">Have you applied previously for a manufacturer's licence? *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblLicdealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicdealer_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex" id="applieddealer" runat="server" visible="false">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Name of bankers * </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtBanker" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4" id="applieddealer" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Give Details </label>
                                             <div class="col-lg-6 d-flex">
@@ -475,15 +467,90 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Do you received any loan from Government or financial Institution? *</label>
+                                            <div class="col-lg-4">
+                                                <asp:RadioButtonList ID="rblInstitute" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInstitute_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="NameBanker" runat="server" visible="false">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Name of bankers * </label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtBanker" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4" id="DetailsGet" runat="server" visible="false">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Give Details </label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtGetDetails" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Have you sufficient stock of loan/test weights. etc.? *</label>
+                                            <div class="col-lg-4">
+                                                <asp:RadioButtonList ID="rblLoan" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLoan_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="weightloan" runat="server" visible="false">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Give Details </label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtDetailsGET" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Have you applied previously for a repairer's licence? *</label>
+                                            <div class="col-lg-4">
+                                                <asp:RadioButtonList ID="rblRepaire" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRepaire_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="License" runat="server" visible="false">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">When and with what results?  </label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtResults" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                                 <div class="col-md-12 d-flex mt-2">
                                     <div class="col-md-6">
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn  btn-info btn-lg" />
+
+
+                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" />
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" class="btn  btn-info btn-lg" />
+                                        <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
+
+
+                                        <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" />
 
                                     </div>
                                 </div>
