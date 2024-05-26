@@ -37,6 +37,7 @@
                                                     AutoPostBack="True" OnSelectedIndexChanged="ddlRegisterAs_SelectedIndexChanged">
                                                     <asp:ListItem>--Select--</asp:ListItem>
                                                     <asp:ListItem Value="G">Grievance</asp:ListItem>
+                                                    <asp:ListItem Value="Q">Query</asp:ListItem>                                                    
                                                     <asp:ListItem Value="F">Feedback</asp:ListItem>
                                                     <%--<asp:ListItem Value="Q">General Query</asp:ListItem>--%>
                                                 </asp:DropDownList>
@@ -92,7 +93,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label" id="LabelUnitname" runat="server">Industry Name *</label>
+                                            <label class="col-lg-6 col-form-label" >Industry Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtindname" runat="server" class="form-control txtbox"
                                                     MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
@@ -139,7 +140,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4" id="trdepartment" runat="server">
+                                    <div class="col-md-4" >
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Select Department *</label>
                                             <div class="col-lg-6 d-flex">
@@ -153,7 +154,7 @@
                                 </div>
 
                                 <div class="col-md-12 d-flex">                                    
-                                    <div class="col-md-4" runat="server" id="trSubject">
+                                    <div class="col-md-4" >
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Subject *</label>
                                             <div class="col-lg-6 d-flex">
@@ -177,7 +178,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Upload *</label>
+                                            <label class="col-lg-6 col-form-label">Upload </label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:FileUpload ID="FileUpload" runat="server"
                                                     Height="28px" />

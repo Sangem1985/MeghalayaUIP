@@ -186,15 +186,6 @@ namespace MeghalayaUIP.User.Grievance
         protected global::System.Web.UI.WebControls.DropDownList ddlRENUnits;
 
         /// <summary>
-        /// LabelUnitname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LabelUnitname;
-
-        /// <summary>
         /// txtindname control.
         /// </summary>
         /// <remarks>
@@ -249,15 +240,6 @@ namespace MeghalayaUIP.User.Grievance
         protected global::System.Web.UI.WebControls.DropDownList ddldist;
 
         /// <summary>
-        /// trdepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trdepartment;
-
-        /// <summary>
         /// ddldept control.
         /// </summary>
         /// <remarks>
@@ -265,15 +247,6 @@ namespace MeghalayaUIP.User.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddldept;
-
-        /// <summary>
-        /// trSubject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trSubject;
 
         /// <summary>
         /// txtSub control.

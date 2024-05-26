@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,6 +43,7 @@ namespace MeghalayaUIP.Common
         public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS";
         public static string InsertCFEAttachments = "USP_INSCFEATTACHMENTS";
         public static string GetCFEAttachments = "USP_GETCFEATTACHMENTS";
+        public static string GetUserCFEApplStatus = "USP_GETCFEAPPLSTATUS";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>

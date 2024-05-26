@@ -34,7 +34,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
-                
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -384,7 +384,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-
         public string InsertCFEDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
         {
             string Result = "";
@@ -432,7 +431,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
-
         public DataSet GetCFEAlreadyObtainedApprovals(string userid, string UnitID)
         {
             DataSet ds = new DataSet();
@@ -762,7 +760,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.CommandText = CFEConstants.InsertCFEPowerDet;
 
                 com.Transaction = transaction;
-                com.Connection = connection;              
+                com.Connection = connection;
 
                 com.Parameters.AddWithValue("@CFEPD_CFEQDID", Convert.ToInt32(objCFEPower.Questionnariid));
                 com.Parameters.AddWithValue("@CFEPD_UNITID", Convert.ToInt32(objCFEPower.UnitId));
@@ -832,7 +830,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-
         public string InsertCFEFireDetails(CFEFire ObjCCFEFireDetails)
         {
             string Result = "";
@@ -905,7 +902,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
-
         public string InsertEntrepreneurDet(CFEEntrepreneur objCFEEntrepreneur)
         {
             string Result = "";
@@ -1119,7 +1115,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 throw ex;
             }
         }
-
         public string InsertCFEForestDet(Forest_Details objCFEQForest)
         {
             string Result = "";
@@ -1159,15 +1154,15 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEFD_FORESTDIVISION", objCFEQForest.ForestDivision);
                 com.Parameters.AddWithValue("@CFEFD_INFORMATION", objCFEQForest.information);
                 com.Parameters.AddWithValue("@CFEFD_SPECIES", objCFEQForest.Species);
-                com.Parameters.AddWithValue("@CFEFD_TIMBERLENGTH",  objCFEQForest.EstTimberLength);
+                com.Parameters.AddWithValue("@CFEFD_TIMBERLENGTH", objCFEQForest.EstTimberLength);
                 com.Parameters.AddWithValue("@CFEFD_TIMBERVOLUME", objCFEQForest.EstTimberVolume);
-                com.Parameters.AddWithValue("@CFEFD_GIRTH",objCFEQForest.Girth);
+                com.Parameters.AddWithValue("@CFEFD_GIRTH", objCFEQForest.Girth);
                 com.Parameters.AddWithValue("@CFEFD_ESTIMATED", objCFEQForest.Est_Firewood);
-                
+
                 com.Parameters.AddWithValue("@CFEFD_POLES", Convert.ToInt32(objCFEQForest.No_Poles));
                 com.Parameters.AddWithValue("@CFEFD_NORTH", objCFEQForest.North);
                 com.Parameters.AddWithValue("@CFEFD_EAST", objCFEQForest.East);
-                com.Parameters.AddWithValue("@CFEFD_WEST",objCFEQForest.West);
+                com.Parameters.AddWithValue("@CFEFD_WEST", objCFEQForest.West);
                 com.Parameters.AddWithValue("@CFEFD_SOUTH", objCFEQForest.South);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -1238,9 +1233,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return valid;
         }
-
-
-
         public DataSet getIntentInvestPrint(string ID) // Need to remove later
         {
             DataSet ds = new DataSet();
@@ -1275,7 +1267,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-
         public DataSet GetRetriveFireDet(string userid, String UNITID)
         {
             DataSet ds = new DataSet();
@@ -1310,7 +1301,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-
         public DataSet GetPaymentAmounttoPay(string userid, string UNITID)
         {
             DataSet ds = new DataSet();
@@ -1345,7 +1335,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-
         public string InsertPaymentDetails(CFEPayments objpay)
         {
             string Result = "";
@@ -1397,7 +1386,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
-
         public string InsertCFEAttachments(CFEAttachments objAttachments)
         {
             string Result = "";
@@ -1414,7 +1402,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-              
+
                 com.Parameters.AddWithValue("@CFEA_UNITID", Convert.ToInt32(objAttachments.UNITID));
                 com.Parameters.AddWithValue("@CFEA_CFEQDID", Convert.ToInt32(objAttachments.Questionnareid));
                 com.Parameters.AddWithValue("@CFEA_MASTERAID", objAttachments.MasterID);
@@ -1424,7 +1412,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEA_FILEDESCRIPTION", objAttachments.FileDescription);
                 com.Parameters.AddWithValue("@CFEA_DEPTID", objAttachments.DeptID);
                 com.Parameters.AddWithValue("@CFEA_APPROVALID", objAttachments.ApprovalID);
-                com.Parameters.AddWithValue("@CFEA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));               
+                com.Parameters.AddWithValue("@CFEA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@CFEA_CREATEDBYIP", objAttachments.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -1481,7 +1469,40 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetUserCFEApplStatus(string Userid, string UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetUserCFEApplStatus, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetUserCFEApplStatus;
 
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@USERID", Convert.ToInt32(Userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
         //-------------------------- DEPARTMENT STARTED HERE -------------------//
 
         public DataTable GetCFEDashBoard(CFEDtls objCFE)
@@ -1645,14 +1666,14 @@ namespace MeghalayaUIP.DAL.CFEDAL
                     com.Parameters.AddWithValue("@DEPTID", Objcfedtls.deptid);
                 }
                 com.Parameters.AddWithValue("@APPROVALID", Objcfedtls.ApprovalId);
-                com.Parameters.AddWithValue("@ACTIONID", Objcfedtls.status);                
+                com.Parameters.AddWithValue("@ACTIONID", Objcfedtls.status);
                 com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
                 com.Parameters.AddWithValue("@CFDA_SCRUTINYREJECTIONFLAG", Objcfedtls.PrescrutinyRejectionFlag);
                 if (Objcfedtls.AdditionalAmount != null && Objcfedtls.AdditionalAmount != "")
                 {
                     com.Parameters.AddWithValue("@ADDLAMOUNT", Objcfedtls.AdditionalAmount);
                 }
-                
+
                 com.Parameters.AddWithValue("@IPADDRESS", Objcfedtls.IPAddress);
                 com.Parameters.AddWithValue("@CREATEDBY", Objcfedtls.UserID);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);

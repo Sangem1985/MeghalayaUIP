@@ -174,34 +174,20 @@ namespace MeghalayaUIP.User.Grievance
             else if (ddlRegisterAs.SelectedValue == "G")
             {
                 LabelHeading.Text = "Grievance Details";
-                LabelUnitname.InnerText = "Industry Name";
-                trSubject.Visible = true;
-                trdepartment.Visible = true;
                 trData.Visible = true;
 
             }
             else if (ddlRegisterAs.SelectedValue == "F")
             {
                 LabelHeading.Text = "Feedback Details";
-                LabelUnitname.InnerText = "Industry Name";
-                trSubject.Visible = true;
-                trdepartment.Visible = true;
                 trData.Visible = true;
             }
             else if (ddlRegisterAs.SelectedValue == "Q")
             {
                 LabelHeading.Text = "Query Details";
-                LabelUnitname.InnerText = "Applicant Name";
-                trSubject.Visible = false;
-                trdepartment.Visible = false;
                 trData.Visible = true;
             }
-            else
-            {
-                LabelUnitname.InnerText = "Industry Name";
-                trSubject.Visible = true;
-                trdepartment.Visible = true;
-            }
+           
         }
 
         protected void ddlModule_SelectedIndexChanged(object sender, EventArgs e)
