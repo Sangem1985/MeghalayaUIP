@@ -37,51 +37,53 @@
                                                 </div>
                                             </div>     
                                             <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Application Number</label>
                                             <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblRmId"></asp:Label></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Unit Name</label>
                                             <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblUnitName"></asp:Label></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    
+                                     </div>
+
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Query raised by</label>
                                             <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryRaised"></asp:Label></div>
                                         </div>
                                     </div>
-                                     </div>
-
-                                            <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Query raise date</label>
                                             <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryRaisedDate"></asp:Label></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Query Description</label>
-                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryDescription"></asp:Label></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Query Response</label>
-                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:TextBox runat="server" class="form-control" Style="height: 100px; width: 800px; resize: vertical;" TextMode="MultiLine" ID="txtQueryResponse" placeholder="Enter Query Response" name="QueryResponse" /></div>
-                                        </div>
-                                    </div>
+                                    
                                      </div>
+                                            <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Query Description</label>
+                                            <div class="col-lg-9 d-flex"><spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryDescription"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Query Response</label>
+                                            <div class="col-lg-9 d-flex"><spna class="dots">:</spna><asp:TextBox runat="server" class="form-control" Style="height: 100px; width: 800px; resize: vertical;" TextMode="MultiLine" ID="txtQueryResponse" placeholder="Enter Query Response" name="QueryResponse" /></div>
+                                        </div>
+                                    </div>
                                             
                                             <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label">Response Attachment</label>
+                                            <label class="col-lg-6 col-form-label">Response Attachment</label>
                                             <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:FileUpload ID="fupResAttachment" runat="server" /></div>
                                         </div>
                                     </div>

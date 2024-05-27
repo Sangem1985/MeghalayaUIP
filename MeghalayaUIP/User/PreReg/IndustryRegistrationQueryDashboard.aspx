@@ -21,12 +21,12 @@
                                     <div class="tab-pane show active" id="basictab1">
                                         <div class="card-body">
                                             <%--<h4 class="card-title"></h4>--%>
-                                            <div class="row">
+                                            <div class="">
                                                 <div class="panel-body" id="divAttachmentQuery" runat="server">
-
+                                                    <div class="table-responsive">
                                                     <asp:GridView ID="gvAttachmentsQuery" CssClass="table-borderd" runat="server" AllowPaging="false" AutoGenerateColumns="False"
                                                         CellPadding="4" Height="62px" EmptyDataText="No Queries Found" ShowHeaderWhenEmpty="true"
-                                                        PageSize="20" Width="100%" Font-Names="Verdana" Font-Size="13px" GridLines="Both" OnRowDataBound="gvAttachmentsQuery_RowDataBound">
+                                                        PageSize="20" Width="100%" Font-Names="Verdana" Font-Size="12px" GridLines="Both" OnRowDataBound="gvAttachmentsQuery_RowDataBound">
                                                         <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                         <RowStyle CssClass="GridviewScrollC1Item" HorizontalAlign="Center" />
                                                         <PagerStyle CssClass="GridviewScrollC1Pager" />
@@ -40,7 +40,7 @@
                                                                     <asp:HiddenField ID="HdfApprovalid" runat="server" />
                                                                 </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle Width="50px" />
+                                                                <ItemStyle Width="70px" />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="IRQID" Visible="true">
                                                                 <ItemTemplate>
@@ -86,9 +86,11 @@
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
-
+                                                            
                                                         </Columns>
+                                                        <EmptyDataTemplate>No Records Found!</EmptyDataTemplate>
                                                     </asp:GridView>
+                                                        </div>
                                                 </div>
                                             </div>
 
