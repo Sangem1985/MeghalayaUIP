@@ -20,7 +20,6 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetCFOExciseData(CFOunitid, CFOQID);
         }
-
         public string InsertCFOLabourDetails(CFOLabourDet ObjCFOLabourDet)
         {
             return objCFODAL.InsertCFOLabourDetails(ObjCFOLabourDet);
@@ -99,15 +98,64 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetApprovalsReqFromTable(objCFOQsnaire);
         }
+      
+        ///--------Chanakya-////
+        public string InsertQuestionnaireCFO(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            return objCFODAL.InsertQuestionnaireCFO(objCFOQsnaire);
+        }
+        public DataSet GetApprovalsReqWithFee(CFOQuestionnaireDet objCFOQ)
+        {
+            return objCFODAL.GetApprovalsReqWithFee(objCFOQ);
+        }
+        public DataSet GetIndustryRegDetails(string userid, string UnitID)
+        {
+            return objCFODAL.GetIndustryRegDetails(userid, UnitID);
+        }
+        public string InsertCFOQuestionnaireApprovals(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            return objCFODAL.InsertCFOQuestionnaireApprovals(objCFOQsnaire);
+        }
+        public DataSet RetrieveQuestionnaireDetails(string userid, string UnitID)
+        {
+            return objCFODAL.RetrieveQuestionnaireDetails(userid, UnitID);
+        }
+        public DataSet GetPaymentAmounttoPay(string userid, string UNITID)
+        {
+            return objCFODAL.GetPaymentAmounttoPay(userid, UNITID);
+        }
+        public string InsertPaymentDetails(CFOPayments objpay)
+        {
+            return objCFODAL.InsertPaymentDetails(objpay);
+        }
         public string InsertCFOAttachments(CFOAttachments objAttach)
         {
             return objCFODAL.InsertCFOAttachments(objAttach);
+        }
+
+        public DataSet GetCFEApprovedandCFOAppliedApplications(string userid, string UnitID)
+        {
+            return objCFODAL.GetIndustryRegDetails(userid, UnitID);
+        }
+
+        //------------------DEPARTMENT STARTED HERE ---------------------------------//
+
+        public DataTable GetCFODashBoard(CFODtls objCFO)
+        {
+            return objCFODAL.GetCFODashBoard(objCFO);
+        }
+        public DataTable GetCFODashBoardView(CFODtls objCFO)
+        {
+            return objCFODAL.GetCFODashBoardView(objCFO);
         }
         public DataSet GetCFOApplicationDetails(string UnitID, string InvesterID)
         {
             return objCFODAL.GetCFOApplicationDetails(UnitID, InvesterID);
         }
-
+        public string UpdateCFODepartmentProcess(CFODtls Objcfodtls)
+        {
+            return objCFODAL.UpdateCFODepartmentProcess(Objcfodtls);
+        }
 
 
     }

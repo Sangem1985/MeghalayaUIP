@@ -906,7 +906,18 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
+        protected void btnNext3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFECommonApplication.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
         public static string getclientIP()
         {
             string result = string.Empty;

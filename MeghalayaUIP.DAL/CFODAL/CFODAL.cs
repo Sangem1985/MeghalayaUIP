@@ -1351,6 +1351,336 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
         }
+
+        public string InsertQuestionnaireCFO(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            string Result = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOQuestionnaire;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOQD_UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
+                com.Parameters.AddWithValue("@CFOQD_PREREGUIDNO", objCFOQsnaire.PREREGUIDNO);
+                com.Parameters.AddWithValue("@CFOQD_APPLSTATUS", 2);
+                com.Parameters.AddWithValue("@CFOQD_COMPANYNAME", objCFOQsnaire.CompanyName);
+                com.Parameters.AddWithValue("@CFOQD_COMPANYTYPE", Convert.ToInt32(objCFOQsnaire.CompanyType));
+                com.Parameters.AddWithValue("@CFOQD_PROPOSALFOR", objCFOQsnaire.ProposalFor);
+                com.Parameters.AddWithValue("@CFOQD_MIDCLLAND", Convert.ToInt32(objCFOQsnaire.LandFromMIDCL));
+                com.Parameters.AddWithValue("@CFOQD_PROPDISTRICTID", Convert.ToInt32(objCFOQsnaire.PropLocDitrictID));
+                com.Parameters.AddWithValue("@CFOQD_PROPMANDALID", Convert.ToInt32(objCFOQsnaire.PropLocMandalID));
+                com.Parameters.AddWithValue("@CFOQD_PROPVILLAGEID", Convert.ToInt32(objCFOQsnaire.PropLocVillageID));
+                com.Parameters.AddWithValue("@CFOQD_TOTALEXTENTLAND", Convert.ToDecimal(objCFOQsnaire.ExtentofLand));
+                com.Parameters.AddWithValue("@CFOQD_BUILTUPAREA", Convert.ToDecimal(objCFOQsnaire.BuiltUpArea));
+                com.Parameters.AddWithValue("@CFOQD_SECTOR", objCFOQsnaire.SectorName);
+                com.Parameters.AddWithValue("@CFOQD_LOAID", Convert.ToInt32(objCFOQsnaire.Lineofacitivityid));
+                com.Parameters.AddWithValue("@CFOQD_PCBCATEGORY", objCFOQsnaire.PCBCategory);
+                com.Parameters.AddWithValue("@CFOQD_INDUSTRYTYPE", objCFOQsnaire.NatureofActivity);
+                com.Parameters.AddWithValue("@CFOQD_UNTLOCATION", objCFOQsnaire.UnitLocation);
+                com.Parameters.AddWithValue("@CFOQD_PROPEMP", Convert.ToInt32(objCFOQsnaire.PropEmployment));
+                com.Parameters.AddWithValue("@CFOQD_LANDVALUE", Convert.ToDecimal(objCFOQsnaire.LandValue));
+                com.Parameters.AddWithValue("@CFOQD_BUILDINGVALUE", Convert.ToDecimal(objCFOQsnaire.BuildingValue));
+                com.Parameters.AddWithValue("@CFOQD_PMCOST", Convert.ToDecimal(objCFOQsnaire.PlantnMachineryCost));
+                com.Parameters.AddWithValue("@CFOQD_EXPECTEDTURNOVER", Convert.ToDecimal(objCFOQsnaire.ExpectedTurnover));
+                com.Parameters.AddWithValue("@CFOQD_TOTALPROJCOST", Convert.ToDecimal(objCFOQsnaire.TotalProjCost));
+                com.Parameters.AddWithValue("@CFOQD_ENTERPRISETYPE", objCFOQsnaire.EnterpriseCategory);
+                com.Parameters.AddWithValue("@CFOQD_LABOURACT2020", objCFOQsnaire.LabourAct2020);
+                com.Parameters.AddWithValue("@CFOQD_BOILERMANFREG", objCFOQsnaire.BoilerManfreg);
+                com.Parameters.AddWithValue("@CFOQD_WORKCONTRACTORSREG", objCFOQsnaire.WorkContractorsReg);
+                com.Parameters.AddWithValue("@CFOQD_BOILERREG", objCFOQsnaire.BoilerReg);
+                com.Parameters.AddWithValue("@CFOQD_FACTORYLICENCE", objCFOQsnaire.FactoryLicence);
+                com.Parameters.AddWithValue("@CFOQD_LABOURACT1979", objCFOQsnaire.Labouract1979);
+                com.Parameters.AddWithValue("@CFOQD_LABOURACT1970", objCFOQsnaire.Labouract1970);
+                com.Parameters.AddWithValue("@CFOQD_DRUGLIC", objCFOQsnaire.DrugLic);
+                com.Parameters.AddWithValue("@CFOQD_WANDMREPARERLIC", objCFOQsnaire.Wandmreparerlic);
+                com.Parameters.AddWithValue("@CFOQD_WANDMMANFLIC", objCFOQsnaire.Wandmmanflic);
+                com.Parameters.AddWithValue("@CFOQD_WANDMDEALERLIC", objCFOQsnaire.Wandmdealerlic);
+                com.Parameters.AddWithValue("@CFOQD_WANDMVERIFICATION", objCFOQsnaire.Wandmverification);
+                com.Parameters.AddWithValue("@CFOQD_FIRESAFTYCERT", objCFOQsnaire.Firesaftycert);
+                com.Parameters.AddWithValue("@CFOQD_EXCISELIC", objCFOQsnaire.Exciselic);
+                com.Parameters.AddWithValue("@CFOQD_DRUGLICCONSTCHANGE", objCFOQsnaire.Druglicconstchange);
+                com.Parameters.AddWithValue("@CFOQD_BRANDLABELREG", objCFOQsnaire.Brandlabelreg);
+                com.Parameters.AddWithValue("@CFOQD_DRUGLICMANFFORTEST", objCFOQsnaire.Druglicmanffortest);
+                com.Parameters.AddWithValue("@CFOQD_DRUGLOANLICMANFSHEDULEC", objCFOQsnaire.Drugloanlicmanfshedulec);
+                com.Parameters.AddWithValue("@CFOQD_DRUGLOANLICMANFNOTSHEDULEC", objCFOQsnaire.Drugloanlicmanfnotshedulec);
+                com.Parameters.AddWithValue("@CFOQD_DRUGLICREPACKSALE", objCFOQsnaire.Druglicrepacksale);
+                com.Parameters.AddWithValue("@CFOQD_DRUGLICMANFSALEVACCNOTSHEDULEX", objCFOQsnaire.Druglicmanfsalevaccnotshedulex);
+                com.Parameters.AddWithValue("@CFOQD_PROFTAXCERT", objCFOQsnaire.Proftaxcert);
+                com.Parameters.AddWithValue("@CFOQD_CFOPCB", objCFOQsnaire.Cfopcb);
+                com.Parameters.AddWithValue("@CFOQD_OCCUPANCYCERT", objCFOQsnaire.Occupancycert);
+                com.Parameters.AddWithValue("@CFOQD_BOILERSTMPIPELINEERECTION", objCFOQsnaire.Boilerstmpipelineerection);
+                com.Parameters.AddWithValue("@CFOQD_BOILERSTMPIPELINEREGISTRATION", objCFOQsnaire.Boilerstmpipelineregistration);
+                com.Parameters.AddWithValue("@CFOQD_SHPSESTBREG_FORMA", objCFOQsnaire.Shpsestbreg_forma);
+                com.Parameters.AddWithValue("@CFOQD_BUSINESSSLIC", objCFOQsnaire.Businessslic);
+                com.Parameters.AddWithValue("@CFOQD_LIQUORLIC", objCFOQsnaire.Liquorlic);
+                com.Parameters.AddWithValue("@CFOQD_STATEEXCISEVERFCERT", objCFOQsnaire.Stateexciseverfcert);
+                com.Parameters.AddWithValue("@CFOQD_CREATEDBY", Convert.ToInt32(objCFOQsnaire.CreatedBy));
+                com.Parameters.AddWithValue("@CFOQD_CREATEDBYIP", objCFOQsnaire.IPAddress);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetApprovalsReqWithFee(CFOQuestionnaireDet objCFOQ)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOApprovalsReq, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOApprovalsReq;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@ENTPRISETYPE", objCFOQ.EnterpriseCategory);
+                da.SelectCommand.Parameters.AddWithValue("@APPROVALID", objCFOQ.ApprovalID);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetIndustryRegDetails(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFORegDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFORegDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string InsertCFOQuestionnaireApprovals(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            string Result = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            //connection.Open();
+            //transaction = connection.BeginTransaction();
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOQuestionnaireApprovals;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOQDID", Convert.ToInt32(objCFOQsnaire.CFOQDID));
+                com.Parameters.AddWithValue("@CFOQA_DEPTID", Convert.ToInt32(objCFOQsnaire.DeptID));
+                com.Parameters.AddWithValue("@CFOQA_APPROVALID", Convert.ToInt32(objCFOQsnaire.ApprovalID));
+                com.Parameters.AddWithValue("@CFOQA_APPROVALFEE", Convert.ToDecimal(objCFOQsnaire.ApprovalFee));
+                com.Parameters.AddWithValue("@CFOQA_CREATEDBY", Convert.ToInt32(objCFOQsnaire.CreatedBy));
+                com.Parameters.AddWithValue("@CFOQA_CREATEDBYIP", objCFOQsnaire.IPAddress);
+                com.Parameters.AddWithValue("@CFOQA_UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
+
+                int QAID = Convert.ToInt32(com.ExecuteScalar());
+                transaction.Commit();
+                connection.Close();
+                Result = Convert.ToString(QAID);
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet RetrieveQuestionnaireDetails(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.RetrieveQuestionnaire, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.RetrieveQuestionnaire;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetPaymentAmounttoPay(string userid, string UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFEApprovalsAmounttoPay, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFEApprovalsAmounttoPay;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string InsertPaymentDetails(CFOPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertPaymentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOPD_UNITID", Convert.ToInt32(objpay.UNITID));
+                com.Parameters.AddWithValue("@CFOPD_CFOQDID", Convert.ToInt32(objpay.Questionnareid));
+                com.Parameters.AddWithValue("@CFOPD_UIDNO", objpay.CFEUID);
+                com.Parameters.AddWithValue("@CFOPD_DEPTID", objpay.DeptID);
+                com.Parameters.AddWithValue("@CFOPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@CFOPD_ONLINEORDERNO", objpay.OnlineOrderNo);
+                com.Parameters.AddWithValue("@CFOPD_ONLINEAMOUNT", objpay.OnlineOrderAmount);
+                com.Parameters.AddWithValue("@CFOPD_PAYMENTFLAG", objpay.PaymentFlag);
+                com.Parameters.AddWithValue("@CFOPD_TRANSACTIONNO", objpay.TransactionNo);
+                com.Parameters.AddWithValue("@CFOPD_BANKNAME", objpay.BankName);
+                com.Parameters.AddWithValue("@CFOPD_TRANSACTIONDATE", objpay.TransactionDate);
+                com.Parameters.AddWithValue("@CFOPD_CRETAEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@CFOPD_CRETAEDBYIP", objpay.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         public string InsertCFOAttachments(CFOAttachments objAttachments)
         {
             string Result = "";
@@ -1369,7 +1699,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Connection = connection;
 
                 com.Parameters.AddWithValue("@CFOA_UNITID", Convert.ToInt32(objAttachments.UNITID));
-                com.Parameters.AddWithValue("@CFOA_CFEQDID", Convert.ToInt32(objAttachments.Questionnareid));
+                com.Parameters.AddWithValue("@CFOA_CFOQDID", Convert.ToInt32(objAttachments.Questionnareid));
                 com.Parameters.AddWithValue("@CFOA_MASTERAID", objAttachments.MasterID);
                 com.Parameters.AddWithValue("@CFOA_FILEPATH", objAttachments.FilePath);
                 com.Parameters.AddWithValue("@CFOA_FILENAME", objAttachments.FileName);
@@ -1399,6 +1729,136 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
             return Result;
+        }
+
+        public DataSet GetCFEApprovedandCFOAppliedApplications(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFEApprovedandCFOAppliedApplications, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFEApprovedandCFOAppliedApplications;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", userid);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        //-------------------------- DEPARTMENT STARTED HERE -------------------//
+
+        public DataTable GetCFODashBoard(CFODtls objCFO)
+        {
+            DataTable dt = new DataTable();
+            string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFODashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFODashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objCFO.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objCFO.Role);
+                if (objCFO.deptid != null && objCFO.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objCFO.deptid);
+                }
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
+
+        public DataTable GetCFODashBoardView(CFODtls objCFO)
+        {
+            string valid = "";
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFODashBoardView, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFODashBoardView;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //PRD.deptid = 1;
+                //PRD.status = 4;
+                //PRD.Role = 0;
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objCFO.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objCFO.ViewStatus);
+                if (objCFO.deptid != null && objCFO.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objCFO.deptid);
+                }
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objCFO.Role);
+                da.Fill(dt);
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
         }
         public DataSet GetCFOApplicationDetails(string UnitID, string InvesterID)
         {
@@ -1433,7 +1893,61 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
         }
+        public string UpdateCFODepartmentProcess(CFODtls Objcfodtls)
+        {
+            string valid = "";
 
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.UpdateCFODepartmentProcess;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@UNITID", Objcfodtls.Unitid);
+                com.Parameters.AddWithValue("@CFOQDID", Objcfodtls.Questionnaireid);
+                if (Objcfodtls.deptid != null && Objcfodtls.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@DEPTID", Objcfodtls.deptid);
+                }
+                com.Parameters.AddWithValue("@APPROVALID", Objcfodtls.ApprovalId);
+                com.Parameters.AddWithValue("@ACTIONID", Objcfodtls.status);
+                com.Parameters.AddWithValue("@REMARKS", Objcfodtls.Remarks);
+                com.Parameters.AddWithValue("@CFODA_SCRUTINYREJECTIONFLAG", Objcfodtls.PrescrutinyRejectionFlag);
+                if (Objcfodtls.AdditionalAmount != null && Objcfodtls.AdditionalAmount != "")
+                {
+                    com.Parameters.AddWithValue("@ADDLAMOUNT", Objcfodtls.AdditionalAmount);
+                }
+
+                com.Parameters.AddWithValue("@IPADDRESS", Objcfodtls.IPAddress);
+                com.Parameters.AddWithValue("@CREATEDBY", Objcfodtls.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
+        }
 
     }
 }

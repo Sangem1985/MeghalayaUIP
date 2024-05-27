@@ -475,9 +475,439 @@
                                                 <div class="card-body">
                                                     <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
                                                     <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
-                                                    
+                                                    <div class="row">
 
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        1. Do you require Registration of Migrant Workers under The Meghalaya Identification, Registration of
+                                                                        Migrant Workers Act, 2020?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblRegMigrantWorkers" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        2. Do you require Registration of Manufacturers / Repairers/Erectors of Boilers?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblRegManfRepairs" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        3. Do you require Registration of Contractors for Works and services and Renewal?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblServicesRenewal" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        4. Do you require Registration of Boiler?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblBoilers" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        5. Do you require License to Work as a Factory?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblLicensetoWorkFac" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        6. Do you require License for contractors under the Interstate Migrant Workmen Act 1979?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblInterstateMigrantWorkmen" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        7. Do you require License for Contractors under the Contract Labour Act 1970?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblContractLabourAct1970" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        8. Do you require Licence for Retail and Wholesale Drug Licence?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblWDruglicence" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        9. Do you require Licence as Repairers of Weights & Measures?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblRPLicenceWeights" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        10. Do you require Licence as Manufacturer of Weights & Measures?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblMFLicenceWeights" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        11. Do you require Licence as Dealers in Weights & Measures?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblLicenceDealers" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        12. Do you require Initial Verification And Stamping of Weighing and Measuring Instrument?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblVerificationInstrument" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        13. Do you require Fire Safety Certificate?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblFireSafety" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        14. Do you require Excise License for Wholesale, Retail, Bottling, Distillery Plant?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblExciseLicenseDistillery" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        15. Do you require Change of Constitution of Licence for Retail and Wholesale Drug licence?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblConstitutionLicenceRWD" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        16. Do you require Brand and Label Registration?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblBrandLabelReg" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        17. Do you require Application For The Grant/Renewal Of License To Manufacture Drugs For Purpose Of Examination, Test Or Analysis?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblPurposeofExamination" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        18. Do you require Application For The Grant Of Loan License To Manufacture For Sale Or For Distribution Of 
+                                                                        Drugs Specified In Schedule C, C (1) Excluding Those Specified In Part Xb & Schedule X?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblScheduleX" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        19. Do you require Application For The Grant Of A Loan License To Manufacture For Sale Or For 
+                                                                        Distribution Of Drugs Other Than That Specified In Schedule C, C(1), X?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblDrugloanlicmanfnotshedulec" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        20. Do you require Application For The Grant /Renewal Of License To Repack For Sale Or For Distribution Of Drugs Other
+                                                                        Than That Specified In Schedule C, C(1) Excluding Those Specified In Schedule X?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblDruglicrepacksale" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        21. Do you require Application For The Grant /Renewal Of License To Manufacture For Sale Or For
+                                                                        Distribution Of Large Volume Parenterals/Sera And Vaccines Excluding Those Specified In Schedule X?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblDruglicmanfsalevaccnotshedulex" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        22. Do you require Application for Certificate of Enrollment of Professional Tax under the Meghalaya Professions
+                                                                        Trades Callings and Employment Taxation Rules?</label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblProftaxcert" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        23. Do you require CFO from pollution contorl board?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblCFOPCB" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        24. Do you require Occupancy certificate?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblOccupancyCertificate" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        25. Do you require Boilers steam Pipeline Erection Permission Certificate from Boilers Department?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblErectionPermission" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        26. Do you require Boilers steam pipeline registration number certificate?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblPipelineCertificate" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        27. Do you require Registration of Shops and Establishment - FORM - A?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblShpsestbregformA" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        28. Do you require Application for grant of Business License?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblBusinesssLic" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        29. Do you require License for local sale, Import and export permit of Spirit and Indian-made foreign liquor (IMFL)?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblLiquorLic" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        30. Do you require State Excise - Excise Verification Certificate ?
+                                                                    </label>
+                                                                    <div class="col-lg-6 d-flex ">
+                                                                        <asp:RadioButtonList ID="rblExciseVerification" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
+                                                        </div>
+
+                                                        <div class="col-md-12 d-flex mt-2" id="padding">
+                                                            <div class="col-md-2">
+                                                                <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="false"></asp:Button>
+
+                                                            </div>
+                                                            <div class="col-md-10 text-right mb-2">
+                                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
+                                                                <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" />
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -514,7 +944,7 @@
                                         <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
                                             <ItemStyle Width="450px" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
+                                        <asp:BoundField DataField="DeptName" HeaderText="Department">
                                             <ItemStyle Width="180px" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fees (Rs.)">
@@ -529,7 +959,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("TMD_DEPTID") %>'></asp:Label>
+                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("DeptId") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

@@ -30,8 +30,25 @@ namespace MeghalayaUIP.Common
         public static string GetCFOObtainedOffline = "USP_GETCFOQUESTIONNAIREAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFOQUESTIONNAIREAPPROVALS";
         public static string InsertCFOAttachments = "USP_INSCFOATTACHMENTS";
-        public static string GetCFOApplicationDet = "";
         public static string InsertCFODepartmentapprovals = "USP_INSCFODEPARTMENTAPPROVALS";
+        public static string GetCFEApprovedandCFOAppliedApplications = "USP_GetCFEApprovedandCFOAppliedApplications";
+        //chanakya/////
+        public static string GetCFOApprovalsReq = "USP_GETCFOAPPROVALSWITHFEE";
+        public static string GetCFORegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA_CFO";
+        public static string InsertCFOQuestionnaire = "USP_INSCFOQUESTIONNAREDETAILS";
+        public static string InsertCFOQuestionnaireApprovals = "USP_INSCFOREQUIREDAPPROVALS";
+        public static string RetrieveQuestionnaire = "USP_RETRIEVECFOQUESFILLEDDATA";
+        public static string GetCFEApprovalsAmounttoPay = "USP_GETCFOAPPROVALSAMOUNTTOPAY";
+        public static string InsertPaymentDetails = "USP_INSCFOPAYMENTDETAILS";
+
+        //------------------DEPARTMENT STARTED HERE ---------------------------------//
+
+        public static string GetCFODashBoard = "USP_CFODASHBOARDCOUNT";
+        public static string GetCFODashBoardView = "USP_CFODASHBOARDVIEW";
+        public static string GetCFOApplicationDet = "USP_GETCFOAPPLICATIONDETAILS";
+        public static string UpdateCFODepartmentProcess = "USP_UPDATECFOSCRUTINYACTION";
+
+        //------------------DEPARTMENT ENDED HERE ---------------------------------//
 
     }
     public class CFOExciseDetails
@@ -419,6 +436,7 @@ namespace MeghalayaUIP.Common
         public string NameDrug { get; set; }
 
     }
+
     public class CFOQuestionnaireDet
     {
         public string UNITID { get; set; }
@@ -489,13 +507,50 @@ namespace MeghalayaUIP.Common
         public string Liquorlic { get; set; }
         public string Stateexciseverfcert { get; set; }
     }
-    public class CFOAttachments
+    public class CFOPayments
     {
         public string Questionnareid { get; set; }
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
         public string UNITID { get; set; }
         public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string OnlineOrderNo { get; set; }
+        public string OnlineOrderAmount { get; set; }
+        public string PaymentFlag { get; set; }
+        public string TransactionNo { get; set; }
+        public string TransactionDate { get; set; }
+        public string BankName { get; set; }
+
+    }
+    public class CFODtls
+    {
+        public string UserName { get; set; }
+        public string UserID { get; set; }
+        public int Role { get; set; }
+        public int? status { get; set; }
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public string Questionnaireid { get; set; }
+        public int Stage { get; set; }
+        public string ViewStatus { get; set; }
+        public string Remarks { get; set; }
+        public int? deptid { get; set; }
+        public int? ApprovalId { get; set; }
+        public string AdditionalAmount { get; set; }
+        public string PrescrutinyRejectionFlag { get; set; }
+        public string DeptDesc { get; set; }
+        public string ReferenceNumber { get; set; }
+        public string IPAddress { get; set; }
+    }
+    public class CFOAttachments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFOUID { get; set; }
         public string DeptID { get; set; }
         public string ApprovalID { get; set; }
         public string FileName { get; set; }
@@ -505,4 +560,5 @@ namespace MeghalayaUIP.Common
         public string MasterID { get; set; }
 
     }
+
 }

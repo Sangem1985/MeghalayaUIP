@@ -118,10 +118,16 @@ namespace MeghalayaUIP.User
             Response.Redirect("~/User/CFE/CFEUserDashboard.aspx");
 
         }
+        protected void LinkCFODashBoard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/CFO/CFOUserDashboard.aspx");
+        }
 
         protected void lnkGrievance_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User/Grievance/Grievance.aspx");
         }
+
+        
     }
 }

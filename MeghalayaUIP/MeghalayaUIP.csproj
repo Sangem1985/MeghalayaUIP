@@ -508,6 +508,9 @@
     <Content Include="Dept\CFE\CFEApplDeptView.aspx" />
     <Content Include="Dept\CFE\CFEDeptDashboard.aspx" />
     <Content Include="Dept\CFE\demo.aspx" />
+    <Content Include="Dept\CFO\CFOApplDeptProcess.aspx" />
+    <Content Include="Dept\CFO\CFOApplDeptView.aspx" />
+    <Content Include="Dept\CFO\CFODeptDashboard.aspx" />
     <Content Include="Dept\CFO\demo.aspx" />
     <Content Include="Dept\Dashboard.aspx" />
     <Content Include="Dept\Demo.aspx" />
@@ -562,8 +565,10 @@
     <Content Include="User\CFO\CFOFireDetails.aspx" />
     <Content Include="User\CFO\CFOLabour.aspx" />
     <Content Include="User\CFO\CFOLegalMeterology.aspx" />
+    <Content Include="User\CFO\CFOPaymentPage.aspx" />
     <Content Include="User\CFO\CFOProffessionalTax.aspx" />
     <Content Include="User\CFO\CFOQuestionnaire.aspx" />
+    <Content Include="User\CFO\CFOUserDashboard.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
     <Content Include="User\DashboardDrill.aspx" />
@@ -644,6 +649,27 @@
     </Compile>
     <Compile Include="Dept\CFE\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFO\CFOApplDeptProcess.aspx.cs">
+      <DependentUpon>CFOApplDeptProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFO\CFOApplDeptProcess.aspx.designer.cs">
+      <DependentUpon>CFOApplDeptProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFO\CFOApplDeptView.aspx.cs">
+      <DependentUpon>CFOApplDeptView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFO\CFOApplDeptView.aspx.designer.cs">
+      <DependentUpon>CFOApplDeptView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\CFO\CFODeptDashboard.aspx.cs">
+      <DependentUpon>CFODeptDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\CFO\CFODeptDashboard.aspx.designer.cs">
+      <DependentUpon>CFODeptDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\CFO\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
@@ -1038,6 +1064,13 @@
     <Compile Include="User\CFO\CFOLegalMeterology.aspx.designer.cs">
       <DependentUpon>CFOLegalMeterology.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFO\CFOPaymentPage.aspx.cs">
+      <DependentUpon>CFOPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOPaymentPage.aspx.designer.cs">
+      <DependentUpon>CFOPaymentPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFO\CFOProffessionalTax.aspx.cs">
       <DependentUpon>CFOProffessionalTax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1051,6 +1084,13 @@
     </Compile>
     <Compile Include="User\CFO\CFOQuestionnaire.aspx.designer.cs">
       <DependentUpon>CFOQuestionnaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOUserDashboard.aspx.cs">
+      <DependentUpon>CFOUserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOUserDashboard.aspx.designer.cs">
+      <DependentUpon>CFOUserDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>

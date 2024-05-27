@@ -865,7 +865,7 @@
                                                             <div class="col-md-10 text-right mb-2">
                                                                 <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
                                                                 <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" />
-
+                                                                <asp:Button ID="btnNext3" runat="server" Text="Next" OnClick="btnNext3_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                                             </div>
 
                                                         </div>

@@ -7,119 +7,92 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User
+namespace MeghalayaUIP.Dept.CFO
 {
 
 
-    public partial class User
+    public partial class CFODeptDashboard
     {
 
         /// <summary>
-        /// head control.
+        /// lblTOTALAPPLICATIONS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label lblTOTALAPPLICATIONS;
 
         /// <summary>
-        /// form1 control.
+        /// lblPRESCRUTINYCOMPLETED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblPRESCRUTINYCOMPLETED;
 
         /// <summary>
-        /// imgLogo control.
+        /// lblPREREJECTED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgLogo;
+        protected global::System.Web.UI.WebControls.Label lblPREREJECTED;
 
         /// <summary>
-        /// lblUser control.
+        /// lblPRESCRUTINYPENDING control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUser;
+        protected global::System.Web.UI.WebControls.Label lblPRESCRUTINYPENDING;
 
         /// <summary>
-        /// aLogout control.
+        /// lblADDITIONALPAYMENTRAISED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aLogout;
+        protected global::System.Web.UI.WebControls.Label lblADDITIONALPAYMENTRAISED;
 
         /// <summary>
-        /// linkuserdshbrd control.
+        /// lblQUERYPENDING control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkuserdshbrd;
+        protected global::System.Web.UI.WebControls.Label lblQUERYPENDING;
 
         /// <summary>
-        /// linkIndReg control.
+        /// lblTOTALAPPROVALISSUED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkIndReg;
+        protected global::System.Web.UI.WebControls.Label lblTOTALAPPROVALISSUED;
 
         /// <summary>
-        /// linkCFEDashbrd control.
+        /// lblAPPROVALPENDING control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkCFEDashbrd;
+        protected global::System.Web.UI.WebControls.Label lblAPPROVALPENDING;
 
         /// <summary>
-        /// LinkCFODashBoard control.
+        /// lblREJECTED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkCFODashBoard;
-
-        /// <summary>
-        /// lnkGrievance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkGrievance;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-
-        /// <summary>
-        /// hdnUToken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUToken;
+        protected global::System.Web.UI.WebControls.Label lblREJECTED;
     }
 }

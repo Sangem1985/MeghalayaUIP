@@ -29,15 +29,16 @@
     <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet" />
-	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
         table#ContentPlaceHolder1_rblLbrAct1970 tr td,
         table#ContentPlaceHolder1_rblLbrAct1979 tr td,
         table#ContentPlaceHolder1_rblLbrAct1996 tr td,
         table#ContentPlaceHolder1_rblLabourAct tr td,
-        table#ContentPlaceHolder1_rblForContr1970 tr td{
-    border: none;
-}
+        table#ContentPlaceHolder1_rblForContr1970 tr td {
+            border: none;
+        }
+
         .card-counter.primarydashboard {
             margin: 10px;
             padding: 15px 45px;
@@ -55,10 +56,11 @@
             .card-counter.primarydashboard:hover {
                 box-shadow: 10px 12px 0px #ccc;
             }
-           a.logo input#imgLogo {
-    width: 98%;
-    margin-top: 15px;
-}
+
+        a.logo input#imgLogo {
+            width: 98%;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -69,9 +71,9 @@
                 <!-- Logo -->
                 <div class="header-left">
                     <a href="#" class="logo">
-					<asp:ImageButton runat="server" ID="imgLogo" ImageUrl="~/assets/images/Logo.png" />
-				</a>
-                    
+                        <asp:ImageButton runat="server" ID="imgLogo" ImageUrl="~/assets/images/Logo.png" />
+                    </a>
+
                 </div>
                 <!-- /Logo -->
 
@@ -104,22 +106,20 @@
                     <li class="nav-item dropdown has-arrow">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img">
-                                
+
                                 <%--<asp:ImageButton runat="server" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="rounded-circle" />--%>
-                            <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>
+                                <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>
                             </span>
-                            
+
                         </a>
                         <div class="dropdown-menu">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
                                     <img src="../../assets/admin/img/profiles/avatar-01.jpg" alt="User Image"
                                         class="avatar-img rounded-circle">
-
-                                    
                                 </div>
                                 <div class="user-text">
-                                   
+
                                     <p class="text-muted mb-0">User</p>
                                 </div>
                             </div>
@@ -159,7 +159,8 @@
 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Pre-Operational</a>
+                                    <asp:LinkButton ID="LinkCFODashBoard" runat="server" OnClick="LinkCFODashBoard_Click" class="nav-link">Pre-Operational <span class="sr-only">(current)</span></asp:LinkButton>
+
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Renewals</a>
@@ -264,7 +265,7 @@
             }
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"> </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script>
         <script>
 
             $(".date").datepicker({

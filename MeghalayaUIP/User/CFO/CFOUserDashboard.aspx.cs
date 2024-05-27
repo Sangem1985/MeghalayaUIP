@@ -1,4 +1,4 @@
-﻿using MeghalayaUIP.BAL.CFEBLL;
+﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
@@ -8,13 +8,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MeghalayaUIP.User.CFE
+namespace MeghalayaUIP.User.CFO
 {
-    public partial class CFEUserDashboard : System.Web.UI.Page
+    public partial class CFOUserDashboard : System.Web.UI.Page
     {
-        CFEBAL objcfebal = new CFEBAL();
+        CFOBAL objcfObal = new CFOBAL();
         string UnitID;
         int TotApplied, TotApproved, TotRejected, TotQueryRaised, TotUnderProcess;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -63,50 +64,36 @@ namespace MeghalayaUIP.User.CFE
                     UnitID = Request.QueryString[0];
                 }
                 else UnitID = "%";
-                dsApproved = objcfebal.GetPREREGandCFEapplications(hdnUserID.Value, UnitID);
+                dsApproved = objcfObal.GetCFEApprovedandCFOAppliedApplications(hdnUserID.Value, UnitID);
                 if (dsApproved.Tables.Count > 0)
                 {
                     if (dsApproved.Tables[0].Rows.Count > 0)
                     {
-                        gvPreRegApproved.DataSource = dsApproved.Tables[0];
-                        gvPreRegApproved.DataBind();
+                        gvCFEApproved.DataSource = dsApproved.Tables[0];
+                        gvCFEApproved.DataBind();
                     }
                     else
                     {
                         lblmsg0.Text = "Approval for Registration Under MIIPP is under Process ";
                         Failure.Visible = true;
-                        gvPreRegApproved.DataSource = null;
-                        gvPreRegApproved.DataBind();
-                    }
-                    //if (dsApproved.Tables[1].Rows.Count > 0)
-                    //{
-                    //    gvCFEApplied.DataSource = dsApproved.Tables[1];
-                    //    gvCFEApplied.DataBind();
-                    //    gvCFEApplied.Visible= false;
-                    //}
-                    //else
-                    //{
-                    //    gvCFEApplied.DataSource = null;
-                    //    gvCFEApplied.DataBind();
-                    //}
-
+                        gvCFEApproved.DataSource = null;
+                        gvCFEApproved.DataBind();
+                    }                    
                 }
             }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
             }
         }
-
-        protected void gvPreRegApproved_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvCFEApproved_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    int gvrcnt = gvPreRegApproved.Rows.Count;
+                    int gvrcnt = gvCFEApproved.Rows.Count;
                     Button btnApply;
                     Button btnApprvlsReq;
                     Button btnApplstatus;
@@ -145,7 +132,7 @@ namespace MeghalayaUIP.User.CFE
                     TotQueryRaised = TotQueryRaised + TotalQuery;
                     string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFEAPPLSTATUS"));
 
-                    if (Applstatus == "" || Applstatus == null || Applstatus=="2")
+                    if (Applstatus == "" || Applstatus == null || Applstatus == "2")
                     {
                         btnApply = (Button)e.Row.FindControl("btnApplyCFE");
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
@@ -178,82 +165,18 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
             }
-        }
 
-        
-        protected void btnApplyCFE_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Button btn = (Button)sender;
-                GridViewRow row = (GridViewRow)btn.NamingContainer;
-                Label lblunitId = (Label)row.FindControl("lblUNITID");
-                Session["UNITID"] = lblunitId.Text;
-                string newurl = "CFEQuestionnaire.aspx";
-                Response.Redirect(newurl);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                //throw ex;
-            }
-        }
-
-        protected void btnView_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-
-            Label lbluniid = (Label)row.FindControl("lblUNITID");
-            Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-            Session["UNITID"] = lbluniid.Text;
-            string newurl = "CFEQuestionnaire.aspx";
-            Response.Redirect(newurl);
-        }
-
-        protected void btnCombndAppl_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Button btn = (Button)sender;
-                GridViewRow row = (GridViewRow)btn.NamingContainer;
-
-                Label lbluniid = (Label)row.FindControl("lblUNITID");
-                Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-                Session["UNITID"] = lbluniid.Text;
-                string newurl = "CFECommonApplication.aspx";
-                Response.Redirect(newurl);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                //throw ex;
-            }
         }
 
         protected void btnApplStatus_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Button btn = (Button)sender;
-                GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-                Label lbluniid = (Label)row.FindControl("lblUNITID");
-                Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-                Session["UNITID"] = lbluniid.Text;
-                string newurl = "CFEUserApplStatus.aspx";
-                Response.Redirect(newurl);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                //throw ex;
-            }
+        }
+
+        protected void btnApplyCFO_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
