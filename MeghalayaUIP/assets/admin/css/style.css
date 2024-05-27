@@ -6013,3 +6013,7 @@ spna.dots {
 	margin-left: -12px;
 	align-content: normal;
 }
+.table-responsive {
+	white-space: normal;
+	border-radius: 12px 12px 0px 0px !important;
+}
