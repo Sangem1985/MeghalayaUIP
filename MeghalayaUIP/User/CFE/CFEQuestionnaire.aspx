@@ -18,19 +18,10 @@
                                     *All Fields Are
 										Mandatory
                                 </p>
+                                
                             </div>
                             <div class="card-body">
-                                <div class="col-md-12 d-flex">
-                                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
-                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
-                                        <strong>Warning!</strong>
-                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                    </div>
-                                </div>
+                                
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -65,6 +56,7 @@
                                         data-toggle="tab">3.
 												Project Requirements</a></li>
                                 </ul>--%>
+                                
                                 <div class="tab-content">
                                     <asp:MultiView ID="MVQues" runat="server" OnActiveViewChanged="MVQues_ActiveViewChanged">
                                         <asp:View ID="viewProjDtls" runat="server">
@@ -473,6 +465,17 @@
                                         </asp:View>
                                         <asp:View ID="viewProjReq" runat="server">
                                             <div class="tab-pane active" id="basictab3">
+                                                <div class="col-md-12 d-flex mt-2 justify-content-center">
+                                    <div id="success" runat="server" visible="false" class="alert alert-success " align="Center">
+                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex mt-2 justify-content-center">
+                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                        <strong>Warning!</strong>
+                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    </div>
+                                </div>
                                                 <div class="card-body">
                                                     <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
                                                     <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
@@ -892,6 +895,7 @@
                                 <h4 class="card-title"><b>Details of Approvals with Fee (in Rs.)</b></h4>
                             </div>
                             <div class="card-body">
+                                <div class="table-responsive">
                                 <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
                                     CssClass="GRD table-bordered table-hover" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" HorizontalAlign="Center" VerticalAlign="Middle">
                                     <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -929,6 +933,7 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
+                                    </div>
                             </div>
                         </div>
                     </div>

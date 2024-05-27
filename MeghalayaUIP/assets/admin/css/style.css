@@ -6017,3 +6017,6 @@ spna.dots {
 	white-space: normal;
 	border-radius: 12px 12px 0px 0px !important;
 }
+	.table-responsive table tr td, tr th {
+		padding: 3px 10px;
+	}
