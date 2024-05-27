@@ -20,7 +20,7 @@ namespace MeghalayaUIP.User.Grievance
     public partial class Grievance : System.Web.UI.Page
     {
         readonly LoginBAL objloginBAL = new LoginBAL();
-        string Grivance_File_Path="", Grivance_File_Type="", Grievnace_FileName="";
+        string Grivance_File_Path = "", Grivance_File_Type = "", Grievnace_FileName = "";
         MGCommonBAL objcommon = new MGCommonBAL();
         MasterBAL mstrBAL = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
@@ -111,13 +111,20 @@ namespace MeghalayaUIP.User.Grievance
                     ddldept.DataValueField = "DepartmentId";
                     ddldept.DataTextField = "DepartmentName";
                     ddldept.DataBind();
+                    
                 }
                 else
                 {
                     ddldept.DataSource = null;
                     ddldept.DataBind();
+
                 }
                 AddSelect(ddldept);
+                if (ddlModule.SelectedValue == "7")
+                {
+                    ddldept.SelectedValue = "1012";
+                    ddldept.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -187,7 +194,7 @@ namespace MeghalayaUIP.User.Grievance
                 LabelHeading.Text = "Query Details";
                 trData.Visible = true;
             }
-           
+
         }
 
         protected void ddlModule_SelectedIndexChanged(object sender, EventArgs e)
@@ -293,6 +300,11 @@ namespace MeghalayaUIP.User.Grievance
                             divRenewals.Visible = false; divIncentives.Visible = false;
 
                             //divapplname.Visible = true;
+                        }
+                        if (ddlModule.SelectedValue == "7")
+                        {
+                            divPreReg.Visible = false;  divCFE.Visible = false; divCFO.Visible = false; divRenewals.Visible = false; divIncentives.Visible = false;
+                            BindPreRegDepts();
                         }
                     }
                     else

@@ -297,26 +297,73 @@ namespace MeghalayaUIP.User
 
         protected void btnCFOTotal_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnCFOApproved_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnCFOUnderProcess_Click(object sender, EventArgs e)
         {
+            try
+            {
+                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
 
         protected void btnCFORejected_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnCFOQuery_Click(object sender, EventArgs e)
         {
+            try
+            {
+                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                Response.Redirect(url);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
     }

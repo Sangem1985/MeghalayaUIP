@@ -55,12 +55,7 @@
                                                 <asp:Label ID="lblUnitName" runat="server"></asp:Label></b>
                                         </div>
                                     </div>
-
-                                    <%--<div class="col-md-6 d-flex" >--%>
-
-                                    <%--</div>--%>
                                 </div>
-
 
                                 <div class="card" style="width: 100%;">
                                     <div class="table-responsive under table-striped table-hover drilldown preEstablishment">

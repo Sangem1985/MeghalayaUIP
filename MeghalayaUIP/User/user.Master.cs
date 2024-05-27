@@ -128,6 +128,9 @@ namespace MeghalayaUIP.User
             Response.Redirect("~/User/Grievance/Grievance.aspx");
         }
 
-        
+        protected void lnkGrvStatus_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Grievance/GrievanceUserView.aspx");
+        }
     }
 }

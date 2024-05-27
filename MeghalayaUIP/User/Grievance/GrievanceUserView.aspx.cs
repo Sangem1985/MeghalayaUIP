@@ -99,7 +99,8 @@ namespace MeghalayaUIP.User.Grievance
                 {
                     lblmsg0.Text = "No Records Found";
                     Failure.Visible = true;
-                    
+                    Response.Redirect("~/User/Grievance/Grievance.aspx");
+
                 }
 
             }
