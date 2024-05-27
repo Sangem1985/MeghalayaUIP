@@ -438,4 +438,20 @@ span.icon3 {
     left: 37% !important;
 }
 }
+.page-wrapper.tabs.cfequestionnaire.cfo {
+    span .icon{
+    left: 7%;
+}
 
+span.icon {
+    top: 72px;
+    left: 7%;
+}
+span.icon2 {
+    top: 74px;
+    left: 21%;
+}
+span.icon3 {
+    top: 74px;
+}
+}

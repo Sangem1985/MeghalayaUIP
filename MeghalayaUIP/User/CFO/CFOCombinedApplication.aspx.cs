@@ -138,6 +138,7 @@ namespace MeghalayaUIP.User.CFO
                 if ((e.Row.RowType == DataControlRowType.Footer))
                 {
                     e.Row.Cells[5].Text = "Total Fee";
+                    
                     e.Row.Cells[6].Text = amounts22.ToString("#,##0");
                 }
             }

@@ -3,9 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
-    <div class="page-wrapper tabs cfequestionnaire">
+<div class="page-wrapper tabs cfequestionnaire">
 
         <div class="content container-fluid">
             <section class="comp-section">
@@ -20,14 +18,14 @@
                                 </p>
                                 
                             </div>
+                            
                             <div class="card-body">
-                                
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
+                                
 
-                                <%-- <ul class="nav nav-tabs">
-                                    <li class="nav-item">--%>
+                                
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
@@ -43,19 +41,8 @@
                                         <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                     3. Project Requirements</asp:LinkButton></li>
                                 </ul>
-                                <%--</li>
-                                </ul>--%>
-                                <%--<ul class="nav nav-tabs">
-                                    <li class="nav-item" runat="server" id="Li1">
-                                        <a class="nav-link  active" href="#basictab1" data-toggle="tab">1.Project Details</a>
-                                    </li>
-                                    <li class="nav-item" runat="server" id="Li2">
-                                        <a class="nav-link" href="#basictab2" data-toggle="tab">2.
-												Project Financials</a></li>
-                                    <li class="nav-item" runat="server" id="Li3"><a class="nav-link" href="#basictab3"
-                                        data-toggle="tab">3.
-												Project Requirements</a></li>
-                                </ul>--%>
+                               
+                                
                                 
                                 <div class="tab-content">
                                     <asp:MultiView ID="MVQues" runat="server" OnActiveViewChanged="MVQues_ActiveViewChanged">
@@ -115,7 +102,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Unit Location</h5>
+                                                        <h6 class="fs-20">Unit Location</h6>
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">

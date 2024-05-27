@@ -3,8 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="page-wrapper tabs cfequestionnaire">
-
+    <style>
+        .page-wrapper.tabs {
+    a#ContentPlaceHolder1_Link1 {
+        background: #dce775 !important;
+        padding: 10px 7px !important;
+        margin: 0px 6px !important;
+        color: #000 !important;
+        border-radius: 22px 0px !important;
+        font-weight: 500;
+    }
+}
+    </style>
+    <div class="page-wrapper tabs cfequestionnaire cfo">
+      
         <div class="content container-fluid">
             <section class="comp-section">
                 <div class="row">
@@ -18,17 +30,7 @@
                                 </p>
                             </div>
                             <div class="card-body">
-                                <div class="col-md-12 d-flex">
-                                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
-                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
-                                        <strong>Warning!</strong>
-                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                    </div>
-                                </div>
+                                
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -37,7 +39,7 @@
                                     <li class="nav-item">--%>
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
-                                        <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
+                                        <asp:LinkButton ID="Link1" class="nav-link" runat="server" OnClick="Link1_Click" Style="padding-right: 20px !important; font-size: 18px !important;margin-top: -8px !important;"> 
                                     1. Project Details</asp:LinkButton></li>
                                     <%-- </li>
                                     <li class="nav-item">--%>
@@ -69,7 +71,7 @@
                                             <div class="tab-pane active" id="basictab1">
                                                 <div class="card-body">
                                                     <span class="icon"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #004c6d; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
+                                                    <h4 class="card-title" style="background: #abbd07; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
 
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
@@ -121,7 +123,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Unit Location</h5>
+                                                        <h6 class="fs-20">Unit Location</h6>
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
@@ -249,11 +251,11 @@
                                                     <div class="col-md-12 d-flex mt-2" id="padding">
                                                         <div class="col-md-2">
                                                         </div>
-                                                        <div class="col-md-10 text-right">
-                                                            <asp:Button runat="server" Text="Save as Draft" Visible="false" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px" />
+                                                        <div class="col-md-10 text-right mb-3">
+                                                            <asp:Button runat="server" Text="Save as Draft" Visible="false" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-warning btn-lg" Width="150px" />
 
 
-                                                            <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" BackColor="#3333ff" Width="150px" />
+                                                            <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" Width="150px" />
 
                                                         </div>
                                                         <%-- <a href="#basictab2" data-toggle="tab">
@@ -269,7 +271,7 @@
                                             <div class="tab-pane active" id="basictab2">
                                                 <div class="card-body">
                                                     <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #0067b7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
+                                                    <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
                                                     <%--<form action="#">--%>
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
@@ -442,8 +444,8 @@
                                                                     </label>
 
                                                                     <div class="col-lg-4">
-                                                                        <h4>
-                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h4>
+                                                                        <h6 class="fs-20">
+                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -458,8 +460,8 @@
                                                             </div>
                                                             <div class="col-md-10 text-right">
                                                                 <asp:Button Text="Previous" runat="server" ID="btnPreviuos2" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos2_Click" Width="150px" BackColor="#009999" />
-                                                                <asp:Button ID="btnsave2" runat="server" Text="Save as Draft" Visible="false" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" OnClick="btnsave2_Click" Width="150px" />
-                                                                <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" Width="150px" BackColor="#3333ff" />
+                                                                <asp:Button ID="btnsave2" runat="server" Text="Save as Draft" Visible="false" class="btn btn-warning btn-info btn-lg" OnClick="btnsave2_Click" Width="150px" />
+                                                                <asp:Button ID="btnNext2" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext2_Click" Width="150px" />
 
                                                             </div>
                                                         </div>
@@ -472,9 +474,20 @@
                                         </asp:View>
                                         <asp:View ID="viewProjReq" runat="server">
                                             <div class="tab-pane active" id="basictab3">
+                                                  <div class="col-md-12 d-flex">
+                                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                        <strong>Warning!</strong>
+                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    </div>
+                                </div>
                                                 <div class="card-body">
                                                     <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
-                                                    <h4 class="card-title" style="background: #007aff; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
+                                                    <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
                                                     <div class="row">
 
                                                         <div class="col-md-12 d-flex">
