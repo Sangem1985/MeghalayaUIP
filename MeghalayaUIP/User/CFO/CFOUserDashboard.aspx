@@ -21,9 +21,10 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h3><b>Welcome to Dashboard</b></h3>
+                    <h4>Approved Pre-Establishment Applications</h4>
 
                     <div class="col-md-12 d-flex">
+                        <div class="table-radius">
                         <asp:GridView ID="gvCFEApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
                             GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvCFEApproved_RowDataBound" ShowFooter="true">
@@ -78,20 +79,20 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Apply For Pre-Operational" ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplyCFO" OnClick="btnApplyCFO_Click" Text="Apply" CssClass="btn btn-info" />
+                                        <asp:Button runat="server" ID="btnApplyCFO" OnClick="btnApplyCFO_Click" Text="Apply" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="12%" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnCombndAppl"  Text="Approvals Required" CssClass="btn btn-info" BackColor="Olive" />
+                                        <asp:Button runat="server" ID="btnCombndAppl"  Text="Approvals Required" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
                                 <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info" />
+                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -115,6 +116,7 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+                            </div>
                     </div>
 
                     <br />

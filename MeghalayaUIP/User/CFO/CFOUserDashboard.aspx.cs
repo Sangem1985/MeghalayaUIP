@@ -138,8 +138,10 @@ namespace MeghalayaUIP.User.CFO
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
                         btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
                         btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Enabled = false; btnApplstatus.BackColor = System.Drawing.Color.LightGray; btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                        btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                        btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                        btnApplstatus.Style.Add("border", "none");
+                        btnApplstatus.Style.Add("color", "black");
                     }
                     else
                     {

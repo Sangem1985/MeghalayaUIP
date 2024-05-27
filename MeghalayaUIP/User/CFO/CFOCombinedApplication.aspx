@@ -10,9 +10,9 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h3><b>Pre Establishment - Approvals Abstract:</b></h3>
-                                <h5 style="color: red"><b>The following are the Approvals required for Establishment of your Unit. Please
-                                                    select the Approvals for which you intend to apply for.</b></h5>
+                                <h4>Pre Establishment - Approvals Abstract:</h4>
+                                <h5 class="alert alert-warning alert-dismissible fade show">The following are the Approvals required for Establishment of your Unit. Please
+                                                    select the Approvals for which you intend to apply for.</h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
                                 <asp:HiddenField ID="hdnQuesid" runat="server" />
                                 <div class="col-md-12 d-flex">
@@ -27,12 +27,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
+                                    <div class="table-responsive">
                                     <asp:GridView ID="grdApprovalsCFO" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                        CssClass="GRD" ForeColor="#333333" Width="95%" ShowFooter="true" OnRowDataBound="grdApprovalsCFO_RowDataBound">
+                                        CssClass="table-hover" ForeColor="#333333" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovalsCFO_RowDataBound">
                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
-                                        <AlternatingRowStyle BackColor="White" />
+                                        <RowStyle  CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                        <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                       
                                         <Columns>
                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
                                                 <ItemTemplate>
@@ -91,6 +92,7 @@
                                             </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -121,8 +123,8 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-right mt-2 mb-2">
-                    <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-rounded btn-info btn-lg" BackColor="#009999" Width="150px" />
-                    <asp:Button ID="btnSubmit" runat="server" Text="Save" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                    <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Save" OnClick="btnSubmit_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                     <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
 

@@ -6020,3 +6020,12 @@ spna.dots {
 	.table-responsive table tr td, tr th {
 		padding: 3px 10px;
 	}
+
+
+.fs-20 {
+	font-size: 20px;
+	margin-left: 15px;
+}
+.table-radius input[type=submit]:disabled {
+	height: 36px !important;
+}
