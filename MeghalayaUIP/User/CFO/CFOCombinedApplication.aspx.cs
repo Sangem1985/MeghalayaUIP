@@ -27,7 +27,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 if (Session["UserInfo"] != null)
                 {
-                    Session["UNITID"] = "1008";
+                    Session["CFOUNITID"] = "1008";
                     var ObjUserInfo = new UserInfo();
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
@@ -37,9 +37,9 @@ namespace MeghalayaUIP.User.CFO
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["UNITID"]) != "")
+                    if (Convert.ToString(Session["CFOUNITID"]) != "")
                     {
-                        //  UnitID = Convert.ToString(Session["UNITID"]);
+                        //  UnitID = Convert.ToString(Session["CFOUNITID"]);
                     }
                     else
                     {
@@ -49,7 +49,7 @@ namespace MeghalayaUIP.User.CFO
                     Page.MaintainScrollPositionOnPostBack = true;
                     if (!IsPostBack)
                     {
-                        //if (Convert.ToString(Session["UNITID"]) != "")
+                        //if (Convert.ToString(Session["CFOUNITID"]) != "")
                         //{
                         BindData();
                         //}
@@ -189,7 +189,7 @@ namespace MeghalayaUIP.User.CFO
                     Label lblFEE = (Label)row.FindControl("lblAmounts") as Label;
                     RadioButtonList rbloffline = (RadioButtonList)row.FindControl("rblAlrdyObtained");
 
-                    objCFOQsnaire.UNITID = Convert.ToString(Session["UNITID"]);
+                    objCFOQsnaire.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     objCFOQsnaire.CFEQDID = hdnQuesid.Value;
                     objCFOQsnaire.DeptID = DeptID.Text;
                     objCFOQsnaire.ApprovalID = ApprovalID.Text;
@@ -207,7 +207,7 @@ namespace MeghalayaUIP.User.CFO
                 if (grdApprovalsCFO.Rows.Count == count)
                 {
                     DataSet dsOffline = new DataSet();
-                    dsOffline = objcfobal.GetCFOAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["UNITID"]));
+                    dsOffline = objcfobal.GetCFOAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]));
                     if (dsOffline.Tables.Count > 0)
                     {
                         if (dsOffline.Tables[0].Rows.Count > 0)
@@ -294,7 +294,18 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
             }
         }
-
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOLabourDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
         protected void rblAlrdyObtained_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -397,8 +408,7 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 DataSet dsApprovals = new DataSet();
-                cfoqs.UNITID = Convert.ToString(Session["UNITID"]);
-                // cfoqs.UNITID = "1008";
+                cfoqs.UNITID = Convert.ToString(Session["CFOUNITID"]);
                 cfoqs.CreatedBy = hdnUserID.Value;
                 dsApprovals = objcfobal.GetApprovalsReqFromTable(cfoqs);
                 if (dsApprovals.Tables.Count > 0)
@@ -655,7 +665,7 @@ namespace MeghalayaUIP.User.CFO
                         fup32MigrantReg.PostedFile.SaveAs(serverpath + "\\" + fup32MigrantReg.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -744,7 +754,7 @@ namespace MeghalayaUIP.User.CFO
                         fup33ManufactureReg.PostedFile.SaveAs(serverpath + "\\" + fup33ManufactureReg.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -803,7 +813,7 @@ namespace MeghalayaUIP.User.CFO
                         fup34RenewalReg.PostedFile.SaveAs(serverpath + "\\" + fup34RenewalReg.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -862,7 +872,7 @@ namespace MeghalayaUIP.User.CFO
                         fup35BoilerReg.PostedFile.SaveAs(serverpath + "\\" + fup35BoilerReg.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -921,7 +931,7 @@ namespace MeghalayaUIP.User.CFO
                         fup36LICFactory.PostedFile.SaveAs(serverpath + "\\" + fup36LICFactory.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -980,7 +990,7 @@ namespace MeghalayaUIP.User.CFO
                         fup37LICMIGRANTWORKMEN.PostedFile.SaveAs(serverpath + "\\" + fup37LICMIGRANTWORKMEN.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1039,7 +1049,7 @@ namespace MeghalayaUIP.User.CFO
                         fup38LICLabourContractor.PostedFile.SaveAs(serverpath + "\\" + fup38LICLabourContractor.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1098,7 +1108,7 @@ namespace MeghalayaUIP.User.CFO
                         fup39LicRetailDrug.PostedFile.SaveAs(serverpath + "\\" + fup39LicRetailDrug.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1157,7 +1167,7 @@ namespace MeghalayaUIP.User.CFO
                         fup40LicRepairWeight.PostedFile.SaveAs(serverpath + "\\" + fup40LicRepairWeight.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1216,7 +1226,7 @@ namespace MeghalayaUIP.User.CFO
                         fup41LicManuMeasure.PostedFile.SaveAs(serverpath + "\\" + fup41LicManuMeasure.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1275,7 +1285,7 @@ namespace MeghalayaUIP.User.CFO
                         fup42LicDealerWeight.PostedFile.SaveAs(serverpath + "\\" + fup42LicDealerWeight.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1334,7 +1344,7 @@ namespace MeghalayaUIP.User.CFO
                         fup43IVSMeasure.PostedFile.SaveAs(serverpath + "\\" + fup43IVSMeasure.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1393,7 +1403,7 @@ namespace MeghalayaUIP.User.CFO
                         fup44FireSafeCert.PostedFile.SaveAs(serverpath + "\\" + fup44FireSafeCert.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1452,7 +1462,7 @@ namespace MeghalayaUIP.User.CFO
                         fup45ExiseRetail.PostedFile.SaveAs(serverpath + "\\" + fup45ExiseRetail.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1511,7 +1521,7 @@ namespace MeghalayaUIP.User.CFO
                         fup46LicWholeDrug.PostedFile.SaveAs(serverpath + "\\" + fup46LicWholeDrug.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1570,7 +1580,7 @@ namespace MeghalayaUIP.User.CFO
                         fup47BrandReg.PostedFile.SaveAs(serverpath + "\\" + fup47BrandReg.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1629,7 +1639,7 @@ namespace MeghalayaUIP.User.CFO
                         fup48LicGrantRenew.PostedFile.SaveAs(serverpath + "\\" + fup48LicGrantRenew.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1688,7 +1698,7 @@ namespace MeghalayaUIP.User.CFO
                         fup49LicManuDrug.PostedFile.SaveAs(serverpath + "\\" + fup49LicManuDrug.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1747,7 +1757,7 @@ namespace MeghalayaUIP.User.CFO
                         fup50LicManuDrugSpecifie.PostedFile.SaveAs(serverpath + "\\" + fup50LicManuDrugSpecifie.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1806,7 +1816,7 @@ namespace MeghalayaUIP.User.CFO
                         fup51LicGrantRenewSch.PostedFile.SaveAs(serverpath + "\\" + fup51LicGrantRenewSch.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1865,7 +1875,7 @@ namespace MeghalayaUIP.User.CFO
                         fup52LicManuVolumesera.PostedFile.SaveAs(serverpath + "\\" + fup52LicManuVolumesera.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1924,7 +1934,7 @@ namespace MeghalayaUIP.User.CFO
                         fup53ProffessTax.PostedFile.SaveAs(serverpath + "\\" + fup53ProffessTax.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -1983,7 +1993,7 @@ namespace MeghalayaUIP.User.CFO
                         fup54PCB.PostedFile.SaveAs(serverpath + "\\" + fup54PCB.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -2042,7 +2052,7 @@ namespace MeghalayaUIP.User.CFO
                         fup55OccupancyCert.PostedFile.SaveAs(serverpath + "\\" + fup55OccupancyCert.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -2101,7 +2111,7 @@ namespace MeghalayaUIP.User.CFO
                         fup56BoilerDept.PostedFile.SaveAs(serverpath + "\\" + fup56BoilerDept.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -2160,7 +2170,7 @@ namespace MeghalayaUIP.User.CFO
                         fup57RegPipelineSteam.PostedFile.SaveAs(serverpath + "\\" + fup57RegPipelineSteam.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -2219,7 +2229,7 @@ namespace MeghalayaUIP.User.CFO
                         fup58RegShopEst.PostedFile.SaveAs(serverpath + "\\" + fup58RegShopEst.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -2278,7 +2288,7 @@ namespace MeghalayaUIP.User.CFO
                         fup59LicGrantBusiness.PostedFile.SaveAs(serverpath + "\\" + fup59LicGrantBusiness.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -2337,7 +2347,7 @@ namespace MeghalayaUIP.User.CFO
                         fup60LicIMFL.PostedFile.SaveAs(serverpath + "\\" + fup60LicIMFL.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
@@ -2396,7 +2406,7 @@ namespace MeghalayaUIP.User.CFO
                         fup61SatateExcise.PostedFile.SaveAs(serverpath + "\\" + fup61SatateExcise.PostedFile.FileName);
 
                         CFOAttachments objPCBNOC = new CFOAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objPCBNOC.Questionnareid = hdnQuesid.Value;
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";

@@ -135,7 +135,7 @@ namespace MeghalayaUIP.BAL.CFOBAL
 
         public DataSet GetCFEApprovedandCFOAppliedApplications(string userid, string UnitID)
         {
-            return objCFODAL.GetIndustryRegDetails(userid, UnitID);
+            return objCFODAL.GetCFEApprovedandCFOAppliedApplications(userid, UnitID);
         }
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//

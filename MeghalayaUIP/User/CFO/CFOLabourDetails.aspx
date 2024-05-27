@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOLabour.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOLabour" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOLabourDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOLabourDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -747,19 +747,11 @@
                                 </div>
 
 
-                                <div class="col-md-12 d-flex mt-2">
-                                    <div class="col-md-6">
+                                <div class="col-md-12 text-right mt-2 mb-2">
+                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="savebtn" runat="server" OnClick="savebtn_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
 
-
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos1" class="btn  btn-info btn-lg" />
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <asp:Button ID="savebtn" runat="server" OnClick="savebtn_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
-
-
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" />
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -767,6 +759,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 </asp:Content>

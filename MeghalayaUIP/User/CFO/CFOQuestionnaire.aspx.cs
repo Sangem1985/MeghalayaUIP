@@ -33,8 +33,8 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                if (Convert.ToString(Session["UNITID"]) != "")
-                { UnitID = Convert.ToString(Session["UNITID"]); }
+                if (Convert.ToString(Session["CFOUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
                 else
                 {
                     string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -509,7 +509,18 @@ namespace MeghalayaUIP.User.CFO
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
+        protected void btnNext3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
         protected void MVQues_ActiveViewChanged(object sender, EventArgs e)
         {
 

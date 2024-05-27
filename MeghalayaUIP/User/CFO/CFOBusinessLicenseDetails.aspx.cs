@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfebal = new CFOBAL();
-        string UNITID;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,8 +29,15 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UNITID = Convert.ToString(Session["UNITID"]);
+                Session["CFOUNITID"] = "1001";
+                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                if (Convert.ToString(Session["CFOUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                else
+                {
+                    string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
@@ -237,7 +244,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HomeDepartment.aspx");
+            Response.Redirect("~/User/CFO/CFOFireDetails.aspx");
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/CFO/CFOExcise.aspx");
         }
     }
 }

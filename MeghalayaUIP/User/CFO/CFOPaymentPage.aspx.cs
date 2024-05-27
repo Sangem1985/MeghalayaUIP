@@ -34,13 +34,13 @@ namespace MeghalayaUIP.User.CFO
                         hdnUserID.Value = ObjUserInfo.Userid;
 
                     }
-                    if (Convert.ToString(Session["UNITID"]) != "")
+                    if (Convert.ToString(Session["CFOUNITID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["UNITID"]);
+                        UnitID = Convert.ToString(Session["CFOUNITID"]);
                     }
                     else
                     {
-                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                        string newurl = "~/User/CFO/CFOUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
 
@@ -90,7 +90,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                // Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx");
+                 Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx");
             }
             catch (Exception ex)
             {
@@ -136,7 +136,7 @@ namespace MeghalayaUIP.User.CFO
                     Label ApprovalID = (Label)row.FindControl("lblApprID");
                     Label DeptID = (Label)row.FindControl("lblDeptID") as Label;
 
-                    objpay.UNITID = Convert.ToString(Session["UNITID"]);
+                    objpay.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     objpay.Questionnareid = hdnQuesID.Value;
                     objpay.CFEUID = hdnUIDNo.Value;
                     objpay.DeptID = DeptID.Text;

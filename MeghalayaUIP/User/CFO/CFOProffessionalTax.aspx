@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">CFO DISTRIC</h4>
+                            <h4 class="card-title">CFO DISTRICT</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -420,19 +420,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex mt-2">
-                                    <div class="col-md-6">
+                                <div class="col-md-12 text-right mt-2 mb-2">
 
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" />
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
+                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
 
-
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" />
-
-                                    </div>
                                 </div>
+                            </div>
 
 
 

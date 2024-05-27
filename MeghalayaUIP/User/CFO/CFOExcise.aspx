@@ -12,7 +12,7 @@
                         <div class="card-header">
                             <h4 class="card-title">CFO EXCISE Department</h4>
                         </div>
-                                                <div class="card-body">
+                        <div class="card-body">
                             <div class="col-md-12 d-flex">
                                 <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                                     <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -314,7 +314,7 @@
                                             
                                         </Columns>--%>
                                         <Columns>
-                                           
+
                                             <asp:BoundField DataField="NameOfBrand" HeaderText="Name of Brand" />
                                             <asp:BoundField DataField="Strength" HeaderText="Strength(Alcohol Content)" />
                                             <asp:BoundField DataField="Size" HeaderText="Size" />
@@ -329,8 +329,8 @@
                                         <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </div>
-                                
-                                <div class="col-md-12" style="margin-top:20px">
+
+                                <div class="col-md-12" style="margin-top: 20px">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">The Country of Origin of the Liquor *</label>
@@ -384,7 +384,7 @@
                                         GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
                                         <RowStyle BackColor="#ffffff" />
                                         <Columns>
-                                            
+
                                             <asp:BoundField DataField="CountryName" HeaderText="Country of Origin" />
                                             <asp:TemplateField HeaderText="MRP (Rs.)">
                                                 <ItemTemplate>
@@ -392,13 +392,13 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="BrandName" HeaderText="Name of Brand" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                         </Columns>
                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                         <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </div>
-                                <div class="col-md-12 d-flex" style="margin-top:20px">
+                                <div class="col-md-12 d-flex" style="margin-top: 20px">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Applying for Renewal of BIO Brands? *</label>
@@ -439,19 +439,12 @@
 
                                 </div>
                                 <div class="col-md-12 d-flex mt-2">
-                                    <div class="col-md-6">
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn  btn-info btn-lg" />
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <asp:Button ID="btnsave" OnClick="btnsave_Click" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" />
 
+                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnsave" OnClick="btnsave_Click" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
+                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
 
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" class="btn  btn-info btn-lg" />
-
-                                    </div>
                                 </div>
-
-
                             </div>
                         </div>
 

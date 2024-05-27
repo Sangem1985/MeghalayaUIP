@@ -563,11 +563,12 @@
     <Content Include="User\CFO\CFODrugLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOExcise.aspx" />
     <Content Include="User\CFO\CFOFireDetails.aspx" />
-    <Content Include="User\CFO\CFOLabour.aspx" />
+    <Content Include="User\CFO\CFOLabourDetails.aspx" />
     <Content Include="User\CFO\CFOLegalMeterology.aspx" />
     <Content Include="User\CFO\CFOPaymentPage.aspx" />
     <Content Include="User\CFO\CFOProffessionalTax.aspx" />
     <Content Include="User\CFO\CFOQuestionnaire.aspx" />
+    <Content Include="User\CFO\CFOUploadEnclosures.aspx" />
     <Content Include="User\CFO\CFOUserDashboard.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\Dashboard.aspx" />
@@ -1050,12 +1051,12 @@
     <Compile Include="User\CFO\CFOFireDetails.aspx.designer.cs">
       <DependentUpon>CFOFireDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\CFO\CFOLabour.aspx.cs">
-      <DependentUpon>CFOLabour.aspx</DependentUpon>
+    <Compile Include="User\CFO\CFOLabourDetails.aspx.cs">
+      <DependentUpon>CFOLabourDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\CFO\CFOLabour.aspx.designer.cs">
-      <DependentUpon>CFOLabour.aspx</DependentUpon>
+    <Compile Include="User\CFO\CFOLabourDetails.aspx.designer.cs">
+      <DependentUpon>CFOLabourDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOLegalMeterology.aspx.cs">
       <DependentUpon>CFOLegalMeterology.aspx</DependentUpon>
@@ -1084,6 +1085,13 @@
     </Compile>
     <Compile Include="User\CFO\CFOQuestionnaire.aspx.designer.cs">
       <DependentUpon>CFOQuestionnaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOUploadEnclosures.aspx.cs">
+      <DependentUpon>CFOUploadEnclosures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOUploadEnclosures.aspx.designer.cs">
+      <DependentUpon>CFOUploadEnclosures.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOUserDashboard.aspx.cs">
       <DependentUpon>CFOUserDashboard.aspx</DependentUpon>

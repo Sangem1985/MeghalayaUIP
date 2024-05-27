@@ -97,9 +97,9 @@ namespace MeghalayaUIP.User.CFO
                     Button btnApply;
                     Button btnApprvlsReq;
                     Button btnApplstatus;
-                    Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
+                    Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFOQID");
                     Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
-                    Label APPLSTATUS = (Label)e.Row.FindControl("lblCFEAPPLSTATUS");
+                    Label APPLSTATUS = (Label)e.Row.FindControl("lblCFOAPPLSTATUS");
                     HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
@@ -130,11 +130,11 @@ namespace MeghalayaUIP.User.CFO
 
                     int TotalQuery = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "QUERYCOUNT"));
                     TotQueryRaised = TotQueryRaised + TotalQuery;
-                    string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFEAPPLSTATUS"));
+                    string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFOAPPLSTATUS"));
 
                     if (Applstatus == "" || Applstatus == null || Applstatus == "2")
                     {
-                        btnApply = (Button)e.Row.FindControl("btnApplyCFE");
+                        btnApply = (Button)e.Row.FindControl("btnApplyCFO");
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
                         btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
                         btnApply.Enabled = true;
@@ -143,7 +143,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else
                     {
-                        btnApply = (Button)e.Row.FindControl("btnApplyCFE");
+                        btnApply = (Button)e.Row.FindControl("btnApplyCFO");
                         btnApply.Enabled = false;
                         btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
                         btnApply.Style.Add("border", "none");
@@ -171,12 +171,27 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnApplStatus_Click(object sender, EventArgs e)
         {
+          
 
         }
 
         protected void btnApplyCFO_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Session["CFOUNITID"] = lblunitId.Text;
+                string newurl = "CFOQuestionnaire.aspx";
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
         }
     }
 }

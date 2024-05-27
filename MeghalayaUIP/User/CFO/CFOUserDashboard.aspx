@@ -84,7 +84,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="12%" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnCombndAppl" OnClick="btnCombndAppl_Click" Text="Approvals Required" CssClass="btn btn-info" BackColor="Olive" />
+                                        <asp:Button runat="server" ID="btnCombndAppl"  Text="Approvals Required" CssClass="btn btn-info" BackColor="Olive" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -103,7 +103,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="CFOQID" ItemStyle-Width="12%" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Label runat="server" ID="lblCFEQID" Text='<%#Eval("CFOQDID") %>'> </asp:Label>
+                                        <asp:Label runat="server" ID="lblCFOQID" Text='<%#Eval("CFOQDID") %>'> </asp:Label>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

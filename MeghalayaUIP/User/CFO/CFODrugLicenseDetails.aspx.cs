@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfebal = new CFOBAL();
-        string UNITID;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,8 +29,15 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UNITID = Convert.ToString(Session["UNITID"]);
+                Session["CFOUNITID"] = "1001";
+                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                if (Convert.ToString(Session["CFOUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                else
+                {
+                    string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
@@ -71,7 +78,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         ObjCFOHealthyWelfare.Questionnariid = Quesstionriids;
                         ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
-                        ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["UNITID"]);
+                        ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOHealthyWelfare.IPAddress = getclientIP();
                         ObjCFOHealthyWelfare.ManufName = GVHealthy.Rows[i].Cells[1].Text;
                         ObjCFOHealthyWelfare.ManufQualification = GVHealthy.Rows[i].Cells[2].Text;
@@ -97,7 +104,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         ObjCFOHealthyWelfare.Questionnariid = Quesstionriids;
                         ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
-                        ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["UNITID"]);
+                        ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOHealthyWelfare.IPAddress = getclientIP();
                         ObjCFOHealthyWelfare.testingName = GVTESTING.Rows[i].Cells[1].Text;
                         ObjCFOHealthyWelfare.testingQualification = GVTESTING.Rows[i].Cells[2].Text;
@@ -123,7 +130,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         ObjCFOHealthyWelfare.Questionnariid = Quesstionriids;
                         ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
-                        ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["UNITID"]);
+                        ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOHealthyWelfare.IPAddress = getclientIP();
                         ObjCFOHealthyWelfare.NameDrug = GVDrug.Rows[i].Cells[1].Text;
 
@@ -397,12 +404,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DistricCouncile.aspx");
+            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PublicWorkDepartment.aspx");
+            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx");
         }
     }
 }

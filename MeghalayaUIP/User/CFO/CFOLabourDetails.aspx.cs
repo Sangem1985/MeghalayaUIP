@@ -11,11 +11,11 @@ using System.Web.UI.WebControls;
 
 namespace MeghalayaUIP.User.CFO
 {
-    public partial class CFOLabour : System.Web.UI.Page
+    public partial class CFOLabourDetails : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfebal = new CFOBAL();
-        string UNITID;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,8 +29,15 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UNITID = Convert.ToString(Session["UNITID"]);
+                Session["CFOUNITID"] = "1001";
+                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                if (Convert.ToString(Session["CFOUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                else
+                {
+                    string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
@@ -140,7 +147,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         ObjCFOLabourDet.Questionnariid = Quesstionriids;
                         ObjCFOLabourDet.CreatedBy = hdnUserID.Value;
-                        ObjCFOLabourDet.UNITID = Convert.ToString(Session["UNITID"]);
+                        ObjCFOLabourDet.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOLabourDet.IPAddress = getclientIP();
                         ObjCFOLabourDet.NAME = GVCFOLabour.Rows[i].Cells[1].Text;
                         ObjCFOLabourDet.GENDER = GVCFOLabour.Rows[i].Cells[2].Text;
@@ -349,10 +356,21 @@ namespace MeghalayaUIP.User.CFO
                 nature.Visible = false;
             }
         }
-
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CFOLegalMetrologyDepartment.aspx");
+            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx");
         }
     }
 }

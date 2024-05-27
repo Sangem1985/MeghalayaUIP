@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfebal = new CFOBAL();
-        string UNITID;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -28,9 +28,15 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UNITID = Convert.ToString(Session["UNITID"]);
-
+                Session["CFOUNITID"] = "1001";
+                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                if (Convert.ToString(Session["CFOUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                else
+                {
+                    string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
                 success.Visible = false;
@@ -158,12 +164,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HealthyWelfare.aspx");
+            Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CFOLegalMetrologyDepartment.aspx");
+            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx");
         }
     }
 }

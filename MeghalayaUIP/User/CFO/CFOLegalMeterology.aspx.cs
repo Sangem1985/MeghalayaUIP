@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfebal = new CFOBAL();
-        string UNITID;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,8 +29,15 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UNITID = Convert.ToString(Session["UNITID"]);
+                Session["CFOUNITID"] = "1001";
+                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                if (Convert.ToString(Session["CFOUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                else
+                {
+                    string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
@@ -177,7 +184,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         ObjCFOlegalDet.Questionnariid = Quesstionriids;
                         ObjCFOlegalDet.CreatedBy = hdnUserID.Value;
-                        ObjCFOlegalDet.UNITID = Convert.ToString(Session["UNITID"]);
+                        ObjCFOlegalDet.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOlegalDet.IPAddress = getclientIP();
                         ObjCFOlegalDet.Instrumenttype = GVLegalDept.Rows[i].Cells[1].Text;
                         ObjCFOlegalDet.Class = GVLegalDept.Rows[i].Cells[2].Text;
@@ -351,12 +358,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PublicWorkDepartment.aspx");
+            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CFOLabourDetails.aspx");
+            Response.Redirect("~/User/CFO/CFOLabourDetails.aspx");
         }
     }
 }

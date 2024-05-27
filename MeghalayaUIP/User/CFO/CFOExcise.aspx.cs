@@ -15,16 +15,42 @@ namespace MeghalayaUIP.User.CFO
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL bal = new CFOBAL();
         UserInfo ObjUserInfo;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (Session["UserInfo"] != null)
                 {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    Session["CFOUNITID"] = "1001";
+                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                    if (Convert.ToString(Session["CFOUNITID"]) != "")
+                    { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                    else
+                    {
+                        string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        BindCountry();
+                    }
                 }
 
-                BindCountry();
+         
                 //int Quesstionriids = 1004;//1001;
                 //int UnitId = 4;//1;
                 //BindDetails(UnitId, Quesstionriids);
@@ -542,6 +568,16 @@ namespace MeghalayaUIP.User.CFO
             List<CFOExciseLiquorDetails> liquorDetails = ViewState["LiquorDetails"] as List<CFOExciseLiquorDetails>;
             GvLiquor.DataSource = liquorDetails;
             GvLiquor.DataBind();
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx");
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/CFO/CFOPaymentPage.aspx");
         }
     }
 }

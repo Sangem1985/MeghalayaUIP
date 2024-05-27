@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.CFO
 {
 
 
-    public partial class CFOLabour
+    public partial class CFOLabourDetails
     {
 
         /// <summary>
@@ -717,13 +717,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.GridView GVCFOLabour;
 
         /// <summary>
-        /// btnPreviuos1 control.
+        /// btnPrevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPreviuos1;
+        protected global::System.Web.UI.WebControls.Button btnPrevious;
 
         /// <summary>
         /// savebtn control.
