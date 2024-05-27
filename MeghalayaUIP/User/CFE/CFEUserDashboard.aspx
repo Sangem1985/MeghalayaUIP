@@ -21,11 +21,12 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h3><b>Approved Industry Registrations under MIIPP 2024</b></h3>
+                    <h4>Approved Industry Registrations under MIIPP 2024</h4>
 
                     <div class="col-md-12 d-flex">
+                        <div class="table-radius">
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
+                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover" ForeColor="#333333"
                             GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound" ShowFooter="true">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -34,7 +35,7 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                     <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Left" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# Container.DataItemIndex + 1%>
                                     </ItemTemplate>
@@ -79,20 +80,20 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Apply For Pre-Establishment" ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply" CssClass="btn btn-info" />
+                                        <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="12%" Visible="false">
+                                <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="20%" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnCombndAppl" OnClick="btnCombndAppl_Click" Text="Approvals Required" CssClass="btn btn-info" BackColor="Olive" />
+                                        <asp:Button runat="server" ID="btnCombndAppl" OnClick="btnCombndAppl_Click" Text="Approvals Required" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
                                 <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info" />
+                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -116,9 +117,10 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+                        </div>
                     </div>
 
-                    <br />
+                    
                     <%--<h3><b>Pre-Establishment Applications</b></h3>--%>
 
                     <div class="col-md-12 d-flex">
