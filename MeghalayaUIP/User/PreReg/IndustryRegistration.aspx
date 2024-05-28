@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="IndustryRegistration.aspx.cs" Inherits="MeghalayaUIP.User.PreReg.IndustryRegistration" %>
- 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -716,7 +716,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                 </div>
                                                 <div class="text-right mb-3">
                                                     <asp:Button runat="server" Text="Save as Draft" ID="btnsave1" OnClick="btnsave1_Click" class="btn btn-rounded btn-success btn-lg" Width="150px" />
-                                                    <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click"  Width="150px" />
+                                                    <asp:Button ID="btnNext1" Text="Next" Visible="true" runat="server" class="btn btn-rounded btn-info btn-lg" OnClick="btnNext1_Click" Width="150px" />
                                                 </div>
                                             </div>
                                         </div>
@@ -793,13 +793,13 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <label class="col-lg-6 col-form-label">Upload Detailed Project Report (DPR)</label>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:FileUpload ID="fupDPR" runat="server" />
-                                                                <asp:HyperLink ID="hypdpr" runat="server"  Target="_blank"></asp:HyperLink>
-                                                                <asp:Label ID="lbldpr"  runat="server" />
+                                                                <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
+                                                                <asp:Label ID="lbldpr" runat="server" />
                                                                 <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
-                                                               
+
 
                                                             </div>
-                                                             
+
 
 
 
@@ -884,7 +884,13 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Nationality *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtApplNationality" class="form-control" />
+                                                                    <asp:DropDownList ID="ddlApplNationality" runat="server" class="form-control">
+                                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                        <asp:ListItem Text="Indian" Value="Indian"></asp:ListItem>
+                                                                        <asp:ListItem Text="Others" Value="Others"></asp:ListItem>
+
+                                                                    </asp:DropDownList>
+                                                                    <%--<asp:TextBox runat="server" ID="txtApplNationality" class="form-control" />--%>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1039,7 +1045,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label"></label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAddPromtr_Click"  Width="110px" />
+                                                                    <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAddPromtr_Click" Width="110px" />
                                                                 </div>
                                                             </div>
                                                         </div>

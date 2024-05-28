@@ -192,7 +192,9 @@ namespace MeghalayaUIP.User.CFE
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
                 Label lblunitId = (Label)row.FindControl("lblUNITID");
-                Session["UNITID"] = lblunitId.Text;
+                Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
+                Session["CFEUNITID"] = lblunitId.Text;
+                Session["CFEQID"] = lblcfeqid.Text;
                 string newurl = "CFEQuestionnaire.aspx";
                 Response.Redirect(newurl);
             }
@@ -209,9 +211,10 @@ namespace MeghalayaUIP.User.CFE
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-            Label lbluniid = (Label)row.FindControl("lblUNITID");
-            Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-            Session["UNITID"] = lbluniid.Text;
+            Label lblunitId = (Label)row.FindControl("lblUNITID");
+            Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
+            Session["CFEUNITID"] = lblunitId.Text;
+            Session["CFEQID"] = lblcfeqid.Text;
             string newurl = "CFEQuestionnaire.aspx";
             Response.Redirect(newurl);
         }
@@ -223,9 +226,10 @@ namespace MeghalayaUIP.User.CFE
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-                Label lbluniid = (Label)row.FindControl("lblUNITID");
-                Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-                Session["UNITID"] = lbluniid.Text;
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
+                Session["CFEUNITID"] = lblunitId.Text;
+                Session["CFEQID"] = lblcfeqid.Text;
                 string newurl = "CFECommonApplication.aspx";
                 Response.Redirect(newurl);
             }
@@ -244,9 +248,10 @@ namespace MeghalayaUIP.User.CFE
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-                Label lbluniid = (Label)row.FindControl("lblUNITID");
-                Label lblQuestId = (Label)row.FindControl("lblCFEQID");
-                Session["UNITID"] = lbluniid.Text;
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
+                Session["CFEUNITID"] = lblunitId.Text;
+                Session["CFEQID"] = lblcfeqid.Text;
                 string newurl = "CFEUserApplStatus.aspx";
                 Response.Redirect(newurl);
             }

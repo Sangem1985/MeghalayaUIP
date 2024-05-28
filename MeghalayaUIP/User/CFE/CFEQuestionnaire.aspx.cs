@@ -32,8 +32,8 @@ namespace MeghalayaUIP.User.CFE
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                if (Convert.ToString(Session["UNITID"]) != "")
-                { UnitID = Convert.ToString(Session["UNITID"]); }
+                if (Convert.ToString(Session["CFEUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["CFEUNITID"]); }
                 else
                 {
                     string newurl = "~/User/CFE/CFEUserDashboard.aspx";
@@ -88,7 +88,7 @@ namespace MeghalayaUIP.User.CFE
                     ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPVILLAGEID"]);
                     txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
-                    
+
                     txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILTUPAREA"]);
                     ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_SECTOR"]);
                     ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
@@ -162,7 +162,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
                         hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
-                        Session["UNITID"] = hdnPreRegUNITID.Value;
+
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                         rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
@@ -172,11 +172,11 @@ namespace MeghalayaUIP.User.CFE
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
                         txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
-                        
+
                         txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
                         lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                         ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
-                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty); 
+                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
                         if (Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
                             ddlIndustryType.SelectedValue = "1";
@@ -803,7 +803,12 @@ namespace MeghalayaUIP.User.CFE
                 {
                     btnApprvlsReq_Click(sender, e);
                     CFEQuestionnaireDet objCFEQsnaire = new CFEQuestionnaireDet();
-                    objCFEQsnaire.CFEQDID = "";
+
+                    if (Convert.ToString(Session["CFEQID"]) == "")
+                        objCFEQsnaire.CFEQDID = "";
+                    else
+                        objCFEQsnaire.CFEQDID = Convert.ToString(Session["CFEQID"]);
+
                     objCFEQsnaire.UNITID = hdnPreRegUNITID.Value;
                     objCFEQsnaire.PREREGUIDNO = hdnPreRegUID.Value;
                     objCFEQsnaire.IPAddress = getclientIP();
@@ -815,7 +820,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.PropLocMandalID = ddlMandal.SelectedValue;
                     objCFEQsnaire.PropLocVillageID = ddlVillage.SelectedValue;
                     objCFEQsnaire.ExtentofLand = txtLandArea.Text.Trim();
-                  
+
                     objCFEQsnaire.BuiltUpArea = txtBuiltArea.Text.Trim();
                     objCFEQsnaire.SectorName = ddlSector.SelectedItem.Text;
                     objCFEQsnaire.Lineofacitivityid = ddlLine_Activity.SelectedValue;
@@ -866,10 +871,9 @@ namespace MeghalayaUIP.User.CFE
                     if (result != "100")
                     {
                         CFEQuestionnaireDet objrm = new CFEQuestionnaireDet();
-                        Session["QUESTIONRID"] = result;
+                        Session["CFEQID"] = result;
                         for (int i = 0; i < grdApprovals.Rows.Count; i++)
                         {
-
                             Label ApprovalID = grdApprovals.Rows[i].FindControl("lblApprID") as Label;
                             Label DeptID = grdApprovals.Rows[i].FindControl("lblDeptID") as Label;
 
@@ -976,16 +980,6 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Total Extend Land  \\n";
                     slno = slno + 1;
                 }
-                //if (string.IsNullOrEmpty(txtSquareMeters.Text) || txtSquareMeters.Text == "" || txtSquareMeters.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Square Meter \\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtAcres.Text) || txtAcres.Text == "" || txtAcres.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Acrs \\n";
-                //    slno = slno + 1;
-                //}
                 if (string.IsNullOrEmpty(txtBuiltArea.Text) || txtBuiltArea.Text == "" || txtBuiltArea.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Built Up Area \\n";
@@ -1253,8 +1247,6 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                CFEQuestionnaireDet objCFEQ = new CFEQuestionnaireDet();
-
                 string ErrorMsg;
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
@@ -1277,8 +1269,6 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 CFEQuestionnaireDet objCFEQ = new CFEQuestionnaireDet();
-
-
 
                 DataTable dtApprReq = new DataTable();
                 DataTable dtPCB = new DataTable(); DataTable dtpower = new DataTable(); DataTable dtGenReq = new DataTable();
@@ -1465,17 +1455,7 @@ namespace MeghalayaUIP.User.CFE
         {
             MVQues.ActiveViewIndex = 0;
             var cls = Link1.Attributes["class"];
-            Link1.Attributes.Add("class", cls + " nav-tab");
-            //Link1.CssClass = "nav-tab";
-            //Link1.Attributes.Add("data-toggle","tab");
-           // Link2.CssClass = "nav-tab";
-            //Link3.CssClass = "nav-tab";
-            
-            //Link1.Font.Underline = true;
-            //Link2.Font.Underline = false;
-            //Link3.Font.Underline = false;
-
-
+            Link1.Attributes.Add("class", cls + " nav-tab");      
         }
 
         protected void Link2_Click(object sender, EventArgs e)

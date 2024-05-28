@@ -906,13 +906,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtApplDIN;
 
         /// <summary>
-        /// txtApplNationality control.
+        /// ddlApplNationality control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApplNationality;
+        protected global::System.Web.UI.WebControls.DropDownList ddlApplNationality;
 
         /// <summary>
         /// txtApplDoorNo control.
