@@ -32,7 +32,7 @@ namespace MeghalayaUIP.Common
         public static string InsertCFOAttachments = "USP_INSCFOATTACHMENTS";
         public static string InsertCFODepartmentapprovals = "USP_INSCFODEPARTMENTAPPROVALS";
         public static string GetCFEApprovedandCFOAppliedApplications = "USP_GETCFEAPPROVEDANDCFOAPPLIED";
-        //chanakya/////
+        //chanikya/////
         public static string GetCFOApprovalsReq = "USP_GETCFOAPPROVALSWITHFEE";
         public static string GetCFORegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA_CFO";
         public static string InsertCFOQuestionnaire = "USP_INSCFOQUESTIONNAREDETAILS";
