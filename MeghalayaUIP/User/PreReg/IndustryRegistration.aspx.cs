@@ -470,7 +470,6 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
-
         protected void BindSectors()
         {
             try
@@ -499,7 +498,6 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
-
         protected void BindLineOfActivity(string Sector)
         {
             try
@@ -528,60 +526,34 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
-        protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
+        public void BindRegistrationType()
         {
             try
             {
-                if (ddlSector.SelectedValue.ToString() != "--Select--")
+                ddlRegType.Items.Clear();
+                List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
+                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
+                if (objRegistrationTypeModel != null)
                 {
-                    BindLineOfActivity(ddlSector.SelectedItem.Text);
-                    if (ddlSector.SelectedItem.Text.Trim() == "Cement, Cement & Concrete Products, Fly Ash Bricks")
-                    {
-                        eligible.Visible = true;
-                    }
-                    else
-                    {
-                        eligible.Visible = false;
-                    }
+
+                    ddlRegType.DataSource = objRegistrationTypeModel;
+                    ddlRegType.DataValueField = "REGISTRATIONTYPEID";
+                    ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
+                    ddlRegType.DataBind();
                 }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
-        protected void ddlLineOfActivity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlLineOfActivity.SelectedItem.Text != "--Select--")
+                else
                 {
-                    lblPCBCategory.Text = mstrBAL.GetPCBCategory(ddlLineOfActivity.SelectedValue);
-
+                    ddlRegType.DataSource = null;
+                    ddlRegType.DataBind();
                 }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-        public void AddSelect(DropDownList ddl)
-        {
-            try
-            {
-                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
-                li.Text = "--Select--";
-                li.Value = "0";
-                ddl.Items.Insert(0, li);
+                AddSelect(ddlRegType);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+
+
         }
         protected void BindRevenueProjectionsMaster()
         {
@@ -608,6 +580,75 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                {
+                    txtUdyamorIEMNo.Enabled = true;
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+                }
+
+            }
+            catch (Exception ex)
+            { }
+        }
+        protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlSector.SelectedValue.ToString() != "--Select--")
+                {
+                    BindLineOfActivity(ddlSector.SelectedItem.Text);
+                    if (ddlSector.SelectedItem.Text.Trim() == "Cement, Cement & Concrete Products, Fly Ash Bricks")
+                    {
+                        eligible.Visible = true;
+                    }
+                    else
+                    {
+                        eligible.Visible = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        protected void ddlLineOfActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlLineOfActivity.SelectedItem.Text != "--Select--")
+                {
+                    lblPCBCategory.Text = mstrBAL.GetPCBCategory(ddlLineOfActivity.SelectedValue);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
         protected void ddlAuthReprDist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -644,7 +685,6 @@ namespace MeghalayaUIP.User.PreReg
             }
 
         }
-
         protected void ddlPropLocDist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -663,7 +703,6 @@ namespace MeghalayaUIP.User.PreReg
                 lblmsg0.Text = ex.Message;
             }
         }
-
         protected void ddlPropLocTaluka_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -681,46 +720,6 @@ namespace MeghalayaUIP.User.PreReg
                 lblmsg0.Text = ex.Message;
             }
         }
-        protected void ddlApplDist_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlApplTaluka.ClearSelection();
-                ddlApplVillage.ClearSelection();
-                if (ddlApplDist.SelectedItem.Text != "--Select--")
-                {
-                    ddlApplTaluka.Enabled = true;
-
-                    BindMandal(ddlApplTaluka, ddlApplDist.SelectedValue);
-                }
-                else return;
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-        }
-        protected void ddlApplTaluka_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlApplVillage.ClearSelection();
-                if (ddlApplTaluka.SelectedItem.Text != "--Select--")
-                {
-                    ddlApplVillage.Enabled = true;
-
-                    BindVillages(ddlApplVillage, ddlApplTaluka.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-
-        }
-
         protected void rblNatureofActvty_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1253,12 +1252,166 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
+
+        //---------------------------------Step 2 Code ---------------------------//
+        protected void grdRevenueProj_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    DataTable dt = (DataTable)ViewState["RevProj"];
+
+                    if (dt != null)
+                    {
+                        if (e.Row.RowIndex < 13)
+                        {
+                            GridViewRow gvr = e.Row;
+                            TextBox Year1 = (TextBox)gvr.FindControl("txtYear1");
+                            TextBox Year2 = (TextBox)gvr.FindControl("txtYear2");
+                            TextBox Year3 = (TextBox)gvr.FindControl("txtYear3");
+                            TextBox Year4 = (TextBox)gvr.FindControl("txtYear4");
+                            TextBox Year5 = (TextBox)gvr.FindControl("txtYear5");
+
+                            Year1.Text = dt.Rows[e.Row.RowIndex]["YEAR1"].ToString();
+                            Year2.Text = dt.Rows[e.Row.RowIndex]["YEAR2"].ToString();
+                            Year3.Text = dt.Rows[e.Row.RowIndex]["YEAR3"].ToString();
+                            Year4.Text = dt.Rows[e.Row.RowIndex]["YEAR4"].ToString();
+                            Year5.Text = dt.Rows[e.Row.RowIndex]["YEAR5"].ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+        }
+        protected void btndpr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    string newPath = "";
+                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                    if (fupDPR.HasFile)
+                    {
+                        if ((fupDPR.PostedFile != null) && (fupDPR.PostedFile.ContentLength > 0))
+                        {
+                            string sFileName = System.IO.Path.GetFileName(fupDPR.PostedFile.FileName);
+                            try
+                            {
+
+
+                                string[] fileType = fupDPR.PostedFile.FileName.Split('.');
+                                int i = fileType.Length;
+                                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
+                                {
+                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, ViewState["UnitID"].ToString() + "\\DPR");
+
+                                    if (!Directory.Exists(newPath))
+                                        System.IO.Directory.CreateDirectory(newPath);
+
+                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                    int count = dir.GetFiles().Length;
+                                    if (count == 0)
+                                        fupDPR.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                    else
+                                    {
+                                        if (count == 1)
+                                        {
+                                            string[] Files = Directory.GetFiles(newPath);
+
+                                            foreach (string file in Files)
+                                            {
+                                                File.Delete(file);
+                                            }
+                                            fupDPR.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                        }
+                                    }
+                                    IndustryDetails objattachments = new IndustryDetails();
+
+                                    objattachments.UnitID = ViewState["UnitID"].ToString();
+                                    objattachments.UserID = hdnUserID.Value;
+                                    objattachments.FileType = fileType[i - 1].ToUpper().ToString();
+                                    objattachments.FileName = sFileName.ToString();
+                                    objattachments.Filepath = newPath.ToString();
+                                    objattachments.FileDescription = "DPR";
+                                    objattachments.Deptid = "0";
+                                    objattachments.ApprovalId = "0";
+
+                                    int result = 0;
+                                    result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                                    if (result > 0)
+                                    {
+                                        lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
+                                        lbldpr.Text = fupDPR.FileName;
+                                        success.Visible = true;
+                                        Failure.Visible = false;
+                                    }
+                                    else
+                                    {
+                                        lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
+                                        success.Visible = false;
+                                        Failure.Visible = true;
+                                    }
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
+                                    success.Visible = false;
+                                    Failure.Visible = true;
+                                }
+                            }
+                            catch (Exception)//in case of an error
+                            {
+
+                                DeleteFile(newPath + "\\" + sFileName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                        success.Visible = false;
+                        Failure.Visible = true;
+                    }
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Fill Basic Details";
+                    string message = "alert('" + "Please Fill Basic Details First and then Upload DPR " + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
+            }
+        }
         protected void btnsave2_Click(object sender, EventArgs e)
         {
             try
             {
-                // ViewState["UnitID"] = 1002;
                 string ErrorMsg = "", result = "";
+               
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
                     ErrorMsg = Step2validations();
@@ -1328,9 +1481,11 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else
                 {
-                    //tab1.Focus();
                     Failure.Visible = true;
                     lblmsg0.Text = "Please Fill Basic Details";
+                    string message = "alert('" + "Please Fill Basic Details and then Fill Basic Revenue Projections" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -1344,6 +1499,11 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 int slno = 0; string errormsg = "";
+                if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
+                {
+                    errormsg = errormsg + slno + "Please Upload Detailed Project Report (DPR) " + "\\n";
+                    slno = slno + 1;
+                }
                 if (grdRevenueProj.Rows.Count > 0)
                 {
                     for (int j = 0; j < grdRevenueProj.Rows.Count; j++)
@@ -1368,6 +1528,7 @@ namespace MeghalayaUIP.User.PreReg
                         }
 
                     }
+                   
                 }
 
                 return errormsg;
@@ -1377,182 +1538,7 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
-
-        protected void btnAddPromtr_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(txtApplFrstName.Text) || string.IsNullOrEmpty(txtApplLstName.Text) ||
-                    string.IsNullOrEmpty(txtApplAadhar.Text) || string.IsNullOrEmpty(txtApplPAN.Text) ||
-                     string.IsNullOrEmpty(txtApplNationality.Text) ||
-                    string.IsNullOrEmpty(txtApplDoorNo.Text) || string.IsNullOrEmpty(txtApplStreet.Text) ||
-                    string.IsNullOrEmpty(txtApplEmail.Text) || string.IsNullOrEmpty(txtApplMobile.Text)
-                    // (ddlApplCountry.SelectedItem.Text == "--Select--") || (ddlApplState.SelectedItem.Text == "--Select--") ||
-                    // (ddlApplDist.SelectedItem.Text == "--Select--") || (ddlApplTaluka.SelectedItem.Text == "--Select--") ||
-                    // (ddlApplVillage.SelectedItem.Text == "--Select--")
-                    )
-                {
-                    lblmsg0.Text = "Please Enter All Details";
-                    Failure.Visible = true;
-                }
-                else
-                {
-
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("IDD_DIRECTOR_NO", typeof(string));
-                    dt.Columns.Add("IDD_UNITID", typeof(string));
-                    dt.Columns.Add("IDD_INVESTERID", typeof(string));
-                    dt.Columns.Add("IDD_FIRSTNAME", typeof(string));
-                    dt.Columns.Add("IDD_LASTNAME", typeof(string));
-                    dt.Columns.Add("IDD_ADNO", typeof(string));
-                    dt.Columns.Add("IDD_PAN", typeof(string));
-                    dt.Columns.Add("IDD_DINNO", typeof(string));
-                    dt.Columns.Add("IDD_NATIONALITY", typeof(string));
-                    dt.Columns.Add("IDD_DOORNO", typeof(string));
-                    dt.Columns.Add("IDD_STREET", typeof(string));
-                    dt.Columns.Add("IDD_CITY", typeof(string));
-                    dt.Columns.Add("IDD_DISTRICT", typeof(string));
-                    dt.Columns.Add("IDD_MANDAL", typeof(string));
-                    dt.Columns.Add("IDD_STATE", typeof(string));
-                    dt.Columns.Add("IDD_COUNTRY", typeof(string));
-                    dt.Columns.Add("IDD_PINCODE", typeof(string));
-                    dt.Columns.Add("IDD_EMAIL", typeof(string));
-                    dt.Columns.Add("IDD_PHONE", typeof(string));
-                    dt.Columns.Add("IDD_CITYName", typeof(string));
-                    dt.Columns.Add("IDD_MANDALName", typeof(string));
-                    dt.Columns.Add("IDD_DISTRICTName", typeof(string));
-                    dt.Columns.Add("IDD_STATEName", typeof(string));
-                    dt.Columns.Add("IDD_COUNTRYName", typeof(string));
-
-
-                    if (ViewState["PromtrsTable"] != null)
-                    {
-                        dt = (DataTable)ViewState["PromtrsTable"];
-                    }
-                    DataRow dr = dt.NewRow();
-                    dr["IDD_DIRECTOR_NO"] = gvPromoters.Rows.Count + 1;
-                    dr["IDD_UNITID"] = Convert.ToString(ViewState["UnitID"]);
-                    dr["IDD_INVESTERID"] = hdnUserID.Value;
-                    dr["IDD_FIRSTNAME"] = txtApplFrstName.Text;
-                    dr["IDD_LASTNAME"] = txtApplLstName.Text;
-                    dr["IDD_ADNO"] = txtApplAadhar.Text;
-                    dr["IDD_PAN"] = txtApplPAN.Text;
-                    dr["IDD_DINNO"] = txtApplDIN.Text;
-                    dr["IDD_NATIONALITY"] = txtApplNationality.Text;
-                    dr["IDD_DOORNO"] = txtApplDoorNo.Text;
-                    dr["IDD_STREET"] = txtApplStreet.Text;
-                    dr["IDD_CITY"] = ddlApplVillage.SelectedValue;
-                    dr["IDD_DISTRICT"] = ddlApplDist.SelectedValue;
-                    dr["IDD_MANDAL"] = ddlApplTaluka.SelectedValue;
-
-                    dr["IDD_COUNTRY"] = ddlApplCountry.SelectedValue;
-                    dr["IDD_PINCODE"] = txtApplPincode.Text;
-                    dr["IDD_EMAIL"] = txtApplEmail.Text;
-                    dr["IDD_PHONE"] = txtApplMobile.Text;
-
-                    if (ddlApplCountry.SelectedValue == "78")
-                    {
-                        dr["IDD_STATEName"] = ddlApplState.SelectedItem.Text;
-                        dr["IDD_STATE"] = ddlApplState.SelectedValue;
-                        if (ddlApplState.SelectedValue == "23")
-                        {
-                            dr["IDD_DISTRICTName"] = ddlApplDist.SelectedItem.Text;
-                            dr["IDD_MANDALName"] = ddlApplTaluka.SelectedItem.Text;
-                            dr["IDD_CITYName"] = ddlApplVillage.SelectedItem.Text;
-                        }
-                        else if (ddlApplState.SelectedValue != "23")
-                        {
-                            dr["IDD_DISTRICTName"] = txtApplDist.Text;
-                            dr["IDD_MANDALName"] = txtApplTaluka.Text;
-                            dr["IDD_CITYName"] = txtApplVillage.Text;
-                        }
-
-                    }
-                    else if (ddlApplCountry.SelectedValue != "78")
-                    {
-                        dr["IDD_STATE"] = "0";
-                        dr["IDD_STATEName"] = txtApplState.Text;
-
-                        dr["IDD_DISTRICTName"] = txtApplDist.Text;
-                        dr["IDD_MANDALName"] = txtApplTaluka.Text;
-                        dr["IDD_CITYName"] = txtApplVillage.Text;
-                    }
-
-
-                    dr["IDD_COUNTRYName"] = ddlApplCountry.SelectedItem.Text;
-
-                    dt.Rows.Add(dr);
-                    gvPromoters.Visible = true;
-                    gvPromoters.DataSource = dt;
-                    gvPromoters.DataBind();
-                    ViewState["PromtrsTable"] = dt;
-
-                    txtApplFrstName.Text = "";
-                    txtApplLstName.Text = "";
-                    txtApplAadhar.Text = "";
-                    txtApplPAN.Text = "";
-                    txtApplDIN.Text = "";
-                    txtApplNationality.Text = "";
-                    txtApplDoorNo.Text = "";
-                    txtApplStreet.Text = "";
-                    ddlApplCountry.ClearSelection();
-                    ddlApplState.ClearSelection();
-                    ddlApplState.Enabled = false;
-                    ddlApplDist.ClearSelection();
-                    ddlApplDist.Enabled = false;
-
-                    ddlApplTaluka.ClearSelection();
-                    ddlApplTaluka.Enabled = false;
-
-                    ddlApplVillage.ClearSelection();
-                    ddlApplVillage.Enabled = false;
-
-                    txtApplState.Text = "";
-                    txtApplDist.Text = "";
-                    txtApplTaluka.Text = "";
-                    txtApplVillage.Text = "";
-                    txtApplPincode.Text = "";
-                    txtApplEmail.Text = "";
-                    txtApplMobile.Text = "";
-
-                    btnPreview.Enabled = true;
-
-                }
-            }
-            catch (Exception ex) { }
-
-        }
-
-        protected void gvPromoters_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToString(ViewState["UnitID"]) != "")
-                {
-                    if (gvPromoters.Rows.Count > 0)
-                    {
-                        ((DataTable)ViewState["PromtrsTable"]).Rows.RemoveAt(e.RowIndex);
-                        this.gvPromoters.DataSource = ((DataTable)ViewState["PromtrsTable"]).DefaultView;
-                        this.gvPromoters.DataBind();
-                        gvPromoters.Visible = true;
-                        gvPromoters.Focus();
-
-                    }
-                }
-                else
-                {
-                    //tab1.Focus();
-                    Failure.Visible = true;
-                    lblmsg0.Text = "Please Fill Basic Details";
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
+        //---------------------------------Step 3 Code ---------------------------//
         protected void ddlApplCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1597,7 +1583,6 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
-
         protected void ddlApplState_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1629,15 +1614,227 @@ namespace MeghalayaUIP.User.PreReg
             }
 
         }
+        protected void ddlApplDist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlApplTaluka.ClearSelection();
+                ddlApplVillage.ClearSelection();
+                if (ddlApplDist.SelectedItem.Text != "--Select--")
+                {
+                    ddlApplTaluka.Enabled = true;
 
+                    BindMandal(ddlApplTaluka, ddlApplDist.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+        protected void ddlApplTaluka_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlApplVillage.ClearSelection();
+                if (ddlApplTaluka.SelectedItem.Text != "--Select--")
+                {
+                    ddlApplVillage.Enabled = true;
+
+                    BindVillages(ddlApplVillage, ddlApplTaluka.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+
+        }
+        protected void btnAddPromtr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string ErrorMsg = "";
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    ErrorMsg = Step3validations();
+                    if (ErrorMsg == "")
+                    {
+
+                        DataTable dt = new DataTable();
+                        dt.Columns.Add("IDD_DIRECTOR_NO", typeof(string));
+                        dt.Columns.Add("IDD_UNITID", typeof(string));
+                        dt.Columns.Add("IDD_INVESTERID", typeof(string));
+                        dt.Columns.Add("IDD_FIRSTNAME", typeof(string));
+                        dt.Columns.Add("IDD_LASTNAME", typeof(string));
+                        dt.Columns.Add("IDD_ADNO", typeof(string));
+                        dt.Columns.Add("IDD_PAN", typeof(string));
+                        dt.Columns.Add("IDD_DINNO", typeof(string));
+                        dt.Columns.Add("IDD_NATIONALITY", typeof(string));
+                        dt.Columns.Add("IDD_DOORNO", typeof(string));
+                        dt.Columns.Add("IDD_STREET", typeof(string));
+                        dt.Columns.Add("IDD_CITY", typeof(string));
+                        dt.Columns.Add("IDD_DISTRICT", typeof(string));
+                        dt.Columns.Add("IDD_MANDAL", typeof(string));
+                        dt.Columns.Add("IDD_STATE", typeof(string));
+                        dt.Columns.Add("IDD_COUNTRY", typeof(string));
+                        dt.Columns.Add("IDD_PINCODE", typeof(string));
+                        dt.Columns.Add("IDD_EMAIL", typeof(string));
+                        dt.Columns.Add("IDD_PHONE", typeof(string));
+                        dt.Columns.Add("IDD_CITYName", typeof(string));
+                        dt.Columns.Add("IDD_MANDALName", typeof(string));
+                        dt.Columns.Add("IDD_DISTRICTName", typeof(string));
+                        dt.Columns.Add("IDD_STATEName", typeof(string));
+                        dt.Columns.Add("IDD_COUNTRYName", typeof(string));
+
+
+                        if (ViewState["PromtrsTable"] != null)
+                        {
+                            dt = (DataTable)ViewState["PromtrsTable"];
+                        }
+                        DataRow dr = dt.NewRow();
+                        dr["IDD_DIRECTOR_NO"] = gvPromoters.Rows.Count + 1;
+                        dr["IDD_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                        dr["IDD_INVESTERID"] = hdnUserID.Value;
+                        dr["IDD_FIRSTNAME"] = txtApplFrstName.Text;
+                        dr["IDD_LASTNAME"] = txtApplLstName.Text;
+                        dr["IDD_ADNO"] = txtApplAadhar.Text;
+                        dr["IDD_PAN"] = txtApplPAN.Text;
+                        dr["IDD_DINNO"] = txtApplDIN.Text;
+                        dr["IDD_NATIONALITY"] = ddlApplNationality.SelectedItem.Text;
+                        dr["IDD_DOORNO"] = txtApplDoorNo.Text;
+                        dr["IDD_STREET"] = txtApplStreet.Text;
+                        dr["IDD_CITY"] = ddlApplVillage.SelectedValue;
+                        dr["IDD_DISTRICT"] = ddlApplDist.SelectedValue;
+                        dr["IDD_MANDAL"] = ddlApplTaluka.SelectedValue;
+
+                        dr["IDD_COUNTRY"] = ddlApplCountry.SelectedValue;
+                        dr["IDD_PINCODE"] = txtApplPincode.Text;
+                        dr["IDD_EMAIL"] = txtApplEmail.Text;
+                        dr["IDD_PHONE"] = txtApplMobile.Text;
+
+                        if (ddlApplCountry.SelectedValue == "78")
+                        {
+                            dr["IDD_STATEName"] = ddlApplState.SelectedItem.Text;
+                            dr["IDD_STATE"] = ddlApplState.SelectedValue;
+                            if (ddlApplState.SelectedValue == "23")
+                            {
+                                dr["IDD_DISTRICTName"] = ddlApplDist.SelectedItem.Text;
+                                dr["IDD_MANDALName"] = ddlApplTaluka.SelectedItem.Text;
+                                dr["IDD_CITYName"] = ddlApplVillage.SelectedItem.Text;
+                            }
+                            else if (ddlApplState.SelectedValue != "23")
+                            {
+                                dr["IDD_DISTRICTName"] = txtApplDist.Text;
+                                dr["IDD_MANDALName"] = txtApplTaluka.Text;
+                                dr["IDD_CITYName"] = txtApplVillage.Text;
+                            }
+
+                        }
+                        else if (ddlApplCountry.SelectedValue != "78")
+                        {
+                            dr["IDD_STATE"] = "0";
+                            dr["IDD_STATEName"] = txtApplState.Text;
+
+                            dr["IDD_DISTRICTName"] = txtApplDist.Text;
+                            dr["IDD_MANDALName"] = txtApplTaluka.Text;
+                            dr["IDD_CITYName"] = txtApplVillage.Text;
+                        }
+
+
+                        dr["IDD_COUNTRYName"] = ddlApplCountry.SelectedItem.Text;
+
+                        dt.Rows.Add(dr);
+                        gvPromoters.Visible = true;
+                        gvPromoters.DataSource = dt;
+                        gvPromoters.DataBind();
+                        ViewState["PromtrsTable"] = dt;
+
+                        txtApplFrstName.Text = "";
+                        txtApplLstName.Text = "";
+                        txtApplAadhar.Text = "";
+                        txtApplPAN.Text = "";
+                        txtApplDIN.Text = "";
+                        ddlApplNationality.ClearSelection();
+                        txtApplDoorNo.Text = "";
+                        txtApplStreet.Text = "";
+                        ddlApplCountry.ClearSelection();
+                        ddlApplState.ClearSelection();
+                        ddlApplState.Enabled = false;
+                        ddlApplDist.ClearSelection();
+                        ddlApplDist.Enabled = false;
+
+                        ddlApplTaluka.ClearSelection();
+                        ddlApplTaluka.Enabled = false;
+
+                        ddlApplVillage.ClearSelection();
+                        ddlApplVillage.Enabled = false;
+
+                        txtApplState.Text = "";
+                        txtApplDist.Text = "";
+                        txtApplTaluka.Text = "";
+                        txtApplVillage.Text = "";
+                        txtApplPincode.Text = "";
+                        txtApplEmail.Text = "";
+                        txtApplMobile.Text = "";
+
+                        btnPreview.Enabled = true;
+
+                    }
+                    else
+                    {
+                        string message = "alert('" + ErrorMsg + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex) { }
+
+        }
+        protected void gvPromoters_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    if (gvPromoters.Rows.Count > 0)
+                    {
+                        ((DataTable)ViewState["PromtrsTable"]).Rows.RemoveAt(e.RowIndex);
+                        this.gvPromoters.DataSource = ((DataTable)ViewState["PromtrsTable"]).DefaultView;
+                        this.gvPromoters.DataBind();
+                        gvPromoters.Visible = true;
+                        gvPromoters.Focus();
+
+                    }
+                }
+                else
+                {
+                    //tab1.Focus();
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Fill Basic Details";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         protected void btnSave3_Click(object sender, EventArgs e)
         {
 
             try
             {
-                //ViewState["UnitID"] = 1002;
                 string result = "";
-                if (gvPromoters.Rows.Count > 0)
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "")
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
                     // dt.Columns.Remove("IDD_COUNTRYName");
@@ -1654,9 +1851,16 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else
                 {
-                    string message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
-
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    if (Convert.ToString(ViewState["UnitID"]) == "")
+                    {
+                        string message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (gvPromoters.Rows.Count <= 0)
+                    {
+                        string message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
 
                 }
             }
@@ -1670,9 +1874,149 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
 
-                string erromsg = "";
+                int slno = 1;
+                string errormsg = "";
 
-                return erromsg;
+                if (string.IsNullOrEmpty(txtApplFrstName.Text) || txtApplFrstName.Text == "" || txtApplFrstName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter First Name \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplLstName.Text) || txtApplLstName.Text == "" || txtApplLstName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Last Name \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplAadhar.Text) || txtApplAadhar.Text == "" || txtApplAadhar.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Aadhar Number \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplPAN.Text) || txtApplPAN.Text == "" || txtApplPAN.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter PAN Number \\n";
+                    slno = slno + 1;
+                }
+                if (ddlApplNationality.SelectedValue == "0" || ddlApplNationality.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Natonality \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplDoorNo.Text) || txtApplDoorNo.Text == "" || txtApplDoorNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Door Number \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplStreet.Text) || txtApplStreet.Text == "" || txtApplStreet.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Street Name \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplEmail.Text) || txtApplEmail.Text == "" || txtApplEmail.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Email \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplMobile.Text) || txtApplMobile.Text == "" || txtApplMobile.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Mobile Number \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtApplPincode.Text) || txtApplPincode.Text == "" || txtApplPincode.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Pincode Number \\n";
+                    slno = slno + 1;
+                }
+                if (ddlApplCountry.SelectedValue == "0" || ddlApplCountry.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Country \\n";
+                    slno = slno + 1;
+                }
+                if (ddlApplCountry.SelectedValue == "78") //India
+                {
+                    if (ddlApplState.SelectedValue == "0" || ddlApplState.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select State\\n";
+                        slno = slno + 1;
+                    }
+                    else if (ddlApplState.SelectedValue == "23")
+                    {
+                        if (ddlApplDist.SelectedValue == "0" || ddlApplDist.SelectedItem.Text == "--Select--")
+                        {
+                            errormsg = errormsg + slno + ". Please Select District\\n";
+                            slno = slno + 1;
+                        }
+                        if (ddlApplTaluka.SelectedValue == "0" || ddlApplTaluka.SelectedItem.Text == "--Select--")
+                        {
+                            errormsg = errormsg + slno + ". Please Select Taluka or Mandal\\n";
+                            slno = slno + 1;
+                        }
+                        if (ddlApplVillage.SelectedValue == "0" || ddlApplVillage.SelectedItem.Text == "--Select--")
+                        {
+                            errormsg = errormsg + slno + ". Please Select Village\\n";
+                            slno = slno + 1;
+                        }
+                    }
+                    else if (ddlApplState.SelectedValue != "23" && ddlApplState.SelectedValue != "0")
+                    {
+                        if (string.IsNullOrEmpty(txtApplDist.Text) || txtApplDist.Text == "" || txtApplDist.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter District Name Name \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtApplTaluka.Text) || txtApplTaluka.Text == "" || txtApplTaluka.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter State Name \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtApplVillage.Text) || txtApplVillage.Text == "" || txtApplVillage.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter State Name \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                }
+                else if (ddlApplCountry.SelectedValue != "78" && ddlApplCountry.SelectedValue != "0")
+                {
+                    if (string.IsNullOrEmpty(txtApplState.Text) || txtApplState.Text == "" || txtApplState.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter State Name \\n";
+                        slno = slno + 1;
+                    }
+                }
+
+
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void btnPreview_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string result = "";
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
+                    //dtnew.Columns.Remove("IDD_COUNTRYName");
+                    result = indstregBAL.InsertIndPromotersDetails(dtnew, ViewState["UnitID"].ToString(), hdnUserID.Value);
+                    if (result != "")
+                    {
+                        success.Visible = true;
+                        btnPreview.Enabled = false;
+                        //lblmsg.Text = "Application Submitted Successfully";
+                        string message = "alert('" + "Promoter/Director Details Submitted Successfully" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    string message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                }
             }
             catch (Exception ex)
             {
@@ -1683,24 +2027,20 @@ namespace MeghalayaUIP.User.PreReg
         {
             MVprereg.ActiveViewIndex = 1;
         }
-
         protected void btnNext2_Click(object sender, EventArgs e)
         {
             MVprereg.ActiveViewIndex = 2;
 
         }
-
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
             MVprereg.ActiveViewIndex = 0;
 
         }
-
         protected void btnPreviuos3_Click(object sender, EventArgs e)
         {
             MVprereg.ActiveViewIndex = 1;
         }
-
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -1718,7 +2058,6 @@ namespace MeghalayaUIP.User.PreReg
 
             return result;
         }
-
         protected void MVprereg_ActiveViewChanged(object sender, EventArgs e)
         {
             index = MVprereg.ActiveViewIndex;
@@ -1729,50 +2068,6 @@ namespace MeghalayaUIP.User.PreReg
             if (index == 2)
             { Link3.CssClass = "Underlined3"; }
 
-        }
-        public void BindRegistrationType()
-        {
-            try
-            {
-                ddlRegType.Items.Clear();
-                List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
-                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
-                if (objRegistrationTypeModel != null)
-                {
-
-                    ddlRegType.DataSource = objRegistrationTypeModel;
-                    ddlRegType.DataValueField = "REGISTRATIONTYPEID";
-                    ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
-                    ddlRegType.DataBind();
-                }
-                else
-                {
-                    ddlRegType.DataSource = null;
-                    ddlRegType.DataBind();
-                }
-                AddSelect(ddlRegType);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-
-        }
-
-        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
-                {
-                    txtUdyamorIEMNo.Enabled = true;
-                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
-                }
-
-            }
-            catch (Exception ex)
-            { }
         }
 
         protected void Link1_Click(object sender, EventArgs e)
@@ -1794,189 +2089,8 @@ namespace MeghalayaUIP.User.PreReg
             MVprereg.ActiveViewIndex = 2;
         }
 
-        protected void btnPreview_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //ViewState["UnitID"] = 1002;
-                string result = "";
-                if (gvPromoters.Rows.Count > 0)
-                {
-                    DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
-                    //dtnew.Columns.Remove("IDD_COUNTRYName");
-                    result = indstregBAL.InsertIndPromotersDetails(dtnew, ViewState["UnitID"].ToString(), hdnUserID.Value);
-                    if (result != "")
-                    {
-                        success.Visible = true;
-                        btnPreview.Enabled = false;
-                        //lblmsg.Text = "Application Submitted Successfully";
-                        string message = "alert('" + "Promoter/Director Details Submitted Successfully" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-
-                }
-                else
-                {
-                    string message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
-
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        protected void grdRevenueProj_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            try
-            {
-                if (e.Row.RowType == DataControlRowType.DataRow)
-                {
-                    DataTable dt = (DataTable)ViewState["RevProj"];
-
-                    if (dt != null)
-                    {
-                        if (e.Row.RowIndex < 13)
-                        {
-                            GridViewRow gvr = e.Row;
-                            TextBox Year1 = (TextBox)gvr.FindControl("txtYear1");
-                            TextBox Year2 = (TextBox)gvr.FindControl("txtYear2");
-                            TextBox Year3 = (TextBox)gvr.FindControl("txtYear3");
-                            TextBox Year4 = (TextBox)gvr.FindControl("txtYear4");
-                            TextBox Year5 = (TextBox)gvr.FindControl("txtYear5");
-
-                            Year1.Text = dt.Rows[e.Row.RowIndex]["YEAR1"].ToString();
-                            Year2.Text = dt.Rows[e.Row.RowIndex]["YEAR2"].ToString();
-                            Year3.Text = dt.Rows[e.Row.RowIndex]["YEAR3"].ToString();
-                            Year4.Text = dt.Rows[e.Row.RowIndex]["YEAR4"].ToString();
-                            Year5.Text = dt.Rows[e.Row.RowIndex]["YEAR5"].ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-        }
-
-        protected void btndpr_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string newPath = "";
-                string sFileDir = Server.MapPath("~\\PreRegAttachments");
-                if (fupDPR.HasFile)
-                {
-                    if ((fupDPR.PostedFile != null) && (fupDPR.PostedFile.ContentLength > 0))
-                    {
-                        string sFileName = System.IO.Path.GetFileName(fupDPR.PostedFile.FileName);
-                        try
-                        {
 
 
-                            string[] fileType = fupDPR.PostedFile.FileName.Split('.');
-                            int i = fileType.Length;
-                            if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
-                            {
-                                //Create a new subfolder under the current active folder
-                                newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, ViewState["UnitID"].ToString() + "\\DPR");
 
-                                // Create the subfolder
-                                if (!Directory.Exists(newPath))
-
-                                    System.IO.Directory.CreateDirectory(newPath);
-                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
-                                int count = dir.GetFiles().Length;
-                                if (count == 0)
-                                    fupDPR.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                else
-                                {
-                                    if (count == 1)
-                                    {
-                                        string[] Files = Directory.GetFiles(newPath);
-
-                                        foreach (string file in Files)
-                                        {
-                                            File.Delete(file);
-                                        }
-                                        fupDPR.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                    }
-                                }
-                                IndustryDetails objattachments = new IndustryDetails();
-
-                                objattachments.UnitID = ViewState["UnitID"].ToString();
-                                objattachments.UserID = hdnUserID.Value;
-                                objattachments.FileType = fileType[i - 1].ToUpper().ToString();
-                                objattachments.FileName = sFileName.ToString();
-                                objattachments.Filepath = newPath.ToString();
-                                objattachments.FileDescription = "DPR";
-                                objattachments.Deptid = "0";
-                                objattachments.ApprovalId = "0";
-
-                                int result = 0;
-                                result = indstregBAL.InsertAttachments_PREREG(objattachments);
-
-
-                                if (result > 0)
-                                {
-                                    lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
-                                    // hypdpr.Text = fupDPR.FileName;
-                                    lbldpr.Text = fupDPR.FileName;
-                                    success.Visible = true;
-                                    Failure.Visible = false;
-
-                                }
-                                else
-                                {
-                                    lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
-                                    success.Visible = false;
-                                    Failure.Visible = true;
-                                }
-
-                            }
-                            else
-                            {
-                                lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
-                                success.Visible = false;
-                                Failure.Visible = true;
-                            }
-
-                        }
-                        catch (Exception)//in case of an error
-                        {
-
-                            DeleteFile(newPath + "\\" + sFileName);
-                        }
-                    }
-                }
-                else
-                {
-                    lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
-                    success.Visible = false;
-                    Failure.Visible = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
-        public void DeleteFile(string strFileName)
-        {//Delete file from the server
-            if (strFileName.Trim().Length > 0)
-            {
-                FileInfo fi = new FileInfo(strFileName);
-                if (fi.Exists)//if file exists delete it
-                {
-                    fi.Delete();
-                }
-            }
-        }
     }
 }
