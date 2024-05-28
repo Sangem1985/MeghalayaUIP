@@ -132,35 +132,35 @@ namespace MeghalayaUIP.User.PreReg
                             rblNatureofActvty.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]);
                             rblNatureofActvty_SelectedIndexChanged(null, EventArgs.Empty);
 
-                            if (rblNatureofActvty.SelectedValue == "Manufacturing")
-                            {
-                                divManf.Visible = true;
-                                divManf1.Visible = true;
-                                divservc.Visible = false;
+                            //if (rblNatureofActvty.SelectedValue == "Manufacturing")
+                            //{
+                            //    divManf.Visible = true;
+                            //    divManf1.Visible = true;
+                            //    divservc.Visible = false;
                                 txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"]);
                                 txtManfprodct.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODUCT"]);
                                 txtProductionNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODNO"]);
-                            }
-                            if (rblNatureofActvty.SelectedValue == "Service")
-                            {
-                                divManf.Visible = false;
-                                divManf1.Visible = true;
-                                divservc.Visible = false;
+                                txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
+                                txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
+                                txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
+                            //}
+                            //if (rblNatureofActvty.SelectedValue == "Service")
+                            //{
+                            //    divManf.Visible = false;
+                            //    divManf1.Visible = false;
+                            //    divservc.Visible = false;
                                 txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"]);
                                 txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNAME"]);
                                 txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNO"]);
-                            }
+                            //}
                             txtWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WASTEDETAILS"]);
                             txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"]);
-                            txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
 
                             txtCivilConstr.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_CIVILCONSTR"]);
                             txtLandAreainSqft.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
                             txtBuildingAreaSqm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
                             txtPowerReqKV.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_POWERRREQ"]);
                             txtWaterReqKLD.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WATERREQ"]);
-                            txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
-                            txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
                             txtEstimatedProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_EPCOST"]);
                             txtPlantnMachineryCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
                             txtCapitalInvestment.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_IFC"]);
@@ -648,7 +648,6 @@ namespace MeghalayaUIP.User.PreReg
             }
 
         }
-
         protected void ddlAuthReprDist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -855,27 +854,21 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         throw ex;
                     }
-                    result = indstregBAL.InsertIndRegBasicDetails(ID, out string IDno);
-                    //ViewState["UnitID"] = result;
-                    if (result == 1)
+                    result = indstregBAL.InsertIndRegBasicDetails(ID);
+                    
+                    if (result != 100)
                     {
+                        ViewState["UnitID"] = result;
                         success.Visible = true;
                         lblmsg.Text = "Basic Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-                    else if (result == 2)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "Basic Details Updated Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
+                    }                    
                     else
                     {
                         {
                             success.Visible = true;
-                            lblmsg.Text = "Basic Details not saved";
+                            lblmsg.Text = "Error Occured while saving please try again";
                             string message = "alert('" + lblmsg.Text + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }

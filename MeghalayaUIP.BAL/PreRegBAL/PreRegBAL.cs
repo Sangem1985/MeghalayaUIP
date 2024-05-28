@@ -25,9 +25,9 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.GetSectorDepartments(sectorname);
         }
-        public int InsertIndRegBasicDetails(IndustryDetails ID, out string IDno)
+        public int InsertIndRegBasicDetails(IndustryDetails ID)
         {
-            return IRD.InsertIndRegBasicDetails(ID, out IDno);
+            return IRD.InsertIndRegBasicDetails(ID);
         }
         public string InsertIndRegRevenueDetails(DataTable dt, string UNITID, string USERID)
         {
