@@ -99,11 +99,11 @@
 
                     <!-- User Menu -->
                     <li class="nav-item dropdown has-arrow">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img">
 
                                 <%--<asp:ImageButton runat="server" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="rounded-circle" />--%>
-                                <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>
+                                <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>&nbsp;&nbsp;
                             </span>
 
                         </a>

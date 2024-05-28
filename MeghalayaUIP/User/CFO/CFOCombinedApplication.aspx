@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4>Pre Establishment - Approvals Abstract:</h4>
+                                <h4>Pre Operational - Approvals Abstract:</h4>
                                 <h5 class="alert alert-warning alert-dismissible fade show">The following are the Approvals required for Establishment of your Unit. Please
                                                     select the Approvals for which you intend to apply for.</h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -30,9 +30,9 @@
                                     <div class="table-responsive">
                                     <asp:GridView ID="grdApprovalsCFO" runat="server" AutoGenerateColumns="False" CellPadding="4"
                                         CssClass="table-hover" ForeColor="#333333" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovalsCFO_RowDataBound">
-                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                        <RowStyle  CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                        <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                        <RowStyle  CssClass="GRDITEM" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                        <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                        
                                         <Columns>
                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
@@ -46,7 +46,7 @@
                                                 <ItemStyle Width="50px" />
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required">
-                                                <ItemStyle Width="450px" />
+                                                <ItemStyle Width="350px" />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
                                                 <ItemStyle Width="180px" />
@@ -57,13 +57,14 @@
                                                 <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Center" />
                                             </asp:BoundField>
                                             <asp:TemplateField HeaderText="Whether Approval Already Obtained">
+                                                 <ItemStyle Width="250px" />
                                                 <ItemTemplate>
                                                     <asp:RadioButtonList ID="rblAlrdyObtained" runat="server" SelectedValue='<%# Eval("CFOQA_ISOFFLINE") %>' AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAlrdyObtained_SelectedIndexChanged">
                                                         <asp:ListItem Value="Y">Yes</asp:ListItem>
                                                         <asp:ListItem Selected="True" Value="N">No</asp:ListItem>
                                                     </asp:RadioButtonList>
                                                     <asp:HiddenField ID="HdfAmount" runat="server" />
-                                                    <itemstyle horizontalalign="Center" width="140px" />
+                                                    <itemstyle horizontalalign="Center" width="240px" />
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Center" Width="140px" />
                                             </asp:TemplateField>

@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="PreRegApplDeptDashBoard.aspx.cs" Inherits="MeghalayaUIP.Dept.PreReg.PreRegApplDeptDashBoard" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -125,7 +124,7 @@
                 <div class="card-header">
                     <h3>Query Details (IMA Queries)</h3>
                 </div>
-                <section id="dashboardcount4">
+                <section id="dashboardcount">
                     <div class="container-fluid">
                         <div class="row clearfix">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">

@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">CFO DISTRICT</h4>
+                            <h4 class="card-title">Proffessional Tax Details</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -101,10 +101,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    
+                                </div>
+                                <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label fw-bold"><span style="font-weight: 900;">Additional Place of Business IN MEGHALAYA *</span></label>
-                                            <div class="col-lg-2">
+                                            <label class="col-lg-4 col-form-label">Additional Place of Business in MEGHALAYA *</label>
+                                            <div class="col-lg-3">
                                                 <asp:RadioButtonList ID="rblBusiness" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBusiness_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -112,10 +114,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <div id="AdditionDetails" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
-                                        <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Place of Business Details</span></label>
+                                        <label class="col-lg-12 col-form-label">Additional Place of Business Details:</label>
                                     </div>
                                     <div class="col-md-12 d-flex" id="AdditionPlace" runat="server" visible="false">
                                         <div class="col-md-6">
@@ -154,17 +155,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex justify-content-center">
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label"></label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <asp:Button ID="btnAdd" Text="Add Details" class="btn  btn-info btn-lg" runat="server" OnClick="btnAdd_Click" Fore-Color="White" BackColor="YellowGreen" />
-                                                </div>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <asp:Button ID="btnAdd" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAdd_Click" width="110px" />
                                         </div>
                                     </div>
+                                   
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <asp:GridView ID="GVState" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -188,8 +183,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label fw-bold"><span style="font-weight: 900;">Additional Place of Business IN INDIA *</span></label>
-                                            <div class="col-lg-2">
+                                            <label class="col-lg-8 col-form-label">Additional Place of Business in INDIA *</label>
+                                            <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblbusinessindia" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblbusinessindia_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -200,7 +195,7 @@
                                 </div>
                                 <div id="Added" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
-                                        <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Place of Business Details</span></label>
+                                        <label class="col-lg-12 col-form-label">Additional Place of Business Details:</label>
                                     </div>
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-6">
@@ -239,17 +234,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex justify-content-center">
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label"></label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <asp:Button ID="btnAdeed" Text="Add Details" class="btn  btn-info btn-lg" runat="server" OnClick="btnAdeed_Click" Fore-Color="White" BackColor="YellowGreen" />
-                                                </div>
-                                            </div>
+                                        <div class="col-md-2">
+                                            <asp:Button ID="btnAdeed" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAdeed_Click" width="110px" />
                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <asp:GridView ID="GVCOUNTRY" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -273,13 +262,13 @@
 
 
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Other Details</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Other Details</label>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label fw-bold"><span style="font-weight: 900;">Whether office from foreign country? *</span></label>
-                                            <div class="col-lg-2">
+                                            <label class="col-lg-8 col-form-label">Whether office from foreign country? *</label>
+                                            <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblForeign" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblForeign_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -324,6 +313,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                     <div class="col-md-4">
+                                            <div class="form-group row">
+                                                
+                                                <div class="col-lg-2 d-flex">
+                                                    <asp:Button ID="Addedbtn" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="Addedbtn_Click" width="110px" />
+                                                </div>
+                                            </div>
+                                        </div>
                                     <%--	<div class="col-md-4">
 												<div class="form-group row">
 													<label class="col-lg-6 col-form-label">Name*</label>
@@ -345,18 +342,11 @@
                                 </div>
                                 <div id="Address" runat="server" visible="false">
                                     <div class="col-md-12 d-flex justify-content-center">
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label"></label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <asp:Button ID="Addedbtn" Text="Add Details" class="btn  btn-info btn-lg" runat="server" OnClick="Addedbtn_Click" Fore-Color="White" BackColor="YellowGreen" />
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Other place of work, if any, in state:</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Other place of work, if any, in state:</label>
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <asp:GridView ID="GVFOREIGN" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -390,8 +380,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label fw-bold"><span style="font-weight: 900;">Do you have registration under any other act?  *</span></label>
-                                            <div class="col-lg-2">
+                                            <label class="col-lg-8 col-form-label">Do you have registration under any other act? *</label>
+                                            <div class="col-lg-3">
                                                 <asp:RadioButtonList ID="rblother" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblother_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -401,7 +391,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-6" id="RegistrationType" runat="server" visible="false">
+                                    <div class="col-md-4" id="RegistrationType" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Registration Type *</label>
                                             <div class="col-lg-4 d-flex">
@@ -422,9 +412,9 @@
                                 </div>
                                 <div class="col-md-12 text-right mt-2 mb-2">
 
-                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" Width="150px" />
-                                    <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
+                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                 </div>
                             </div>

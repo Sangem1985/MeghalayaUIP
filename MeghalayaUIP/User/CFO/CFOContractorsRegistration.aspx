@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">CFO PublicWorkDepartment</h4>
+                            <h4 class="card-title">Public Work Department</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -113,10 +113,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
                             <div class="col-md-12 d-flex" id="division" runat="server" visible="false">
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-lg-6 col-form-label">Division  *</label>
+                                        <label class="col-lg-6">Division  *</label>
                                         <div class="col-lg-4 d-flex">
                                             <asp:DropDownList runat="server" ID="ddlDivision" class="form-control">
                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
@@ -125,8 +126,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 d-flex">
-                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Basic Details as Contractor </span></label>
+                            <div class="col-md-12 d-flex ml-3">
+                                <label><span style="font-weight: 900;">Basic Details as Contractor </span></label>
                             </div>
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-6">
@@ -164,11 +165,12 @@
                                     </div>
                                 </div>
                             </div>
+                                </div>
                             <div class="col-md-12 text-right mt-2 mb-2">
 
-                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" Width="150px" />
-                                <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
+                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                             </div>
                         </div>

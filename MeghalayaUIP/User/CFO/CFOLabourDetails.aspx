@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">CFOLabour Details</h4>
+                            <h4 class="card-title">Labour Details</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -26,12 +26,12 @@
                             <asp:HiddenField ID="hdnUserID" runat="server" />
                             <div class="row">
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Vendor Technical:</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Vendor Technical:</label>
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate?*</span></label>
+                                            <label class="col-lg-8 col-form-label">Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate?*</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="RBLAPPROVED" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="RBLAPPROVED_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -43,7 +43,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label fw-bold"><span style="font-weight: 900;">Classification applied for*</span></label>
+                                            <label class="col-lg-8 col-form-label">Classification applied for*</label>
                                             <div class="col-lg-4">
                                                 <asp:DropDownList ID="ddlApplied" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Is any type of jobs executed by the firm earlier, with special reference to their maximum working pressure, temperature and the materials involved, with documentary evidence?*</span></label>
+                                            <label class="col-lg-8 col-form-label">Is any type of jobs executed by the firm earlier, with special reference to their maximum working pressure, temperature and the materials involved, with documentary evidence?*</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblmaximum" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -84,7 +84,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Has your request for recognition as a repairer under Indian Boiler Regulation, 1950 been rejected by any authority*</span></label>
+                                            <label class="col-lg-8 col-form-label">Has your request for recognition as a repairer under Indian Boiler Regulation, 1950 been rejected by any authority*</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblregulation" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Whether having rectifier / generator, grinder, general tools and tackles, dye penetrant kit, expander and measuring instruments or any other tools and tackles under regulation 392 (5) (i)?*</span></label>
+                                            <label class="col-lg-8 col-form-label">Whether having rectifier / generator, grinder, general tools and tackles, dye penetrant kit, expander and measuring instruments or any other tools and tackles under regulation 392 (5) (i)?*</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblgenerator" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -109,7 +109,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Detailed list of technical personnel with designation, educational qualifications and relevant experience (attach copies of documents) who are permanently employed with the firm ?*</span></label>
+                                            <label class="col-lg-8 col-form-label">Detailed list of technical personnel with designation, educational qualifications and relevant experience (attach copies of documents) who are permanently employed with the firm ?*</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rbldesignation" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -131,7 +131,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Whether the firm is prepared to execute the job strictly in 81 conformity with the regulations and maintain a high standard of work ? *</span></label>
+                                            <label class="col-lg-8 col-form-label">Whether the firm is prepared to execute the job strictly in 81 conformity with the regulations and maintain a high standard of work ? *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblstrictly" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -142,7 +142,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Whether the firm is prepared to accept full responsibility for the work done and is prepared to clarify any controversial issue, if required?*</span></label>
+                                            <label class="col-lg-8 col-form-label">Whether the firm is prepared to accept full responsibility for the work done and is prepared to clarify any controversial issue, if required?*</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblfirm" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -156,7 +156,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Whether the firm is in a position to supply materials to required specification with proper test certificates if asked for ?*</span></label>
+                                            <label class="col-lg-8 col-form-label">Whether the firm is in a position to supply materials to required specification with proper test certificates if asked for ?*</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblmaterial" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -167,7 +167,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Whether the firm has an internal quality control system of their own ??  *</span></label>
+                                            <label class="col-lg-8 col-form-label">Whether the firm has an internal quality control system of their own ??  *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblinternalcontrol" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -180,7 +180,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Upload document for List of welders employed with copies of current certificate issued by a Competent Authority under the Indian Boiler Regulations, 1950? *</span></label>
+                                            <label class="col-lg-8 col-form-label">Upload document for List of welders employed with copies of current certificate issued by a Competent Authority under the Indian Boiler Regulations, 1950? *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rbldocument" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -200,7 +200,7 @@
                                 </div>
 
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Boiler Technical Details:</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Boiler Technical Details:</label>
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -354,7 +354,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label"><span style="font-weight: 900;">In case of Boiler ownership being transfer *</span></label>
+                                            <label class="col-lg-6 col-form-label">In case of Boiler ownership being transfer *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblBoilerTrans" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBoilerTrans_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -375,7 +375,7 @@
                                 </div>
 
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Boiler Technical Details:</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Boiler Technical Details:</label>
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -405,10 +405,10 @@
 
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Particulars of Contract Labour:</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Particulars of Contract Labour:</label>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Name & Address of Agent or Manager of Contractor at the worksite:</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Name & Address of Agent or Manager of Contractor at the worksite:</label>
                                 </div>
 
                                 <div class="col-md-12 d-flex">
@@ -477,12 +477,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Other Details</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Other Details</label>
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label"><span style="font-weight: 900;">Whether the contractor is convicted of any offence within the proceeding five years*</span></label>
+                                            <label class="col-lg-8 col-form-label">Whether the contractor is convicted of any offence within the proceeding five years*</label>
                                             <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblConvicated" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblConvicated_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="1" />
@@ -565,7 +565,7 @@
                                 </div>
 
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Establishments Details</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Establishments Details</label>
                                 </div>
 
                                 <div class="col-md-12 d-flex">
@@ -605,10 +605,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4" >
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Do you have your family members employed in the establishment and residing with and wholly dependent upon you?  </label>
-                                            <div class="col-lg-2">
+                                            <div class="col-lg-6" style="align-items: flex-start;">
                                                 <asp:RadioButtonList ID="rblresinding" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
                                                     <asp:ListItem Text="No" Value="2" />
@@ -619,7 +619,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Do you have employees working in the establishment? *</label>
-                                            <div class="col-lg-2">
+                                            <div class="col-lg-6"  style="align-items: flex-start;">
                                                 <asp:RadioButtonList ID="rblestemployee" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="1" />
                                                     <asp:ListItem Text="No" Value="2" />
@@ -629,7 +629,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Details of Employees working in the establishment</span></label>
+                                    <label class="col-lg-12 col-form-label fw-bold">Details of Employees working in the establishment</label>
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -643,7 +643,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Gender  </label>
-                                            <div class="col-lg-2">
+                                            <div class="col-lg-6">
                                                 <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Male" Value="1" />
                                                     <asp:ListItem Text="Female" Value="2" />
@@ -716,8 +716,8 @@
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label"></label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Button ID="Addbtn" Text="Add Details" class="btn  btn-info btn-lg" runat="server" OnClick="Addbtn_Click" Fore-Color="White" BackColor="YellowGreen" />
+                                            <div class="col-lg-4 d-flex">
+                                                <asp:Button ID="Addbtn" Text="Add Details" class="btn btn-green btn-rounded" runat="server" OnClick="Addbtn_Click" />
                                             </div>
                                         </div>
                                     </div>
@@ -749,8 +749,8 @@
 
                                 <div class="col-md-12 text-right mt-2 mb-2">
                                     <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                    <asp:Button ID="savebtn" runat="server" OnClick="savebtn_Click" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="savebtn" runat="server" OnClick="savebtn_Click" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                 </div>
                             </div>

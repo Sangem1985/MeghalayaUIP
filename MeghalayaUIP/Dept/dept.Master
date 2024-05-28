@@ -85,7 +85,7 @@
 
                     <!-- User Menu -->
                     <li class="nav-item dropdown has-arrow">
-                        <a href="../#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown">
                             
                             <span class="text-dark" id="lblUser" runat="server"></span>&nbsp;&nbsp;
                         </a>

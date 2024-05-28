@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">CFO EXCISE Department</h4>
+                            <h4 class="card-title">Excise Department</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -32,8 +32,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">1. Are you citizen of India as defined in Article 5 to 8 of the Constitution of India? *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">1. Are you citizen of India as defined in Article 5 to 8 of the Constitution of India? *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblArtical5" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -45,8 +45,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">2. Has the applicant/ you have has held individual/jointly held one/multiple shop/s or any other excise license? (Provide Details if yes) *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">2. Has the applicant/ you have has held individual/jointly held one/multiple shop/s or any other excise license? (Provide Details if yes) *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblapplicant" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -59,8 +59,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">3. Whether applicant’s direct family member/dependents have held individual/jointly held one/multiple shop/s or any other excise license? (Provide Details if yes) *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">3. Whether applicant’s direct family member/dependents have held individual/jointly held one/multiple shop/s or any other excise license? (Provide Details if yes) *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblMember" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -73,8 +73,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">4. Are you/applicant an Income Tax Payer? *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">4. Are you/applicant an Income Tax Payer? *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblTax" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -87,8 +87,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">5. Do you/Applicant pay Sales Tax? *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">5. Do you/Applicant pay Sales Tax? *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblsaletax" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -100,8 +100,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">6. Do you/Applicant pay Professional Tax? *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">6. Do you/Applicant pay Professional Tax? *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblprofession" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -113,8 +113,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">7. Are you/applicant in any way related to a Government official working in Excise Department? *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">7. Are you/applicant in any way related to a Government official working in Excise Department? *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblgoverment" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblgoverment_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -126,7 +126,7 @@
                                 <div class="col-md-12 d-flex" id="Excisedept" runat="server" visible="false">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Provide Details Here (if working) :</label>
+                                            <label class="col-lg-4 col-form-label">Provide Details Here (if working) :</label>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:TextBox ID="txttradeLic" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -136,8 +136,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">8. Have you/applicant been punished or penalized or convicted for violation of any Excise laws/rules/orders? *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">8. Have you/applicant been punished or penalized or convicted for violation of any Excise laws/rules/orders? *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblviolation" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblviolation_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -149,7 +149,7 @@
                                 <div class="col-md-12 d-flex" id="txtlaw" runat="server" visible="false">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Provide Details Here (if punished or penalized or convicted for violation of any Excise laws/rules/orders) :</label>
+                                            <label class="col-lg-6 col-form-label">Provide Details Here (if punished or penalized or convicted for violation of any Excise laws/rules/orders) :</label>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:TextBox ID="txtexciselaw" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -159,8 +159,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">9. Have You/applicant has ever been convicted by Court of Law for a non bailable offence? *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-10 col-form-label">9. Have You/applicant has ever been convicted by Court of Law for a non bailable offence? *</label>
+                                            <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblConvicted" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblConvicted_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -172,7 +172,7 @@
                                 <div class="col-md-12 d-flex" id="convictedlaw" runat="server" visible="false">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Provide Details Here (if convicted by Court of Law for a non bailable offence) :</label>
+                                            <label class="col-lg-6 col-form-label">Provide Details Here (if convicted by Court of Law for a non bailable offence) :</label>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:TextBox ID="txtDetails" runat="server" class="form-control"></asp:TextBox>
                                             </div>

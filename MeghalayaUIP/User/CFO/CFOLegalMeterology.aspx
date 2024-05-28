@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">CFO LEGAL METROLOGY DEPARTMENT</h4>
+                            <h4 class="card-title">LEGAL METROLOGY DEPARTMENT</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -98,13 +98,23 @@
                                             </div>
                                         </div>
                                     </div>
+                                     <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">
+
+                                            </label>
+                                            <div class="col-lg-4 d-flex">
+                                                <asp:Button ID="btnAddDetails" Text="Add Details" class="btn btn-green btn-rounded" runat="server" OnClick="btnAddDetails_Click" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label"></label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:Button ID="btnAddDetails" Text="Add Details" class="btn  btn-info btn-lg" runat="server" OnClick="btnAddDetails_Click" Fore-Color="White" BackColor="YellowGreen" />
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -146,8 +156,8 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Have you obtain any current registration number of factory/ shop/ establishment?  *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-9 col-form-label">Have you obtain any current registration number of factory/ shop/ establishment?  *</label>
+                                            <div class="col-lg-3">
                                                 <asp:RadioButtonList ID="rblfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfactory_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -178,8 +188,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Have you obtain any current registration number of Municipal Trade licence/ADC?  *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-9 col-form-label">Have you obtain any current registration number of Municipal Trade licence/ADC?  *</label>
+                                            <div class="col-lg-3">
                                                 <asp:RadioButtonList ID="rblMunicipal" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblMunicipal_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -310,7 +320,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
+                                            <label class="col-lg-8 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblState" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblState_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
@@ -339,8 +349,8 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-7 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
+                                            <div class="col-lg-5">
                                                 <asp:RadioButtonList ID="rblstateside" runat="server" RepeatDirection="Horizontal">
                                                     <asp:ListItem Text="Within State" Value="Y" />
                                                     <asp:ListItem Text="Outside State" Value="N" />
@@ -409,15 +419,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-8">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Details of machinery, tools accessories, owned and used for manufacturing weights measures etc:</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <label class="col-lg-9 col-form-label">Details of machinery, tools accessories, owned and used for manufacturing weights measures etc:</label>
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:TextBox ID="txtmanuowned" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Details of foundry/workshop facilities arranged Whether ownership, long term lease etc :*</label>
                                             <div class="col-lg-6 d-flex">
@@ -425,7 +437,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
@@ -446,10 +457,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-8">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Have you applied previously for a manufacturer's licence? *</label>
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-3">
                                                 <asp:RadioButtonList ID="rblLicdealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicdealer_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -457,8 +471,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4" id="applieddealer" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Give Details </label>
@@ -467,6 +479,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Do you received any loan from Government or financial Institution? *</label>
@@ -486,9 +501,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4" id="DetailsGet" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Give Details </label>
@@ -497,7 +509,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    
+                                    <div class="col-md-8">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Have you sufficient stock of loan/test weights. etc.? *</label>
                                             <div class="col-lg-4">
@@ -518,7 +534,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
+                                    <div class="col-md-8">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Have you applied previously for a repairer's licence? *</label>
                                             <div class="col-lg-4">
@@ -542,9 +558,9 @@
 
                                 <div class="col-md-12 text-right mt-2 mb-2">
 
-                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" Width="150px" />
-                                    <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
+                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                 </div>
                             </div>
