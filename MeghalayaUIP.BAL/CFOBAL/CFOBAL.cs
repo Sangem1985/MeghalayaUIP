@@ -99,7 +99,7 @@ namespace MeghalayaUIP.BAL.CFOBAL
             return objCFODAL.GetApprovalsReqFromTable(objCFOQsnaire);
         }
       
-        ///--------Chanakya-////
+        ///--------Chanikya-////
         public string InsertQuestionnaireCFO(CFOQuestionnaireDet objCFOQsnaire)
         {
             return objCFODAL.InsertQuestionnaireCFO(objCFOQsnaire);
