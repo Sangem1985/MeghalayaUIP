@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-md-12 row mt-3 ml-1 d-flex">
 
-                            <div class="col-md-5">
+                            <div class="col-md-5" runat="server" visible="false">
                                 <div class="alert alert-warning" role="alert">
                                     <b>Terms and Conditions:</b>
                                     <p>1. Do not press F5 or refresh the page while the transaction is in process.</p>
@@ -42,7 +42,7 @@
                                     <p>6. All the details regarding the payments are secure and confidential. We do not store the bank details entered by the entrepreneur.</p>
                                 </div>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-11">
                                 <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
                                     CssClass="GRD" ForeColor="#333333" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" >
                                     <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />

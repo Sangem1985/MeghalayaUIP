@@ -30,9 +30,9 @@ namespace MeghalayaUIP.User.CFE
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
                 Page.MaintainScrollPositionOnPostBack = true;
-                if (Convert.ToString(Session["UNITID"]) != "")
+                if (Convert.ToString(Session["CFEUNITID"]) != "")
                 {
-                    UnitID = Convert.ToString(Session["UNITID"]);
+                    UnitID = Convert.ToString(Session["CFEUNITID"]);
                 }
                 else
                 {
@@ -251,7 +251,7 @@ namespace MeghalayaUIP.User.CFE
 
                         objCFEManufacture.Questionnareid = hdnQuesID.Value;
                         objCFEManufacture.LOAID = ddlLineOfActivity.SelectedValue;
-                        objCFEManufacture.UNITID = Convert.ToString(Session["UNITID"]);
+                        objCFEManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objCFEManufacture.ManfItemName = gvManufacture.Rows[i].Cells[1].Text;
                         objCFEManufacture.ManfItemAnnualCapacity = gvManufacture.Rows[i].Cells[2].Text;
                         objCFEManufacture.ManfItemValue = gvManufacture.Rows[i].Cells[3].Text;
@@ -271,7 +271,7 @@ namespace MeghalayaUIP.User.CFE
                         objCFEManufacture.RMItemValue = gvRwaMaterial.Rows[i].Cells[3].Text;
                         objCFEManufacture.RMSourceofSupply = gvRwaMaterial.Rows[i].Cells[4].Text;
                         objCFEManufacture.CreatedBy = hdnUserID.Value;
-                        objCFEManufacture.UNITID = Convert.ToString(Session["UNITID"]);
+                        objCFEManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objCFEManufacture.IPAddress = getclientIP();
 
                         string A = objcfebal.InsertCFERawMaterial(objCFEManufacture);

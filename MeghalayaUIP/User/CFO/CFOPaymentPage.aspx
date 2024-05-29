@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-12 row mt-3 d-flex">
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" runat="server" visible="false">
                                 <div class="alert alert-warning" role="alert">
                                     <b>Terms and Conditions:</b>
                                     <p>1. Do not press F5 or refresh the page while the transaction is in process.</p>
@@ -41,7 +41,7 @@
                                     <p>6. All the details regarding the payments are secure and confidential. We do not store the bank details entered by the entrepreneur.</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-11">
                                 <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
                                     CssClass="GRD" ForeColor="#333333" Width="95%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
                                     <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -65,7 +65,7 @@
                                         <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
                                             <ItemStyle Width="180px" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="CFEDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
+                                        <asp:BoundField DataField="CFODA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
                                             <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                             <HeaderStyle HorizontalAlign="Right" />
                                             <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Center" />
@@ -74,12 +74,12 @@
 
                                         <asp:TemplateField HeaderText="Approval ID" Visible="false">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("CFEDA_APPROVALID") %>'></asp:Label>
+                                                <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("CFODA_APPROVALID") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("CFEDA_DEPTID") %>'></asp:Label>
+                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("CFODA_DEPTID") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

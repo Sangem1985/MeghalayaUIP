@@ -31,7 +31,7 @@ namespace MeghalayaUIP.User.CFE
 
                 }
                 
-                UNITID = Convert.ToString(Session["UNITID"]);
+                UNITID = Convert.ToString(Session["CFEUNITID"]);
 
 
                 Page.MaintainScrollPositionOnPostBack = true;
@@ -271,12 +271,12 @@ namespace MeghalayaUIP.User.CFE
                 if (ErrorMsg == "")
                 {
                     Forest_Details objCFEQForest = new Forest_Details();
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    { objCFEQForest.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    if (Convert.ToString(Session["CFEUNITID"]) != "")
+                    { objCFEQForest.UNITID = Convert.ToString(Session["CFEUNITID"]); }
                     objCFEQForest.CreatedBy = hdnUserID.Value;
                     objCFEQForest.IPAddress = getclientIP();
                     objCFEQForest.Questionnariid = Quesstionriids;
-                    objCFEQForest.UnitId = Convert.ToString(Session["UNITID"]);
+                    objCFEQForest.UnitId = Convert.ToString(Session["CFEUNITID"]);
                     objCFEQForest.Address = txtAddress.Text;
                     objCFEQForest.Lattitude = RblLatitude.SelectedValue;
                     objCFEQForest.LatDegrees = txtLatDegrees.Text;

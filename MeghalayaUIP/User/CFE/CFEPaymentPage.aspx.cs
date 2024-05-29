@@ -33,9 +33,9 @@ namespace MeghalayaUIP.User.CFE
                         hdnUserID.Value = ObjUserInfo.Userid;
 
                     }
-                    if (Convert.ToString(Session["UNITID"]) != "")
+                    if (Convert.ToString(Session["CFEUNITID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["UNITID"]);
+                        UnitID = Convert.ToString(Session["CFEUNITID"]);
                     }
                     else
                     {
@@ -136,7 +136,7 @@ namespace MeghalayaUIP.User.CFE
                     Label ApprovalID = (Label)row.FindControl("lblApprID");
                     Label DeptID = (Label)row.FindControl("lblDeptID") as Label;              
                    
-                    objpay.UNITID = Convert.ToString(Session["UNITID"]);
+                    objpay.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     objpay.Questionnareid = hdnQuesID.Value;
                     objpay.CFEUID = hdnUIDNo.Value;
                     objpay.DeptID = DeptID.Text;

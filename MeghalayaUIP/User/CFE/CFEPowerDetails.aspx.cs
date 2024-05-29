@@ -31,9 +31,9 @@ namespace MeghalayaUIP.User.CFE
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-                if (Convert.ToString(Session["UNITID"]) != "")
+                if (Convert.ToString(Session["CFEUNITID"]) != "")
                 {
-                    UnitID = Convert.ToString(Session["UNITID"]);
+                    UnitID = Convert.ToString(Session["CFEUNITID"]);
                 }
                 else
                 {
@@ -98,7 +98,7 @@ namespace MeghalayaUIP.User.CFE
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_UNITID"]);
+                    //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_UNITID"]);
                     txtHP.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CONNECTEDLOAD"]);
                     txtMaxDemand.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_MAXIMUMDEMAND"]);
                     ddlvtglevel.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_VOLTEAGELEVEL"].ToString();
@@ -218,12 +218,12 @@ namespace MeghalayaUIP.User.CFE
                 if (ErrorMsg == "")
                 {
                     CFEPower objCFEPower = new CFEPower();
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    { objCFEPower.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    if (Convert.ToString(Session["CFEUNITID"]) != "")
+                    { objCFEPower.UNITID = Convert.ToString(Session["CFEUNITID"]); }
                     objCFEPower.CreatedBy = hdnUserID.Value;
                     objCFEPower.IPAddress = getclientIP();
-                    objCFEPower.Questionnariid = "106";
-                    objCFEPower.UnitId = Convert.ToString(Session["UNITID"]);
+                    objCFEPower.Questionnariid = Convert.ToString(Session["CFEQID"]);
+                    objCFEPower.UnitId = Convert.ToString(Session["CFEUNITID"]);
                     objCFEPower.Con_Load_HP = txtHP.Text;
                     objCFEPower.Maximum_KVA = txtMaxDemand.Text;
                     objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;

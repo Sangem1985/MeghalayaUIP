@@ -29,9 +29,9 @@ namespace MeghalayaUIP.User.CFE
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                if (Convert.ToString(Session["UNITID"]) != "")
+                if (Convert.ToString(Session["CFEUNITID"]) != "")
                 {
-                    UnitID = Convert.ToString(Session["UNITID"]);
+                    UnitID = Convert.ToString(Session["CFEUNITID"]);
                 }
                 else
                 {
@@ -432,11 +432,11 @@ namespace MeghalayaUIP.User.CFE
                 {
                     CFEFire ObjCCFEFireDetails = new CFEFire();
                  
-                    ObjCCFEFireDetails.UNITID = Convert.ToString(Session["UNITID"]); 
+                    ObjCCFEFireDetails.UNITID = Convert.ToString(Session["CFEUNITID"]); 
                     ObjCCFEFireDetails.CreatedBy = hdnUserID.Value;
                     ObjCCFEFireDetails.IPAddress = getclientIP();
                     ObjCCFEFireDetails.Questionnariid = Quesstionriids;
-                    ObjCCFEFireDetails.UnitId = Convert.ToString(Session["UNITID"]);
+                    ObjCCFEFireDetails.UnitId = Convert.ToString(Session["CFEUNITID"]);
                     ObjCCFEFireDetails.DistricId = ddldistric.SelectedValue;
                     ObjCCFEFireDetails.MandalId = ddlmandal.SelectedValue;
                     ObjCCFEFireDetails.VillageId = ddlvillage.SelectedValue;

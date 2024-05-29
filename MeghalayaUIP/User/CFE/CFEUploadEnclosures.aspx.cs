@@ -36,9 +36,9 @@ namespace MeghalayaUIP.User.CFE
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-                if (Convert.ToString(Session["UNITID"]) != "")
+                if (Convert.ToString(Session["CFEUNITID"]) != "")
                 {
-                    UnitID = Convert.ToString(Session["UNITID"]);
+                    UnitID = Convert.ToString(Session["CFEUNITID"]);
                 }
                 else
                 {
@@ -156,7 +156,7 @@ namespace MeghalayaUIP.User.CFE
                         fupAadhar.PostedFile.SaveAs(serverpath + "\\" + fupAadhar.PostedFile.FileName);
 
                         CFEAttachments objAadhar = new CFEAttachments();
-                        objAadhar.UNITID = Convert.ToString(Session["UNITID"]);
+                        objAadhar.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objAadhar.Questionnareid = hdnQuesid.Value;
                         objAadhar.MasterID = "1";
                         objAadhar.FilePath = serverpath + fupAadhar.PostedFile.FileName;
@@ -293,7 +293,7 @@ namespace MeghalayaUIP.User.CFE
                         fupEPIC.PostedFile.SaveAs(serverpath + "\\" + fupEPIC.PostedFile.FileName);
 
                         CFEAttachments objEPIC = new CFEAttachments();
-                        objEPIC.UNITID = Convert.ToString(Session["UNITID"]);
+                        objEPIC.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objEPIC.Questionnareid = hdnQuesid.Value;
                         objEPIC.MasterID = "2";
                         objEPIC.FilePath = serverpath + fupEPIC.PostedFile.FileName;
@@ -351,7 +351,7 @@ namespace MeghalayaUIP.User.CFE
                         fupApplPhoto.PostedFile.SaveAs(serverpath + "\\" + fupApplPhoto.PostedFile.FileName);
 
                         CFEAttachments objApplPhoto = new CFEAttachments();
-                        objApplPhoto.UNITID = Convert.ToString(Session["UNITID"]);
+                        objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = hdnQuesid.Value;
                         objApplPhoto.MasterID = "3";
                         objApplPhoto.FilePath = serverpath + fupApplPhoto.PostedFile.FileName;
@@ -409,7 +409,7 @@ namespace MeghalayaUIP.User.CFE
                         fupLandDoc.PostedFile.SaveAs(serverpath + "\\" + fupLandDoc.PostedFile.FileName);
 
                         CFEAttachments objLandDoc = new CFEAttachments();
-                        objLandDoc.UNITID = Convert.ToString(Session["UNITID"]);
+                        objLandDoc.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objLandDoc.Questionnareid = hdnQuesid.Value;
                         objLandDoc.MasterID = "4";
                         objLandDoc.FilePath = serverpath + fupLandDoc.PostedFile.FileName;
@@ -468,7 +468,7 @@ namespace MeghalayaUIP.User.CFE
                         fupSitePlan.PostedFile.SaveAs(serverpath + "\\" + fupSitePlan.PostedFile.FileName);
 
                         CFEAttachments objSitePlan = new CFEAttachments();
-                        objSitePlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objSitePlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objSitePlan.Questionnareid = hdnQuesid.Value;
                         objSitePlan.MasterID = "1";
                         objSitePlan.FilePath = serverpath + fupSitePlan.PostedFile.FileName;
