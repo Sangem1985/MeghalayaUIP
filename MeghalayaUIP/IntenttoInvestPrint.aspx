@@ -376,12 +376,17 @@
 
               
             </div>
+            <div class="col-md-12" style="text-align:end;">
+               
+                <button id="btnPrint" onclick="window.print()" Class="btn btn-dark text-white"  style="Width:110px;height: 40px;border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
+                type="button"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+            <asp:HyperLink ID="HyperLink1" CssClass="btn btn-info text-white" Width="110px" runat="server" Font-Bold="True" NavigateUrl="~/Dept/DeptDashBoard.aspx"
+                ForeColor="#3366CC"><i class="fa fa-home" aria-hidden="true"></i> Home</asp:HyperLink>
+
+            </div>
             <!-- /Page Wrapper -->
             <br />
-            <input id="btnPrint" onclick="window.print()" style="border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
-                type="button" value="Print" /><br />
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" NavigateUrl="~/Home.aspx"
-                ForeColor="#3366CC">Home</asp:HyperLink>
+            
             <br />
         </div>
 
