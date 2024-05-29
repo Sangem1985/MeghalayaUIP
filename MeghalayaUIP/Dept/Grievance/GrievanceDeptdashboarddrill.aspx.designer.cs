@@ -69,6 +69,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
 
         /// <summary>
+        /// divPending control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPending;
+
+        /// <summary>
         /// lblPendingTotal control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.Label lblPendingBeyond;
 
         /// <summary>
+        /// divRedressed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRedressed;
+
+        /// <summary>
         /// lblRedressedTotal control.
         /// </summary>
         /// <remarks>
@@ -121,6 +139,15 @@ namespace MeghalayaUIP.Dept.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRedressedBeyond;
+
+        /// <summary>
+        /// divRejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRejected;
 
         /// <summary>
         /// lblRejectedTotal control.

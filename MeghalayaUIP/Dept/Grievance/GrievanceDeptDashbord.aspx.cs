@@ -61,10 +61,10 @@ namespace MeghalayaUIP.Dept.Grievance
                 ds = objcomBal.GetDepGrievanceDashboard(DeptID, hdnUserID.Value);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    lbltotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNITNAME"]);
-                    lblpendingTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["EMAIL"]);
-                    lblRedressedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["UID_NO"]);
-                    lblRejectedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPLICANTNAME"]);                  
+                    lbltotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["TOTAL"]);
+                    lblpendingTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["PENDINGTOTAL"]);
+                    lblRedressedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REDRESSEDTOTAL"]);
+                    lblRejectedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDTOTAL"]);                  
 
                 }
                 else

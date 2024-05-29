@@ -25,6 +25,7 @@ namespace MeghalayaUIP.Dept
                     intenttoinvest.Visible = true;
                     prereg.Visible = true;
                     Preestablishment.Visible = false;
+                    
                 }
                 else if (ObjUserInfo.Roleid == "4")
                 {
@@ -43,6 +44,7 @@ namespace MeghalayaUIP.Dept
                     intenttoinvest.Visible = false;
                     prereg.Visible = false;
                     Preestablishment.Visible = true;
+                    PreOperational.Visible = true;
                 }
                 else
                 {
@@ -93,8 +95,11 @@ namespace MeghalayaUIP.Dept
 
         }
 
-        protected void linkIncentive_Click(object sender, EventArgs e)
+        protected void linkGrievance_Click(object sender, EventArgs e)
         {
+            //Dept.Grievance.GrievanceDeptDashbord
+            string url = "~/Dept/Grievance/GrievanceDeptDashbord.aspx";
+            Response.Redirect(url);
 
         }
     }
