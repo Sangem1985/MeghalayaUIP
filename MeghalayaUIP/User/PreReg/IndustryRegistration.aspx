@@ -708,7 +708,7 @@
                                                             <p style="color: red; font-family: sans-serif;">
                                                                 <b>
                                                                     <label class="col-lg-12 col-form-label text-center" id="lbleligibletext" runat="server">
-                                                                        Note:  Based on your input regarding Sector and year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
+                                                                        Note:  Based on your input regarding Sector/Year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
 However, you can register your unit to get required approvals/ clearances.</label></b>
                                                             </p>
                                                         </div>

@@ -473,7 +473,7 @@
                                                                 <div class="col-lg-12 d-flex">
                                                                     <p style="color: red; font-family: sans-serif;">
                                                                         <b>
-                                                                            <asp:Label ID="lblnote" runat="server" Visible="false">Note: Based on your input regarding Sector and year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
+                                                                            <asp:Label ID="lblnote" runat="server" Visible="false">Note: Based on your input regarding Sector/Year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
 However, you can register your unit to get required approvals/ clearances.</asp:Label></b>
                                                                     </p>
                                                                 </div>
