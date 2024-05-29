@@ -1281,7 +1281,7 @@ namespace MeghalayaUIP.DAL.CFODAL
             }
             return Result;
         }
-        public DataSet GetCFOAlreadyObtainedApprovals(string userid, string UnitID)
+        public DataSet GetCFOAlreadyObtainedApprovals(string userid, string UnitID, string CfoQid, string IsOffline)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1300,6 +1300,8 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
                 da.SelectCommand.Parameters.AddWithValue("@CRETAEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@CFOQDID", Convert.ToInt32(CfoQid));
+                da.SelectCommand.Parameters.AddWithValue("@ISOFFLINE", IsOffline);
 
                 da.Fill(ds);
                 transaction.Commit();
@@ -1335,6 +1337,7 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
                 da.SelectCommand.Parameters.AddWithValue("@CRETAEDBY", Convert.ToInt32(objCFOQsnaire.CreatedBy));
+                da.SelectCommand.Parameters.AddWithValue("@CFOQDID", Convert.ToInt32(objCFOQsnaire.CFOQDID));
 
                 da.Fill(ds);
                 transaction.Commit();
@@ -1750,6 +1753,41 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", userid);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetApprovalDataByDeptId(string CFOQDID, string UNITID, string DEPTID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetApprovalDataByDeptId, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetApprovalDataByDeptId;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@CFOQDID", CFOQDID);
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DEPTID);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

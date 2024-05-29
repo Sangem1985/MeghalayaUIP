@@ -92,8 +92,8 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.InsertCFODepartmentApprovals(objCFOQsnaire);
         }
-        public DataSet GetCFOAlreadyObtainedApprovals(string userid, string UnitID)
-        { return objCFODAL.GetCFOAlreadyObtainedApprovals(userid, UnitID); }
+        public DataSet GetCFOAlreadyObtainedApprovals(string userid, string UnitID, string CfoQid, string IsOffline)
+        { return objCFODAL.GetCFOAlreadyObtainedApprovals(userid, UnitID, CfoQid, IsOffline); }
         public DataSet GetApprovalsReqFromTable(CFOQuestionnaireDet objCFOQsnaire)
         {
             return objCFODAL.GetApprovalsReqFromTable(objCFOQsnaire);
@@ -136,6 +136,10 @@ namespace MeghalayaUIP.BAL.CFOBAL
         public DataSet GetCFEApprovedandCFOAppliedApplications(string userid, string UnitID)
         {
             return objCFODAL.GetCFEApprovedandCFOAppliedApplications(userid, UnitID);
+        }
+        public DataSet GetApprovalDataByDeptId(string CFOQDID, string UNITID, string DEPTID)
+        {
+            return objCFODAL.GetApprovalDataByDeptId(CFOQDID, UNITID, DEPTID);
         }
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//

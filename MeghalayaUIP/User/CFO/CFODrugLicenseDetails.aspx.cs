@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFODrugLicenseDetails : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFOBAL objcfebal = new CFOBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,7 +44,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    DataSet dsnew = new DataSet();
+                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "8");
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
 
+                    }
+                    else
+                    {
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+                        }
+                    }
                 }
             }
         }
@@ -87,7 +103,7 @@ namespace MeghalayaUIP.User.CFO
 
 
 
-                        string A = objcfebal.INSERTCFOManufactureDetails(ObjCFOHealthyWelfare);
+                        string A = objcfobal.INSERTCFOManufactureDetails(ObjCFOHealthyWelfare);
                         if (A != "")
                         { count = count + 1; }
                     }
@@ -113,7 +129,7 @@ namespace MeghalayaUIP.User.CFO
 
 
 
-                        string A = objcfebal.INSERTCFOTestingDetails(ObjCFOHealthyWelfare);
+                        string A = objcfobal.INSERTCFOTestingDetails(ObjCFOHealthyWelfare);
                         if (A != "")
                         { count1 = count + 1; }
                     }
@@ -137,7 +153,7 @@ namespace MeghalayaUIP.User.CFO
 
 
 
-                        string A = objcfebal.InsertCFODRUGLICDetails(ObjCFOHealthyWelfare);
+                        string A = objcfobal.InsertCFODRUGLICDetails(ObjCFOHealthyWelfare);
                         if (A != "")
                         { count2 = count + 1; }
                     }
@@ -168,7 +184,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOHealthyWelfare.inceptionDate = txtInspection.Text;
 
 
-                    result = objcfebal.InsertCFODrugLicenseDet(ObjCFOHealthyWelfare);
+                    result = objcfobal.InsertCFODrugLicenseDet(ObjCFOHealthyWelfare);
                     ViewState["UnitID"] = result;
                     if (result != "")
                     {

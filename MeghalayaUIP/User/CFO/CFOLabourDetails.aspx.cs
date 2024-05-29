@@ -29,10 +29,11 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["CFOUNITID"] = "1001";
                 UnitID = Convert.ToString(Session["CFOUNITID"]);
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
-                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                {
+                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                }
                 else
                 {
                     string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -370,7 +371,7 @@ namespace MeghalayaUIP.User.CFO
         }
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx");
+            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
         }
     }
 }

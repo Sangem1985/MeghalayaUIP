@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFOLegalMeterology : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFOBAL objcfebal = new CFOBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,6 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["CFOUNITID"] = "1001";
                 UnitID = Convert.ToString(Session["CFOUNITID"]);
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
                 { UnitID = Convert.ToString(Session["CFOUNITID"]); }
@@ -44,7 +43,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    DataSet dsnew = new DataSet();
+                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "11");
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
 
+                    }
+                    else
+                    {
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
+                        }
+                    }
                 }
             }
         }
@@ -196,7 +211,7 @@ namespace MeghalayaUIP.User.CFO
                         ObjCFOlegalDet.Quantity = GVLegalDept.Rows[i].Cells[8].Text;
 
 
-                        string A = objcfebal.InsertCFOLegalMetrologyDet(ObjCFOlegalDet);
+                        string A = objcfobal.InsertCFOLegalMetrologyDet(ObjCFOlegalDet);
                         if (A != "")
                         { count = count + 1; }
                     }
@@ -260,7 +275,7 @@ namespace MeghalayaUIP.User.CFO
 
 
 
-                    result = objcfebal.InsertCFOLegalMetrologyDetails(ObjCFOlegalDet);
+                    result = objcfobal.InsertCFOLegalMetrologyDetails(ObjCFOlegalDet);
                     ViewState["UnitID"] = result;
                     if (result != "")
                     {

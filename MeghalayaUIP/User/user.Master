@@ -61,7 +61,24 @@
             width: 98%;
             margin-top: 15px;
         }
-      
+      ul.navbar-nav i.fi {
+    position: absolute;
+    top: 15px;
+    margin-left: -18px;
+}
+      i.fi.fi-br-house-chimney-user {
+    background: #fff;
+    padding: 9px 9px 3px;
+    margin: 2px;
+    color: #0b3654;
+    border-radius: 4px;
+    *box-shadow: 2px 3px 5px 3px #fbfbfb40;
+     box-shadow:3px 3px #6c6c6cb8;
+}
+      ul.navbar-nav li:hover {
+    background: #ffffff2b;
+    padding: 0px 0px 0px 0px;
+}
     </style>
 </head>
 <body>
@@ -140,27 +157,27 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="
     display: flex !important;justify-content: space-between;">
                             <ul class="navbar-nav">
-                                <li class="nav-item active">
+                                <li class="nav-item">
                                     <%--<a class="nav-link" href="/User/Dashboard.aspx">Dashboard <span class="sr-only">(current)</span></a>--%>
-                                    <asp:LinkButton ID="linkuserdshbrd" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link"><i class="fi fi-tr-dashboard"></i> Dashboard <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkuserdshbrd" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link"><i class="fi fi-br-dashboard"></i> Dashboard <span class="sr-only">(current)</span></asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
                                     <%--<a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>--%>
-                                    <asp:LinkButton ID="linkIndReg" runat="server" OnClick="linkIndReg_Click" class="nav-link">Industry Registration <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkIndReg" runat="server" OnClick="linkIndReg_Click" class="nav-link"><i class="fi fi-br-industry-alt"></i> Industry Registration <span class="sr-only">(current)</span></asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
                                     <%--<a class="nav-link" href="../CFE/CFEUserDashboard.aspx">Pre-Establishment</a>--%>
-                                    <asp:LinkButton ID="linkCFEDashbrd" runat="server" OnClick="linkCFEDashbrd_Click" class="nav-link">Pre-Establishment <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkCFEDashbrd" runat="server" OnClick="linkCFEDashbrd_Click" class="nav-link"><i class="fi fi-br-form"></i> Pre-Establishment </asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="LinkCFODashBoard" runat="server" OnClick="LinkCFODashBoard_Click" class="nav-link">Pre-Operational <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="LinkCFODashBoard" runat="server" OnClick="LinkCFODashBoard_Click" class="nav-link"><i class="fi fi-br-operation"></i> Pre-Operational </asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Renewals</a>
+                                    <a class="nav-link" href="#"><i class="fi fi-br-function-process"></i> Renewals</a>
                                 </li>
                                 <%--<li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CFE
@@ -206,7 +223,7 @@
                                     </div>
                                 </li>--%>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Grievance
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fi fi-br-person-circle-question"></i> Grievance
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
@@ -215,15 +232,14 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Other Services</a>
+                                    <a class="nav-link" href="#"><i class="fi fi-br-edit"></i> Other Services</a>
                                 </li>
 
                             </ul>
-                            <ul style="list-style: none;margin-bottom:0px !important;width: 25%;text-align: end;" class="d-flex">
+                            <ul style="list-style: none;margin-bottom: -3px !important;width: 16%;text-align: right;justify-content: right;" class="d-flex">
                                <li class="nav-item">
                                    
-                                   <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link" style="margin-bottom: -3px !important;"><%--<i class="fi fi-br-house-chimney-user"></i>--%><img src="../../assets/admin/img/home.png" style="width:34%;box-shadow: 0px 0px 8px 0px #999999;
-    border-radius: 16px;" alt="back to Home" Title="Back to Home"/> </asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link" style="margin-bottom: -3px !important;"><i class="fi fi-br-house-chimney-user" Title="Back to Home"></i><%--<img src="../../assets/admin/img/home.png" style="width:34%;box-shadow: 0px 0px 8px 0px #999999;border-radius: 16px;" alt="back to Home" Title="Back to Home"/>--%> </asp:LinkButton>
                                     <%--<a class="nav-link" href="#"></a>--%>
                                 </li>
                                 </ul>
