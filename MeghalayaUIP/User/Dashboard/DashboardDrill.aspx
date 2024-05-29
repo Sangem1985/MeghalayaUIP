@@ -15,16 +15,22 @@
                         <label id="unitname" runat="server"></label>
                     </h4>
                 </div>
-                <div class="card m-2 mb-2 pb-0" style="border-radius: 0px;">
-                    <div class="card-header d-flex justify-content-between" style="background: #f3f3f3;">
-                        <h4 class="card-title">
-                            <asp:Label ID="lblheading" runat="server">Showing Status of All Applications</asp:Label></h4>
+                <div class="col-md-12 d-flex card mb-2 pb-0" style="background: #f3f3f3;border-radius: 0px;display: flex !important;flex-wrap: nowrap;flex-direction: row;">
+                     <div class="col-md-6 justify-content-around" style="align-items: center;">
+                         <div class="justify-content-between justify-content-around">
+                            
+                             <asp:Label runat="server"><h4 class="card-title mb-0 mt-2">Status of Applications for  All Units </h4></asp:Label>
+                     </div>
                     </div>
-                    <div class="card-header d-flex justify-content-between" style="background: #f3f3f3;">
-                        Select Unit to view the Status 
-                            <spna class="dots">:</spna>
-                        <asp:DropDownList Width="150px" ID="ddlUnitNames" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlUnitNames_SelectedIndexChanged"></asp:DropDownList>
-
+                        
+                       
+                    <div class="col-md-6 d-flex justify-content-around" style="border-radius: 0px;display: flex !important;flex-wrap: nowrap;flex-direction: row;align-items: center;">
+                                        <div class="col-md-6">Select Unit to view the Status</div>
+                                        <div class="col-md-6 d-flex" style="align-items: center;">
+                                            <spna class="dots">:</spna>
+                                            <asp:DropDownList Width="150px" ID="ddlUnitNames" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlUnitNames_SelectedIndexChanged"></asp:DropDownList>
+                                        </div>
+                                    </div>
                     </div>
                     <section id="dashboardcount" class="mt-2">
                         <div class="container-fluid">
@@ -45,15 +51,22 @@
 
                                     <div class="col-md-6 d-flex" style="align-items: center;" runat="server" id="divUnit" visible="false">
                                         <div class="col-md-3">Unit ID</div>
-                                        <div class="col-md-3" style="align-items: center;">
+                                        <div class="col-md-3" style="align-items: center;"><spna class="dots">:</spna>
                                             <b>
                                                 <asp:Label ID="lblUnitID" runat="server"></asp:Label></b>
                                         </div>
                                         <div class="col-md-3" style="align-items: center;">Unit Name</div>
-                                        <div class="col-md-3" style="align-items: center;">
+                                        <div class="col-md-3" style="align-items: center;"><spna class="dots">:</spna>
                                             <b>
                                                 <asp:Label ID="lblUnitName" runat="server"></asp:Label></b>
                                         </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex" style="align-items: center;" runat="server" id="div1" visible="true">
+                                        <div class="col-md-3">Unit Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</div>
+                                        <div class="col-md-9" style="align-items: center;">
+                                            <asp:Label ID="LabelUnitAdress" runat="server">DANALDASILK, DANAL DASILK, SONGSAK, EAST GARO HILLS, 506001</asp:Label>
+                                        </div>
+                                        
                                     </div>
                                 </div>
 
@@ -73,7 +86,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr id="trPreReg" runat="server" visible="true">
-                                                    <th scope="col" style="text-align: left !important;">Registration with IMA/MIIPP</th>
+                                                    <th scope="col" style="text-align: left !important;">Industries Registered with IMA/MIIPP</th>
                                                     <td>
                                                         <span class="status4">
                                                             <asp:LinkButton ID="btnPreRegTotal" runat="server" OnClick="btnPreRegTotal_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
@@ -180,7 +193,7 @@
                             </div>
                         </div>
                     </section>
-                </div>
+                
             </div>
         </div>
     </div>

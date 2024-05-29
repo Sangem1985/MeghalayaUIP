@@ -1801,6 +1801,8 @@ button.bg-danger:hover {
 	display: inline-block;
 	margin-right: 3px;
 	position: relative;
+	margin-top: 3px;
+	font-weight: 500;
 }
 
 .user-menu.nav>li>a.mobile_btn {

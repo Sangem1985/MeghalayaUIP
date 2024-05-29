@@ -135,7 +135,7 @@ namespace MeghalayaUIP.User.Dashboard
                 }
                 else
                 {
-                    lblheading.Text = "Status of Application for All Units";
+                    //lblheading.Text = "Status of Application for All Units";
                 }
                 BindApplStatus();
             }
