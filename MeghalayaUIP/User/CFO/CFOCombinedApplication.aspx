@@ -76,7 +76,7 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Amount">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblAmounts" runat="server" Text="Label"></asp:Label>
+                                                    <asp:Label ID="lblAmounts" runat="server" Text='<%# Eval("CFOQA_APPROVALFEE") %>'></asp:Label>
                                                     <itemstyle horizontalalign="Center" width="140px" />
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Center" Width="140px" />

@@ -571,9 +571,9 @@
     <Content Include="User\CFO\CFOUploadEnclosures.aspx" />
     <Content Include="User\CFO\CFOUserDashboard.aspx" />
     <Content Include="User\CFO\demo.aspx" />
-    <Content Include="User\Dashboard.aspx" />
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
+    <Content Include="User\Dashboard\DashboardDrill.aspx" />
     <Content Include="User\Grievance\Grievance.aspx" />
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\MainDashboard.aspx" />
@@ -584,6 +584,7 @@
     <Content Include="User\PreReg\IndustryRegistrationQueryDetails.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
+    <Content Include="User\UserDashboard.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1107,13 +1108,6 @@
     <Compile Include="User\CFO\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\DashboardDrill.aspx.cs">
       <DependentUpon>DashboardDrill.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1127,6 +1121,13 @@
     </Compile>
     <Compile Include="User\Dashboardstatus.aspx.designer.cs">
       <DependentUpon>Dashboardstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Dashboard\DashboardDrill.aspx.cs">
+      <DependentUpon>DashboardDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Dashboard\DashboardDrill.aspx.designer.cs">
+      <DependentUpon>DashboardDrill.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Grievance\Grievance.aspx.cs">
       <DependentUpon>Grievance.aspx</DependentUpon>
@@ -1204,6 +1205,13 @@
     </Compile>
     <Compile Include="User\user.Master.designer.cs">
       <DependentUpon>user.Master</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserDashboard.aspx.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserDashboard.aspx.designer.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

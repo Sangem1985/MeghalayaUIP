@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h4>Approved Industry Registrations under MIIPP 2024</h4>
+                    <h4>Industry Registered with Invest Meghalaya Authority/MIIPP</h4>
 
                     <div class="col-md-12 d-flex">
                         <div class="table-radius">

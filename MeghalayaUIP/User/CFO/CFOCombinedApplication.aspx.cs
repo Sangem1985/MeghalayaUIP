@@ -26,7 +26,7 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 if (Session["UserInfo"] != null)
-                {
+                { 
                     Session["CFOUNITID"] = "1008";
                     var ObjUserInfo = new UserInfo();
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
