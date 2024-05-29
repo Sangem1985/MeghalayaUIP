@@ -40,6 +40,7 @@ namespace MeghalayaUIP.Common
         public static string RetrieveQuestionnaire = "USP_RETRIEVECFOQUESFILLEDDATA";
         public static string GetCFEApprovalsAmounttoPay = "USP_GETCFOAPPROVALSAMOUNTTOPAY";
         public static string InsertPaymentDetails = "USP_INSCFOPAYMENTDETAILS";
+        public static string GetApprovalDataByDeptId = "USP_GETCFOAPPROVALBYDEPTID";
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 

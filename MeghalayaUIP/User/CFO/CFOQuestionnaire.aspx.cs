@@ -463,8 +463,8 @@ namespace MeghalayaUIP.User.CFO
                     result = objcfobal.InsertQuestionnaireCFO(objCFOQsnaire);
                     if (result != "100")
                     {
-
-                        Session["QUESTIONRID"] = result;
+                        Session["CFOIUNITID"] = hdnPreRegUNITID.Value;
+                        Session["CFOQID"] = result;
                         for (int i = 0; i < grdApprovals.Rows.Count; i++)
                         {
 
@@ -739,6 +739,7 @@ namespace MeghalayaUIP.User.CFO
                 ds = objcfobal.RetrieveQuestionnaireDetails(hdnUserID.Value, UnitID);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
+                    Session["CFOQID"] = ds.Tables[0].Rows[0]["CFOQDID"].ToString();
                     hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFOQD_UNITID"]);
                     hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFOQD_PREREGUIDNO"]);
                     txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOQD_COMPANYNAME"]);
