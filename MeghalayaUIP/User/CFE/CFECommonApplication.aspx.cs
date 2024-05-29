@@ -38,9 +38,9 @@ namespace MeghalayaUIP.User.CFE
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["UNITID"]) != "")
+                    if (Convert.ToString(Session["CFEUNITID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["UNITID"]);
+                        UnitID = Convert.ToString(Session["CFEUNITID"]);
                     }
                     else
                     {
@@ -50,7 +50,7 @@ namespace MeghalayaUIP.User.CFE
                     Page.MaintainScrollPositionOnPostBack = true;
                     if (!IsPostBack)
                     {
-                        if (Convert.ToString(Session["UNITID"]) != "")
+                        if (Convert.ToString(Session["CFEUNITID"]) != "")
                         {
                             BindData();
                         }
@@ -78,7 +78,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet dsApprovals = new DataSet();
-                cfeqs.UNITID = Convert.ToString(Session["UNITID"]);
+                cfeqs.UNITID = Convert.ToString(Session["CFEUNITID"]);
                 cfeqs.CreatedBy = hdnUserID.Value;
                 dsApprovals = objcfebal.GetApprovalsReqFromTable(cfeqs);
                 if (dsApprovals.Tables.Count > 0)
@@ -87,7 +87,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         grdApprovals.DataSource = dsApprovals.Tables[0]; 
                         grdApprovals.DataBind();
-                        hdnQuesid.Value = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFEQA_CFEQDID"]);
+                        Convert.ToString(Session["CFEQID"]) = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFEQA_CFEQDID"]);
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
@@ -511,8 +511,8 @@ namespace MeghalayaUIP.User.CFE
                     Label lblFEE = (Label)row.FindControl("lblAmounts") as Label;
                     RadioButtonList rbloffline = (RadioButtonList)row.FindControl("rblAlrdyObtained");
 
-                    objCFEQsnaire.UNITID = Convert.ToString(Session["UNITID"]);
-                    objCFEQsnaire.CFEQDID = hdnQuesid.Value;
+                    objCFEQsnaire.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                    objCFEQsnaire.CFEQDID = Convert.ToString(Session["CFEQID"]);
                     objCFEQsnaire.DeptID = DeptID.Text;
                     objCFEQsnaire.ApprovalID = ApprovalID.Text;
                     objCFEQsnaire.ApprovalFee = row.Cells[3].Text;
@@ -529,7 +529,7 @@ namespace MeghalayaUIP.User.CFE
                 if (grdApprovals.Rows.Count == count)
                 {
                     DataSet dsOffline = new DataSet();
-                    dsOffline = objcfebal.GetCFEAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["UNITID"]));
+                    dsOffline = objcfebal.GetCFEAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                     if (dsOffline.Tables.Count > 0)
                     {
                         if (dsOffline.Tables[0].Rows.Count > 0)
@@ -654,7 +654,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -663,8 +663,8 @@ namespace MeghalayaUIP.User.CFE
                         fup1PCB.PostedFile.SaveAs(serverpath + "\\" + fup1PCB.PostedFile.FileName);
 
                         CFEAttachments objPCBNOC = new CFEAttachments();
-                        objPCBNOC.UNITID = Convert.ToString(Session["UNITID"]);
-                        objPCBNOC.Questionnareid = hdnQuesid.Value;
+                        objPCBNOC.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objPCBNOC.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objPCBNOC.ApprovalID = "1";
                         objPCBNOC.DeptID = "12";
                         objPCBNOC.FilePath = serverpath + fup1PCB.PostedFile.FileName;
@@ -713,7 +713,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "2" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "2" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -722,8 +722,8 @@ namespace MeghalayaUIP.User.CFE
                         fup2HazPCB.PostedFile.SaveAs(serverpath + "\\" + fup2HazPCB.PostedFile.FileName);
 
                         CFEAttachments objHAZNOC = new CFEAttachments();
-                        objHAZNOC.UNITID = Convert.ToString(Session["UNITID"]);
-                        objHAZNOC.Questionnareid = hdnQuesid.Value;
+                        objHAZNOC.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objHAZNOC.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objHAZNOC.ApprovalID = "2";
                         objHAZNOC.DeptID = "12";
                         objHAZNOC.FilePath = serverpath + fup2HazPCB.PostedFile.FileName;
@@ -773,7 +773,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "3" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "3" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -782,8 +782,8 @@ namespace MeghalayaUIP.User.CFE
                         fup3SrvcCon.PostedFile.SaveAs(serverpath + "\\" + fup3SrvcCon.PostedFile.FileName);
 
                         CFEAttachments objSrvcCon = new CFEAttachments();
-                        objSrvcCon.UNITID = Convert.ToString(Session["UNITID"]);
-                        objSrvcCon.Questionnareid = hdnQuesid.Value;
+                        objSrvcCon.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objSrvcCon.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objSrvcCon.ApprovalID = "3";
                         objSrvcCon.DeptID = "14";
                         objSrvcCon.FilePath = serverpath + fup3SrvcCon.PostedFile.FileName;
@@ -832,7 +832,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "4" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "4" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -841,8 +841,8 @@ namespace MeghalayaUIP.User.CFE
                         fup4EleCon.PostedFile.SaveAs(serverpath + "\\" + fup4EleCon.PostedFile.FileName);
 
                         CFEAttachments objEleCon = new CFEAttachments();
-                        objEleCon.UNITID = Convert.ToString(Session["UNITID"]);
-                        objEleCon.Questionnareid = hdnQuesid.Value;
+                        objEleCon.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objEleCon.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objEleCon.ApprovalID = "4";
                         objEleCon.DeptID = "14";
                         objEleCon.FilePath = serverpath + fup4EleCon.PostedFile.FileName;
@@ -891,7 +891,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "5" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "5" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -900,8 +900,8 @@ namespace MeghalayaUIP.User.CFE
                         fup5FctryPlan.PostedFile.SaveAs(serverpath + "\\" + fup5FctryPlan.PostedFile.FileName);
 
                         CFEAttachments objFctryPlan = new CFEAttachments();
-                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
-                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objFctryPlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objFctryPlan.ApprovalID = "5";
                         objFctryPlan.DeptID = "19";
                         objFctryPlan.FilePath = serverpath + fup5FctryPlan.PostedFile.FileName;
@@ -950,7 +950,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "6" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "6" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -959,8 +959,8 @@ namespace MeghalayaUIP.User.CFE
                         fup6DGsetNOC.PostedFile.SaveAs(serverpath + "\\" + fup6DGsetNOC.PostedFile.FileName);
 
                         CFEAttachments objDGsetNOC = new CFEAttachments();
-                        objDGsetNOC.UNITID = Convert.ToString(Session["UNITID"]);
-                        objDGsetNOC.Questionnareid = hdnQuesid.Value;
+                        objDGsetNOC.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objDGsetNOC.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objDGsetNOC.ApprovalID = "6";
                         objDGsetNOC.DeptID = "14";
                         objDGsetNOC.FilePath = serverpath + fup6DGsetNOC.PostedFile.FileName;
@@ -1009,7 +1009,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "7" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "7" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1018,8 +1018,8 @@ namespace MeghalayaUIP.User.CFE
                         fup7FireSfty.PostedFile.SaveAs(serverpath + "\\" + fup7FireSfty.PostedFile.FileName);
 
                         CFEAttachments objFireSfty = new CFEAttachments();
-                        objFireSfty.UNITID = Convert.ToString(Session["UNITID"]);
-                        objFireSfty.Questionnareid = hdnQuesid.Value;
+                        objFireSfty.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objFireSfty.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objFireSfty.ApprovalID = "7";
                         objFireSfty.DeptID = "9";
                         objFireSfty.FilePath = serverpath + fup7FireSfty.PostedFile.FileName;
@@ -1069,7 +1069,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "8" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "8" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1078,8 +1078,8 @@ namespace MeghalayaUIP.User.CFE
                         fup8RSDSLic.PostedFile.SaveAs(serverpath + "\\" + fup8RSDSLic.PostedFile.FileName);
 
                         CFEAttachments objRSDSLic = new CFEAttachments();
-                        objRSDSLic.UNITID = Convert.ToString(Session["UNITID"]);
-                        objRSDSLic.Questionnareid = hdnQuesid.Value;
+                        objRSDSLic.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objRSDSLic.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objRSDSLic.ApprovalID = "8";
                         objRSDSLic.DeptID = "7";
                         objRSDSLic.FilePath = serverpath + fup8RSDSLic.PostedFile.FileName;
@@ -1128,7 +1128,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "9" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "9" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1137,8 +1137,8 @@ namespace MeghalayaUIP.User.CFE
                         fup9ExplsvNOC.PostedFile.SaveAs(serverpath + "\\" + fup9ExplsvNOC.PostedFile.FileName);
 
                         CFEAttachments objExplsvNOC = new CFEAttachments();
-                        objExplsvNOC.UNITID = Convert.ToString(Session["UNITID"]);
-                        objExplsvNOC.Questionnareid = hdnQuesid.Value;
+                        objExplsvNOC.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objExplsvNOC.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objExplsvNOC.ApprovalID = "9";
                         objExplsvNOC.DeptID = "13";
                         objExplsvNOC.FilePath = serverpath + fup9ExplsvNOC.PostedFile.FileName;
@@ -1187,7 +1187,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "10" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "10" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1196,8 +1196,8 @@ namespace MeghalayaUIP.User.CFE
                         fup10PtrlNOC.PostedFile.SaveAs(serverpath + "\\" + fup10PtrlNOC.PostedFile.FileName);
 
                         CFEAttachments objPtrlNOC = new CFEAttachments();
-                        objPtrlNOC.UNITID = Convert.ToString(Session["UNITID"]);
-                        objPtrlNOC.Questionnareid = hdnQuesid.Value;
+                        objPtrlNOC.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objPtrlNOC.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objPtrlNOC.ApprovalID = "10";
                         objPtrlNOC.DeptID = "13";
                         objPtrlNOC.FilePath = serverpath + fup10PtrlNOC.PostedFile.FileName;
@@ -1247,7 +1247,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "11" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "11" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1255,8 +1255,8 @@ namespace MeghalayaUIP.User.CFE
                         fup11RdCtng.PostedFile.SaveAs(serverpath + "\\" + fup11RdCtng.PostedFile.FileName);
 
                         CFEAttachments objRdCtng = new CFEAttachments();
-                        objRdCtng.UNITID = Convert.ToString(Session["UNITID"]);
-                        objRdCtng.Questionnareid = hdnQuesid.Value;
+                        objRdCtng.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objRdCtng.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objRdCtng.ApprovalID = "11";
                         objRdCtng.DeptID = "16";
                         objRdCtng.FilePath = serverpath + fup11RdCtng.PostedFile.FileName;
@@ -1306,7 +1306,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "12" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "12" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1315,8 +1315,8 @@ namespace MeghalayaUIP.User.CFE
                         fup12NonEncmb.PostedFile.SaveAs(serverpath + "\\" + fup12NonEncmb.PostedFile.FileName);
 
                         CFEAttachments objNonEncmb = new CFEAttachments();
-                        objNonEncmb.UNITID = Convert.ToString(Session["UNITID"]);
-                        objNonEncmb.Questionnareid = hdnQuesid.Value;
+                        objNonEncmb.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objNonEncmb.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objNonEncmb.ApprovalID = "12";
                         objNonEncmb.DeptID = "13";
                         objNonEncmb.FilePath = serverpath + fup12NonEncmb.PostedFile.FileName;
@@ -1365,7 +1365,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "13" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "13" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1374,8 +1374,8 @@ namespace MeghalayaUIP.User.CFE
                         fup13ProfTax.PostedFile.SaveAs(serverpath + "\\" + fup13ProfTax.PostedFile.FileName);
 
                         CFEAttachments objProfTax = new CFEAttachments();
-                        objProfTax.UNITID = Convert.ToString(Session["UNITID"]);
-                        objProfTax.Questionnareid = hdnQuesid.Value;
+                        objProfTax.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objProfTax.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objProfTax.ApprovalID = "13";
                         objProfTax.DeptID = "6";
                         objProfTax.FilePath = serverpath + fup13ProfTax.PostedFile.FileName;
@@ -1425,7 +1425,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "14" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "14" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1434,8 +1434,8 @@ namespace MeghalayaUIP.User.CFE
                         fup14ElcInsp.PostedFile.SaveAs(serverpath + "\\" + fup14ElcInsp.PostedFile.FileName);
 
                         CFEAttachments objElcInsp = new CFEAttachments();
-                        objElcInsp.UNITID = Convert.ToString(Session["UNITID"]);
-                        objElcInsp.Questionnareid = hdnQuesid.Value;
+                        objElcInsp.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objElcInsp.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objElcInsp.ApprovalID = "14";
                         objElcInsp.DeptID = "18";
                         objElcInsp.FilePath = serverpath + fup14ElcInsp.PostedFile.FileName;
@@ -1485,7 +1485,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "15" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "15" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1494,8 +1494,8 @@ namespace MeghalayaUIP.User.CFE
                         fup15ForstDist.PostedFile.SaveAs(serverpath + "\\" + fup15ForstDist.PostedFile.FileName);
 
                         CFEAttachments objForstDist = new CFEAttachments();
-                        objForstDist.UNITID = Convert.ToString(Session["UNITID"]);
-                        objForstDist.Questionnareid = hdnQuesid.Value;
+                        objForstDist.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objForstDist.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objForstDist.ApprovalID = "15";
                         objForstDist.DeptID = "4";
                         objForstDist.FilePath = serverpath + fup15ForstDist.PostedFile.FileName;
@@ -1544,7 +1544,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "16" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "16" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1553,8 +1553,8 @@ namespace MeghalayaUIP.User.CFE
                         fup16NonForstLand.PostedFile.SaveAs(serverpath + "\\" + fup16NonForstLand.PostedFile.FileName);
 
                         CFEAttachments objNonForstLand = new CFEAttachments();
-                        objNonForstLand.UNITID = Convert.ToString(Session["UNITID"]);
-                        objNonForstLand.Questionnareid = hdnQuesid.Value;
+                        objNonForstLand.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objNonForstLand.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objNonForstLand.ApprovalID = "16";
                         objNonForstLand.DeptID = "4";
                         objNonForstLand.FilePath = serverpath + fup16NonForstLand.PostedFile.FileName;
@@ -1603,7 +1603,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "17" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "17" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1612,8 +1612,8 @@ namespace MeghalayaUIP.User.CFE
                         fup17IrrgNOC.PostedFile.SaveAs(serverpath + "\\" + fup17IrrgNOC.PostedFile.FileName);
 
                         CFEAttachments objIrrgNOC = new CFEAttachments();
-                        objIrrgNOC.UNITID = Convert.ToString(Session["UNITID"]);
-                        objIrrgNOC.Questionnareid = hdnQuesid.Value;
+                        objIrrgNOC.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objIrrgNOC.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objIrrgNOC.ApprovalID = "17";
                         objIrrgNOC.DeptID = "20";
                         objIrrgNOC.FilePath = serverpath + fup17IrrgNOC.PostedFile.FileName;
@@ -1662,7 +1662,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "18" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "18" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1671,8 +1671,8 @@ namespace MeghalayaUIP.User.CFE
                         fup18RevNOC.PostedFile.SaveAs(serverpath + "\\" + fup18RevNOC.PostedFile.FileName);
 
                         CFEAttachments objFctryPlan = new CFEAttachments();
-                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
-                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objFctryPlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objFctryPlan.ApprovalID = "18";
                         objFctryPlan.DeptID = "20";
                         objFctryPlan.FilePath = serverpath + fup18RevNOC.PostedFile.FileName;
@@ -1720,7 +1720,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "19" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "19" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1729,8 +1729,8 @@ namespace MeghalayaUIP.User.CFE
                         fup19GrndWtrNOC.PostedFile.SaveAs(serverpath + "\\" + fup19GrndWtrNOC.PostedFile.FileName);
 
                         CFEAttachments objGrndWtrNOC = new CFEAttachments();
-                        objGrndWtrNOC.UNITID = Convert.ToString(Session["UNITID"]);
-                        objGrndWtrNOC.Questionnareid = hdnQuesid.Value;
+                        objGrndWtrNOC.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objGrndWtrNOC.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objGrndWtrNOC.ApprovalID = "19";
                         objGrndWtrNOC.DeptID = "5";
                         objGrndWtrNOC.FilePath = serverpath + fup19GrndWtrNOC.PostedFile.FileName;
@@ -1779,7 +1779,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "20" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "20" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1788,8 +1788,8 @@ namespace MeghalayaUIP.User.CFE
                         fup20NoWtrSply.PostedFile.SaveAs(serverpath + "\\" + fup20NoWtrSply.PostedFile.FileName);
 
                         CFEAttachments objNoWtrSply = new CFEAttachments();
-                        objNoWtrSply.UNITID = Convert.ToString(Session["UNITID"]);
-                        objNoWtrSply.Questionnareid = hdnQuesid.Value;
+                        objNoWtrSply.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objNoWtrSply.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objNoWtrSply.ApprovalID = "20";
                         objNoWtrSply.DeptID = "15";
                         objNoWtrSply.FilePath = serverpath + fup20NoWtrSply.PostedFile.FileName;
@@ -1838,7 +1838,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "21" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "21" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1847,8 +1847,8 @@ namespace MeghalayaUIP.User.CFE
                         fup21ToDrawWtr.PostedFile.SaveAs(serverpath + "\\" + fup21ToDrawWtr.PostedFile.FileName);
 
                         CFEAttachments objToDrawWtr = new CFEAttachments();
-                        objToDrawWtr.UNITID = Convert.ToString(Session["UNITID"]);
-                        objToDrawWtr.Questionnareid = hdnQuesid.Value;
+                        objToDrawWtr.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objToDrawWtr.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objToDrawWtr.ApprovalID = "21";
                         objToDrawWtr.DeptID = "15";
                         objToDrawWtr.FilePath = serverpath + fup21ToDrawWtr.PostedFile.FileName;
@@ -1897,7 +1897,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "22" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "22" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1906,8 +1906,8 @@ namespace MeghalayaUIP.User.CFE
                         fup22MunicipalWatr.PostedFile.SaveAs(serverpath + "\\" + fup22MunicipalWatr.PostedFile.FileName);
 
                         CFEAttachments objMunWatr = new CFEAttachments();
-                        objMunWatr.UNITID = Convert.ToString(Session["UNITID"]);
-                        objMunWatr.Questionnareid = hdnQuesid.Value;
+                        objMunWatr.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objMunWatr.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objMunWatr.ApprovalID = "22";
                         objMunWatr.DeptID = "2";
                         objMunWatr.FilePath = serverpath + fup22MunicipalWatr.PostedFile.FileName;
@@ -1956,7 +1956,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "23" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "23" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1965,8 +1965,8 @@ namespace MeghalayaUIP.User.CFE
                         fup23UrbanWatr.PostedFile.SaveAs(serverpath + "\\" + fup23UrbanWatr.PostedFile.FileName);
 
                         CFEAttachments objFctryPlan = new CFEAttachments();
-                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
-                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objFctryPlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objFctryPlan.ApprovalID = "23";
                         objFctryPlan.DeptID = "15";
                         objFctryPlan.FilePath = serverpath + fup23UrbanWatr.PostedFile.FileName;
@@ -2015,7 +2015,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "25" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "25" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2024,8 +2024,8 @@ namespace MeghalayaUIP.User.CFE
                         fup25LbrAct1970.PostedFile.SaveAs(serverpath + "\\" + fup25LbrAct1970.PostedFile.FileName);
 
                         CFEAttachments objLbrAct1970 = new CFEAttachments();
-                        objLbrAct1970.UNITID = Convert.ToString(Session["UNITID"]);
-                        objLbrAct1970.Questionnareid = hdnQuesid.Value;
+                        objLbrAct1970.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objLbrAct1970.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objLbrAct1970.ApprovalID = "25";
                         objLbrAct1970.DeptID = "10";
                         objLbrAct1970.FilePath = serverpath + fup25LbrAct1970.PostedFile.FileName;
@@ -2074,7 +2074,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "26" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "26" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2083,8 +2083,8 @@ namespace MeghalayaUIP.User.CFE
                         fup26LbrAct1979.PostedFile.SaveAs(serverpath + "\\" + fup26LbrAct1979.PostedFile.FileName);
 
                         CFEAttachments objLbrAct1979 = new CFEAttachments();
-                        objLbrAct1979.UNITID = Convert.ToString(Session["UNITID"]);
-                        objLbrAct1979.Questionnareid = hdnQuesid.Value;
+                        objLbrAct1979.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objLbrAct1979.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objLbrAct1979.ApprovalID = "26";
                         objLbrAct1979.DeptID = "10";
                         objLbrAct1979.FilePath = serverpath + fup26LbrAct1979.PostedFile.FileName;
@@ -2133,7 +2133,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "27" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "27" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2142,8 +2142,8 @@ namespace MeghalayaUIP.User.CFE
                         fup27LbrAct1996.PostedFile.SaveAs(serverpath + "\\" + fup27LbrAct1996.PostedFile.FileName);
 
                         CFEAttachments objFctryPlan = new CFEAttachments();
-                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
-                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objFctryPlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objFctryPlan.ApprovalID = "27";
                         objFctryPlan.DeptID = "10";
                         objFctryPlan.FilePath = serverpath + fup27LbrAct1996.PostedFile.FileName;
@@ -2192,7 +2192,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "28" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "28" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2201,8 +2201,8 @@ namespace MeghalayaUIP.User.CFE
                         fup28ContrLbrAct.PostedFile.SaveAs(serverpath + "\\" + fup28ContrLbrAct.PostedFile.FileName);
 
                         CFEAttachments objContrLbrAct = new CFEAttachments();
-                        objContrLbrAct.UNITID = Convert.ToString(Session["UNITID"]);
-                        objContrLbrAct.Questionnareid = hdnQuesid.Value;
+                        objContrLbrAct.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objContrLbrAct.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objContrLbrAct.ApprovalID = "28";
                         objContrLbrAct.DeptID = "10";
                         objContrLbrAct.FilePath = serverpath + fup28ContrLbrAct.PostedFile.FileName;
@@ -2251,7 +2251,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "29" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "29" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2259,8 +2259,8 @@ namespace MeghalayaUIP.User.CFE
                         fup29ContrLbrAct1979.PostedFile.SaveAs(serverpath + "\\" + fup29ContrLbrAct1979.PostedFile.FileName);
 
                         CFEAttachments objContrLbrAct1979 = new CFEAttachments();
-                        objContrLbrAct1979.UNITID = Convert.ToString(Session["UNITID"]);
-                        objContrLbrAct1979.Questionnareid = hdnQuesid.Value;
+                        objContrLbrAct1979.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objContrLbrAct1979.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objContrLbrAct1979.ApprovalID = "29";
                         objContrLbrAct1979.DeptID = "10";
                         objContrLbrAct1979.FilePath = serverpath + fup29ContrLbrAct1979.PostedFile.FileName;
@@ -2310,7 +2310,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "30" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "30" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2319,8 +2319,8 @@ namespace MeghalayaUIP.User.CFE
                         fup30ConstrPermit.PostedFile.SaveAs(serverpath + "\\" + fup30ConstrPermit.PostedFile.FileName);
 
                         CFEAttachments objFctryPlan = new CFEAttachments();
-                        objFctryPlan.UNITID = Convert.ToString(Session["UNITID"]);
-                        objFctryPlan.Questionnareid = hdnQuesid.Value;
+                        objFctryPlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objFctryPlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objFctryPlan.ApprovalID = "30";
                         objFctryPlan.DeptID = "0";
                         objFctryPlan.FilePath = serverpath + fup30ConstrPermit.PostedFile.FileName;
@@ -2370,7 +2370,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "31" + "\\");
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "31" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2378,8 +2378,8 @@ namespace MeghalayaUIP.User.CFE
                         fup31BldngPlan.PostedFile.SaveAs(serverpath + "\\" + fup31BldngPlan.PostedFile.FileName);
 
                         CFEAttachments objBldngPlan = new CFEAttachments();
-                        objBldngPlan.UNITID = Convert.ToString(Session["UNITID"]);
-                        objBldngPlan.Questionnareid = hdnQuesid.Value;
+                        objBldngPlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objBldngPlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objBldngPlan.ApprovalID = "31";
                         objBldngPlan.DeptID = "0";
                         objBldngPlan.FilePath = serverpath + fup31BldngPlan.PostedFile.FileName;

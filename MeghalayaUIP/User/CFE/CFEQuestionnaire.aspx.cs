@@ -809,7 +809,7 @@ namespace MeghalayaUIP.User.CFE
                     else
                         objCFEQsnaire.CFEQDID = Convert.ToString(Session["CFEQID"]);
 
-                    objCFEQsnaire.UNITID = hdnPreRegUNITID.Value;
+                    objCFEQsnaire.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     objCFEQsnaire.PREREGUIDNO = hdnPreRegUID.Value;
                     objCFEQsnaire.IPAddress = getclientIP();
                     objCFEQsnaire.CompanyName = txtUnitName.Text.Trim();
@@ -877,13 +877,13 @@ namespace MeghalayaUIP.User.CFE
                             Label ApprovalID = grdApprovals.Rows[i].FindControl("lblApprID") as Label;
                             Label DeptID = grdApprovals.Rows[i].FindControl("lblDeptID") as Label;
 
-                            objCFEQsnaire.CFEQDID = result;
+                            objCFEQsnaire.CFEQDID = Convert.ToString(Session["CFEQID"]);
                             objCFEQsnaire.ApprovalID = ApprovalID.Text;
                             objCFEQsnaire.DeptID = DeptID.Text;
                             objCFEQsnaire.ApprovalFee = grdApprovals.Rows[i].Cells[3].Text;
                             objCFEQsnaire.CreatedBy = hdnUserID.Value;
                             objCFEQsnaire.IPAddress = getclientIP();
-                            objCFEQsnaire.UNITID = hdnPreRegUNITID.Value;
+                            objCFEQsnaire.UNITID = Convert.ToString(Session["CFEUNITID"]);
 
                             string A = objcfebal.InsertCFEQuestionnaireApprovals(objCFEQsnaire);
                             if (A != "")
