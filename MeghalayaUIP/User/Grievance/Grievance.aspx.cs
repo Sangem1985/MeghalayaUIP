@@ -111,7 +111,9 @@ namespace MeghalayaUIP.User.Grievance
                     ddldept.DataValueField = "DepartmentId";
                     ddldept.DataTextField = "DepartmentName";
                     ddldept.DataBind();
-                    
+                    ddldept.Enabled = true;
+
+
                 }
                 else
                 {
@@ -145,6 +147,7 @@ namespace MeghalayaUIP.User.Grievance
                     ddldept.DataValueField = "DepartmentId";
                     ddldept.DataTextField = "DepartmentName";
                     ddldept.DataBind();
+                    ddldept.Enabled = true;
                 }
                 else
                 {
@@ -307,11 +310,15 @@ namespace MeghalayaUIP.User.Grievance
                             BindPreRegDepts();
                         }
                     }
-                    else
-                    {
-                        divPreReg.Visible = false; divCFE.Visible = false; divCFO.Visible = false;
-                        divRenewals.Visible = false; divIncentives.Visible = false;
-                    }
+                   
+                }
+                else
+                {
+                    divPreReg.Visible = false; divCFE.Visible = false; divCFO.Visible = false;
+                    divRenewals.Visible = false; divIncentives.Visible = false;
+                    ddldept.Enabled = true;
+                    ddldept.Items.Clear();
+                    AddSelect(ddldept);
                 }
             }
             catch (Exception ex)
