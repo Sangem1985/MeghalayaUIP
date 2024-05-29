@@ -20,6 +20,7 @@
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <h4>Intent Invest Applications</h4>
+                    <div class="table-responsive">
                     <asp:GridView ID="gvPreRegDtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                         GridLines="None" OnRowDataBound="gvPreRegDtls_RowDataBound"
@@ -70,6 +71,7 @@
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                         <AlternatingRowStyle BackColor="White" />
                     </asp:GridView>
+                        </div>
                 </div>
             </div>
 
