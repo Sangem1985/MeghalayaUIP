@@ -6031,3 +6031,11 @@ spna.dots {
 .table-radius input[type=submit]:disabled {
 	height: 36px !important;
 }
+
+.col-md-1 .btn-dark {
+	color: white !important;
+	background: #0b3654 !important;
+	border-radius: 4px !important;
+	border: 1px solid #bedcde !important;
+	margin-left: 20px;
+}
