@@ -32,13 +32,13 @@
             </h5>
         </div>
 
-        <div class="page-wrapper cfeuserapplstatus">
+        <div class="page-wrapper cfeuserapplstatus icons">
             <div class="content container-fluid">
                 <div class="card">
                     <div class="card-header">
                         <h3>Application Status For Application ID:  <asp:Label ID="lbluidno" runat="server"></asp:Label></h3>
                     </div>
-                    <section id="dashboardcount11">
+                    <section id="dashboardcount1">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">

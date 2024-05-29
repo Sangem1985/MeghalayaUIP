@@ -221,12 +221,12 @@ section#dashboardcount1 {
     padding-bottom: 14px !important;
 }
 
-i.fi {
+.page-wrapper.cfeuserapplstatus.icons i.fi {
     opacity: 1;
     top: 23%;
     right: 11px;
     transition: all 0.9s ease-in-out 0s;
-    color:#fff !important;
+    color: #fff !important;
 }
 
 section#dashboardcount1 .card {
