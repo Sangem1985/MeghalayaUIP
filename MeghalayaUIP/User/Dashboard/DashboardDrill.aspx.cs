@@ -68,11 +68,20 @@ namespace MeghalayaUIP.User.Dashboard
             try
             {
                 DataSet dsStatus = new DataSet();
+                if (Request.QueryString.Count > 0)
+                { ddlUnitNames.SelectedValue = Request.QueryString[0]; }
                 UnitID = ddlUnitNames.SelectedValue;
 
                 dsStatus = objcommonBAL.GetUserDashboardStatusByModule(hdnUserID.Value, UnitID);
                 if (dsStatus.Tables.Count > 0)
                 {
+                    if (ddlUnitNames.SelectedValue != "%")
+                    {
+                        if (dsStatus.Tables[0].Rows.Count > 0)
+                        {
+                            lblUnitAdress.Text = Convert.ToString(dsStatus.Tables[0].Rows[0]["UNITADDRESS"]);
+                        }
+                    }
                     if (dsStatus.Tables[1].Rows.Count > 0)
                     {
                         btnPreRegTotal.Text = Convert.ToString(dsStatus.Tables[1].Rows[0]["PRTOTAL"]);
@@ -129,13 +138,15 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 if (ddlUnitNames.SelectedValue != "%")
                 {
+                    lblHdng.Text = "Status Of Application";
                     divUnit.Visible = true;
                     lblUnitID.Text = ddlUnitNames.SelectedValue;
                     lblUnitName.Text = Convert.ToString(ddlUnitNames.SelectedItem.Text);
                 }
                 else
                 {
-                    //lblheading.Text = "Status of Application for All Units";
+                    divUnit.Visible = false;
+                    lblHdng.Text = "Status of Application for All Units";
                 }
                 BindApplStatus();
             }

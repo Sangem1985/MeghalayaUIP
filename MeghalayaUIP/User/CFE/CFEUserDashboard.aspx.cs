@@ -203,6 +203,52 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
+        protected void gvPreRegApproved_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.Header)
+                {
+                    GridView HeaderGrid = (GridView)sender;
+                    GridViewRow HeaderGridRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                    TableCell HeaderCell = new TableCell();
+                    HeaderCell.ColumnSpan = 5;
+                    HeaderCell.RowSpan = 1;
+                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    HeaderCell.Text = "";
+                    HeaderCell.Font.Bold = true;
+                    HeaderGridRow.Cells.Add(HeaderCell);
+
+
+                    HeaderCell = new TableCell();
+                    HeaderCell.ColumnSpan = 5;
+                    HeaderCell.RowSpan = 1;
+                    HeaderCell.Font.Bold = true;
+                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    HeaderCell.Text = "Pre Establishment Approvals";
+                    HeaderGridRow.Cells.Add(HeaderCell);
+
+                    HeaderCell = new TableCell();
+                    HeaderCell.ColumnSpan = 2;
+                    HeaderCell.RowSpan = 1;
+                    HeaderCell.Font.Bold = true;
+                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    HeaderCell.Text = "";
+                    HeaderGridRow.Cells.Add(HeaderCell);
+
+                    gvPreRegApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+
+            }
+
+        }
+
         protected void btnApplyCFE_Click(object sender, EventArgs e)
         {
             try
