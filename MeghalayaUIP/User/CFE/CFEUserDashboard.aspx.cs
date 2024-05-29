@@ -212,7 +212,7 @@ namespace MeghalayaUIP.User.CFE
                     GridView HeaderGrid = (GridView)sender;
                     GridViewRow HeaderGridRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
 
-                    TableCell HeaderCell = new TableCell();
+                    TableHeaderCell HeaderCell = new TableHeaderCell();
                     HeaderCell.ColumnSpan = 5;
                     HeaderCell.RowSpan = 1;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
@@ -221,7 +221,7 @@ namespace MeghalayaUIP.User.CFE
                     HeaderGridRow.Cells.Add(HeaderCell);
 
 
-                    HeaderCell = new TableCell();
+                    HeaderCell = new TableHeaderCell();
                     HeaderCell.ColumnSpan = 5;
                     HeaderCell.RowSpan = 1;
                     HeaderCell.Font.Bold = true;
@@ -229,7 +229,7 @@ namespace MeghalayaUIP.User.CFE
                     HeaderCell.Text = "Pre Establishment Approvals";
                     HeaderGridRow.Cells.Add(HeaderCell);
 
-                    HeaderCell = new TableCell();
+                    HeaderCell = new TableHeaderCell();
                     HeaderCell.ColumnSpan = 2;
                     HeaderCell.RowSpan = 1;
                     HeaderCell.Font.Bold = true;

@@ -6039,3 +6039,14 @@ spna.dots {
 	border: 1px solid #bedcde !important;
 	margin-left: 10px;
 }
+
+.table-responsive.CFEUSERDASHBOARD {
+	width: 102%;
+	margin-left: -12px;
+}
+	.table-responsive.CFEUSERDASHBOARD tr:hover {
+		td{
+	font-weight: 100 !important;
+}
+	
+	}

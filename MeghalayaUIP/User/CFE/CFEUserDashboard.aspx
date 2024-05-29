@@ -30,14 +30,14 @@
                         </div>
                     </div>
 
-
+                    <div class="table-responsive CFEUSERDASHBOARD">
 
                     <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated"  ShowFooter="true">
                         <RowStyle />
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                        <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                         <AlternatingRowStyle />
                         <Columns>
                             <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
@@ -125,7 +125,7 @@
                         </Columns>
                     </asp:GridView>
 
-
+                        </div>
                     <asp:GridView ID="gvCFEApplied" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True">

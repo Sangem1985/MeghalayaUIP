@@ -87,6 +87,15 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.LinkButton linkIndReg;
 
         /// <summary>
+        /// linkland control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkland;
+
+        /// <summary>
         /// linkCFEDashbrd control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace MeghalayaUIP.User
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkCFODashBoard;
+
+        /// <summary>
+        /// linkINC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkINC;
 
         /// <summary>
         /// lnkGrievance control.
