@@ -24,15 +24,6 @@ namespace MeghalayaUIP.User.Dashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl unitname;
 
         /// <summary>
-        /// lblheading control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblheading;
-
-        /// <summary>
         /// ddlUnitNames control.
         /// </summary>
         /// <remarks>
@@ -112,6 +103,24 @@ namespace MeghalayaUIP.User.Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUnitName;
+
+        /// <summary>
+        /// div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+
+        /// <summary>
+        /// LabelUnitAdress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelUnitAdress;
 
         /// <summary>
         /// trPreReg control.
