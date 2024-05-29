@@ -26,8 +26,8 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 if (Session["UserInfo"] != null)
-                { 
-                    Session["CFOUNITID"] = "1008";
+                {
+
                     var ObjUserInfo = new UserInfo();
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
@@ -39,25 +39,25 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (Convert.ToString(Session["CFOUNITID"]) != "")
                     {
-                        //  UnitID = Convert.ToString(Session["CFOUNITID"]);
+
                     }
                     else
                     {
-                        //string newurl = "~/User/CFE/CFEUserDashboard.aspx";
-                        //Response.Redirect(newurl);
+                        string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                        Response.Redirect(newurl);
                     }
                     Page.MaintainScrollPositionOnPostBack = true;
                     if (!IsPostBack)
                     {
-                        //if (Convert.ToString(Session["CFOUNITID"]) != "")
-                        //{
-                        BindData();
-                        //}
-                        //else
-                        //{
-                        //string newurl = "~/User/CFE/CFEUserDashboard.aspx";
-                        //Response.Redirect(newurl);
-                        //}
+                        if (Convert.ToString(Session["CFOUNITID"]) != "")
+                        {
+                            BindData();
+                        }
+                        else
+                        {
+                            string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                            Response.Redirect(newurl);
+                        }
                     }
 
                 }
@@ -138,7 +138,7 @@ namespace MeghalayaUIP.User.CFO
                 if ((e.Row.RowType == DataControlRowType.Footer))
                 {
                     e.Row.Cells[5].Text = "Total Fee";
-                    
+
                     e.Row.Cells[6].Text = amounts22.ToString("#,##0");
                 }
             }
@@ -208,7 +208,7 @@ namespace MeghalayaUIP.User.CFO
                 if (grdApprovalsCFO.Rows.Count == count)
                 {
                     DataSet dsOffline = new DataSet();
-                    dsOffline = objcfobal.GetCFOAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]));
+                    dsOffline = objcfobal.GetCFOAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Session["CFOQID"].ToString(), "Y");
                     if (dsOffline.Tables.Count > 0)
                     {
                         if (dsOffline.Tables[0].Rows.Count > 0)
@@ -411,6 +411,7 @@ namespace MeghalayaUIP.User.CFO
                 DataSet dsApprovals = new DataSet();
                 cfoqs.UNITID = Convert.ToString(Session["CFOUNITID"]);
                 cfoqs.CreatedBy = hdnUserID.Value;
+                cfoqs.CFOQDID = Session["CFOQID"].ToString();
                 dsApprovals = objcfobal.GetApprovalsReqFromTable(cfoqs);
                 if (dsApprovals.Tables.Count > 0)
                 {

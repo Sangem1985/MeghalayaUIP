@@ -3,6 +3,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFOContractorsRegistration : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFOBAL objcfebal = new CFOBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,7 +43,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    DataSet dsnew = new DataSet();
+                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "16");
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
 
+                    }
+                    else
+                    {
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
+                        }
+                    }
                 }
             }
         }
@@ -97,7 +114,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOWorkDepartment.financialYear = txtFinancial.Text;
                     ObjCFOWorkDepartment.Datework = txtContractor.Text;
 
-                    result = objcfebal.InsertCFOPublicworkDetails(ObjCFOWorkDepartment);
+                    result = objcfobal.InsertCFOPublicworkDetails(ObjCFOWorkDepartment);
                     ViewState["UnitID"] = result;
                     if (result != "")
                     {
