@@ -145,7 +145,7 @@ namespace MeghalayaUIP.User.CFE
                     TotQueryRaised = TotQueryRaised + TotalQuery;
                     string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFEAPPLSTATUS"));
 
-                    if (Applstatus == "" || Applstatus == null || Applstatus=="2")
+                    if (Applstatus == "" || Applstatus == null || Applstatus == "2")
                     {
                         btnApply = (Button)e.Row.FindControl("btnApplyCFE");
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
@@ -184,7 +184,25 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-        
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Request.QueryString.Count > 0)
+                    UnitID = Request.QueryString[0];
+                else
+                    UnitID = "%";
+                Response.Redirect("~/User/Dashboard/DashboardDrill.aspx?UnitID=" + UnitID);
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
+        }
+
         protected void btnApplyCFE_Click(object sender, EventArgs e)
         {
             try

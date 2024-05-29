@@ -29,6 +29,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        hdnUserID.Value = ObjUserInfo.Userid;
                     }
 
                     if (!IsPostBack)
@@ -43,6 +44,8 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
             }
         }
 
@@ -70,37 +73,83 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
             }
 
-        }        
+        }
 
         protected void btnView_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-            string UNITID = row.Cells[1].Text;
-            string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID;
+            try
+            { 
+                string Viewstatus="";
+                if (Request.QueryString.Count > 0)
+                {
+                    if (Convert.ToString(Request.QueryString[0]) == "%")
+                        Viewstatus = "Total";
+                    else
+                        Viewstatus = "OneUnit";
 
-            Response.Redirect(newurl);
+                }
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                string UNITID = row.Cells[1].Text;
+                string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID+"&ViewStatus="+ Viewstatus;
+
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void lnkQueryCount_Click(object sender, EventArgs e)
         {
-            LinkButton lnkbtn = (LinkButton)sender;
-
-            GridViewRow row = (GridViewRow)lnkbtn.NamingContainer;
-            string UNITID = row.Cells[1].Text;
-            if (lnkbtn.Text != "0")
+            try
             {
-                string newurl = "IndustryRegistrationQueryDashboard.aspx?UNITID=" + UNITID;
+                LinkButton lnkbtn = (LinkButton)sender;
 
-                Response.Redirect(newurl);
+                GridViewRow row = (GridViewRow)lnkbtn.NamingContainer;
+                string UNITID = row.Cells[1].Text;
+                if (lnkbtn.Text != "0")
+                {
+                    string newurl = "IndustryRegistrationQueryDashboard.aspx?UNITID=" + UNITID;
+
+                    Response.Redirect(newurl);
+                }
+                else
+                {
+                    lnkbtn.Style["text-decoration"] = "none";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lnkbtn.Style["text-decoration"] = "none";
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
             }
 
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Request.QueryString.Count > 0)
+                    UnitID = Request.QueryString[0];
+                else
+                    UnitID = "%";
+                Response.Redirect("~/User/Dashboard/DashboardDrill.aspx?UnitID=" + UnitID);
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+
+            }
         }
     }
 }
