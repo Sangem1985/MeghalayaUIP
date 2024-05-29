@@ -87,7 +87,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         grdApprovals.DataSource = dsApprovals.Tables[0]; 
                         grdApprovals.DataBind();
-                        Convert.ToString(Session["CFEQID"]) = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFEQA_CFEQDID"]);
+                        hdnQuesid.Value = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFEQA_CFEQDID"]);
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {

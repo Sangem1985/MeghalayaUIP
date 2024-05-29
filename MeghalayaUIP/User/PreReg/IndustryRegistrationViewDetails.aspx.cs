@@ -28,7 +28,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
-                        userid = ObjUserInfo.Userid;
+                        hdnUserID.Value = ObjUserInfo.Userid;
                     }
 
                     if (!IsPostBack)
@@ -87,7 +87,7 @@ namespace MeghalayaUIP.User.PreReg
                     lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
                     lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
                     lblcentralscheme.Text = Convert.ToString(row["FRD_CENTRAL"]);
-                    if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim()=="N")
+                    if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim() == "N")
                     {
                         lblnote.Visible = true;
                     }
@@ -113,7 +113,7 @@ namespace MeghalayaUIP.User.PreReg
                     lblPro_Man.Text = Convert.ToString(row["UNIT_MANDAL"]);
                     lblPro_vill.Text = Convert.ToString(row["UNIT_VILLAGE"]);
                     lblPro_Pin.Text = Convert.ToString(row["UNIT_PINCODE"]);
-                    
+
                     lblDateofcomm.Text = Convert.ToString(row["PROJECT_DCP"]);
                     lblNatureofAct.Text = Convert.ToString(row["PROJECT_NOA"]);
                     if (lblNatureofAct.Text == "Manufacturing")
@@ -129,7 +129,7 @@ namespace MeghalayaUIP.User.PreReg
 
                     lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
                     lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
-                    lblPCBcatogry.Text= Convert.ToString(row["PROJECT_PCBCATEGORY"]);               
+                    lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
 
                     lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
                     lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
@@ -137,7 +137,7 @@ namespace MeghalayaUIP.User.PreReg
                     lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
                     lbllandArea.Text = Convert.ToString(row["PROJECT_LANDAREA"]);
                     lblBuildingArea.Text = Convert.ToString(row["PROJECT_BUILDINGAREA"]);
-                  
+
                     lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
                     lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
                     lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
@@ -187,48 +187,7 @@ namespace MeghalayaUIP.User.PreReg
             }
         }
 
-        //protected void btnRespond_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Button btn = (Button)sender;
-        //        GridViewRow row = (GridViewRow)btn.NamingContainer;
-        //        TextBox txtReply = (TextBox)row.FindControl("txtResponse");
-        //        if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
-        //        {
-        //            Failure.Visible = true;
-        //            lblmsg0.Text = "Please Enter Query Response";
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            Label UnitID = (Label)row.FindControl("lblUNITID");
-        //            Label DeptID = (Label)row.FindControl("lblDeptID");
-        //            Label QID = (Label)row.FindControl("lblDQID");
-        //            IndustryDetails ID = new IndustryDetails();
-        //            ID.UserID = userid;
-        //            ID.UnitID = UnitID.Text;
-        //            ID.Deptid = DeptID.Text;
-        //            ID.QueryID = QID.Text;
-        //            ID.QueryResponse = txtReply.Text;
-        //            ID.IPAddress = getclientIP();
 
-        //            string result = preBAL.UpdateIndRegApplQueryRespose(ID);
-        //            if (result != "" || result != null)
-        //            {
-        //                lblmsg.Text = "Query Response Submitted Sussfully";
-        //                success.Visible = true;
-        //                BindaApplicatinDetails(UnitID.Text, userid);
-
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Failure.Visible = true;
-        //        lblmsg0.Text = ex.Message;
-        //    }
-        //}
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -245,6 +204,30 @@ namespace MeghalayaUIP.User.PreReg
             }
 
             return result;
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string UnitID="";
+                if (Request.QueryString.Count > 0)
+                {
+                    if (Convert.ToString(Request.QueryString["ViewStatus"]) == "Total")
+                        UnitID = "%";
+                    else
+                        UnitID = Convert.ToString(Request.QueryString[0]);
+                }
+                
+                Response.Redirect("~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID="+ UnitID);
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+
+            }
         }
     }
 }

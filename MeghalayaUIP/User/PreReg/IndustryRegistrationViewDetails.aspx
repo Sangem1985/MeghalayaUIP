@@ -6,91 +6,107 @@
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <style>
         .card {
-    border: 1px solid #fff;
-    margin-bottom: 12px;
-    box-shadow: 0px 0px 1px 1px #ededed;
-    background: #fff;
-    min-height: 50px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    border-radius: 2px;
-    padding-bottom: 10px;
-}
-       h3 {
-    font-size: 20px;
-   
-    margin-top: 3px;
-    margin-bottom: 0px;
-    font-weight: 600;
-    color: #0b3654;
-}
-       .card-body {
-    border: 1px dotted #ccc;
-    padding: 10px;
-    margin: 10px;
-}
-       .card-header {
-    border: none !important;
-}
+            border: 1px solid #fff;
+            margin-bottom: 12px;
+            box-shadow: 0px 0px 1px 1px #ededed;
+            background: #fff;
+            min-height: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            border-radius: 2px;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 3px;
+            margin-bottom: 0px;
+            font-weight: 600;
+            color: #0b3654;
+        }
+
+        .card-body {
+            border: 1px dotted #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .card-header {
+            border: none !important;
+        }
+
         spna.dots {
             margin-right: 24px;
             color: #000;
             font-weight: 100;
-            visibility:hidden;
+            visibility: hidden;
         }
 
         .col-md-2 {
             padding: 0px;
         }
+
         div#collapseOne h4 {
-    margin-bottom: 5px;
-    margin-top: 20px;
-    
-    padding-left: 0px;
-}
+            margin-bottom: 5px;
+            margin-top: 20px;
+            padding-left: 0px;
+        }
+
         .col-md-2 {
-    border: 1px solid #ccc;
-    padding: 0px 10px;
-    margin: -2px 0px;
-}
+            border: 1px solid #ccc;
+            padding: 0px 10px;
+            margin: -2px 0px;
+        }
+
         h4.card-title1 {
-    color: #fff;
-    width: 98.7%;
-    padding: 1px 0px;
-    border-radius: 4px;
-    text-align: center;
-    margin-bottom: 0px !important;
-    padding-bottom: 0px !important;
-    text-transform: capitalize;
-    background: #2b6698;
-    text-shadow: 1px 2px 3px #000;
-    border: 1px solid #066f22;
-    font-size: 20px;
-}
+            color: #fff;
+            width: 98.7%;
+            padding: 1px 0px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 0px !important;
+            padding-bottom: 0px !important;
+            text-transform: capitalize;
+            background: #2b6698;
+            text-shadow: 1px 2px 3px #000;
+            border: 1px solid #066f22;
+            font-size: 20px;
+        }
+
         div#ContentPlaceHolder1_divServc, div#ContentPlaceHolder1_divManf {
-    display: contents;
-}
+            display: contents;
+        }
     </style>
     <!-- Page Wrapper -->
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card flex-fill">
+                <div class="col-md-12 d-flex ">
+                    <div class="col-md-11 pb-2 pt-2 ">
+                        <h4>MIIP Registration Details</h4>
+                    </div>
+                    <div class="col-md-1 pb-2 pt-2">
+                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark">Back</asp:LinkButton>
+                    </div>
+                </div>
 
-                <h4 class="mt-2 ml-4">MIIP Registration Details</h4>
-                <div class="col-md-12 d-flex">
-                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                <%--<h4 class="mt-2 ml-4">MIIP Registration Details</h4>--%>
+                <div class="col-md-12 ">
+                    <div id="success" runat="server" visible="false" class="alert alert-success " align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                     </div>
                 </div>
-                <div class="col-md-12 d-flex">
-                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                <div class="col-md-12 ">
+                    <div id="Failure" runat="server" visible="false" class="alert alert-warning " align="Center">
                         <strong>Warning!</strong>
                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                     </div>
                 </div>
+                <asp:HiddenField ID="hdnUserID" runat="server" />
+
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -184,7 +200,7 @@
                                                     </div>
 
 
-                                                     <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
+                                                    <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -255,7 +271,7 @@
                                                         </div>
 
                                                     </div>
-                                                   <h4 class="card-title1 col-lg-12">Location of Unit</h4>
+                                                    <h4 class="card-title1 col-lg-12">Location of Unit</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -308,99 +324,162 @@
                                                             <label>7. Is Land Required</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblisland" runat="server"></asp:Label></div>
+                                                            <spna class="dots">:</spna><asp:Label ID="lblisland" runat="server"></asp:Label>
+                                                        </div>
 
 
                                                     </div>
 
-                       <h4 class="card-title1 col-lg-12">Project Details</h4>
-                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                         <div class="col-md-2">
-                         <label>1. Date of Commencement of Production/Operation</label>
-                         </div>
-                          <div class="col-md-2">
-                           <spna class="dots">:</spna><asp:Label ID="lblDateofcomm" runat="server"></asp:Label>
-                           </div>
+                                                    <h4 class="card-title1 col-lg-12">Project Details</h4>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>1. Date of Commencement of Production/Operation</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblDateofcomm" runat="server"></asp:Label>
+                                                        </div>
 
-                           <div class="col-md-2">
-                           <label>2.  Nature of Activity</label>
-                            </div>
-                            <div class="col-md-2">
-                             <spna class="dots">:</spna><asp:Label ID="lblNatureofAct" runat="server"></asp:Label>
-                             </div>
-                            <div runat="server" id="divManf" visible="false">
-                             <div class="col-md-2">
-                              <label>3. Main Manufacturing Activity</label>
-                               </div>
-                               <div class="col-md-2">
-                                <spna class="dots">:</spna><asp:Label ID="lblMainmanuf" runat="server"></asp:Label>
-                                </div>
-                                </div>
-                               </div>
-                                     
-                                                    
+                                                        <div class="col-md-2">
+                                                            <label>2.  Nature of Activity</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblNatureofAct" runat="server"></asp:Label>
+                                                        </div>
+                                                        <div runat="server" id="divManf" visible="false">
+                                                            <div class="col-md-2">
+                                                                <label>3. Main Manufacturing Activity</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <spna class="dots">:</spna><asp:Label ID="lblMainmanuf" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                           <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>4. Product to be Manufactured</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblmanufProdct" runat="server"></asp:Label></div>
 
-						<div class="col-md-2"><label>5. Production No</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblProdNo" runat="server"></asp:Label></div>
 
-                        <div class="col-md-2"><label>6.  Main Raw-Materials</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna> <asp:Label ID="lblmainRM" runat="server"></asp:Label></div>
-                        
-					     </div>  
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>4. Product to be Manufactured</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblmanufProdct" runat="server"></asp:Label>
+                                                        </div>
 
-                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>7. Annual Capacity</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblAnnualCap" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>5. Production No</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblProdNo" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>8. Unit of	Measurement</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblunitofmeasure" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>6.  Main Raw-Materials</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblmainRM" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>9. Main Service Activity</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna> <asp:Label ID="lblMainSrvc" runat="server"></asp:Label></div>
-                        
-					     </div>  
+                                                    </div>
 
-                           <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-                               <div  runat="server" id="divServc" visible="false">
-						<div class="col-md-2"><label>10. Service to be Provided</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblSrvcProvdng" runat="server"></asp:Label></div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>7. Annual Capacity</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblAnnualCap" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>11. Service No.</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblSrvcNo" runat="server"></asp:Label></div>
-                                   </div>
-                        <div class="col-md-2"><label>12. Sector</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblSector" runat="server"></asp:Label></div>
-                        
-					     </div> 
-                        
-                              <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>13. Line Of Activity</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblLOA" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>8. Unit of	Measurement</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblunitofmeasure" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>14. PCB Category</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblPCBcatogry" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>9. Main Service Activity</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblMainSrvc" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>15. Details of Waste / Effluent to be generated</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblwastedtls" runat="server"></asp:Label></div>
-                        
-					     </div>
-                          <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>16. Details of Hazardous Waste to be generated</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblhazdtls" runat="server"></asp:Label></div>
+                                                    </div>
 
-						<div class="col-md-2"><label>17. Civil Construction</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblcivilConstr" runat="server"></asp:Label></div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div runat="server" id="divServc" visible="false">
+                                                            <div class="col-md-2">
+                                                                <label>10. Service to be Provided</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <spna class="dots">:</spna><asp:Label ID="lblSrvcProvdng" runat="server"></asp:Label>
+                                                            </div>
 
-                        <div class="col-md-2"><label>18. Estimated Project Cost (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblEstProjcost" runat="server"></asp:Label></div>
-                        
-					     </div> 
+                                                            <div class="col-md-2">
+                                                                <label>11. Service No.</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <spna class="dots">:</spna><asp:Label ID="lblSrvcNo" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label>12. Sector</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblSector" runat="server"></asp:Label>
+                                                        </div>
 
-                        <%--   <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
+                                                    </div>
+
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>13. Line Of Activity</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblLOA" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>14. PCB Category</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblPCBcatogry" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>15. Details of Waste / Effluent to be generated</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblwastedtls" runat="server"></asp:Label>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>16. Details of Hazardous Waste to be generated</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblhazdtls" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>17. Civil Construction</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblcivilConstr" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>18. Estimated Project Cost (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblEstProjcost" runat="server"></asp:Label>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <%--   <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
 						<div class="col-md-2"><label></label></div>
 						<div class="col-md-2"><spna class="dots">:</spna></div>
 
@@ -411,92 +490,177 @@
 						<div class="col-md-2"><spna class="dots">:</spna></div>
                         
 					     </div>--%>
-                              <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>19. Land Area (in Sq.ft)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lbllandArea" runat="server"></asp:Label></div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>19. Land Area (in Sq.ft)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lbllandArea" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>20. Land Value (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblLandValue" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>20. Land Value (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblLandValue" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>21. Water required (KL/D)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblWaterReq" runat="server"></asp:Label></div>
-                        
-					     </div>
-                           
-                           <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>22. Water Value (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblWaterValue" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>21. Water required (KL/D)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblWaterReq" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>23.  Plant & Machinery (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblPMCost" runat="server"></asp:Label></div>
+                                                    </div>
 
-                        <div class="col-md-2"><label>24. Area of Building / Shed (Sq. m)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblBuildingArea" runat="server"></asp:Label></div>
-                        
-					     </div>
-                        
-                           <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>25. Value of Building / Shed (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna> <asp:Label ID="lblBuldingValue" runat="server"></asp:Label></div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>22. Water Value (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblWaterValue" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>26. Power Required (KV)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblPowerReq" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>23.  Plant & Machinery (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblPMCost" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>27.  Value of Power (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblElectricityValue" runat="server"></asp:Label></div>
-                        
-					     </div>
+                                                        <div class="col-md-2">
+                                                            <label>24. Area of Building / Shed (Sq. m)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblBuildingArea" runat="server"></asp:Label>
+                                                        </div>
 
-                           <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>28. Investment in Fixed Capital (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblIFC" runat="server"></asp:Label></div>
+                                                    </div>
 
-						<div class="col-md-2"><label>29. Durable Fixed Assets (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblDFA" runat="server"></asp:Label></div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>25. Value of Building / Shed (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblBuldingValue" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>30.  Working Capital (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblWorkingCapital" runat="server"></asp:Label></div>
-                        
-					     </div>
-   
-    
+                                                        <div class="col-md-2">
+                                                            <label>26. Power Required (KV)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblPowerReq" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>27.  Value of Power (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblElectricityValue" runat="server"></asp:Label>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>28. Investment in Fixed Capital (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblIFC" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>29. Durable Fixed Assets (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblDFA" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>30.  Working Capital (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblWorkingCapital" runat="server"></asp:Label>
+                                                        </div>
+
+                                                    </div>
+
+
 
                                                     <h4 class="card-title1 col-lg-12">Finance Revenue Details</h4>
-                                                    
-                              <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>1. Promoter's and Contributors (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblpromotndcont" runat="server"></asp:Label></div>
 
-						<div class="col-md-2"><label>2. Equity Amount (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblequityamount" runat="server"></asp:Label></div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>1. Promoter's and Contributors (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblpromotndcont" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>3. Term Loan/Working (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lbltermloanworking" runat="server"></asp:Label></div>
-                        
-					     </div>
-                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>4. Unsecured Loan (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblunsecuredloan" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>2. Equity Amount (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblequityamount" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>5. Internal Resources (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblinternalresources" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>3. Term Loan/Working (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lbltermloanworking" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>6. State Scheme (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblstatescheme" runat="server"></asp:Label></div>
-                        
-					     </div>   
-                         
-                           <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label>7. Capital Subsidy (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblcapitalsubsidy" runat="server"></asp:Label></div>
+                                                    </div>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>4. Unsecured Loan (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblunsecuredloan" runat="server"></asp:Label>
+                                                        </div>
 
-						<div class="col-md-2"><label>8. Benifit from UNNATI (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblunnati" runat="server"></asp:Label></div>
+                                                        <div class="col-md-2">
+                                                            <label>5. Internal Resources (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblinternalresources" runat="server"></asp:Label>
+                                                        </div>
 
-                        <div class="col-md-2"><label>9. Central Scheme (INR)</label></div>
-						<div class="col-md-2"><spna class="dots">:</spna><asp:Label ID="lblcentralscheme" runat="server"></asp:Label></div>
-                        
-					     </div>  
+                                                        <div class="col-md-2">
+                                                            <label>6. State Scheme (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblstatescheme" runat="server"></asp:Label>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>7. Capital Subsidy (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblcapitalsubsidy" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>8. Benifit from UNNATI (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblunnati" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>9. Central Scheme (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblcentralscheme" runat="server"></asp:Label>
+                                                        </div>
+
+                                                    </div>
 
 
 
@@ -621,8 +785,8 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <tr>
                                                                     <td class="fw-bold">DPR</td>
 
-                                                                  <td style="text-align: center;">
-                                                                        <button type="button" class="btn btn-rounded btn-green" style="width:150px;">View</button>
+                                                                    <td style="text-align: center;">
+                                                                        <button type="button" class="btn btn-rounded btn-green" style="width: 150px;">View</button>
                                                                     </td>
                                                                 </tr>
 
@@ -763,7 +927,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                         GridLines="None" Width="100%" EnableModelValidation="True">
                                                         <RowStyle />
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                        
+
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                                                 <HeaderStyle HorizontalAlign="Center" />

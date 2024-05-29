@@ -9,13 +9,36 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4>View Industry Registration Applications</h4>
+
+                    <div class="col-md-12 d-flex">
+                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                            <strong>Warning!</strong>
+                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <asp:HiddenField ID="hdnUserID" runat="server" />
+
+                    <div class="col-md-12 d-flex">
+                        <div class="col-md-11">
+                            <h4>View Industry Registration Applications</h4>
+                        </div>
+                        <div class="col-md-1">
+                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark">Back</asp:LinkButton>
+                        </div>
+                    </div>
+
+
                     <asp:GridView ID="gvPreRegUserDashboard" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
-                        GridLines="None" Width="100%" EnableModelValidation="True"  >
+                        GridLines="None" Width="100%" EnableModelValidation="True">
                         <RowStyle />
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                        
+
                         <Columns>
                             <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="5%">
                                 <HeaderStyle HorizontalAlign="Center" />
@@ -35,7 +58,7 @@
 
                             <asp:TemplateField HeaderText="Queries Count" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkQueryCount" runat="server" Text='<%#Eval("QUERYCOUNT")%>'  OnClick="lnkQueryCount_Click" ForeColor="Red" Font-Underline="true"></asp:LinkButton> 
+                                    <asp:LinkButton ID="lnkQueryCount" runat="server" Text='<%#Eval("QUERYCOUNT")%>' OnClick="lnkQueryCount_Click" ForeColor="Red" Font-Underline="true"></asp:LinkButton>
                                     <%--PostBackUrl='<%#Eval("INVESTERID","QueryResponse.aspx?Appid={0}")%>'--%>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
@@ -51,7 +74,7 @@
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
                         </Columns>
-                        
+
                     </asp:GridView>
                 </div>
             </div>
