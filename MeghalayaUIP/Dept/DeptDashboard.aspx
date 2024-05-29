@@ -42,7 +42,6 @@
 
                             </div>
                             <div class="col-md-3" id="PreOperational" runat="server" visible="false">
-
                                 <div class="card-counter danger">
                                     <asp:LinkButton runat="server" ID="linkCFO" OnClick="linkCFO_Click">
                                      <img src="../assets/admin/img/poa.png" alt="logo">
@@ -52,11 +51,11 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-3" id="Incentive" runat="server" visible="false">
+                            <div class="col-md-3" id="Grievance" runat="server" visible="true">
                                 <div class="card-counter success">
-                                    <asp:LinkButton runat="server" ID="linkIncentive" OnClick="linkIncentive_Click">
+                                    <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click" >
                                     <img src="../assets/admin/img/inc.png" alt="logo">
-                                    <span class="count-numbers">Incentive</span>
+                                    <span class="count-numbers">Grievance</span>
                                     <span class="count-name"></span>
                                     </asp:LinkButton>
                                 </div>

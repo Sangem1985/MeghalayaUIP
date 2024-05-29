@@ -26,7 +26,7 @@
 
                 <div class="col-md-3 d-flex">
                     <spna class="dots">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spna>
-                    <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="true">
+                    <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="true" class="form-control">
                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                         <asp:ListItem Text="Total" Value="Total"></asp:ListItem>
                         <asp:ListItem Text="Pending" Value="Pending"></asp:ListItem>
@@ -109,46 +109,54 @@
                 </section>
             </div>--%>
             <%--*************************************--%>
-            <div class="card">
+            <div class="card" id="divPending" runat="server">
                 <div class="card-header">
                     <h3>Grievance - Pending Applications</h3>
                 </div>
-                <section id="dashboardcount3"  class="mt-3 mb-3">
+                <section id="dashboardcount3" class="mt-3 mb-3">
                     <div class="container-fluid">
                         <div class="row">
-                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="CFEApplDeptView.aspx">
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="GrievanceDeptView.aspx">
                                     <div class="card 1">
                                         <div class="card-headr">
                                             <div class="text">Pending Total</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count"><asp:Label ID="lblPendingTotal" runat="server"></asp:Label></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblPendingTotal" runat="server"></asp:Label>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="CFEApplDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx">
                                     <div class="card 2">
                                         <div class="card-headr">
                                             <div class="text">Pending With in 7 Days</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count"><asp:Label ID="lblPendingWithin" runat="server"></asp:Label></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblPendingWithin" runat="server"></asp:Label>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <div class="card 4">
-                                    <div class="card-headr">
-                                        <div class="text">Pending Beyond 7 Days</div>
-                                        <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
-                                        <div class="count"><asp:Label ID="lblPendingBeyond" runat="server"></asp:Label></div>
-                                    </div>
+                                <a href="GrievanceDeptView.aspx">
+                                    <div class="card 4">
+                                        <div class="card-headr">
+                                            <div class="text">Pending Beyond 7 Days</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblPendingBeyond" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -156,88 +164,108 @@
             </div>
 
             <%--*************************************--%>
-            <div class="card">
+            <div class="card" id="divRedressed" runat="server">
                 <div class="card-header">
                     <h3>Grievance - Redressed Applications</h3>
                 </div>
-                <section id="dashboardcount3"  class="mt-3 mb-3">
+                <section id="dashboardcount3" class="mt-3 mb-3">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="CFEApplDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx">
                                     <div class="card 1">
                                         <div class="card-headr">
                                             <div class="text">Redressed Total</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count"><asp:Label ID="lblRedressedTotal" runat="server"></asp:Label></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblRedressedTotal" runat="server"></asp:Label>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <div class="card 2">
-                                    <div class="card-headr">
-                                        <div class="text">Redressed With in 7 Days</div>
-                                        <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                        <div class="count"><asp:Label ID="lblRedressedWithin" runat="server"></asp:Label></div>
-                                    </div>
+                                <a href="GrievanceDeptView.aspx">
+                                    <div class="card 2">
+                                        <div class="card-headr">
+                                            <div class="text">Redressed With in 7 Days</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblRedressedWithin" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <div class="card 4">
-                                    <div class="card-headr">
-                                        <div class="text">Redressed Beyond 7 Days</div>
-                                        <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                        <div class="count"><asp:Label ID="lblRedressedBeyond" runat="server"></asp:Label></div>
-                                    </div>
+                                <a href="GrievanceDeptView.aspx">
+                                    <div class="card 4">
+                                        <div class="card-headr">
+                                            <div class="text">Redressed Beyond 7 Days</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblRedressedBeyond" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
             <%--*************************************--%>
-            <div class="card">
+            <div class="card" id="divRejected" runat="server">
                 <div class="card-header">
                     <h3>Grievance - Rejected Applications</h3>
                 </div>
-                <section id="dashboardcount3"  class="mb-3 mt-3">
+                <section id="dashboardcount3" class="mb-3 mt-3">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="CFEApplDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx">
                                     <div class="card 1">
                                         <div class="card-headr">
                                             <div class="text">Rejected Total</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count"><asp:Label ID="lblRejectedTotal" runat="server"></asp:Label></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblRejectedTotal" runat="server"></asp:Label>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <div class="card 2">
-                                    <div class="card-headr">
-                                        <div class="text">Rejected With in 7 Days</div>
-                                        <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                        <div class="count"><asp:Label ID="lblRejectedWithin" runat="server"></asp:Label></div>
-                                    </div>
+                                <a href="GrievanceDeptView.aspx">
+                                    <div class="card 2">
+                                        <div class="card-headr">
+                                            <div class="text">Rejected With in 7 Days</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblRejectedWithin" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <div class="card 4">
-                                    <div class="card-headr">
-                                        <div class="text">Rejected Beyond 7 Days</div>
-                                        <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                        <div class="count"><asp:Label ID="lblRejectedBeyond" runat="server"></asp:Label></div>
-                                    </div>
+                                <a href="GrievanceDeptView.aspx">
+                                    <div class="card 4">
+                                        <div class="card-headr">
+                                            <div class="text">Rejected Beyond 7 Days</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblRejectedBeyond" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>

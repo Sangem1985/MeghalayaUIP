@@ -78,21 +78,21 @@ namespace MeghalayaUIP.Dept
         protected global::System.Web.UI.WebControls.LinkButton linkCFO;
 
         /// <summary>
-        /// Incentive control.
+        /// Grievance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Incentive;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grievance;
 
         /// <summary>
-        /// linkIncentive control.
+        /// linkGrievance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkIncentive;
+        protected global::System.Web.UI.WebControls.LinkButton linkGrievance;
     }
 }

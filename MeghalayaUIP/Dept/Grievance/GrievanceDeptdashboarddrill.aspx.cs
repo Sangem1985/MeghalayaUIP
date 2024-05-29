@@ -61,15 +61,48 @@ namespace MeghalayaUIP.Dept.Grievance
                 ds = objcomBal.GetDepGrievanceDashboard(DeptID, hdnUserID.Value);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    
-                  
-                    lblPendingTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["PENDINGTOATL"]);
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "Total")
+                        {
+                            divPending.Visible = true;
+                            divRedressed.Visible = true;
+                            divRejected.Visible = true;
+                        }
+                        else if (Convert.ToString(Request.QueryString[0]) == "Pending")
+                        {
+                            divPending.Visible = true;
+                            divRedressed.Visible = false;
+                            divRejected.Visible = false;
+                        }
+                        else if (Convert.ToString(Request.QueryString[0]) == "Redressed")
+                        {
+                            divPending.Visible = false;
+                            divRedressed.Visible = true;
+                            divRejected.Visible = false;
+                        }
+                        else if (Convert.ToString(Request.QueryString[0]) == "Rejected")
+                        {
+                            divPending.Visible = false;
+                            divRedressed.Visible = false;
+                            divRejected.Visible = true;
+                        }
+
+                    }
+                    else
+                    {
+                        divPending.Visible = true;
+                        divRedressed.Visible = true;
+                        divRejected.Visible = true;
+                    }
+
+                    lblPendingTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["PENDINGTOTAL"]);
                     lblPendingWithin.Text = Convert.ToString(ds.Tables[0].Rows[0]["PENDINGWITHIN"]);
                     lblPendingBeyond.Text = Convert.ToString(ds.Tables[0].Rows[0]["PENDINGBEYOND"]);
-                    lblRedressedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REDRESSEDTOATL"]);
+                    lblRedressedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REDRESSEDTOTAL"]);
                     lblRedressedWithin.Text = Convert.ToString(ds.Tables[0].Rows[0]["REDRESSEDWITHIN"]);
                     lblRedressedBeyond.Text = Convert.ToString(ds.Tables[0].Rows[0]["REDRESSEDBEYOND"]);
-                    lblRejectedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDTOATL"]);
+                    lblRejectedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDTOTAL"]);
                     lblRejectedWithin.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDWITHIN"]);
                     lblRejectedBeyond.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDBEYOND"]);
 
