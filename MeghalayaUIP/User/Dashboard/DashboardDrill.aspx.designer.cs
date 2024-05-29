@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User
+namespace MeghalayaUIP.User.Dashboard
 {
 
 

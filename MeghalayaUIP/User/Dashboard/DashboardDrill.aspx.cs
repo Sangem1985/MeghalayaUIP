@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MeghalayaUIP.User
+namespace MeghalayaUIP.User.Dashboard
 {
     public partial class DashboardDrill : System.Web.UI.Page
     {

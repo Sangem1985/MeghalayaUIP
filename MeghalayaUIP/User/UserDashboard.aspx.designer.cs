@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User
 {
 
 
-    public partial class Dashboard
+    public partial class UserDashboard
     {
 
         /// <summary>

@@ -31,8 +31,8 @@ namespace MeghalayaUIP.User.CFE
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["UNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["UNITID"]); }
+                    if (Convert.ToString(Session["CFEUNITID"]) != "")
+                    { UnitID = Convert.ToString(Session["CFEUNITID"]); }
                     else
                     {
                         string newurl = "~/User/CFE/CFEUserDashboard.aspx";
