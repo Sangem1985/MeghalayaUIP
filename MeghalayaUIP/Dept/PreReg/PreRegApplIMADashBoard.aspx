@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="text">
-                                            <a href="PreRegApplIMAView.aspx?status=IMAQUERY" style="color: white">Query<br />Raised</a>
+                                            <a href="PreRegApplIMAView.aspx?status=IMAQUERY" style="color: white">Query Raised<br /> to Department</a>
                                         </div>
                                         <div style="font-size: 12px;"></div>
                                         <i class="fi fi-tr-file-edit"></i>
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="text">
-                                            <a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white">Query<br />Replied</a>
+                                            <a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white">Query Addressed<br /> by Department</a>
                                         </div>
                                         <div style="font-size: 12px;"></div>
                                         <i class="fi fi-tr-file-edit"></i>
