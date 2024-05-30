@@ -401,8 +401,13 @@ namespace MeghalayaUIP.User.CFO
                 {
                     btnApprvlsReq_Click(sender, e);
                     CFOQuestionnaireDet objCFOQsnaire = new CFOQuestionnaireDet();
+
+                    if (Convert.ToString(Session["CFOQID"]) == "")
+                        objCFOQsnaire.CFEQDID = "";
+                    else
+                        objCFOQsnaire.CFEQDID = Convert.ToString(Session["CFOQID"]);
                     objCFOQsnaire.CFOQDID = "";
-                    objCFOQsnaire.UNITID = hdnPreRegUNITID.Value;
+                    objCFOQsnaire.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     objCFOQsnaire.PREREGUIDNO = hdnPreRegUID.Value;
                     objCFOQsnaire.IPAddress = getclientIP();
                     objCFOQsnaire.CompanyName = txtUnitName.Text.Trim();
@@ -463,7 +468,7 @@ namespace MeghalayaUIP.User.CFO
                     result = objcfobal.InsertQuestionnaireCFO(objCFOQsnaire);
                     if (result != "100")
                     {
-                        Session["CFOIUNITID"] = hdnPreRegUNITID.Value;
+                       // Session["CFOIUNITID"] = hdnPreRegUNITID.Value;
                         Session["CFOQID"] = result;
                         for (int i = 0; i < grdApprovals.Rows.Count; i++)
                         {
@@ -477,7 +482,7 @@ namespace MeghalayaUIP.User.CFO
                             objCFOQsnaire.ApprovalFee = grdApprovals.Rows[i].Cells[3].Text;
                             objCFOQsnaire.CreatedBy = hdnUserID.Value;
                             objCFOQsnaire.IPAddress = getclientIP();
-                            objCFOQsnaire.UNITID = hdnPreRegUNITID.Value;
+                            objCFOQsnaire.UNITID = Convert.ToString(Session["CFOUNITID"]);
 
                             string A = objcfobal.InsertCFOQuestionnaireApprovals(objCFOQsnaire);
                             if (A != "")
@@ -486,7 +491,7 @@ namespace MeghalayaUIP.User.CFO
                         if (grdApprovals.Rows.Count == count)
                         {
                             success.Visible = true;
-                            lblmsg.Text = "Consent For Operation - Questionnaire Details Submitted Successfully";
+                            lblmsg.Text = "Pre Operational - Questionnaire Details Submitted Successfully";
                             string message = "alert('" + lblmsg.Text + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
@@ -812,9 +817,9 @@ namespace MeghalayaUIP.User.CFO
                     ds = objcfobal.GetIndustryRegDetails(hdnUserID.Value, UnitID);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
+                       // hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
                         hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
-                        Session["UNITID"] = hdnPreRegUNITID.Value;
+                        //Session["UNITID"] = hdnPreRegUNITID.Value;
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
                         rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);

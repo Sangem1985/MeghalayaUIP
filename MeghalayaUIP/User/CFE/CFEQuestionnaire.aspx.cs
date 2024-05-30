@@ -74,10 +74,10 @@ namespace MeghalayaUIP.User.CFE
             {
 
                 DataSet ds = new DataSet();
-                ds = objcfebal.RetrieveQuestionnaireDetails(hdnUserID.Value, UnitID);
+                ds = objcfebal.RetrieveQuestionnaireDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNITID"]);
+                    //hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNITID"]);
                     hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PREREGUIDNO"]);
                     txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYNAME"]);
                     rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPOSALFOR"]);
@@ -157,10 +157,10 @@ namespace MeghalayaUIP.User.CFE
                 else
                 {
                     ds.Clear();
-                    ds = objcfebal.GetIndustryRegDetails(hdnUserID.Value, UnitID);
+                    ds = objcfebal.GetIndustryRegDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
+                        //hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
                         hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
 
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);
@@ -1240,7 +1240,7 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnShowEncl_Click(object sender, EventArgs e)
         {
-
+            btnApprvlsReq_Click(sender, e);
         }
 
         protected void btnApprvlsReq_Click(object sender, EventArgs e)

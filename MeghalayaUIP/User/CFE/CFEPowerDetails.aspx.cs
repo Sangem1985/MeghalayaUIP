@@ -53,7 +53,7 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
         }
-       
+
         public string Stepvalidations()
         {
             try
@@ -94,7 +94,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetPowerDetailsRetrive(hdnUserID.Value, UnitID);
+                ds = objcfebal.GetPowerDetailsRetrive(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -109,7 +109,7 @@ namespace MeghalayaUIP.User.CFE
                     txtPowersupply.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_POWERREQDATE"]);
                     txtenergy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_REQLOAD"]);
                     ddlloadenergy.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_ENERGYSOURCE"].ToString();
-                    
+
                 }
                 else
                 {
@@ -209,8 +209,8 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            
-          
+
+
             try
             {
                 string ErrorMsg = "", result = "";
@@ -218,8 +218,8 @@ namespace MeghalayaUIP.User.CFE
                 if (ErrorMsg == "")
                 {
                     CFEPower objCFEPower = new CFEPower();
-                    if (Convert.ToString(Session["CFEUNITID"]) != "")
-                    { objCFEPower.UNITID = Convert.ToString(Session["CFEUNITID"]); }
+
+                    objCFEPower.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     objCFEPower.CreatedBy = hdnUserID.Value;
                     objCFEPower.IPAddress = getclientIP();
                     objCFEPower.Questionnariid = Convert.ToString(Session["CFEQID"]);
@@ -236,7 +236,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
 
                     result = objcfebal.InsertCFEPowerDetails(objCFEPower);
-                    ViewState["UnitID"] = result;
+                   // ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;

@@ -31,10 +31,11 @@ namespace MeghalayaUIP.User.CFO
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    Session["CFOUNITID"] = "1001";
-                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                   
                     if (Convert.ToString(Session["CFOUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                    {
+                        UnitID = Convert.ToString(Session["CFOUNITID"]);
+                    }
                     else
                     {
                         string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -49,10 +50,6 @@ namespace MeghalayaUIP.User.CFO
                         BindCountry();
                     }
                 }
-
-         
-                //int Quesstionriids = 1004;//1001;
-                //int UnitId = 4;//1;
                 //BindDetails(UnitId, Quesstionriids);
 
             }
@@ -303,11 +300,11 @@ namespace MeghalayaUIP.User.CFO
             {
                 ObjUserInfo = (UserInfo)Session["UserInfo"];
             }
-            String Quesstionriids = "1004";
-            string UnitId = "4";
+           
+            
             CFOExciseDetails objcfo = new CFOExciseDetails();
-            objcfo.CFOQID = Convert.ToInt32(Quesstionriids);
-            objcfo.CFOunitid = Convert.ToInt32(UnitId);
+            objcfo.CFOQID = Convert.ToInt32(Convert.ToString(Session["CFOQID"]));
+            objcfo.CFOunitid = Convert.ToInt32(Convert.ToString(Session["CFOQID"]));
             objcfo.Artical5Selection = rblArtical5.SelectedValue;
             objcfo.ApplicantSelection = rblapplicant.SelectedValue;
             objcfo.MemberSelection = rblMember.SelectedValue;
@@ -327,7 +324,7 @@ namespace MeghalayaUIP.User.CFO
                 objcfo.RegToDate = Convert.ToDateTime(txtTodate.Text);
             objcfo.FirmAddress = txtAddress.Text;
             objcfo.CreatedIp = getclientIP();
-            objcfo.CreatedBy = ObjUserInfo != null ? ObjUserInfo.Userid : "Admin";
+            objcfo.CreatedBy = hdnUserID.Value;
             objcfo.Flag = "S";
             List<CFOExciseBrandDetails> brandDetails = ViewState["BrandDetails"] as List<CFOExciseBrandDetails>;
             List<CFOExciseLiquorDetails> liquorDetails = ViewState["LiquorDetails"] as List<CFOExciseLiquorDetails>;
@@ -431,10 +428,10 @@ namespace MeghalayaUIP.User.CFO
             newDetail.BulkLiter = txtBulkLiter.Text;
             newDetail.LandOnProof = txtLandonProof.Text;
             newDetail.BottlePlant = txtBottlePlant.Text;
-            newDetail.CreatedBy = "User";
+            newDetail.CreatedBy = hdnUserID.Value;
             newDetail.CreatedDate = DateTime.Now;
             newDetail.CreatedIp = Request.UserHostAddress;
-            newDetail.UpdatedBy = "User";
+            newDetail.UpdatedBy = hdnUserID.Value;
             newDetail.UpdatedDate = DateTime.Now;
             newDetail.UpdatedIp = Request.UserHostAddress;
             newDetail.Flag = "A";
@@ -492,10 +489,10 @@ namespace MeghalayaUIP.User.CFO
                 CountryName = ddlCountry.SelectedItem.Text,
                 MRPSSelection = rblMRPRS.SelectedValue,
                 BrandName = txtBrandName.Text,
-                CreatedBy = "User",
+                CreatedBy = hdnUserID.Value,
                 CreatedDate = DateTime.Now,
                 CreatedIp = Request.UserHostAddress,
-                UpdatedBy = "User",
+                UpdatedBy = hdnUserID.Value,
                 UpdatedDate = DateTime.Now,
                 UpdatedIp = Request.UserHostAddress,
                 Flag = "A"
@@ -577,7 +574,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOPaymentPage.aspx");
+            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx");
         }
     }
 }

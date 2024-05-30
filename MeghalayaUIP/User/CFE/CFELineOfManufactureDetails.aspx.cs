@@ -95,14 +95,14 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetCFELOMandRMDetails(hdnUserID.Value, UnitID);
+                ds = objcfebal.GetCFELOMandRMDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0)
                     {
                         if (ds.Tables[0].Rows.Count > 0)
                         {
-                            hdnQuesID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFELM_CFEQDID"]);
+                            hdnQuesID.Value = Convert.ToString(Session["CFEQID"]);
                             ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELM_LOAID"]);
                             divManf.Visible = true;
                             gvManufacture.DataSource = ds.Tables[0];
@@ -112,7 +112,7 @@ namespace MeghalayaUIP.User.CFE
                         }
                         if (ds.Tables[1].Rows.Count > 0)
                         {
-                            hdnQuesID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFERM_CFEQDID"]);
+                            hdnQuesID.Value = Convert.ToString(Session["CFEQID"]);
                             ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFERM_LOAID"]);
                             gvRwaMaterial.DataSource = ds.Tables[1];
                             gvRwaMaterial.DataBind();
@@ -122,7 +122,7 @@ namespace MeghalayaUIP.User.CFE
                     else
                     {
                         ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_LOAID"]);
-                        hdnQuesID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFEQDID"]);
+                        hdnQuesID.Value = Convert.ToString(Session["CFEQID"]);
 
                         if (Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
                         {
@@ -249,7 +249,7 @@ namespace MeghalayaUIP.User.CFE
                     for (int i = 0; i < gvManufacture.Rows.Count; i++)
                     {
 
-                        objCFEManufacture.Questionnareid = hdnQuesID.Value;
+                        objCFEManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objCFEManufacture.LOAID = ddlLineOfActivity.SelectedValue;
                         objCFEManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objCFEManufacture.ManfItemName = gvManufacture.Rows[i].Cells[1].Text;
@@ -264,7 +264,7 @@ namespace MeghalayaUIP.User.CFE
                     }                    
                     for (int i = 0; i < gvRwaMaterial.Rows.Count; i++)
                     {
-                        objCFEManufacture.Questionnareid = hdnQuesID.Value;
+                        objCFEManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objCFEManufacture.LOAID = ddlLineOfActivity.SelectedValue;
                         objCFEManufacture.RMItemName = gvRwaMaterial.Rows[i].Cells[1].Text;
                         objCFEManufacture.RMItemAnnualCapacity = gvRwaMaterial.Rows[i].Cells[2].Text;

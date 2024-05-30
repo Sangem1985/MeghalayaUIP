@@ -29,10 +29,11 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["CFOUNITID"] = "1001";
-                UnitID = Convert.ToString(Session["CFOUNITID"]);
+
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
-                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                {
+                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                }
                 else
                 {
                     string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -99,7 +100,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFOBN_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFOBN_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFOBN_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOBN_CREATEDBYIP"] = getclientIP();
                     dr["CFOBN_MAINCATEGORY"] = ddlNature.SelectedItem.Text;
@@ -157,8 +158,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1001";
+
             try
             {
                 string ErrorMsg = "", result = "";
@@ -169,9 +169,9 @@ namespace MeghalayaUIP.User.CFO
                     int count = 0;
                     for (int i = 0; i < GVPollution.Rows.Count; i++)
                     {
-                        ObjCFOPollutionControl.Questionnariid = Quesstionriids;
+                        ObjCFOPollutionControl.Questionnariid = Convert.ToString(Session["CFOQID"]);
                         ObjCFOPollutionControl.CreatedBy = hdnUserID.Value;
-                        ObjCFOPollutionControl.UNITID = Convert.ToString(Session["UNITID"]);
+                        ObjCFOPollutionControl.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOPollutionControl.IPAddress = getclientIP();
                         ObjCFOPollutionControl.MainCategory = GVPollution.Rows[i].Cells[1].Text;
                         ObjCFOPollutionControl.SubCategory = GVPollution.Rows[i].Cells[2].Text;
@@ -183,18 +183,18 @@ namespace MeghalayaUIP.User.CFO
                     if (GVPollution.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO Pollution Control Board Details Submitted Successfully";
+                        lblmsg.Text = "Business License Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
 
 
-                    { ObjCFOPollutionControl.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    ObjCFOPollutionControl.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOPollutionControl.CreatedBy = hdnUserID.Value;
                     ObjCFOPollutionControl.IPAddress = getclientIP();
-                    ObjCFOPollutionControl.Questionnariid = Quesstionriids;
-                    ObjCFOPollutionControl.UnitId = UnitId;
+                    ObjCFOPollutionControl.Questionnariid = Convert.ToString(Session["CFOQID"]);
+                    ObjCFOPollutionControl.UnitId = Convert.ToString(Session["CFOUNITID"]);
 
                     ObjCFOPollutionControl.DateEst = txtaddress.Text;
                     ObjCFOPollutionControl.LocationStall = rblBusiness.SelectedValue;
@@ -209,11 +209,11 @@ namespace MeghalayaUIP.User.CFO
 
 
                     result = objcfebal.InsertCFOPollutioncontrol(ObjCFOPollutionControl);
-                    ViewState["UnitID"] = result;
+                    // ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO Pollution Control Board Details Submitted Successfully";
+                        lblmsg.Text = "Business License Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }

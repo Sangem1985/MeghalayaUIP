@@ -184,7 +184,9 @@ namespace MeghalayaUIP.User.CFO
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
                 Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblQuesId = (Label)row.FindControl("lblCFOQID");
                 Session["CFOUNITID"] = lblunitId.Text;
+                Session["CFOQID"] = lblQuesId.Text;
                 string newurl = "CFOQuestionnaire.aspx";
                 Response.Redirect(newurl);
             }

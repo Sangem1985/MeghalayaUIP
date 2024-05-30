@@ -396,8 +396,8 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 com.Parameters.AddWithValue("@CFOLGM_CREATEDBY", Convert.ToInt32(ObjCFOlegalDet.CreatedBy));
                 com.Parameters.AddWithValue("@CFOLGM_CREATEDBYIP", ObjCFOlegalDet.IPAddress);
-                com.Parameters.AddWithValue("@CFOLGM_CFOUNITID", Convert.ToInt32(ObjCFOlegalDet.Questionnariid));
-                com.Parameters.AddWithValue("@CFOLGM_CFOQDID", Convert.ToInt32(ObjCFOlegalDet.UnitId));
+                com.Parameters.AddWithValue("@CFOLGM_CFOUNITID", Convert.ToInt32(ObjCFOlegalDet.UnitId));
+                com.Parameters.AddWithValue("@CFOLGM_CFOQDID", Convert.ToInt32(ObjCFOlegalDet.Questionnariid ));
 
                 com.Parameters.AddWithValue("@CFOLGM_ESTBLSHDATE", ObjCFOlegalDet.DateEstablish);
                 com.Parameters.AddWithValue("@CFOLGM_HADESTBLSHREG", ObjCFOlegalDet.RegFactoryShop);

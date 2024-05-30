@@ -71,7 +71,7 @@ namespace MeghalayaUIP.User.CFE
                         if (ds.Tables[0].Rows.Count > 0)
                         {
                             //PE1001MEG15520241007
-                            hdnQuesID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEDA_CFEQDID"]);
+                            hdnQuesID.Value = Convert.ToString(Session["CFEQID"]);
                             hdnUIDNo.Value= Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
                             grdApprovals.DataSource = ds.Tables[0];
                             grdApprovals.DataBind();
@@ -137,7 +137,7 @@ namespace MeghalayaUIP.User.CFE
                     Label DeptID = (Label)row.FindControl("lblDeptID") as Label;              
                    
                     objpay.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                    objpay.Questionnareid = hdnQuesID.Value;
+                    objpay.Questionnareid = Convert.ToString(Session["CFEQID"]);
                     objpay.CFEUID = hdnUIDNo.Value;
                     objpay.DeptID = DeptID.Text;
                     objpay.ApprovalID = ApprovalID.Text;

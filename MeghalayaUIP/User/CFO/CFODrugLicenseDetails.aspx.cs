@@ -29,10 +29,11 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["CFOUNITID"] = "1001";
-                UnitID = Convert.ToString(Session["CFOUNITID"]);
+
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
-                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                {
+                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                }
                 else
                 {
                     string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -79,8 +80,6 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1001";
             try
             {
                 string ErrorMsg = "", result = "";
@@ -92,16 +91,13 @@ namespace MeghalayaUIP.User.CFO
                     int count = 0, count1 = 0, count2 = 0;
                     for (int i = 0; i < GVHealthy.Rows.Count; i++)
                     {
-                        ObjCFOHealthyWelfare.Questionnariid = Quesstionriids;
+                        ObjCFOHealthyWelfare.Questionnariid = Convert.ToString(Session["CFOQID"]);
                         ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
                         ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOHealthyWelfare.IPAddress = getclientIP();
                         ObjCFOHealthyWelfare.ManufName = GVHealthy.Rows[i].Cells[1].Text;
                         ObjCFOHealthyWelfare.ManufQualification = GVHealthy.Rows[i].Cells[2].Text;
                         ObjCFOHealthyWelfare.ManufExperience = GVHealthy.Rows[i].Cells[3].Text;
-
-
-
 
                         string A = objcfobal.INSERTCFOManufactureDetails(ObjCFOHealthyWelfare);
                         if (A != "")
@@ -110,7 +106,7 @@ namespace MeghalayaUIP.User.CFO
                     if (GVHealthy.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO PROFESSIONALTAX Details Submitted Successfully";
+                        lblmsg.Text = "PROFESSIONALTAX Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -118,16 +114,13 @@ namespace MeghalayaUIP.User.CFO
 
                     for (int i = 0; i < GVTESTING.Rows.Count; i++)
                     {
-                        ObjCFOHealthyWelfare.Questionnariid = Quesstionriids;
+                        ObjCFOHealthyWelfare.Questionnariid = Convert.ToString(Session["CFOQID"]);
                         ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
                         ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOHealthyWelfare.IPAddress = getclientIP();
                         ObjCFOHealthyWelfare.testingName = GVTESTING.Rows[i].Cells[1].Text;
                         ObjCFOHealthyWelfare.testingQualification = GVTESTING.Rows[i].Cells[2].Text;
                         ObjCFOHealthyWelfare.testingExperience = GVTESTING.Rows[i].Cells[3].Text;
-
-
-
 
                         string A = objcfobal.INSERTCFOTestingDetails(ObjCFOHealthyWelfare);
                         if (A != "")
@@ -144,14 +137,11 @@ namespace MeghalayaUIP.User.CFO
 
                     for (int i = 0; i < GVDrug.Rows.Count; i++)
                     {
-                        ObjCFOHealthyWelfare.Questionnariid = Quesstionriids;
+                        ObjCFOHealthyWelfare.Questionnariid = Convert.ToString(Session["CFOQID"]);
                         ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
                         ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOHealthyWelfare.IPAddress = getclientIP();
                         ObjCFOHealthyWelfare.NameDrug = GVDrug.Rows[i].Cells[1].Text;
-
-
-
 
                         string A = objcfobal.InsertCFODRUGLICDetails(ObjCFOHealthyWelfare);
                         if (A != "")
@@ -160,20 +150,18 @@ namespace MeghalayaUIP.User.CFO
                     if (GVDrug.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO DrugLicense Details Submitted Successfully";
+                        lblmsg.Text = "DrugLicense Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
 
 
-                    { ObjCFOHealthyWelfare.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
                     ObjCFOHealthyWelfare.IPAddress = getclientIP();
-                    ObjCFOHealthyWelfare.Questionnariid = Quesstionriids;
-                    ObjCFOHealthyWelfare.UnitId = UnitId;
-
-
+                    ObjCFOHealthyWelfare.Questionnariid = Convert.ToString(Session["CFOQID"]);
+                    ObjCFOHealthyWelfare.UnitId = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOHealthyWelfare.TypeApplication = rblApplication.SelectedValue;
                     ObjCFOHealthyWelfare.TradingLICDate = txttradeLic.Text;
                     ObjCFOHealthyWelfare.Valideuptodate = txtClass.Text;
@@ -185,11 +173,11 @@ namespace MeghalayaUIP.User.CFO
 
 
                     result = objcfobal.InsertCFODrugLicenseDet(ObjCFOHealthyWelfare);
-                    ViewState["UnitID"] = result;
+                    //ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO DrugLicense Details Submitted Successfully";
+                        lblmsg.Text = "DrugLicense Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -303,7 +291,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFODM_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFODM_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFODM_CREATEDBY"] = hdnUserID.Value;
                     dr["CFODM_CREATEDBYIP"] = getclientIP();
                     dr["CFODM_EMPNAME"] = txtName.Text;
@@ -351,7 +339,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFODT_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFODT_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFODT_CREATEDBY"] = hdnUserID.Value;
                     dr["CFODT_CREATEDBYIP"] = getclientIP();
                     dr["CFODT_EMPNAME"] = txtNameTest.Text;
@@ -398,7 +386,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFOD_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFOD_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFOD_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOD_CREATEDBYIP"] = getclientIP();
                     dr["CFOD_DRUGNAME"] = txtNameDrug.Text;

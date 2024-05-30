@@ -358,14 +358,14 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetRetriveFireDet(hdnUserID.Value, UnitID);
+                ds = objcfebal.GetRetriveFireDet(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds != null)
                 {
                     if (ds.Tables.Count > 0)
                     {
                         if (ds.Tables[0].Rows.Count > 0)
                         {
-                            ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
+                            //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
                             ddldistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTRICID"]);
                             ddlmandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MANDALID"]);
                             ddlvillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_VILLAGEID"]);
@@ -421,7 +421,7 @@ namespace MeghalayaUIP.User.CFE
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
+            //String Quesstionriids = "1001";
           
             try
             {
@@ -435,7 +435,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCCFEFireDetails.UNITID = Convert.ToString(Session["CFEUNITID"]); 
                     ObjCCFEFireDetails.CreatedBy = hdnUserID.Value;
                     ObjCCFEFireDetails.IPAddress = getclientIP();
-                    ObjCCFEFireDetails.Questionnariid = Quesstionriids;
+                    ObjCCFEFireDetails.Questionnariid = Convert.ToString(Session["CFEQID"]);
                     ObjCCFEFireDetails.UnitId = Convert.ToString(Session["CFEUNITID"]);
                     ObjCCFEFireDetails.DistricId = ddldistric.SelectedValue;
                     ObjCCFEFireDetails.MandalId = ddlmandal.SelectedValue;
@@ -465,7 +465,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCCFEFireDetails.Firestation = txtstation.Text;
 
                     result = objcfebal.InsertCFEFireDetails(ObjCCFEFireDetails);
-                    ViewState["UnitID"] = result;
+                   // ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;

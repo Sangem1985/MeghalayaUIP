@@ -219,7 +219,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetCFEIndustryDetails(hdnUserID.Value, UnitID);
+                ds = objcfebal.GetCFEIndustryDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
@@ -445,14 +445,12 @@ namespace MeghalayaUIP.User.CFE
                         return;
                     }
                     CFECommonDet objCFEComn = new CFECommonDet();
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    {
-                        objCFEComn.UNITID = Convert.ToString(ViewState["UnitID"]);
-                    }
+
+                    objCFEComn.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     objCFEComn.CreatedBy = hdnUserID.Value;
                     objCFEComn.PreRegUID = hdnPreRegUID.Value;
                     objCFEComn.IPAddress = getclientIP();
-                    objCFEComn.UNITID = UnitID;
+                    objCFEComn.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     objCFEComn.CompanyName = txtIndustryName.Text;
                     objCFEComn.CompanyType = ddlCompanyType.SelectedValue;
                     objCFEComn.CompanyPraposal = rblproposal.SelectedValue;
@@ -502,7 +500,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEComn.RoadCutLocation = txtRdCutLocations.Text;
 
                     result = objcfebal.InsertCFEIndustryDetails(objCFEComn);
-                    ViewState["UnitID"] = result;
+                    // ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;

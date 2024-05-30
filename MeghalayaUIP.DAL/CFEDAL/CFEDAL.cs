@@ -523,7 +523,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEID_PROPOSALFOR", objCFEEntrepreneur.CompanyPraposal);
                 com.Parameters.AddWithValue("@CFEID_REGTYPE", Convert.ToInt32(objCFEEntrepreneur.CompanyRegType));
                 com.Parameters.AddWithValue("@CFEID_REGNO", objCFEEntrepreneur.CompanyRegNo);
-                com.Parameters.AddWithValue("@CFEID_REGDATE", objCFEEntrepreneur.CompanyRegDate);
+                com.Parameters.AddWithValue("@CFEID_REGDATE", DateTime.ParseExact(objCFEEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd") );
                 com.Parameters.AddWithValue("@CFEID_FACTORYTYPE", objCFEEntrepreneur.FactoryType);
                 com.Parameters.AddWithValue("@CFEID_REPNAME", objCFEEntrepreneur.AuthRep_Name);
                 com.Parameters.AddWithValue("@CFEID_REPSoWoDo", objCFEEntrepreneur.AuthRep_SoWoDo);
@@ -769,8 +769,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPD_VOLTEAGELEVEL", Convert.ToInt32(objCFEPower.Voltage_Level));
                 com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERDAY", Convert.ToInt32(objCFEPower.Per_Day));
                 com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERMONTH", Convert.ToInt32(objCFEPower.Per_Month));
-                com.Parameters.AddWithValue("@CFEPD_TRIALPRODUCTIONDATE", DateTime.ParseExact(objCFEPower.Expected_Month_Trial, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFEPD_POWERREQDATE", DateTime.ParseExact(objCFEPower.Probable_Date_Power, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEPD_TRIALPRODUCTIONDATE", DateTime.ParseExact(objCFEPower.Expected_Month_Trial, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEPD_POWERREQDATE", DateTime.ParseExact(objCFEPower.Probable_Date_Power, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFEPD_REQLOAD", Convert.ToDecimal(objCFEPower.LoadReq));
                 com.Parameters.AddWithValue("@CFEPD_ENERGYSOURCE", Convert.ToInt32(objCFEPower.EnergySource));
                 com.Parameters.AddWithValue("CFEPD_CREATEDBY", Convert.ToInt32(objCFEPower.CreatedBy));
@@ -871,10 +871,10 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEFD_EXISTINGROAD", SqlDbType.Decimal).Value = ObjCCFEFireDetails.ExistingRoad;
                 com.Parameters.AddWithValue("@CFEFD_CATEGORYBUILD", ObjCCFEFireDetails.CategoryBuilding);
                 com.Parameters.AddWithValue("@CFEFD_FEEAMOUNT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.FeeAmount;
-                com.Parameters.AddWithValue("@CFEFD_East", SqlDbType.Decimal).Value = ObjCCFEFireDetails.East;
-                com.Parameters.AddWithValue("@CFEFD_West", SqlDbType.Decimal).Value = ObjCCFEFireDetails.West;
-                com.Parameters.AddWithValue("@CFEFD_North", SqlDbType.Decimal).Value = ObjCCFEFireDetails.North;
-                com.Parameters.AddWithValue("@CFEFD_South", SqlDbType.Decimal).Value = ObjCCFEFireDetails.South;
+                com.Parameters.AddWithValue("@CFEFD_East",  ObjCCFEFireDetails.East);
+                com.Parameters.AddWithValue("@CFEFD_West", ObjCCFEFireDetails.West);
+                com.Parameters.AddWithValue("@CFEFD_North",  ObjCCFEFireDetails.North);
+                com.Parameters.AddWithValue("@CFEFD_South",  ObjCCFEFireDetails.South);
                 com.Parameters.AddWithValue("@CFEFD_DISTANCEEAST", SqlDbType.Decimal).Value = ObjCCFEFireDetails.Distancebuild;
                 com.Parameters.AddWithValue("@CFEFD_DISTANCEWEST", SqlDbType.Decimal).Value = ObjCCFEFireDetails.Distanceproposed;
                 com.Parameters.AddWithValue("@CFEFD_DISTANCENORTH", SqlDbType.Decimal).Value = ObjCCFEFireDetails.Distancemeter;

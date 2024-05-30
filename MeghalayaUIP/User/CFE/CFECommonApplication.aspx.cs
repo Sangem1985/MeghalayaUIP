@@ -95,7 +95,8 @@ namespace MeghalayaUIP.User.CFE
                         for (int i = 0; i < dsApprovals.Tables[1].Rows.Count; i++)
                         {
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC
-                            {divPCB.Visible= true;
+                            {
+                                divPCB.Visible= true;
                                 hpl1PCB.Visible = true;
                                 hpl1PCB.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl1PCB.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);

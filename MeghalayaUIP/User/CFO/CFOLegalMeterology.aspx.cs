@@ -29,7 +29,7 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                //UnitID = Convert.ToString(Session["CFOUNITID"]);
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
                 { UnitID = Convert.ToString(Session["CFOUNITID"]); }
                 else
@@ -51,14 +51,14 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else
                     {
-                        if (Request.QueryString[0].ToString() == "N")
-                        {
-                            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
-                        }
-                        else
-                        {
-                            Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
-                        }
+                        //if (Request.QueryString[0].ToString() == "N")
+                        //{
+                        //    Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
+                        //}
+                        //else
+                        //{
+                        //    Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
+                        //}
                     }
                 }
             }
@@ -94,7 +94,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFOLMI_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFOLMI_CFOUNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFOLMI_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOLMI_CREATEDBYIP"] = getclientIP();
                     dr["CFOLMI_INSTRTYPE"] = txtinstrment.Text;
@@ -185,8 +185,8 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1001";
+            //String Quesstionriids = "1001";
+            //string UnitId = "1001";
             try
             {
                 string ErrorMsg = "", result = "";
@@ -197,7 +197,7 @@ namespace MeghalayaUIP.User.CFO
                     int count = 0;
                     for (int i = 0; i < GVLegalDept.Rows.Count; i++)
                     {
-                        ObjCFOlegalDet.Questionnariid = Quesstionriids;
+                        ObjCFOlegalDet.Questionnariid = Convert.ToString(Session["CFOQID"]);
                         ObjCFOlegalDet.CreatedBy = hdnUserID.Value;
                         ObjCFOlegalDet.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOlegalDet.IPAddress = getclientIP();
@@ -223,14 +223,11 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-
-
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    { ObjCFOlegalDet.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    ObjCFOlegalDet.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOlegalDet.CreatedBy = hdnUserID.Value;
                     ObjCFOlegalDet.IPAddress = getclientIP();
-                    ObjCFOlegalDet.Questionnariid = Quesstionriids;
-                    ObjCFOlegalDet.UnitId = UnitId;
+                    ObjCFOlegalDet.Questionnariid = Convert.ToString(Session["CFOQID"]);
+                    ObjCFOlegalDet.UnitId = Convert.ToString(Session["CFOUNITID"]);
 
                     ObjCFOlegalDet.DateEstablish = txtESTDate.Text;
                     ObjCFOlegalDet.RegFactoryShop = rblfactory.SelectedValue;
@@ -273,14 +270,12 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOlegalDet.repairerLic = rblRepaire.SelectedValue;
                     ObjCFOlegalDet.results = txtResults.Text;
 
-
-
                     result = objcfobal.InsertCFOLegalMetrologyDetails(ObjCFOlegalDet);
-                    ViewState["UnitID"] = result;
+                   // ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO legalMetrology Details Submitted Successfully";
+                        lblmsg.Text = "Legal Meterology Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }

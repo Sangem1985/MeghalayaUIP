@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UNITID;
+        string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -30,9 +30,15 @@ namespace MeghalayaUIP.User.CFE
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-                
-                UNITID = Convert.ToString(Session["CFEUNITID"]);
-
+                if (Convert.ToString(Session["CFEUNITID"]) != "")
+                {
+                    UnitID = Convert.ToString(Session["CFEUNITID"]);
+                }
+                else
+                {
+                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
@@ -112,7 +118,7 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-       
+
         public void BINDDATA()
         {
             try
@@ -161,11 +167,11 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetForestRetrive(hdnUserID.Value, UNITID);
+                ds = objcfebal.GetForestRetrive(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
+                    //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
                     txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_ADDRESS"]);
                     RblLatitude.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LATTITUDE"].ToString();
                     txtLatDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DEGREES"]);
@@ -261,8 +267,8 @@ namespace MeghalayaUIP.User.CFE
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "106";
-            
+            //String Quesstionriids = "106";
+
 
             try
             {
@@ -271,11 +277,11 @@ namespace MeghalayaUIP.User.CFE
                 if (ErrorMsg == "")
                 {
                     Forest_Details objCFEQForest = new Forest_Details();
-                    if (Convert.ToString(Session["CFEUNITID"]) != "")
-                    { objCFEQForest.UNITID = Convert.ToString(Session["CFEUNITID"]); }
+
+                    objCFEQForest.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     objCFEQForest.CreatedBy = hdnUserID.Value;
                     objCFEQForest.IPAddress = getclientIP();
-                    objCFEQForest.Questionnariid = Quesstionriids;
+                    objCFEQForest.Questionnariid = Convert.ToString(Session["CFEQID"]);
                     objCFEQForest.UnitId = Convert.ToString(Session["CFEUNITID"]);
                     objCFEQForest.Address = txtAddress.Text;
                     objCFEQForest.Lattitude = RblLatitude.SelectedValue;
@@ -304,7 +310,7 @@ namespace MeghalayaUIP.User.CFE
 
 
                     result = objcfebal.InsertCFEForestDet(objCFEQForest);
-                    ViewState["UnitID"] = result;
+                    //ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
@@ -331,7 +337,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx");
 
-                
+
             }
             catch (Exception ex)
             {

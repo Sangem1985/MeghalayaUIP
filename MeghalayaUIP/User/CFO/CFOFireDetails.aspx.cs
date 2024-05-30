@@ -28,10 +28,11 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["CFOUNITID"] = "1001";
-                UnitID = Convert.ToString(Session["CFOUNITID"]);
+
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
-                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                {
+                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                }
                 else
                 {
                     string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -50,8 +51,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1001";
+
             try
             {
                 string ErrorMsg = "", result = "";
@@ -59,11 +59,11 @@ namespace MeghalayaUIP.User.CFO
                 {
                     HOMEDEPARTMENT ObjCFOFireDepartment = new HOMEDEPARTMENT();
 
-                    { ObjCFOFireDepartment.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    ObjCFOFireDepartment.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOFireDepartment.CreatedBy = hdnUserID.Value;
                     ObjCFOFireDepartment.IPAddress = getclientIP();
-                    ObjCFOFireDepartment.Questionnariid = Quesstionriids;
-                    ObjCFOFireDepartment.UnitId = UnitId;
+                    ObjCFOFireDepartment.Questionnariid = Convert.ToString(Session["CFOQID"]);
+                    ObjCFOFireDepartment.UnitId = Convert.ToString(Session["CFOUNITID"]);
 
                     ObjCFOFireDepartment.BuildingName = txtName.Text;
                     ObjCFOFireDepartment.CategoryBuild = ddlCategory.SelectedValue;
@@ -89,11 +89,11 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOFireDepartment.FireStation = txtFire.Text;
 
                     result = objcfebal.InsertCFOFIREDEPT(ObjCFOFireDepartment);
-                    ViewState["UnitID"] = result;
+                    //ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO HOME DEPARTMENT Details Submitted Successfully";
+                        lblmsg.Text = "Fire Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -158,7 +158,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (string.IsNullOrEmpty(txtPlotAREA.Text) || txtPlotAREA.Text == "" || txtPlotAREA.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Plotarea\\n";
+                    errormsg = errormsg + slno + ". Please Enter Plot area\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtBreadth.Text) || txtBreadth.Text == "" || txtBreadth.Text == null)

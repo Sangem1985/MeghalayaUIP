@@ -29,8 +29,8 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["CFOUNITID"] = "1001";
-                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                //Session["CFOUNITID"] = "1001";
+                //UnitID = Convert.ToString(Session["CFOUNITID"]);
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
                 { UnitID = Convert.ToString(Session["CFOUNITID"]); }
                 else
@@ -88,9 +88,6 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1001";
-
             try
             {
                 string ErrorMsg = "", result = "";
@@ -98,11 +95,11 @@ namespace MeghalayaUIP.User.CFO
                 {
                     PublicWorKDepartment ObjCFOWorkDepartment = new PublicWorKDepartment();
 
-                    { ObjCFOWorkDepartment.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                    ObjCFOWorkDepartment.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOWorkDepartment.CreatedBy = hdnUserID.Value;
                     ObjCFOWorkDepartment.IPAddress = getclientIP();
-                    ObjCFOWorkDepartment.Questionnariid = Quesstionriids;
-                    ObjCFOWorkDepartment.UnitId = UnitId;
+                    ObjCFOWorkDepartment.Questionnariid = Convert.ToString(Session["CFOQID"]);
+                    ObjCFOWorkDepartment.UnitId = Convert.ToString(Session["CFOUNITID"]);
 
                     ObjCFOWorkDepartment.PurposeApplicant = rblPurApplication.SelectedValue;
                     ObjCFOWorkDepartment.ContractorReg = rblRegister.SelectedValue;
@@ -115,11 +112,11 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOWorkDepartment.Datework = txtContractor.Text;
 
                     result = objcfobal.InsertCFOPublicworkDetails(ObjCFOWorkDepartment);
-                    ViewState["UnitID"] = result;
+                  //  ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO Publick Work Details Submitted Successfully";
+                        lblmsg.Text = "Public Work Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }

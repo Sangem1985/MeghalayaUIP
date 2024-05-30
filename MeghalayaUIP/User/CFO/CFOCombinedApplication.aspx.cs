@@ -191,7 +191,7 @@ namespace MeghalayaUIP.User.CFO
                     RadioButtonList rbloffline = (RadioButtonList)row.FindControl("rblAlrdyObtained");
 
                     objCFOQsnaire.UNITID = Convert.ToString(Session["CFOUNITID"]);
-                    objCFOQsnaire.CFEQDID = hdnQuesid.Value;
+                    objCFOQsnaire.CFEQDID = Convert.ToString(Session["CFOQID"]);
                     objCFOQsnaire.DeptID = DeptID.Text;
                     objCFOQsnaire.ApprovalID = ApprovalID.Text;
                     objCFOQsnaire.ApprovalFee = row.Cells[3].Text;
@@ -419,7 +419,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         grdApprovalsCFO.DataSource = dsApprovals.Tables[0];
                         grdApprovalsCFO.DataBind();
-                        hdnQuesid.Value = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFOQA_CFOQDID"]);
+                        hdnQuesid.Value = Convert.ToString(Session["CFOQID"]);
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {

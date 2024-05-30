@@ -29,7 +29,7 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                UnitID = Convert.ToString(Session["CFOUNITID"]);
+                
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
                 {
                     UnitID = Convert.ToString(Session["CFOUNITID"]);
@@ -80,7 +80,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFOLD_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFOLD_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFOLD_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOLD_CREATEDBYIP"] = getclientIP();
                     dr["CFOLD_NAME"] = txtName.Text;
@@ -133,8 +133,8 @@ namespace MeghalayaUIP.User.CFO
 
         protected void savebtn_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1";
+           
+           
 
             try
             {
@@ -146,7 +146,7 @@ namespace MeghalayaUIP.User.CFO
                     int count = 0;
                     for (int i = 0; i < GVCFOLabour.Rows.Count; i++)
                     {
-                        ObjCFOLabourDet.Questionnariid = Quesstionriids;
+                        ObjCFOLabourDet.Questionnariid = Convert.ToString(Session["CFOQID"]);
                         ObjCFOLabourDet.CreatedBy = hdnUserID.Value;
                         ObjCFOLabourDet.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOLabourDet.IPAddress = getclientIP();
@@ -171,18 +171,12 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-
-
-
-
-
-
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    { ObjCFOLabourDet.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                                      
+                    ObjCFOLabourDet.UNITID = Convert.ToString(Session["CFOUNITID"]); 
                     ObjCFOLabourDet.CreatedBy = hdnUserID.Value;
                     ObjCFOLabourDet.IPAddress = getclientIP();
-                    ObjCFOLabourDet.Questionnariid = Quesstionriids;
-                    ObjCFOLabourDet.UnitId = UnitId;
+                    ObjCFOLabourDet.Questionnariid = Convert.ToString(Session["CFOQID"]);
+                    ObjCFOLabourDet.UnitId = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOLabourDet.DirectorateBoiler = RBLAPPROVED.SelectedValue;
                     ObjCFOLabourDet.Classification = ddlApplied.SelectedItem.Text;
                     ObjCFOLabourDet.ProvideDetails = txtProvide.Text;
@@ -242,11 +236,11 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.TotalNumberEMP = txtTotalEMP.Text;
 
                     result = objcfebal.InsertCFOLabourDetails(ObjCFOLabourDet);
-                    ViewState["UnitID"] = result;
+                    //ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO Labour Details Submitted Successfully";
+                        lblmsg.Text = "Labour Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -371,7 +365,7 @@ namespace MeghalayaUIP.User.CFO
         }
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
+            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx");
         }
     }
 }
