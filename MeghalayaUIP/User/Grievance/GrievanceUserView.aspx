@@ -3,6 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+											<li class="breadcrumb-item"><a href="Grievance.aspx">Grievance</a></li>
+                                            
+											<li class="breadcrumb-item active" aria-current="page">Grievance Status</li>
+										</ol>
+									</nav>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <div class="page-wrapper" style="">
         <div class="content container-fluid">

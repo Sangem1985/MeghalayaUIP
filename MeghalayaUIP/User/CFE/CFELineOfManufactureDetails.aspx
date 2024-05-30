@@ -9,6 +9,14 @@
     width: 100%;
 }
     </style>
+    <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+											<li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
+                                            
+											<li class="breadcrumb-item active" aria-current="page">Line of Manufacture Details and RawMaterial Details</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
 
         <div class="content container-fluid">

@@ -5749,7 +5749,7 @@ button.btn.btn-successgreen.btn-sm.mb-3 {
 
 div#txt {
 	color: #1b5a90;
-	font-weight: 700;
+	font-weight: 500;
 }
 button.btn {
 	border-radius: 4px !important;
@@ -6050,3 +6050,15 @@ spna.dots {
 }
 	
 	}
+
+ol.breadcrumb.mb-0 a, li.breadcrumb-item a {
+	color: #0b3654 !important;
+	font-weight: 600 !important;
+}
+li.breadcrumb-item.active {
+	font-weight: 600 !important;
+}
+i.fi.fi-br-sign-out-alt {
+	margin-top: 7px;
+	margin-right: 10px;
+}

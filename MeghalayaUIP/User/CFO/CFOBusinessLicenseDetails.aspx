@@ -3,13 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+											
+											<li class="breadcrumb-item active" aria-current="page">Pollution Control Board Details</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">POLLUTION CONTROL BOARD</h4>
+                            <h4 class="card-title">Pollution Control Board</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">

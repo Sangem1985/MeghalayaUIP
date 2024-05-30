@@ -5,11 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         span.icon, span.icon2, span.icon3 {
-            top: 35px !important;
+            top: 70px !important;
         }
 
         span.icon3 {
-            left: 485px !important;
+            left: 50% !important;
         }
 
         div#basictab2 input {
@@ -20,6 +20,13 @@
             padding: 2px 5px 2px 10px;
         }
     </style>
+     
+    <nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+											<li class="breadcrumb-item active" aria-current="page">Industry Registration</li>
+										</ol>
+									</nav>
     <div class="page-wrapper tabs">
 
         <div class="content container-fluid">
@@ -27,6 +34,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
+                        <div class="card-header">
+                        
+                            <h4 class="card-title"><b>Industry Registration with Invest Meghalaya Authority/MIIPP</b></h4>
+                        
+                            </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
                                 <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
