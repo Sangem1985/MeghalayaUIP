@@ -5749,7 +5749,7 @@ button.btn.btn-successgreen.btn-sm.mb-3 {
 
 div#txt {
 	color: #1b5a90;
-	font-weight: 700;
+	font-weight: 500;
 }
 button.btn {
 	border-radius: 4px !important;
@@ -6038,4 +6038,27 @@ spna.dots {
 	border-radius: 4px !important;
 	border: 1px solid #bedcde !important;
 	margin-left: 10px;
+}
+
+.table-responsive.CFEUSERDASHBOARD {
+	width: 102%;
+	margin-left: -12px;
+}
+	.table-responsive.CFEUSERDASHBOARD tr:hover {
+		td{
+	font-weight: 100 !important;
+}
+	
+	}
+
+ol.breadcrumb.mb-0 a, li.breadcrumb-item a {
+	color: #0b3654 !important;
+	font-weight: 600 !important;
+}
+li.breadcrumb-item.active {
+	font-weight: 600 !important;
+}
+i.fi.fi-br-sign-out-alt {
+	margin-top: 7px;
+	margin-right: 10px;
 }

@@ -99,6 +99,7 @@
     <Content Include="assets\admin\img\deptbg.png" />
     <Content Include="assets\admin\img\deptbg1.png" />
     <Content Include="assets\admin\img\deptbg2.png" />
+    <Content Include="assets\admin\img\emp.gif" />
     <Content Include="assets\admin\img\favicon.png" />
     <Content Include="assets\admin\img\home.png" />
     <Content Include="assets\admin\img\img-01.jpg" />

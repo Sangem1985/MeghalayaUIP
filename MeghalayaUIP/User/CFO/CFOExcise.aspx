@@ -4,6 +4,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.7/dist/sweetalert2.all.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+											
+											<li class="breadcrumb-item active" aria-current="page">Excise Department Details</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -243,25 +251,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Name & address of Distillery/ Brewery/Winery/Bottling Plant  *</label>
-                                            <div class="col-lg-3 d-flex">
+                                            <label class="col-lg-8 col-form-label">Name & address of Distillery/ Brewery/Winery/Bottling Plant*</label>
+                                            <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtBottlePlant" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex justify-content-center">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label"></label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Button ID="btnAdd" OnClick="btnAdd_Click" Text="Add Details" class="btn  btn-info btn-lg" runat="server" Fore-Color="White" BackColor="YellowGreen" />
-                                            </div>
-                                        </div>
+                                    <div class="col-md-2">
+                                        <asp:Button ID="btnAdd" OnClick="btnAdd_Click" Text="Add Details" class="btn btn-rounded btn-green btn-sm" runat="server" width="110px" />
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <asp:GridView ID="gvBrandDetails" OnRowDeleting="gvBrandDetails_RowDeleting" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
@@ -330,18 +332,18 @@
                                     </asp:GridView>
                                 </div>
 
-                                <div class="col-md-12" style="margin-top: 20px">
-                                    <div class="col-md-6">
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">The Country of Origin of the Liquor *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <div class="col-lg-6 d-flex">
+                                                
                                                     <asp:DropDownList runat="server" ID="ddlCountry" class="form-control">
                                                         <%--<asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Value="001">country1</asp:ListItem>
                                                         <asp:ListItem Value="002">Country2</asp:ListItem>--%>
                                                     </asp:DropDownList>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -356,27 +358,25 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex" id="MRPGRID" runat="server" visible="false">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4" id="MRPGRID" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of Brand :</label>
-                                            <div class="col-lg-4 d-flex">
+                                            <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtBrandName" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="col-md-12 d-flex justify-content-center">
-                                    <div class="col-md-4">
+                               
+                                <div class="col-md-12 d-flex justify-content-left">
+                                    
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label"></label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Button ID="AddBtn" OnClick="AddBtn_Click" Text="Add Details" class="btn  btn-info btn-lg" runat="server" Fore-Color="White" BackColor="YellowGreen" />
+                                            
+                                            <div class="col-lg-12 d-flex">
+                                                <asp:Button ID="AddBtn" OnClick="AddBtn_Click" Text="Add Details" class="btn btn-rounded btn-green btn-sm" runat="server" width="110px" />
                                             </div>
                                         </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <asp:GridView ID="GvLiquor" runat="server" AutoGenerateColumns="False" BorderColor="#003399" OnRowDeleting="GvLiquor_RowDeleting"
@@ -412,7 +412,7 @@
                                     </div>
                                     <div class="col-md-6" id="Brands" runat="server" visible="false">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">a.Original Year of Registration- From Date :</label>
+                                            <label class="col-lg-6 col-form-label">a. Original Year of Registration- From Date :</label>
                                             <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtFromDate" runat="server" class="form-control" Type="Date"></asp:TextBox>
                                             </div>
@@ -422,7 +422,7 @@
                                 <div class="col-md-12 d-flex" id="TodateReg" runat="server" visible="false">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">b.To Date  :</label>
+                                            <label class="col-lg-6 col-form-label">b. To Date :</label>
                                             <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtTodate" runat="server" class="form-control" Type="Date"></asp:TextBox>
                                             </div>
@@ -430,7 +430,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">c.Name and address of the Firm:*</label>
+                                            <label class="col-lg-6 col-form-label">c. Name and address of the Firm :*</label>
                                             <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtAddress" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -438,11 +438,11 @@
                                     </div>
 
                                 </div>
-                                <div class="col-md-12 d-flex mt-2">
+                                <div class="col-md-12 d-flex mt-2 mb-2 justify-content-end">
 
-                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn  btn-info btn-lg" Width="150px" />
-                                    <asp:Button ID="btnsave" OnClick="btnsave_Click" runat="server" Text="Save" class="btn btn-rounded btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" />
-                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn  btn-info btn-lg" Width="150px" />
+                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg mr-2" Width="150px" />
+                                    <asp:Button ID="btnsave" OnClick="btnsave_Click" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg ml-2" Width="150px" />
 
                                 </div>
                             </div>

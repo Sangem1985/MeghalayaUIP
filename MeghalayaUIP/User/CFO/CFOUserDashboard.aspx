@@ -3,6 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+											
+											<li class="breadcrumb-item active" aria-current="page">Pre-Operational</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
 
@@ -23,10 +30,10 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <h4>Approved Pre-Establishment Applications</h4>
 
-                    <div class="col-md-12 d-flex">
-                        <div class="table-radius">
+                    
+                        <div class="table-responsive CFEUSERDASHBOARD">
                         <asp:GridView ID="gvCFEApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
+                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover" ForeColor="#333333"
                             GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvCFEApproved_RowDataBound" ShowFooter="true">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -35,7 +42,7 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                     <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Left" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# Container.DataItemIndex + 1%>
                                     </ItemTemplate>
@@ -119,9 +126,9 @@
                             </div>
                     </div>
 
-                    <br />
+                    
 
-                </div>
+                
             </div>
         </div>
     </div>

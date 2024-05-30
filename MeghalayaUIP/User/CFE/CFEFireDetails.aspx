@@ -3,6 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+											<li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
+                                            
+											<li class="breadcrumb-item active" aria-current="page">Fire Details</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -11,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">FIRE Details</h3>
+                            <h3 class="card-title">Fire Details</h3>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">

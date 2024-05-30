@@ -3,6 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+											<li class="breadcrumb-item active" aria-current="page">Pre Establishment</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
 
@@ -23,21 +30,21 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <div class="col-md-12 d-flex">
                         <div class="col-md-11">
-                            <h4>Industry Registered with Invest Meghalaya Authority/MIIPP</h4>
+                            <h4 style="margin-left:-10px;">Industry Registered with Invest Meghalaya Authority/MIIPP</h4>
                         </div>
                         <div class="col-md-1">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
 
-
+                    <div class="table-responsive CFEUSERDASHBOARD">
 
                     <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated"  ShowFooter="true">
                         <RowStyle />
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                        <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                         <AlternatingRowStyle />
                         <Columns>
                             <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
@@ -87,7 +94,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Apply For Pre-Establishment Approvals">
                                 <ItemTemplate>
-                                    <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply" CssClass="btn btn-info btn-rounded" />
+                                    <asp:Button runat="server" ID="btnApplyCFE" OnClick="btnApplyCFE_Click" Text="Apply" CssClass="btn btn-info btn-rounded btn-sm" />
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
@@ -125,7 +132,7 @@
                         </Columns>
                     </asp:GridView>
 
-
+                        </div>
                     <asp:GridView ID="gvCFEApplied" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True">

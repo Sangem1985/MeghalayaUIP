@@ -4,13 +4,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/user.css" rel="stylesheet" />
+    <nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+										</ol>
+									</nav>
     <div class="page-wrapper griddesignmulticount">
 
         <div class="content container-fluid">
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title"><b>Welcome to Dashboard </b></h4>
+                    <h4 class="card-title"><b> Welcome to Dashboard </b></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
                     </h4>
@@ -48,17 +53,17 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
-                            <div class="col-md-12 d-flex mb-4 bg-default-light justify-content-around" style="border: 1px dotted #96ccf3; align-items: center; background-color: rgb(68 141 255 / 12%) !important;">
+                            <div class="col-md-12 d-flex mb-4 bg-default-light justify-content-around" style="border: 0px dotted #96ccf3; align-items: center; background-color: rgb(68 141 255 / 12%) !important;">
 
                                 <div class="col-md-6 d-flex" style="align-items: center;" runat="server" id="divUnit" visible="false">
-                                    <div class="col-md-3">Unit ID</div>
-                                    <div class="col-md-3" style="align-items: center;">
+                                    <div class="col-md-2">Unit ID</div>
+                                    <div class="col-md-4" style="align-items: center;">
                                         <spna class="dots">:</spna>
                                         <b>
                                             <asp:Label ID="lblUnitID" runat="server"></asp:Label></b>
                                     </div>
-                                    <div class="col-md-3" style="align-items: center;">Unit Name</div>
-                                    <div class="col-md-3" style="align-items: center;">
+                                    <div class="col-md-2" style="align-items: center;">Unit Name</div>
+                                    <div class="col-md-4" style="align-items: center;">
                                         <spna class="dots">:</spna>
                                         <b>
                                             <asp:Label ID="lblUnitName" runat="server"></asp:Label></b>
@@ -200,4 +205,12 @@
             </div>
         </div>
     </div>
+   <%--********end code******--%>
+  
+   
+
 </asp:Content>
+
+
+
+

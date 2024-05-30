@@ -3,6 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+											
+											<li class="breadcrumb-item active" aria-current="page">Payments Details</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -41,11 +49,12 @@
                                     <p>6. All the details regarding the payments are secure and confidential. We do not store the bank details entered by the entrepreneur.</p>
                                 </div>
                             </div>
-                            <div class="col-md-11">
+                           
+                            <div class="table-responsive ml-4">
                                 <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                    CssClass="GRD" ForeColor="#333333" Width="95%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
+                                    CssClass="GRD" ForeColor="#333333" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
                                     <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Center" VerticalAlign="Middle" />
                                     <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
@@ -85,6 +94,7 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
+                                
                             <div class="col-md-6">
                                 &nbsp;
                             </div>
