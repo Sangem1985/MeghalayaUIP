@@ -64,7 +64,7 @@
 
         ul.navbar-nav i.fi {
             position: absolute;
-            top: 15px;
+            top: 14px;
             margin-left: -18px;
         }
 
@@ -115,7 +115,7 @@
 
                         </body>
                     </li>
-                    <li class="ml-5 mt-3 mr-5">Help Line No : <b>03564 123456</b></li>
+                    <li class="ml-5 mt-3 mr-5"><i class="fi fi-br-headset"></i> Help Line No : <b>03564 123456</b></li>
                     <!-- /Notifications -->
 
                     <!-- User Menu -->
@@ -124,7 +124,7 @@
                             <span class="user-img">
 
                                 <%--<asp:ImageButton runat="server" ImageUrl="~/assets/admin/img/profiles/avatar-01.jpg" Width="31" CssClass="rounded-circle" />--%>
-                                <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>&nbsp;&nbsp;
+                                <i class="fi fi-br-user" style="color:#000;"></i> <asp:Label class="text-dark mb-3" ID="lblUser" runat="server"></asp:Label>&nbsp;&nbsp;
                             </span>
 
                         </a>
@@ -137,7 +137,7 @@
                                 <div class="user-text">
 
                                     <p class="text-muted mb-0">
-                                        <asp:Label class="text-dark mb-3" ID="lblPANno" runat="server"></asp:Label></p>
+                                        <i class="fi fi-br-user"></i> <asp:Label class="text-dark mb-3" ID="lblPANno" runat="server"></asp:Label></p>
                                 </div>
                             </div>
                             <%--<a class="dropdown-item" href="#">My Profile</a>
@@ -172,7 +172,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <%--<a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>--%>
-                                    <asp:LinkButton ID="linkland" runat="server" class="nav-link"><i class="fi fi-br-industry-alt"></i> Land Allotment <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkland" runat="server" class="nav-link"><i class="fi fi-br-land-layer-location"></i> Land Allotment <span class="sr-only">(current)</span></asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
@@ -185,7 +185,7 @@
 
                                 </li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="linkINC" runat="server"  class="nav-link"><i class="fi fi-br-operation"></i> Incentives </asp:LinkButton>
+                                    <asp:LinkButton ID="linkINC" runat="server"  class="nav-link"><i class="fi fi-br-tools"></i> Incentives </asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
