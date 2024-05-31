@@ -6,7 +6,20 @@
      <section class="about-us-section section-padding">
             <div class="container">
                 <div class="row">
-                    
+                     <table style="width: 100%">
+                                    <tr>
+                                        <td>
+                                            <div id="success" runat="server" visible="false" class="alert alert-success m-0" align="Center">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong>
+                                                <asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                            </div>
+                                            <div id="Failure" runat="server" visible="false" class="alert alert-danger m-0" align="Center">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
+                                                <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                     <div class="main-wrapper login-body">
                         <div class="login-wrapper">
                             <div class="container">
@@ -36,20 +49,7 @@
                                     <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" Text="Login" class="btn btn-primary btn-block" /> 
                                    <%-- <button class="btn btn-primary btn-block" type="submit">Login</button>--%>
 
-                                    <table style="width: 100%">
-                                    <tr>
-                                        <td>
-                                            <div id="success" runat="server" visible="false" class="alert alert-success m-0" align="Center">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong>
-                                                <asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                            </div>
-                                            <div id="Failure" runat="server" visible="false" class="alert alert-danger m-0" align="Center">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
-                                                <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                                   
                                 </div>
                             </form>
                             <!-- /Form -->

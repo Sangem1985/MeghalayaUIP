@@ -143,7 +143,30 @@ hr.horizontal.dark {
     top: 31%;
     font-size: 1.5rem;
 }
+.page-wrapper.deptcfeodeptdashboard i.fi {
+    color: #fff;
+    position: absolute;
+    left: 12px;
+    top: 11px;
+    transition: all 0.9s ease-in-out 0s;
+}
+.page-wrapper.cfodeptdashboard i.fi {
+    color: #fff;
+    position: absolute;
+    left: 12px;
+    top: 11px;
+    transition: all 0.9s ease-in-out 0s;
+}
 
+.page-wrapper.deptcfeodeptdashboard .card:hover {
+    i .fi
+
+{
+    /* transition: transform 1s cubic-bezier(0.1, 0.2, 0.3, 0.4); */
+    transform: rotateY(360deg);
+}
+
+}
 .material-icons {
     font-family: Material Icons Round;
     font-weight: 400;
