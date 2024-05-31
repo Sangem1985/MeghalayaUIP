@@ -856,5 +856,36 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstModules;
         }
+        public List<MasterCategoryEst> GetCategoryEST()
+        {
+            List<MasterCategoryEst> lstCategoryMstr = new List<MasterCategoryEst>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetCategoryEST);
+                while (drOptions.Read())
+                {
+                    var Category = new MasterCategoryEst()
+                    {
+
+                        CATEGORYEST_ID = Convert.ToString(drOptions["CATEGORYEST_ID"]),
+                        CATEGORYEST_NAME = Convert.ToString(drOptions["CATEGORYEST_NAME"])
+                    };
+                    lstCategoryMstr.Add(Category);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstCategoryMstr;
+        }
     }
 }
