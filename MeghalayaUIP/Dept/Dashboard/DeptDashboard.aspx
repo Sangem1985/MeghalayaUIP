@@ -2,6 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+										</ol>
+									</nav>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -33,7 +38,7 @@
                             <div class="col-md-3" id="Preestablishment" runat="server" visible="false">
                                 <div class="card-counter primary">
                                     <asp:LinkButton runat="server" ID="linkCFE" OnClick="linkCFE_Click">
-									<img src="../assets/admin/img/prl.png" alt="logo">
+									<img src="../../assets/admin/img/prl.png" alt="logo">
 									<span class="count-numbers">Pre-establishment<br /> Approval</span>
 									<span class="count-name"></span>
                                     </asp:LinkButton>
@@ -43,7 +48,7 @@
                             <div class="col-md-3" id="PreOperational" runat="server" visible="false">
                                 <div class="card-counter danger">
                                     <asp:LinkButton runat="server" ID="linkCFO" OnClick="linkCFO_Click">
-                                     <img src="../assets/admin/img/poa.png" alt="logo">
+                                     <img src="../../assets/admin/img/poa.png" alt="logo">
                                     <span class="count-numbers">Pre-Operational<br /> Approval</span>
                                     <span class="count-name"></span>
                                     </asp:LinkButton>
@@ -53,7 +58,7 @@
                             <div class="col-md-3" id="Grievance" runat="server" visible="true">
                                 <div class="card-counter success">
                                     <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click" >
-                                    <img src="../assets/admin/img/inc.png" alt="logo">
+                                    <img src="../../assets/admin/img/inc.png" alt="logo">
                                     <span class="count-numbers">Grievance</span>
                                     <span class="count-name"></span>
                                     </asp:LinkButton>

@@ -918,14 +918,14 @@ table.table.table-bordered.status tr.cy {
     background: linear-gradient(to bottom, #a33359 0%, #72062b 100%) !important;
     color: #fff;
 }
-i.fi {
+/*i.fi {
     position: absolute;
     top: 18px;
     right: 9px;
     font-size: 40px;
     opacity: 0.4;
     color: #f9f9f9;
-}
+}*/
 .card h3 {
   font-size: 20px;
   margin-left: 15px;

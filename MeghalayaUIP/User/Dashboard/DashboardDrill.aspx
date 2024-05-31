@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
-                            <div class="col-md-12 d-flex mb-4 bg-default-light justify-content-around" style="border: 0px dotted #96ccf3; align-items: center; background-color: rgb(68 141 255 / 12%) !important;">
+                            <div class="col-md-12 d-flex mb-3 bg-default-light justify-content-around" style="border: 0px dotted #96ccf3; align-items: center; background-color: rgb(68 141 255 / 12%) !important;">
 
                                 <div class="col-md-6 d-flex" style="align-items: center;" runat="server" id="divUnit" visible="false">
                                     <div class="col-md-2">Unit ID</div>
@@ -84,7 +84,7 @@
                                         <thead>
 
                                             <tr>
-                                                <th width="20%">Approvals</th>
+                                                <th width="25%">Approvals</th>
                                                 <th>Total Applications</th>
                                                 <th>Approved</th>
                                                 <th>Under Process</th>

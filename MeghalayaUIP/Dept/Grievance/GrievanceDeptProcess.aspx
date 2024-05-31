@@ -6,6 +6,9 @@
     <div class="page-wrapper" style="">
         <div class="content container-fluid">
             <div class="card">
+                <div class="card-header">
+                <h4 class="card-title ml-3 m-2">Grievence Department Process</h4> 
+                    </div>
                 <div class="card-body">
                     <div class="col-md-12 d-flex">
                         <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
@@ -20,9 +23,9 @@
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <asp:HiddenField ID="hdnGrvID" runat="server" />
-
-                    <h4>Grievence Department Process</h4>
-                    <div class="row">
+                           
+                    
+                    
                         <div class="col-md-12 d-flex">
                             <div class="col-md-4">
                                 <div class="form-group row">
@@ -42,8 +45,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12 d-flex">
                             <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
@@ -53,6 +54,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <div class="col-md-12 d-flex">
                             <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
@@ -62,9 +66,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="col-md-12 d-flex">
                             <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
@@ -103,8 +104,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12 d-flex">
                             <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
@@ -114,8 +113,8 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                        
                         <div class="col-md-12 d-flex">
                             <div class="col-md-8">
                                 <div class="form-group row">
@@ -126,10 +125,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="col-md-12 d-flex">
                             <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">Process:*</label>
@@ -142,6 +137,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="col-md-12 d-flex">
+                            
                             <div class="col-md-4">
                                 <div class="form-group row">
                                     <label class="col-lg-6 col-form-label">
@@ -162,16 +161,14 @@
                                 </div>
                             </div>
 
-
-                        </div>
-                        <div class="col-md-12 d-flex mt-2" id="padding">
-
-                            <div class="col-md-8 text-center">
-                                <asp:Button runat="server" Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Width="150px" />
+                            <div class="col-md-4 mb-3 text-center">
+                                <asp:Button runat="server" Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
 
                             </div>
                         </div>
-                    </div>
+                        
+                    
+                        
                 </div>
             </div>
         </div>

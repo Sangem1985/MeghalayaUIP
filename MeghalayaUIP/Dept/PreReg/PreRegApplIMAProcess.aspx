@@ -986,8 +986,8 @@ However, you can register your unit to get required approvals/ clearances.</asp:
 
                                 <div class="card">
                                     <div class="table-responsive">
-                                        <table align="Center" style="width: 100%; border-color: brown; align-content: center" class="table table-bordered mb-10">
-                                            <tr style="border-color: brown">
+                                        <table align="Center" style="width: 100%; align-content: center" class="table-hover table-bordered mb-10">
+                                            <tr>
                                                 <td><b>Name</b></td>
                                                 <td><b>Unit Name</b></td>
                                                 <td><b>Mobile No</b></td>
@@ -1026,7 +1026,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
 
 
                                                 <td>
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg" width="150px" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1071,7 +1071,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                     </asp:GridView>
                                                 </td>
                                                 <td>
-                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" OnClick="btnQuery_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" OnClick="btnQuery_Click" class="btn btn-rounded btn-submit btn-lg" />
                                                 </td>
                                             </tr>
                                         </table>

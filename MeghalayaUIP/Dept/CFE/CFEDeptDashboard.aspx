@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
-    <div class="page-wrapper">
+    <div class="page-wrapper deptcfeodeptdashboard">
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-header">

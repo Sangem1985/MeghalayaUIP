@@ -6062,3 +6062,7 @@ i.fi.fi-br-sign-out-alt {
 	margin-top: 7px;
 	margin-right: 10px;
 }
+.breadcrumb {
+	padding: .35rem 1rem !important;
+	
+}
