@@ -581,6 +581,7 @@
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
     <Content Include="User\Dashboard\DashboardDrill.aspx" />
+    <Content Include="User\Dashboard\Dashboardstatus.aspx" />
     <Content Include="User\Grievance\Grievance.aspx" />
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\MainDashboard.aspx" />
@@ -1149,6 +1150,13 @@
     </Compile>
     <Compile Include="User\Dashboard\DashboardDrill.aspx.designer.cs">
       <DependentUpon>DashboardDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Dashboard\Dashboardstatus.aspx.cs">
+      <DependentUpon>Dashboardstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Dashboard\Dashboardstatus.aspx.designer.cs">
+      <DependentUpon>Dashboardstatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Grievance\Grievance.aspx.cs">
       <DependentUpon>Grievance.aspx</DependentUpon>
