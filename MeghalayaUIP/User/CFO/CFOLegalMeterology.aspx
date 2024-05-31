@@ -4,13 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
-											
-											<li class="breadcrumb-item active" aria-current="page">Legal Metrology Department Details</li>
-										</ol>
-									</nav>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Legal Metrology Department Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -106,10 +106,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                     <div class="col-md-4">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">
-
                                             </label>
                                             <div class="col-lg-4 d-flex">
                                                 <asp:Button ID="btnAddDetails" Text="Add Details" class="btn btn-green btn-rounded" runat="server" OnClick="btnAddDetails_Click" />
@@ -122,7 +121,6 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label"></label>
                                             <div class="col-lg-6 d-flex">
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +156,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of establishment</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtESTDate" runat="server" class="form-control" type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtESTDate" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +179,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of registration *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtRegDate" runat="server" class="form-control" type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtRegDate" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +209,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of registration  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtDate" runat="server" class="form-control" type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtDate" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -219,365 +220,367 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Current Registration Number   *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtcurrentReg" runat="server" class="form-control" type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtcurrentReg" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Is it a partnership firm?   *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblFirm" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Is it a limited company?   *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Name</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtName" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Address  *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtAddress" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Manufacturing Details</span></label>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Categories of weights and measures sold/proposed to be sold at present</span></label>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Weights: *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtWeight" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Measures:  *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMeasure" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Weighting Instruments: *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtInstruWeight" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Professional Tax registration Number: *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtTaxReg" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">GST:  *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtGST" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">IT Number: *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtITNmumber" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblState" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblState_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="State" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Licence number: *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtLICNumber" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4" id="Country" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Registration of Importer of Weights and Measures : *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtRegWeight" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-7 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
-                                            <div class="col-lg-5">
-                                                <asp:RadioButtonList ID="rblstateside" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Within State" Value="Y" />
-                                                    <asp:ListItem Text="Outside State" Value="N" />
-                                                    <asp:ListItem Text="Both" Value="3" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Have you applied previously for a dealer's licence,either in this State or elsewhere ?   *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblDealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDealer_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="DealerLic" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Give details : *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtGiveDetails" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">The number of persons employed/proposed to be employed</span></label>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Skilled: </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtskilled" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Semi-skilled: </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtsemiskilled" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Unskilled: *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtunskilled" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Specialist trained in the line: </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txttrained" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-9 col-form-label">Details of machinery, tools accessories, owned and used for manufacturing weights measures etc:</label>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:TextBox ID="txtmanuowned" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Details of foundry/workshop facilities arranged Whether ownership, long term lease etc :*</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtownership" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Facilities of steel casting and hardness testing Vital parts etc or other means: </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtsteel" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Availability of electric energy  *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblelectric" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Have you applied previously for a manufacturer's licence? *</label>
-                                            <div class="col-lg-3">
-                                                <asp:RadioButtonList ID="rblLicdealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicdealer_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="applieddealer" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Give Details </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtDetails" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Do you received any loan from Government or financial Institution? *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblInstitute" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInstitute_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="NameBanker" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Name of bankers * </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtBanker" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="DetailsGet" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Give Details </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtGetDetails" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Have you sufficient stock of loan/test weights. etc.? *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblLoan" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLoan_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="weightloan" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Give Details </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtDetailsGET" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Have you applied previously for a repairer's licence? *</label>
-                                            <div class="col-lg-4">
-                                                <asp:RadioButtonList ID="rblRepaire" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRepaire_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                    <asp:ListItem Text="No" Value="N" />
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4" id="License" runat="server" visible="false">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">When and with what results?  </label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtResults" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-12 text-right mt-2 mb-2">
-
-                                    <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                    <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                    <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-
                                 </div>
                             </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Is it a partnership firm?   *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblFirm" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Is it a limited company?   *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Name</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtName" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Address  *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtAddress" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Manufacturing Details</span></label>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Categories of weights and measures sold/proposed to be sold at present</span></label>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Weights: *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtWeight" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Measures:  *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtMeasure" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Weighting Instruments: *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtInstruWeight" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Professional Tax registration Number: *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtTaxReg" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">GST:  *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtGST" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">IT Number: *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtITNmumber" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-lg-8 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblState" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblState_SelectedIndexChanged">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="State" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Licence number: *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtLICNumber" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4" id="Country" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Registration of Importer of Weights and Measures : *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtRegWeight" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-lg-7 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
+                                        <div class="col-lg-5">
+                                            <asp:RadioButtonList ID="rblstateside" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Within State" Value="Y" />
+                                                <asp:ListItem Text="Outside State" Value="N" />
+                                                <asp:ListItem Text="Both" Value="3" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Have you applied previously for a dealer's licence,either in this State or elsewhere ?   *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblDealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDealer_SelectedIndexChanged">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="DealerLic" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Give details : *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtGiveDetails" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">The number of persons employed/proposed to be employed</span></label>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Skilled: </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtskilled" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Semi-skilled: </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtsemiskilled" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Unskilled: *</label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtunskilled" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Specialist trained in the line: </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txttrained" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-lg-9 col-form-label">Details of machinery, tools accessories, owned and used for manufacturing weights measures etc:</label>
+                                        <div class="col-lg-3 d-flex">
+                                            <asp:TextBox ID="txtmanuowned" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-lg-6 col-form-label">Details of foundry/workshop facilities arranged Whether ownership, long term lease etc :*</label>
+                                    <div class="col-lg-6 d-flex">
+                                        <asp:TextBox ID="txtownership" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Facilities of steel casting and hardness testing Vital parts etc or other means: </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtsteel" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Availability of electric energy  *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblelectric" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Have you applied previously for a manufacturer's licence? *</label>
+                                        <div class="col-lg-3">
+                                            <asp:RadioButtonList ID="rblLicdealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicdealer_SelectedIndexChanged">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="applieddealer" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Give Details </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtDetails" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Do you received any loan from Government or financial Institution? *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblInstitute" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInstitute_SelectedIndexChanged">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="NameBanker" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Name of bankers * </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtBanker" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="DetailsGet" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Give Details </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtGetDetails" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 d-flex">
+
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Have you sufficient stock of loan/test weights. etc.? *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblLoan" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLoan_SelectedIndexChanged">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="weightloan" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Give Details </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtDetailsGET" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">Have you applied previously for a repairer's licence? *</label>
+                                        <div class="col-lg-4">
+                                            <asp:RadioButtonList ID="rblRepaire" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRepaire_SelectedIndexChanged">
+                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                <asp:ListItem Text="No" Value="N" />
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="License" runat="server" visible="false">
+                                    <div class="form-group row">
+                                        <label class="col-lg-6 col-form-label">When and with what results?  </label>
+                                        <div class="col-lg-6 d-flex">
+                                            <asp:TextBox ID="txtResults" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-right mt-2 mb-2">
+
+                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </asp:Content>

@@ -64,7 +64,7 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfobal.GetPaymentAmounttoPay(hdnUserID.Value, UnitID);
+                ds = objcfobal.GetPaymentAmounttoPay(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]));
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)

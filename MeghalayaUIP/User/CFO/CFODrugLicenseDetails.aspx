@@ -4,13 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
-											
-											<li class="breadcrumb-item active" aria-current="page">Health and Family Welfare Details</li>
-										</ol>
-									</nav>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Health and Family Welfare Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -72,7 +72,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">(i). Valid up to date Trading License(TNT)</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txttradeLic" runat="server" class="form-control" Type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txttradeLic" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -80,7 +81,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">(ii). Valid up to date permission from Municipallity/Contt.Board/Local Dorbar *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtClass" runat="server" class="form-control" Type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtClass" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -135,7 +137,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date for Inspection *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtInspection" runat="server" class="form-control" Type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtInspection" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -182,22 +185,22 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="table-responsive">
-                                    <asp:GridView ID="GVHealthy" runat="server" AutoGenerateColumns="False" 
-                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD table-hover table-striped" 
-                                        GridLines="None"
-                                        Width="100%" EnableModelValidation="True" Visible="false">
-                                        <RowStyle BackColor="#ffffff" />
-                                        <Columns>
-                                            <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Name" DataField="CFODM_EMPNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Qualification" DataField="CFODM_EMPQLFCATION" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Experience" DataField="CFODM_EMPEXPRNC" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                        <asp:GridView ID="GVHealthy" runat="server" AutoGenerateColumns="False"
+                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD table-hover table-striped"
+                                            GridLines="None"
+                                            Width="100%" EnableModelValidation="True" Visible="false">
+                                            <RowStyle BackColor="#ffffff" />
+                                            <Columns>
+                                                <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                <asp:BoundField HeaderText="Name" DataField="CFODM_EMPNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                <asp:BoundField HeaderText="Qualification" DataField="CFODM_EMPQLFCATION" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                <asp:BoundField HeaderText="Experience" DataField="CFODM_EMPEXPRNC" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                        </Columns>
-                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                        <AlternatingRowStyle BackColor="White" />
-                                    </asp:GridView>
-                                        </div>
+                                            </Columns>
+                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                            <AlternatingRowStyle BackColor="White" />
+                                        </asp:GridView>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Details Of Technical Staff Employed For Testing</span></label>
@@ -244,10 +247,10 @@
                                         GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
                                         <RowStyle BackColor="#ffffff" />
                                         <Columns>
-                                            
-                                            <asp:BoundField HeaderText="Name" DataField="CFODT_EMPNAME" ItemStyle-Width="40%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"  />
-                                            <asp:BoundField HeaderText="Qualification" DataField="CFODT_EMPQLFCATION" ItemStyle-Width="30%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"  />
-                                            <asp:BoundField HeaderText="Experience" DataField="CFODT_EMPEXPRNC" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"  />
+
+                                            <asp:BoundField HeaderText="Name" DataField="CFODT_EMPNAME" ItemStyle-Width="40%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Qualification" DataField="CFODT_EMPQLFCATION" ItemStyle-Width="30%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Experience" DataField="CFODT_EMPEXPRNC" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
 
                                         </Columns>
@@ -271,7 +274,7 @@
                                         <asp:Button ID="ADDBTN" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="ADDBTN_Click" Width="110px" />
                                     </div>
                                 </div>
-                               <%-- <div class="col-md-12 d-flex justify-content-center">
+                                <%-- <div class="col-md-12 d-flex justify-content-center">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-10 col-form-label"></label>

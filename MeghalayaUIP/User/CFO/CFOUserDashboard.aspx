@@ -4,12 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-											
-											<li class="breadcrumb-item active" aria-current="page">Pre-Operational</li>
-										</ol>
-									</nav>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Pre-Operational</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
 
@@ -30,8 +30,8 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <h4>Approved Pre-Establishment Applications</h4>
 
-                    
-                        <div class="table-responsive CFEUSERDASHBOARD">
+
+                    <div class="table-responsive CFEUSERDASHBOARD">
                         <asp:GridView ID="gvCFEApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover" ForeColor="#333333"
                             GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvCFEApproved_RowDataBound" ShowFooter="true">
@@ -92,7 +92,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="View Approvals Required" ItemStyle-Width="12%" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnCombndAppl"  Text="Approvals Required" CssClass="btn btn-info btn-rounded" />
+                                        <asp:Button runat="server" ID="btnCombndAppl" Text="Approvals Required" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -123,12 +123,12 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
-                            </div>
                     </div>
+                </div>
 
-                    
 
-                
+
+
             </div>
         </div>
     </div>
