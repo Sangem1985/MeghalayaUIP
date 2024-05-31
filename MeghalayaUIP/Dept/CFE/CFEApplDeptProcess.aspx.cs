@@ -103,6 +103,8 @@ namespace MeghalayaUIP.Dept.CFE
                     lblApplNo.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
                     lblapplDate.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
                     lbl_Name1.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+                    lbl_Name1Approval.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+
                     lblunitname1Approval.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
                     lblApplNoApproval.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
                     lblapplDateApproval.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
@@ -575,6 +577,7 @@ namespace MeghalayaUIP.Dept.CFE
                 {
                     if (ddlapproval.SelectedValue == "16")
                     {
+                        
                         if ((ddlapproval.SelectedValue == "16") && (string.IsNullOrWhiteSpace(txtRejection.Text) || txtRejection.Text == "" || txtRejection.Text == null))
                         {
                             if (ddlapproval.SelectedValue == "16")
@@ -659,8 +662,10 @@ namespace MeghalayaUIP.Dept.CFE
                 }
                 if (ddlapproval.SelectedValue == "16")
                 {
+                    tdbtnreject.Visible = true;
+                    tdapprovalAction.Visible = true;
                     trapproval.Visible = false;
-                    trapprovalupload.Visible = false;
+                   // trapprovalupload.Visible = false;
                     trrejection.Visible = true;
                     txtRejection.Visible = true;
                     tdapproverejection.Visible = true;
@@ -668,17 +673,20 @@ namespace MeghalayaUIP.Dept.CFE
                     tdapprovalAction.Visible = true;
                     btnreject.Visible = true;
                     btnApprove.Visible = false;
+                    TRAPPROVE.Visible = false;
                 }
                 else
                 {
                     trapproval.Visible = true;
-                    trapprovalupload.Visible = true;
+                   // trapprovalupload.Visible = true;
                     trrejection.Visible = false;
                     txtRejection.Visible = false;
                     tdapproverejection.Visible = false;
                     tdapprovalAction.Visible = false;
                     btnreject.Visible = false;
                     btnApprove.Visible = true;
+                    TRAPPROVE.Visible = true;
+                    tdbtnreject.Visible = false;
                 }
 
             }
@@ -721,6 +729,7 @@ namespace MeghalayaUIP.Dept.CFE
                         result = objcfebal.InsertCFEAttachments(objBldngPlan);
                         if (result != "")
                         {
+                            tdhyperlink.Visible = true;
                             hplApproval.Text = fuApproval.PostedFile.FileName;
                             hplApproval.NavigateUrl = serverpath;
                             hplApproval.Target = "blank";

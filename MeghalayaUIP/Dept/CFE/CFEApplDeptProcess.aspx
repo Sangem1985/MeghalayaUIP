@@ -1409,30 +1409,19 @@
                                     <section id="dashboardAttachmnt">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-12">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0">
-                                                            <%--<thead>
-                                                                <tr>
-                                                                    <th>Attachment Name</th>
-                                                                    <th>Status</th>
-                                                                </tr>
-                                                            </thead>--%>
-
-
-
-                                                            <tr>
-                                                                <td class="fw-bold" colspan="2">
-                                                                    <div class="col-md-12">
+                                              
+                                                   
+                                                        
+                                                                    <div class="table-responsive">
                                                                         <asp:GridView ID="grdcfeattachment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                                            GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
+                                                                            GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                                             <RowStyle />
-                                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                                            
                                                                             <Columns>
                                                                                 <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                                    <ItemStyle HorizontalAlign="Center" />
                                                                                     <ItemTemplate>
                                                                                         <%# Container.DataItemIndex + 1%>
                                                                                     </ItemTemplate>
@@ -1449,17 +1438,11 @@
                                                                             </Columns>
                                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                                         </asp:GridView>
-                                                                        <%--<div class="table-responsive">                                                      
-                                                       </div>--%>
+                                                                       
                                                                     </div>
-                                                                </td>
-                                                            </tr>
-
-
-
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                                                
+                                                    
+                                                
 
                                             </div>
                                         </div>
@@ -1589,14 +1572,14 @@
 
                                                     <div class="table-responsive">
                                                         <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
                                                             GridLines="Both" Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
-                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                            
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                    <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
@@ -1675,7 +1658,7 @@
 
 
                                                 <td>
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </td>
 
                                             </tr>
@@ -1695,7 +1678,7 @@
                                                 <td id="tdapproverejection" runat="server" visible="false"><b>
                                                     <asp:Label runat="server" Text="Please Enter RejectionReason" ID="Label1"></asp:Label></b>
                                                 </td>
-                                                <td id="tdapprovalAction" runat="server" visible="true">
+                                                <td id="tdapprovalAction" runat="server" visible="false">
                                                     <b>Submit Action</b>
                                                 </td>
                                             </tr>
@@ -1720,34 +1703,43 @@
                                                 <td style="vertical-align: central" id="trrejection" runat="server" visible="false">
                                                     <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
                                                 </td>
-                                                <td>
-                                                    <asp:Button ID="btnreject" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                <td id="tdbtnreject" runat="server" visible="false">
+                                                    <asp:Button ID="btnreject" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </td>
                                             </tr>
                                             <tr id="trapproval" runat="server" visible="false">
                                                 <td>
-                                                    <label>Reference No</label>
+                                                    <label class="mt-2">Reference No :</label>
                                                 </td>
-                                                <td>:
+                                                
+                                                <td>
+                                                    <asp:TextBox runat="server" ID="txtreferenceno" class="form-control mt-2"></asp:TextBox>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="txtreferenceno" class="form-control"></asp:TextBox>
+                                                    <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" CssClass="mt-2" />
+                                               <asp:Button runat="server" ID="btnUpldapproval" OnClick="btnUpldapproval_Click" Text="Upload" class="btn btn-rounded btn-dark btn-sm mt-2" Width="110px" />
+                                                    </td>
+                                                <td colspan="2">
+                                                    
                                                 </td>
-                                            </tr>
-                                            <tr id="trapprovalupload" runat="server" visible="false">
-                                                <td>
-                                                    <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" />
-                                                </td>
-                                                <td>
-                                                    <asp:Button runat="server" ID="btnUpldapproval" OnClick="btnUpldapproval_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
-                                                </td>
-                                                <td>
+                                                <td runat="server" id="tdhyperlink" visible="false">
                                                     <asp:HyperLink ID="hplApproval" runat="server" Target="_blank"></asp:HyperLink>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr id="trapprovalupload" runat="server" visible="false">
+                                                <%--<td>
+                                                    <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" />
+                                                </td>
                                                 <td>
-                                                    <asp:Button ID="btnApprove" runat="server" Text="Submit" OnClick="btnApprove_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Visible="false" />
+                                                    <asp:Button runat="server" ID="btnUpldapproval" OnClick="btnUpldapproval_Click" Text="Upload" class="btn btn-rounded btn-dark btn-sm" Width="110px" />
+                                                </td>
+                                                <td runat="server" id="tdhyperlink" visible="false">
+                                                    <asp:HyperLink ID="hplApproval" runat="server" Target="_blank"></asp:HyperLink>
+                                                </td>--%>
+                                            </tr>
+                                            <tr runat="server" id="TRAPPROVE" visible="false">
+                                                <td colspan="5">
+                                                    <asp:Button ID="btnApprove" runat="server" Text="Submit" OnClick="btnApprove_Click" class="btn btn-rounded btn-submit btn-lg m-2" Width="150px"  />
                                                 </td>
                                             </tr>
                                         </table>

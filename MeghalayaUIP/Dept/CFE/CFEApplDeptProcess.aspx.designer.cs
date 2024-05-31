@@ -1590,6 +1590,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.TextBox txtRejection;
 
         /// <summary>
+        /// tdbtnreject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdbtnreject;
+
+        /// <summary>
         /// btnreject control.
         /// </summary>
         /// <remarks>
@@ -1617,15 +1626,6 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.TextBox txtreferenceno;
 
         /// <summary>
-        /// trapprovalupload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trapprovalupload;
-
-        /// <summary>
         /// fuApproval control.
         /// </summary>
         /// <remarks>
@@ -1644,6 +1644,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Button btnUpldapproval;
 
         /// <summary>
+        /// tdhyperlink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdhyperlink;
+
+        /// <summary>
         /// hplApproval control.
         /// </summary>
         /// <remarks>
@@ -1651,6 +1660,24 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplApproval;
+
+        /// <summary>
+        /// trapprovalupload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trapprovalupload;
+
+        /// <summary>
+        /// TRAPPROVE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TRAPPROVE;
 
         /// <summary>
         /// btnApprove control.
