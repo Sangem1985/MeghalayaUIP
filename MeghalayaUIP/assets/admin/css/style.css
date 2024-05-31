@@ -6066,3 +6066,6 @@ i.fi.fi-br-sign-out-alt {
 	padding: .35rem 1rem !important;
 	
 }
+div#accordion .table-responsive a {
+	color: #3F51B5;
+}

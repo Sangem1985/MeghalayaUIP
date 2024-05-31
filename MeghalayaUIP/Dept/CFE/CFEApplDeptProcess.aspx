@@ -1409,30 +1409,19 @@
                                     <section id="dashboardAttachmnt">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-12">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0">
-                                                            <%--<thead>
-                                                                <tr>
-                                                                    <th>Attachment Name</th>
-                                                                    <th>Status</th>
-                                                                </tr>
-                                                            </thead>--%>
-
-
-
-                                                            <tr>
-                                                                <td class="fw-bold" colspan="2">
-                                                                    <div class="col-md-12">
+                                              
+                                                   
+                                                        
+                                                                    <div class="table-responsive">
                                                                         <asp:GridView ID="grdcfeattachment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                                            GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
+                                                                            GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                                             <RowStyle />
-                                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                                            
                                                                             <Columns>
                                                                                 <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                                    <ItemStyle HorizontalAlign="Center" />
                                                                                     <ItemTemplate>
                                                                                         <%# Container.DataItemIndex + 1%>
                                                                                     </ItemTemplate>
@@ -1449,17 +1438,11 @@
                                                                             </Columns>
                                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                                         </asp:GridView>
-                                                                        <%--<div class="table-responsive">                                                      
-                                                       </div>--%>
+                                                                       
                                                                     </div>
-                                                                </td>
-                                                            </tr>
-
-
-
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                                                
+                                                    
+                                                
 
                                             </div>
                                         </div>
@@ -1589,14 +1572,14 @@
 
                                                     <div class="table-responsive">
                                                         <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
                                                             GridLines="Both" Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
-                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                            
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                    <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
