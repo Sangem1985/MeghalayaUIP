@@ -119,15 +119,15 @@ namespace MeghalayaUIP.User.CFE
                     HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
                     HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
                     if (hplAppld.Text != "0")
-                        hplAppld.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
+                        hplAppld.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
                     if (hplApprvd.Text != "0")
-                        hplApprvd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
+                        hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
                     if (hplUndrPrc.Text != "0")
-                        hplUndrPrc.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
+                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
                     if (hplRejctd.Text != "0")
-                        hplRejctd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
+                        hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
+                        hplQryRaised.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
 
                     int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
                     TotApplied = TotApplied + TotalAppl;
@@ -230,7 +230,7 @@ namespace MeghalayaUIP.User.CFE
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     HeaderCell = new TableHeaderCell();
-                    HeaderCell.ColumnSpan = 2;
+                    HeaderCell.ColumnSpan = 3;
                     HeaderCell.RowSpan = 1;
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
@@ -294,7 +294,7 @@ namespace MeghalayaUIP.User.CFE
                 Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
                 Session["CFEUNITID"] = lblunitId.Text;
                 Session["CFEQID"] = lblcfeqid.Text;
-                string newurl = "CFECommonApplication.aspx";
+                string newurl = "CFEApplDetails.aspx";
                 Response.Redirect(newurl);
             }
             catch (Exception ex)

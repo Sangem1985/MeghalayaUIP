@@ -549,6 +549,7 @@
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
     <Content Include="stateprofile.aspx" />
+    <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
@@ -580,6 +581,7 @@
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
     <Content Include="User\Dashboard\DashboardDrill.aspx" />
+    <Content Include="User\Dashboard\Dashboardstatus.aspx" />
     <Content Include="User\Grievance\Grievance.aspx" />
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\MainDashboard.aspx" />
@@ -925,6 +927,13 @@
     <Compile Include="stateprofile.aspx.designer.cs">
       <DependentUpon>stateprofile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEApplDetails.aspx.cs">
+      <DependentUpon>CFEApplDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEApplDetails.aspx.designer.cs">
+      <DependentUpon>CFEApplDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1141,6 +1150,13 @@
     </Compile>
     <Compile Include="User\Dashboard\DashboardDrill.aspx.designer.cs">
       <DependentUpon>DashboardDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Dashboard\Dashboardstatus.aspx.cs">
+      <DependentUpon>Dashboardstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Dashboard\Dashboardstatus.aspx.designer.cs">
+      <DependentUpon>Dashboardstatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Grievance\Grievance.aspx.cs">
       <DependentUpon>Grievance.aspx</DependentUpon>
@@ -1667,7 +1683,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Documents\" />
+    <Folder Include="Documents\Application\" />
+    <Folder Include="Documents\Prerequistes\" />
+    <Folder Include="Documents\Rules\" />
+    <Folder Include="Documents\SOP\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

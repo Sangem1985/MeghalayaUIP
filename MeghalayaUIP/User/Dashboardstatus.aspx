@@ -9,7 +9,8 @@
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title">Welcome to Dashboard <asp:Label ID="lblType" runat="server"></asp:Label></h4>
+                    <h4 class="card-title">Welcome to Dashboard
+                        <asp:Label ID="lblType" runat="server"></asp:Label></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
                     </h4>
@@ -36,34 +37,34 @@
                                             <div class="col-md-2">1. Unit ID</div>
 
                                             <div class="col-md-3 fw-bold text-info">
-                                                <spna class="dots">:</spna><asp:Label ID="lblUnitID"  runat="server"></asp:Label>
+                                                <spna class="dots">:</spna><asp:Label ID="lblUnitID" runat="server"></asp:Label>
                                             </div>
                                             <div class="col-md-1">&nbsp;</div>
                                             <div class="col-md-3">3. Date of Unit Application</div>
 
                                             <div class="col-md-3">
-                                                <spna class="dots">:</spna><asp:Label ID="lblDOA"  runat="server"></asp:Label>
+                                                <spna class="dots">:</spna><asp:Label ID="lblDOA" runat="server"></asp:Label>
                                             </div>
                                         </div>
                                         <div class="col-md-12 row mt-2 mb-4">
                                             <div class="col-md-2">2. Unit Name</div>
 
                                             <div class="col-md-3 fw-bold text-info">
-                                                <spna class="dots">:</spna><asp:Label ID="lblUnitNmae"  runat="server"></asp:Label>
+                                                <spna class="dots">:</spna><asp:Label ID="lblUnitNmae" runat="server"></asp:Label>
                                             </div>
                                             <div class="col-md-1">&nbsp;</div>
                                             <div class="col-md-3">4. Category of Industry</div>
 
                                             <div class="col-md-3">
-                                                <spna class="dots">:</spna><asp:Label ID="lblProjCategory" Text="Mega Project"  runat="server"></asp:Label>
+                                                <spna class="dots">:</spna><asp:Label ID="lblProjCategory" Text="Mega Project" runat="server"></asp:Label>
                                             </div>
                                         </div>
 
-                                      
+
                                         <div class="col-md-12 d-flex">
                                             <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
                                                 OnRowCreated="grdTrackerDetails_RowCreated" EnableModelValidation="True" Width="100%">
-                                                <HeaderStyle BackColor="#3b4474" ForeColor="White"  />
+                                                <HeaderStyle BackColor="#3b4474" ForeColor="White" />
                                                 <AlternatingRowStyle />
                                                 <Columns>
                                                     <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="S.No">
@@ -111,7 +112,7 @@
                                                         <ItemTemplate>
                                                             <%--<asp:HyperLink ID="HyperLinkSubsidy" Text='<%#Eval("Status of Approval Approved Rejected")%>'
                                                         NavigateUrl='<%#Eval("ApprovalDocNEW")%>' Target="_blank" runat="server" />--%>
-                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' NavigateUrl='<%#Eval("ApprovalDoc")%>' Target="_blank"  runat="server" Visible="true" ></asp:HyperLink>
+                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' NavigateUrl='<%#Eval("ApprovalDoc")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
                                                         </ItemTemplate>
                                                         <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
