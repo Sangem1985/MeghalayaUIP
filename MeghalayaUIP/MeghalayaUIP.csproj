@@ -548,6 +548,7 @@
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
     <Content Include="stateprofile.aspx" />
+    <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
@@ -923,6 +924,13 @@
     </Compile>
     <Compile Include="stateprofile.aspx.designer.cs">
       <DependentUpon>stateprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEApplDetails.aspx.cs">
+      <DependentUpon>CFEApplDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEApplDetails.aspx.designer.cs">
+      <DependentUpon>CFEApplDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
