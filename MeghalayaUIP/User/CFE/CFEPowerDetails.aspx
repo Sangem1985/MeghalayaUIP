@@ -3,14 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-											<li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Power Details</li>
-										</ol>
-									</nav>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Power Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -42,7 +43,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1. Connected Load in KW*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtHP" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtHP" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                 <span class="form-text text-muted mt-2 ml-2"></span>
                                                 <!-- <span class="mt-2">HP</span> -->
                                             </div>
@@ -52,7 +53,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">2. Contracted Maximum Demand in KVA *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMaxDemand" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtMaxDemand" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +92,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1. Per Day*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMaxhours" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtMaxhours" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +100,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">2. Per Month*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMonth" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtMonth" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +128,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">5. Quantum of energy/load required (in KW) *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtenergy" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtenergy" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

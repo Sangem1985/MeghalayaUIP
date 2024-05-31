@@ -54,14 +54,14 @@
 
         });
     </script>
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-											<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Industry Details</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Industry Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -501,7 +501,7 @@
                                             <label class="col-lg-6 col-form-label">2.	Architect License No.*</label>
                                             <div class="col-lg-6 d-flex">
 
-                                                <asp:TextBox ID="txtArchitectLicNo" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtArchitectLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
 
                                         </div>
@@ -521,7 +521,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">4.	Structural Engineer Name</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtStrEngnrName" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtStrEngnrName" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
                                             </div>
 
                                         </div>
@@ -530,7 +530,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">5.	Structural License No.</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtStrLicNo" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtStrLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -668,7 +668,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">1. Length of road to be cut:(in mtrs) *</label>
                                             <div class="col-lg-6">
-                                                <asp:TextBox ID="txtRdCutlenght" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtRdCutlenght" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

@@ -3,14 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-											<li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
-											<li class="breadcrumb-item active" aria-current="page">Questionnaire</li>
-										</ol>
-									</nav>
-<div class="page-wrapper tabs cfequestionnaire">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Questionnaire</li>
+        </ol>
+    </nav>
+    <div class="page-wrapper tabs cfequestionnaire">
 
         <div class="content container-fluid">
             <section class="comp-section">
@@ -23,16 +24,16 @@
                                     *All Fields Are
 										Mandatory
                                 </p>
-                                
+
                             </div>
-                            
+
                             <div class="card-body">
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
-                                
 
-                                
+
+
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
@@ -48,9 +49,9 @@
                                         <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                     3. Project Requirements</asp:LinkButton></li>
                                 </ul>
-                               
-                                
-                                
+
+
+
                                 <div class="tab-content">
                                     <asp:MultiView ID="MVQues" runat="server" OnActiveViewChanged="MVQues_ActiveViewChanged">
                                         <asp:View ID="viewProjDtls" runat="server">
@@ -66,7 +67,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         1. Name of Unit</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -75,7 +76,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         2.Company Type</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control">
+                                                                        <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onkeypress="return Names()">
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
@@ -153,7 +154,7 @@
 																		Extent of Land<br />
                                                                         (in sq.m)</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox ID="txtLandArea" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtLandArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -163,7 +164,7 @@
                                                                         9. Built up
 																		Area (In Sq.m)</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -207,8 +208,8 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         13. Whether land purchased from MIDCL</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <div class="form-check form-check-inline "> 
-                                                                            <asp:RadioButtonList ID="rblMIDCL" runat="server" RepeatDirection="Horizontal"  >
+                                                                        <div class="form-check form-check-inline ">
+                                                                            <asp:RadioButtonList ID="rblMIDCL" runat="server" RepeatDirection="Horizontal">
                                                                                 <asp:ListItem Text="Yes" Value="1" />
                                                                                 <asp:ListItem Text="No" Value="2" />
                                                                             </asp:RadioButtonList>
@@ -224,7 +225,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         14. Location of the unit</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
                                                                     </div>
                                                                 </div>
 
@@ -266,7 +267,7 @@
                                                                         1. Proposed
 																		Employment</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtPropEmp" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -460,16 +461,16 @@
                                         <asp:View ID="viewProjReq" runat="server">
                                             <div class="tab-pane active" id="basictab3">
                                                 <div class="col-md-12 d-flex mt-2 justify-content-center">
-                                    <div id="success" runat="server" visible="false" class="alert alert-success " align="Center">
-                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex mt-2 justify-content-center">
-                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
-                                        <strong>Warning!</strong>
-                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                    </div>
-                                </div>
+                                                    <div id="success" runat="server" visible="false" class="alert alert-success " align="Center">
+                                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex mt-2 justify-content-center">
+                                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                                        <strong>Warning!</strong>
+                                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                                    </div>
+                                                </div>
                                                 <div class="card-body">
                                                     <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
                                                     <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
@@ -510,7 +511,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         3. Height of the building(in Meters)</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -529,7 +530,7 @@
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                 <label class="col-lg-6 col-form-label">
+                                                                    <label class="col-lg-6 col-form-label">
                                                                         5. Do you manufacture, store, sale, transport explosives</label>
                                                                     <div class="col-lg-6 d-flex radio">
                                                                         <asp:RadioButtonList ID="rblexplosives" runat="server" RepeatDirection="Horizontal">
@@ -638,7 +639,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">10c. Aggregate Capacity:</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
 
                                                                     </div>
                                                                 </div>
@@ -692,7 +693,7 @@
                                                                          (Girth of tree > 30
 																		centimeters)</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtNoofTrees" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtNoofTrees" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
 
                                                                     </div>
                                                                 </div>
@@ -756,7 +757,7 @@
                                                                         <td></td>
                                                                         <td align="right">No of Workers</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txt1970Workers" runat="server" class="form-control"></asp:TextBox>
+                                                                            <asp:TextBox ID="txt1970Workers" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                                                         </td>
                                                                     </tr>
 
@@ -775,7 +776,7 @@
                                                                         <td></td>
                                                                         <td align="right">No of Workers</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txt1979Workers" runat="server" class="form-control"></asp:TextBox></td>
+                                                                            <asp:TextBox ID="txt1979Workers" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox></td>
                                                                     </tr>
 
                                                                     <tr>
@@ -805,7 +806,7 @@
                                                                         <td></td>
                                                                         <td align="right">No of Workers</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txt1996Workers" runat="server" class="form-control"></asp:TextBox></td>
+                                                                            <asp:TextBox ID="txt1996Workers" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox></td>
                                                                     </tr>
 
                                                                     <tr>
@@ -824,7 +825,7 @@
                                                                         <td></td>
                                                                         <td align="right">No of Workers</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control"></asp:TextBox></td>
+                                                                            <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>16 e.</td>
@@ -844,13 +845,9 @@
                                                                         <td></td>
                                                                         <td align="right">No of Workers</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control"></asp:TextBox></td>
-                                                                    </tr>
-
+                                                                            <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox></td>
+                                                                    </tr>s
                                                                 </tbody>
-
-
-
                                                             </table>
                                                         </div>
 
@@ -890,53 +887,50 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                    CssClass="GRD table-bordered table-hover" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" HorizontalAlign="Center" VerticalAlign="Middle">
-                                    <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                    <RowStyle CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
-                                    
-                                    <Columns>
-                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                            <ItemTemplate>
-                                                <%# Container.DataItemIndex + 1%>
-                                            </ItemTemplate>
-                                            <HeaderStyle HorizontalAlign="Center" />
-                                            <ItemStyle Width="50px" />
-                                        </asp:TemplateField>
-                                        <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
-                                            <ItemStyle Width="750px" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
-                                            <ItemStyle Width="280px" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Left" HeaderText="Fees (Rs.)">
-                                            <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
-                                            <HeaderStyle HorizontalAlign="Right" />
-                                            <ItemStyle CssClass="GRDITEM2" Width="100px" HorizontalAlign="Left" />
-                                        </asp:BoundField>
-                                        <asp:TemplateField HeaderText="Approval ID" Visible="false">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText=" Dept ID" Visible="false">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("TMD_DEPTID") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
-                                    </div>
+                                    <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                        CssClass="GRD table-bordered table-hover" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound" HorizontalAlign="Center" VerticalAlign="Middle">
+                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                        <RowStyle CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+
+                                        <Columns>
+                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1%>
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle Width="50px" />
+                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
+                                                <ItemStyle Width="750px" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
+                                                <ItemStyle Width="280px" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Left" HeaderText="Fees (Rs.)">
+                                                <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                                <ItemStyle CssClass="GRDITEM2" Width="100px" HorizontalAlign="Left" />
+                                            </asp:BoundField>
+                                            <asp:TemplateField HeaderText="Approval ID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText=" Dept ID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("TMD_DEPTID") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-
-
-
         </div>
     </div>
 </asp:Content>
+
