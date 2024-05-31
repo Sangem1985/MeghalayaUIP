@@ -230,7 +230,7 @@ namespace MeghalayaUIP.User.CFE
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     HeaderCell = new TableHeaderCell();
-                    HeaderCell.ColumnSpan = 2;
+                    HeaderCell.ColumnSpan = 3;
                     HeaderCell.RowSpan = 1;
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
@@ -294,7 +294,7 @@ namespace MeghalayaUIP.User.CFE
                 Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
                 Session["CFEUNITID"] = lblunitId.Text;
                 Session["CFEQID"] = lblcfeqid.Text;
-                string newurl = "CFECommonApplication.aspx";
+                string newurl = "CFEApplDetails.aspx";
                 Response.Redirect(newurl);
             }
             catch (Exception ex)
