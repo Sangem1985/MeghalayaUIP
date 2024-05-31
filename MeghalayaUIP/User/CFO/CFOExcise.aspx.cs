@@ -3,6 +3,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -47,6 +48,23 @@ namespace MeghalayaUIP.User.CFO
                     success.Visible = false;
                     if (!IsPostBack)
                     {
+                        DataSet dsnew = new DataSet();
+                        dsnew = bal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "7");
+                        if (dsnew.Tables[0].Rows.Count > 0)
+                        {
+
+                        }
+                        else
+                        {
+                            if (Request.QueryString[0].ToString() == "N")
+                            {
+                                Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                            }
+                            else
+                            {
+                                Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
+                            }
+                        }
                         BindCountry();
                     }
                 }

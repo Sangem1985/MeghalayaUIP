@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFOLabourDetails : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFOBAL objcfebal = new CFOBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,7 +45,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    DataSet dsnew = new DataSet();
+                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "10");
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
 
+                    }
+                    else
+                    {
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx?Previous=P");
+                        }
+                    }
                 }
             }
         }
@@ -159,7 +175,7 @@ namespace MeghalayaUIP.User.CFO
                         ObjCFOLabourDet.HALFDAY = GVCFOLabour.Rows[i].Cells[7].Text;
                         ObjCFOLabourDet.FULLDAY = GVCFOLabour.Rows[i].Cells[8].Text;
 
-                        string A = objcfebal.InsertCFOlabourContractor(ObjCFOLabourDet);
+                        string A = objcfobal.InsertCFOlabourContractor(ObjCFOLabourDet);
                         if (A != "")
                         { count = count + 1; }
                     }
@@ -235,7 +251,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.employeeswork = rblestemployee.SelectedValue;
                     ObjCFOLabourDet.TotalNumberEMP = txtTotalEMP.Text;
 
-                    result = objcfebal.InsertCFOLabourDetails(ObjCFOLabourDet);
+                    result = objcfobal.InsertCFOLabourDetails(ObjCFOLabourDet);
                     //ViewState["UnitID"] = result;
                     if (result != "")
                     {
@@ -355,7 +371,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx");
+                Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx?Previous=P");
             }
             catch (Exception ex)
             {
@@ -365,7 +381,7 @@ namespace MeghalayaUIP.User.CFO
         }
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx");
+            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
         }
     }
 }

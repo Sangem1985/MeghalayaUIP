@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFOProffessionalTax : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFOBAL objcfebal = new CFOBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,6 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["CFOUNITID"] = "1001";
                 UnitID = Convert.ToString(Session["CFOUNITID"]);
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
                 { UnitID = Convert.ToString(Session["CFOUNITID"]); }
@@ -44,7 +43,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    DataSet dsnew = new DataSet();
+                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "6");
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
 
+                    }
+                    else
+                    {
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
+                        }
+                    }
                 }
             }
         }
@@ -135,7 +150,7 @@ namespace MeghalayaUIP.User.CFO
 
 
 
-                        string A = objcfebal.INSERTCFOSTATETAX(ObjCFOPROFESSIONALTAX);
+                        string A = objcfobal.INSERTCFOSTATETAX(ObjCFOPROFESSIONALTAX);
                         if (A != "")
                         { count = count + 1; }
                     }
@@ -161,7 +176,7 @@ namespace MeghalayaUIP.User.CFO
 
 
 
-                        string A = objcfebal.INSERTCFOCOUNTRYTAX(ObjCFOPROFESSIONALTAX);
+                        string A = objcfobal.INSERTCFOCOUNTRYTAX(ObjCFOPROFESSIONALTAX);
                         if (A != "")
                         { count1 = count + 1; }
                     }
@@ -187,7 +202,7 @@ namespace MeghalayaUIP.User.CFO
 
 
 
-                        string A = objcfebal.INSERTCFOFOREIGNTAX(ObjCFOPROFESSIONALTAX);
+                        string A = objcfobal.INSERTCFOFOREIGNTAX(ObjCFOPROFESSIONALTAX);
                         if (A != "")
                         { count2 = count + 1; }
                     }
@@ -238,7 +253,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOPROFESSIONALTAX.RegisrationNo = TXTRegNo.Text;
 
 
-                    result = objcfebal.InsertCFOProfessionalTax(ObjCFOPROFESSIONALTAX);
+                    result = objcfobal.InsertCFOProfessionalTax(ObjCFOPROFESSIONALTAX);
                     ViewState["UnitID"] = result;
                     if (result != "")
                     {
@@ -502,12 +517,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOFireDetails.aspx");
+            Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx");
+            Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
         }
     }
 }

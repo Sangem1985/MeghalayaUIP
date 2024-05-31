@@ -408,12 +408,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx");
+            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx");
+            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
         }
     }
 }

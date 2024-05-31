@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFOBusinessLicenseDetails : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFOBAL objcfebal = new CFOBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,7 +45,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    DataSet dsnew = new DataSet();
+                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "12");
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
 
+                    }
+                    else
+                    {
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFOExcise.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFOFireDetails.aspx?Previous=P");
+                        }
+                    }
                 }
             }
         }
@@ -176,7 +192,7 @@ namespace MeghalayaUIP.User.CFO
                         ObjCFOPollutionControl.MainCategory = GVPollution.Rows[i].Cells[1].Text;
                         ObjCFOPollutionControl.SubCategory = GVPollution.Rows[i].Cells[2].Text;
                         ObjCFOPollutionControl.Fees = GVPollution.Rows[i].Cells[3].Text;
-                        string A = objcfebal.InsertCFOPollutionControlBoard(ObjCFOPollutionControl);
+                        string A = objcfobal.InsertCFOPollutionControlBoard(ObjCFOPollutionControl);
                         if (A != "")
                         { count = count + 1; }
                     }
@@ -208,7 +224,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOPollutionControl.TotalAmount = txtAmount.Text;
 
 
-                    result = objcfebal.InsertCFOPollutioncontrol(ObjCFOPollutionControl);
+                    result = objcfobal.InsertCFOPollutioncontrol(ObjCFOPollutionControl);
                     // ViewState["UnitID"] = result;
                     if (result != "")
                     {
@@ -244,12 +260,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOFireDetails.aspx");
+            Response.Redirect("~/User/CFO/CFOFireDetails.aspx?Previous=P");
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOExcise.aspx");
+            Response.Redirect("~/User/CFO/CFOExcise.aspx?next=N");
         }
     }
 }

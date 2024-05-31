@@ -51,14 +51,14 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else
                     {
-                        //if (Request.QueryString[0].ToString() == "N")
-                        //{
-                        //    Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
-                        //}
-                        //else
-                        //{
-                        //    Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
-                        //}
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
+                        }
                     }
                 }
             }
@@ -368,12 +368,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx");
+            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOLabourDetails.aspx");
+            Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
         }
     }
 }

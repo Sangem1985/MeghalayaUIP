@@ -3,6 +3,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +14,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFOFireDetails : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFOBAL objcfebal = new CFOBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,6 +45,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    DataSet dsnew = new DataSet();
+                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "9");
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
+
+                    }
+                    else
+                    {
+                        if (Request.QueryString[0].ToString() == "N")
+                        {
+                            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
+                        }
+                    }
                     BindDistricts();
                 }
             }
@@ -88,7 +106,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOFireDepartment.DistanceSOUTH = txtDistSouth.Text;
                     ObjCFOFireDepartment.FireStation = txtFire.Text;
 
-                    result = objcfebal.InsertCFOFIREDEPT(ObjCFOFireDepartment);
+                    result = objcfobal.InsertCFOFIREDEPT(ObjCFOFireDepartment);
                     //ViewState["UnitID"] = result;
                     if (result != "")
                     {
@@ -398,12 +416,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx");
+            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx");
+            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
         }
     }
 }

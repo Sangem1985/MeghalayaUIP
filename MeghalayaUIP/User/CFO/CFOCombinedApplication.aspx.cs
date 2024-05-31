@@ -299,7 +299,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOLabourDetails.aspx");
+                Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?next=N");
             }
             catch (Exception ex)
             {
