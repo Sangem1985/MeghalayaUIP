@@ -59,6 +59,7 @@ namespace MeghalayaUIP.Dept.CFE
                 string INVESTERID = Arguents[1];
                 string UNITID = Arguents[2];
                 string ApprovalID = Arguents[3];
+                string DEPTID = Arguents[4];
                 int stage = 3;
 
                 objcfedtls.Questionnaireid = CFEQDID;
@@ -69,6 +70,7 @@ namespace MeghalayaUIP.Dept.CFE
                 Session["stage"] = stage;
                 Session["UNITID"] = UNITID;
                 Session["ApprovalID"] = ApprovalID;
+                Session["DEPTID"] = DEPTID;
                 Response.Redirect("CFEApplDeptProcess.aspx?status=" + Request.QueryString["status"].ToString());
             }
         }

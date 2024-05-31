@@ -1412,25 +1412,51 @@
                                                 <div class="col-md-12">
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered mb-0">
-                                                            <thead>
+                                                            <%--<thead>
                                                                 <tr>
                                                                     <th>Attachment Name</th>
                                                                     <th>Status</th>
                                                                 </tr>
-                                                            </thead>
-                                                            <tbody>
+                                                            </thead>--%>
 
 
-                                                                <tr>
-                                                                    <td class="fw-bold">DPR</td>
 
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-rounded btn-green" style="width:150px;">View</button>
-                                                                    </td>
-                                                                </tr>
+                                                            <tr>
+                                                                <td class="fw-bold" colspan="2">
+                                                                    <div class="col-md-12">
+                                                                        <asp:GridView ID="grdcfeattachment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                                            GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                                            <RowStyle />
+                                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                                            <Columns>
+                                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                                    <ItemTemplate>
+                                                                                        <%# Container.DataItemIndex + 1%>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:BoundField HeaderText="File Name" DataField="CFMA_NAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
+                                                                                <asp:TemplateField HeaderText="View">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:HyperLink runat="server" ID="hplApplied" Target="_blank" Text='<%#Eval("CFEA_FILENAME")%>' NavigateUrl='<%#Eval("FILENAME")%>'/>
+                                                                                    </ItemTemplate>
+                                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                                </asp:TemplateField>
+                                                                              
+                                                                            </Columns>
+                                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                                        </asp:GridView>
+                                                                        <%--<div class="table-responsive">                                                      
+                                                       </div>--%>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
 
 
-                                                            </tbody>
+
                                                         </table>
                                                     </div>
                                                 </div>
@@ -1576,10 +1602,10 @@
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
 
-                                                                <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Department ID" DataField="Dept_Id" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
+                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />                                                                
                                                                 <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Approval Name" DataField="ApprovalName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             </Columns>
