@@ -270,6 +270,17 @@ namespace MeghalayaUIP.Dept.CFE
                         lblDivision.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_FORESTDIVISION"]);
                         lblinformation.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_INFORMATION"]);
                     }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
+                    {
+                        grdcfeattachment.DataSource = ds.Tables[7];
+                        grdcfeattachment.DataBind();
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
+                    {
+                        grdApplStatus.DataSource = ds.Tables[8];
+                        grdApplStatus.DataBind();
+                    }
+
                 }
 
             }
@@ -689,7 +700,7 @@ namespace MeghalayaUIP.Dept.CFE
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + Session["INVESTERID"].ToString() + "\\"
-                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + "31" + "\\");
+                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + Session["ApprovalID"] + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -699,8 +710,8 @@ namespace MeghalayaUIP.Dept.CFE
                         CFEAttachments objBldngPlan = new CFEAttachments();
                         objBldngPlan.UNITID = Convert.ToString(Session["UNITID"]);
                         objBldngPlan.Questionnareid = Session["Questionnaireid"].ToString();
-                        objBldngPlan.ApprovalID = "31";
-                        objBldngPlan.DeptID = "0";
+                        objBldngPlan.ApprovalID = Session["ApprovalID"].ToString();
+                        objBldngPlan.DeptID = Session["DEPTID"].ToString();
                         objBldngPlan.FilePath = serverpath + fuApproval.PostedFile.FileName;
                         objBldngPlan.FileName = fuApproval.PostedFile.FileName;
                         objBldngPlan.FileType = fuApproval.PostedFile.ContentType;

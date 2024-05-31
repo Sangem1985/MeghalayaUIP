@@ -461,7 +461,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Estimated date of commencement *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEStdate" runat="server" class="form-control" type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtEStdate" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -469,7 +470,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Ending Date    *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEndDate" runat="server" class="form-control" type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtEndDate" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -525,7 +527,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Order Date  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtOrderDate" runat="server" class="form-control" type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtOrderDate" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>

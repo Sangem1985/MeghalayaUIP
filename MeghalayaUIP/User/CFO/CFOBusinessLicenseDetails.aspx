@@ -50,7 +50,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of Establishment  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtaddress" runat="server" class="form-control" Type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtaddress" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>

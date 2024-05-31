@@ -105,16 +105,16 @@ namespace MeghalayaUIP.User.CFO
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
                     HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
                     HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
-                    if (hplAppld.Text != "0")
-                        hplAppld.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
-                    if (hplApprvd.Text != "0")
-                        hplApprvd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
-                    if (hplUndrPrc.Text != "0")
-                        hplUndrPrc.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
-                    if (hplRejctd.Text != "0")
-                        hplRejctd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
-                    if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
+                    //if (hplAppld.Text != "0")
+                    //    hplAppld.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
+                    //if (hplApprvd.Text != "0")
+                    //    hplApprvd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
+                    //if (hplUndrPrc.Text != "0")
+                    //    hplUndrPrc.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
+                    //if (hplRejctd.Text != "0")
+                    //    hplRejctd.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
+                    //if (hplQryRaised.Text != "0")
+                    //    hplQryRaised.NavigateUrl = "~/User/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
 
                     int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
                     TotApplied = TotApplied + TotalAppl;
@@ -138,10 +138,10 @@ namespace MeghalayaUIP.User.CFO
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
                         btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
                         btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Style.Add("border", "none");
-                        btnApplstatus.Style.Add("color", "black");
+                        //btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                        //btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                       // btnApplstatus.Style.Add("border", "none");
+                        //btnApplstatus.Style.Add("color", "black");
                     }
                     else
                     {
@@ -173,7 +173,24 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnApplStatus_Click(object sender, EventArgs e)
         {
-          
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblcfeqid = (Label)row.FindControl("lblCFOQID");
+                Session["CFOUNITID"] = lblunitId.Text;
+                Session["CFOQID"] = lblcfeqid.Text;
+                string newurl = "CFOUserApplStatus.aspx";
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
 
         }
 
