@@ -96,8 +96,9 @@
                     </a>
 
                 </div>
-                <p style="display: contents;margin-top: 26px !important;line-height: 60px;color: #190966;font-style: italic;font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"State Single Window System for Business Approvals"</p>
+                <img src="../../assets/admin/img/NIS.png" style="width:10%;margin-left: 8%;" class="mt-1" />
+                <%--<p style="display: contents;margin-top: 26px !important;line-height: 60px;color: #190966;
+font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br /> Business Approvals"</p>--%>
                 <!-- /Logo -->
                 <!-- Mobile Menu Toggle -->
                 <a class="mobile_btn" id="mobile_btn">
@@ -106,6 +107,8 @@
                 <!-- /Mobile Menu Toggle -->
                
                 <!-- Header Right Menu -->
+                <%--<p style="display: contents;margin-top: 26px !important;line-height: 60px;color: #190966;
+font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br /> Business Approvals"</p>--%>
                 <ul class="nav user-menu">
 
                     <!-- Notifications -->

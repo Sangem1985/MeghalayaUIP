@@ -96,6 +96,7 @@
     <Content Include="assets\admin\img\dbg4.jpg" />
     <Content Include="assets\admin\img\dbghead.jpg" />
     <Content Include="assets\admin\img\dbghead11.jpg" />
+    <Content Include="assets\admin\img\dbhead1.jpg" />
     <Content Include="assets\admin\img\deptbg.png" />
     <Content Include="assets\admin\img\deptbg1.png" />
     <Content Include="assets\admin\img\deptbg2.png" />
@@ -109,6 +110,7 @@
     <Content Include="assets\admin\img\logo-small.png" />
     <Content Include="assets\admin\img\logo.png" />
     <Content Include="assets\admin\img\logo_1.png" />
+    <Content Include="assets\admin\img\NIS.png" />
     <Content Include="assets\admin\img\opendashboard.gif" />
     <Content Include="assets\admin\img\opendashboard1.gif" />
     <Content Include="assets\admin\img\opendashboard2.gif" />
