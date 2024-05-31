@@ -119,6 +119,7 @@
     <Content Include="assets\admin\img\prl.png" />
     <Content Include="assets\admin\img\profiles\avatar-01.jpg" />
     <Content Include="assets\admin\img\search.gif" />
+    <Content Include="assets\admin\img\ss.gif" />
     <Content Include="assets\admin\js\bootstrap-datetimepicker.min.js" />
     <Content Include="assets\admin\js\bootstrap.js" />
     <Content Include="assets\admin\js\bootstrap.min.js" />
