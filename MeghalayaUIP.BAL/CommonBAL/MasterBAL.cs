@@ -98,5 +98,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetMasterModules();
         }
+        public List<MasterCategoryEst> GetCategoryEST()
+        {
+            return objMasterDAL.GetCategoryEST();
+        }
     }
 }

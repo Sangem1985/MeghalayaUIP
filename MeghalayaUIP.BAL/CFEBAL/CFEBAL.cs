@@ -128,6 +128,31 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public DataSet GetUserCFEApplStatus(string Userid, string UNITID)
         { return objCFEDAL.GetUserCFEApplStatus( Userid,  UNITID); }
 
+        public DataSet GetRetriveCFELabourDet(string userid, string UNITID)
+        {
+            return objCFEDAL.GetRetriveCFELabourDet(userid, UNITID);
+        }
+        public DataSet GetRetriveCFEMigrantDetails(string userid, string UNITID)
+        {
+            return objCFEDAL.GetRetriveCFEMigrantDetails(userid, UNITID);
+        }
+        public string InsertCFElabourContractor(Labour_Details ObjCFELabourDet)
+        {
+            return objCFEDAL.InsertCFElabourContractor(ObjCFELabourDet);
+        }
+        public DataSet GetRetriveCFELabourContractorDet(string userid, string UNITID)
+        {
+            return objCFEDAL.GetRetriveCFELabourContractorDet(userid, UNITID);
+        }
+        public string InsertMigrantDetails(Labour_Details ObjCFELabourDet)
+        {
+            return objCFEDAL.InsertMigrantDetails(ObjCFELabourDet);
+        }
+        public string InsertCFELabourDetails(Labour_Details ObjCFELabourDet)
+        {
+            return objCFEDAL.InsertCFELabourDetails(ObjCFELabourDet);
+        }
+
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public DataTable GetCFEDashBoard(CFEDtls objCFE)
