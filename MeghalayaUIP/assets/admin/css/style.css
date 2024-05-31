@@ -1777,6 +1777,7 @@ button.bg-danger:hover {
 	margin: 0;
 	position: relative;
 	z-index: 99;
+	font-size:14px;
 }
 
 .user-menu.nav>li>a {
@@ -1801,7 +1802,7 @@ button.bg-danger:hover {
 	display: inline-block;
 	margin-right: 3px;
 	position: relative;
-	margin-top: 3px;
+	margin-top: 6px;
 	font-weight: 500;
 }
 
@@ -6068,4 +6069,8 @@ i.fi.fi-br-sign-out-alt {
 }
 div#accordion .table-responsive a {
 	color: #3F51B5;
+}
+
+.page-wrapper.cfeuserapplstatus.icons .col-xl-2 .card {
+	height: 108px;
 }

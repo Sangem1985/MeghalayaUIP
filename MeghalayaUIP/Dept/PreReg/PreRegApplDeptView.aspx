@@ -10,8 +10,9 @@
             <div class="card">
                 <div class="card-body">
                     <h4>View Industry Registration Applications</h4>
+                    <div class="table-responsive">
                     <asp:GridView ID="gvPreRegDtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered" ForeColor="#333333"
                         GridLines="None" OnRowCommand="gvPreRegDtls_RowCommand"
                         Width="100%" EnableModelValidation="True">
                         <RowStyle />
@@ -45,6 +46,7 @@
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                         <AlternatingRowStyle BackColor="White" />
                     </asp:GridView>
+                        </div>
                 </div>
             </div>
 
