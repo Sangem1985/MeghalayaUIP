@@ -85,11 +85,11 @@
 
                                             <tr>
                                                 <th width="25%">Approvals</th>
-                                                <th>Total Applications</th>
-                                                <th>Approved</th>
-                                                <th>Under Process</th>
-                                                <th>Rejected</th>
-                                                <th>Query</th>
+                                                <th width="15%">Total Applications</th>
+                                                <th width="15%">Approved</th>
+                                                <th width="15%">Under Process</th>
+                                                <th width="15%">Rejected</th>
+                                                <th width="15%">Query</th>
                                             </tr>
                                         </thead>
                                         <tbody>

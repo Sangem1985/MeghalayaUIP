@@ -6065,7 +6065,7 @@ i.fi.fi-br-sign-out-alt {
 }
 .breadcrumb {
 	padding: .35rem 1rem !important;
-	
+	margin-bottom: 0.45rem;
 }
 div#accordion .table-responsive a {
 	color: #3F51B5;

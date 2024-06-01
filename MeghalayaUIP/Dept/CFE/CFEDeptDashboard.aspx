@@ -4,6 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
+     <nav aria-label="breadcrumb">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+											<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
+                                            
+											<li class="breadcrumb-item active" aria-current="page">Department Dashboard</li>
+										</ol>
+									</nav>
     <div class="page-wrapper deptcfeodeptdashboard">
         <div class="content container-fluid">
             <div class="card">

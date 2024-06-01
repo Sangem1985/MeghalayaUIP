@@ -45,9 +45,7 @@
             visibility: hidden;
         }
 
-        .col-md-2 {
-            padding: 0px;
-        }
+        
 
         div#collapseOne h4 {
             margin-bottom: 5px;
@@ -271,6 +269,8 @@
                                                         </div>
 
                                                     </div>
+
+
                                                     <h4 class="card-title1 col-lg-12">Location of Unit</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
@@ -479,17 +479,7 @@
 
                                                     </div>
 
-                                                    <%--   <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px;text-align: left;">
-						<div class="col-md-2"><label></label></div>
-						<div class="col-md-2"><spna class="dots">:</spna></div>
-
-						<div class="col-md-2"><label></label></div>
-						<div class="col-md-2"><spna class="dots">:</spna></div>
-
-                        <div class="col-md-2"><label></label></div>
-						<div class="col-md-2"><spna class="dots">:</spna></div>
-                        
-					     </div>--%>
+                                                  
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
                                                             <label>19. Land Area (in Sq.ft)</label>
