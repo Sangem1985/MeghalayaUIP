@@ -60,6 +60,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// div_39_46 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_39_46;
+
+        /// <summary>
         /// rblApplication control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtCapacity;
 
         /// <summary>
+        /// div_license control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_license;
+
+        /// <summary>
         /// rblLicense control.
         /// </summary>
         /// <remarks>
@@ -123,6 +141,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtspecifyLICNo;
 
         /// <summary>
+        /// div_52 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_52;
+
+        /// <summary>
         /// rblinsection control.
         /// </summary>
         /// <remarks>
@@ -148,6 +175,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInspection;
+
+        /// <summary>
+        /// div_Staff_Manf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Staff_Manf;
 
         /// <summary>
         /// txtName control.
@@ -195,6 +231,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.GridView GVHealthy;
 
         /// <summary>
+        /// div_Staff_Test control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Staff_Test;
+
+        /// <summary>
         /// txtNameTest control.
         /// </summary>
         /// <remarks>
@@ -238,6 +283,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVTESTING;
+
+        /// <summary>
+        /// div_48 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_48;
 
         /// <summary>
         /// txtNameDrug control.

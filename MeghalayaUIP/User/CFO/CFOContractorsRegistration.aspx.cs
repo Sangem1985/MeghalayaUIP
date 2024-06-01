@@ -68,12 +68,15 @@ namespace MeghalayaUIP.User.CFO
             {
                 director.Visible = true;
                 applicant.Visible = true;
+                circle.Visible = false;
+                division.Visible = false;
             }
             else if (rblRegister.SelectedValue == "2")
             {
                 applicant.Visible = true;
                 director.Visible = true;
                 circle.Visible = true;
+                division.Visible = false;
             }
             else if (rblRegister.SelectedValue == "3")
             {
