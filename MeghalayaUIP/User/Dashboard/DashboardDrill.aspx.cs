@@ -56,6 +56,10 @@ namespace MeghalayaUIP.User.Dashboard
                 ddlUnitNames.DataValueField = "UNITID";
                 ddlUnitNames.DataBind();
                 AddSelect(ddlUnitNames);
+                if (Request.QueryString.Count > 0)
+                { ddlUnitNames.SelectedValue = Request.QueryString[0]; }
+                UnitID = ddlUnitNames.SelectedValue;
+                ddlUnitNames_SelectedIndexChanged(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
@@ -380,6 +384,20 @@ namespace MeghalayaUIP.User.Dashboard
                 Failure.Visible = true;
             }
 
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Dashboard/MainDashboard.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
         }
     }
 }

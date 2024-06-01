@@ -5,20 +5,28 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/user.css" rel="stylesheet" />
     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb">
-											<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-										</ol>
-									</nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+    </nav>
     <div class="page-wrapper griddesignmulticount">
 
         <div class="content container-fluid">
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title"><b> Welcome to Dashboard </b></h4>
+                    <h4 class="card-title"><b>Welcome to Dashboard </b></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
                     </h4>
+                </div>
+                <div class="col-md-12 d-flex">
+                    <div class="col-md-11">
+                        <h4 style="margin-left: -10px;"></h4>
+                    </div>
+                    <div class="col-md-1">
+                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    </div>
                 </div>
                 <div class="col-md-12 d-flex card mb-2 pb-0" style="background: #f3f3f3; border-radius: 0px; display: flex !important; flex-wrap: nowrap; flex-direction: row;">
                     <div class="col-md-6 justify-content-around" style="align-items: center;">
@@ -205,10 +213,7 @@
             </div>
         </div>
     </div>
-   <%--********end code******--%>
-  
-   
-
+    <%--********end code******--%>
 </asp:Content>
 
 
