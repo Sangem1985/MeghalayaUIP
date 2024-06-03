@@ -551,6 +551,7 @@
     <Content Include="stateprofile.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
+    <Content Include="User\CFE\CFEDGSetDetails.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
     <Content Include="User\CFE\CFEIndustryDetails.aspx" />
@@ -562,6 +563,7 @@
     <Content Include="User\CFE\CFEUploadEnclosures.aspx" />
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
     <Content Include="User\CFE\CFEUserDashboard.aspx" />
+    <Content Include="User\CFE\CFEWaterDetails.aspx" />
     <Content Include="User\CFE\demo.aspx" />
     <Content Include="User\CFO\CFOBusinessLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOCombinedApplication.aspx" />
@@ -942,6 +944,13 @@
     <Compile Include="User\CFE\CFECommonApplication.aspx.designer.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEDGSetDetails.aspx.cs">
+      <DependentUpon>CFEDGSetDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEDGSetDetails.aspx.designer.cs">
+      <DependentUpon>CFEDGSetDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEFireDetails.aspx.cs">
       <DependentUpon>CFEFireDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1018,6 +1027,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEUserDashboard.aspx.designer.cs">
       <DependentUpon>CFEUserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEWaterDetails.aspx.cs">
+      <DependentUpon>CFEWaterDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEWaterDetails.aspx.designer.cs">
+      <DependentUpon>CFEWaterDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>

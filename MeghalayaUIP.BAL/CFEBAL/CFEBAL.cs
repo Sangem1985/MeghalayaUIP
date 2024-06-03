@@ -82,7 +82,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEForestDet(objCFEQForest);
         }
-        public string InsertCFEWaterDetails(CFEWater ObjCFEWater)
+        public string InsertCFEWaterDetails(Water_Details ObjCFEWater)
         {
             return objCFEDAL.InsertCFEWaterDetails(ObjCFEWater);
         }
@@ -126,7 +126,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public DataSet GetCFEAttachmentsData(string userid, string UNITID)
         { return objCFEDAL.GetCFEAttachmentsData(userid, UNITID); }
         public DataSet GetUserCFEApplStatus(string Userid, string UNITID)
-        { return objCFEDAL.GetUserCFEApplStatus( Userid,  UNITID); }
+        { return objCFEDAL.GetUserCFEApplStatus(Userid, UNITID); }
 
         public DataSet GetRetriveCFELabourDet(string userid, string UNITID)
         {
@@ -152,6 +152,16 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFELabourDetails(ObjCFELabourDet);
         }
+        public DataSet GetAppliedApprovalIDs(string userid, string UNITID, string QusestionnaireID, string DeptID)
+        { return objCFEDAL.GetAppliedApprovalIDs(userid, UNITID, QusestionnaireID, DeptID); }
+        //public string InsertCFEWaterDetails(Water_Details ObjCFEWater)
+        //{
+        //    return objCFEDAL.InsertCFEWaterDetails(ObjCFEWater);
+        //}
+        public DataSet GetWaterDetailos(string userid, string UNITID)
+        {
+            return objCFEDAL.GetWaterDetailos(userid, UNITID);
+        }
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
@@ -170,6 +180,8 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public string UpdateCFEDepartmentProcess(CFEDtls Objcfedtls)
         {
             return objCFEDAL.UpdateCFEDepartmentProcess(Objcfedtls);
-        } 
+        }
+
+        
     }
 }

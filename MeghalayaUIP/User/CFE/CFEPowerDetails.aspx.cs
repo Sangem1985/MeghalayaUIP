@@ -49,8 +49,44 @@ namespace MeghalayaUIP.User.CFE
                 {
                     BindVoltages();
                     BindENERGYLOAD();
+                    GetAppliedorNot();
                     BINDDATA();
                 }
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "14");
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
+                        {
+                            //divsupervision.Visible = true;
+                            //divContrLabr.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "26")
+                        {
+                            //divsupervision.Visible = true;
+                            //divMigrLabr.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "27")
+                        {
+                            //div4questions.Visible = true;
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -236,7 +272,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
 
                     result = objcfebal.InsertCFEPowerDetails(objCFEPower);
-                   // ViewState["UnitID"] = result;
+                    // ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;

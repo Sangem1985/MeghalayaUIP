@@ -38,7 +38,8 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";        
         public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";           
         public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
-        public static string INSERTCFEWaterDet = "";       
+        public static string INSERTCFEWaterDet = "USP_INSCFEWATERDETAILS";
+        public static string GetCFEWaterDetails = "USP_GETCFEWATERDETAILS";
         public static string GetCFEApprovalsAmounttoPay = "USP_GETCFEAPPROVALSAMOUNTTOPAY";
         public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS";
         public static string InsertCFEAttachments = "USP_INSCFEATTACHMENTS";
@@ -51,6 +52,9 @@ namespace MeghalayaUIP.Common
         public static string InsertCFELabourDet = "USP_INSCFELABOURDETAILS";
         public static string GetRetriveCFELabourDet = "USP_GETRETRIVECFELABOURDET";
         public static string GetCFEMigrantDetails = "USP_GETCFEMIGRANTWORKERDETAILS";
+
+        public static string GetAppliedApprovalIDs = "USP_GETCFEAPPROVALIDS";
+        public static string InsertDGSetDetails ="USP_INSCFEDGSETDETAILS";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>
@@ -377,25 +381,41 @@ namespace MeghalayaUIP.Common
         public string Date_est_Completion { get; set; }
         public string Manufacture_Details { get; set; }
     }
-    public class CFEWater
+
+    public class Water_Details
     {
-        public string RIVER { get; set; }
-        public string BOREWELL { get; set; }
-        public string HMWSSB { get; set; }
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
         public string Drinking_Water { get; set; }
         public string water_Industrial { get; set; }
         public string Quantity_Water { get; set; }
         public string Non_Consumptive_water { get; set; }
-        public string persons_residing { get; set; }
-        public string natural_spring { get; set; }
-        public string Purpose_drilling { get; set; }
-        public string Name_Registered { get; set; }
-        public string E_Mail_Registered { get; set; }
-        public string Water_demand { get; set; }
-        public string Sub_Divisional { get; set; }
-        public string Number_persons_working { get; set; }
-        public string Water_perday_demand { get; set; }
+        public string OVERHEAD { get; set; }
+        public string UNDERGROUND { get; set; }
+        public string TANKER_CAPACITY { get; set; }
+        public string WATERCONNECTION { get; set; }
+        public string HOLDING { get; set; }
+        public string WARDNO { get; set; }
+        public string SUBDIVISION { get; set; }
+        public string PREMISENUMBER { get; set; }
+        public string WATERDEMAND { get; set; }
+        public string ANYOTHERINFORMATION { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCALITY { get; set; }
+        public string LANDMARK { get; set; }
+        public string PINCODE { get; set; }
+        public string PURPOSECONN { get; set; }
+        public string TYPECON { get; set; }
+        public string DOMESTIC { get; set; }
+        public string BULK { get; set; }
+
     }
+    
     public class CFELand
     {
         public string Questionnariid { get; set; }

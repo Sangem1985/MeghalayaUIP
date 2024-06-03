@@ -54,39 +54,59 @@ namespace MeghalayaUIP.User.CFE
                     //BindDistric();
                     BindDatas();
                     BindDataMigrant();
+                    GetAppliedorNot();
                     BindData();
                     BindingData();
+
                 }
             }
         }
-        //protected void BindConstitutionType()
-        //{
-        //    try
-        //    {
-        //        ddlCompanyType.Items.Clear();
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "10");
 
-        //        List<MasterConstType> objConsttype = new List<MasterConstType>();
 
-        //        objConsttype = mstrBAL.GetConstitutionType();
-        //        if (objConsttype != null)
-        //        {
-        //            ddlCompanyType.DataSource = objConsttype;
-        //            ddlCompanyType.DataValueField = "ConstId";
-        //            ddlCompanyType.DataTextField = "ConstName";
-        //            ddlCompanyType.DataBind();
-        //        }
-        //        else
-        //        {
-        //            ddlCompanyType.DataSource = null;
-        //            ddlCompanyType.DataBind();
-        //        }
-        //        AddSelect(ddlCompanyType);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblmsg0.Text = ex.Message; Failure.Visible = true;
-        //    }
-        //}
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
+                        {
+                            divsupervision.Visible = true;
+                            divContrLabr.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "26")
+                        {
+                            divsupervision.Visible = true;
+                            divMigrLabr.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "27")
+                        {
+                            div4questions.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "28")
+                        {
+                            divsupervision.Visible = true;
+                            div4questions.Visible = true;
+                            div5questions.Visible = true;
+                            divAgentDtls.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "29")
+                        {
+                            div5questions.Visible = true;
+                            divContractorDtls.Visible = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
         protected void BindDistricts()
         {
             try
@@ -108,9 +128,7 @@ namespace MeghalayaUIP.User.CFE
                 ddlPropLocTaluka.Items.Clear();
                 ddlPropLocVillage.Items.Clear();
 
-                ddlappdistric.Items.Clear();
-                ddlappMandal.Items.Clear();
-                ddlappVilage.Items.Clear();
+
 
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
@@ -150,11 +168,6 @@ namespace MeghalayaUIP.User.CFE
 
 
 
-                    ddlappdistric.DataSource = objDistrictModel;
-                    ddlappdistric.DataValueField = "DistrictId";
-                    ddlappdistric.DataTextField = "DistrictName";
-                    ddlappdistric.DataBind();
-
 
                 }
                 else
@@ -171,8 +184,7 @@ namespace MeghalayaUIP.User.CFE
                     ddlPropLocDist.DataSource = null;
                     ddlPropLocDist.DataBind();
 
-                    ddlappdistric.DataSource = null;
-                    ddlappdistric.DataBind();
+
                 }
                 AddSelect(ddlDistric);
                 AddSelect(ddlMandals);
@@ -194,9 +206,6 @@ namespace MeghalayaUIP.User.CFE
                 AddSelect(ddlPropLocTaluka);
                 AddSelect(ddlPropLocVillage);
 
-                AddSelect(ddlappdistric);
-                AddSelect(ddlappMandal);
-                AddSelect(ddlappVilage);
 
             }
             catch (Exception ex)
@@ -222,15 +231,7 @@ namespace MeghalayaUIP.User.CFE
                 ddlPropLocDist.Items.Clear();
                 ddlPropLocTaluka.Items.Clear();
                 ddlPropLocVillage.Items.Clear();
-                ddlApplDist.Items.Clear();
-                ddlApplTaluka.Items.Clear();
-                ddlApplVillage.Items.Clear();
-                ddlappdistric.Items.Clear();
-                ddlappMandal.Items.Clear();
-                ddlappVilage.Items.Clear();
-                ddlDistricdist.Items.Clear();
-                ddlMandalmand.Items.Clear();
-                ddlvillagevill.Items.Clear();
+
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
                 string strmode = string.Empty;
@@ -261,20 +262,7 @@ namespace MeghalayaUIP.User.CFE
                     ddlPropLocDist.DataTextField = "DistrictName";
                     ddlPropLocDist.DataBind();
 
-                    ddlApplDist.DataSource = objDistrictModel;
-                    ddlApplDist.DataValueField = "DistrictId";
-                    ddlApplDist.DataTextField = "DistrictName";
-                    ddlApplDist.DataBind();
 
-                    ddlappdistric.DataSource = objDistrictModel;
-                    ddlappdistric.DataValueField = "DistrictId";
-                    ddlappdistric.DataTextField = "DistrictName";
-                    ddlappdistric.DataBind();
-
-                    ddlDistricdist.DataSource = objDistrictModel;
-                    ddlDistricdist.DataValueField = "DistrictId";
-                    ddlDistricdist.DataTextField = "DistrictName";
-                    ddlDistricdist.DataBind();
                 }
                 else
                 {
@@ -292,15 +280,6 @@ namespace MeghalayaUIP.User.CFE
 
                     ddlPropLocDist.DataSource = null;
                     ddlPropLocDist.DataBind();
-
-                    ddlApplDist.DataSource = null;
-                    ddlApplDist.DataBind();
-
-                    ddlappdistric.DataSource = null;
-                    ddlappdistric.DataBind();
-
-                    ddlDistricdist.DataSource = null;
-                    ddlDistricdist.DataBind();
                 }
                 AddSelect(ddlDistric);
                 AddSelect(ddlMandals);
@@ -317,18 +296,6 @@ namespace MeghalayaUIP.User.CFE
                 AddSelect(ddlPropLocDist);
                 AddSelect(ddlPropLocTaluka);
                 AddSelect(ddlPropLocVillage);
-
-                AddSelect(ddlApplDist);
-                AddSelect(ddlApplTaluka);
-                AddSelect(ddlApplVillage);
-
-                AddSelect(ddlappdistric);
-                AddSelect(ddlappMandal);
-                AddSelect(ddlappVilage);
-
-                AddSelect(ddlDistricdist);
-                AddSelect(ddlMandalmand);
-                AddSelect(ddlvillagevill);
 
 
             }
@@ -747,79 +714,17 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
             }
         }
-        protected void ddlApplDist_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlApplTaluka.ClearSelection();
-                ddlApplVillage.ClearSelection();
-                if (ddlApplDist.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlApplTaluka, ddlApplDist.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-        }
-        protected void ddlApplTaluka_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlApplVillage.ClearSelection();
-                if (ddlApplTaluka.SelectedItem.Text != "--Select--")
-                {
-                    BindVillages(ddlApplVillage, ddlApplTaluka.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        protected void ddlappdistric_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlappMandal.ClearSelection();
-                ddlappVilage.ClearSelection();
-                if (ddlappdistric.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlappMandal, ddlappdistric.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        protected void ddlappMandal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlappVilage.ClearSelection();
-                if (ddlappMandal.SelectedItem.Text != "--Select--")
-                {
-                    BindVillages(ddlappVilage, ddlappMandal.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+
         protected void ddlDistricdist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                ddlMandalmand.ClearSelection();
-                ddlvillagevill.ClearSelection();
-                if (ddlDistricdist.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlMandalmand, ddlDistricdist.SelectedValue);
-                }
+                //ddlMandalmand.ClearSelection();
+                //ddlvillagevill.ClearSelection();
+                //if (ddlDistricdist.SelectedItem.Text != "--Select--")
+                //{
+                //    BindMandal(ddlMandalmand, ddlDistricdist.SelectedValue);
+                //}
             }
             catch (Exception ex)
             {
@@ -830,11 +735,11 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                ddlvillagevill.ClearSelection();
-                if (ddlMandalmand.SelectedItem.Text != "--Select--")
-                {
-                    BindVillages(ddlvillagevill, ddlMandalmand.SelectedValue);
-                }
+                //ddlvillagevill.ClearSelection();
+                //if (ddlMandalmand.SelectedItem.Text != "--Select--")
+                //{
+                //    BindVillages(ddlvillagevill, ddlMandalmand.SelectedValue);
+                //}
             }
             catch (Exception ex)
             {
