@@ -35,7 +35,9 @@ namespace MeghalayaUIP.User.Dashboard
                 if (!IsPostBack)
                 {
                     BindUnits();
-                    BindApplStatus();
+                    if (Request.QueryString.Count > 0)
+                    { ddlUnitNames.SelectedValue = Request.QueryString[0]; }
+                    BindApplStatus(ddlUnitNames.SelectedValue);
                 }
             }
             else
@@ -67,13 +69,12 @@ namespace MeghalayaUIP.User.Dashboard
                 Failure.Visible = true;
             }
         }
-        protected void BindApplStatus()
+        protected void BindApplStatus(string UnitID)
         {
             try
             {
                 DataSet dsStatus = new DataSet();
-                if (Request.QueryString.Count > 0)
-                { ddlUnitNames.SelectedValue = Request.QueryString[0]; }
+
                 UnitID = ddlUnitNames.SelectedValue;
 
                 dsStatus = objcommonBAL.GetUserDashboardStatusByModule(hdnUserID.Value, UnitID);
@@ -152,7 +153,7 @@ namespace MeghalayaUIP.User.Dashboard
                     divUnit.Visible = false;
                     lblHdng.Text = "Status of Application for All Units";
                 }
-                BindApplStatus();
+                BindApplStatus(ddlUnitNames.SelectedValue);
             }
             catch (Exception ex)
             {

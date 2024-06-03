@@ -36,54 +36,13 @@
             <div class="content container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Application Status For Application ID:  <asp:Label ID="lbluidno" runat="server"></asp:Label></h3>
+                        <h3>Application Status For Application ID: 
+                            <asp:Label ID="lbluidno" runat="server"></asp:Label></h3>
                     </div>
                     <section id="dashboardcount1">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
-                                    <div class="card">
-                                        <a href="#" style="text-decoration: none;">
-                                            <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-file-download"></i>
-                                                </div>
-                                                <div class="text-end pt-1">
-                                                    <h5 class="mb-0">
-                                                        <asp:Label ID="lblAppstatus" runat="server">Submiteed</asp:Label></h5>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">Sumbitted</p>--%>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal my-0">
-                                            <div class="card-footer p-3">
-                                                <p class="mb-0">Application<br />
-                                                    &nbsp;</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
-                                    <div class="card">
-                                        <a href="#" style="text-decoration: none;">
-                                            <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-memo-circle-check"></i>
-                                                </div>
-                                                <div class="text-end pt-1">
-                                                    <h5 class="mb-0">
-                                                        <asp:Label ID="lblCAFstatus" runat="server">Draft</asp:Label></h5>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">Draft</p>--%>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal my-0">
-                                            <div class="card-footer p-3">
-                                                <p class="mb-0">
-                                                    Combined Application Form
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
                                         <a href="#" style="text-decoration: none;">
@@ -234,8 +193,10 @@
                                             </div>
                                             <hr class="dark horizontal my-0">
                                             <div class="card-footer p-3">
-                                                <p class="mb-0">Payment Paid<br />
-                                                    &nbsp;</p>
+                                                <p class="mb-0">
+                                                    Payment Paid<br />
+                                                    &nbsp;
+                                                </p>
                                             </div>
                                         </a>
                                     </div>
