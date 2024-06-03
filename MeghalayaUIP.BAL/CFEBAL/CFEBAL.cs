@@ -127,6 +127,8 @@ namespace MeghalayaUIP.BAL.CFEBLL
         { return objCFEDAL.GetCFEAttachmentsData(userid, UNITID); }
         public DataSet GetUserCFEApplStatus(string Userid, string UNITID)
         { return objCFEDAL.GetUserCFEApplStatus( Userid,  UNITID); }
+        public DataSet GetUserCFEApplStatusView(string Userid, string UNITID,string Status)
+        { return objCFEDAL.GetUserCFEApplStatusView(Userid, UNITID,Status); }
 
         public DataSet GetRetriveCFELabourDet(string userid, string UNITID)
         {
