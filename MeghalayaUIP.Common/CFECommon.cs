@@ -45,6 +45,7 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEAttachments = "USP_INSCFEATTACHMENTS";
         public static string GetCFEAttachments = "USP_GETCFEATTACHMENTS";
         public static string GetUserCFEApplStatus = "USP_GETCFEAPPLSTATUS";
+        public static string GetUserCFEApplStatusView = "USP_GETCFEAPPLSTATUSVIEW";
 
         public static string InsertCFELabourContractorDetails = "USP_INSCFECONTRACTLABOURDETAILS";
         public static string GetCFELabourContractorDet = "USP_GETCFECONTRACTLABOURDETAILS";
