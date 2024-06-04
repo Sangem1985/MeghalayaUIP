@@ -634,6 +634,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                btnSubmit_Click( sender,  e);
                 Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx");
             }
             catch (Exception ex)

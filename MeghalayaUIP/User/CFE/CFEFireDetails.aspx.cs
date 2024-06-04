@@ -44,10 +44,45 @@ namespace MeghalayaUIP.User.CFE
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-
-                    BindDistricts();
-                    BINDDATA();
+                    GetAppliedorNot();
+                   
                 }
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "9", "");
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
+                        {
+                            BindDistricts();
+                            BINDDATA();
+                        }
+
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFE/CFEForestDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFEDGSetDetails.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindDistricts()
@@ -407,18 +442,7 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
+        
         protected void btnSave_Click(object sender, EventArgs e)
         {
             //String Quesstionriids = "1001";
@@ -486,11 +510,24 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEDGSetDetails.aspx?Previous="+"P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEForestDetails.aspx");
+                btnSave_Click(sender, e);
+                Response.Redirect("~/User/CFE/CFEForestDetails.aspx?Next="+"N");
             }
             catch (Exception ex)
             {

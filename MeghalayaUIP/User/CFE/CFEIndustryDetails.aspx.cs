@@ -527,6 +527,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                btnSave_Click(sender, e);
                 Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
             }
             catch (Exception ex)

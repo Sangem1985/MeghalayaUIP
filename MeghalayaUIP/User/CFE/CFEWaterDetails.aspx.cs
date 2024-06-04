@@ -45,10 +45,43 @@ namespace MeghalayaUIP.User.CFE
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    GetAppliedorNot();
                     BindDistric();
                     BindDistricEST();
                     Binddata();
                 }
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet(); DataSet ds1 = new DataSet(); DataSet ds2 = new DataSet();
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "15","");
+                ds1 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5","");
+                ds2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2","");
+
+                if (ds.Tables[0].Rows.Count > 0 || ds1.Tables[0].Rows.Count > 0 || ds2.Tables[0].Rows.Count > 0 )
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFE/CFELabourDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFEForestDetails.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindDistricEST()
@@ -501,11 +534,30 @@ namespace MeghalayaUIP.User.CFE
         }
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEForestDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
 
         }
         protected void btnNext_Click(object sender, EventArgs e)
         {
+            try
+            {
+                btnSave_Click( sender,  e);
+                Response.Redirect("~/User/CFE/CFELabourDetails.aspx?Next=" + "N");
 
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
     }
 }

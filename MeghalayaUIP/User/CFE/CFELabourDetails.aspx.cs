@@ -66,7 +66,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "10");
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "10", "");
 
 
                 if (ds.Tables[0].Rows.Count > 0)
@@ -99,6 +99,17 @@ namespace MeghalayaUIP.User.CFE
                             div5questions.Visible = true;
                             divContractorDtls.Visible = true;
                         }
+                    }
+
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0])=="N")
+                            Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx?Next=" + "N");
+                        else if(Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFEWaterDetails.aspx?Previous=" + "P"); 
                     }
                 }
             }
@@ -1317,7 +1328,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 string ErrorMsg = "", result = "";
-                ErrorMsg = Stepvalidations();
+                ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
                     Labour_Details ObjCFELabourDet = new Labour_Details();
@@ -1374,10 +1385,6 @@ namespace MeghalayaUIP.User.CFE
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
-
-
-
-
                     ObjCFELabourDet.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     ObjCFELabourDet.CreatedBy = hdnUserID.Value;
                     ObjCFELabourDet.IPAddress = getclientIP();
@@ -1438,7 +1445,7 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
             }
         }
-        public string Stepvalidations()
+        public string Validations()
         {
             try
             {
@@ -1580,11 +1587,11 @@ namespace MeghalayaUIP.User.CFE
             return result;
         }
 
-        protected void btnPreviuos1_Click(object sender, EventArgs e)
+        protected void btnPrevious_Click(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
+                Response.Redirect("~/User/CFE/CFEWaterDetails.aspx?Previous="+"P");
             }
             catch (Exception ex)
             {
@@ -1592,11 +1599,13 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
+
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx");
+                Btnsave_Click(sender, e);
+                Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

@@ -975,7 +975,7 @@
 
 
                             <div class="col-md-12 text-right mb-2">
-                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos1" OnClick="btnPreviuos1_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                <asp:Button Text="Previous" runat="server" ID="btnPrevious" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                 <asp:Button ID="Btnsave" runat="server" OnClick="Btnsave_Click" Text="Save" class="btn btn-rounded btn-success btn-lg" padding-right="10px" Width="150px" />
                                 <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 

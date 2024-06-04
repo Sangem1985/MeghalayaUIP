@@ -64,7 +64,7 @@ namespace MeghalayaUIP.Dept.CFE
 
                 objcfedtls.Questionnaireid = CFEQDID;
                 objcfedtls.Investerid = INVESTERID;
-                objcfedtls.Stage = stage; 
+                objcfedtls.Stage = stage;
                 Session["Questionnaireid"] = CFEQDID;
                 Session["INVESTERID"] = INVESTERID;
                 Session["stage"] = stage;

@@ -1567,7 +1567,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetUserCFEApplStatusView(string Userid, string UNITID,string Status)
+        public DataSet GetUserCFEApplStatusView(string Userid, string UNITID, string Status)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1881,7 +1881,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
         }
 
 
-        public DataSet GetAppliedApprovalIDs(string userid, string UNITID, string QusestionnaireID, String DeptID)
+        public DataSet GetAppliedApprovalIDs(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1899,11 +1899,14 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
-                da.SelectCommand.Parameters.AddWithValue("@USERID", Convert.ToInt32(userid));
-                da.SelectCommand.Parameters.AddWithValue("@CFEQID", Convert.ToInt32(QusestionnaireID));
-                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(DeptID));
-                
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
+                da.SelectCommand.Parameters.AddWithValue("@USERID",userid);
+                da.SelectCommand.Parameters.AddWithValue("@CFEQID", QusestionnaireID);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
+                if (ApprovalID == "")
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", null);
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", ApprovalID);
 
                 da.Fill(ds);
                 transaction.Commit();

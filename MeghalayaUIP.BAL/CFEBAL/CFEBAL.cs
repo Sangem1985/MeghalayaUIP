@@ -154,8 +154,8 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFELabourDetails(ObjCFELabourDet);
         }
-        public DataSet GetAppliedApprovalIDs(string userid, string UNITID, string QusestionnaireID, string DeptID)
-        { return objCFEDAL.GetAppliedApprovalIDs(userid, UNITID, QusestionnaireID, DeptID); }
+        public DataSet GetAppliedApprovalIDs(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        { return objCFEDAL.GetAppliedApprovalIDs(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
         //public string InsertCFEWaterDetails(Water_Details ObjCFEWater)
         //{
         //    return objCFEDAL.InsertCFEWaterDetails(ObjCFEWater);

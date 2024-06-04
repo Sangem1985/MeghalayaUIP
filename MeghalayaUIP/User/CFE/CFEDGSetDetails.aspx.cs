@@ -49,8 +49,6 @@ namespace MeghalayaUIP.User.CFE
                     if (!IsPostBack)
                     {
                         GetAppliedorNot();
-                        BindDistricts();
-
                     }
                 }
             }
@@ -62,19 +60,28 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "10");
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "14", "6");
 
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {
-                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "6")
                         {
-                            //divsupervision.Visible = true;
-                            //divContrLabr.Visible = true;
+                            BindDistricts();
                         }
 
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous=" + "P");
                     }
                 }
             }
@@ -221,11 +228,6 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -246,10 +248,7 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex) { lblmsg0.Text = ex.Message; Failure.Visible = true; }
         }
 
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         public string Validations()
         {
             try
@@ -285,7 +284,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     errormsg = errormsg + slno + ". Please Select Village \\n";
                     slno = slno + 1;
-                }               
+                }
                 if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Pincode No\\n";
@@ -320,7 +319,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     errormsg = errormsg + slno + ". Please Enter Lights and Fans Load\\n";
                     slno = slno + 1;
-                }                
+                }
                 if (string.IsNullOrEmpty(txtOtherLoad.Text) || txtOtherLoad.Text == "" || txtOtherLoad.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Other Load\\n";
@@ -397,7 +396,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Engine Make/Serial No. \\n";
                     slno = slno + 1;
                 }
-               
+
                 if (string.IsNullOrEmpty(txtAlternatorDtls.Text) || txtAlternatorDtls.Text == "" || txtAlternatorDtls.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Alternator Make/Serial No \\n";
@@ -413,7 +412,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Size & materials of earthing conductor \\n";
                     slno = slno + 1;
                 }
-                
+
                 if (string.IsNullOrEmpty(txtConductorPaths.Text) || txtConductorPaths.Text == "" || txtConductorPaths.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter No. of independent conductor path \\n";
@@ -457,7 +456,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (string.IsNullOrEmpty(txtEarthTesterRange.Text) || txtEarthTesterRange.Text == "" || txtEarthTesterRange.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Range of Earth Tester\\n"; 
+                    errormsg = errormsg + slno + ". Please Enter Range of Earth Tester\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtMeggerNo.Text) || txtMeggerNo.Text == "" || txtMeggerNo.Text == null)
@@ -475,7 +474,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter megger Range\\n";
                     slno = slno + 1;
                 }
-                
+
                 return errormsg;
 
 
@@ -501,6 +500,32 @@ namespace MeghalayaUIP.User.CFE
             }
 
             return result;
+        }
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous="+"P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnSave_Click(sender, e);
+                Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
     }
 }

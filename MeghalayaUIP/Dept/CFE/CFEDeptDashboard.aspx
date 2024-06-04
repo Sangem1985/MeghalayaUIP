@@ -4,14 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-											<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Department Dashboard</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Department Dashboard</li>
+        </ol>
+    </nav>
     <div class="page-wrapper deptcfeodeptdashboard">
         <div class="content container-fluid">
             <div class="card">
@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ScrutinyCompleted" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=REJECTED" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ScrutinyRejected" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=PRESCRUTINYPENDING" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ScrutinyPending" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=ADDITIONALPAYMENTRAISED" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment">
+                                    <a href="CFEApplDeptdrill.aspx?Status=AddlPaymentRaised" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-pending"></i>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=QUERYPENDING" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx?Status=QueryRaised" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -152,7 +152,7 @@
                     </div>
                 </section>
             </div>
-           
+
             <div class="card">
                 <div class="card-header">
                     <h3>Approval Stages</h3>
@@ -162,7 +162,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=TOTALAPPROVALISSUED" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalIssued" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -182,13 +182,13 @@
                                     </a>
                                 </div>
                             </div>
-                            
+
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=APPROVALPENDING" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalPending" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                               <i class="fi fi-rr-search-alt"></i>
+                                                <i class="fi fi-rr-search-alt"></i>
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
@@ -207,7 +207,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=REJECTED" style="text-decoration: none;">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalRejected" style="text-decoration: none;">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>
@@ -227,7 +227,7 @@
                             </div>
 
                         </div>
-                        
+
 
                     </div>
                 </section>

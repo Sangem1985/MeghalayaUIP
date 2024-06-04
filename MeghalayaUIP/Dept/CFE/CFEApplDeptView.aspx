@@ -4,13 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-											<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Applications Details</li>
-										</ol>
-									</nav>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Applications Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper" style="">
         <div class="content container-fluid">
             <div class="card">
@@ -42,8 +42,8 @@
                             <asp:BoundField HeaderText="Dept ID" DataField="CFEDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
                             <asp:BoundField HeaderText="Approval ID" DataField="CFEDA_APPROVALID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
                             <asp:BoundField HeaderText="Unit ID" DataField="CFEQD_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
-                            
-                            
+
+
                             <asp:TemplateField HeaderText="Actions" ItemStyle-Width="12%">
                                 <%--SortExpression="ciw_id"--%>
                                 <ItemTemplate>
