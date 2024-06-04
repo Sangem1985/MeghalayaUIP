@@ -7,6 +7,14 @@
     <!-- Page Wrapper -->
     <div class="page-wrapper">
         <div class="content container-fluid">
+            <div class="card-header d-flex justify-content-between">
+               <%-- <h4 class="card-title mt-1"><b>Dashboard </b></h4>--%>
+
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+
+            </div>
             <div class="card flex-fill">
 
                 <h4 class="mt-2 ml-4">View Details</h4>
@@ -1409,40 +1417,40 @@
                                     <section id="dashboardAttachmnt">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                              
-                                                   
-                                                        
-                                                                    <div class="table-responsive">
-                                                                        <asp:GridView ID="grdcfeattachment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
-                                                                            GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
-                                                                            <RowStyle />
-                                                                            
-                                                                            <Columns>
-                                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
-                                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                                    <ItemTemplate>
-                                                                                        <%# Container.DataItemIndex + 1%>
-                                                                                    </ItemTemplate>
-                                                                                </asp:TemplateField>
-                                                                                <asp:BoundField HeaderText="File Name" DataField="CFMA_NAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
 
-                                                                                <asp:TemplateField HeaderText="View">
-                                                                                    <ItemTemplate>
-                                                                                        <asp:HyperLink runat="server" ID="hplApplied" Target="_blank" Text='<%#Eval("CFEA_FILENAME")%>' NavigateUrl='<%#Eval("FILENAME")%>'/>
-                                                                                    </ItemTemplate>
-                                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                                </asp:TemplateField>
-                                                                              
-                                                                            </Columns>
-                                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                                        </asp:GridView>
-                                                                       
-                                                                    </div>
-                                                                
-                                                    
-                                                
+
+
+                                                <div class="table-responsive">
+                                                    <asp:GridView ID="grdcfeattachment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                        <RowStyle />
+
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:BoundField HeaderText="File Name" DataField="CFMA_NAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
+                                                            <asp:TemplateField HeaderText="View">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink runat="server" ID="hplApplied" Target="_blank" Text='<%#Eval("CFEA_FILENAME")%>' NavigateUrl='<%#Eval("FILENAME")%>' />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+
+                                                        </Columns>
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    </asp:GridView>
+
+                                                </div>
+
+
+
 
                                             </div>
                                         </div>
@@ -1575,7 +1583,7 @@
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
                                                             GridLines="Both" Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
-                                                            
+
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                     <HeaderStyle HorizontalAlign="Center" />
@@ -1586,7 +1594,7 @@
                                                                 </asp:TemplateField>
 
                                                                 <asp:BoundField HeaderText="Department ID" DataField="Dept_Id" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />                                                                
+                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Approval Name" DataField="ApprovalName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -1711,17 +1719,15 @@
                                                 <td>
                                                     <label class="mt-2">Reference No :</label>
                                                 </td>
-                                                
+
                                                 <td>
                                                     <asp:TextBox runat="server" ID="txtreferenceno" class="form-control mt-2"></asp:TextBox>
                                                 </td>
                                                 <td>
                                                     <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" CssClass="mt-2" />
-                                               <asp:Button runat="server" ID="btnUpldapproval" OnClick="btnUpldapproval_Click" Text="Upload" class="btn btn-rounded btn-dark btn-sm mt-2" Width="110px" />
-                                                    </td>
-                                                <td colspan="2">
-                                                    
+                                                    <asp:Button runat="server" ID="btnUpldapproval" OnClick="btnUpldapproval_Click" Text="Upload" class="btn btn-rounded btn-dark btn-sm mt-2" Width="110px" />
                                                 </td>
+                                                <td colspan="2"></td>
                                                 <td runat="server" id="tdhyperlink" visible="false">
                                                     <asp:HyperLink ID="hplApproval" runat="server" Target="_blank"></asp:HyperLink>
                                                 </td>
@@ -1739,7 +1745,7 @@
                                             </tr>
                                             <tr runat="server" id="TRAPPROVE" visible="false">
                                                 <td colspan="5">
-                                                    <asp:Button ID="btnApprove" runat="server" Text="Submit" OnClick="btnApprove_Click" class="btn btn-rounded btn-submit btn-lg m-2" Width="150px"  />
+                                                    <asp:Button ID="btnApprove" runat="server" Text="Submit" OnClick="btnApprove_Click" class="btn btn-rounded btn-submit btn-lg m-2" Width="150px" />
                                                 </td>
                                             </tr>
                                         </table>

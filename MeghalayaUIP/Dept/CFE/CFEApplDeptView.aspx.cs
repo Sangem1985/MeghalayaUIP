@@ -74,5 +74,19 @@ namespace MeghalayaUIP.Dept.CFE
                 Response.Redirect("CFEApplDeptProcess.aspx?status=" + Request.QueryString["status"].ToString());
             }
         }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/CFE/CFEApplDeptdrill.aspx?status=" + Request.QueryString["status"].ToString());
+            }
+            catch (Exception ex)
+            {
+                //lblmsg0.Text = ex.Message;
+                //Failure.Visible = true;
+                //throw ex;
+            }
+        }
     }
 }

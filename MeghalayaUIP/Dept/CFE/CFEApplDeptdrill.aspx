@@ -14,7 +14,7 @@
 
                 <div class="col-md-3 d-flex">
                     <spna class="dots">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spna>
-                    <asp:DropDownList ID="ddlStatus" runat="server" class="form-control">
+                    <asp:DropDownList ID="ddlStatus" runat="server" class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                         <asp:ListItem Value="ScrutinyCompleted" Text="Pre-Scrutiny-Completed"></asp:ListItem>
                         <asp:ListItem Value="ScrutinyPending" Text="Pre-Scrutiny-Pending"></asp:ListItem>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <%--*************************************--%>
-            <div class="card">
+            <div class="card" id="Prescrutinycompleted" runat="server" visible="false">
                 <div class="card-header">
                     <h3>Pre-Scrutiny-Completed</h3>
                 </div>
@@ -40,7 +40,8 @@
                                         <div class="card-headr">
                                             <div class="text">Total</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="lblPRESCRUTINYCOMPLETED" runat="server"></asp:Label></div>
                                         </div>
 
                                     </div>
@@ -50,9 +51,10 @@
                                 <a href="CFEApplDeptView.aspx?status=PRESCRUTINYCOMPLETEDWITHIN">
                                     <div class="card 2">
                                         <div class="card-headr">
-                                            <div class="text">With in 3 Days</div>
+                                            <div class="text">Within Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLPRESCRUTINYCOMPLETEDWITHIN" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -61,9 +63,10 @@
                                 <a href="CFEApplDeptView.aspx?status=PRESCRUTINYCOMPLETEDBEYOND">
                                     <div class="card 4">
                                         <div class="card-headr">
-                                            <div class="text">Beyond in 3 Days</div>
+                                            <div class="text">Beyondin Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLPRESCRUTINYCOMPLETEDBEYOND" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -73,7 +76,7 @@
                 </section>
             </div>
             <%--*************************************--%>
-            <div class="card">
+            <div class="card"  id="PrescrutinyPending" runat="server" visible="false">
                 <div class="card-header">
                     <h3>Pre-Scrutiny-Pending</h3>
                 </div>
@@ -86,7 +89,8 @@
                                         <div class="card-headr">
                                             <div class="text">Total</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLPRESCRUTINYPENDING" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -95,9 +99,10 @@
                                 <a href="CFEApplDeptView.aspx?status=PRESCRUTINYPENDINGWITHIN">
                                     <div class="card 2">
                                         <div class="card-headr">
-                                            <div class="text">With in 3 Days</div>
+                                            <div class="text">Within Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLPRESCRUTINYPENDINGWITHIN" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -106,9 +111,10 @@
                                 <a href="CFEApplDeptView.aspx?status=PRESCRUTINYPENDINGBEYOND">
                                     <div class="card 4">
                                         <div class="card-headr">
-                                            <div class="text">Beyond in 3 Days</div>
+                                            <div class="text">Beyondin Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLPRESCRUTINYPENDINGBEYOND" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -119,7 +125,8 @@
                                     <div class="card-headr">
                                         <div class="text">Today Last Day</div>
                                         <div class="iocn"><i class="fi fi-tr-file-circle-info"></i></div>
-                                        <div class="count">56</div>
+                                        <div class="count">
+                                            <asp:Label ID="Label3" runat="server"></asp:Label></div>
                                     </div>
 
                                 </div>
@@ -129,8 +136,57 @@
                 </section>
             </div>
 
+            <div class="card" id="PreScrutinyRejected" runat="server" visible="false">
+                <div class="card-header">
+                    <h3>Pre-Scrutiny-Rejected</h3>
+                </div>
+                <section id="dashboardcount3" class="mt-3 mb-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="CFEApplDeptView.aspx?status=PREREJECTED">
+                                    <div class="card 1">
+                                        <div class="card-headr">
+                                            <div class="text">Total</div>
+                                            <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblPREREJECTED" runat="server"></asp:Label></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="CFEApplDeptView.aspx?status=PREREJECTEDWITHIN">
+                                    <div class="card 2">
+                                        <div class="card-headr">
+                                            <div class="text">Within Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLPREREJECTEDWITHIN" runat="server"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="CFEApplDeptView.aspx?status=PREREJECTEDBEYOND">
+                                    <div class="card 4">
+                                        <div class="card-headr">
+                                            <div class="text">Beyondin Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLPREREJECTEDBEYOND" runat="server"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
             <%--*************************************--%>
-            <div class="card">
+            <div class="card"  id="Approvalunderprocess" runat="server" visible="false">
                 <div class="card-header">
                     <h3>Approval Under Process</h3>
                 </div>
@@ -143,7 +199,8 @@
                                         <div class="card-headr">
                                             <div class="text">Total</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLAPPROVALPENDING" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -152,9 +209,10 @@
                                 <a href="CFEApplDeptView.aspx?status=APPROVALPENDINGWITHIN">
                                     <div class="card 2">
                                         <div class="card-headr">
-                                            <div class="text">With in 3 Days</div>
+                                            <div class="text">Within Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLAPPROVALPENDINGWITHIN" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -163,9 +221,10 @@
                                 <a href="CFEApplDeptView.aspx?status=APPROVALPENDINGBEYOND">
                                     <div class="card 4">
                                         <div class="card-headr">
-                                            <div class="text">Beyond in 3 Days</div>
+                                            <div class="text">Beyondin Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLAPPROVALPENDINGBEYOND" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -176,7 +235,8 @@
                                     <div class="card-headr">
                                         <div class="text">Today Last Day</div>
                                         <div class="iocn"><i class="fi fi-tr-file-exclamation"></i></div>
-                                        <div class="count">56</div>
+                                        <div class="count">
+                                            <asp:Label ID="Label7" runat="server"></asp:Label></div>
                                     </div>
 
                                 </div>
@@ -190,7 +250,7 @@
                 </section>
             </div>
             <%--*************************************--%>
-            <div class="card">
+            <div class="card"  id="ApprovalIssued" runat="server" visible="false">
                 <div class="card-header">
                     <h3>Approval Issued</h3>
                 </div>
@@ -203,7 +263,8 @@
                                         <div class="card-headr">
                                             <div class="text">Total</div>
                                             <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLTOTALAPPROVALISSUED" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -212,9 +273,10 @@
                                 <a href="CFEApplDeptView.aspx?status=APPROVALISSUEDWITHIN">
                                     <div class="card 2">
                                         <div class="card-headr">
-                                            <div class="text">With in 3 Days</div>
+                                            <div class="text">Within Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLAPPROVALISSUEDWITHIN" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
@@ -223,9 +285,59 @@
                                 <a href="CFEApplDeptView.aspx?status=APPROVALISSUEDBEYOND">
                                     <div class="card 4">
                                         <div class="card-headr">
-                                            <div class="text">Beyond in 3 Days</div>
+                                            <div class="text">Beyondin Time Limits</div>
                                             <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                            <div class="count">56</div>
+                                            <div class="count">
+                                                <asp:Label ID="LBLAPPROVALISSUEDBEYOND" runat="server"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+              <div class="card"  id="ApprovalRejected" runat="server" visible="false">
+                <div class="card-header">
+                    <h3>Approval Rejected</h3>
+                </div>
+                <section id="dashboardcount3" class="mt-3 mb-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="CFEApplDeptView.aspx?status=REJECTED">
+                                    <div class="card 1">
+                                        <div class="card-headr">
+                                            <div class="text">Total</div>
+                                            <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblREJECTED" runat="server"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="CFEApplDeptView.aspx?status=REJECTEDWITHIN">
+                                    <div class="card 2">
+                                        <div class="card-headr">
+                                            <div class="text">Within Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblREJECTEDWITHIN" runat="server"></asp:Label></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="CFEApplDeptView.aspx?status=REJECTEDBEYOND">
+                                    <div class="card 4">
+                                        <div class="card-headr">
+                                            <div class="text">Beyondin Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblREJECTEDBEYOND" runat="server"></asp:Label></div>
                                         </div>
                                     </div>
                                 </a>
