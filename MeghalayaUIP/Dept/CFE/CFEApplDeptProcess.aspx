@@ -1648,7 +1648,7 @@
                                                         <asp:ListItem Text="Completed" Value="12"></asp:ListItem>
                                                         <asp:ListItem Text="Completed with Payment Request" Value="11"></asp:ListItem>
                                                         <asp:ListItem Text="Raise Query" Value="5"></asp:ListItem>
-                                                        <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>
+                                                        <asp:ListItem Text="Rejected" Value="17"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">

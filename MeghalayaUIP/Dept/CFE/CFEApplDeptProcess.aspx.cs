@@ -357,7 +357,7 @@ namespace MeghalayaUIP.Dept.CFE
                         objcfeDtls.Remarks = txtRequest.Text;
                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
                         {
-                            if (ddlStatus.SelectedValue == "16")
+                            if (ddlStatus.SelectedValue == "17")
                             {
                                 objcfeDtls.PrescrutinyRejectionFlag = "Y";
                             }
@@ -366,8 +366,8 @@ namespace MeghalayaUIP.Dept.CFE
                                 objcfeDtls.PrescrutinyRejectionFlag = "N";
                             }
                         }
-                        var Hostname = Dns.GetHostName();
-                        objcfeDtls.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
+                        //var Hostname = Dns.GetHostName();
+                        objcfeDtls.IPAddress = getclientIP();
 
                         string valid = objcfebal.UpdateCFEDepartmentProcess(objcfeDtls);
                         btnSubmit.Enabled = false;
@@ -613,7 +613,7 @@ namespace MeghalayaUIP.Dept.CFE
                         //    }                             
                         //}
                         var Hostname = Dns.GetHostName();
-                        objcfeDtls.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
+                        objcfeDtls.IPAddress = getclientIP();
 
                         string valid = objcfebal.UpdateCFEDepartmentProcess(objcfeDtls);
                         btnSubmit.Enabled = false;

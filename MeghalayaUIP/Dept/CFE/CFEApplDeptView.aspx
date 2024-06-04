@@ -43,7 +43,6 @@
                             <asp:BoundField HeaderText="Approval ID" DataField="CFEDA_APPROVALID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
                             <asp:BoundField HeaderText="Unit ID" DataField="CFEQD_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
 
-
                             <asp:TemplateField HeaderText="Actions" ItemStyle-Width="12%">
                                 <%--SortExpression="ciw_id"--%>
                                 <ItemTemplate>
