@@ -770,4 +770,68 @@ namespace MeghalayaUIP.Common
         public string TERMINATIONDATEOFEMPMigrant { get; set; }
 
     }
+    public class CFEDGset
+    {
+        public string Questionnaireid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string LocDoorno { get; set; }
+        public string Locality { get; set; }
+        public string Landamark { get; set; }
+        public string LocDistrictID { get; set; }
+        public string LocMandalID { get; set; }
+        public string LocVillageID { get; set; }
+        public string LocPincode { get; set; }
+        public string SupplierName { get; set; }
+        public string TotalConnectedLoad { get; set; }
+        public string PropLoadfromDGSet { get; set; }
+
+        public string InterlockProvided { get; set; }
+        public string MotorLoad { get; set; }
+        public string LightsandFansLoad { get; set; }
+
+        public string OtherlLoad { get; set; }
+
+        public string GenRunningMode { get; set; }
+
+        public string WorkCompletionDate { get; set; }
+
+        public string WorkStartingDate { get; set; }
+        public string CommissioningDate { get; set; }
+        public string SupervisorName { get; set; }
+        public string SupervisorLicNo { get; set; }
+        public string ContractorName { get; set; }
+
+        public string ContractorLicNo { get; set; }
+
+        public string DGSetOperatorNmae { get; set; }
+
+        public string DGSetCapacity { get; set; }
+
+        public string DGSetCapacityin { get; set; }
+
+        public string DGSetPowerFactor { get; set; }
+        public string DGSetRatedVoltage { get; set; }
+
+        public string DGSetEngineDetails { get; set; }
+
+        public string DGSetAlternatorDetails { get; set; }
+        public string EquipmentType { get; set; }
+        public string EarthingCondctrDtls { get; set; }
+        public string ConductrPaths { get; set; }
+        public string ElectrodeDtls { get; set; }
+
+        public string Impedance { get; set; }
+        public string TotalImpedance { get; set; }
+        public string LighingType { get; set; }
+        public string AlternatorTestDtls { get; set; }
+        public string EarthTesterNo { get; set; }
+        public string EarthTesterMake { get; set; }
+        public string EarthTesterRange { get; set; }
+        public string MeggerNo { get; set; }
+        public string MeggerMake { get; set; }
+        public string MeggerRange { get; set; }
+
+    }
 }

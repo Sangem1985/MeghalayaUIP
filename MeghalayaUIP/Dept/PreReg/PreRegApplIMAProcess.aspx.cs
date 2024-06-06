@@ -326,7 +326,7 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
                 lblmsg.Text = "";
-                int valid = 0;
+                int valid = 0; string deptid="0";
                 if (e.CommandName == "Add")
                 {
                     dt = BindDepartmentGridAdd();
@@ -342,6 +342,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         ddldepartment = (DropDownList)gvdeptquery.Rows[i].Cells[1].Controls[1];
                         arraydata[0] = ddldepartment.SelectedValue;
+                        deptid = ddldepartment.SelectedValue;
                         GridViewRow gvr = gvdeptquery.Rows[i];
                         txtquery = (TextBox)gvr.FindControl("txtquery");
                         arraydata[1] = txtquery.Text;
@@ -363,6 +364,8 @@ namespace MeghalayaUIP.Dept.PreReg
 
                     if (valid == 0)
                     {
+                        DataRow[] rows = dt.Select(deptid);
+                        dt.Rows.Remove(rows[0]);
                         ViewState["dtDepartmentDtls"] = dt;
                         gvdeptquery.DataSource = dt;
                         gvdeptquery.DataBind();
@@ -405,7 +408,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                 dt.Rows.Add(dRow);
                             }
                         }
-                        dt.Rows.RemoveAt(i - 1);
+                        //dt.Rows.RemoveAt(i - 1);
                         ViewState["dtDepartmentDtls"] = dt;
                         gvdeptquery.DataSource = dt;
                         gvdeptquery.DataBind();

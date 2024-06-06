@@ -1880,7 +1880,108 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
         }
 
+        public string InsertCFEDGSetDetails(Labour_Details ObjCFELabourDet)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
 
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertDGSetDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEDG_UNITID", Convert.ToInt32(ObjCFELabourDet.UnitId));
+                com.Parameters.AddWithValue("@CFEDG_CFEQDID", Convert.ToInt32(ObjCFELabourDet.Questionnariid));
+
+                com.Parameters.AddWithValue("@CFEDG_LOCDOORNO", ObjCFELabourDet.Category_Estab);
+                com.Parameters.AddWithValue("@CFEDG_LOCALITY", ObjCFELabourDet.Name_Contractor);
+                com.Parameters.AddWithValue("@CFEDG_LANDMARK", ObjCFELabourDet.Father_Name);
+                com.Parameters.AddWithValue("@CFEDG_LOCDISTRICTID", Convert.ToInt32(ObjCFELabourDet.Date_birth));
+                com.Parameters.AddWithValue("@CFEDG_LOCMANDALID", Convert.ToInt32(ObjCFELabourDet.Designation));
+                com.Parameters.AddWithValue("@CFEDG_LOCVILLAGEID", Convert.ToInt32(Convert.ToInt64(ObjCFELabourDet.Mobile)));
+                com.Parameters.AddWithValue("@CFEDG_LOCPINCODE", Convert.ToInt64(ObjCFELabourDet.Email));
+
+                com.Parameters.AddWithValue("@CFEDG_SUPPLIERNAME", ObjCFELabourDet.Distric);
+                com.Parameters.AddWithValue("@CFEDG_TOTLCONNECTEDLOAD", ObjCFELabourDet.Mandal);
+                com.Parameters.AddWithValue("@CFEDG_TOTLPROPDGSETLOAD", ObjCFELabourDet.Village);
+                com.Parameters.AddWithValue("@CFEDG_INTERLOCKPROVIDED", ObjCFELabourDet.DistrictName);
+                com.Parameters.AddWithValue("@CFEDG_MOTORLOAD", ObjCFELabourDet.MandalName);
+                com.Parameters.AddWithValue("@CFEDG_LIGHTSFANSLOAD", ObjCFELabourDet.VillageName);
+                com.Parameters.AddWithValue("@CFEDG_GENRUNNINGMODE", ObjCFELabourDet.DoorNo);
+
+
+                com.Parameters.AddWithValue("@CFEDG_WRKCOMPLETIONDATE", DateTime.ParseExact(ObjCFELabourDet.Locality, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEDG_INSTLATIONSTARTDATE", DateTime.ParseExact(ObjCFELabourDet.Pincode, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEDG_COMMISSIONINGDATE", DateTime.ParseExact(ObjCFELabourDet.Name, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyy-MM-dd"));
+
+                com.Parameters.AddWithValue("@CFEDG_SUPERVISORNAME", ObjCFELabourDet.Fathers_Name);
+                com.Parameters.AddWithValue("@CFEDG_SUPERVISORLICNO", ObjCFELabourDet.Age);
+                com.Parameters.AddWithValue("@CFEDG_CONTRACTORNAME", Convert.ToInt64(ObjCFELabourDet.MobileNo));
+                com.Parameters.AddWithValue("@CFEDG_CONTRACTORLICNO", ObjCFELabourDet.EmailId);
+                com.Parameters.AddWithValue("@CFEDG_DGSETOPERATORNAME", Convert.ToInt32(ObjCFELabourDet.District));
+                com.Parameters.AddWithValue("@CFEDG_DGSETCAPACITY", Convert.ToInt32(ObjCFELabourDet.Mandals));
+                com.Parameters.AddWithValue("@CFEDG_DGSETCAPACITYIN", Convert.ToInt32(ObjCFELabourDet.Villages));
+                com.Parameters.AddWithValue("@CFEDG_DGSETPOWERFACTOR", ObjCFELabourDet.DistrictsName);
+                com.Parameters.AddWithValue("@CFEDG_DGSETRATEDVOLTAGE", ObjCFELabourDet.MandalsName);
+                com.Parameters.AddWithValue("@CFEDG_DGSETENGINEDTLS", ObjCFELabourDet.VillagesName);
+                com.Parameters.AddWithValue("@CFEDG_DGSETALTERNATORDTLS", ObjCFELabourDet.Door_No);
+
+
+                com.Parameters.AddWithValue("@CFEDG_EQUIPMENTTYPE", ObjCFELabourDet.Localitys);
+                com.Parameters.AddWithValue("@CFEDG_EARTHCONDCTRDTLS", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_CONDUCTORPATHS", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_ELECTRODEDTLS", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_IMPEDANCE", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_TOTALIMPEDANCE", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_LIGHTINGTYPE", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_ALTERNATORTESTDTLS", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_EARTHTESTERNO", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_EARTHTESTERMAKE", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_EARTHTESTERRANGE", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_MEGGERNO", ObjCFELabourDet.Pincodes);
+                com.Parameters.AddWithValue("@CFEDG_MEGGERMAKE", ObjCFELabourDet.Pincodes);
+                com.Parameters.AddWithValue("@CFEDG_MEGGERRANGE", ObjCFELabourDet.Pincodes);
+
+                com.Parameters.AddWithValue("@CFEDG_CREATEDBY", Convert.ToInt32(ObjCFELabourDet.CreatedBy));
+                com.Parameters.AddWithValue("@CFEDG_CREATEDBYIP", ObjCFELabourDet.IPAddress);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         public DataSet GetAppliedApprovalIDs(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
         {
             DataSet ds = new DataSet();
@@ -1900,7 +2001,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
-                da.SelectCommand.Parameters.AddWithValue("@USERID",userid);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
                 da.SelectCommand.Parameters.AddWithValue("@CFEQID", QusestionnaireID);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
                 if (ApprovalID == "")
