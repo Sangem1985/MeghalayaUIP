@@ -63,7 +63,51 @@ namespace MeghalayaUIP.User.CFO
                         }
                     }
                     BindDistricts();
+                    BindBuildingType();
+                    Binddata();
                 }
+            }
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfobal.GetCFOFireDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOFD_UNITID"]);
+
+                    txtName.Text = ds.Tables[1].Rows[0]["CFOFD_BUILDNAME"].ToString();
+                    ddlCategory.SelectedValue = ds.Tables[1].Rows[0]["CFOFD_CATEGORYBUILD"].ToString();
+                    txtFeeAmount.Text = ds.Tables[1].Rows[0]["CFOFD_FEEAMOUNT"].ToString();
+                    ddlDistrict.SelectedValue = ds.Tables[1].Rows[0]["CFOFD_DISTRICID"].ToString();
+                    ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlMandal.SelectedValue = ds.Tables[1].Rows[0]["CFOFD_MANDALID"].ToString();
+                    ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlVillage.SelectedValue = ds.Tables[1].Rows[0]["CFOFD_VILLAGEID"].ToString();
+                    txtLandline.Text = ds.Tables[1].Rows[0]["CFOFD_Locality"].ToString();
+                    txtSitArea.Text = ds.Tables[1].Rows[0]["CFOFD_Landmark"].ToString();
+                    txtPincode.Text = ds.Tables[1].Rows[0]["CFOFD_Pincode"].ToString();
+                    txtPlotAREA.Text = ds.Tables[1].Rows[0]["CFOFD_PLOTAREA"].ToString();
+                    txtBreadth.Text = ds.Tables[1].Rows[0]["CFOFD_DRIVEPROPSED"].ToString();
+                    txtBuildupArea.Text = ds.Tables[1].Rows[0]["CFOFD_BUILDUPAREA"].ToString();
+                    txtExisting.Text = ds.Tables[1].Rows[0]["CFOFD_EXISTINGROAD"].ToString();
+                    txtEast.Text = ds.Tables[1].Rows[0]["CFOFD_East"].ToString();
+                    txtWest.Text = ds.Tables[1].Rows[0]["CFOFD_West"].ToString();
+                    txtNorth.Text = ds.Tables[1].Rows[0]["CFOFD_North"].ToString();
+                    txtSouth.Text = ds.Tables[1].Rows[0]["CFOFD_South"].ToString();
+                    txtDistEast.Text = ds.Tables[1].Rows[0]["CFOFD_DISTANCEEAST"].ToString();
+                    txtDistWest.Text = ds.Tables[1].Rows[0]["CFOFD_DISTANCEWEST"].ToString();
+                    txtDistNorth.Text = ds.Tables[1].Rows[0]["CFOFD_DISTANCENORTH"].ToString();
+                    txtDistSouth.Text = ds.Tables[1].Rows[0]["CFOFD_DISTANCESOUTH"].ToString();
+                    txtFire.Text = ds.Tables[1].Rows[0]["CFOFD_FIRESTATION"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -422,6 +466,45 @@ namespace MeghalayaUIP.User.CFO
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
+        }
+        protected void BindBuildingType()
+        {
+
+            try
+            {
+
+                ddlCategory.Items.Clear();
+
+
+                List<MasterBuildingType> objDistrictModel = new List<MasterBuildingType>();
+                string strmode = string.Empty;
+                strmode = "";
+
+                objDistrictModel = mstrBAL.GetBuildingType();
+                if (objDistrictModel != null)
+                {
+                    ddlCategory.DataSource = objDistrictModel;
+                    ddlCategory.DataValueField = "BUILDINGTYPE_ID";
+                    ddlCategory.DataTextField = "BUILDINGTYPE_NAME";
+                    ddlCategory.DataBind();
+
+
+                }
+                else
+                {
+                    ddlCategory.DataSource = null;
+                    ddlCategory.DataBind();
+
+
+                }
+                AddSelect(ddlCategory);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

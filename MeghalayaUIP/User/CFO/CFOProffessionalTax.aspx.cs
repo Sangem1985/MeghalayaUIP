@@ -60,7 +60,74 @@ namespace MeghalayaUIP.User.CFO
                             Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
                         }
                     }
+                    BindDistric();
+                    Binddata();
+                    BindRegType();
+                    BindState();
+
+
                 }
+            }
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfobal.GetCFODistricCouncile(hdnUserID.Value, UnitID);
+                if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0 || ds.Tables[3].Rows.Count > 0 || ds.Tables[4].Rows.Count > 0)
+                {
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOPT_CFOUNITID"]);
+
+                        txtEstDet.Text = ds.Tables[1].Rows[0]["CFOPT_ESTBLSHNAME"].ToString();
+                        txtaddress.Text = ds.Tables[1].Rows[0]["CFOPT_ESTBLSHADDRESS"].ToString();
+                        ddlDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ESTBLSHDISTID"].ToString();
+                        txtPincode.Text = ds.Tables[1].Rows[0]["CFOPT_ESTBLSHPINCODE"].ToString();
+                        txtEmployeeESt.Text = ds.Tables[1].Rows[0]["CFOPT_ESTBLSHEMP"].ToString();
+                        txtGoodssupplie.Text = ds.Tables[1].Rows[0]["CFOPT_ESTBLSHGOODS"].ToString();
+                        txtDate.Text = ds.Tables[1].Rows[0]["CFOPT_COMMENCEDDATE"].ToString();
+                        txtIncome.Text = ds.Tables[1].Rows[0]["CFOPT_ANNUALINCOME"].ToString();
+                        rblBusiness.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNESTATE"].ToString();
+
+                        rblbusinessindia.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNECOUNTRY"].ToString();
+
+                        rblForeign.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNEFOREIGN"].ToString();
+                        txtBranch.Text = ds.Tables[1].Rows[0]["CFOPT_BRANCHCERTNO"].ToString();
+                        rblother.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_HADANYREG"].ToString();
+                        ddlRegType.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_REGTYPE"].ToString();
+                        TXTRegNo.Text = ds.Tables[1].Rows[0]["CFOPT_REGNO"].ToString();
+
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOPS_CFOQDID"]);
+                        GVState.DataSource = ds.Tables[2];
+                        GVState.DataBind();
+                        GVState.Visible = true;
+                    }
+                    if (ds.Tables[3].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFOPC_CFOQDID"]);
+                        GVCOUNTRY.DataSource = ds.Tables[3];
+                        GVCOUNTRY.DataBind();
+                        GVCOUNTRY.Visible = true;
+                    }
+                    if (ds.Tables[4].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOPF_CFOQDID"]);
+                        GVFOREIGN.DataSource = ds.Tables[4];
+                        GVFOREIGN.DataBind();
+                        GVFOREIGN.Visible = true;
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -523,6 +590,192 @@ namespace MeghalayaUIP.User.CFO
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
+        }
+        protected void BindDistric()
+        {
+            try
+            {
+                ddlDistric.Items.Clear();
+                ddldist.Items.Clear();
+
+                List<MasterDistric> objDistricModel = new List<MasterDistric>();
+
+                objDistricModel = mstrBAL.GetDistric();
+                if (objDistricModel != null)
+                {
+                    ddlDistric.DataSource = objDistricModel;
+                    ddlDistric.DataValueField = "DISTRIC_ID";
+                    ddlDistric.DataTextField = "DISTRIC_NAME";
+                    ddlDistric.DataBind();
+
+                    ddldist.DataSource = objDistricModel;
+                    ddldist.DataValueField = "DISTRIC_ID";
+                    ddldist.DataTextField = "DISTRIC_NAME";
+                    ddldist.DataBind();
+                }
+                else
+                {
+                    ddlDistric.DataSource = null;
+                    ddlDistric.DataBind();
+
+                    ddldist.DataSource = null;
+                    ddldist.DataBind();
+                }
+                AddSelect(ddlDistric);
+                AddSelect(ddldist);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void BindRegType()
+        {
+            try
+            {
+                ddlRegType.Items.Clear();
+
+                List<MasterREGTYPE> objRegTypeModel = new List<MasterREGTYPE>();
+
+                objRegTypeModel = mstrBAL.GetRegType();
+                if (objRegTypeModel != null)
+                {
+                    ddlRegType.DataSource = objRegTypeModel;
+                    ddlRegType.DataValueField = "REGISTRATIONTYPE_ID";
+                    ddlRegType.DataTextField = "REGISTRATIONTYPE_NAME";
+                    ddlRegType.DataBind();
+                }
+                else
+                {
+                    ddlRegType.DataSource = null;
+                    ddlRegType.DataBind();
+                }
+                AddSelect(ddlRegType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void BindState()
+        {
+            try
+            {
+                ddlState.Items.Clear();
+
+                List<MasterStates> objRegTypeModel = new List<MasterStates>();
+
+                objRegTypeModel = mstrBAL.GetStates();
+                if (objRegTypeModel != null)
+                {
+                    ddlState.DataSource = objRegTypeModel;
+                    ddlState.DataValueField = "StateId";
+                    ddlState.DataTextField = "StateName";
+                    ddlState.DataBind();
+                }
+                else
+                {
+                    ddlState.DataSource = null;
+                    ddlState.DataBind();
+                }
+                AddSelect(ddlState);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void GVState_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVState.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["PROFESSIONALTAX"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVState.DataSource = ((DataTable)ViewState["PROFESSIONALTAX"]).DefaultView;
+                    this.GVState.DataBind();
+                    GVState.Visible = true;
+                    GVState.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void GVCOUNTRY_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVCOUNTRY.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["PROFESSIONALTAXCOUNTRY"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVCOUNTRY.DataSource = ((DataTable)ViewState["PROFESSIONALTAXCOUNTRY"]).DefaultView;
+                    this.GVCOUNTRY.DataBind();
+                    GVCOUNTRY.Visible = true;
+                    GVCOUNTRY.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void GVFOREIGN_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVFOREIGN.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["PROFESSIONALTAXFOREIGN"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVFOREIGN.DataSource = ((DataTable)ViewState["PROFESSIONALTAXFOREIGN"]).DefaultView;
+                    this.GVFOREIGN.DataBind();
+                    GVFOREIGN.Visible = true;
+                    GVFOREIGN.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
     }
 }

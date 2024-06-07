@@ -58,7 +58,47 @@ namespace MeghalayaUIP.User.CFO
                             Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
                         }
                     }
+                    Binddata();
                 }
+            }
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfobal.GetCFOContractors(hdnUserID.Value, UnitID);
+
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOWC_UNITID"]);
+                    rblPurApplication.SelectedValue = ds.Tables[1].Rows[0]["CFOWC_APPLPURPOSE"].ToString();
+                    rblRegister.SelectedValue = ds.Tables[1].Rows[0]["CFOWC_CONTRREGCLASS"].ToString();
+                    if (rblRegister.SelectedValue == "1")
+                        director.Visible = true;
+                    else director.Visible = false;
+                    ddlDirector.SelectedValue = ds.Tables[1].Rows[0]["CFOWC_DIRECTORATE"].ToString();
+                    if (rblRegister.SelectedValue == "2")
+                        circle.Visible = true;
+                    else circle.Visible = false;
+                    ddlCircle.SelectedValue = ds.Tables[1].Rows[0]["CFOWC_CIRCLE"].ToString();
+                    if (rblRegister.SelectedValue == "3")
+                        division.Visible = true;
+                    else division.Visible = false;
+                    ddlDivision.SelectedValue = ds.Tables[1].Rows[0]["CFOWC_DIVISION"].ToString();
+                    txtNameBank.Text = ds.Tables[1].Rows[0]["CFOWC_CONTRBANKNAME"].ToString();
+                    txtTurnOver.Text = ds.Tables[1].Rows[0]["CFOWC_CONTRTURNOVER"].ToString();
+                    txtFinancial.Text = ds.Tables[1].Rows[0]["CFOWC_CONTR3YRSTURNOVER"].ToString();
+                    txtContractor.Text = ds.Tables[1].Rows[0]["CFOWC_CONTRSTARTDATE"].ToString();
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -143,12 +183,27 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblPurApplication.SelectedIndex == -1 || rblPurApplication.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                    errormsg = errormsg + slno + ". Please Select Purpose of Application \\n";
                     slno = slno + 1;
                 }
                 if (rblRegister.SelectedIndex == -1 || rblRegister.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Place of Business in Meghalaya \\n";
+                    errormsg = errormsg + slno + ". Please Select Contract Registring \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtTurnOver.Text) || txtTurnOver.Text == "" || txtTurnOver.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Turn Over (in Rs. Lakhs)\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtFinancial.Text) || txtFinancial.Text == "" || txtFinancial.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Total Value of Works in last 3 financial years (in Rs. Lakhs)\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtContractor.Text) || txtContractor.Text == "" || txtContractor.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Date from which working as contractor\\n";
                     slno = slno + 1;
                 }
 
