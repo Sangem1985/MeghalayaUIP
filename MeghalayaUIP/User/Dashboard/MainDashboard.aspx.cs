@@ -33,7 +33,7 @@ namespace MeghalayaUIP.User.Dashboard
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
                         // txtPANno.Text = ObjUserInfo.PANno;
-                        unitname.InnerText = ObjUserInfo.EntityName;
+                        //unitname.InnerText = ObjUserInfo.EntityName;
                         hdnUserID.Value = ObjUserInfo.Userid;
                         BindData(ObjUserInfo.Userid);
 

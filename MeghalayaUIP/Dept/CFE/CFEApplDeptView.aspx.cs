@@ -64,7 +64,7 @@ namespace MeghalayaUIP.Dept.CFE
 
                 objcfedtls.Questionnaireid = CFEQDID;
                 objcfedtls.Investerid = INVESTERID;
-                objcfedtls.Stage = stage; 
+                objcfedtls.Stage = stage;
                 Session["Questionnaireid"] = CFEQDID;
                 Session["INVESTERID"] = INVESTERID;
                 Session["stage"] = stage;
@@ -72,6 +72,20 @@ namespace MeghalayaUIP.Dept.CFE
                 Session["ApprovalID"] = ApprovalID;
                 Session["DEPTID"] = DEPTID;
                 Response.Redirect("CFEApplDeptProcess.aspx?status=" + Request.QueryString["status"].ToString());
+            }
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/CFE/CFEApplDeptdrill.aspx?status=" + Request.QueryString["status"].ToString());
+            }
+            catch (Exception ex)
+            {
+                //lblmsg0.Text = ex.Message;
+                //Failure.Visible = true;
+                //throw ex;
             }
         }
     }

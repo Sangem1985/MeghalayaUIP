@@ -102,5 +102,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetCategoryEST();
         }
+        public List<MasterDistricEST> GetDistricEST()
+        {
+            return objMasterDAL.GetDistricEST();
+        }
     }
 }

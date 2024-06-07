@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MeghalayaUIP.User.CFE
 {
@@ -345,7 +346,9 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFELabourDetails.aspx");
+                btnSave_Click(sender, e);
+                //string url = "~/ User / CFE / CFEPowerDetails.aspx ? Next = " + "N";
+                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Next="+"N");
             }
             catch (Exception ex)
             {

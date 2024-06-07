@@ -38,12 +38,14 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";        
         public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";           
         public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
-        public static string INSERTCFEWaterDet = "";       
+        public static string INSERTCFEWaterDet = "USP_INSCFEWATERDETAILS";
+        public static string GetCFEWaterDetails = "USP_GETCFEWATERDETAILS";
         public static string GetCFEApprovalsAmounttoPay = "USP_GETCFEAPPROVALSAMOUNTTOPAY";
         public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS";
         public static string InsertCFEAttachments = "USP_INSCFEATTACHMENTS";
         public static string GetCFEAttachments = "USP_GETCFEATTACHMENTS";
         public static string GetUserCFEApplStatus = "USP_GETCFEAPPLSTATUS";
+        public static string GetUserCFEApplStatusView = "USP_GETCFEAPPLSTATUSVIEW";
 
         public static string InsertCFELabourContractorDetails = "USP_INSCFECONTRACTLABOURDETAILS";
         public static string GetCFELabourContractorDet = "USP_GETCFECONTRACTLABOURDETAILS";
@@ -51,6 +53,9 @@ namespace MeghalayaUIP.Common
         public static string InsertCFELabourDet = "USP_INSCFELABOURDETAILS";
         public static string GetRetriveCFELabourDet = "USP_GETRETRIVECFELABOURDET";
         public static string GetCFEMigrantDetails = "USP_GETCFEMIGRANTWORKERDETAILS";
+
+        public static string GetAppliedApprovalIDs = "USP_GETCFEAPPROVALIDS";
+        public static string InsertDGSetDetails ="USP_INSCFEDGSETDETAILS";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>
@@ -377,25 +382,41 @@ namespace MeghalayaUIP.Common
         public string Date_est_Completion { get; set; }
         public string Manufacture_Details { get; set; }
     }
-    public class CFEWater
+
+    public class Water_Details
     {
-        public string RIVER { get; set; }
-        public string BOREWELL { get; set; }
-        public string HMWSSB { get; set; }
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
         public string Drinking_Water { get; set; }
         public string water_Industrial { get; set; }
         public string Quantity_Water { get; set; }
         public string Non_Consumptive_water { get; set; }
-        public string persons_residing { get; set; }
-        public string natural_spring { get; set; }
-        public string Purpose_drilling { get; set; }
-        public string Name_Registered { get; set; }
-        public string E_Mail_Registered { get; set; }
-        public string Water_demand { get; set; }
-        public string Sub_Divisional { get; set; }
-        public string Number_persons_working { get; set; }
-        public string Water_perday_demand { get; set; }
+        public string OVERHEAD { get; set; }
+        public string UNDERGROUND { get; set; }
+        public string TANKER_CAPACITY { get; set; }
+        public string WATERCONNECTION { get; set; }
+        public string HOLDING { get; set; }
+        public string WARDNO { get; set; }
+        public string SUBDIVISION { get; set; }
+        public string PREMISENUMBER { get; set; }
+        public string WATERDEMAND { get; set; }
+        public string ANYOTHERINFORMATION { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCALITY { get; set; }
+        public string LANDMARK { get; set; }
+        public string PINCODE { get; set; }
+        public string PURPOSECONN { get; set; }
+        public string TYPECON { get; set; }
+        public string DOMESTIC { get; set; }
+        public string BULK { get; set; }
+
     }
+    
     public class CFELand
     {
         public string Questionnariid { get; set; }
@@ -747,6 +768,70 @@ namespace MeghalayaUIP.Common
         public string COMMENCEMENTDATE { get; set; }
         public string COMPLETIONDATEOFWORK { get; set; }
         public string TERMINATIONDATEOFEMPMigrant { get; set; }
+
+    }
+    public class CFEDGset
+    {
+        public string Questionnaireid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string LocDoorno { get; set; }
+        public string Locality { get; set; }
+        public string Landamark { get; set; }
+        public string LocDistrictID { get; set; }
+        public string LocMandalID { get; set; }
+        public string LocVillageID { get; set; }
+        public string LocPincode { get; set; }
+        public string SupplierName { get; set; }
+        public string TotalConnectedLoad { get; set; }
+        public string PropLoadfromDGSet { get; set; }
+
+        public string InterlockProvided { get; set; }
+        public string MotorLoad { get; set; }
+        public string LightsandFansLoad { get; set; }
+
+        public string OtherlLoad { get; set; }
+
+        public string GenRunningMode { get; set; }
+
+        public string WorkCompletionDate { get; set; }
+
+        public string WorkStartingDate { get; set; }
+        public string CommissioningDate { get; set; }
+        public string SupervisorName { get; set; }
+        public string SupervisorLicNo { get; set; }
+        public string ContractorName { get; set; }
+
+        public string ContractorLicNo { get; set; }
+
+        public string DGSetOperatorNmae { get; set; }
+
+        public string DGSetCapacity { get; set; }
+
+        public string DGSetCapacityin { get; set; }
+
+        public string DGSetPowerFactor { get; set; }
+        public string DGSetRatedVoltage { get; set; }
+
+        public string DGSetEngineDetails { get; set; }
+
+        public string DGSetAlternatorDetails { get; set; }
+        public string EquipmentType { get; set; }
+        public string EarthingCondctrDtls { get; set; }
+        public string ConductrPaths { get; set; }
+        public string ElectrodeDtls { get; set; }
+
+        public string Impedance { get; set; }
+        public string TotalImpedance { get; set; }
+        public string LighingType { get; set; }
+        public string AlternatorTestDtls { get; set; }
+        public string EarthTesterNo { get; set; }
+        public string EarthTesterMake { get; set; }
+        public string EarthTesterRange { get; set; }
+        public string MeggerNo { get; set; }
+        public string MeggerMake { get; set; }
+        public string MeggerRange { get; set; }
 
     }
 }

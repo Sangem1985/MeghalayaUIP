@@ -47,10 +47,51 @@ namespace MeghalayaUIP.User.CFE
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    GetAppliedorNot();
                     BindVoltages();
                     BindENERGYLOAD();
                     BINDDATA();
                 }
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "14", "3,4");
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "3")
+                        {
+                            //divsupervision.Visible = true;
+                            //divContrLabr.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "4")
+                        {
+                            //divsupervision.Visible = true;
+                            //divMigrLabr.Visible = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFE/CFEDGSetDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
@@ -194,18 +235,7 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("~/User/CFE/CFELabourDetails.aspx");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
+
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -236,7 +266,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
 
                     result = objcfebal.InsertCFEPowerDetails(objCFEPower);
-                   // ViewState["UnitID"] = result;
+                    // ViewState["UnitID"] = result;
                     if (result != "")
                     {
                         success.Visible = true;
@@ -256,12 +286,24 @@ namespace MeghalayaUIP.User.CFE
                 throw EX;
             }
         }
-
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEFireDetails.aspx");
+                btnSave_Click(sender, e);
+                Response.Redirect("~/User/CFE/CFEDGSetDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

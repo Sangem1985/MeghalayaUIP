@@ -71,7 +71,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (ds.Tables[0].Rows.Count > 0)
                         {
-                            
+
 
                         }
                         if (ds.Tables[1].Rows.Count > 0)
@@ -98,44 +98,7 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("~/User/CFE/CFEForestDetails.aspx");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
 
-        }
-
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            { }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
-
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-            try
-            { 
-                Response.Redirect("~/User/CFE/CFEPaymentPage.aspx"); 
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-
-        }
 
         protected void btnUpldAadhar_Click(object sender, EventArgs e)
         {
@@ -500,6 +463,82 @@ namespace MeghalayaUIP.User.CFE
                     message = "alert('" + "Please Upload Document" + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+                if (string.IsNullOrEmpty(hplAadhar.Text) || hplAadhar.Text == "" || hplAadhar.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Aadhar Document \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplEPIC.Text) || hplEPIC.Text == "" || hplEPIC.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload EPIC Document \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplApplPhoto.Text) || hplApplPhoto.Text == "" || hplApplPhoto.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Photograpgh \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplLandDoc.Text) || hplLandDoc.Text == "" || hplLandDoc.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Land Document /Sale Deed  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplSitePlan.Text) || hplSitePlan.Text == "" || hplSitePlan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Site Plan \\n";
+                    slno = slno + 1;
+                }
+                if (errormsg == "")
+                {
+
+                }
+                else 
+                {
+                    string message = "alert('" + errormsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFELabourDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEPaymentPage.aspx");
             }
             catch (Exception ex)
             {

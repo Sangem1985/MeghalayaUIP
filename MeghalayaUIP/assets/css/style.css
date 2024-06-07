@@ -2735,6 +2735,7 @@ section#destin {
         font-size: 14px;
         font-size: 0.875rem;
         margin: 0;
+        opacity:1 !important;
     }
 
 @media (max-width: 991px) {

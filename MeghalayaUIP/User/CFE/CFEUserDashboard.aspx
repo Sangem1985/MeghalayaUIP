@@ -12,8 +12,6 @@
     </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
-
-
             <div class="card">
                 <div class="card-body">
                     <div class="col-md-12 d-flex">

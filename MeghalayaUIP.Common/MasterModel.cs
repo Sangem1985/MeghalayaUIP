@@ -36,6 +36,8 @@ namespace MeghalayaUIP.Common
         public static string GetDepartmentmaster = "USP_GET_DEPARTMETS";//Departments for Grievance
         public static string GetModulesMaster = "USP_GETMODULESMASTER";//Modules for Grievance
         public static string GetCategoryEST = "USP_GETCATEGORYEST";
+        public static string GetDistricEST = "USP_GETDISTESTABLISHMENT";
+
 
     }
     public class MasterCountry
@@ -219,5 +221,10 @@ namespace MeghalayaUIP.Common
     {
         public string CATEGORYEST_ID { get; set; }
         public string CATEGORYEST_NAME { get; set; }
+    }
+    public class MasterDistricEST
+    {
+        public string DISTRICEST_ID { get; set; }
+        public string DISTRICEST_NAME { get; set; }
     }
 }
