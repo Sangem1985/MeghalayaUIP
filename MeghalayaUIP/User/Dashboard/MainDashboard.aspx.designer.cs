@@ -15,6 +15,15 @@ namespace MeghalayaUIP.User.Dashboard
     {
 
         /// <summary>
+        /// unitname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl unitname;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
