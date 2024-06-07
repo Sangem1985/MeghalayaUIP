@@ -16,12 +16,7 @@
                  <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title mt-1"><b>Welcome to Dashboard </b></h4>
                     <h4 class="card-title mt-1">
-<<<<<<< HEAD
-                        <label id="unitname" runat="server"></label>
-                       
-=======
                         <%--<label id="unitname" runat="server"></label>--%>
->>>>>>> 7101962be7cb356b49550e31f185688aed808e99
                     </h4>
                 </div>
                 
