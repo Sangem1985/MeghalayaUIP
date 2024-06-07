@@ -62,7 +62,60 @@ namespace MeghalayaUIP.User.CFO
                             Response.Redirect("~/User/CFO/CFOFireDetails.aspx?Previous=P");
                         }
                     }
+                    BindDistricEST();
+                    BindMARKET();
+                    BindANNUALGROSS();
+                    BindMAINCATEGORY();
+                    Binddata();
                 }
+            }
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfobal.GetCFOBusinessLicenseDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                {
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOB_UNITID"]);
+                        txtaddress.Text = ds.Tables[1].Rows[0]["CFOB_ESTBDATE"].ToString();
+                        rblBusiness.SelectedValue = ds.Tables[1].Rows[0]["CFOB_STALLLOCATION"].ToString();
+                        rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
+                        if (rblBusiness.SelectedValue == "1")
+                            stall.Visible = true;
+                        else stall.Visible = false;
+                        txtHolding.Text = ds.Tables[1].Rows[0]["CFOB_HOLDINGNO"].ToString();
+                        ddlDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_MARKETNAME"].ToString();
+                        if (rblBusiness.SelectedValue == "2")
+                            Districmaster.Visible = true;
+                        else Districmaster.Visible = false;
+                        ddlESTDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ESTBDISTRICT"].ToString();
+                        txtstall.Text = ds.Tables[1].Rows[0]["CFOB_STALLNO"].ToString();
+                        rblmunicipality.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANYBUSINESS"].ToString();
+                        rblmunicipality_SelectedIndexChanged(null, EventArgs.Empty);
+                        if (rblmunicipality.Text == "Yes")
+                            Municipality.Visible = true;
+                        else Municipality.Visible = false;
+                        txtDetails.Text = ds.Tables[1].Rows[0]["CFOB_BUSINESSDETAILS"].ToString();
+                        ddlAnnual.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANNUALGROSSTURNOVER"].ToString();
+                        txtAmount.Text = ds.Tables[1].Rows[0]["CFOB_TOTALFEE"].ToString();
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOBN_CFOQDID"]);
+                        GVPollution.DataSource = ds.Tables[2];
+                        GVPollution.DataBind();
+                        GVPollution.Visible = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -143,14 +196,9 @@ namespace MeghalayaUIP.User.CFO
             {
                 int slno = 1;
                 string errormsg = "";
-                //if (string.IsNullOrEmpty(txtEstDet.Text) || txtEstDet.Text == "" || txtEstDet.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Name Of Establishment \\n";
-                //    slno = slno + 1;
-                //}
                 if (string.IsNullOrEmpty(txtaddress.Text) || txtaddress.Text == "" || txtaddress.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Address\\n";
+                    errormsg = errormsg + slno + ". Please Enter Date\\n";
                     slno = slno + 1;
                 }
                 if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
@@ -160,7 +208,37 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblBusiness.SelectedIndex == -1 || rblBusiness.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Place of Business in Meghalaya \\n";
+                    errormsg = errormsg + slno + ". Please Select Place Location Stall \\n";
+                    slno = slno + 1;
+                }
+                if (rblmunicipality.SelectedIndex == -1 || rblmunicipality.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Place Municipality Applicant \\n";
+                    slno = slno + 1;
+                }
+                if (ddlAnnual.SelectedIndex == -1 || ddlAnnual.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Annual Gross \\n";
+                    slno = slno + 1;
+                }
+                if (ddlNature.SelectedIndex == -1 || ddlNature.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Main Category \\n";
+                    slno = slno + 1;
+                }
+                if (ddlBusiness.SelectedIndex == -1 || ddlBusiness.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select SUB Category \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtFees.Text) || txtFees.Text == "" || txtFees.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Fees\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Total Amount\\n";
                     slno = slno + 1;
                 }
 
@@ -266,6 +344,182 @@ namespace MeghalayaUIP.User.CFO
         protected void btnNext_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User/CFO/CFOExcise.aspx?next=N");
+        }
+        protected void BindDistricEST()
+        {
+            try
+            {
+                ddlESTDistric.Items.Clear();
+
+
+                List<MasterDistricEST> objDistricESTModel = new List<MasterDistricEST>();
+
+                objDistricESTModel = mstrBAL.GetDistricEST();
+                if (objDistricESTModel != null)
+                {
+                    ddlESTDistric.DataSource = objDistricESTModel;
+                    ddlESTDistric.DataValueField = "DISTRICEST_ID";
+                    ddlESTDistric.DataTextField = "DISTRICEST_NAME";
+                    ddlESTDistric.DataBind();
+
+
+                }
+                else
+                {
+                    ddlESTDistric.DataSource = null;
+                    ddlESTDistric.DataBind();
+
+
+                }
+                AddSelect(ddlESTDistric);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void BindMARKET()
+        {
+            try
+            {
+                ddlDistric.Items.Clear();
+
+
+                List<MasterMARKET> objMARKETModel = new List<MasterMARKET>();
+
+                objMARKETModel = mstrBAL.GetMARKET();
+                if (objMARKETModel != null)
+                {
+                    ddlDistric.DataSource = objMARKETModel;
+                    ddlDistric.DataValueField = "MARKET_ID";
+                    ddlDistric.DataTextField = "MARKET_NAME";
+                    ddlDistric.DataBind();
+
+
+                }
+                else
+                {
+                    ddlDistric.DataSource = null;
+                    ddlDistric.DataBind();
+
+
+                }
+                AddSelect(ddlDistric);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void BindANNUALGROSS()
+        {
+            try
+            {
+                ddlAnnual.Items.Clear();
+
+
+                List<MasterANNUALGROSS> objMARKETModel = new List<MasterANNUALGROSS>();
+
+                objMARKETModel = mstrBAL.Getannualgross();
+                if (objMARKETModel != null)
+                {
+                    ddlAnnual.DataSource = objMARKETModel;
+                    ddlAnnual.DataValueField = "ANNUALGROSS_ID";
+                    ddlAnnual.DataTextField = "ANNUALGROSS_NAME";
+                    ddlAnnual.DataBind();
+
+
+                }
+                else
+                {
+                    ddlAnnual.DataSource = null;
+                    ddlAnnual.DataBind();
+
+
+                }
+                AddSelect(ddlAnnual);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void BindMAINCATEGORY()
+        {
+            try
+            {
+                ddlNature.Items.Clear();
+
+
+                List<MasterMAINCATEGORY> objMARKETModel = new List<MasterMAINCATEGORY>();
+
+                objMARKETModel = mstrBAL.GetMAINCATEGORY();
+                if (objMARKETModel != null)
+                {
+                    ddlNature.DataSource = objMARKETModel;
+                    ddlNature.DataValueField = "MAINCATEGORY_ID";
+                    ddlNature.DataTextField = "MAINCATEGORY_NAME";
+                    ddlNature.DataBind();
+
+
+                }
+                else
+                {
+                    ddlNature.DataSource = null;
+                    ddlNature.DataBind();
+
+
+                }
+                AddSelect(ddlNature);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void GVPollution_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVPollution.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["PollutionControlBOARD"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVPollution.DataSource = ((DataTable)ViewState["PollutionControlBOARD"]).DefaultView;
+                    this.GVPollution.DataBind();
+                    GVPollution.Visible = true;
+                    GVPollution.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
     }
 }

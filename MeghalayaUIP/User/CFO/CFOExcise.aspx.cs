@@ -597,12 +597,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx");
+            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx");
+            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
         }
     }
 }

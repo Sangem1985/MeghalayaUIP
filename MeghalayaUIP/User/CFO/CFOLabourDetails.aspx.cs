@@ -62,7 +62,116 @@ namespace MeghalayaUIP.User.CFO
                             Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx?Previous=P");
                         }
                     }
+                    BindBoilerType();
+                    Binddata();
+
                 }
+            }
+
+        }
+        public void Binddata()
+        {
+            //hdnUserID.Value = "1001";
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfobal.GetLabourDetails(hdnUserID.Value, UnitID);
+
+                if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                {
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOLD_UNITID"]);
+
+                        RBLAPPROVED.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_DIRECTINDIRECT"].ToString();
+                        ddlApplied.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();
+                        txtProvide.Text = ds.Tables[1].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
+                        txtESTYear.Text = ds.Tables[1].Rows[0]["CFOLD_YEAR"].ToString();
+                        rblmaximum.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TEMPMATERIAL"].ToString();
+                        rblregulation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION1950"].ToString();
+                        rblgenerator.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_GENGRINDE"].ToString();
+                        rbldesignation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_DESIGNATION"].ToString();
+                        txtSite.Text = ds.Tables[1].Rows[0]["CFOLD_SITES"].ToString();
+                        rblstrictly.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION81"].ToString();
+                        rblfirm.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_CONTROVERSIAL"].ToString();
+                        rblmaterial.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_MATERIAL"].ToString();
+                        rblinternalcontrol.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_OWNSYSTEM"].ToString();
+                        rbldocument.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();
+                        if (rbldocument.Text == "Y")
+                            Approved.Visible = true;
+                        else Approved.Visible = false;
+                        txtname1.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTURENAME"].ToString();
+                        txtfather.Text = ds.Tables[1].Rows[0]["CFOLD_MANUYEAR"].ToString();
+                        txtage.Text = ds.Tables[1].Rows[0]["CFOLD_MANUPLACE"].ToString();
+                        txtBoilerNumber.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERNUMBER"].ToString();
+                        txtIntendedPressure.Text = ds.Tables[1].Rows[0]["CFOLD_INTENDED"].ToString();
+                        ddlManufacture.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREPLACE"].ToString();
+                        txtSuperRating.Text = ds.Tables[1].Rows[0]["CFOLD_HEATERRATING"].ToString();
+                        txtEconomise.Text = ds.Tables[1].Rows[0]["CFOLD_ECONOMISERRATING"].ToString();
+                        txtTonnes.Text = ds.Tables[1].Rows[0]["CFOLD_EVAPORATION"].ToString();
+                        txtHeaterRating.Text = ds.Tables[1].Rows[0]["CFOLD_REHEATERRATING"].ToString();
+                        ddlWkgSeason.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_SEASON"].ToString();
+                        txtPressure.Text = ds.Tables[1].Rows[0]["CFOLD_PRESSURE"].ToString();
+                        txtOwner.Text = ds.Tables[1].Rows[0]["CFOLD_OWNERNAME"].ToString();
+                        ddlTypeBoiler.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_TYPEBOILER"].ToString();
+                        txtDESCBoiler.Text = ds.Tables[1].Rows[0]["CFOLD_DESCBOILER"].ToString();
+                        txtBoilerRating.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERRATING"].ToString();
+                        rblBoilerTrans.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_BOILEROWNERTRANSF"].ToString();
+                        if (rblBoilerTrans.Text == "Y")
+                            txtBoiler.Visible = true;
+                        else txtBoiler.Visible = false;
+                        txtRemark.Text = ds.Tables[1].Rows[0]["CFOLD_REMARK"].ToString();
+                        txtNameManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUNAME"].ToString();
+                        txtYearManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREYEAR"].ToString();
+                        txtPlaceManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTPLACE"].ToString();
+                        txtNameAgent.Text = ds.Tables[1].Rows[0]["CFOLD_NAMEAGENT"].ToString();
+                        txtAddress.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSAGENT"].ToString();
+                        txtlocation.Text = ds.Tables[1].Rows[0]["CFOLD_WORKETAILS"].ToString();
+                        txtdayslabour.Text = ds.Tables[1].Rows[0]["CFOLD_DAYSLABOUR"].ToString();
+                        txtEStdate.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDATE"].ToString();
+                        txtEndDate.Text = ds.Tables[1].Rows[0]["CFOLD_ENDDATE"].ToString();
+                        txtMaximumnumber.Text = ds.Tables[1].Rows[0]["CFOLD_CONTRACTEMP"].ToString();
+                        rblConvicated.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_FIVEYEARCONVICTED"].ToString();
+                        if (rblConvicated.Text == "Y")
+                            txtcontractor.Visible = true;
+                        else txtcontractor.Visible = false;
+                        txtDetails.Text = ds.Tables[1].Rows[0]["CFOLD_DETAILS"].ToString();
+                        rblrevoking.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REVORKING"].ToString();
+                        if (rblrevoking.Text == "Y")
+                            suspend.Visible = true;
+                        else suspend.Visible = false;
+                        txtOrderDate.Text = ds.Tables[1].Rows[0]["CFOLD_ORDERDAET"].ToString();
+                        rblcontractor.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_ESTCONTRACTOR"].ToString();
+                        if (rblcontractor.Text == "Y")
+                            fiveyear.Visible = true;
+                        else fiveyear.Visible = false;
+                        txtprinciple.Text = ds.Tables[1].Rows[0]["CFOLD_PRINCIPLEEMP"].ToString();
+                        if (rblcontractor.Text == "Y")
+                            nature.Visible = true;
+                        else nature.Visible = false;
+                        txtEstablishment.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDETAILS"].ToString();
+                        txtNature.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREWORK"].ToString();
+                        txtAgent.Text = ds.Tables[1].Rows[0]["CFOLD_MANAGERNAME"].ToString();
+                        txtfathername.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSMANAGER"].ToString();
+                        ddlCategory.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_CATEGORYEST"].ToString();
+                        txtNaturebusiness.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREBUSINESS"].ToString();
+                        rblresinding.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_FAMILYEMP"].ToString();
+                        rblestemployee.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_EMPEST"].ToString();
+                        txtTotalEMP.Text = ds.Tables[1].Rows[0]["CFOLD_TOTALEMP"].ToString();
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLD_CFOQDID"]);
+                        GVCFOLabour.DataSource = ds.Tables[2];
+                        GVCFOLabour.DataBind();
+                        GVCFOLabour.Visible = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -382,6 +491,48 @@ namespace MeghalayaUIP.User.CFO
         protected void btnNext_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
+        }
+        protected void BindBoilerType()
+        {
+            try
+            {
+                ddlTypeBoiler.Items.Clear();
+
+                List<MasterBOILERTYPE> objStatesModel = new List<MasterBOILERTYPE>();
+
+                objStatesModel = mstrBAL.GetBoilerType();
+                if (objStatesModel != null)
+                {
+                    ddlTypeBoiler.DataSource = objStatesModel;
+                    ddlTypeBoiler.DataValueField = "BOILER_ID";
+                    ddlTypeBoiler.DataTextField = "BOILER_NAME";
+                    ddlTypeBoiler.DataBind();
+                }
+                else
+                {
+                    ddlTypeBoiler.DataSource = null;
+                    ddlTypeBoiler.DataBind();
+                }
+                AddSelect(ddlTypeBoiler);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
