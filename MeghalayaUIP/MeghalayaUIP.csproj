@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AckSlip.aspx" />
     <Content Include="assets\admin\css\accordion.css" />
     <Content Include="assets\admin\css\animate.css" />
     <Content Include="assets\admin\css\bootstrap-datetimepicker.min.css" />
@@ -85,6 +86,7 @@
     <Content Include="assets\admin\fonts\feathericon.svg" />
     <Content Include="assets\admin\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\admin\fonts\MaterialIcons-Regular.svg" />
+    <Content Include="assets\admin\img\acklogo.jpg" />
     <Content Include="assets\admin\img\card1.png" />
     <Content Include="assets\admin\img\card2.png" />
     <Content Include="assets\admin\img\card3.png" />
@@ -598,6 +600,7 @@
     <Content Include="User\PreReg\IndustryRegistrationQueryDetails.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
+    <Content Include="User\Renewal\RENContractorMigrantWork.aspx" />
     <Content Include="User\Renewal\HealthFamilyWelfare.aspx" />
     <Content Include="User\Renewal\RENBoilerDetails.aspx" />
     <Content Include="User\Renewal\RENBusinessLicenseDetails.aspx" />
@@ -612,6 +615,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AckSlip.aspx.cs">
+      <DependentUpon>AckSlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AckSlip.aspx.designer.cs">
+      <DependentUpon>AckSlip.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CommonClass\MGCommonClass.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -1285,6 +1295,13 @@
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistrationViewDetails.aspx.designer.cs">
       <DependentUpon>IndustryRegistrationViewDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENContractorMigrantWork.aspx.cs">
+      <DependentUpon>RENContractorMigrantWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENContractorMigrantWork.aspx.designer.cs">
+      <DependentUpon>RENContractorMigrantWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\HealthFamilyWelfare.aspx.cs">
       <DependentUpon>HealthFamilyWelfare.aspx</DependentUpon>

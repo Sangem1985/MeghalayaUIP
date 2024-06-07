@@ -123,7 +123,8 @@
                     </h4>
                 </div>
                 <div class="card-body align-content-center" style="text-align: center;padding-top: 80px;">
-                    <i class="fi fi-ts-notes"></i>
+                    <%--<i class="fi fi-ts-notes"></i>--%>
+                    <img src="../../assets/admin/img/search.gif" style="width:10%;" />
                     <p class="align-content-between">You applied Units yet</p>
                    <asp:Button runat="server" ID="btnlistcler" Text="List of Units" OnClick="btnlistcler_Click"  CssClass="mr-3 btn btn-rounded btn-sm btn-approved" Width="120px" />
                     
