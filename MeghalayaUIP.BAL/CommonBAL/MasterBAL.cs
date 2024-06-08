@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -133,6 +134,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public List<MasterMAINCATEGORY> GetMAINCATEGORY()
         {
             return objMasterDAL.GetMAINCATEGORY();
+        }
+        public DataSet GetCertifcateDetails(string TypeOfApplication, string UIDNo,string UnitName)
+        {
+            return objMasterDAL.GetCertifcateDetails(TypeOfApplication, UIDNo, UnitName); 
         }
     }
 }

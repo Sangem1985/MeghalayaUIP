@@ -45,6 +45,7 @@ namespace MeghalayaUIP.Common
         public static string GetMARKET = "USP_GETMARKET";
         public static string GetAnnualgross = "USP_GETANNUALGROSS";
         public static string GETMaincategory = "USP_GETMAINCATEGORY";
+        public static string GetCertifcateDetails = "USP_GETGETCERTIFCATEDETAILS";
 
     }
     public class MasterCountry
