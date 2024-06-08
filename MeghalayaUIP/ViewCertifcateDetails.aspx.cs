@@ -47,5 +47,16 @@ namespace MeghalayaUIP
                 divGrid.Visible = true;
             }
         }
+
+        protected void gvDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                HyperLink hyperLink = (e.Row.FindControl("hypView") as HyperLink);
+                Label lblUnitId = (e.Row.FindControl("lblUnitId") as Label);
+                Label lblApptype = (e.Row.FindControl("lblApptype") as Label);
+                hyperLink.NavigateUrl = "~/AckSlip.aspx?UnitId=" + lblUnitId.Text.Trim() + "&AppType=" + lblApptype.Text.Trim();
+            }
+        }
     }
 }

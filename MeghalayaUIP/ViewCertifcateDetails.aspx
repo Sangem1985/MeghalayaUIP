@@ -20,12 +20,6 @@
                     <div class="col-md-6">
                         <div class="col-md-6 text-right">Type of Application</div>
                         <div class="col-md-6">
-                            <%-- <select class="form-control" runat="server" aria-label="Default select example" style="width: 100%; height: 32px;">
-                                <option selected>Select Application</option>
-                                <option value="1">CFE</option>
-                                <option value="2">CFO</option>
-                                <option value="3">Renewls</option>
-                            </select>--%>
                             <asp:DropDownList ID="ddlTypeApplication" runat="server" aria-label="Default select example" Style="width: 100%; height: 32px;">
                                 <asp:ListItem Value="0" Selected="True">Select Application</asp:ListItem>
                                 <asp:ListItem Value="1">CFE</asp:ListItem>
@@ -54,7 +48,8 @@
             <div class="col-md-12 d-flex" id="divGrid" runat="server" visible="false" style="margin-top: 25px;">
                 <div class="table-responsive">
                     <asp:GridView ID="gvDetails" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                        CssClass="table-hover" ForeColor="#333333" Width="100%" BorderColor="#003399" BorderStyle="Solid" BorderWidth="1px" EmptyDataText="No Data Available">
+                        CssClass="table-hover" ForeColor="#333333" Width="100%" BorderColor="#003399" BorderStyle="Solid" BorderWidth="1px"
+                        EmptyDataText="No Data Available" OnRowDataBound="gvDetails_RowDataBound">
                         <RowStyle CssClass="GRDITEM" VerticalAlign="Middle" />
                         <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="Black" BackColor="blanchedalmond" />
                         <Columns>
@@ -79,7 +74,17 @@
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="Download">
                                 <ItemTemplate>
-                                    <asp:Hyperlink Text="View" runat="server" ID="hypView" />
+                                    <asp:HyperLink Text="View" Target="_blank" runat="server" ID="hypView" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Unit Id" Visible="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblUnitId" runat="server" Text='<%# Eval("UNITID")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Application Type" Visible="false">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblApptype" runat="server" Text='<%# Eval("APPTYPE")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

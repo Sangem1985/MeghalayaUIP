@@ -46,10 +46,10 @@
 						<div class="row">
 							<div class="col-sm-12 m-b-20">
 								<ul class="list-unstyled mb-0 list-item">
-									<li>Date : <label>23-Jun-2024</label></li>
-									<li>Dear Enterprise,</li>
+									<li>Date : <label runat="server" id="lblDate" ></label></li>
+									<li><label runat="server" id="lblEnterPrise" ></label> ,</li>
 									<li>Your intent to invest in Meghalaya has been successfully submitted to Planning, Investment Promotion and<br />Sustainable Development Department, Meghalaya.</li>
-									<li>Your Application reference number is : <label><b>IMA/2024/00004</b></label></li>
+									<li>Your Application reference number is : <label runat="server" id="lblUIDNo"><b>IMA/2024/00004</b></label></li>
 								</ul>
 							</div>
 						</div>
