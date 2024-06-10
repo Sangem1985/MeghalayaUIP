@@ -12,17 +12,19 @@
             <div class="card flex-fill">
 
                 <h4 class="mt-2 ml-4">View Details</h4>
-                <div class="col-md-12 d-flex">
+                <div class="col-md-12 ">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                     </div>
                 </div>
-                <div class="col-md-12 d-flex">
+                <div class="col-md-12 ">
                     <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
                         <strong>Warning!</strong>
                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                     </div>
                 </div>
+                <asp:HiddenField ID="hdnUserID" runat="server" />
+
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -993,8 +995,11 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                 <td><b>Mobile No</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Application Action</b></td>
-                                                <td id="tdquryorrej" runat="server" visible="false"><b>
-                                                    <asp:Label runat="server" Text="Please Enter Query/Forward Reason"></asp:Label></b>
+                                                <td id="tdRemarks" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter Reamrks if any"></asp:Label></b>
+                                                </td>
+                                                <td id="tdApplQuery" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter Query Description"></asp:Label></b>
                                                 </td>
                                                 <td id="tdaction" runat="server" visible="true">
                                                     <b>Submit Action</b>
@@ -1015,63 +1020,79 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                 <td style="width: 200px">
                                                     <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="Approve & Forwrd to Committe" Value="11"></asp:ListItem>
-                                                        <asp:ListItem Text="Raise Query" Value="7"></asp:ListItem>
-
+                                                        <asp:ListItem Text="Approve & Forwrd to Committe" Value="8"></asp:ListItem>
+                                                        <asp:ListItem Text="Raise Query to Applicant" Value="4"></asp:ListItem>
+                                                        <asp:ListItem Text="Raise Query to Departments" Value="6"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
-                                                <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+                                                <td style="vertical-align: central" id="tdRemarksTxtbx" runat="server" visible="false">
+                                                    <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+                                                </td>
+                                                <td style="vertical-align: central" id="tdApplQueryTxtbx" runat="server" visible="false">
+                                                    <asp:TextBox ID="txtApplQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
                                                 </td>
 
-
                                                 <td>
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg" width="150px" />
+                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="vertical-align: central" id="tdquery" runat="server" visible="false" colspan="3">
-                                                    <asp:GridView ID="gvdeptquery" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                                                        GridLines="None" Width="100%" EnableModelValidation="True" OnRowCommand="gvdeptquery_RowCommand" OnRowDataBound="gvdeptquery_RowDataBound">
-                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="Sl No.">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblSl" runat="server" Text="<%#Container.DataItemIndex+1 %>"></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Department">
-                                                                <ItemTemplate>
-                                                                    <asp:DropDownList ID="ddldepartment" runat="server">
-                                                                        <asp:ListItem Value="0">--Select--</asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </ItemTemplate>
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Query Description">
-                                                                <ItemTemplate>
-                                                                    <asp:TextBox ID="txtquery" runat="server"></asp:TextBox>
-                                                                </ItemTemplate>
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:TemplateField>
-                                                            <asp:ButtonField CommandName="Add" Text="Add">
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:ButtonField>
-                                                            <asp:ButtonField CommandName="Remove" Text="Delete">
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:ButtonField>
-                                                        </Columns>
-                                                        <PagerStyle BackColor="#013161" ForeColor="White" HorizontalAlign="Center" />
-                                                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
-                                                        <EditRowStyle BackColor="#B9D684" />
-                                                        <AlternatingRowStyle BackColor="White" />
-                                                    </asp:GridView>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: central" id="tdDeptQuery" runat="server" visible="false" colspan="5">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Select Department to Raise Query</td>
+                                                            <td>
+                                                                <asp:DropDownList ID="ddldepartment" runat="server" class="form-control" >
+                                                                    <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                            <td>Enter Query Description
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtDeptQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <asp:Button ID="btnAddDeptQry" Text="Add Query" runat="server" class="btn btn-rounded btn-submit btn-lg" Width="125px" OnClick="btnAddDeptQry_Click" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <asp:GridView ID="grdDeptQueries" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333" 
+                                                                    OnRowDeleting="grdDeptQueries_RowDeleting" >
+                                                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                                                    <EditRowStyle BackColor="#B9D684" />
+                                                                    <AlternatingRowStyle BackColor="White" />
+                                                                    <Columns>
+                                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sl. No">
+                                                                            <ItemTemplate>
+                                                                                <%# Container.DataItemIndex + 1%>
+                                                                            </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:BoundField HeaderText="Department Name" DataField="DEPTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="Deaprtment ID" DataField="DEPTID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="Query Description" DataField="QUERYDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="UNITID" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="INVESTERID" DataField="INVESTERID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+
+                                                                        <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
+                                                                    </Columns>
+                                                                </asp:GridView>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
                                                 </td>
                                                 <td>
-                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" OnClick="btnQuery_Click" class="btn btn-rounded btn-submit btn-lg" />
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" Enabled="false" OnClick="btnQuery_Click" class="btn btn-rounded btn-submit btn-lg" />
                                                 </td>
                                             </tr>
                                         </table>

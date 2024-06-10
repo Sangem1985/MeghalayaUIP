@@ -15,6 +15,51 @@ namespace MeghalayaUIP.Dept.PreReg
     {
 
         /// <summary>
+        /// success control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
+
+        /// <summary>
+        /// lblmsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmsg;
+
+        /// <summary>
+        /// Failure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
+
+        /// <summary>
+        /// lblmsg0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmsg0;
+
+        /// <summary>
+        /// linkTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkTotal;
+
+        /// <summary>
         /// lblTotalApp control.
         /// </summary>
         /// <remarks>
@@ -24,13 +69,13 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblTotalApp;
 
         /// <summary>
-        /// lblIMATotal control.
+        /// linktobeProc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIMATotal;
+        protected global::System.Web.UI.WebControls.LinkButton linktobeProc;
 
         /// <summary>
         /// lblIMATOBEPROCESSED control.
@@ -42,6 +87,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblIMATOBEPROCESSED;
 
         /// <summary>
+        /// linkApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApproved;
+
+        /// <summary>
         /// lblIMAPPROVED control.
         /// </summary>
         /// <remarks>
@@ -51,31 +105,175 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblIMAPPROVED;
 
         /// <summary>
-        /// lblIMAQUERY control.
+        /// linkQuerytoDept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIMAQUERY;
+        protected global::System.Web.UI.WebControls.LinkButton linkQuerytoDept;
 
         /// <summary>
-        /// lblIMAQUERYREPLIED control.
+        /// lblIMATODEPTQUERY control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIMAQUERYREPLIED;
+        protected global::System.Web.UI.WebControls.Label lblIMATODEPTQUERY;
 
         /// <summary>
-        /// Label1 control.
+        /// linkDeptReplyToIMA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.LinkButton linkDeptReplyToIMA;
+
+        /// <summary>
+        /// lblIMAQUERYREPLIEDBYDEPT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIMAQUERYREPLIEDBYDEPT;
+
+        /// <summary>
+        /// linkQuerytoApplc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkQuerytoApplc;
+
+        /// <summary>
+        /// lblIMATOAPPLICANTTQUERY control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIMATOAPPLICANTTQUERY;
+
+        /// <summary>
+        /// linkApplcReplyToIMA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApplcReplyToIMA;
+
+        /// <summary>
+        /// lblIMAQUERYREPLIEDBYAPPLICANT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIMAQUERYREPLIEDBYAPPLICANT;
+
+        /// <summary>
+        /// linkCommQrytoIMA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkCommQrytoIMA;
+
+        /// <summary>
+        /// lblCommitteeQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCommitteeQuery;
+
+        /// <summary>
+        /// linkIMAReplyToComm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkIMAReplyToComm;
+
+        /// <summary>
+        /// lblIMARepltoCommittee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIMARepltoCommittee;
+
+        /// <summary>
+        /// linkComQryToAppl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkComQryToAppl;
+
+        /// <summary>
+        /// lblComquryfwdtoapplcnt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblComquryfwdtoapplcnt;
+
+        /// <summary>
+        /// linkApplcReplyToComm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApplcReplyToComm;
+
+        /// <summary>
+        /// lblComquryrepliedbyapplcnt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblComquryrepliedbyapplcnt;
+
+        /// <summary>
+        /// linkComQryToDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkComQryToDept;
+
+        /// <summary>
+        /// lblComquryfwdtoDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblComquryfwdtoDept;
+
+        /// <summary>
+        /// linkDeptReplyToComm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkDeptReplyToComm;
 
         /// <summary>
         /// lblDeptrepliedtoCommittee control.
@@ -85,23 +283,5 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDeptrepliedtoCommittee;
-
-        /// <summary>
-        /// lblCommitteeQueryforwardedtoAppl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCommitteeQueryforwardedtoAppl;
-
-        /// <summary>
-        /// lblAPPLREPLIEDTOCommitteeQUERY control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAPPLREPLIEDTOCommitteeQUERY;
     }
 }

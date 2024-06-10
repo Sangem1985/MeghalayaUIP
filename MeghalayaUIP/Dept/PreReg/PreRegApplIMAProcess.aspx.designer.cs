@@ -51,6 +51,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
+        /// hdnUserID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+
+        /// <summary>
         /// lblCompanyName control.
         /// </summary>
         /// <remarks>
@@ -699,13 +708,22 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl verifypanel;
 
         /// <summary>
-        /// tdquryorrej control.
+        /// tdRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdquryorrej;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdRemarks;
+
+        /// <summary>
+        /// tdApplQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdApplQuery;
 
         /// <summary>
         /// tdaction control.
@@ -762,22 +780,40 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
 
         /// <summary>
-        /// tdquryorrejTxtbx control.
+        /// tdRemarksTxtbx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdquryorrejTxtbx;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdRemarksTxtbx;
 
         /// <summary>
-        /// txtRequest control.
+        /// txtRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRequest;
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
+
+        /// <summary>
+        /// tdApplQueryTxtbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdApplQueryTxtbx;
+
+        /// <summary>
+        /// txtApplQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtApplQuery;
 
         /// <summary>
         /// btnSubmit control.
@@ -789,22 +825,49 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
-        /// tdquery control.
+        /// tdDeptQuery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdquery;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdDeptQuery;
 
         /// <summary>
-        /// gvdeptquery control.
+        /// ddldepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvdeptquery;
+        protected global::System.Web.UI.WebControls.DropDownList ddldepartment;
+
+        /// <summary>
+        /// txtDeptQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeptQuery;
+
+        /// <summary>
+        /// btnAddDeptQry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddDeptQry;
+
+        /// <summary>
+        /// grdDeptQueries control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdDeptQueries;
 
         /// <summary>
         /// btnQuery control.

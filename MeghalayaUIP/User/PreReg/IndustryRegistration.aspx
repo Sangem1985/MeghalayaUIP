@@ -20,13 +20,13 @@
             padding: 2px 5px 2px 10px;
         }
     </style>
-     
+
     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-											<li class="breadcrumb-item active" aria-current="page">Industry Registration</li>
-										</ol>
-									</nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Industry Registration</li>
+        </ol>
+    </nav>
     <div class="page-wrapper tabs">
 
         <div class="content container-fluid">
@@ -35,10 +35,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                        
+
                             <h4 class="card-title"><b>Industry Registration with Invest Meghalaya Authority/MIIPP</b></h4>
-                        
-                            </div>
+
+                        </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
                                 <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
@@ -897,7 +897,7 @@ However, you can register your unit to get required approvals/ clearances.</labe
                                                                 <label class="col-lg-6 col-form-label">Nationality *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlApplNationality" runat="server" class="form-control">
-                                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                         <asp:ListItem Text="Indian" Value="Indian"></asp:ListItem>
                                                                         <asp:ListItem Text="Others" Value="Others"></asp:ListItem>
 

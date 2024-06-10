@@ -25,10 +25,13 @@ namespace MeghalayaUIP.Common
 
         //public static string InsertPreRegJDDept = "USP_INS_DEPARTMENT_APPROVALS";
         public static string GetSectorDepartments = "USP_GET_SECTOR_DEPT";
-        public static string GetPreRegDashBoard = "USP_PREREGDASHBOARDCOUNT";
-        public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDVIEW";
+        //public static string GetPreRegDashBoard = "USP_PREREGDASHBOARDCOUNT"; ----OLD FLOW
+        public static string GetPreRegDashBoard = "USP_GETPREREGDASHBOARD";
+        //public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDVIEW";  ----OLD FLOW
+        public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDDRILLDOWN";
         public static string GetPreRegNodelOfficer = "USP_PREREGDASHBOARDVIEWDETAILS";
-        public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";       
+       // public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";
+        public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";

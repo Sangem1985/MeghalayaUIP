@@ -723,23 +723,23 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 com.Parameters.AddWithValue("@REMARKS", PRD.Remarks);
                 if (PRD.LandArea != null && PRD.LandArea != "")
                 {
-                    com.Parameters.AddWithValue("@DEPTLANDAREA", PRD.LandArea);
+                    com.Parameters.AddWithValue("@COMMLANDAREA", PRD.LandArea);
                 }
                 if (PRD.Power != null && PRD.Power != "")
                 {
-                    com.Parameters.AddWithValue("@DEPTPOWER", PRD.Power);
+                    com.Parameters.AddWithValue("@COMMPOWER", PRD.Power);
                 }
                 if (PRD.Water != null && PRD.Water != "")
                 {
-                    com.Parameters.AddWithValue("@DEPTWATER", PRD.Water);
+                    com.Parameters.AddWithValue("@COMMWATER", PRD.Water);
                 }
                 if (PRD.WasteDetails != null && PRD.WasteDetails != "")
                 {
-                    com.Parameters.AddWithValue("@DEPTWASTEDETAILS", PRD.WasteDetails);
+                    com.Parameters.AddWithValue("@COMMWASTEDETAILS", PRD.WasteDetails);
                 }
                 if (PRD.HazDetails != null && PRD.HazDetails != "")
                 {
-                    com.Parameters.AddWithValue("@DEPTHAZDETAILS", PRD.HazDetails);
+                    com.Parameters.AddWithValue("@COMMHAZDETAILS", PRD.HazDetails);
                 }
                 com.Parameters.AddWithValue("@IPADDRESS", PRD.IPAddress);
                 com.Parameters.AddWithValue("@USERID", PRD.UserID);

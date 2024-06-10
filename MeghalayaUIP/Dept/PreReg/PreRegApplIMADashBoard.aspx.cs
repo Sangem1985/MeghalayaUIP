@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using System.Diagnostics;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
@@ -23,6 +24,7 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
+
                 if (IsPostBack == false)
                 {
                     if (Session["DeptUserInfo"] != null)
@@ -34,30 +36,249 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         // username = ObjUserInfo.UserName;
                     }
-                    prd.UserID = ObjUserInfo.UserID;
-                    prd.UserName = ObjUserInfo.UserName;
-                    prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-                    if(ObjUserInfo.Deptid !=null && ObjUserInfo.Deptid != "")
-                    {
-                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    }
-                    
-                    dt = PreBAL.GetPreRegDashBoard(prd);
-
-                    lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();                    
-
-                    lblIMATotal.Text = dt.Rows[0]["IMATOTAL"].ToString();
-                    lblIMATOBEPROCESSED.Text = dt.Rows[0]["IMATOBEPROCESSED"].ToString();
-                    //lblIMAPROCESSED.Text = dt.Rows[0]["IMAPROCESSED"].ToString();
-                    lblIMAPPROVED.Text = dt.Rows[0]["IMAPPROVED"].ToString();
-                    lblIMAQUERY.Text = dt.Rows[0]["IMAQUERY"].ToString();
-                    lblIMAQUERYREPLIED.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString(); 
+                    Bind();
                 }
             }
             catch (Exception ex)
             {
-
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
             }
         }
+        protected void Bind()
+        {
+            try
+            {
+                prd.UserID = ObjUserInfo.UserID;
+                prd.UserName = ObjUserInfo.UserName;
+                prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                {
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                }
+
+                dt = PreBAL.GetPreRegDashBoard(prd);
+
+
+                //--------------------Commented for new dept flow-----------------------------------//
+                //lblIMATotal.Text = dt.Rows[0]["IMATOTAL"].ToString();
+                //lblIMATOBEPROCESSED.Text = dt.Rows[0]["IMATOBEPROCESSED"].ToString();
+                ////lblIMAPROCESSED.Text = dt.Rows[0]["IMAPROCESSED"].ToString();
+                //lblIMAPPROVED.Text = dt.Rows[0]["IMAPPROVED"].ToString();
+                //lblIMAQUERY.Text = dt.Rows[0]["IMAQUERY"].ToString();
+                //lblIMAQUERYREPLIED.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString(); 
+                //--------------------Commented for new dept flow-----------------------------------//
+
+
+
+                lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
+                lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
+                lblIMATOAPPLICANTTQUERY.Text = dt.Rows[0]["IMAQUERYTOAPPLCNT"].ToString();
+                lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
+                lblIMATODEPTQUERY.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
+                lblIMAQUERYREPLIEDBYDEPT.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+
+
+
+                lblCommitteeQuery.Text = dt.Rows[0]["COMMQUERYTOIMA"].ToString();
+                lblIMARepltoCommittee.Text = dt.Rows[0]["IMAREPLIEDTOCOMM"].ToString();
+                lblComquryfwdtoapplcnt.Text = dt.Rows[0]["IMAFWDCOMMQRYTOAPPLCNT"].ToString();
+                lblComquryrepliedbyapplcnt.Text = dt.Rows[0]["APPLCNTREPLIEDTOCOMMQRY"].ToString();
+                lblComquryfwdtoDept.Text = dt.Rows[0]["IMAFWDCOMMQRYTODEPT"].ToString();
+                lblDeptrepliedtoCommittee.Text = dt.Rows[0]["DEPTREPLIEDTOCOMMQRY"].ToString();
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+
+        }
+
+        protected void linkTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblTotalApp.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMATOTAL");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void linktobeProc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblIMATOBEPROCESSED.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMATOBEPROCESSED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+
+        }
+
+        protected void linkApproved_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblIMAPPROVED.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMAPPROVED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+
+        }
+
+        protected void linkQuerytoDept_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblIMATODEPTQUERY.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMATODEPTQUERY");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+
+        }
+        protected void linkDeptReplyToIMA_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblIMAQUERYREPLIEDBYDEPT.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=DEPTREPLIEDTOIMA");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+        protected void linkQuerytoApplc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblIMATOAPPLICANTTQUERY.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMAQUERYTOAPPLCNT");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+
+        }
+
+        protected void linkApplcReplyToIMA_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblIMAQUERYREPLIEDBYAPPLICANT.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=APPLCNTREPLIEDTOIMA");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+
+        protected void linkCommQrytoIMA_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblCommitteeQuery.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=COMMQUERYTOIMA");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+        protected void linkIMAReplyToComm_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (lblIMARepltoCommittee.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMAREPLIEDTOCOMM");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void linkComQryToAppl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblComquryfwdtoapplcnt.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMAFWDCOMMQRYTOAPPLCNT");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+        protected void linkApplcReplyToComm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblComquryrepliedbyapplcnt.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=APPLCNTREPLIEDTOCOMMQRY");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+        protected void linkComQryToDept_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblComquryfwdtoDept.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=IMAFWDCOMMQRYTODEPT");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void linkDeptReplyToComm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblDeptrepliedtoCommittee.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=DEPTREPLIEDTOCOMMQRY");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
     }
+
 }
