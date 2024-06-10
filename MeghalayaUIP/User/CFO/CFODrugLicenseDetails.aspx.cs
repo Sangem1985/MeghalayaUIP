@@ -95,7 +95,64 @@ namespace MeghalayaUIP.User.CFO
                             Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
                         }
                     }
+                    Binddata();
                 }
+            }
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfobal.GetCFODrugLicenseDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0 || ds.Tables[3].Rows.Count > 0 || ds.Tables[4].Rows.Count > 0)
+                {
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFODL_UNITID"]);
+
+                        rblApplication.SelectedValue = ds.Tables[1].Rows[0]["CFODL_APPLTYPE"].ToString();
+                        txttradeLic.Text = ds.Tables[1].Rows[0]["CFODL_TRADELICVALDTYDATE"].ToString();
+                        txtClass.Text = ds.Tables[1].Rows[0]["CFODL_MUNCPERMVALDTYDATE"].ToString();
+                        txtCapacity.Text = ds.Tables[1].Rows[0]["CFODL_COLDSTORGDETAILS"].ToString();
+                        rblLicense.SelectedValue = ds.Tables[1].Rows[0]["CFODL_ANYPREVLIC"].ToString();
+                        if (rblLicense.Text == "Yes")
+                            CanceledLIC.Visible = true;
+                        else CanceledLIC.Visible = false;
+                        txtspecifyLICNo.Text = ds.Tables[1].Rows[0]["CFODL_PREVLICDETAILS"].ToString();
+                        rblinsection.SelectedValue = ds.Tables[1].Rows[0]["CFODL_PREMISERDYFORINSP"].ToString();
+                        if (rblinsection.Text == "Yes")
+                            InspectionDate.Visible = true;
+                        else InspectionDate.Visible = false;
+                        txtInspection.Text = ds.Tables[1].Rows[0]["CFODL_DATEOFINSP"].ToString();
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFODM_CFOQDID"]);
+                        GVHealthy.DataSource = ds.Tables[2];
+                        GVHealthy.DataBind();
+                        GVHealthy.Visible = true;
+                    }
+                    if (ds.Tables[3].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFODT_CFOQDID"]);
+                        GVTESTING.DataSource = ds.Tables[3];
+                        GVTESTING.DataBind();
+                        GVTESTING.Visible = true;
+                    }
+                    if (ds.Tables[4].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOD_CFOQDID"]);
+                        GVDrug.DataSource = ds.Tables[4];
+                        GVDrug.DataBind();
+                        GVDrug.Visible = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -229,6 +286,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 int slno = 1;
                 string errormsg = "";
+
                 if (string.IsNullOrEmpty(txtClass.Text) || txtClass.Text == "" || txtClass.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Valida Permission\\n";
@@ -236,7 +294,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblApplication.SelectedIndex == -1 || rblApplication.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                    errormsg = errormsg + slno + ". Please Select Applicant Type \\n";
                     slno = slno + 1;
                 }
                 if (rblLicense.SelectedIndex == -1 || rblLicense.SelectedItem.Text == "--Select--")
@@ -251,12 +309,52 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (string.IsNullOrEmpty(txtClass.Text) || txtClass.Text == "" || txtClass.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Address\\n";
+                    errormsg = errormsg + slno + ". Please Enter Valid up to date permission\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Cold Storage\\n";
+                    slno = slno + 1;
+                }
+                if (rblinsection.SelectedIndex == -1 || rblinsection.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select premise and plan ready for inspection? \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Name\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtQualification.Text) || txtQualification.Text == "" || txtQualification.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Qualification\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtExperience.Text) || txtExperience.Text == "" || txtExperience.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Experience Year\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtNameTest.Text) || txtNameTest.Text == "" || txtNameTest.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Name\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtQualifyTest.Text) || txtQualifyTest.Text == "" || txtQualifyTest.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Qualification\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtExperienceTest.Text) || txtExperienceTest.Text == "" || txtExperienceTest.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Experience Year\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtNameDrug.Text) || txtNameDrug.Text == "" || txtNameDrug.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Drug\\n";
                     slno = slno + 1;
                 }
 
@@ -447,6 +545,84 @@ namespace MeghalayaUIP.User.CFO
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+        }
+
+        protected void GVHealthy_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVHealthy.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["MANUFACTURE"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVHealthy.DataSource = ((DataTable)ViewState["MANUFACTURE"]).DefaultView;
+                    this.GVHealthy.DataBind();
+                    GVHealthy.Visible = true;
+                    GVHealthy.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void GVTESTING_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVTESTING.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["TESTING"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVTESTING.DataSource = ((DataTable)ViewState["TESTING"]).DefaultView;
+                    this.GVTESTING.DataBind();
+                    GVTESTING.Visible = true;
+                    GVTESTING.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void GVDrug_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVDrug.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["NameDrug"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVDrug.DataSource = ((DataTable)ViewState["NameDrug"]).DefaultView;
+                    this.GVDrug.DataBind();
+                    GVDrug.Visible = true;
+                    GVDrug.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
     }
 }

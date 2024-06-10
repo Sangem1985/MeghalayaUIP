@@ -50,7 +50,13 @@ namespace MeghalayaUIP.Common
         public static string UpdateCFODepartmentProcess = "USP_UPDATECFOSCRUTINYACTION";
 
         //------------------DEPARTMENT ENDED HERE ---------------------------------//
-
+        public static string GetCFOLabourDet = "USP_GETCFOLABOURDETAILS";
+        public static string GetCFOLegalMeterologyDetails = "USP_GETCFOLEGALMETROLOGYDETAILS";
+        public static string GetCFOContractorsDetails = "USP_GETCFOWORKCONTRACTORDETAILS";
+        public static string GetCFODrugLicDetails = "USP_GETCFODRUGLICDETAILS";
+        public static string GetCFOProffessionalTaxDetails = "USP_GETCFOPROFTAXDETAILS";
+        public static string GetCFOFireDet = "USP_GETCFOFIREDETAILS";
+        public static string GetCFOBusinessLicDetails = "USP_GETCFOBUSINESSLICDETAILS";
     }
     public class CFOExciseDetails
     {

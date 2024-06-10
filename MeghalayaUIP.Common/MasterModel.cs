@@ -38,6 +38,15 @@ namespace MeghalayaUIP.Common
         public static string GetCategoryEST = "USP_GETCATEGORYEST";
         public static string GetDistricEST = "USP_GETDISTESTABLISHMENT";
 
+        public static string GetBoilerType = "USP_GETBOILERTYPE";
+        public static string GetDistric = "USP_GETDISTRIC";
+        public static string GetRegType = "USP_GETREGTYPE";
+        public static string GETBuildingType = "USP_GETBUILDINGTYPES";
+        public static string GetMARKET = "USP_GETMARKET";
+        public static string GetAnnualgross = "USP_GETANNUALGROSS";
+        public static string GETMaincategory = "USP_GETMAINCATEGORY";
+        public static string GetCertifcateDetails = "USP_GETGETCERTIFCATEDETAILS";
+        public static string GetAcknowlegementDetails = "USP_GET_ACKNOWLEDGEMENT_DETAILS";
 
     }
     public class MasterCountry
@@ -227,4 +236,40 @@ namespace MeghalayaUIP.Common
         public string DISTRICEST_ID { get; set; }
         public string DISTRICEST_NAME { get; set; }
     }
+    public class MasterBOILERTYPE
+    {
+        public string BOILER_ID { get; set; }
+        public string BOILER_NAME { get; set; }
+    }
+    public class MasterDistric
+    {
+        public string DISTRIC_ID { get; set; }
+        public string DISTRIC_NAME { get; set; }
+    }
+    public class MasterREGTYPE
+    {
+        public string REGISTRATIONTYPE_ID { get; set; }
+        public string REGISTRATIONTYPE_NAME { get; set; }
+    }
+    public class MasterBuildingType
+    {
+        public string BUILDINGTYPE_ID { get; set; }
+        public string BUILDINGTYPE_NAME { get; set; }
+    }   
+    public class MasterMARKET
+    {
+        public string MARKET_ID { get; set; }
+        public string MARKET_NAME { get; set; }
+    }
+    public class MasterANNUALGROSS
+    {
+        public string ANNUALGROSS_ID { get; set; }
+        public string ANNUALGROSS_NAME { get; set; }
+    }
+    public class MasterMAINCATEGORY
+    {
+        public string MAINCATEGORY_ID { get; set; }
+        public string MAINCATEGORY_NAME { get; set; }
+    }
+
 }

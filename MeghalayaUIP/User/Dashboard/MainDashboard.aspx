@@ -2,10 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <link href="../assets/admin/css/user.css" rel="stylesheet" />
+    <link href="../assets/admin/css/user.css" rel="stylesheet" />
+    
      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb d-flex justify-content-between">
             <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            <li><a href="#"><span class="badge bg-primary text-white fw-bold">Visit Guidance Site</span></a></li>
         </ol>
     </nav>
     <div class="page-wrapper griddesignmulticount">
@@ -14,7 +16,7 @@
                  <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title mt-1"><b>Welcome to Dashboard </b></h4>
                     <h4 class="card-title mt-1">
-                        <%--<label id="unitname" runat="server"></label>--%>
+                        <label id="unitname" runat="server"></label>
                     </h4>
                 </div>
                 

@@ -918,5 +918,289 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstDistricESTMstr;
         }
+        public List<MasterBOILERTYPE> GetBoilerType()
+        {
+            List<MasterBOILERTYPE> lstBoilerMstr = new List<MasterBOILERTYPE>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetBoilerType);
+                while (drOptions.Read())
+                {
+                    var Boiler = new MasterBOILERTYPE()
+                    {
+
+                        BOILER_ID = Convert.ToString(drOptions["BOILER_ID"]),
+                        BOILER_NAME = Convert.ToString(drOptions["BOILER_NAME"])
+                    };
+                    lstBoilerMstr.Add(Boiler);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstBoilerMstr;
+        }
+        public List<MasterREGTYPE> GetRegType()
+        {
+            List<MasterREGTYPE> lstRegTypeMstr = new List<MasterREGTYPE>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetRegType);
+                while (drOptions.Read())
+                {
+                    var RegType = new MasterREGTYPE()
+                    {
+
+                        REGISTRATIONTYPE_ID = Convert.ToString(drOptions["REGISTRATIONTYPE_ID"]),
+                        REGISTRATIONTYPE_NAME = Convert.ToString(drOptions["REGISTRATIONTYPE_NAME"])
+                    };
+                    lstRegTypeMstr.Add(RegType);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstRegTypeMstr;
+        }
+        public List<MasterDistric> GetDistric()
+        {
+            List<MasterDistric> lstDistricMstr = new List<MasterDistric>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetDistric);
+                while (drOptions.Read())
+                {
+                    var Distric = new MasterDistric()
+                    {
+
+                        DISTRIC_ID = Convert.ToString(drOptions["DISTRIC_ID"]),
+                        DISTRIC_NAME = Convert.ToString(drOptions["DISTRIC_NAME"])
+                    };
+                    lstDistricMstr.Add(Distric);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstDistricMstr;
+        }
+        public List<MasterBuildingType> GetBuildingType()
+        {
+            List<MasterBuildingType> lstDistricESTMstr = new List<MasterBuildingType>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GETBuildingType);
+                while (drOptions.Read())
+                {
+                    var Main = new MasterBuildingType()
+                    {
+
+                        BUILDINGTYPE_ID = Convert.ToString(drOptions["BUILDINGTYPE_ID"]),
+                        BUILDINGTYPE_NAME = Convert.ToString(drOptions["BUILDINGTYPE_NAME"])
+                    };
+                    lstDistricESTMstr.Add(Main);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstDistricESTMstr;
+        }
+        public List<MasterMARKET> GetMARKET()
+        {
+            List<MasterMARKET> lstDistricESTMstr = new List<MasterMARKET>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetMARKET);
+                while (drOptions.Read())
+                {
+                    var MARKET = new MasterMARKET()
+                    {
+
+                        MARKET_ID = Convert.ToString(drOptions["MARKET_ID"]),
+                        MARKET_NAME = Convert.ToString(drOptions["MARKET_NAME"])
+                    };
+                    lstDistricESTMstr.Add(MARKET);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstDistricESTMstr;
+        }
+        public List<MasterANNUALGROSS> Getannualgross()
+        {
+            List<MasterANNUALGROSS> lstAnnualgrossMstr = new List<MasterANNUALGROSS>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetAnnualgross);
+                while (drOptions.Read())
+                {
+                    var annual = new MasterANNUALGROSS()
+                    {
+
+                        ANNUALGROSS_ID = Convert.ToString(drOptions["ANNUALGROSS_ID"]),
+                        ANNUALGROSS_NAME = Convert.ToString(drOptions["ANNUALGROSS_NAME"])
+                    };
+                    lstAnnualgrossMstr.Add(annual);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstAnnualgrossMstr;
+        }
+        public List<MasterMAINCATEGORY> GetMAINCATEGORY()
+        {
+            List<MasterMAINCATEGORY> lstDistricESTMstr = new List<MasterMAINCATEGORY>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GETMaincategory);
+                while (drOptions.Read())
+                {
+                    var Main = new MasterMAINCATEGORY()
+                    {
+
+                        MAINCATEGORY_ID = Convert.ToString(drOptions["MAINCATEGORY_ID"]),
+                        MAINCATEGORY_NAME = Convert.ToString(drOptions["MAINCATEGORY_NAME"])
+                    };
+                    lstDistricESTMstr.Add(Main);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstDistricESTMstr;
+        }
+        public DataSet GetCertifcateDetails(string TypeOfApplication, string UIDNo, string UnitName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetCertifcateDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetCertifcateDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@APPTYPE", TypeOfApplication);
+                da.SelectCommand.Parameters.AddWithValue("@UIDNO", UIDNo);
+                da.SelectCommand.Parameters.AddWithValue("@UNITNAME", UnitName);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetAcknowlegementDetails(string UnitId, string AppType)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetAcknowlegementDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetAcknowlegementDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@APPTYPE", AppType);
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitId);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }

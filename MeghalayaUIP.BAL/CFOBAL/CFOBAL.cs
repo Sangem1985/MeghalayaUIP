@@ -161,6 +161,34 @@ namespace MeghalayaUIP.BAL.CFOBAL
             return objCFODAL.UpdateCFODepartmentProcess(Objcfodtls);
         }
 
-
+        //--------------------CFO GET-------//
+        public DataSet GetLabourDetails(string userid, string UnitID)
+        {
+            return objCFODAL.GetLabourDetails(userid, UnitID);
+        }
+        public DataSet GetLegalMeterologyDet(string userid, string UnitID)
+        {
+            return objCFODAL.GetLegalMeterologyDet(userid, UnitID);
+        }
+        public DataSet GetCFOContractors(string userid, string UnitID)
+        {
+            return objCFODAL.GetCFOContractors(userid, UnitID);
+        }
+        public DataSet GetCFODrugLicenseDetails(string userid, string UnitID)
+        {
+            return objCFODAL.GetCFODrugLicenseDetails(userid, UnitID);
+        }
+        public DataSet GetCFODistricCouncile(string userid, string UnitID)
+        {
+            return objCFODAL.GetCFODistricCouncile(userid, UnitID);
+        }
+        public DataSet GetCFOFireDetails(string userid, string UnitID)
+        {
+            return objCFODAL.GetCFOFireDetails(userid, UnitID);
+        }
+        public DataSet GetCFOBusinessLicenseDetails(string userid, string UnitID)
+        {
+            return objCFODAL.GetCFOBusinessLicenseDetails(userid, UnitID);
+        }
     }
 }

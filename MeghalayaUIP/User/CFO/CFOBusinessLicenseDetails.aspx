@@ -193,7 +193,7 @@
                                     <asp:GridView ID="GVPollution" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                         GridLines="None"
-                                        Width="100%" EnableModelValidation="True" Visible="false">
+                                        Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVPollution_RowDeleting">
                                         <RowStyle BackColor="#ffffff" />
                                         <Columns>
                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />

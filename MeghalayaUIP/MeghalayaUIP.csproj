@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AckSlip.aspx" />
     <Content Include="assets\admin\css\accordion.css" />
     <Content Include="assets\admin\css\animate.css" />
     <Content Include="assets\admin\css\bootstrap-datetimepicker.min.css" />
@@ -85,6 +86,7 @@
     <Content Include="assets\admin\fonts\feathericon.svg" />
     <Content Include="assets\admin\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\admin\fonts\MaterialIcons-Regular.svg" />
+    <Content Include="assets\admin\img\acklogo.jpg" />
     <Content Include="assets\admin\img\card1.png" />
     <Content Include="assets\admin\img\card2.png" />
     <Content Include="assets\admin\img\card3.png" />
@@ -548,6 +550,7 @@
     <Content Include="OtherService.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
+    <Content Include="SingleWindowPortalDashboard.aspx" />
     <Content Include="stateprofile.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
@@ -586,6 +589,7 @@
     <Content Include="User\Dashboard\DashboardDrill.aspx" />
     <Content Include="User\Dashboard\Dashboardstatus.aspx" />
     <Content Include="User\Dashboard\MainDashboard.aspx" />
+    <Content Include="User\Dashboard\OpenDashboard.aspx" />
     <Content Include="User\Grievance\Grievance.aspx" />
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\MainDashboard.aspx" />
@@ -596,10 +600,28 @@
     <Content Include="User\PreReg\IndustryRegistrationQueryDetails.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
+    <Content Include="User\Renewal\RENContractorMigrantWork.aspx" />
+    <Content Include="User\Renewal\HealthFamilyWelfare.aspx" />
+    <Content Include="User\Renewal\RENBoilerDetails.aspx" />
+    <Content Include="User\Renewal\RENBusinessLicenseDetails.aspx" />
+    <Content Include="User\Renewal\RENCinemaLicenseDetails.aspx" />
+    <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
+    <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
+    <Content Include="User\Renewal\RENFactoriesLicense.aspx" />
+    <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
+    <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
     <Content Include="User\UserDashboard.aspx" />
+    <Content Include="ViewCertifcateDetails.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AckSlip.aspx.cs">
+      <DependentUpon>AckSlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AckSlip.aspx.designer.cs">
+      <DependentUpon>AckSlip.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CommonClass\MGCommonClass.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -924,6 +946,13 @@
     <Compile Include="RenewalServices.aspx.designer.cs">
       <DependentUpon>RenewalServices.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SingleWindowPortalDashboard.aspx.cs">
+      <DependentUpon>SingleWindowPortalDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SingleWindowPortalDashboard.aspx.designer.cs">
+      <DependentUpon>SingleWindowPortalDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="stateprofile.aspx.cs">
       <DependentUpon>stateprofile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1190,6 +1219,13 @@
     <Compile Include="User\Dashboard\MainDashboard.aspx.designer.cs">
       <DependentUpon>MainDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Dashboard\OpenDashboard.aspx.cs">
+      <DependentUpon>OpenDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Dashboard\OpenDashboard.aspx.designer.cs">
+      <DependentUpon>OpenDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Grievance\Grievance.aspx.cs">
       <DependentUpon>Grievance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1260,6 +1296,76 @@
     <Compile Include="User\PreReg\IndustryRegistrationViewDetails.aspx.designer.cs">
       <DependentUpon>IndustryRegistrationViewDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Renewal\RENContractorMigrantWork.aspx.cs">
+      <DependentUpon>RENContractorMigrantWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENContractorMigrantWork.aspx.designer.cs">
+      <DependentUpon>RENContractorMigrantWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\HealthFamilyWelfare.aspx.cs">
+      <DependentUpon>HealthFamilyWelfare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\HealthFamilyWelfare.aspx.designer.cs">
+      <DependentUpon>HealthFamilyWelfare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENBoilerDetails.aspx.cs">
+      <DependentUpon>RENBoilerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENBoilerDetails.aspx.designer.cs">
+      <DependentUpon>RENBoilerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENBusinessLicenseDetails.aspx.cs">
+      <DependentUpon>RENBusinessLicenseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENBusinessLicenseDetails.aspx.designer.cs">
+      <DependentUpon>RENBusinessLicenseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENCinemaLicenseDetails.aspx.cs">
+      <DependentUpon>RENCinemaLicenseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENCinemaLicenseDetails.aspx.designer.cs">
+      <DependentUpon>RENCinemaLicenseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENContractLabourDeatils.aspx.cs">
+      <DependentUpon>RENContractLabourDeatils.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENContractLabourDeatils.aspx.designer.cs">
+      <DependentUpon>RENContractLabourDeatils.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.cs">
+      <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.designer.cs">
+      <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENFactoriesLicense.aspx.cs">
+      <DependentUpon>RENFactoriesLicense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENFactoriesLicense.aspx.designer.cs">
+      <DependentUpon>RENFactoriesLicense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENSafetySecurityDetails.aspx.cs">
+      <DependentUpon>RENSafetySecurityDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENSafetySecurityDetails.aspx.designer.cs">
+      <DependentUpon>RENSafetySecurityDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENShopsEstablishment.aspx.cs">
+      <DependentUpon>RENShopsEstablishment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENShopsEstablishment.aspx.designer.cs">
+      <DependentUpon>RENShopsEstablishment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1273,6 +1379,13 @@
     </Compile>
     <Compile Include="User\UserDashboard.aspx.designer.cs">
       <DependentUpon>UserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCertifcateDetails.aspx.cs">
+      <DependentUpon>ViewCertifcateDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCertifcateDetails.aspx.designer.cs">
+      <DependentUpon>ViewCertifcateDetails.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

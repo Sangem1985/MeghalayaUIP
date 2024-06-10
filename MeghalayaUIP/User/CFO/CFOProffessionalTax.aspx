@@ -174,7 +174,7 @@
                                     <asp:GridView ID="GVState" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                         GridLines="None"
-                                        Width="100%" EnableModelValidation="True" Visible="false">
+                                        Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVState_RowDeleting">
                                         <RowStyle BackColor="#ffffff" />
                                         <Columns>
                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -253,7 +253,7 @@
                                     <asp:GridView ID="GVCOUNTRY" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                         GridLines="None"
-                                        Width="100%" EnableModelValidation="True" Visible="false">
+                                        Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVCOUNTRY_RowDeleting">
                                         <RowStyle BackColor="#ffffff" />
                                         <Columns>
                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -360,7 +360,7 @@
                                     <asp:GridView ID="GVFOREIGN" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                         GridLines="None"
-                                        Width="100%" EnableModelValidation="True" Visible="false">
+                                        Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVFOREIGN_RowDeleting">
                                         <RowStyle BackColor="#ffffff" />
                                         <Columns>
                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />

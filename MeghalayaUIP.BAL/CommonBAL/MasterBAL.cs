@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,6 +106,42 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public List<MasterDistricEST> GetDistricEST()
         {
             return objMasterDAL.GetDistricEST();
+        }
+        public List<MasterBOILERTYPE> GetBoilerType()
+        {
+            return objMasterDAL.GetBoilerType();
+        }
+        public List<MasterREGTYPE> GetRegType()
+        {
+            return objMasterDAL.GetRegType();
+        }
+        public List<MasterDistric> GetDistric()
+        {
+            return objMasterDAL.GetDistric();
+        }
+        public List<MasterBuildingType> GetBuildingType()
+        {
+            return objMasterDAL.GetBuildingType();
+        }
+        public List<MasterMARKET> GetMARKET()
+        {
+            return objMasterDAL.GetMARKET();
+        }
+        public List<MasterANNUALGROSS> Getannualgross()
+        {
+            return objMasterDAL.Getannualgross();
+        }
+        public List<MasterMAINCATEGORY> GetMAINCATEGORY()
+        {
+            return objMasterDAL.GetMAINCATEGORY();
+        }
+        public DataSet GetCertifcateDetails(string TypeOfApplication, string UIDNo,string UnitName)
+        {
+            return objMasterDAL.GetCertifcateDetails(TypeOfApplication, UIDNo, UnitName); 
+        }
+        public DataSet GetAcknowlegementDetails(string UnitId, string AppType)
+        {
+            return objMasterDAL.GetAcknowlegementDetails(UnitId, AppType);
         }
     }
 }
