@@ -12,6 +12,10 @@ namespace MeghalayaUIP
     public partial class SingleWindowPortalDashboard : System.Web.UI.Page
     {
         MasterBAL masterBAL = new MasterBAL();
+        int total = 0;
+        int TOTALAPPLICATIONSRCVD = 0;
+        int TOTALAPPROVRED = 0;
+        int TOTALREJECTED = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             Binddata();
@@ -76,10 +80,7 @@ namespace MeghalayaUIP
 
         protected void gvApprovals_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            int TOTALAPPLICATIONSRCVD = 0; ;
-            int TOTALAPPROVRED = 0; ;
-            int TOTALREJECTED = 0;
-
+            
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 int TOTALAPPLICATIONSRCVD1 = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "TOTALAPPLICATIONSRCVD"));
@@ -90,6 +91,10 @@ namespace MeghalayaUIP
 
                 int TOTALREJECTED1 = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "TOTALREJECTED"));
                 TOTALREJECTED = TOTALREJECTED1 + TOTALREJECTED;
+
+               /* int TOTALAPPLICATIONSRCVD = Convert.ToInt32((e.Row.FindControl("lblTOTALAPPLICATIONSRCVD") as Label).Text);
+                total += TOTALAPPLICATIONSRCVD;
+                grandTotal += freight;*/
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
@@ -98,6 +103,7 @@ namespace MeghalayaUIP
                 e.Row.Cells[3].Text = TOTALAPPLICATIONSRCVD.ToString();
                 e.Row.Cells[4].Text = TOTALAPPROVRED.ToString();
                 e.Row.Cells[5].Text = TOTALREJECTED.ToString();
+                TOTALAPPLICATIONSRCVD = 0; TOTALAPPROVRED = 0; TOTALREJECTED = 0;
             }
         }
     }

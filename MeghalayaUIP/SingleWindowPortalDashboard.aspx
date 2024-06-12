@@ -143,7 +143,7 @@
                                 <label class="col-md-5 col-form-label">
                                     From Date</label>
                                 <div class="col-lg-7 d-flex">
-                                    
+
                                     <input type="date" id="txtFDate" runat="server" class="date form-control" />
                                     <i class="fi fi-rr-calendar-lines"></i>
                                 </div>
@@ -338,6 +338,15 @@
                                                     <asp:BoundField DataField="ApprovalName" HeaderStyle-BackColor="#650855" HeaderText="Approval Name" ItemStyle-CssClass="fw-bold" />
                                                     <asp:BoundField DataField="TIMELIMIT" HeaderStyle-BackColor="#650855" HeaderText="Time limit prescribed" />
                                                     <asp:BoundField DataField="TOTALAPPLICATIONSRCVD" HeaderStyle-BackColor="#650855" HeaderText="Total number of applications received" />
+                                                   <%-- <asp:TemplateField HeaderText="Total Number of Applications Received">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblTOTALAPPLICATIONSRCVD" runat="server" Text='<%# Bind("TOTALAPPLICATIONSRCVD") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <FooterTemplate>
+                                                            <asp:Label ID="lblTotalRcvd" runat="server" Text="0" Font-Bold="true" BackColor="Black"
+                                                                ForeColor="Wheat"></asp:Label>
+                                                        </FooterTemplate>
+                                                    </asp:TemplateField>--%>
                                                     <asp:BoundField DataField="TOTALAPPROVRED" HeaderStyle-BackColor="#650855" HeaderText="Approved" />
                                                     <asp:BoundField DataField="TOTALREJECTED" HeaderStyle-BackColor="#650855" HeaderText="Rejected" />
                                                     <asp:BoundField DataField="AVGTIMETOGRANT" HeaderStyle-BackColor="#650855" HeaderText="Average time taken to grant approval (in Days)" />
