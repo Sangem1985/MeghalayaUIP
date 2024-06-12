@@ -1,21 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="PreRegApplCommitteeDashBoard.aspx.cs" Inherits="MeghalayaUIP.Dept.PreReg.PreRegApplCommitteeDashBoard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-											<%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Committee Dashboard</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
+
+            <li class="breadcrumb-item active" aria-current="page">Committee Dashboard</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-header">
                     <h3>Committee Dashboard: Industry Registration Applications</h3>
                 </div>
+                <div class="col-md-12 ">
+                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                        <strong>Warning!</strong>
+                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                    </div>
+                </div>
+                <asp:HiddenField ID="hdnUserID" runat="server" />
                 <section id="dashboardcount">
                     <div class="container-fluid">
                         <div class="row clearfix">
@@ -28,7 +41,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMTotal" style="color: white">Total Application </a>
+                                            <a href="PreRegApplCommitteeView.aspx?status=COMMTOTAL" style="color: white">Total Application </a>
                                         </div>
                                         <div style="font-size: 12px;"></div>
                                         <i class="fi fi-tr-memo-circle-check"></i>
@@ -67,12 +80,44 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-green hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblApproved" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplCommitteeView.aspx?status=COMMPPROVED" style="color: white">Approved </a>
+                                        </div>
+                                        <div style="font-size: 12px;"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                <div class="info-box bg-yellow hover-expand-effect">
+                                    <div class="icon">
+                                        <h4>
+                                            <asp:Label ID="lblRejected" runat="server"></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="text">
+                                            <a href="PreRegApplCommitteeView.aspx?status=COMMREJECTED" style="color: white">Rejected </a>
+                                        </div>
+                                        <div style="font-size: 12px;"></div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
             </div>
             <div class="card">
-               <%-- <div class="card-header">
+                <%-- <div class="card-header">
                     <h3>Query Details</h3>
                 </div>--%>
                 <section id="dashboardcount2">
@@ -103,40 +148,24 @@
                                     </div>
                                     <div class="content">
                                         <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMQUERYREPLIED" style="color: white">Replied by Applicant</a>
+                                            <a href="PreRegApplCommitteeView.aspx?status=COMMQUERYREPLIED" style="color: white">Queries Redressed</a>
                                         </div>
                                         <div style="font-size: 12px;"></div>
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-green hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblApproved" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMPPROVED" style="color: white">Approved </a>
-                                        </div>
-                                        <div style="font-size: 12px;"></div>
 
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
             </div>
             <div class="card">
-               <%-- <div class="card-header">
+                <%-- <div class="card-header">
                     <h3>Query Details</h3>
                 </div>--%>
                 <section id="dashboardcount3">
                     <div class="container-fluid">
                         <div class="row clearfix">
-                            
                         </div>
                     </div>
                 </section>

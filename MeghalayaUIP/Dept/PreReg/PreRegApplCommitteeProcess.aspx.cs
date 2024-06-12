@@ -25,26 +25,27 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 success.Visible = false;
                 Failure.Visible = false;
-                if (!IsPostBack)
+
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
                 {
-                    var ObjUserInfo = new DeptUserInfo();
-                    if (Session["DeptUserInfo"] != null)
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
-                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                        {
-                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                        }
-                        // username = ObjUserInfo.UserName;
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
-                    BindaApplicatinDetails();
-                    btnReject.Visible = false;
-                    tdaction.Visible = false;
+                    hdnUserID.Value = ObjUserInfo.UserID;
+
+                    if (!IsPostBack)
+                    {
+                        BindaApplicatinDetails();                       
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindaApplicatinDetails()
@@ -54,12 +55,10 @@ namespace MeghalayaUIP.Dept.PreReg
                 var ObjUserInfo = new DeptUserInfo();
                 if (Session["DeptUserInfo"] != null)
                 {
-
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
+                    }                   
                 }
 
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null && Session["stage"] != null)
@@ -165,28 +164,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblunitname1.Text = Convert.ToString(row["REP_NAME"]);
                     lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
                     lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
-                    lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
-
-                    if (Convert.ToString(row["DEPTLANDAREA"]) != null)
-                    {
-                        lblDeptLandArea.Text = Convert.ToString(row["DEPTLANDAREA"]);
-                    }
-                    if (Convert.ToString(row["DEPTPOWER"]) != null)
-                    {
-                        lblDeptPowerReq.Text = Convert.ToString(row["DEPTPOWER"]);
-                    }
-                    if (Convert.ToString(row["DEPTWATER"]) != null)
-                    {
-                        lblDeptWaterReq.Text = Convert.ToString(row["DEPTWATER"]);
-                    }
-                    if (Convert.ToString(row["DEPTWASTEDTLS"]) != null)
-                    {
-                        lblDeptWastedtls.Text = Convert.ToString(row["DEPTWASTEDTLS"]);
-                    }
-                    if (Convert.ToString(row["DEPTHAZWASTEDTLS"]) != null)
-                    {
-                        lblDeptHazWaste.Text = Convert.ToString(row["DEPTHAZWASTEDTLS"]);
-                    }
+                    lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);           
 
                     grdRevenueProj.DataSource = ds.Tables[1];
                     grdRevenueProj.DataBind();
@@ -230,41 +208,47 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
+                    }                    
                 }
-                if (ddlStatus.SelectedValue == "13" || ddlStatus.SelectedValue == "15")
+                if (ddlStatus.SelectedValue == "10" )
                 {
-                    if (ddlStatus.SelectedValue == "15" && ((string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null)))
+                    string ErrorMsg = "";
+                    if ( string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null)
                     {
-                        lblmsg0.Text = "Please Enter Rejection Reason";
+                        ErrorMsg = ErrorMsg + "Please Enter Remarks";
+                        lblmsg0.Text = "Please Enter Remarks";
                         Failure.Visible = true;
                         return;
                     }
-                    else if (ddlStatus.SelectedValue == "13" && ObjUserInfo.Deptid == "1001" && (string.IsNullOrWhiteSpace(txtDeptLandArea.Text) || txtDeptLandArea.Text == "" || txtDeptLandArea.Text == null))
+                    if (string.IsNullOrWhiteSpace(txtDeptLandArea.Text) || txtDeptLandArea.Text == "" || txtDeptLandArea.Text == null)
                     {
                         lblmsg0.Text = "Please Enter Land Area";
                         txtDeptLandArea.Focus();
                         Failure.Visible = true;
                         return;
                     }
-                    else if (ddlStatus.SelectedValue == "13" && ObjUserInfo.Deptid == "1009" && (string.IsNullOrWhiteSpace(txtDeptPower.Text) || txtDeptPower.Text == "" || txtDeptPower.Text == null))
+                   if (string.IsNullOrWhiteSpace(txtDeptPower.Text) || txtDeptPower.Text == "" || txtDeptPower.Text == null)
                     {
                         lblmsg0.Text = "Please Enter Power Required";
                         txtDeptLandArea.Focus();
                         Failure.Visible = true;
                         return;
                     }
-                    else if (ddlStatus.SelectedValue == "13" && ObjUserInfo.Deptid == "1008" && (string.IsNullOrWhiteSpace(txtDeptWater.Text) || txtDeptWater.Text == "" || txtDeptWater.Text == null))
+                     if (string.IsNullOrWhiteSpace(txtDeptWater.Text) || txtDeptWater.Text == "" || txtDeptWater.Text == null)
                     {
                         lblmsg0.Text = "Please Enter Water Required";
                         txtDeptWater.Focus();
                         Failure.Visible = true;
                         return;
                     }
-                    else if (ddlStatus.SelectedValue == "13" && (ObjUserInfo.Deptid == "1005")// || DeptID == "Env")
-                        && (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text) || txtDeptWastedtls.Text == "" || txtDeptWastedtls.Text == null)
-                         && (string.IsNullOrWhiteSpace(txtHazWaste.Text) || txtHazWaste.Text == "" || txtHazWaste.Text == null))
+                    if (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text) || txtDeptWastedtls.Text == "" || txtDeptWastedtls.Text == null)                         
+                    {
+                        lblmsg0.Text = "Please Enter Waste and Hazardous waste details";
+                        txtDeptLandArea.Focus();
+                        Failure.Visible = true;
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(txtHazWaste.Text) || txtHazWaste.Text == "" || txtHazWaste.Text == null)
                     {
                         lblmsg0.Text = "Please Enter Waste and Hazardous waste details";
                         txtDeptLandArea.Focus();
@@ -303,8 +287,8 @@ namespace MeghalayaUIP.Dept.PreReg
                         {
                             prd.HazDetails = txtHazWaste.Text;
                         }
-                        var Hostname = Dns.GetHostName();
-                        prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
+
+                        prd.IPAddress = getclientIP();
                         if (ddlStatus.SelectedValue == "13" || ddlStatus.SelectedValue == "14")
                         {
                             string valid = PreBAL.PreRegApprovals(prd);
@@ -331,85 +315,48 @@ namespace MeghalayaUIP.Dept.PreReg
             catch (Exception ex)
             {
                 lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+                Failure.Visible = true;               
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
 
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
-                }
-                if (ddlStatus.SelectedValue == "13")
+                if (ddlStatus.SelectedValue == "10") //--approve
                 {
-                    trheading.Visible = true;
                     tblaction.Visible = true;
-                    btnQuery.Visible = false;
-                    tdquery.Visible = false;
-                    btnReject.Visible = false;
-                    tdaction.Visible = false;
-                    tdquryorrejTxtbx.Visible = false;
+                    trcommvalues.Visible = true;                                                  
                     lblaction.Text = "Remarks if any: ";
-
-                    trIndsDept.Visible = true;// Industries det For Land Vlaue
-                    lblApplLandArea.Text = lbllandArea.Text;
-                    lblApplLandArea.Text = lbllandArea.Text;
-
-                    trPowerDept.Visible = true;// Power det For Power Vlaue
+                  
+                    lblApplLandArea.Text = lbllandArea.Text;                   
+                  
                     lblApplPowerReq.Text = lblPowerReq.Text;
-
-                    trWaterDept.Visible = true;//water dept
+                 
                     lblApplWaterReq.Text = lblWaterReq.Text;
+                   
+                    lblApplHazWaste.Text = lblhazdtls.Text; 
 
-                    trForestDept1.Visible = true;// || DeptID == "Env") //Forest or ENV for Waste
-                    trForestDept2.Visible = true;
-                    lblApplHazWaste.Text = lblhazdtls.Text;
-                    lblApplWastedtls.Text = lblwastedtls.Text;
-                    trsubmit.Visible = true;
+                    lblApplWastedtls.Text = lblwastedtls.Text;                  
 
                 }
-                else if (ddlStatus.SelectedValue == "12")
+                else if (ddlStatus.SelectedValue == "9") //query
                 {
-                    //trheading.Visible = true;
                     tblaction.Visible = true;
-                    tdquryorrejTxtbx.Visible = false;
-                    //trheading.Visible = false;
-                    //tblaction.Visible = false;
-                    tdquery.Visible = true;
-                    btnQuery.Visible = true;
-                    trsubmit.Visible = false;
-                    gvdeptquery.DataSource = BindDepartmentGrid();
-                    gvdeptquery.DataBind();
+                    trcommvalues.Visible = false;
+                    lblaction.Text = "Enter Query Description ";
+
                 }
-                else if (ddlStatus.SelectedValue == "14")
+                else if (ddlStatus.SelectedValue == "11") //reject
                 {
-                    tdquryorrejTxtbx.Visible = true;
-                    trheading.Visible = false;
-                    tblaction.Visible = false;
-                    btnQuery.Visible = false;
-                    tdquery.Visible = false;
-                    btnReject.Visible = true;
-                    tdaction.Visible = true;
+                    tblaction.Visible = true;
+                    trcommvalues.Visible = false;
+                    lblaction.Text = "Enter Rejection Remarks ";
+
                 }
+                else
+                { tblaction.Visible = false; }
             }
             catch (Exception ex)
             {
@@ -419,176 +366,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
 
         }
-        protected void gvdeptquery_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            try
-            {
-                lblmsg.Text = "";
-                int valid = 0;
-                if (e.CommandName == "Add")
-                {
-                    dt = BindDepartmentGridAdd();
-
-                    DropDownList ddldepartment;
-                    TextBox txtquery;
-
-                    String[] arraydata = new String[2];
-
-                    int gvrcnt = gvdeptquery.Rows.Count;
-                    decimal extent = 0;
-                    for (int i = 0; i < gvrcnt; i++)
-                    {
-                        ddldepartment = (DropDownList)gvdeptquery.Rows[i].Cells[1].Controls[1];
-                        arraydata[0] = ddldepartment.SelectedValue;
-                        GridViewRow gvr = gvdeptquery.Rows[i];
-                        txtquery = (TextBox)gvr.FindControl("txtquery");
-                        arraydata[1] = txtquery.Text;
-
-                        if (txtquery.Text == "")// || txtEnjExtent.Value == "")
-                        {
-                            valid = 1;
-                            lblmsg.Text = "Please enter Query details";
-                            lblmsg.CssClass = "errormsg";
-                        }
-
-                        dt.Rows[i].ItemArray = arraydata;
-                        DataRow dRow;
-                        dRow = null;
-                        dRow = dt.NewRow();
-                        dt.Rows.Add(dRow);
-                    }
-
-
-                    if (valid == 0)
-                    {
-                        ViewState["dtDepartmentDtls"] = dt;
-                        gvdeptquery.DataSource = dt;
-                        gvdeptquery.DataBind();
-                    }
-                    //SetFocus(gvEnjoyer);
-                }
-                else if (e.CommandName == "Remove")
-                {
-                    int gvrcnt = gvdeptquery.Rows.Count;
-                    if (gvrcnt > 1)
-                    {
-                        dt = BindDepartmentGridAdd();
-                        DropDownList ddldepartment;
-                        TextBox txtquery;
-                        String[] arraydata = new String[2];
-
-                        int j = Convert.ToInt32(e.CommandArgument);
-                        decimal extent = 0;
-                        int i;
-                        for (i = 0; i < gvrcnt; i++)
-                        {
-
-                            if (i != j)
-                            {
-                                ddldepartment = (DropDownList)gvdeptquery.Rows[i].Cells[1].Controls[1];
-                                arraydata[0] = ddldepartment.SelectedValue;
-                                GridViewRow gvr = gvdeptquery.Rows[i];
-                                txtquery = (TextBox)gvr.FindControl("txtquery");
-                                arraydata[1] = txtquery.Text;
-
-                                if (j == 0)
-                                    dt.Rows[i - 1].ItemArray = arraydata;
-                                else
-                                    dt.Rows[i].ItemArray = arraydata;
-
-
-                                DataRow dRow;
-                                dRow = null;
-                                dRow = dt.NewRow();
-                                dt.Rows.Add(dRow);
-                            }
-                        }
-                        dt.Rows.RemoveAt(i - 1);
-                        ViewState["dtDepartmentDtls"] = dt;
-                        gvdeptquery.DataSource = dt;
-                        gvdeptquery.DataBind();
-                    }
-                    else
-                    {
-                        lblmsg.Text = "Cannot remove the details, Please modify";
-                        lblmsg.CssClass = "errormsg";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg.Text = ex.Message;
-                lblmsg.CssClass = "errormsg";
-            }
-        }
-        protected void gvdeptquery_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            try
-            {
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
-                }
-
-                DataSet dsdepartments = new DataSet();
-                dsdepartments = PreBAL.GetDeptMst(Session["UNITID"].ToString(), ObjUserInfo.UserID);
-                if (dsdepartments != null && dsdepartments.Tables.Count > 0 && dsdepartments.Tables[0].Rows.Count > 0)
-                {
-                    if (e.Row.RowType == DataControlRowType.DataRow)
-                    {
-                        ddldepartment = (DropDownList)e.Row.Cells[1].Controls[1];
-
-                        ddldepartment.DataSource = dsdepartments.Tables[0];
-                        ddldepartment.DataTextField = "MD_DEPT_NAME";
-                        ddldepartment.DataValueField = "MD_DEPTID";
-                        ddldepartment.DataBind();
-
-                        AddSelect(ddldepartment);
-
-                        //var department = ddldepartment.Items.FindByValue(ddldepartment.SelectedValue);
-                        //ddldepartment.Items.Remove(department);
-
-                        DataTable dt = (DataTable)ViewState["dtDepartmentDtls"];
-
-                        if (dt != null)
-                        {
-                            if (e.Row.RowIndex < dt.Rows.Count)
-                            {
-                                GridViewRow gvr = e.Row;
-                                TextBox txtquery = (TextBox)gvr.FindControl("txtquery");
-
-                                txtquery.Text = dt.Rows[e.Row.RowIndex]["Query"].ToString();
-                                ddldepartment.SelectedValue = dt.Rows[e.Row.RowIndex]["Departments"].ToString();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg.Text = ex.Message;
-                lblmsg.CssClass = "errormsg";
-            }
-
-        }
-        protected DataTable BindDepartmentGridAdd()
-        {
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("Departments");
-            dt.Columns.Add("Query");
-            DataRow dr = dt.NewRow();
-            dr[0] = "";
-            dr[1] = "";
-
-            dt.Rows.Add(dr);
-            return dt;
-        }
+       
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -604,96 +382,100 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblmsg.CssClass = "errormsg";
             }
         }
-        protected DataTable BindDepartmentGrid()
+        public static string getclientIP()
         {
-            DataTable dt = new DataTable();
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
 
-            dt.Columns.Add("Departments");
-
-            DataRow dr = dt.NewRow();
-            dr[0] = "";
-
-            dt.Rows.Add(dr);
-
-            return dt;
+            return result;
         }
-        protected void btnQuery_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
+        //protected void btnQuery_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        var ObjUserInfo = new DeptUserInfo();
+        //        if (Session["DeptUserInfo"] != null)
+        //        {
 
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
-                }
-                PreRegDtls PreRegDtlsVo = new PreRegDtls();
-                foreach (GridViewRow gvrow in gvdeptquery.Rows)
-                {
-                    DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
-                    TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
-                    PreRegDtlsVo.QuerytoDeptID = ddldepartment.SelectedValue;
-                    // PreRegDtlsVo.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    PreRegDtlsVo.DeptDesc = ddldepartment.SelectedItem.Text.Trim();
-                    PreRegDtlsVo.Remarks = txtquery.Text.Trim();
-                    PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
-                    PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
-                    if (ddlStatus != null)
-                        PreRegDtlsVo.status = Convert.ToInt32(ddlStatus.SelectedValue);
-                    PreRegDtlsVo.UserID = ObjUserInfo.UserID;
-                    //lstPreRegDtlsVo.Add(PreRegDtlsVo);
-                    var Hostname = Dns.GetHostName();
-                    PreRegDtlsVo.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
-                    string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
-                }
-                btnQuery.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
-                return;
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
-            }
-        }
+        //            if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+        //            {
+        //                ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+        //            }
+        //            // username = ObjUserInfo.UserName;
+        //        }
+        //        PreRegDtls PreRegDtlsVo = new PreRegDtls();
+        //        //foreach (GridViewRow gvrow in gvdeptquery.Rows)
+        //        //{
+        //        //    DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
+        //        //    TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
+        //        //    PreRegDtlsVo.QuerytoDeptID = ddldepartment.SelectedValue;
+        //        //    // PreRegDtlsVo.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+        //        //    PreRegDtlsVo.DeptDesc = ddldepartment.SelectedItem.Text.Trim();
+        //        //    PreRegDtlsVo.Remarks = txtquery.Text.Trim();
+        //        //    PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
+        //        //    PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
+        //        //    if (ddlStatus != null)
+        //        //        PreRegDtlsVo.status = Convert.ToInt32(ddlStatus.SelectedValue);
+        //        //    PreRegDtlsVo.UserID = ObjUserInfo.UserID;
+        //        //    //lstPreRegDtlsVo.Add(PreRegDtlsVo);
+        //        //    var Hostname = Dns.GetHostName();
+        //        //    PreRegDtlsVo.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
+        //        //    string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
+        //        //}
+        //        btnQuery.Enabled = false;
+        //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
+        //        return;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+        //        Failure.Visible = true;
+        //        string User_id = "0";
+        //        var ObjUserInfo = new DeptUserInfo();
+        //        if (Session["DeptUserInfo"] != null)
+        //        {
+        //            if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+        //            {
+        //                ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+        //            }
+        //            User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+        //        }
+        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+        //    }
+        //}
 
-        protected void btnReject_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                btnSubmit_Click(sender, e);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
-            }
-        }
+        //protected void btnReject_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        btnSubmit_Click(sender, e);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+        //        Failure.Visible = true;
+        //        string User_id = "0";
+        //        var ObjUserInfo = new DeptUserInfo();
+        //        if (Session["DeptUserInfo"] != null)
+        //        {
+        //            if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+        //            {
+        //                ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+        //            }
+        //            User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+        //        }
+        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+        //    }
+        //}
     }
 }

@@ -22,24 +22,26 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 success.Visible = false;
                 Failure.Visible = false;
-                if (!IsPostBack)
+
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
                 {
-                    var ObjUserInfo = new DeptUserInfo();
-                    if (Session["DeptUserInfo"] != null)
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
-                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                        {
-                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                        }
-                        // username = ObjUserInfo.UserName;
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
-                    BindaApplicatinDetails();
+                    hdnUserID.Value = ObjUserInfo.UserID;
+
+                    if (!IsPostBack)
+                    {
+                        BindaApplicatinDetails();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindaApplicatinDetails()
@@ -53,8 +55,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
+                    }                    
                 }
 
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null && Session["stage"] != null)
@@ -70,7 +71,6 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
                     DataSet ds = new DataSet();
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
-
 
                     DataRow row = ds.Tables[0].Rows[0];
                     lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
@@ -104,7 +104,6 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         lblnote.Visible = false;
                     }
-
 
                     lblName.Text = Convert.ToString(row["REP_NAME"]);
                     lblMobile.Text = Convert.ToString(row["REP_MOBILE"]);
@@ -203,7 +202,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         verifypanel.Visible = true;
                         QueryResondpanel.Visible = false;
                     }
-                    else if (Request.QueryString["status"].ToString() == "IMAQuery" || Request.QueryString["status"].ToString() == "APPLREPLIEDTOIMAQUERY")
+                    else if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY" && Convert.ToString(ds.Tables[3].Rows[0]["PRDA_STAGEID"]) =="6")
                     {
                         QueryResondpanel.Visible = true;
 
@@ -218,8 +217,8 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -346,63 +345,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
-
-        //protected void btnSubmit_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (ddlStatus.SelectedValue == "4" || ddlStatus.SelectedValue == "5" )
-        //        {
-        //            if ((string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
-        //            {
-        //                lblmsg0.Text = "Please Enter Remarks";
-        //                Failure.Visible = true;
-        //                return;
-        //            }
-        //            else
-        //            {
-        //                var ObjUserInfo = new DeptUserInfo();
-        //                if (Session["DeptUserInfo"] != null)
-        //                {
-        //                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-        //                    {
-        //                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-        //                    }
-        //                    // username = ObjUserInfo.UserName;
-        //                }
-        //                prd.Unitid = Session["UNITID"].ToString();
-        //                prd.Investerid = Session["INVESTERID"].ToString();
-        //                if (ddlStatus != null)
-        //                    prd.status = Convert.ToInt32(ddlStatus.SelectedValue);
-        //                prd.UserID = ObjUserInfo.UserID;
-        //                prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-        //                var Hostname = Dns.GetHostName();
-        //                prd.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
-        //                prd.Remarks = txtRequest.Text;
-        //                string valid = PreBAL.PreRegApprovals(prd);
-        //                if (valid != "")
-        //                {
-        //                    verifypanel.Visible = false;
-        //                    success.Visible = true;
-        //                    lblmsg.Text = "Application Processed Successfully";
-        //                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Application Processed Successfully!'); '", true);
-        //                    return;
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            lblmsg0.Text = "Please Select Action";
-        //            Failure.Visible = true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Failure.Visible = true;
-        //        lblmsg0.Text = ex.Message;
-        //    }
-        //}
-
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -502,37 +444,27 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.Investerid = Session["INVESTERID"].ToString();
                     prd.UserID = ObjUserInfo.UserID.Trim();
                     prd.Unitid = UnitID.Text.Trim();
-                    prd.QuerytoDeptID =DeptID.Text.Trim();
+                    prd.QuerytoDeptID = DeptID.Text.Trim();
                     prd.QueryID = QID.Text.Trim();
                     prd.QueryResponse = txtReply.Text.Trim();
                     prd.IPAddress = getclientIP();
-                    prd.status = 8;  ////  DEPARTMENT REPLY TO IMA QUERY
-                    prd.deptid =Convert.ToInt32(ObjUserInfo.Deptid);
+                    prd.status = 7;  ////  DEPARTMENT REPLY TO IMA QUERY
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                     string valid = PreBAL.PreRegUpdateQuery(prd);
                     btn.Enabled = false;
+                    BindaApplicatinDetails();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Replied to IMA Query Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
                     return;
-                    BindaApplicatinDetails();
-                    
-                } 
-                
+                }
+
             }
+
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
         }
 
         protected void btnsendIMAQuerytoApplicant_Click(object sender, EventArgs e)
@@ -578,19 +510,8 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -620,19 +541,8 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

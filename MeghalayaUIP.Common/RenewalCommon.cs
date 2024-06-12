@@ -1,0 +1,377 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MeghalayaUIP.Common
+{
+    public class RENConstants
+    {
+        public static string InsertRENPublicWorkDep = "USP_INSRENEWALWORKCONTRACTORDETAILS";
+        public static string GetRenPublicWorkDep = "USP_GETRENEWALWORKCONTRACTORDETAILS";
+        public static string InsertRENDrugLicDep = "USP_INSRENDRUGLICDETAILS";
+        public static string InsertRenDrugDetails = "USP_INSRENDRUGDETAILS";
+        public static string InsertDrugTesting = "USP_INSRENSTAFFTESTING";
+        public static string InsertDrugManufactureDet = "USP_INSRENDRUGMANU";
+        public static string InsertRenDrugItemDet = "USP_INSRENDARUGADDITIONALITEM";
+        public static string GetRENDrugLicenseDetails = "USP_GETDRUGDETAILS";
+        public static string InsertRenBusinessLicDet = "USP_INSRENBUSINESSDETAILS";
+        public static string GetRenBusinessLicDetails = "USP_GETRENBUSINESSDETAILS";
+        public static string InsertRenCinemaLicDetails = "USP_INSRENCINEMALICDETAILS";
+        public static string GetRenCinemaLicDet = "USP_GETRENCINEMALICDET";
+        public static string InsertRenContractLabourDetails = "USP_INSRENCONTRACTORLABOURDETAILS";
+        public static string InsertRenConLoabourDetails = "USP_INSRENMANGERDETAILS";
+        public static string GetRENContractDetails = "USP_GETRENCONTRACTORLABOURDETAILS";
+        public static string InsertRenBoilerDetails = "USP_INSRENBOILERDETAILS";
+        public static string GetBoilerDetails = "USP_GETRENBOILERDETAILS";
+        public static string InsertRenShopEstablishmentDetails = "USP_INSRENSHOPESTABLISHMENT";
+        public static string InsertRenShopesestablishLabourDetails = "USP_INSRENWORKPLACE";
+        public static string InsertRenLabourEstablishmentDetails = "USP_INSEMPLOYEERSDETAILS";
+        public static string InsertAttachmentDetails = "SP_INSERT_RENEWAL_ATTACHMENTS";
+        public static string GetRenShopsEstablishment = "GET_RENEWALSHOPSESTABLISHMENT";
+        public static string InsertRenPropertiesDetails = "USP_INSRENPROPERTIE";
+        public static string InsertRenPatnerDetails = "USP_INSRENPATNERSHIP";
+        public static string InsertRenLimitedCompanyDetails = "USP_RENLIMITEDCOMPANY";
+        public static string InsertRenApplicationDetails = "USP_INSRENINDUSTRIEDETAILS";
+        public static string GetRENApplicantDetails = "USP_GETRENINDUSTRIEDETAILS";
+        public static string GetRENApprovalsReq = "USP_GETCFEAPPROVALSWITHFEE";
+
+    }
+
+    public class RenPublicWorK
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string ApplicantType { get; set; }
+        public string PurposeApplicant { get; set; }
+        public string ContractorReg { get; set; }
+        public string TYPENAME { get; set; }
+        public string TYPEAPPLICANT { get; set; }
+        public string Director { get; set; }
+        public string Circle { get; set; }
+        public string Division { get; set; }
+        public string FatherName { get; set; }
+        public string MotherName { get; set; }
+        public string DateofNBirth { get; set; }
+        public string NamePower { get; set; }
+        public string PermanentAddress { get; set; }
+        public string FullAddress { get; set; }
+        public string Nationality { get; set; }
+        public string StateDomicile { get; set; }
+        public string MobileNo { get; set; }
+        public string SocialCat { get; set; }
+        public string Emailid { get; set; }
+        public string BankerName { get; set; }
+        public string Turnover { get; set; }
+        public string financialYear { get; set; }
+        public string Datework { get; set; }
+
+    }
+    public class RenDrugLicDet
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+
+        public string Licnumber { get; set; }
+        public string ExpiryDate { get; set; }
+        public string CancelledLic { get; set; }
+        public string SpecifyLicno { get; set; }
+        public string PremiseInspection { get; set; }
+        public string DateInspection { get; set; }
+        public string TotalAmount { get; set; }
+        public string AdditionalFees { get; set; }
+        public string LateFees { get; set; }
+        public string RegFees { get; set; }
+        public string TotalPaidAmount { get; set; }
+
+        public string NameDrug { get; set; }
+
+        public string Name { get; set; }
+        public string Qualification { get; set; }
+        public string Experience { get; set; }
+
+        public string NameManu { get; set; }
+        public string QualificationManu { get; set; }
+        public string ExperienceManu { get; set; }
+
+        public string AdditionalItem { get; set; }
+    }
+    public class RenBusinessLicDetails
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string LICNO { get; set; }
+        public string LICISSUEDT { get; set; }
+        public string LICVALID { get; set; }
+        public string NAMEOFBUSINESS { get; set; }
+        public string ESTOWNED { get; set; }
+        public string NAMEREPRESENTATIVE { get; set; }
+        public string MOBILENO { get; set; }
+        public string EMAILID { get; set; }
+        public string ADDRESS { get; set; }
+        public string NATUREBUSINESS { get; set; }
+        public string TYPEOFEST { get; set; }
+
+
+    }
+    public class RenCinemaLicDetails
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string OLDREGNO { get; set; }
+        public string REGDATE { get; set; }
+        public string NAMEESTCINEMA { get; set; }
+        public string NOCISSUEDATE { get; set; }
+        public string NUMBERSEAT { get; set; }
+        public string CINEMATOGRAPHY { get; set; }
+        public string BUSINESSTYPE { get; set; }
+        public string NAMEPARTNER { get; set; }
+        public string GSTNO { get; set; }
+        public string OWNERSHIP { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCALITY { get; set; }
+        public string LANDMARK { get; set; }
+        public string Pincode { get; set; }
+
+    }
+    public class RenContractLabour
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string LICRENEWAL { get; set; }
+        public string LICISSUEDATE { get; set; }
+        public string LICRENEWALDATE { get; set; }
+        public string TITLE { get; set; }
+        public string NAME { get; set; }
+        public string EMAILID { get; set; }
+        public string MOBILENO { get; set; }
+        public string FATHERNAME { get; set; }
+        public string ESTNAME { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCALITY { get; set; }
+        public string LANDMARK { get; set; }
+        public string PINCODE { get; set; }
+        public string REGNUMBER { get; set; }
+        public string REGDATE { get; set; }
+        public string TYPEOFBUSINESS { get; set; }
+        public string TITLES { get; set; }
+        public string EMPNAME { get; set; }
+        public string NAMES { get; set; }
+        public string ADDRESS { get; set; }
+        public string LABOUREMPEST { get; set; }
+        public string NOOFDAYS { get; set; }
+        public string LABOURAPPROVED { get; set; }
+        public string MAXNOLABOUREMP { get; set; }
+        public string WITHIN5YEARS { get; set; }
+        public string DETAILS { get; set; }
+        public string REVOKINGLIC { get; set; }
+        public string ORDERDATE { get; set; }
+        public string ESTWITHIN5YEAR { get; set; }
+        public string ESTDETAILS { get; set; }
+        public string EMPDETAILS { get; set; }
+        public string NATUREOFWORK { get; set; }
+
+
+        public string FULLTITLE { get; set; }
+        public string FULLNAME { get; set; }
+        public string FULLADDRESS { get; set; }
+    }
+    public class RenBoilerDetails
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string LICNO { get; set; }
+        public string LICISSUEDDATE { get; set; }
+        public string LICVALIDDATE { get; set; }
+        public string BOILERWORK { get; set; }
+        public string FACTORYNAME { get; set; }
+        public string ADDRESSFACTORY { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCALITY { get; set; }
+        public string PINCODE { get; set; }
+        public string NAMEMANU { get; set; }
+        public string YEARMANU { get; set; }
+        public string PLACEMANU { get; set; }
+        public string BOILERNO { get; set; }
+        public string INTENDED { get; set; }
+        public string FUEL { get; set; }
+        public string HEATERRATING { get; set; }
+        public string ECONOMISERATING { get; set; }
+        public string MAXIMUMEVAPORATION { get; set; }
+        public string REHEATER { get; set; }
+        public string WORKINGSEASON { get; set; }
+        public string WORKINGPRESSURE { get; set; }
+        public string NAMEOWNER { get; set; }
+        public string BOILERTYPE { get; set; }
+        public string DESCBOILER { get; set; }
+        public string BOILERRATING { get; set; }
+        public string BOILEROWNERSHIP { get; set; }
+        public string REMARKSTR { get; set; }
+        public string REGNO { get; set; }
+        public string BOILEROFTYPE { get; set; }
+        public string BOILERRATINGS { get; set; }
+        public string BOILERSITUATED { get; set; }
+        public string MANUFACTUREPLACE { get; set; }
+        public string MANUFACTUREYEAR { get; set; }
+        public string OWNERNAMES { get; set; }
+        public string MAXCOUNT { get; set; }
+        public string MAXIMUMPRESSURE { get; set; }
+        public string REPAIRS { get; set; }
+        public string HYDRAULICALLY { get; set; }
+        public string UPTO { get; set; }
+        public string LOADING { get; set; }
+        public string SAFETY { get; set; }
+        public string PERIODDATE { get; set; }
+        public string TODATE { get; set; }
+        public string REMARK { get; set; }
+        public string REGFEES { get; set; }
+        public string TOTALAMOUNT { get; set; }
+
+    }
+    public class RenShopsEstablishment
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string LICNO { get; set; }
+        public string LICISSUEDATE { get; set; }
+        public string LICVALIDUP { get; set; }
+        public string NAMEEST { get; set; }
+        public string CONSTITUTION { get; set; }
+        public string APPLICANTNAME { get; set; }
+        public string MOBILENO { get; set; }
+        public string EMAILID { get; set; }
+        public string NAMEOFMANAGER { get; set; }
+        public string ADDRESS { get; set; }
+        public string CATEGORYEST { get; set; }
+        public string NATUREBUSINESS { get; set; }
+        public string YOURFAMILY { get; set; }
+        public string EMPLOYEESEST { get; set; }
+        public string NOOFEMPLOYEE { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCALITY { get; set; }
+        public string PINCODE { get; set; }
+        public string LANDMARK { get; set; }
+        public string GODOWN { get; set; }
+        public string REGRENEWEDDATE { get; set; }
+        public string REGVALIDDATE { get; set; }
+        public string YEARRENEWED { get; set; }
+        public string FEES { get; set; }
+        public string FEESNOTICE { get; set; }
+        public string FINE { get; set; }
+        public string PENALTY { get; set; }
+        public string TOTALPAIDAMOUNT { get; set; }
+
+        public string DISTICS { get; set; }
+        public string MANDALS { get; set; }
+        public string VILLAGES { get; set; }
+        public string LOCALITYS { get; set; }
+        public string PINCODES { get; set; }
+
+        public string NAMES { get; set; }
+        public string GENDER { get; set; }
+        public string AGE { get; set; }
+        public string RELATIONSHIP { get; set; }
+
+
+        public string Filepath { get; set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public string FileDescription { get; set; }
+        public string Deptid { get; set; }
+        public string ApprovalId { get; set; }
+
+        public string NAME_PROPERTIE { get; set; }
+        public string COMMUNITIONADDRESS { get; set; }
+        public string COMMUNITY { get; set; }
+        public string COMMUNITYOTHER { get; set; }
+
+
+        public string NAMEPATNER { get; set; }
+        public string PATNERADDRESS { get; set; }
+
+
+        public string NAMEDIRECTOR { get; set; }
+        public string LIMITEDADDRESS { get; set; }
+
+    }
+    public class RenApplicationDetails
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string ApprovalID { get; set; }
+        public string Nameofunit { get; set; }
+        public string companyType { get; set; }
+        public string RegNumber { get; set; }
+        public string RegDate { get; set; }
+        public string SectorEntrprise { get; set; }
+        public string Sector { get; set; }
+        public string LineofActivity { get; set; }
+        public string PCB { get; set; }
+        public string ProposedEmp { get; set; }
+        public string LandSaleDeed { get; set; }
+        public string Building { get; set; }
+        public string PlantMachinary { get; set; }
+        public string AnnualTurnOver { get; set; }
+        public string ProjectCost { get; set; }
+        public string TotalProjectCost { get; set; }
+        public string EnterpriseCategory { get; set; }
+        public string District { get; set; }
+        public string Mandal { get; set; }
+        public string Village { get; set; }
+        public string EmailId { get; set; }
+        public string MobileNo { get; set; }
+        public string Door { get; set; }
+        public string Locality { get; set; }
+        public string Landmark { get; set; }
+        public string Pincode { get; set; }
+        public string NamePromoter { get; set; }
+        public string Email { get; set; }
+        public string MobileNumber { get; set; }
+        public string DoorNo { get; set; }
+        public string Local { get; set; }
+        public string State { get; set; }
+        public string Districts { get; set; }
+        public string Mandals { get; set; }
+        public string Villages { get; set; }
+        public string AppDistrict { get; set; }
+        public string AppMandal { get; set; }
+        public string AppVillge { get; set; }
+        public string Pin { get; set; }
+        public string Age { get; set; }
+        public string Designation { get; set; }
+
+    }
+}

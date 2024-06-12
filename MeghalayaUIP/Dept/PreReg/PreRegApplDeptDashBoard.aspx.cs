@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
@@ -23,39 +24,42 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if (IsPostBack == false)
+
+                if (Session["DeptUserInfo"] != null)
                 {
-                    if (Session["DeptUserInfo"] != null)
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
-
-                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                        {
-                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                        }
-                        // username = ObjUserInfo.UserName;
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
-                    prd.UserID = ObjUserInfo.UserID;
-                    prd.UserName = ObjUserInfo.UserName;
-                    prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    dt = PreBAL.GetPreRegDashBoard(prd);
+                    hdnUserID.Value = ObjUserInfo.UserID;
 
-                    lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
-                    lblToBeProcessed.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
-                    //lblprocessed.Text = dt.Rows[0]["PROCESSED"].ToString();
-                    lblApproved.Text = dt.Rows[0]["Approved"].ToString(); 
-                    lblQuery.Text = dt.Rows[0]["QUERYRIASED"].ToString(); 
-                    lblQueryReplied.Text = dt.Rows[0]["QUERYREPLIED"].ToString(); 
+                    if (!IsPostBack)
+                    {
+                        prd.UserID = ObjUserInfo.UserID;
+                        prd.UserName = ObjUserInfo.UserName;
+                        prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                        dt = PreBAL.GetPreRegDashBoard(prd);
 
-                    lblIMAQuery.Text= dt.Rows[0]["IMATODEPTQUERY"].ToString();
-                    lblDeptrepliedtoIMA.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
-                    lblIMAQueryforwardedtoAppl.Text = dt.Rows[0]["DEPTFWDIMAQUERYTOAPPL"].ToString();
-                    lblAPPLREPLIEDTOIMAQUERY.Text = dt.Rows[0]["APPLREPLIEDTOIMAQUERY"].ToString();
+                        lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
+                        //lblToBeProcessed.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                        //lblprocessed.Text = dt.Rows[0]["PROCESSED"].ToString();
+                        //lblApproved.Text = dt.Rows[0]["Approved"].ToString(); 
+                        //lblQuery.Text = dt.Rows[0]["QUERYRIASED"].ToString(); 
+                        //lblQueryReplied.Text = dt.Rows[0]["QUERYREPLIED"].ToString(); 
+
+                        lblIMAQuery.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
+                        lblDeptrepliedtoIMA.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+                        //lblIMAQueryforwardedtoAppl.Text = dt.Rows[0]["DEPTFWDIMAQUERYTOAPPL"].ToString();
+                        //lblAPPLREPLIEDTOIMAQUERY.Text = dt.Rows[0]["APPLREPLIEDTOIMAQUERY"].ToString();
+                    }
                 }
             }
             catch (Exception ex)
             {
-
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

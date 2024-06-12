@@ -11,22 +11,26 @@
             font-weight: 100;
             visibility: hidden;
         }
+
         div#collapseOne h4 {
             margin-bottom: 5px;
             margin-top: 20px;
             padding-left: 0px;
         }
-         div#collapseOne h4 {
+
+        div#collapseOne h4 {
             margin-bottom: 5px;
             margin-top: 20px;
             padding-left: 0px;
         }
-         .col-md-2 {
+
+        .col-md-2 {
             border: 1px solid #ccc;
             padding: 0px 10px;
             margin: -2px 0px;
         }
-         h4.card-title1 {
+
+        h4.card-title1 {
             color: #fff;
             width: 98.7%;
             padding: 1px 0px;
@@ -41,32 +45,33 @@
             font-size: 20px;
         }
     </style>
-        <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-											<%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Industry Registration View Details</li>
-										</ol>
-									</nav>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
+
+            <li class="breadcrumb-item active" aria-current="page">Industry Registration View Details</li>
+        </ol>
+    </nav>
     <!-- Page Wrapper -->
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card flex-fill">
 
                 <h4 class="mt-2 ml-4">View Details</h4>
-                <div class="col-md-12 d-flex">
+                <div class="col-md-12 ">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                     </div>
                 </div>
-                <div class="col-md-12 d-flex">
+                <div class="col-md-12 ">
                     <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
                         <strong>Warning!</strong>
                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                     </div>
                 </div>
+                <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -137,7 +142,8 @@
                                                             <label>6. GSTIN Number</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblGSTIN" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblGSTIN" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
 
@@ -146,21 +152,23 @@
                                                             <label>7. Company Type</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblcomptype" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblcomptype" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
                                                             <label>8. Category of Registration</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblcatreg" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblcatreg" runat="server"></asp:Label>
                                                         </div>
 
 
                                                     </div>
-                                                  
-                                                  
-                                                   <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
+
+
+                                                    <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -221,18 +229,20 @@
                                                             <label>8. Pincode</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblPincode" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblPincode" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label>9. Door No</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lbldoorno_authrep" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lbldoorno_authrep" runat="server"></asp:Label>
                                                         </div>
 
                                                     </div>
 
-                                                     <h4 class="card-title1 col-lg-12">Location of Unit</h4>
+                                                    <h4 class="card-title1 col-lg-12">Location of Unit</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -246,7 +256,8 @@
                                                             <label>2. Locality</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblPro_loc" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblPro_loc" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label>3. District</label>
@@ -269,7 +280,8 @@
                                                             <label>5. Village</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblPro_vill" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblPro_vill" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label>6. Pin Code</label>
@@ -290,8 +302,8 @@
 
 
                                                     </div>
-                                                    
-                                                     <h4 class="card-title1 col-lg-12">Project Details</h4>
+
+                                                    <h4 class="card-title1 col-lg-12">Project Details</h4>
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
                                                             <label>1. Date of Commencement of Production/Operation</label>
@@ -303,20 +315,21 @@
                                                         <div class="col-md-2">
                                                             <label>2.  Nature of Activity</label>
                                                         </div>
-                                                        <div class="col-md-2" >
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblNatureofAct" runat="server"></asp:Label>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblNatureofAct" runat="server"></asp:Label>
                                                         </div>
-                                                        
-                                                            
-                                                        
+
+
+
                                                     </div>
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" runat="server" id="divManf" visible="false">
                                                         <div class="col-md-2">
-                                                                <label>3. Main Manufacturing Activity</label>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <spna class="dots">:</spna><asp:Label ID="lblMainmanuf" runat="server"></asp:Label>
-                                                            </div>
+                                                            <label>3. Main Manufacturing Activity</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblMainmanuf" runat="server"></asp:Label>
+                                                        </div>
                                                         <div class="col-md-2">
                                                             <label>4. Product to be Manufactured</label>
                                                         </div>
@@ -360,10 +373,10 @@
                                                             <spna class="dots">:</spna><asp:Label ID="lblunitofmeasure" runat="server"></asp:Label>
                                                         </div>
 
-                                                        
+
 
                                                     </div>
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;"  runat="server" id="divServc" visible="false">
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" runat="server" id="divServc" visible="false">
                                                         <div class="col-md-2">
                                                             <label>9. Main Service Activity</label>
                                                         </div>
@@ -372,22 +385,23 @@
                                                             <asp:Label ID="lblMainSrvc" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                                <label>10. Service to be Provided</label>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <spna class="dots">:</spna> <asp:Label ID="lblSrvcProvdng" runat="server"></asp:Label>
-                                                            </div>
+                                                            <label>10. Service to be Provided</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblSrvcProvdng" runat="server"></asp:Label>
+                                                        </div>
 
-                                                            <div class="col-md-2">
-                                                                <label>11. Service No.</label>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <spna class="dots">:</spna><asp:Label ID="lblSrvcNo" runat="server"></asp:Label>
-                                                            </div>
+                                                        <div class="col-md-2">
+                                                            <label>11. Service No.</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblSrvcNo" runat="server"></asp:Label>
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        
+
                                                         <div class="col-md-2">
                                                             <label>12. Sector</label>
                                                         </div>
@@ -409,7 +423,8 @@
                                                             <label>14. PCB Category</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblPCBcatogry" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblPCBcatogry" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
@@ -444,7 +459,7 @@
 
                                                     </div>
 
-                                                  
+
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
                                                             <label>19. Land Area (in Sq.ft)</label>
@@ -499,7 +514,7 @@
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna>
-                                                             <asp:Label ID="lblBuldingValue" runat="server"></asp:Label>
+                                                            <asp:Label ID="lblBuldingValue" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
@@ -542,14 +557,15 @@
 
                                                     </div>
 
-                                                   <h4 class="card-title1 col-lg-12">Finance Revenue Details</h4>
+                                                    <h4 class="card-title1 col-lg-12">Finance Revenue Details</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
                                                             <label>1. Promoter's and Contributors (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna> <asp:Label ID="lblpromotndcont" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                            <asp:Label ID="lblpromotndcont" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
@@ -615,10 +631,10 @@
 
                                                     </div>
 
-                                                    
-                                                   
-                                                    
-                                                    
+
+
+
+
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-12">
                                                             <div class="form-group row">
@@ -644,7 +660,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                             GridLines="Both" HeaderStyle-BackColor="Red"
                                                             Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
-                                                            
+
                                                             <HeaderStyle BackColor="Red" />
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
@@ -740,7 +756,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                     <td class="fw-bold">DPR</td>
 
                                                                     <td>
-                                                                        <button type="button" style="width:110px;" class="btn btn-rounded btn-dark btn-sm">View</button>
+                                                                        <button type="button" style="width: 110px;" class="btn btn-rounded btn-dark btn-sm">View</button>
                                                                     </td>
                                                                 </tr>
 
@@ -882,7 +898,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover" ForeColor="#333333"
                                                         GridLines="Both" Width="100%" EnableModelValidation="True">
                                                         <RowStyle />
-                                                        
+
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                 <HeaderStyle HorizontalAlign="Center" />
@@ -930,12 +946,12 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                 <td><b>Application No</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Select Action</b></td>
-                                                <td id="tdquryorrej" runat="server" visible="false"><b>
+                                                <%-- <td id="tdquryorrej" runat="server" visible="false"><b>
                                                     <asp:Label runat="server" Text="Please Enter Query/Forward Reason"></asp:Label></b>
                                                 </td>
                                                 <td id="tdaction" runat="server" visible="false">
                                                     <b>Submit Action</b>
-                                                </td>
+                                                </td>--%>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -952,32 +968,31 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                 <td style="width: 200px">
                                                     <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="Approve" Value="13"></asp:ListItem>
-                                                        <asp:ListItem Text="Raise Query" Value="12"></asp:ListItem>
-                                                        <asp:ListItem Text="Reject" Value="14"></asp:ListItem>
+                                                        <asp:ListItem Text="Approve" Value="10"></asp:ListItem>
+                                                        <asp:ListItem Text="Raise Query to IMA" Value="9"></asp:ListItem>
+                                                        <asp:ListItem Text="Reject" Value="11"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
-                                                <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
+                                                <%--<td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
                                                     <asp:TextBox ID="txtReject" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="btnReject" runat="server" Text="Reject" OnClick="btnReject_Click" class="btn btn-rounded btn-rejected btn-sm mt-3" Width="110px" />
-                                                </td>
+                                                </td>--%>
                                             </tr>
                                         </table>
                                     </div>
                                     <div>
                                         <table align="Center" style="width: 70%; border: none; align-content: flex-start" id="tblaction" runat="server" visible="false">
-                                            <tr>
+                                            <tr id="trcommvalues" runat="server" visible="false">
                                                 <td colspan="4">
                                                     <table style="width: 100%; border: none; align-content: flex-start" class="table-responsive table-hover table-bordered">
-                                                        <tr runat="server" visible="false" id="trheading">
+                                                        <tr>
                                                             <th><b>Paramater Name</b></th>
                                                             <th><b>Applicant Data</b></th>
-                                                            <th><b>Department Value</b></th>
                                                             <th><b>Committee Value</b></th>
                                                         </tr>
-                                                        <tr id="trIndsDept" runat="server" visible="false">
+                                                        <tr>
                                                             <td>
                                                                 <label>Land Area</label>
                                                             </td>
@@ -985,13 +1000,10 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplLandArea" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblDeptLandArea" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                             </td>
                                                         </tr>
-                                                        <tr id="trPowerDept" runat="server" visible="false">
+                                                        <tr>
                                                             <td>
                                                                 <label>Power Required</label>
                                                             </td>
@@ -999,13 +1011,10 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplPowerReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblDeptPowerReq" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptPower" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                             </td>
                                                         </tr>
-                                                        <tr id="trWaterDept" runat="server" visible="false">
+                                                        <tr>
                                                             <td>
                                                                 <label>Water Required</label>
                                                             </td>
@@ -1013,13 +1022,10 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblDeptWaterReq" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptWater" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                             </td>
                                                         </tr>
-                                                        <tr id="trForestDept1" runat="server" visible="false">
+                                                        <tr>
                                                             <td>
                                                                 <label>
                                                                     Details of waste /<br />
@@ -1029,13 +1035,10 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblDeptWastedtls" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
                                                                 <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                             </td>
                                                         </tr>
-                                                        <tr id="trForestDept2" runat="server" visible="false">
+                                                        <tr>
                                                             <td>
                                                                 <label>
                                                                     Details of Hazardous 
@@ -1046,9 +1049,6 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblDeptHazWaste" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
                                                                 <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                             </td>
                                                         </tr>
@@ -1056,65 +1056,28 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                 </td>
 
                                             </tr>
-                                            <tr id="trsubmit" runat="server" visible="false">
-                                                <td>
+                                            <tr >
+                                                <td style="text-align:center">
                                                     <b>
                                                         <asp:Label ID="lblaction" runat="server"></asp:Label>
                                                     </b>
                                                 </td>
-                                                <td>
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="350px" Visible="true"></asp:TextBox>
+                                                <td style="text-align:center" colspan="2" >
+                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true"></asp:TextBox>
                                                 </td>
 
-                                                <td colspan="2" align="Center">
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg mt-3" />
 
-                                                </td>
                                             </tr>
                                             <tr>
-                                                <td style="vertical-align: central" id="tdquery" runat="server" visible="false" colspan="3">
-                                                    <asp:GridView ID="gvdeptquery" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                                                        GridLines="None" Width="100%" EnableModelValidation="True" OnRowCommand="gvdeptquery_RowCommand" OnRowDataBound="gvdeptquery_RowDataBound">
-                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="Sl No.">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblSl" runat="server" Text="<%#Container.DataItemIndex+1 %>"></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Department">
-                                                                <ItemTemplate>
-                                                                    <asp:DropDownList ID="ddldepartment" runat="server">
-                                                                        <asp:ListItem Value="0">--Select--</asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </ItemTemplate>
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Query Description">
-                                                                <ItemTemplate>
-                                                                    <asp:TextBox ID="txtquery" runat="server"></asp:TextBox>
-                                                                </ItemTemplate>
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:TemplateField>
-                                                            <asp:ButtonField CommandName="Add" Text="Add">
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:ButtonField>
-                                                            <asp:ButtonField CommandName="Remove" Text="Delete">
-                                                                <ItemStyle CssClass="scroll_td" />
-                                                            </asp:ButtonField>
-                                                        </Columns>
-                                                        <PagerStyle BackColor="#013161" ForeColor="White" HorizontalAlign="Center" />
-                                                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
-                                                        <EditRowStyle BackColor="#B9D684" />
-                                                        <AlternatingRowStyle BackColor="White" />
-                                                    </asp:GridView>
+                                                
+                                                <td style="text-align:center" colspan="3">
+                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg mt-3 " Width="100px" />
+
                                                 </td>
-                                                <td>
-                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" OnClick="btnQuery_Click" class="btn btn-rounded btn-green btn-sm mt-3 ml-4" Width="110px" />
-                                                </td>
+                                               
+                                                <%--<td>
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" OnClick="btnQuery_Click" class="btn btn-rounded btn-green btn-sm mt-3 ml-4" Width="110px" btn-lg mt-3 />
+                                                </td>--%>
                                             </tr>
                                         </table>
                                     </div>

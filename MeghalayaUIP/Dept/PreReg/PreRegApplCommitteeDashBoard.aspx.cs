@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
@@ -23,38 +24,42 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if (IsPostBack == false)
+
+                if (Session["DeptUserInfo"] != null)
                 {
-                    if (Session["DeptUserInfo"] != null)
-                    {
 
-                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    hdnUserID.Value = ObjUserInfo.UserID;
+
+                    if (IsPostBack == false)
+                    {
+                        prd.UserID = ObjUserInfo.UserID;
+                        prd.UserName = ObjUserInfo.UserName;
+                        prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                        if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
                         {
-                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                            prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                         }
-                        // username = ObjUserInfo.UserName;
-                    }
-                    prd.UserID = ObjUserInfo.UserID;
-                    prd.UserName = ObjUserInfo.UserName;
-                    prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-                    if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
-                    {
-                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    }
-                    dt = PreBAL.GetPreRegDashBoard(prd);
+                        dt = PreBAL.GetPreRegDashBoard(prd);
 
-                    lblTotalApp.Text = dt.Rows[0]["COMMTOTAL"].ToString();
-                    lblToBeProcessed.Text = dt.Rows[0]["COMMTOBEPROCESSED"].ToString();
-                    //lblprocessed.Text = dt.Rows[0]["COMMPROCESSED"].ToString();
-                    lblApproved.Text = dt.Rows[0]["COMMAPPROVED"].ToString();
-                    lblQuery.Text = dt.Rows[0]["COMMQUERY"].ToString();
-                    lblQueryReplied.Text = dt.Rows[0]["COMMQUERYREPLIED"].ToString();
-                    //lblQueryNotRepld.Text = dt.Rows[0]["COMMQUERYREPLIED"].ToString();
+                        lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
+                        lblToBeProcessed.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                        //lblprocessed.Text = dt.Rows[0]["PROCESSED"].ToString();
+                        lblApproved.Text = dt.Rows[0]["APPROVED"].ToString();
+                        lblRejected.Text = dt.Rows[0]["REJECTED"].ToString();
+                        lblQuery.Text = dt.Rows[0]["COMMQUERYTOIMA"].ToString();
+                        lblQueryReplied.Text = dt.Rows[0]["IMAREPLIEDTOCOMM"].ToString();
+                        //lblQueryNotRepld.Text = dt.Rows[0]["COMMQUERYREPLIED"].ToString();
+                    }
                 }
             }
             catch (Exception ex)
             {
-
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

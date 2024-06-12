@@ -75,8 +75,6 @@ namespace MeghalayaUIP.Dept.PreReg
                     DataSet ds = new DataSet();
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
 
-
-
                     DataRow row = ds.Tables[0].Rows[0];
                     lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
                     lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
@@ -277,7 +275,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                         }
                         prd.Remarks = txtRemarks.Text;
-
+                        prd.QuerytoDept = txtApplQuery.Text;
                         prd.IPAddress = getclientIP();
 
                         string valid = PreBAL.PreRegApprovals(prd);
@@ -361,6 +359,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
 
@@ -388,19 +387,17 @@ namespace MeghalayaUIP.Dept.PreReg
                 PreRegDtls PreRegDtlsVo = new PreRegDtls();
                 foreach (GridViewRow gvrow in grdDeptQueries.Rows)
                 {
-                    DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
-                    TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
-                    PreRegDtlsVo.QuerytoDeptID = ddldepartment.SelectedValue;
-                    // PreRegDtlsVo.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    PreRegDtlsVo.DeptDesc = ddldepartment.SelectedItem.Text.Trim();
-                    PreRegDtlsVo.Remarks = txtquery.Text.Trim();
+                    // DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
+                    //TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
+                    PreRegDtlsVo.DeptDesc = gvrow.Cells[1].Text;
+                    PreRegDtlsVo.QuerytoDeptID = gvrow.Cells[2].Text;
+
+                    PreRegDtlsVo.Remarks = gvrow.Cells[3].Text;
                     PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
                     PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
                     if (ddlStatus != null)
                         PreRegDtlsVo.status = Convert.ToInt32(ddlStatus.SelectedValue);
                     PreRegDtlsVo.UserID = hdnUserID.Value;
-                    //lstPreRegDtlsVo.Add(PreRegDtlsVo);
-
                     PreRegDtlsVo.IPAddress = getclientIP();
                     string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
                 }
@@ -443,7 +440,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (ddldepartment.SelectedItem.Text == "--Select--")
                     {
                         lblmsg0.Text = "Please Select Department";
-                        Error= "Please Select Department";
+                        Error = "Please Select Department";
                     }
                     if (txtDeptQuery.Text == "" || string.IsNullOrEmpty(txtDeptQuery.Text) || txtDeptQuery.Text == null)
                     {
@@ -494,6 +491,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -515,9 +513,9 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

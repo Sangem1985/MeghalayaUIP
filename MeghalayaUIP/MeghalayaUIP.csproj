@@ -601,13 +601,13 @@
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
     <Content Include="User\Renewal\RENContractorMigrantWork.aspx" />
-    <Content Include="User\Renewal\HealthFamilyWelfare.aspx" />
     <Content Include="User\Renewal\RENBoilerDetails.aspx" />
     <Content Include="User\Renewal\RENBusinessLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENCinemaLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
     <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENFactoriesLicense.aspx" />
+    <Content Include="User\Renewal\RENIndustryDetails.aspx" />
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
     <Content Include="User\UserDashboard.aspx" />
@@ -1303,13 +1303,6 @@
     <Compile Include="User\Renewal\RENContractorMigrantWork.aspx.designer.cs">
       <DependentUpon>RENContractorMigrantWork.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\Renewal\HealthFamilyWelfare.aspx.cs">
-      <DependentUpon>HealthFamilyWelfare.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Renewal\HealthFamilyWelfare.aspx.designer.cs">
-      <DependentUpon>HealthFamilyWelfare.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\Renewal\RENBoilerDetails.aspx.cs">
       <DependentUpon>RENBoilerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1351,6 +1344,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENFactoriesLicense.aspx.designer.cs">
       <DependentUpon>RENFactoriesLicense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENIndustryDetails.aspx.cs">
+      <DependentUpon>RENIndustryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENIndustryDetails.aspx.designer.cs">
+      <DependentUpon>RENIndustryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENSafetySecurityDetails.aspx.cs">
       <DependentUpon>RENSafetySecurityDetails.aspx</DependentUpon>

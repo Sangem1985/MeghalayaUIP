@@ -1,20 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="PreRegApplCommitteeView.aspx.cs" Inherits="MeghalayaUIP.Dept.PreReg.PreRegApplCommitteeView" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-											<%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Industry Registration Applications</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
+
+            <li class="breadcrumb-item active" aria-current="page">Industry Registration Applications</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-body">
                     <h4>View Industry Registration Applications</h4>
+                    <div class="col-md-12 ">
+                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                            <strong>Warning!</strong>
+                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <asp:HiddenField ID="hdnUserID" runat="server" />
                     <asp:GridView ID="gvPreRegDtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                         GridLines="None" OnRowCommand="gvPreRegDtls_RowCommand"

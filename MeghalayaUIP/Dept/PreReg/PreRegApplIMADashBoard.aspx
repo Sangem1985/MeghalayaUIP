@@ -22,6 +22,8 @@
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                         </div>
                     </div>
+                    <asp:HiddenField ID="hdnUserID" runat="server" />
+
                     <section id="dashboardcount">
                         <div class="container-fluid">
                             <div class="row clearfix">
@@ -104,7 +106,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERY" style="color: white"></a>--%>
-                                                    Query Raised<br />
+                                                    Queries Raised<br />
                                                     to Department
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -124,7 +126,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white"></a>--%>
-                                                    Query Addressed<br />
+                                                    Queries Addressed<br />
                                                     by Department
                                                 </div>
                                                 <div style="font-size: 12px;"></div>

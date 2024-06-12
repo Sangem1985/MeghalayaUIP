@@ -721,6 +721,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 }
                 com.Parameters.AddWithValue("@ACTIONID", PRD.status);
                 com.Parameters.AddWithValue("@REMARKS", PRD.Remarks);
+                com.Parameters.AddWithValue("@QUERY", PRD.QuerytoDept);
                 if (PRD.LandArea != null && PRD.LandArea != "")
                 {
                     com.Parameters.AddWithValue("@COMMLANDAREA", PRD.LandArea);

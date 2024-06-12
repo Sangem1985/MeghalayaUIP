@@ -32,7 +32,7 @@
                                     </div>
                                     <div class="login-right">
                         <div class="login-right-wrap">
-                            <h1>Login</h1>
+                            <h1>User Login</h1>
                             <p class="account-subtitle">Access to our dashboard</p>
                             
                             <!-- Form -->
@@ -62,7 +62,7 @@
                               
                             
                             
-                            <div class="text-center dont-have">Don’t have an account? <a href="Registration.aspx">Register</a></div>
+                            <div class="text-center dont-have">Don’t have an account? <a href="Registration.aspx">SignUp</a></div>
                         </div>
                     </div>
                                 </div>

@@ -8,6 +8,19 @@
             <div class="card">
                 <div class="card-body">
                     <h4>View Industry Registration Applications</h4>
+
+                    <div class="col-md-12 ">
+                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                            <strong>Warning!</strong>
+                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                    <asp:HiddenField ID="hdnUserID" runat="server" />
                     <asp:GridView ID="gvPreRegDtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                         GridLines="None" OnRowCommand="gvPreRegDtls_RowCommand"
@@ -29,7 +42,6 @@
                             <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-
 
                             <asp:TemplateField HeaderText="Actions" ItemStyle-Width="12%">
                                 <%--SortExpression="ciw_id"--%>

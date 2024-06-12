@@ -18,7 +18,8 @@ namespace MeghalayaUIP.Common
         //public static string InsertIndustryRegistration = "USP_INS_INDUSTRY_REG_APPLICATION"; COMMENTED ON 05/06/2024 TO START NEW DEPARTMENT WORK FLOW
         public static string InsertIndustryRegistration = "USP_SUBMITINDUSTRYREGAPPLICATION"; 
         public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
-        public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDASHBOARDVIEWDETAILS";
+        //public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDASHBOARDVIEWDETAILS"; ---OLD FLOW
+        public static string GetIndRegUserApplDetails = "USP_GETPREREGUSERDETAILS";
         public static string UpdateIndRegApplQueryRespose = "USP_UPDATEPREREGAPPLQUERYRESPONSE"; 
         public static string GetIndustryRegistrationQueryDetails = "USP_GETPREREGDEPTRRAISEDQUERIES";
         /*-----------------------End of User-----------------------------*/
@@ -30,9 +31,10 @@ namespace MeghalayaUIP.Common
         //public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDVIEW";  ----OLD FLOW
         public static string GetPreRegDashBoardView = "USP_PREREGDASHBOARDDRILLDOWN";
         public static string GetPreRegNodelOfficer = "USP_PREREGDASHBOARDVIEWDETAILS";
-       // public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";
-        public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";
-        public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION";
+       // public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESSACTION";-----OLD FLOW
+        public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESACTION";
+        //public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION"; 
+        public static string PreRegUpdateQuery = "USP_UPDATEPREREGPROCESSQUERYACTION";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
     }
