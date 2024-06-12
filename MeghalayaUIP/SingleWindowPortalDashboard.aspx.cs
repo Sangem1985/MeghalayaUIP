@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MeghalayaUIP.BAL.CommonBAL;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,9 +11,94 @@ namespace MeghalayaUIP
 {
     public partial class SingleWindowPortalDashboard : System.Web.UI.Page
     {
+        MasterBAL masterBAL = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Binddata();
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet dsnew = new DataSet();
+                dsnew = masterBAL.GetSingleWindowDepts();
+                if (dsnew.Tables.Count > 0)
+                {
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
+                        gvDepts.DataSource = dsnew.Tables[0];
+                        gvDepts.DataBind();
+                    }
+                }
+                else
+                {
+                    gvDepts.DataSource = null;
+                    gvDepts.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        protected void gvDepts_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    string DeptId = gvDepts.DataKeys[e.Row.RowIndex].Value.ToString();
+                    GridView gvApprovals = e.Row.FindControl("gvApprovals") as GridView;
+
+                    DataSet dsnew = new DataSet();
+                    dsnew = masterBAL.GetSingleWindowApprovals(DeptId);
+                    if (dsnew.Tables.Count > 0)
+                    {
+                        if (dsnew.Tables[0].Rows.Count > 0)
+                        {
+                            gvApprovals.DataSource = dsnew.Tables[0];
+                            gvApprovals.DataBind();
+                        }
+                    }
+                    else
+                    {
+                        gvApprovals.DataSource = null;
+                        gvApprovals.DataBind();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void gvApprovals_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            int TOTALAPPLICATIONSRCVD = 0; ;
+            int TOTALAPPROVRED = 0; ;
+            int TOTALREJECTED = 0;
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                int TOTALAPPLICATIONSRCVD1 = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "TOTALAPPLICATIONSRCVD"));
+                TOTALAPPLICATIONSRCVD = TOTALAPPLICATIONSRCVD1 + TOTALAPPLICATIONSRCVD;
+
+                int TOTALAPPROVRED1 = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "TOTALAPPROVRED"));
+                TOTALAPPROVRED = TOTALAPPROVRED1 + TOTALAPPROVRED;
+
+                int TOTALREJECTED1 = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "TOTALREJECTED"));
+                TOTALREJECTED = TOTALREJECTED1 + TOTALREJECTED;
+            }
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Font.Bold = true;
+                e.Row.Cells[1].Text = "Total :";
+                e.Row.Cells[3].Text = TOTALAPPLICATIONSRCVD.ToString();
+                e.Row.Cells[4].Text = TOTALAPPROVRED.ToString();
+                e.Row.Cells[5].Text = TOTALREJECTED.ToString();
+            }
         }
     }
 }
