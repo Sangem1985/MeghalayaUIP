@@ -47,6 +47,8 @@ namespace MeghalayaUIP.Common
         public static string GETMaincategory = "USP_GETMAINCATEGORY";
         public static string GetCertifcateDetails = "USP_GETGETCERTIFCATEDETAILS";
         public static string GetAcknowlegementDetails = "USP_GET_ACKNOWLEDGEMENT_DETAILS";
+        public static string GetSingleWindowDepts = "USP_GET_SINGLE_WINDOW_DASHBOARD_DEPTS";
+        public static string GetSingleWindowApprovals = "USP_GET_SINGLE_WINDOW_DASHBOARD_APPROVALS";
 
     }
     public class MasterCountry

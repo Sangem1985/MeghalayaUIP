@@ -477,6 +477,7 @@
     <Content Include="assets\images\logo_w.png" />
     <Content Include="assets\images\meghalayamap.png" />
     <Content Include="assets\images\menubg.jpg" />
+    <Content Include="assets\images\minus.png" />
     <Content Include="assets\images\page-title.jpg" />
     <Content Include="assets\images\param\icon1.png" />
     <Content Include="assets\images\param\icon2.png" />
@@ -495,6 +496,7 @@
     <Content Include="assets\images\partners\5.png" />
     <Content Include="assets\images\partners\6.png" />
     <Content Include="assets\images\partners\7.png" />
+    <Content Include="assets\images\plus.png" />
     <Content Include="assets\images\select-icon.html" />
     <Content Include="assets\images\slider\slide-1.jpg" />
     <Content Include="assets\images\slider\slide-2.jpg" />
@@ -502,7 +504,9 @@
     <Content Include="assets\images\swc.png" />
     <Content Include="assets\images\testimonials-bg-2.png" />
     <Content Include="assets\images\testimonials-bg.png" />
+    <Content Include="assets\images\viewpdf.png" />
     <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\jquery-1.7.2.min.js" />
     <Content Include="assets\js\jquery-plugin-collection.js" />
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\script.js" />
