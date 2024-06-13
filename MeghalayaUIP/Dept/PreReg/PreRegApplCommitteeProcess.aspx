@@ -1035,7 +1035,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" ></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1049,7 +1049,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" ></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -1064,6 +1064,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                 </td>
                                                 <td style="text-align:center" colspan="2" >
                                                     <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true"></asp:TextBox>
+                                                    <asp:TextBox ID="txtQuery" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true"></asp:TextBox>
                                                 </td>
 
 

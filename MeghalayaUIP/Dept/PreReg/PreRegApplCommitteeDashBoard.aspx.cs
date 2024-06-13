@@ -62,5 +62,103 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void linkTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblTotalApp.Text != "0")
+                    Response.Redirect("PreRegApplCommitteeView.aspx?status=COMMTOTAL");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void linktobeProc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblToBeProcessed.Text != "0")
+                    Response.Redirect("PreRegApplCommitteeView.aspx?status=COMMTOBEPROCESSED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
+        }
+
+        protected void linkApproved_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblApproved.Text != "0")
+                    Response.Redirect("PreRegApplCommitteeView.aspx?status=COMMAPPROVED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
+        }
+        protected void linkRejected_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblRejected.Text != "0")
+                    Response.Redirect("PreRegApplCommitteeView.aspx?status=COMMREJECTED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
+        }
+
+        protected void linkQueryRaised_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblQuery.Text != "0")
+                    Response.Redirect("PreRegApplCommitteeView.aspx?status=COMMQUERY");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void linkQueryReplied_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblQueryReplied.Text != "0")
+                    Response.Redirect("PreRegApplCommitteeView.aspx?status=COMMQUERYREPLIED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
+        }
     }
 }

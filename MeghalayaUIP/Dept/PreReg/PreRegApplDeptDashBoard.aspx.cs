@@ -62,5 +62,53 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void linkTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblTotalApp.Text != "0")
+                    Response.Redirect("PreRegApplDeptView.aspx?status=TOTAL");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+        protected void linkQryRcvd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblIMAQuery.Text != "0")
+                    Response.Redirect("PreRegApplDeptView.aspx?status=IMATODEPTQUERY");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
+        }
+
+        protected void linkQryRepld_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblDeptrepliedtoIMA.Text != "0")
+                    Response.Redirect("PreRegApplDeptView.aspx?status=DEPTREPLIEDTOIMA");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
+        }
     }
 }

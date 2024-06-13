@@ -165,57 +165,66 @@
                         <div class="container-fluid">
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="info-box bg-orange hover-expand-effect">
-                                        <div class="icon">
-                                            <h4>
-                                                <asp:Label ID="lblTotalApp" runat="server"></asp:Label>
-                                            </h4>
-                                        </div>
-                                        <div class="content">
-                                            <div class="text">
-                                                <a href="PreRegApplDeptView.aspx?status=TOTAL" style="color: white">Total<br />
-                                                    Application </a>
+                                    <asp:LinkButton runat="server" ID="linkTotal" OnClick="linkTotal_Click" ForeColor="White">
+                                        <div class="info-box bg-orange hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblTotalApp" runat="server"></asp:Label>
+                                                </h4>
                                             </div>
-                                            <div style="font-size: 12px;"></div>
-                                            <i class="fi fi-tr-ballot-check"></i>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplDeptView.aspx?status=TOTAL" style="color: white"></a>--%>
+                                                    Total<br />
+                                                    Application 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-ballot-check"></i>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="info-box bg-blue hover-expand-effect">
-                                        <div class="icon">
-                                            <h4>
-                                                <asp:Label ID="lblIMAQuery" runat="server"></asp:Label>
-                                            </h4>
-                                        </div>
-                                        <div class="content">
-                                            <div class="text">
-                                                <a href="PreRegApplDeptView.aspx?status=IMATODEPTQUERY" style="color: white">IMA Query<br />
-                                                    Raised </a>
                                             </div>
-                                            <div style="font-size: 12px;"></div>
-                                            <i class="fi fi-tr-file-edit"></i>
                                         </div>
-                                    </div>
+                                    </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="info-box bg-pink hover-expand-effect">
-                                        <div class="icon">
-                                            <h4>
-                                                <asp:Label ID="lblDeptrepliedtoIMA" runat="server"></asp:Label>
-                                            </h4>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkQryRcvd" OnClick="linkQryRcvd_Click" ForeColor="White">
+                                        <div class="info-box bg-blue hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblIMAQuery" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplDeptView.aspx?status=IMATODEPTQUERY" style="color: white"></a>--%>
+                                                    IMA Query<br />
+                                                    Raised 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
                                         </div>
-                                        <div class="content">
-                                            <div class="text">
-                                                <a href="PreRegApplDeptView.aspx?status=DEPTREPLIEDTOIMA" style="color: white">Department Replied
+                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkQryRepld" OnClick="linkQryRepld_Click" ForeColor="White">
+                                        <div class="info-box bg-pink hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblDeptrepliedtoIMA" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplDeptView.aspx?status=DEPTREPLIEDTOIMA" style="color: white"></a>--%>
+                                                    Department Replied
                                                     <br />
-                                                    to IMA Query </a>
+                                                    to IMA Query 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-to-do-alt"></i>
                                             </div>
-                                            <div style="font-size: 12px;"></div>
-                                            <i class="fi fi-tr-to-do-alt"></i>
                                         </div>
-                                    </div>
+                                    </asp:LinkButton>
                                 </div>
 
                             </div>

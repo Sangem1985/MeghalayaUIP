@@ -33,20 +33,23 @@
                     <div class="container-fluid">
                         <div class="row clearfix">
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-orange hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblTotalApp" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMTOTAL" style="color: white">Total Application </a>
+                                <asp:LinkButton runat="server" ID="linkTotal" OnClick="linkTotal_Click" ForeColor="White">
+                                    <div class="info-box bg-orange hover-expand-effect">
+                                        <div class="icon">
+                                            <h4>
+                                                <asp:Label ID="lblTotalApp" runat="server"></asp:Label>
+                                            </h4>
                                         </div>
-                                        <div style="font-size: 12px;"></div>
-                                        <i class="fi fi-tr-memo-circle-check"></i>
+                                        <div class="content">
+                                            <div class="text">
+                                                <%--<a href="PreRegApplCommitteeView.aspx?status=COMMTOTAL" style="color: white"></a>--%>
+                                                Total Application 
+                                            </div>
+                                            <div style="font-size: 12px;"></div>
+                                            <i class="fi fi-tr-memo-circle-check"></i>
+                                        </div>
                                     </div>
-                                </div>
+                                </asp:LinkButton>
                             </div>
                             <%--<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <div class="info-box bg-cyan hover-expand-effect">
@@ -65,52 +68,60 @@
                                 </div>
                             </div>--%>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-cyan hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblToBeProcessed" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMTOBEPROCESSED" style="color: white">To be Processed </a>
+                                <asp:LinkButton runat="server" ID="linktobeProc" OnClick="linktobeProc_Click" ForeColor="White">
+                                    <div class="info-box bg-cyan hover-expand-effect">
+                                        <div class="icon">
+                                            <h4>
+                                                <asp:Label ID="lblToBeProcessed" runat="server"></asp:Label>
+                                            </h4>
                                         </div>
-                                        <div style="font-size: 12px;"></div>
-                                        <i class="fi fi-tr-file-import"></i>
+                                        <div class="content">
+                                            <div class="text">
+                                                <%--<a href="PreRegApplCommitteeView.aspx?status=COMMTOBEPROCESSED" style="color: white"></a>--%>
+                                                To be Processed 
+                                            </div>
+                                            <div style="font-size: 12px;"></div>
+                                            <i class="fi fi-tr-file-import"></i>
+                                        </div>
                                     </div>
-                                </div>
+                                </asp:LinkButton>
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-green hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblApproved" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMPPROVED" style="color: white">Approved </a>
+                                <asp:LinkButton runat="server" ID="linkApproved" OnClick="linkApproved_Click" ForeColor="White">
+                                    <div class="info-box bg-green hover-expand-effect">
+                                        <div class="icon">
+                                            <h4>
+                                                <asp:Label ID="lblApproved" runat="server"></asp:Label>
+                                            </h4>
                                         </div>
-                                        <div style="font-size: 12px;"></div>
+                                        <div class="content">
+                                            <div class="text">
+                                                <%--<a href="PreRegApplCommitteeView.aspx?status=COMMAPPROVED" style="color: white"></a>--%>
+                                                Approved 
+                                            </div>
+                                            <div style="font-size: 12px;"></div>
 
+                                        </div>
                                     </div>
-                                </div>
+                                </asp:LinkButton>
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-yellow hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblRejected" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMREJECTED" style="color: white">Rejected </a>
+                                <asp:LinkButton runat="server" ID="linkRejected" OnClick="linkRejected_Click" ForeColor="White">
+                                    <div class="info-box bg-yellow hover-expand-effect">
+                                        <div class="icon">
+                                            <h4>
+                                                <asp:Label ID="lblRejected" runat="server"></asp:Label>
+                                            </h4>
                                         </div>
-                                        <div style="font-size: 12px;"></div>
-
+                                        <div class="content">
+                                            <div class="text">
+                                                <%--<a href="PreRegApplCommitteeView.aspx?status=COMMREJECTED" style="color: white"></a>--%>
+                                                Rejected 
+                                            </div>
+                                            <div style="font-size: 12px;"></div>
+                                        </div>
                                     </div>
-                                </div>
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -125,34 +136,40 @@
                         <div class="row clearfix">
 
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-blue hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblQuery" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMQUERY" style="color: white">Query Raised</a>
+                                <asp:LinkButton runat="server" ID="linkQueryRaised" OnClick="linkQueryRaised_Click" ForeColor="White">
+                                    <div class="info-box bg-blue hover-expand-effect">
+                                        <div class="icon">
+                                            <h4>
+                                                <asp:Label ID="lblQuery" runat="server"></asp:Label>
+                                            </h4>
                                         </div>
-                                        <div style="font-size: 12px;"></div>
+                                        <div class="content">
+                                            <div class="text">
+                                                <%--<a href="PreRegApplCommitteeView.aspx?status=COMMQUERY" style="color: white"></a>--%>
+                                                Query Raised
+                                            </div>
+                                            <div style="font-size: 12px;"></div>
+                                        </div>
                                     </div>
-                                </div>
+                                </asp:LinkButton>
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-pink hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblQueryReplied" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplCommitteeView.aspx?status=COMMQUERYREPLIED" style="color: white">Queries Redressed</a>
+                                <asp:LinkButton runat="server" ID="linkQueryReplied" OnClick="linkQueryReplied_Click" ForeColor="White">
+                                    <div class="info-box bg-pink hover-expand-effect">
+                                        <div class="icon">
+                                            <h4>
+                                                <asp:Label ID="lblQueryReplied" runat="server"></asp:Label>
+                                            </h4>
                                         </div>
-                                        <div style="font-size: 12px;"></div>
+                                        <div class="content">
+                                            <div class="text">
+                                                <%--<a href="PreRegApplCommitteeView.aspx?status=COMMQUERYREPLIED" style="color: white"></a>--%>
+                                                Queries Redressed
+                                            </div>
+                                            <div style="font-size: 12px;"></div>
+                                        </div>
                                     </div>
-                                </div>
+                                </asp:LinkButton>
                             </div>
 
                         </div>

@@ -114,6 +114,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblAPPLREPLIEDTOIMAQUERY;
 
         /// <summary>
+        /// linkTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkTotal;
+
+        /// <summary>
         /// lblTotalApp control.
         /// </summary>
         /// <remarks>
@@ -123,6 +132,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblTotalApp;
 
         /// <summary>
+        /// linkQryRcvd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkQryRcvd;
+
+        /// <summary>
         /// lblIMAQuery control.
         /// </summary>
         /// <remarks>
@@ -130,6 +148,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIMAQuery;
+
+        /// <summary>
+        /// linkQryRepld control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkQryRepld;
 
         /// <summary>
         /// lblDeptrepliedtoIMA control.
