@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +19,7 @@ namespace MeghalayaUIP
         int TOTALREJECTED = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindDepartments();
             Binddata();
         }
         public void Binddata()
@@ -25,7 +27,10 @@ namespace MeghalayaUIP
             try
             {
                 DataSet dsnew = new DataSet();
-                dsnew = masterBAL.GetSingleWindowDepts();
+                string fdate = txtFDate.Value.ToString();
+                string tdate = txtTDate.Value.ToString();
+                string DeptId = ddlDept.SelectedValue.ToString();
+                dsnew = masterBAL.GetSingleWindowDepts(fdate, tdate, DeptId);
                 if (dsnew.Tables.Count > 0)
                 {
                     if (dsnew.Tables[0].Rows.Count > 0)
@@ -45,6 +50,52 @@ namespace MeghalayaUIP
                 throw ex;
             }
         }
+        protected void BindDepartments()
+        {
+            try
+            {
+                ddlDept.Items.Clear();
+                DataSet dsnew = new DataSet();
+                string fdate = txtFDate.Value.ToString();
+                string tdate = txtTDate.Value.ToString();
+                dsnew = masterBAL.GetSingleWindowDepts(fdate, tdate,"");
+                if (dsnew.Tables.Count > 0)
+                {
+                    if (dsnew.Tables[0].Rows.Count > 0)
+                    {
+                        ddlDept.DataSource = dsnew.Tables[0];
+                        ddlDept.DataValueField = "TMD_DEPTID";
+                        ddlDept.DataTextField = "TMD_DeptName";
+                        ddlDept.DataBind();
+                    }
+                }
+                else
+                {
+                    ddlDept.DataSource = null;
+                    ddlDept.DataBind();
+                }
+
+                AddSelect(ddlDept);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         protected void gvDepts_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -56,7 +107,9 @@ namespace MeghalayaUIP
                     GridView gvApprovals = e.Row.FindControl("gvApprovals") as GridView;
 
                     DataSet dsnew = new DataSet();
-                    dsnew = masterBAL.GetSingleWindowApprovals(DeptId);
+                    string fdate = txtFDate.Value.ToString();
+                    string tdate = txtTDate.Value.ToString();
+                    dsnew = masterBAL.GetSingleWindowApprovals(fdate, tdate,DeptId);
                     if (dsnew.Tables.Count > 0)
                     {
                         if (dsnew.Tables[0].Rows.Count > 0)

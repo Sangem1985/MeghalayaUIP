@@ -163,12 +163,8 @@
                         <div class="col-md-4">
                             <div class="col-md-6">Department Name :</div>
                             <div class="col-md-6">
-                                <select class="form-select" aria-label="Default select example" style="width: 100%; height: 32px;">
-                                    <option selected>--Select--</option>
-                                    <option value="1">Agriculture Department</option>
-                                    <option value="2">Commissioner, Greater Chennai Corporation</option>
-                                    <option value="3">Commissionerate of Industries and Commerce</option>
-                                </select>
+                                <asp:DropDownList ID="ddlDept" runat="server" style="width: 100%; height: 32px;">
+                                </asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-md-2">
