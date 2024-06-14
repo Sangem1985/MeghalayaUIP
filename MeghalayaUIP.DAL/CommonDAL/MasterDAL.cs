@@ -1202,7 +1202,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetSingleWindowDepts()
+        public DataSet GetSingleWindowDepts(string fdate, string tdate, string DeptId)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1218,6 +1218,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@FDATE", fdate);
+                da.SelectCommand.Parameters.AddWithValue("@TDATE", tdate);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptId);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -1233,7 +1236,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetSingleWindowApprovals(string DeptId)
+        public DataSet GetSingleWindowApprovals(string fdate, string tdate, string DeptId)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1249,6 +1252,8 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@FDATE", fdate);
+                da.SelectCommand.Parameters.AddWithValue("@TDATE", tdate);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptId);
                 da.Fill(ds);
                 transaction.Commit();

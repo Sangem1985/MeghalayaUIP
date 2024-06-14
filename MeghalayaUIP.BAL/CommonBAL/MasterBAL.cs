@@ -143,13 +143,13 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetAcknowlegementDetails(UnitId, AppType);
         }
-        public DataSet GetSingleWindowDepts()
+        public DataSet GetSingleWindowDepts(string fdate,string tdate,string DeptId)
         {
-            return objMasterDAL.GetSingleWindowDepts();
+            return objMasterDAL.GetSingleWindowDepts(fdate, tdate, DeptId);
         }
-        public DataSet GetSingleWindowApprovals(string DeptId)
+        public DataSet GetSingleWindowApprovals(string fdate, string tdate,string DeptId)
         {
-            return objMasterDAL.GetSingleWindowApprovals(DeptId);
+            return objMasterDAL.GetSingleWindowApprovals(fdate,tdate,DeptId);
         }
     }
 }
