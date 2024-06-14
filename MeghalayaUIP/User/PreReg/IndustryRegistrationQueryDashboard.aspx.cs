@@ -64,11 +64,11 @@ namespace MeghalayaUIP.User.PreReg
             {
                 Service_id = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "UNITID"));
                 Investid = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "INVESTERID"));
-                Deptid = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "QUERYRAISEDBYDEPTID"));
+                //Deptid = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "QUERYRAISEDBYDEPTID"));
                 LinkButton lb = ((LinkButton)e.Row.FindControl("lnkQueryCount"));
                 Label lbl = ((Label)e.Row.FindControl("lblirqid"));
                 string QUERYRESPONSEBY = e.Row.Cells[2].Text.ToString();
-                lb.PostBackUrl = "~/User/PreReg/IndustryRegistrationQueryDetails.aspx?UNITID=" + Service_id + "&INVESTERID=" + Investid + "&QUERYRAISEDBYDEPTID=" + Deptid + "&IRQID=" + lbl.Text.ToString() + "";
+                lb.PostBackUrl = "~/User/PreReg/IndustryRegistrationQueryDetails.aspx?UNITID=" + Service_id + "&INVESTERID=" + Investid + "&QUERYRAISEDBYDEPTID=" + "&IRQID=" + lbl.Text.ToString() + "";
                 // lb.PostBackUrl = "~/User/PreReg/IRQueryReason.aspx?UNITID="+Service_id + lbl.Text + "&IRQID=" + lbl.Text;
 
             }

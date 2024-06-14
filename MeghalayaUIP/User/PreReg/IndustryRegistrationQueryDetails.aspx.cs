@@ -35,8 +35,8 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         string UnitID = Request.QueryString[0].ToString();
                         string InvesterID = Request.QueryString[1].ToString();
-                        string Dept = Request.QueryString[2].ToString();
-                        string QueryID = Request.QueryString[3].ToString();
+                        //string Dept = Request.QueryString[2].ToString();
+                        string QueryID = Request.QueryString[2].ToString();
                         BindData(UnitID,ObjUserInfo.Userid,QueryID);
                     }
                 }
@@ -62,9 +62,9 @@ namespace MeghalayaUIP.User.PreReg
                 if (ds.Tables.Count > 0)
                 {
                     lblUnitId.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
-                    lblRid.Text = Convert.ToString(ds.Tables[0].Rows[0]["IRQID"]);
+                    lblRid.Text = Convert.ToString(ds.Tables[0].Rows[0]["IMAQID"]);
                     lblinsert.Text = Convert.ToString(ds.Tables[0].Rows[0]["INVESTERID"]);
-                    lbldept.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYRAISEDBYDEPTID"]);
+                    lbldept.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYBY"]);
                     lblUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYNAME"]);
                     lblRmId.Text = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
                     lblQueryRaised.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYBY"]);
