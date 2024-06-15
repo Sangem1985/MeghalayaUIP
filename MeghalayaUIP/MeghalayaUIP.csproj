@@ -317,6 +317,7 @@
     <Content Include="assets\assetsbeta\images\fotterbg.png" />
     <Content Include="assets\assetsbeta\images\fotterbg321.png" />
     <Content Include="assets\assetsbeta\images\fotter_bg123.png" />
+    <Content Include="assets\assetsbeta\images\growrth.png" />
     <Content Include="assets\assetsbeta\images\headerbg4.png" />
     <Content Include="assets\assetsbeta\images\headerbg4_old.png" />
     <Content Include="assets\assetsbeta\images\headerbg_bga.gif" />
@@ -367,6 +368,8 @@
     <Content Include="assets\assetsbeta\images\slider\slide-7.jpg" />
     <Content Include="assets\assetsbeta\images\slider\slide-7_1.jpg" />
     <Content Include="assets\assetsbeta\images\slider\slide-8.jpg" />
+    <Content Include="assets\assetsbeta\images\slider\sp\slide-2.jpg" />
+    <Content Include="assets\assetsbeta\images\slider\sp\slide-3.jpg" />
     <Content Include="assets\assetsbeta\images\stateprofile.png" />
     <Content Include="assets\assetsbeta\images\swc.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg-2.png" />

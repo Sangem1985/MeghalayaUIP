@@ -1,78 +1,74 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="EODB.aspx.cs" Inherits="MeghalayaUIP.EODB" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <section class="innerpages">
+    <section class="innerpages">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-							 
-							<li class="breadcrumb-item active" aria-current="page">Why Meghalaya</li>
+
+                            <li class="breadcrumb-item active" aria-current="page">Why Meghalaya</li>
                             <li class="breadcrumb-item active" aria-current="page">EODB</li>
                         </ol>
                     </nav>
+
+                    <%--<h3>About EODB</h3>
                     
-                    <h3>About EODB</h3>
-                    
-					<img src="assets/assetsbeta/images/eodb_1.jpg" width="100%" class="rounded">
+					<img src="assets/assetsbeta/images/eodb_1.jpg" width="100%" class="rounded">--%>
+                    <h3>Transforming Meghalaya’s Business Landscape</h3>
+                    <p>
+                        The Government of India is committed to fostering a business-friendly environment across the country to attract investments, generate employment opportunities, and drive economic growth. 
+                    </p>
+                    <p>Concerted efforts are taken to simplify, rationalize, and digitize Government to Business (G2B) and Government to Citizen (G2C) interfaces, creating a seamless ecosystem facilitating Ease of Doing Business for investors and Ease of Living for citizens. By streamlining processes, reducing bureaucracy, and leveraging technology, the Government aims to provide a conducive environment stimulating economic activity, employment generation, and overall development in Meghalaya and other parts of the nation.</p>
+                    <h3>Key Initiatives: (Infographics)</h3>
+                    <p>The State of Meghalaya has implemented key initiatives to enhance its business environment, focusing on minimizing regulatory compliance and decriminalizing minor offenses. </p>
 
-                    <p><br />The Government of India has undertaken an all-encompassing systematic approach for carrying
-							out sustained efforts to reduce the degree of regulatory compliances which have an adverse
-							impact on time and cost of businesses. Efforts are being made to Simplify, Rationalize and
-							Digitize Government to Business (G2B) and Government to Citizen (G2C) Interfaces to
-							decrease the time and cost burden and improve Ease of Doing Business for industrialists/
-							investors along with Ease of Living for citizens.
-						</p>
-						<p>
-							The Ease of Doing Business framework, through the Department for Promotion of Industry and
-							Internal Trade (DPIIT) aims to significantly minimize regulatory compliance for businesses
-							&amp;
-							industries and decriminalize minor offences. State Governments are actively engaged in
-							envisioning, designing and implementing the reforms to be undertaken each year to make it
-							easier, simpler and quicker for businesses to operate for their entire life cycle.
-						</p>
-						<p>
-							From its inception till the year 2019, the Ease of Doing Business ranking of Meghalaya was
-							among the lowest. In the year 2020, Meghalaya was recognized as an “Emerging Business
-							Ecosystem” by DPIIT- an acknowledgement that is a testament to the State's dedicated
-							commitment to creating a favorable business environment. Meghalaya has taken proactive
-							steps for digitization of records and carrying out the minimizing compliance burden exercise
-							in
-							the State by identifying burdensome compliances &amp; redundant rules to eventually remove /
-							minimize / simplify them.
-						</p>
-						
-					<ul>
-							<li><i class="fi fi-br-star-shooting"></i> Total 304 compliances have been identified by Departments, out of which 280 are
-								related to Businesses and 24 compliances are related to Citizens.</li>
-							<li><i class="fi fi-br-star-shooting"></i> Out of 304 compliances, 167 (Business-143, Citizens -24) compliances have been
-								reduced.</li>
-						</ul>
-						
-						<p>
+                    <p><b>a. Ease of Doing Business Framework (DPIIT): </b></p>
+                    <ul>
+                        <li>1.	Minimize regulatory compliance.</li>
+                        <li>2.	Decriminalize minor offenses.</li>
+                        <li>3.	State Governments implement annual reforms</li>
+                    </ul>
+                    <p><b>b. Meghalaya's EoDB Performance: </b></p>
+                    <ul>
+                        <li>1.	Pre-2019: Among the lowest in Ease of Doing Business rankings.</li>
+                        <li>2.	2020: Recognized as an “Emerging Business Ecosystem” by DPIIT.</li>
+                        <li>3.	2022: 211 reforms successfully implemented by the State.</li>
+                    </ul>
 
-							With the objective to boost investor confidence, foster a business-friendly climate, and
-							augment
-							the ease of living for citizens of the State through timely and digitalized services,
-							Meghalaya
-							offers:
-						</p>
-					
-					<ul>
+                    <p><b>c. Proactive Steps in Meghalaya: </b></p>
+                    <ul>
+                        <li>1.	Digitization of records.</li>
+                        <li>2.	Minimizing compliance burdens.</li>
+                        <li>3.	Identified 304 compliances (280 for businesses, 24 for citizens).</li>
+                        <li>4.	Reduced 167 compliances (143 for businesses, 24 for citizens).</li>
+                    </ul>
 
-							<li><i class="fi fi-br-star-shooting"></i> End-to-end online services 132</li>
-							<li><i class="fi fi-br-star-shooting"></i> services 158, in ambit of Meghalaya Right to Public Services Act, 2020</li>
-							<li><i class="fi fi-br-star-shooting"></i> Auto-renewal services 9</li>
-							<li><i class="fi fi-br-star-shooting"></i> Meghalaya- Centralized Inspection System</li>
+                    <p><b>d. Services Offered :</b></p>
+                    <ul>
+                        <li>1.	132 End-to-end online services.</li>
+                        <li>2.	158 Services under the Meghalaya Right to Public Services Act, 2020.</li>
+                        <li>3.	9 Auto-renewal services.</li>
+                    </ul>
 
-						</ul>
-                    <%--<img src="assets/images/eodb.jpg" />--%>
-                    </div>
+                    <p><b>e. Meghalaya-Centralized Inspection System Goals :</b></p>
+                    <ul>
+                        <li>1.	Boost investor confidence.</li>
+                        <li>2.	Foster a business-friendly climate.</li>
+                        <li>3.	Enhance the ease of living through timely, digitalized services.</li>
+                    </ul>
+
+                   
+
+                   
+                 
+                </div>
             </div>
-            
+
         </div>
     </section>
 </asp:Content>
