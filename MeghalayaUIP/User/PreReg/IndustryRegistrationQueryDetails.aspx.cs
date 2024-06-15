@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Web.UI;
+using System.IO;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -175,6 +176,123 @@ namespace MeghalayaUIP.User.PreReg
             }
 
             return result;
+        }
+        protected void btnUpldAttachment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblUnitId.Text != "")
+                {
+                    string newPath = "";
+                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                    if (fupAttachment.HasFile)
+                    {
+                        if ((fupAttachment.PostedFile != null) && (fupAttachment.PostedFile.ContentLength > 0))
+                        {
+                            string sFileName = System.IO.Path.GetFileName(fupAttachment.PostedFile.FileName);
+                            try
+                            {
+
+                                string[] fileType = fupAttachment.PostedFile.FileName.Split('.');
+                                int i = fileType.Length;
+                                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
+                                {
+                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, lblUnitId.Text + "\\RESPONSEATTACHMENTS");
+
+                                    if (!Directory.Exists(newPath))
+                                        System.IO.Directory.CreateDirectory(newPath);
+
+                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                    int count = dir.GetFiles().Length;
+                                    if (count == 0)
+                                        fupAttachment.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                    else
+                                    {
+                                        if (count == 1)
+                                        {
+                                            string[] Files = Directory.GetFiles(newPath);
+
+                                            foreach (string file in Files)
+                                            {
+                                                File.Delete(file);
+                                            }
+                                            fupAttachment.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                        }
+                                    }
+                                    IndustryDetails objattachments = new IndustryDetails();
+
+                                    objattachments.UnitID = lblUnitId.Text;
+                                    objattachments.UserID = hdnUserID.Value;
+                                    objattachments.FileType = fileType[i - 1].ToUpper().ToString();
+                                    objattachments.FileName = sFileName.ToString();
+                                    objattachments.Filepath = newPath.ToString();
+                                    objattachments.FileDescription = "RESPONSE ATTACHMENT";
+                                    objattachments.Deptid = "0";
+                                    objattachments.ApprovalId = "0";
+
+                                    int result = 0;
+                                    result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                                    if (result > 0)
+                                    {
+                                        lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
+                                        lbldept.Text = fupAttachment.FileName;
+                                        success.Visible = true;
+                                        Failure.Visible = false;
+                                    }
+                                    else
+                                    {
+                                        lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
+                                        success.Visible = false;
+                                        Failure.Visible = true;
+                                    }
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
+                                    success.Visible = false;
+                                    Failure.Visible = true;
+                                }
+                            }
+                            catch (Exception)//in case of an error
+                            {
+
+                                DeleteFile(newPath + "\\" + sFileName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                        success.Visible = false;
+                        Failure.Visible = true;
+                    }
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Fill Basic Details";
+                    string message = "alert('" + "Please Fill Basic Details First and then Upload DPR " + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
+            }
         }
 
 

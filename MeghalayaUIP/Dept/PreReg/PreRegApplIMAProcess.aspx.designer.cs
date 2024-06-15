@@ -672,6 +672,24 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.GridView grdDirectors;
 
         /// <summary>
+        /// linkViewDPR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkViewDPR;
+
+        /// <summary>
+        /// hplViewDPR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplViewDPR;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>
@@ -699,6 +717,24 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.GridView grdApplStatus;
 
         /// <summary>
+        /// QueryResondpanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QueryResondpanel;
+
+        /// <summary>
+        /// grdQueryRaised control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdQueryRaised;
+
+        /// <summary>
         /// verifypanel control.
         /// </summary>
         /// <remarks>
@@ -706,6 +742,24 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl verifypanel;
+
+        /// <summary>
+        /// headingSix control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headingSix;
+
+        /// <summary>
+        /// trVrfyhdng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trVrfyhdng;
 
         /// <summary>
         /// tdRemarks control.
@@ -733,6 +787,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdaction;
+
+        /// <summary>
+        /// trVrfydtls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trVrfydtls;
 
         /// <summary>
         /// lbl_Name1 control.

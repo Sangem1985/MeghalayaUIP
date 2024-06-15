@@ -321,6 +321,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblMainmanuf;
 
         /// <summary>
+        /// Manufacture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Manufacture;
+
+        /// <summary>
         /// lblmanufProdct control.
         /// </summary>
         /// <remarks>
@@ -348,6 +357,24 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblmainRM;
 
         /// <summary>
+        /// Annual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Annual;
+
+        /// <summary>
+        /// capacity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl capacity;
+
+        /// <summary>
         /// lblAnnualCap control.
         /// </summary>
         /// <remarks>
@@ -357,6 +384,24 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblAnnualCap;
 
         /// <summary>
+        /// Unit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Unit;
+
+        /// <summary>
+        /// Measurment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Measurment;
+
+        /// <summary>
         /// lblunitofmeasure control.
         /// </summary>
         /// <remarks>
@@ -364,6 +409,24 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblunitofmeasure;
+
+        /// <summary>
+        /// Main control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Main;
+
+        /// <summary>
+        /// Activity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Activity;
 
         /// <summary>
         /// lblMainSrvc control.
@@ -679,6 +742,24 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdDirectors;
+
+        /// <summary>
+        /// linkViewDPR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkViewDPR;
+
+        /// <summary>
+        /// hplViewDPR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplViewDPR;
 
         /// <summary>
         /// grdQueries control.

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MeghalayaUIP.CommonClass;
+using System.Collections;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
@@ -74,133 +75,156 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
                     DataSet ds = new DataSet();
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
-
-                    DataRow row = ds.Tables[0].Rows[0];
-                    lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
-                    lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
-                    lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
-                    lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                    lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
-                    lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
-
-                    lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
-                    lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
-                    lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
-                    lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
-
-                    lblpromotndcont.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
-                    lblequityamount.Text = Convert.ToString(row["FRD_EQUITY"]);
-                    lbltermloanworking.Text = Convert.ToString(row["FRD_LOAN"]);
-
-                    lblunsecuredloan.Text = Convert.ToString(row["FRD_UNSECUREDLOAN"]);
-                    lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
-                    lblstatescheme.Text = Convert.ToString(row["FRD_STATE"]);
-
-                    lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
-                    lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
-                    lblcentralscheme.Text = Convert.ToString(row["FRD_CENTRAL"]);
-                    if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim() == "N")
+                    if (ds.Tables.Count > 0)
                     {
-                        lblnote.Visible = true;
-                    }
-                    else
-                    {
-                        lblnote.Visible = false;
-                    }
+                        DataRow row = ds.Tables[0].Rows[0];
+                        lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
+                        lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
+                        lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
+                        lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
+                        lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                        lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
+
+                        lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
+                        lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
+                        lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
+                        lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
+
+                        lblpromotndcont.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
+                        lblequityamount.Text = Convert.ToString(row["FRD_EQUITY"]);
+                        lbltermloanworking.Text = Convert.ToString(row["FRD_LOAN"]);
+
+                        lblunsecuredloan.Text = Convert.ToString(row["FRD_UNSECUREDLOAN"]);
+                        lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+                        lblstatescheme.Text = Convert.ToString(row["FRD_STATE"]);
+
+                        lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
+                        lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
+                        lblcentralscheme.Text = Convert.ToString(row["FRD_CENTRAL"]);
+                        if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim() == "N")
+                        {
+                            lblnote.Visible = true;
+                        }
+                        else
+                        {
+                            lblnote.Visible = false;
+                        }
 
 
-                    lblName.Text = Convert.ToString(row["REP_NAME"]);
-                    lblMobile.Text = Convert.ToString(row["REP_MOBILE"]);
-                    lblEmail.Text = Convert.ToString(row["REP_EMAIL"]);
-                    lblLocality.Text = Convert.ToString(row["REP_LOCALITY"]);
-                    lblDistict.Text = Convert.ToString(row["REP_DISTRICT"]);
-                    lblMandal.Text = Convert.ToString(row["REP_MANDAL"]);
-                    lblVillage.Text = Convert.ToString(row["REP_VILLAGE"]);
-                    lblPincode.Text = Convert.ToString(row["REP_PINCODE"]);
-                    lblPincode.Text = Convert.ToString(row["REP_PINCODE"]);
-                    //lblLandtype.Text= Convert.ToString(row["UNIT_LANDTYPE"]);
-                    lbldrno.Text = Convert.ToString(row["UNIT_DOORNO"]);
-                    lblPro_loc.Text = Convert.ToString(row["UNIT_LOCALITY"]);
-                    lblpro_dis.Text = Convert.ToString(row["UNIT_DISTRICT"]);
-                    lblPro_Man.Text = Convert.ToString(row["UNIT_MANDAL"]);
-                    lblPro_vill.Text = Convert.ToString(row["UNIT_VILLAGE"]);
-                    lblPro_Pin.Text = Convert.ToString(row["UNIT_PINCODE"]);
+                        lblName.Text = Convert.ToString(row["REP_NAME"]);
+                        lblMobile.Text = Convert.ToString(row["REP_MOBILE"]);
+                        lblEmail.Text = Convert.ToString(row["REP_EMAIL"]);
+                        lblLocality.Text = Convert.ToString(row["REP_LOCALITY"]);
+                        lblDistict.Text = Convert.ToString(row["REP_DISTRICT"]);
+                        lblMandal.Text = Convert.ToString(row["REP_MANDAL"]);
+                        lblVillage.Text = Convert.ToString(row["REP_VILLAGE"]);
+                        lblPincode.Text = Convert.ToString(row["REP_PINCODE"]);
+                        lblPincode.Text = Convert.ToString(row["REP_PINCODE"]);
+                        //lblLandtype.Text= Convert.ToString(row["UNIT_LANDTYPE"]);
+                        lbldrno.Text = Convert.ToString(row["UNIT_DOORNO"]);
+                        lblPro_loc.Text = Convert.ToString(row["UNIT_LOCALITY"]);
+                        lblpro_dis.Text = Convert.ToString(row["UNIT_DISTRICT"]);
+                        lblPro_Man.Text = Convert.ToString(row["UNIT_MANDAL"]);
+                        lblPro_vill.Text = Convert.ToString(row["UNIT_VILLAGE"]);
+                        lblPro_Pin.Text = Convert.ToString(row["UNIT_PINCODE"]);
 
-                    lblDateofcomm.Text = Convert.ToString(row["PROJECT_DCP"]);
-                    lblNatureofAct.Text = Convert.ToString(row["PROJECT_NOA"]);
-                    if (lblNatureofAct.Text == "Manufacturing")
-                        divManf.Visible = true;
-                    else divServc.Visible = true;
-                    lblMainmanuf.Text = Convert.ToString(row["PROJECT_MANFACTIVITY"]);
-                    lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
-                    lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
+                        lblDateofcomm.Text = Convert.ToString(row["PROJECT_DCP"]);
+                        lblNatureofAct.Text = Convert.ToString(row["PROJECT_NOA"]);
+                        if (lblNatureofAct.Text == "Manufacturing")
+                            divManf.Visible = true;
+                        else divServc.Visible = true;
+                        lblMainmanuf.Text = Convert.ToString(row["PROJECT_MANFACTIVITY"]);
+                        lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
+                        lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
 
-                    lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
-                    lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
-                    lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
+                        lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
+                        lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
+                        lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
 
-                    lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
-                    lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
-                    lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
+                        lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
+                        lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
+                        lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
 
-                    lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
-                    lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
-                    lblhazdtls.Text = Convert.ToString(row["PROJECT_HAZWASTEDETAILS"]);
-                    lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
-                    lbllandArea.Text = Convert.ToString(row["PROJECT_LANDAREA"]);
-                    lblBuildingArea.Text = Convert.ToString(row["PROJECT_BUILDINGAREA"]);
+                        lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
+                        lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
+                        lblhazdtls.Text = Convert.ToString(row["PROJECT_HAZWASTEDETAILS"]);
+                        lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
+                        lbllandArea.Text = Convert.ToString(row["PROJECT_LANDAREA"]);
+                        lblBuildingArea.Text = Convert.ToString(row["PROJECT_BUILDINGAREA"]);
 
-                    lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
-                    lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
-                    lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
-                    lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
-                    lblEstProjcost.Text = Convert.ToString(row["PROJECT_EPCOST"]);
-                    lblPMCost.Text = Convert.ToString(row["PROJECT_PMCOST"]);
-                    lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
-                    lblDFA.Text = Convert.ToString(row["PROJECT_DFA"]);
-                    lblBuldingValue.Text = Convert.ToString(row["PROJECT_BUILDINGVALUE"]);
-                    lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);
-                    lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
-                    lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
-                    lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
+                        lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
+                        lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
+                        lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
+                        lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
+                        lblEstProjcost.Text = Convert.ToString(row["PROJECT_EPCOST"]);
+                        lblPMCost.Text = Convert.ToString(row["PROJECT_PMCOST"]);
+                        lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
+                        lblDFA.Text = Convert.ToString(row["PROJECT_DFA"]);
+                        lblBuldingValue.Text = Convert.ToString(row["PROJECT_BUILDINGVALUE"]);
+                        lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);
+                        lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
+                        lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                        lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
 
-                    lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
-                    lblunitname1.Text = Convert.ToString(row["REP_NAME"]);
-                    lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
-                    lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
-                    lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
-                    {
-                        grdRevenueProj.DataSource = ds.Tables[1];
-                        grdRevenueProj.DataBind();
-                    }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[2].Rows.Count > 0)
-                    {
-                        grdDirectors.DataSource = ds.Tables[2];
-                        grdDirectors.DataBind();
-                    }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
-                    {
-                        grdApplStatus.DataSource = ds.Tables[3];
-                        grdApplStatus.DataBind();
-                    }
+                        lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
+                        lblunitname1.Text = Convert.ToString(row["REP_NAME"]);
+                        lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
+                        lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
+                        lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
+                        {
+                            grdRevenueProj.DataSource = ds.Tables[1];
+                            grdRevenueProj.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[2].Rows.Count > 0)
+                        {
+                            grdDirectors.DataSource = ds.Tables[2];
+                            grdDirectors.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
+                        {
+                            linkViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[0]["FILENAME"]);
+                            hplViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[0]["FILELOCATION"]);
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
+                        {
+                            grdQueries.DataSource = ds.Tables[4];
+                            grdQueries.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
+                        {
+                            grdQryAttachments.DataSource = ds.Tables[5];
+                            grdQryAttachments.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
+                        {
+                            grdApplStatus.DataSource = ds.Tables[6];
+                            grdApplStatus.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
+                        {
+                            grdQueryRaised.DataSource = ds.Tables[7];
+                            grdQueryRaised.DataBind();
+                        }
 
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
-                    {
-                        grdQueries.DataSource = ds.Tables[4];
-                        grdQueries.DataBind();
-
-                    }
-
-                    grdQryAttachments.DataSource = null;
-                    grdQryAttachments.DataBind();
-                    if (Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" || Request.QueryString["status"].ToString() == "IMAQUERYREPLIED")
-                    {
-                        verifypanel.Visible = true;
-                    }
-                    else
-                    {
-                        verifypanel.Visible = false;
+                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "3" ||
+                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "5" ||
+                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "7")
+                        {
+                            verifypanel.Visible = true;
+                        }
+                        else
+                        {
+                            verifypanel.Visible = false;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
+                        {
+                            QueryResondpanel.Visible = true;
+                        }
+                        else
+                        {
+                            QueryResondpanel.Visible = false;
+                        }
                     }
 
                 }
@@ -211,6 +235,19 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        protected void linkViewDPR_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(hplViewDPR.Text);
+
+        }
+        protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
+        {
+            LinkButton lnkview = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)lnkview.NamingContainer;
+            HyperLink hplview = (HyperLink)row.FindControl("hplViewQueryAttachment");
+
+            Response.Redirect(hplview.Text);
         }
         public void BindDepartments()
         {
@@ -379,39 +416,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblmsg.CssClass = "errormsg";
             }
         }
-        protected void btnQuery_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                PreRegDtls PreRegDtlsVo = new PreRegDtls();
-                foreach (GridViewRow gvrow in grdDeptQueries.Rows)
-                {
-                    // DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
-                    //TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
-                    PreRegDtlsVo.DeptDesc = gvrow.Cells[1].Text;
-                    PreRegDtlsVo.QuerytoDeptID = gvrow.Cells[2].Text;
-
-                    PreRegDtlsVo.Remarks = gvrow.Cells[3].Text;
-                    PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
-                    PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
-                    if (ddlStatus != null)
-                        PreRegDtlsVo.status = Convert.ToInt32(ddlStatus.SelectedValue);
-                    PreRegDtlsVo.UserID = hdnUserID.Value;
-                    PreRegDtlsVo.IPAddress = getclientIP();
-                    string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
-                }
-                btnQuery.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
-                return;
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -429,7 +433,6 @@ namespace MeghalayaUIP.Dept.PreReg
 
             return result;
         }
-
         protected void btnAddDeptQry_Click(object sender, EventArgs e)
         {
             try
@@ -494,7 +497,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void grdDeptQueries_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
@@ -515,6 +517,77 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }       
+        protected void ddlQueryAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DropDownList ddlqryaction = (DropDownList)sender;
+                GridViewRow row = (GridViewRow)ddlqryaction.NamingContainer;
+                Label lblCommQID = (Label)row.FindControl("IRQID");
+                ViewState["COMMQID"] = lblCommQID.Text;
+                if (ddlqryaction.SelectedValue != "0")
+                {
+
+                    if (ddlqryaction.SelectedValue == "12") //12 IMA Replied to Committee Query
+                    { verifypanel.Visible = false; }
+                    else if (ddlqryaction.SelectedValue == "13") //13	IMA Forwarded Committee Query to Department
+                    {
+                        verifypanel.Visible = true;
+                        headingSix.Visible = false;
+                        trVrfyhdng.Visible = false;
+                        trVrfydtls.Visible = false;
+                        tdDeptQuery.Visible = true;
+                    }
+                    else if (ddlqryaction.SelectedValue == "15") //15	IMA Forwarded Committee Query to Applicant
+                    { verifypanel.Visible = false; }
+                }
+                else { verifypanel.Visible = false; }
+            }
+            catch (Exception ex)
+            { }
+        }
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                PreRegDtls PreRegDtlsVo = new PreRegDtls();
+                foreach (GridViewRow gvrow in grdDeptQueries.Rows)
+                {
+                    // DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
+                    //TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
+                    PreRegDtlsVo.DeptDesc = gvrow.Cells[1].Text;
+                    PreRegDtlsVo.QuerytoDeptID = gvrow.Cells[2].Text;
+
+                    PreRegDtlsVo.Remarks = gvrow.Cells[3].Text;
+                    PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
+                    PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
+
+                    PreRegDtlsVo.UserID = hdnUserID.Value;
+                    PreRegDtlsVo.IPAddress = getclientIP();
+                    if (QueryResondpanel.Visible == true)
+                    {
+                        PreRegDtlsVo.QueryID = Convert.ToString(ViewState["COMMQID"]);
+                        PreRegDtlsVo.status = 13;
+                    }
+                    else
+                    {
+                        if (ddlStatus != null)
+                            PreRegDtlsVo.status = Convert.ToInt32(ddlStatus.SelectedValue);
+                    }
+                    string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
+                }
+                btnQuery.Enabled = false;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                return;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }

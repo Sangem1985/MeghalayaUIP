@@ -52,6 +52,9 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
+                              <asp:HiddenField ID="hdnResultTab2" runat="server" />
+                        
+                                 
                             <%-- <ul class="nav nav-tabs">
                                 <li class="nav-item" runat="server" id="Li1">
                                     <a class="nav-link  active" href="#basictab1" data-toggle="tab">1.Basic Details</a>

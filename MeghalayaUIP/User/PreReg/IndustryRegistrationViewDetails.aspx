@@ -45,7 +45,7 @@
             visibility: hidden;
         }
 
-        
+
 
         div#collapseOne h4 {
             margin-bottom: 5px;
@@ -357,7 +357,7 @@
 
 
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" id="Manufacture" runat="server" visible="false">
                                                         <div class="col-md-2">
                                                             <label>4. Product to be Manufactured</label>
                                                         </div>
@@ -383,24 +383,24 @@
                                                     </div>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2"  id="Annual" runat="server" visible="false">
                                                             <label>7. Annual Capacity</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="capacity" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblAnnualCap" runat="server"></asp:Label>
                                                         </div>
 
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2"  id="Unit" runat="server" visible="false">
                                                             <label>8. Unit of	Measurement</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="Measurment" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblunitofmeasure" runat="server"></asp:Label>
                                                         </div>
 
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="Main" runat="server" visible="false">
                                                             <label>9. Main Service Activity</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="Activity" runat="server" visible="false">
                                                             <spna class="dots">:</spna>
                                                             <asp:Label ID="lblMainSrvc" runat="server"></asp:Label>
                                                         </div>
@@ -479,7 +479,7 @@
 
                                                     </div>
 
-                                                  
+
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
                                                             <label>19. Land Area (in Sq.ft)</label>
@@ -689,11 +689,11 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
+                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
                                                                 <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="YEAR4" DataField="YEAR4" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="YEAR4" DataField="YEAR4" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="YEAR5" DataField="YEAR5" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             </Columns>
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -708,28 +708,29 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                         <asp:GridView ID="grdDirectors" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                             GridLines="Both" HeaderStyle-BackColor="Red"
-                                                            Width="80%" EnableModelValidation="True">
+                                                            Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <HeaderStyle BackColor="Red" />
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                            <AlternatingRowStyle BackColor="White" />
                                                             <Columns>
-                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Name" DataField="NAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
+                                                                <asp:BoundField HeaderText="Name" DataField="NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
                                                                 <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ControlStyle-Width="300px" />
+                                                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             </Columns>
-                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                            <AlternatingRowStyle BackColor="White" />
+
                                                         </asp:GridView>
                                                     </div>
                                                 </div>
@@ -776,11 +777,10 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                     <td class="fw-bold">DPR</td>
 
                                                                     <td style="text-align: center;">
-                                                                        <button type="button" class="btn btn-rounded btn-green" style="width: 150px;">View</button>
+                                                                        <asp:LinkButton ID="linkViewDPR" runat="server" OnClick="linkViewDPR_Click"></asp:LinkButton>
+                                                                        <asp:HyperLink ID="hplViewDPR" runat="server" Visible="false"></asp:HyperLink>
                                                                     </td>
                                                                 </tr>
-
-
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -828,7 +828,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Unit Name" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Raised Date" DataField="QUERYDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -867,7 +867,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                 <div class="col-md-12">
                                                     <asp:GridView ID="grdQryAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                        GridLines="Both" Width="70%" EnableModelValidation="True" ShowHeaderWhenEmpty="true" HorizontalAlign="Center">
                                                         <RowStyle />
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" />
@@ -879,8 +879,23 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="File Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="View" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="View" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="SI.No">
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="VIEW" Visible="false">
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle HorizontalAlign="Left" />
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="hplViewQueryAttachment" Text='<%#Eval("FILELOCATION") %>' runat="server"></asp:HyperLink>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+
+                                                            <%--<asp '<%#EVAL("':BoundField HeaderText="View" DataField="FILELOCATION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
                                                         </Columns>
                                                     </asp:GridView>
                                                     <%--<div class="table-responsive">                                                      
@@ -893,7 +908,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" visible="false" runat="server">
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -927,12 +942,12 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
-                                                            <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                            <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <%--<asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />--%>
+                                                            <asp:BoundField HeaderText="Unit ID" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <%--<asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
+                                                            <asp:BoundField HeaderText="Dept Process Status" DataField="STATUS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Dept Processed Date" DataField="PROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>

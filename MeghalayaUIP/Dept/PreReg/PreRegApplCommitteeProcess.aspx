@@ -756,7 +756,8 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                     <td class="fw-bold">DPR</td>
 
                                                                     <td>
-                                                                        <button type="button" style="width: 110px;" class="btn btn-rounded btn-dark btn-sm">View</button>
+                                                                        <asp:LinkButton ID="linkViewDPR" runat="server" OnClick="linkViewDPR_Click"></asp:LinkButton>
+                                                                        <asp:HyperLink ID="hplViewDPR" runat="server" Visible="false"></asp:HyperLink>
                                                                     </td>
                                                                 </tr>
 
@@ -806,14 +807,15 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="Applicant Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Unit Name" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Mobile" DataField="IDD_PAN" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Raised By" DataField="IDD_DINNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Description" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Raised Date" DataField="IDD_DOORNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Response" DataField="IDD_STREET" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Response Date" DataField="IDD_CITY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <%--<asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
+                                                            <asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Raised To" DataField="QUERYRAISETO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Raised Date" DataField="QUERYDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Response" DataField="QUERYRESPONSEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Query Response Date" DataField="QUERYRESPONSEDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
@@ -859,8 +861,21 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="File Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="View" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="View" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="SI.No">
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="VIEW" Visible="false">
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle HorizontalAlign="Left" />
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="hplViewQueryAttachment" Text='<%#Eval("FILELOCATION") %>' runat="server"></asp:HyperLink>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
@@ -1035,7 +1050,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" ></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1049,20 +1064,20 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" ></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </td>
 
                                             </tr>
-                                            <tr >
-                                                <td style="text-align:center">
+                                            <tr>
+                                                <td style="text-align: center">
                                                     <b>
                                                         <asp:Label ID="lblaction" runat="server"></asp:Label>
                                                     </b>
                                                 </td>
-                                                <td style="text-align:center" colspan="2" >
+                                                <td style="text-align: center" colspan="2">
                                                     <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true"></asp:TextBox>
                                                     <asp:TextBox ID="txtQuery" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true"></asp:TextBox>
                                                 </td>
@@ -1070,12 +1085,12 @@ However, you can register your unit to get required approvals/ clearances.</asp:
 
                                             </tr>
                                             <tr>
-                                                
-                                                <td style="text-align:center" colspan="3">
+
+                                                <td style="text-align: center" colspan="3">
                                                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg mt-3 " Width="100px" />
 
                                                 </td>
-                                               
+
                                                 <%--<td>
                                                     <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" OnClick="btnQuery_Click" class="btn btn-rounded btn-green btn-sm mt-3 ml-4" Width="110px" btn-lg mt-3 />
                                                 </td>--%>

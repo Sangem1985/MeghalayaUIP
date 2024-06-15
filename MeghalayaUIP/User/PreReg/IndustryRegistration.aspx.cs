@@ -53,9 +53,6 @@ namespace MeghalayaUIP.User.PreReg
                         BindCountries();
                         BindStates();
                         BindDistricts();
-
-
-
                         BindConstitutionType();
                         BindRevenueProjectionsMaster();
                         BindSectors();
@@ -137,21 +134,21 @@ namespace MeghalayaUIP.User.PreReg
                             //    divManf.Visible = true;
                             //    divManf1.Visible = true;
                             //    divservc.Visible = false;
-                                txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"]);
-                                txtManfprodct.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODUCT"]);
-                                txtProductionNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODNO"]);
-                                txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
-                                txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
-                                txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
+                            txtMainManf.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"]);
+                            txtManfprodct.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODUCT"]);
+                            txtProductionNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MANFPRODNO"]);
+                            txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
+                            txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
+                            txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
                             //}
                             //if (rblNatureofActvty.SelectedValue == "Service")
                             //{
                             //    divManf.Visible = false;
                             //    divManf1.Visible = false;
                             //    divservc.Visible = false;
-                                txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"]);
-                                txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNAME"]);
-                                txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNO"]);
+                            txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"]);
+                            txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNAME"]);
+                            txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNO"]);
                             //}
                             txtWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WASTEDETAILS"]);
                             txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"]);
@@ -188,6 +185,7 @@ namespace MeghalayaUIP.User.PreReg
                             grdRevenueProj.Visible = true;
                             grdRevenueProj.DataSource = dt;
                             grdRevenueProj.DataBind();
+                            hdnResultTab2.Value = "1";
 
                         }
                         if (ds.Tables[2].Rows.Count > 0)
@@ -198,6 +196,7 @@ namespace MeghalayaUIP.User.PreReg
                             gvPromoters.Visible = true;
                             gvPromoters.DataSource = dt;
                             gvPromoters.DataBind();
+                            btnPreview.Enabled = true;
 
                         }
                         if (ds.Tables[3].Rows.Count > 0)
@@ -223,18 +222,12 @@ namespace MeghalayaUIP.User.PreReg
 
                                 if (sen.Contains("DPR"))
                                 {
-                                    fupDPR.Visible = false;
                                     hypdpr.Visible = true;
-                                    btndpr.Visible = false;
                                     hypdpr.NavigateUrl = sen;
                                     hypdpr.Text = ds.Tables[3].Rows[i][1].ToString();
-
-                                    //lbldpr.Text = ds.Tables[3].Rows[i][1].ToString();
+                                    lbldpr.Text = ds.Tables[3].Rows[i][1].ToString();
 
                                 }
-
-
-
                                 i++;
                             }
 
@@ -855,7 +848,7 @@ namespace MeghalayaUIP.User.PreReg
                         throw ex;
                     }
                     result = indstregBAL.InsertIndRegBasicDetails(ID);
-                    
+
                     if (result != 100)
                     {
                         ViewState["UnitID"] = result;
@@ -863,7 +856,7 @@ namespace MeghalayaUIP.User.PreReg
                         lblmsg.Text = "Basic Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }                    
+                    }
                     else
                     {
                         {
@@ -1342,6 +1335,8 @@ namespace MeghalayaUIP.User.PreReg
                                     {
                                         lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
                                         lbldpr.Text = fupDPR.FileName;
+                                        hypdpr.Text = fupDPR.FileName;
+                                        hypdpr.NavigateUrl = newPath + '/' + sFileName;
                                         success.Visible = true;
                                         Failure.Visible = false;
                                     }
@@ -1404,7 +1399,7 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 string ErrorMsg = "", result = "";
-               
+
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
                     ErrorMsg = Step2validations();
@@ -1453,6 +1448,7 @@ namespace MeghalayaUIP.User.PreReg
                             result = indstregBAL.InsertIndRegRevenueDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
                             if (result != "")
                             {
+                                hdnResultTab2.Value = result;
                                 string message = "alert('" + "Basic Revenue Projections saved Successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                             }
@@ -1521,7 +1517,7 @@ namespace MeghalayaUIP.User.PreReg
                         }
 
                     }
-                   
+
                 }
 
                 return errormsg;
@@ -1650,7 +1646,9 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
+
                 string ErrorMsg = "";
+
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
                     ErrorMsg = Step3validations();
@@ -1826,8 +1824,9 @@ namespace MeghalayaUIP.User.PreReg
 
             try
             {
+
                 string result = "";
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "")
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "")
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
                     // dt.Columns.Remove("IDD_COUNTRYName");
@@ -1844,17 +1843,27 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else
                 {
+                    string message1;
                     if (Convert.ToString(ViewState["UnitID"]) == "")
                     {
-                        string message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
+                        message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
                     }
                     if (gvPromoters.Rows.Count <= 0)
                     {
-                        string message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
+                        message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
                     }
-
+                    if (lbldpr.Text == "")
+                    {
+                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (hdnResultTab2.Value == "")
+                    {
+                        message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
                 }
             }
             catch (Exception ex)
@@ -1990,8 +1999,9 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
+
                 string result = "";
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "")
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "")
                 {
                     DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
                     //dtnew.Columns.Remove("IDD_COUNTRYName");
@@ -2007,8 +2017,28 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else
                 {
-                    string message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    string message1;
+                    if (Convert.ToString(ViewState["UnitID"]) == "")
+                    {
+                        message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (gvPromoters.Rows.Count <= 0)
+                    {
+                        message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (lbldpr.Text == "")
+                    {
+                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (hdnResultTab2.Value == "")
+                    {
+                        message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+
                 }
             }
             catch (Exception ex)

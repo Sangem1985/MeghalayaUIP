@@ -123,22 +123,31 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtQueryResponse;
 
         /// <summary>
-        /// fupResAttachment control.
+        /// fupAttachment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupResAttachment;
+        protected global::System.Web.UI.WebControls.FileUpload fupAttachment;
 
         /// <summary>
-        /// btnAttach control.
+        /// btnUpldAttachment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAttach;
+        protected global::System.Web.UI.WebControls.Button btnUpldAttachment;
+
+        /// <summary>
+        /// hplAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplAttachment;
 
         /// <summary>
         /// ddunit control.

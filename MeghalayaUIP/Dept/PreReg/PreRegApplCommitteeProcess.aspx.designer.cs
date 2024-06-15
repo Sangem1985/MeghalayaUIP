@@ -672,6 +672,24 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.GridView grdDirectors;
 
         /// <summary>
+        /// linkViewDPR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkViewDPR;
+
+        /// <summary>
+        /// hplViewDPR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplViewDPR;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>

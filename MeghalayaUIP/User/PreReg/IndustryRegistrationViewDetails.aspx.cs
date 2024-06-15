@@ -4,7 +4,9 @@ using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.EnterpriseServices;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -120,18 +122,47 @@ namespace MeghalayaUIP.User.PreReg
                         divManf.Visible = true;
                     else divServc.Visible = true;
                     lblMainmanuf.Text = Convert.ToString(row["PROJECT_MANFACTIVITY"]);
-                    lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
-                    lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
+                    if (lblMainmanuf.Text == "MANFACTURE")
+                    {
+                        Manufacture.Visible = true;
+                        Annual.Visible = true;
+                        capacity.Visible = true;
+                        Unit.Visible = true;
+                        Measurment.Visible = true;
+                        Main.Visible = false;
+                        Activity.Visible = false;
+                        divServc.Visible = false;
+                        lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
+                        lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
+                        lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
+                        lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
+                        lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
+                    }
+                    else
+                    {
+                        Main.Visible = true;
+                        Activity.Visible = true;
+                        divServc.Visible = true;
+                        Manufacture.Visible = false;
+                        Annual.Visible = false;
+                        capacity.Visible = false;
+                        Unit.Visible = false;
+                        Measurment.Visible = false;
+                        lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
+                        lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
+                        lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
+                    }
+                 
+                  
 
-                    lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
-                    lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
-                    lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
+                  
+                 
 
                     lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
                     lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
                     lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
 
-                    lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
+                  
                     lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
                     lblhazdtls.Text = Convert.ToString(row["PROJECT_HAZWASTEDETAILS"]);
                     lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
@@ -140,8 +171,8 @@ namespace MeghalayaUIP.User.PreReg
 
                     lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
                     lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
-                    lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
-                    lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
+                 
+                 
                     lblEstProjcost.Text = Convert.ToString(row["PROJECT_EPCOST"]);
                     lblPMCost.Text = Convert.ToString(row["PROJECT_PMCOST"]);
                     lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
@@ -165,18 +196,24 @@ namespace MeghalayaUIP.User.PreReg
 
                     grdApplStatus.DataSource = ds.Tables[3];
                     grdApplStatus.DataBind();
+                    grdApplStatus.Visible = false;
 
                     if (ds.Tables[4].Rows.Count > 0)
                     {
                         grdQueries.DataSource = ds.Tables[4];
                         grdQueries.DataBind();
                     }
-                    //if (ds.Tables[5].Rows.Count > 0)
-                    //{
-                    //    QueryResondpanel.Visible = true;
-                    //    grdQueryRaised.DataSource = ds.Tables[5];
-                    //    grdQueryRaised.DataBind();
-                    //}
+                    if(ds.Tables[5].Rows.Count > 0)
+                    {
+                        linkViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILENAME"]);
+                        hplViewDPR.Text= Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
+                    }
+                    if (ds.Tables[6].Rows.Count > 0)
+                    {
+                        
+                        grdQryAttachments.DataSource = ds.Tables[6];
+                        grdQryAttachments.DataBind();
+                    }
 
                 }
             }
@@ -228,6 +265,21 @@ namespace MeghalayaUIP.User.PreReg
                 Failure.Visible = true;
 
             }
+        }
+
+        protected void linkViewDPR_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(hplViewDPR.Text);
+
+        }
+
+        protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
+        {
+            LinkButton lnkview = (LinkButton) sender;
+            GridViewRow row = (GridViewRow)lnkview.NamingContainer;
+            HyperLink hplview = (HyperLink)row.FindControl("hplViewQueryAttachment");
+
+            Response.Redirect(hplview.Text);
         }
     }
 }
