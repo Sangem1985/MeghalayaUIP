@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AckSlip.aspx" />
+    <Content Include="Agri-Horti.aspx" />
     <Content Include="assets\admin\css\accordion.css" />
     <Content Include="assets\admin\css\animate.css" />
     <Content Include="assets\admin\css\bootstrap-datetimepicker.min.css" />
@@ -326,6 +327,7 @@
     <Content Include="assets\assetsbeta\images\headerbg_key.gif" />
     <Content Include="assets\assetsbeta\images\helpImage4.png" />
     <Content Include="assets\assetsbeta\images\hero-bg.jpg" />
+    <Content Include="assets\assetsbeta\images\Hospitality_image.png" />
     <Content Include="assets\assetsbeta\images\logo-2.png" />
     <Content Include="assets\assetsbeta\images\Logo.png" />
     <Content Include="assets\assetsbeta\images\Logo_dark.png" />
@@ -355,6 +357,7 @@
     <Content Include="assets\assetsbeta\images\partners\5.png" />
     <Content Include="assets\assetsbeta\images\partners\6.png" />
     <Content Include="assets\assetsbeta\images\partners\7.png" />
+    <Content Include="assets\assetsbeta\images\power.png" />
     <Content Include="assets\assetsbeta\images\quote-bg-s2.jpg" />
     <Content Include="assets\assetsbeta\images\quote-bg.jpg" />
     <Content Include="assets\assetsbeta\images\select-icon.html" />
@@ -374,6 +377,7 @@
     <Content Include="assets\assetsbeta\images\swc.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg-2.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg.png" />
+    <Content Include="assets\assetsbeta\images\touistfootfall.jpg" />
     <Content Include="assets\assetsbeta\js\bootstrap.min.js" />
     <Content Include="assets\assetsbeta\js\jquery-plugin-collection.js" />
     <Content Include="assets\assetsbeta\js\jquery.min.js" />
@@ -549,16 +553,20 @@
     <Content Include="forgot-password.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="HomeBeta.aspx" />
+    <Content Include="Hospitality.aspx" />
     <Content Include="InformationWizard.aspx" />
     <Content Include="IntentInvest.aspx" />
     <Content Include="IntenttoInvestPrint.aspx" />
+    <Content Include="IT_ITES.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="OtherService.aspx" />
+    <Content Include="Power.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
     <Content Include="SingleWindowPortalDashboard.aspx" />
     <Content Include="stateprofile.aspx" />
+    <Content Include="Tourism.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEDGSetDetails.aspx" />
@@ -628,6 +636,13 @@
     </Compile>
     <Compile Include="AckSlip.aspx.designer.cs">
       <DependentUpon>AckSlip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agri-Horti.aspx.cs">
+      <DependentUpon>Agri-Horti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agri-Horti.aspx.designer.cs">
+      <DependentUpon>Agri-Horti.aspx</DependentUpon>
     </Compile>
     <Compile Include="CommonClass\MGCommonClass.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -889,6 +904,13 @@
     <Compile Include="HomeBeta.aspx.designer.cs">
       <DependentUpon>HomeBeta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Hospitality.aspx.cs">
+      <DependentUpon>Hospitality.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hospitality.aspx.designer.cs">
+      <DependentUpon>Hospitality.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InformationWizard.aspx.cs">
       <DependentUpon>InformationWizard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -909,6 +931,13 @@
     </Compile>
     <Compile Include="IntenttoInvestPrint.aspx.designer.cs">
       <DependentUpon>IntenttoInvestPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IT_ITES.aspx.cs">
+      <DependentUpon>IT_ITES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IT_ITES.aspx.designer.cs">
+      <DependentUpon>IT_ITES.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -938,6 +967,13 @@
     <Compile Include="outer.Master.designer.cs">
       <DependentUpon>outer.Master</DependentUpon>
     </Compile>
+    <Compile Include="Power.aspx.cs">
+      <DependentUpon>Power.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Power.aspx.designer.cs">
+      <DependentUpon>Power.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
@@ -966,6 +1002,13 @@
     </Compile>
     <Compile Include="stateprofile.aspx.designer.cs">
       <DependentUpon>stateprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tourism.aspx.cs">
+      <DependentUpon>Tourism.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tourism.aspx.designer.cs">
+      <DependentUpon>Tourism.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEApplDetails.aspx.cs">
       <DependentUpon>CFEApplDetails.aspx</DependentUpon>

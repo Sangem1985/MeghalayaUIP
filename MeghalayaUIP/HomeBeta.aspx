@@ -598,6 +598,7 @@
                     <div class="row">
                         <p class="text-center head1">Priority Sectors</p>
                         <div class="col col-md-12">
+                            <a href="Hospitality.aspx">
                             <div class="col col-md-1">
                                 <div class="box"><i class="fi fi-rr-bed"></i>
                                     
@@ -606,10 +607,13 @@
                                     Hotels & Hospitality
                                 </p>
                             </div>
+                                </a>
+                            <a href="Tourism.aspx">
                             <div class="col col-md-1">
                                 <div class="box"><i class="fi fi-rr-train-journey"></i></div>
                                 <p>Tourism</p>
                             </div>
+                                </a>
                             <div class="col col-md-1">
                                 <div class="box"><i class="fi fi-tr-bio-leaves"></i></div>
                                 <p>Bio-Technology</p>
@@ -622,23 +626,28 @@
                                 <div class="box"><i class="fi fi-tr-user-md"></i></div>
                                 <p>Healthcare</p>
                             </div>
+                            <a href="IT_ITES.aspx">
                             <div class="col col-md-1">
                                 <div class="box"><i class="fi fi-ts-laptop-code"></i></div>
                                 <p>IT & ITeS</p>
                             </div>
+                                </a>
+                            <a href="Agri-Horti.aspx">
                             <div class="col col-md-1">
                                 <div class="box"><i class="fi fi-ts-salad"></i></div>
                                 <p>
                                     Food Processing
                                 </p>
                             </div>
+                                </a>
+                            <a href="Power.aspx">
                             <div class="col col-md-1">
                                 <div class="box"><i class="fi fi-tr-air-pollution"></i></div>
                                 <p>
                                     Power Generation
                                 </p>
                             </div>
-
+                                </a>
                         </div>
                         
                         <div class="col col-md-12">

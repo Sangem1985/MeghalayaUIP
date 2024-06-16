@@ -7,7 +7,7 @@
         }
         .slide-inner.slide-bg-image:before {
     content: "";
-    background: -webkit-linear-gradient(0deg, rgb(2 41 96 / 88%) 40%, rgba(255, 255, 255, 0.6) 100%) !important;
+    background: -webkit-linear-gradient(0deg, rgb(2 41 96 / 88%) 40%, rgb(255 255 255 / 0%) 100%) !important;
     position: absolute;
     bottom: 0;
     top: 0;
@@ -20,6 +20,9 @@
         section.innerpages {
     margin-top: -195px !important;
     margin-bottom: 40px;
+}
+        .swiper-button-next,.swiper-button-prev {
+    display: none;
 }
     </style>
 </asp:Content>
@@ -90,7 +93,7 @@
                 <p>Bordered by Assam to the North and Northeast and Bangladesh to the South and Southwest, Meghalaya's advantageous position is further strengthened by the upcoming BBIN2 Corridor. This corridor will transform Meghalaya into a crucial connecting node for Bangladesh, Bhutan, and Nepal.</p>
                 <p>Additionally, its proximity to the Bay of Bengal underscores its potential to become a major trade hub for the NER.</p>
                     <p>Moreover, the Government of India is committed to accelerating the development and connectivity of the NER, including Meghalaya, through initiatives like the NITI Forum for regional growth, comprehensive transportation projects, and the Act East Policy. These efforts aim to enhance trade and relations with Southeast Asian countries, evident in initiatives such as establishing rail sections, air connectivity with NER and ASEAN countries, and constructing National Highway corridors linking Meghalaya with Bangladesh.</p>
-                   <h3>State Demography (Infographics):</h3>
+                   <h3>State Demography :</h3>
                     
                     <p>Discover the key demographic and economic indicators shaping Meghalaya's landscape. From population statistics to export growth, explore the state's dynamic profile in a glance.</p>
                     <p><b>Key Demographic:</b></p>
@@ -145,7 +148,7 @@
                         <li>3.	Guwahati airport (118 km from Shillong)</li>
                         <li>4.	Additional helipads and heliports planned across the state</li>
                     </ul>
-                    <h3>Meghalaya’s key/priority sectors are: - (Infographics)</h3>
+                    <h3>Meghalaya’s key/priority sectors are:</h3>
                     <p>Explore the cornerstone of Meghalaya's economic landscape through its key priority sectors. From Tourism to Power, delve into the diverse industries propelling the State's development forward.</p>
                     <ul>
                         <li>1.	Hotels & Hospitality</li>
@@ -168,7 +171,7 @@
                         <li>15.	Green Startups</li>
                         <li>16.	Others & any other industry notified by the Government of Meghalaya</li>
                     </ul>
-                    <h3>Unique Strengths and Opportunities (Infographics)</h3>
+                    <h3>Unique Strengths and Opportunities</h3>
                     <p>Meghalaya presents abundant opportunities for growth and development across various sectors. From its natural resources to emerging industries, the state offers a fertile ground for investment and progress. </p>
                     <ul>
                         <li>1.	Natural Resources: Abundant flora, fauna, forests, medicinal plants, minerals (coal, limestone, quartz, feldspar, granite, industrial clay, sillimanite, uranium). </li>
