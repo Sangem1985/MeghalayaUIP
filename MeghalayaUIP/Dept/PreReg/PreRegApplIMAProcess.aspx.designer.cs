@@ -735,6 +735,60 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.GridView grdQueryRaised;
 
         /// <summary>
+        /// tblcomqury control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblcomqury;
+
+        /// <summary>
+        /// trIMAResponse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trIMAResponse;
+
+        /// <summary>
+        /// txtIMAResponse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIMAResponse;
+
+        /// <summary>
+        /// trComQrytoAppl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trComQrytoAppl;
+
+        /// <summary>
+        /// txtComQrytoAppl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtComQrytoAppl;
+
+        /// <summary>
+        /// btnSubmit2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit2;
+
+        /// <summary>
         /// verifypanel control.
         /// </summary>
         /// <remarks>

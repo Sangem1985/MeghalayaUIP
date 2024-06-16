@@ -79,6 +79,8 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                 lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
                 lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
+                lblQueryRaised.Text= dt.Rows[0]["IMAQUERYRAISED"].ToString();
+                lblQueryResponded.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString();
                 lblIMATOAPPLICANTTQUERY.Text = dt.Rows[0]["IMAQUERYTOAPPLCNT"].ToString();
                 lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
                 lblIMATODEPTQUERY.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();

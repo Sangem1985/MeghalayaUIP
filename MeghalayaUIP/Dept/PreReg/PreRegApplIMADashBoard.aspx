@@ -86,6 +86,45 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkQueryRaised"  ForeColor="White">
+                                        <div class="info-box bg-blue hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblQueryRaised" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQuery" style="color: white"></a>--%>
+                                                     Query<br />
+                                                    Raised 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkQueryResponded"  ForeColor="White">
+                                        <div class="info-box bg-yellow hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblQueryResponded" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
+                                                        Queries Redressed<br />                                                    
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -93,8 +132,6 @@
                     <section id="dashboardcount">
                         <div class="container-fluid">
                             <div class="row clearfix">
-
-
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkQuerytoDept" OnClick="linkQuerytoDept_Click" ForeColor="White">
                                         <div class="info-box bg-cyan hover-expand-effect">

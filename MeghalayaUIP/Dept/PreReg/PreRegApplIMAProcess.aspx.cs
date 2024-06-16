@@ -519,20 +519,27 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }       
+        }
         protected void ddlQueryAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 DropDownList ddlqryaction = (DropDownList)sender;
                 GridViewRow row = (GridViewRow)ddlqryaction.NamingContainer;
-                Label lblCommQID = (Label)row.FindControl("IRQID");
+                Label lblCommQID = (Label)row.FindControl("lblDQID");
                 ViewState["COMMQID"] = lblCommQID.Text;
                 if (ddlqryaction.SelectedValue != "0")
                 {
+                    ViewState["ACTIONID"] = ddlqryaction.SelectedValue;
 
                     if (ddlqryaction.SelectedValue == "12") //12 IMA Replied to Committee Query
-                    { verifypanel.Visible = false; }
+                    {
+                        verifypanel.Visible = false;
+                        tblcomqury.Visible = true;
+                        trIMAResponse.Visible = true;
+                        trComQrytoAppl.Visible = false;
+
+                    }
                     else if (ddlqryaction.SelectedValue == "13") //13	IMA Forwarded Committee Query to Department
                     {
                         verifypanel.Visible = true;
@@ -540,11 +547,22 @@ namespace MeghalayaUIP.Dept.PreReg
                         trVrfyhdng.Visible = false;
                         trVrfydtls.Visible = false;
                         tdDeptQuery.Visible = true;
+                        btnQuery.Visible = true;
+                        tblcomqury.Visible = false;
                     }
                     else if (ddlqryaction.SelectedValue == "15") //15	IMA Forwarded Committee Query to Applicant
-                    { verifypanel.Visible = false; }
+                    {
+                        verifypanel.Visible = false;
+                        tblcomqury.Visible = true;
+                        trIMAResponse.Visible = false;
+                        trComQrytoAppl.Visible = true;
+                    }
                 }
-                else { verifypanel.Visible = false; }
+                else
+                {
+                    verifypanel.Visible = false;
+                    tblcomqury.Visible = false;
+                }
             }
             catch (Exception ex)
             { }
@@ -590,6 +608,61 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void btnSubmit2_Click(object sender, EventArgs e)
+        {
+            var ObjUserInfo = new DeptUserInfo();
+            if (Session["DeptUserInfo"] != null)
+            {
+
+                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                {
+                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                }
+            }
+            if (Convert.ToString(ViewState["ACTIONID"]) != "")
+            {
+                if ((Convert.ToString(ViewState["ACTIONID"]) == "12") && (string.IsNullOrWhiteSpace(txtIMAResponse.Text) || txtIMAResponse.Text == "" || txtIMAResponse.Text == null))
+                {
+                    lblmsg0.Text = "Please Enter Query Response";
+                    Failure.Visible = true;
+                    return;
+                }
+                if ((Convert.ToString(ViewState["ACTIONID"]) == "15") && (string.IsNullOrWhiteSpace(txtComQrytoAppl.Text) || txtComQrytoAppl.Text == "" || txtComQrytoAppl.Text == null))
+                {
+                    lblmsg0.Text = "Please Enter Query Description";
+                    Failure.Visible = true;
+                    return;
+                }
+                else
+                {
+                    prd.Unitid = Session["UNITID"].ToString();
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    if (Convert.ToString(ViewState["ACTIONID"]) != "")
+                        prd.status = Convert.ToInt32(Convert.ToString(ViewState["ACTIONID"]));
+                    prd.UserID = ObjUserInfo.UserID;
+                    if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                    {
+                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    }
+                    prd.QueryResponse = txtIMAResponse.Text;
+                    prd.Remarks = txtComQrytoAppl.Text;
+                    prd.IPAddress = getclientIP();
+                    prd.QueryID = Convert.ToString( ViewState["COMMQID"]);
+                    string valid = PreBAL.PreRegUpdateQuery(prd);
+                   // string valid = PreBAL.PreRegApprovals(prd);
+                    btnSubmit.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                    return;
+                }
+            }
+            else
+            {
+                lblmsg0.Text = "Please Select Action";
+                Failure.Visible = true;
+            }
+
         }
     }
 }

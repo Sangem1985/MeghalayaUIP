@@ -1033,14 +1033,14 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                             <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
                                             <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
-                                            <asp:TemplateField HeaderText="Response">
+                                            <%--<asp:TemplateField HeaderText="Response">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="100px" Width="250px" runat="server"></asp:TextBox>
                                                     <br />
                                                     <br />
                                                     <asp:FileUpload ID="FileUploadquery" runat="server" class="btn btn-success" />
                                                 </ItemTemplate>
-                                            </asp:TemplateField>
+                                            </asp:TemplateField>--%>
                                             <asp:TemplateField HeaderText="Select Action">
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ddlQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlQueryAction_SelectedIndexChanged">
@@ -1055,6 +1055,30 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                         </Columns>
                                     </asp:GridView>
                                 </div>
+                                <table id="tblcomqury" runat="server" visible="false" style="width: 70%; align-items: center; text-align: center;">
+                                    <tr></tr>
+                                    <tr id="trIMAResponse" runat="server" visible="false">
+                                        <td>Enter Response
+                                        </td>
+                                        <td>
+                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Height="50px" Width="350px"></asp:TextBox>
+                                        </td>
+
+                                    </tr>
+                                    <tr id="trComQrytoAppl" runat="server" visible="false">
+                                        <td>Enter Response
+                                        </td>
+                                        <td>
+                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="350px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align: center">
+                                            <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                         <div class="panel panel-default" id="verifypanel" runat="server" visible="true">
