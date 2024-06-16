@@ -326,7 +326,12 @@
                             <button class="close-navbar"><i class="ti-close"></i></button>
                             <ul class="nav navbar-nav">
                                 <li class="menu-item-has-children">
-                                    <a href="Homebeta.aspx">Home</a>
+                                    <a href="Homebeta.aspx">Home <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="http://103.154.75.191/Meghalaya/prototype/index_1.html" target="_blank">Home 1</a></li>
+                                        <li><a href="http://103.154.75.191/Meghalaya/prototype/beta2/index_1.html" target="_blank">Home 2</a></li>
+                                        <li><a href="Homebeta.aspx" target="_blank">Home 3</a></li>
+                                    </ul>
                                 </li>
 
                                 <li class="menu-item-has-children">
