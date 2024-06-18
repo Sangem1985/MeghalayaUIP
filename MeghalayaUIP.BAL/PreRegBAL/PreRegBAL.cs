@@ -45,9 +45,9 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.InsertAttachments_PREREG(objattachments);
         }
-        public DataSet GetIndustryRegUserDashboard(string userid, string UnitID)
+        public DataSet GetIndustryRegUserDashboard(string userid, string UnitID,string Status)
         {
-            return IRD.GetIndustryRegUserDashboard(userid, UnitID);
+            return IRD.GetIndustryRegUserDashboard(userid, UnitID, Status);
         }
         public DataSet GetIndRegUserApplDetails(string UnitID, string InvesterID)
         {

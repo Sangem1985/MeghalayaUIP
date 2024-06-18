@@ -118,7 +118,7 @@
                                                                         5.District
                                                                     </label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged" AutoPostBack="true">
                                                                             <asp:ListItem Text="Select District" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -128,7 +128,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">6. Mandal</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged"  AutoPostBack="true">
                                                                             <asp:ListItem Text="Select Mandal" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>

@@ -17,7 +17,7 @@ namespace MeghalayaUIP.User.PreReg
         readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
         PreRegBAL indstregBAL = new PreRegBAL();
-        string UnitID;
+        string UnitID, Status;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -58,8 +58,14 @@ namespace MeghalayaUIP.User.PreReg
                     UnitID = Request.QueryString[0];
                 }
                 else UnitID = "%";
+                if (Request.QueryString.Count > 1)
+                {
+                    Status = Request.QueryString[1];
+                }
+                else Status = "%";
+
                 DataSet ds = new DataSet();
-                ds = indstregBAL.GetIndustryRegUserDashboard(userid, UnitID);
+                ds = indstregBAL.GetIndustryRegUserDashboard(userid, UnitID, Status);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     gvPreRegUserDashboard.DataSource = ds;

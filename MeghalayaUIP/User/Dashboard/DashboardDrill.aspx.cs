@@ -167,7 +167,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 if (btnPreRegTotal.Text != "0")
                 {
-                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue+"&Status=TOTAL";
                     Response.Redirect(url);
                 }
                 else
@@ -187,7 +187,7 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=APPROVED";
                 Response.Redirect(url);
             }
             catch (Exception ex)
@@ -202,7 +202,7 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=UNDERPROCESS";
                 Response.Redirect(url);
             }
             catch (Exception ex)
@@ -216,7 +216,7 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=REJECTED";
                 Response.Redirect(url);
             }
             catch (Exception ex)
@@ -233,7 +233,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 if (btnPreRegQuery.Text != "0")
                 {
-                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=QUERY";
                     Response.Redirect(url);
                 }
             }

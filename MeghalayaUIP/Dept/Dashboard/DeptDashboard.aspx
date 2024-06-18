@@ -15,16 +15,15 @@
                     <div class="container-fluid">
                         <div class="row">
                         </div>
-                        <div class="row mt-2">
-                            <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
-                                <a href="IntenttoInvestDashboard.aspx">
-                                    <div class="card-counter primarydashboard1">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                        <span class="count-numbers">Intent to Invest 
-                                        </span>
-                                        <span class="count-name"></span>
-                                    </div>
-                                </a>
+                        <div class="row mt-2">                             
+                             <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
+                                <div class="card-counter primarydashboard1">
+                                    <asp:LinkButton ID="lnkIntent" runat="server" OnClick="lnkIntent_Click">
+									<i class="fa fa-user-plus"></i>
+									<span class="count-numbers">Intent to Invest</span>
+									<span class="count-name"></span>
+                                    </asp:LinkButton>
+                                </div>
                             </div>
                             <div class="col-md-3" id="prereg" runat="server" visible="false">
                                 <div class="card-counter info">
