@@ -92,7 +92,12 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void linkCFO_Click(object sender, EventArgs e)
         {
-
+            if (ObjUserInfo.Roleid == "8")
+            {
+                PreOperational.Visible = true;
+                string url = "~/Dept/CFO/CFODeptDashboard.aspx";
+                Response.Redirect(url);
+            }
         }
 
         protected void linkGrievance_Click(object sender, EventArgs e)
@@ -101,6 +106,12 @@ namespace MeghalayaUIP.Dept.Dashboard
             string url = "~/Dept/Grievance/GrievanceDeptDashbord.aspx";
             Response.Redirect(url);
 
+        }
+
+        protected void lnkIntent_Click(object sender, EventArgs e)
+        {
+            string url = "~/Dept/IntenttoInvestDashboard.aspx";
+            Response.Redirect(url);
         }
     }
 }

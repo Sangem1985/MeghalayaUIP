@@ -394,7 +394,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
         }
 
-        public DataSet GetIndustryRegUserDashboard(string userid, string UnitID)
+        public DataSet GetIndustryRegUserDashboard(string userid, string UnitID,string Status)
         {
 
             DataSet ds = new DataSet();
@@ -414,7 +414,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
-                
+                da.SelectCommand.Parameters.AddWithValue("@STATUS", Status);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

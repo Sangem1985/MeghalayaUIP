@@ -64,10 +64,10 @@ namespace MeghalayaUIP.Dept.CFE
                 }
                 if (Request.QueryString.Count > 0)
                 {
-                    if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING" || Request.QueryString["status"].ToString() == "APPROVALPENDING")
+                    if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDINGWITHIN" || Request.QueryString["status"].ToString() == "PRESCRUTINYPENDINGBEYOND" || Request.QueryString["status"].ToString() == "APPROVALPENDINGWITHIN" || Request.QueryString["status"].ToString() == "APPROVALPENDINGBEYOND")
                     {
                         verifypanel.Visible = true;
-                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDINGWITHIN" || Request.QueryString["status"].ToString() == "PRESCRUTINYPENDINGBEYOND")
                         {
                             scrutiny.Visible = true;
                             Approval.Visible = false;
