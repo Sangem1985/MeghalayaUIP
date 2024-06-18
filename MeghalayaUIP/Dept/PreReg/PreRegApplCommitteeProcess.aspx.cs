@@ -198,8 +198,8 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdApplStatus.DataSource = ds.Tables[6];
                             grdApplStatus.DataBind();
                         }
-                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "8")
-
+                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "8" || 
+                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "12")
                         {
                             verifypanel.Visible = true;
                         }

@@ -87,7 +87,7 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQueryRaised"  ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkQueryRaised" ForeColor="White">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -106,8 +106,8 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQueryResponded"  ForeColor="White">
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkQueryResponded" ForeColor="White">
                                         <div class="info-box bg-yellow hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -117,7 +117,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
-                                                        Queries Redressed<br />                                                    
+                                                        Queries Redressed<br />
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -163,7 +163,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white"></a>--%>
-                                                    Queries Addressed<br />
+                                                    Queries Redressed<br />
                                                     by Department
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -203,7 +203,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white"></a>--%>
-                                                    Query Addressed<br />
+                                                    Query Redressed<br />
                                                     by Applicant
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -271,7 +271,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMArepliedtoCommittee" style="color: white"></a>--%>
                                                     Committee Query
                                                     <br />
-                                                    Addressed by IMA  
+                                                    Redressed by IMA  
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -314,7 +314,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=APPLREPLIEDTOCommitteeQUERY" style="color: white"></a>--%>
                                                     Committee Query
                                                     <br />
-                                                    Addressed by Applicant 
+                                                    Redressed by Applicant 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
@@ -358,7 +358,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=DeptREPLIEDTOCommitteeQUERY" style="color: white"></a>--%>
                                                     Committee Query
                                                     <br />
-                                                    Addressed by Department 
+                                                    Redressed by Department 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
