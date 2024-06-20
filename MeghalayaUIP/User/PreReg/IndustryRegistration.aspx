@@ -146,9 +146,9 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Company Proposal *</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal" class=""  >
-                                                                        <asp:ListItem Value="Existing" Text="Existing" ></asp:ListItem>
-                                                                        <asp:ListItem Value="New" Text="New"></asp:ListItem>
+                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal"   >
+                                                                         <asp:ListItem Value="New" Text="New" style="padding-right:10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="Existing" Text="Existing" style="padding-right:10px" ></asp:ListItem>                                                                       
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
 
 
@@ -373,7 +373,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-5">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-5 col-form-label">Nature of Activity*</label>
                                                                 <div class="col-lg-7 d-flex">
