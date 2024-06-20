@@ -276,15 +276,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtPMCost;
 
         /// <summary>
-        /// Mention_Zero control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Mention_Zero;
-
-        /// <summary>
         /// txtAnnualTurnOver control.
         /// </summary>
         /// <remarks>
@@ -310,6 +301,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEntCategory;
+
+        /// <summary>
+        /// Mention_Zero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Mention_Zero;
 
         /// <summary>
         /// btnPreviuos2 control.

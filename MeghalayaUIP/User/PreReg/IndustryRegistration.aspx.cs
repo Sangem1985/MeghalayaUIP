@@ -140,16 +140,11 @@ namespace MeghalayaUIP.User.PreReg
                             txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
                             txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
                             txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
-                            //}
-                            //if (rblNatureofActvty.SelectedValue == "Service")
-                            //{
-                            //    divManf.Visible = false;
-                            //    divManf1.Visible = false;
-                            //    divservc.Visible = false;
+                            
                             txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"]);
                             txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNAME"]);
                             txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNO"]);
-                            //}
+                            
                             txtWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WASTEDETAILS"]);
                             txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"]);
 

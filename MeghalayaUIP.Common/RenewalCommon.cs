@@ -36,6 +36,13 @@ namespace MeghalayaUIP.Common
         public static string InsertRenApplicationDetails = "USP_INSRENINDUSTRIEDETAILS";
         public static string GetRENApplicantDetails = "USP_GETRENINDUSTRIEDETAILS";
         public static string GetRENApprovalsReq = "USP_GETCFEAPPROVALSWITHFEE";
+        public static string InsertRENSafteySecurityDetails = "USP_SAFETEYSECURITYDETAILS";
+        public static string GetRenSafteySecurityDetails = "USP_GETSAFETEYSECURITYDETAILS";
+        public static string InsertRenMigrantWorkDetails = "USP_INSRENMIGRANTWORK";
+        public static string InsertRenContractorMigrantWorkDetails = "USP_INSRENCONTRACTORMIGRANT";
+        public static string GetRENMigrantDetails = "USP_GETRENCONTRACTORMIGRANT";
+        public static string InsertRENFactoryLicDetails = "USP_INSRENFACTORYLIC";
+        public static string GetRenFactoriesLicenseDetails = "USP_GETRENFACTORYLIC";
 
     }
 
@@ -372,6 +379,168 @@ namespace MeghalayaUIP.Common
         public string Pin { get; set; }
         public string Age { get; set; }
         public string Designation { get; set; }
+
+    }
+    public class RenSafteySecurity
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string MIGRANTREGNO { get; set; }
+        public string DISTRICREGISSUED { get; set; }
+        public string NAMEKIN { get; set; }
+        public string ADDRESS { get; set; }
+        public string FORCEININDIA { get; set; }
+        public string CRIMINALCASE { get; set; }
+        public string UNSOUNDMIND { get; set; }
+        public string NATUREOFEMP { get; set; }
+        public string EMPEXPECTEDDATE { get; set; }
+        public string EXPECTEDDURATIONSTAY { get; set; }
+        public string WORKDETAILS { get; set; }
+        public string DISTRICAREA { get; set; }
+        public string AREAOFWORK { get; set; }
+        public string EXSTINGREGVALIDDATE { get; set; }
+        public string DETAILSOFSPECIFICSKILL { get; set; }
+        public string DISTRICAREAOFWORKER { get; set; }
+        public string WORKADDRESSAREA { get; set; }
+        public string REGRENEWEDDATE { get; set; }
+        public string NAMEESTEMP { get; set; }
+        public string ADDRESSEST { get; set; }
+        public string CONTACTNO { get; set; }
+
+    }
+    public class RenMigrantwork
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+
+        public string LICRENO { get; set; }
+        public string LICISSUEDDATE { get; set; }
+        public string LICRENVALIDDATE { get; set; }
+        public string TITLE { get; set; }
+        public string NAME { get; set; }
+        public string EMAILID { get; set; }
+        public string MOBILENO { get; set; }
+        public string FATHERNAME { get; set; }
+        public string STATE { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCALITY { get; set; }
+        public string NEARLAND { get; set; }
+        public string PINCODE { get; set; }
+        public string DATEOFBIRTH { get; set; }
+        public string DATE { get; set; }
+        public string AGE { get; set; }
+        public string STATES { get; set; }
+        public string DISTRICS { get; set; }
+        public string MANDALS { get; set; }
+        public string VILLAGES { get; set; }
+        public string LOCALITYS { get; set; }
+        public string LANDMARKS { get; set; }
+        public string PINCODES { get; set; }
+        public string ARTICLE5 { get; set; }
+        public string CRIMINALCASEAPP { get; set; }
+        public string CONVICTED5APPLICATION { get; set; }
+        public string DISTRICCOUNCIL { get; set; }
+        public string LICENSE { get; set; }
+        public string LICNOS { get; set; }
+        public string DATEOFLICENSE { get; set; }
+        public string VALIDDATE { get; set; }
+        public string TRIBAL { get; set; }
+        public string REMARK { get; set; }
+        public string NAMEEST { get; set; }
+        public string STATED { get; set; }
+        public string DIST { get; set; }
+        public string MAND { get; set; }
+        public string VILLA { get; set; }
+        public string LOCAL { get; set; }
+        public string NEARESTLANDMAEK { get; set; }
+        public string PIN { get; set; }
+        public string TYPEOFBUSINESS { get; set; }
+        public string REGNO { get; set; }
+        public string DATEOFREG { get; set; }
+        public string TITLES { get; set; }
+        public string NAMEOFEMP { get; set; }
+        public string MIGRANTNAMEEMP { get; set; }
+        public string CONTRACTWORK { get; set; }
+        public string DATECOMMENCING { get; set; }
+        public string ENDINGDATE { get; set; }
+        public string AGENTNAME { get; set; }
+        public string MAXIMUMNOMIGRANT { get; set; }
+        public string AGENTNAMEADDRESS { get; set; }
+        public string CONTRACTOR { get; set; }
+        public string DEATILS { get; set; }
+        public string SUSPENDINGREVOKING { get; set; }
+        public string ORDERNO { get; set; }
+        public string ORDERDATE { get; set; }
+        public string WORKESTPAST5YEARS { get; set; }
+        public string ESTDETAILS { get; set; }
+        public string PRINCIPLEEMPDETAILS { get; set; }
+        public string NATUREWORK { get; set; }
+        public string EMPENCLOSED { get; set; }
+
+
+        public string TITLESS { get; set; }
+        public string NAMES { get; set; }
+        public string ADDRESS { get; set; }
+
+    }
+    public class RenFactoryLicense
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string FULLNAME { get; set; }
+        public string LICNO { get; set; }
+        public string LICISSUEDDATE { get; set; }
+        public string RENEWALNO { get; set; }
+        public string RENEWALDATE { get; set; }
+        public string LICVALIDYEAR { get; set; }
+        public string FACTORIESL12MONTHS { get; set; }
+        public string NEXT12MONTHS { get; set; }
+        public string MANUPRODUCT { get; set; }
+        public string PRINCIPALPRODUCT { get; set; }
+        public string NAMESOFMANU { get; set; }
+        public string MANUPRODUCT12MONTHS { get; set; }
+        public string MAXNOEMP { get; set; }
+        public string MAXNOWORK { get; set; }
+        public string NOORDINARIYEMP { get; set; }
+        public string UNITELECTRICPOWER { get; set; }
+        public string TOTALCAPGENERATING { get; set; }
+        public string TOTALDGSET { get; set; }
+        public string MAXPOWER { get; set; }
+        public string FULLNAMEMANAGER { get; set; }
+        public string RESIDENTIALADDRESS { get; set; }
+        public string FULLNAMEOWNER { get; set; }
+        public string OWNERADDRESSBUILD { get; set; }
+        public string NAMEOCCUPIER { get; set; }
+        public string ADDRESSOCCUPIER { get; set; }
+        public string PRIVATEFIRM { get; set; }
+        public string PUBLICFIRM { get; set; }
+        public string NAMEPROPRIETOR { get; set; }
+        public string NAMEDIRECTORS { get; set; }
+        public string GOVTLOCALFACTORY { get; set; }
+        public string MANAGINGAPPOINTEDAGENT { get; set; }
+        public string NAMECHIEFHEAD { get; set; }
+        public string NAMEOFAGENT { get; set; }
+        public string FACTORYEXTENDED { get; set; }
+        public string REFNOAPPROVALSITE { get; set; }
+        public string DATEOFAPPROVAL { get; set; }
+        public string REFAPPROVALAUTHORITY { get; set; }
+        public string DATEOFAPPROVALAUTHORITY { get; set; }
+        public string FINALFEES { get; set; }
+        public string PENALTY { get; set; }
+        public string LICVALIDUPTO { get; set; }
+        public string TOTALAMOUNTPAID { get; set; }
+
 
     }
 }

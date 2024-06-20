@@ -56,6 +56,23 @@ namespace MeghalayaUIP.Common
 
         public static string GetAppliedApprovalIDs = "USP_GETCFEAPPROVALIDS";
         public static string InsertDGSetDetails ="USP_INSCFEDGSETDETAILS";
+        public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
+        public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
+        public static string INSERTCFEDGSETDETAILS = "USP_INSCFEDGSETDETAILS";
+        public static string GETCFEGSETDETAILS = "USP_GETCFEDGSETDETAILS";
+        public static string InsertCFECEIGDEATISL = "USP_INSCFECEIGDETAILS";
+        public static string GETCFEPOWERCEIGDETAILS = "USP_GETCFECFECEIGDETAILS";
+        public static string InsertCFEPetroleum = "USP_INSCFEPETROLEUMDETAILS";
+        public static string GETCFEPERTROLEUMDETAILS = "USP_GETCFEPETROLEUMDETAILS";
+        public static string InsertCFEExplosiveManu = "USP_INSCFEMANUFACTUREEXPLOSIVE";
+        public static string InsertCFEEXPLOSIVE = "USP_INSCFEEXPLOSIVEDETAILS";
+        public static string GETEXPLOSIVEDETAILS = "USP_GETCFEEXPLOSIVEDETAILS";
+        public static string InsertTaxDetails = "USP_INSCFEPROFFISSIONALBUSINESS";
+        public static string InsertCFEProffessionalTaxDETAILS = "USP_INSCFEPROFFESSIONALTAXDETAILS";
+        public static string GetCFETAXDETAILS = "USP_GETCFEPROFFESSIONALTAXDETAILS";
+        public static string InsertCFEPCBHAZARDOUSDETAILS = "USP_INSCFEHAZWASTEDETAILS";
+        public static string GetCFEHazardousDetails = "USP_GETCFEHAZWASTEDETAILS";
+
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>
@@ -834,4 +851,128 @@ namespace MeghalayaUIP.Common
         public string MeggerRange { get; set; }
 
     }
+
+    public class CFECEIG
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string UnitId { get; set; }
+        public string ALREADY { get; set; }
+        public string PROPOSED { get; set; }
+        public string TOTAL { get; set; }
+        public string CONNECTEDLOAD { get; set; }
+        public string INSTALLED { get; set; }
+        public string PROPOSE { get; set; }
+        public string TOTALS { get; set; }
+        public string REGULATION { get; set; }
+        public string voltage { get; set; }
+        public string Plant { get; set; }
+        public string CAPACITY { get; set; }
+        public string LOCATIONFACTORY { get; set; }
+        public string SURVEYNO { get; set; }
+        public string EXTENT { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string STREETNAME { get; set; }
+        public string PINCODE { get; set; }
+        public string TELEPHOPNE { get; set; }
+        public string NEARESTPHONENO { get; set; }
+        public string DATE { get; set; }
+
+    }
+    public class CFEPETROLEUM
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string UnitId { get; set; }
+        public string NOCPETROLPUMP { get; set; }
+        public string NOCREQ { get; set; }
+        public string DISTRIC { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string LOCATEDROAD { get; set; }
+        public string NAMEEST { get; set; }
+        public string LANDHOLDINGNO { get; set; }
+        public string LANDLEASER { get; set; }
+        public string REGNO { get; set; }
+        public string AREALANDHOLDINGNO { get; set; }
+        public string NORTH { get; set; }
+        public string EAST { get; set; }
+        public string SOUTH { get; set; }
+        public string WEST { get; set; }
+        public string FRONTAGE { get; set; }
+        public string DEPTH { get; set; }
+    }
+    public class CFEEXPLOSIVE
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string UnitId { get; set; }
+        public string EXPLOSIVESITE { get; set; }
+        public string EXPLOSIVEROADVAN { get; set; }
+        public string CRIMINAL1973 { get; set; }
+        public string DETAIL { get; set; }
+        public string EXPLOSIVE1884 { get; set; }
+        public string DETAILS { get; set; }
+        public string APPROVAL101 { get; set; }
+        public string APPROVALDETAILS { get; set; }
+        public string INFORMATION { get; set; }
+        public string NAME { get; set; }
+        public string CLASS { get; set; }
+        public string DIVISION { get; set; }
+        public string QUANTITYTIME { get; set; }
+        public string QUANTITYMONTH { get; set; }
+    }
+
+    public class CFETAXDetails
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string UnitId { get; set; }
+        public string APPLYAS { get; set; }
+        public string NAMEEST { get; set; }
+        public string ADDRESSEST { get; set; }
+        public string DISTRICEST { get; set; }
+        public string PINCODEEST { get; set; }
+        public string TOTALNOEMPEST { get; set; }
+        public string DATE { get; set; }
+        public string CONSTITUTIONEST { get; set; }
+        public string GOODSSUPPLIESEST { get; set; }
+        public string ADDITIONPLACEBUSINESS { get; set; }
+        public string DESIGNATION { get; set; }
+        public string REGUNDERACT { get; set; }
+        public string REGTYPE { get; set; }
+        public string REGNO { get; set; }
+        public string PLACEBUSINESS { get; set; }
+        public string ADDRESS { get; set; }
+        public string DISTRIC { get; set; }
+        public string TOTALWORKINGEMPTE { get; set; }
+
+    }
+    public class CFEPCBHAZARDOUSDET
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string UnitId { get; set; }
+        public string AUTHORIZATIONREQ { get; set; }
+        public string WASTEHANDLEANNUM { get; set; }
+        public string WASTESTOREDTIME { get; set; }
+        public string QUANTITYWASTEANNUM { get; set; }
+        public string QUANTITYSTOREDTIME { get; set; }
+        public string YEAROFPRODUCTION { get; set; }
+        public string INDUSTRYWORK { get; set; }
+    }
+
+
 }

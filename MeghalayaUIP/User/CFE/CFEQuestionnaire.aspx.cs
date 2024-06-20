@@ -10,6 +10,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.BAL;
 using MeghalayaUIP.BAL.CFEBLL;
 using System.Drawing;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.User.CFE
 {
@@ -21,39 +22,47 @@ namespace MeghalayaUIP.User.CFE
         CFEBAL objcfebal = new CFEBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                var ObjUserInfo = new UserInfo();
-                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                if (Session["UserInfo"] != null)
                 {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    if (Convert.ToString(Session["CFEUNITID"]) != "")
+                    { UnitID = Convert.ToString(Session["CFEUNITID"]); }
+                    else
+                    {
+                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    if (!IsPostBack)
+                    {
+                        MVQues.ActiveViewIndex = index;
+                        BindSectors();
+                        BindDistricts();
+                        BindConstitutionType();
+                        BindIndustryType();
+                        BindPowerReq();
+                        GetElectricRegulations();
+                        GetVoltageMaster();
+                        GetPowerPlants();
+                        BindData();
+                    }
                 }
-                if (hdnUserID.Value == "")
-                {
-                    hdnUserID.Value = ObjUserInfo.Userid;
-                }
-                if (Convert.ToString(Session["CFEUNITID"]) != "")
-                { UnitID = Convert.ToString(Session["CFEUNITID"]); }
-                else
-                {
-                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
-                    Response.Redirect(newurl);
-                }
-                Page.MaintainScrollPositionOnPostBack = true;
-                if (!IsPostBack)
-                {
-                    MVQues.ActiveViewIndex = index;
-                    BindSectors();
-                    BindDistricts();
-                    BindConstitutionType();
-                    BindIndustryType();
-                    BindPowerReq();
-                    GetElectricRegulations();
-                    GetVoltageMaster();
-                    GetPowerPlants();
-                    BindData();
-                }
-
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void MVQues_ActiveViewChanged(object sender, EventArgs e)
@@ -65,19 +74,15 @@ namespace MeghalayaUIP.User.CFE
             { Link2.CssClass = "Underlined2"; }
             if (index == 2)
             { Link3.CssClass = "Underlined3"; }
-
-
         }
         public void BindData()
         {
             try
             {
-
                 DataSet ds = new DataSet();
                 ds = objcfebal.RetrieveQuestionnaireDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    //hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNITID"]);
                     hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PREREGUIDNO"]);
                     txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYNAME"]);
                     rblProposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPOSALFOR"]);
@@ -194,11 +199,12 @@ namespace MeghalayaUIP.User.CFE
                     }
                 }
 
-
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindConstitutionType()
@@ -226,7 +232,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindIndustryType()
@@ -324,11 +332,7 @@ namespace MeghalayaUIP.User.CFE
                 ddlVillage.Items.Clear();
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                string strmode = string.Empty;
-                //if (ObjUserInformation.User_Level == "2")
-                //{
-                strmode = "";
-                //}
+                
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -336,8 +340,6 @@ namespace MeghalayaUIP.User.CFE
                     ddlDistrict.DataValueField = "DistrictId";
                     ddlDistrict.DataTextField = "DistrictName";
                     ddlDistrict.DataBind();
-
-
                 }
                 else
                 {
@@ -907,14 +909,16 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnNext3_Click(object sender, EventArgs e)
         {
             try
             {
-                btnSave3_Click( sender,  e);
+                btnSave3_Click(sender, e);
                 Response.Redirect("~/User/CFE/CFECommonApplication.aspx");
             }
             catch (Exception ex)
@@ -1456,7 +1460,7 @@ namespace MeghalayaUIP.User.CFE
         {
             MVQues.ActiveViewIndex = 0;
             var cls = Link1.Attributes["class"];
-            Link1.Attributes.Add("class", cls + " nav-tab");      
+            Link1.Attributes.Add("class", cls + " nav-tab");
         }
 
         protected void Link2_Click(object sender, EventArgs e)
@@ -1467,6 +1471,38 @@ namespace MeghalayaUIP.User.CFE
         protected void Link3_Click(object sender, EventArgs e)
         {
             MVQues.ActiveViewIndex = 2;
+        }
+
+        protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtAnnualTurnOver.Text != "")
+                {
+                    string Res = objcfebal.GETANNUALTURNOVER(txtPMCost.Text.ToString(), txtAnnualTurnOver.Text.ToString());
+                    if (Res != "")
+                    {
+                        txtAnnualTurnOver.Text = "";
+                        string message = "alert('" + Res + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+
+                    }
+                    else
+                    {
+                        string Result = objcfebal.CFEENTERPRISETYPE(txtAnnualTurnOver.Text.ToString());
+                        if (Result != "")
+                        {
+                            lblEntCategory.Text = Result;
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

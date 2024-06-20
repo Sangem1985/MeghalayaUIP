@@ -25,7 +25,6 @@ namespace MeghalayaUIP.CommonClass
             }
         }
      
-
         public static void LogerrorDB(Exception ex, string path, string CreatedBy)
         {
             MGCommonDAL objCommonBLL = new MGCommonDAL();

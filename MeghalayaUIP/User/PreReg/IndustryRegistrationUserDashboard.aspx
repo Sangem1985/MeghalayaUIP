@@ -59,7 +59,7 @@
                             <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                            <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                            <asp:BoundField HeaderText="Application Date" DataField="CREATEDDATE" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                             <asp:TemplateField HeaderText="Queries Count" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
                                 <ItemTemplate>
@@ -68,10 +68,10 @@
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="Status Description" DataField="statusdescription" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                            <asp:BoundField HeaderText="Status" DataField="statusdescription" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
 
-                            <asp:TemplateField HeaderText="Actions" ItemStyle-Width="5%">
+                            <asp:TemplateField HeaderText="View" ItemStyle-Width="5%">
                                 <ItemTemplate>
                                     <asp:Button ID="btnView" runat="server" Text='View' CommandName="VIEW" CssClass="btn btn-info"
                                         CommandArgument='<%# Eval("UNITID")+"$"+Eval("INVESTERID")%>' OnClick="btnView_Click" />

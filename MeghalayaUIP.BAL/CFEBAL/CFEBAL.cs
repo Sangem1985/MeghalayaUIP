@@ -164,6 +164,72 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetWaterDetailos(userid, UNITID);
         }
+        public string GETANNUALTURNOVER(string PMAMOUNT, string ANNUALTURNOVER)
+        {
+            return objCFEDAL.GETANNUALTURNOVER(PMAMOUNT, ANNUALTURNOVER);
+        }
+        public string CFEENTERPRISETYPE(string ANNUALTURNOVER)
+        {
+            return objCFEDAL.CFEENTERPRISETYPE(ANNUALTURNOVER);
+        }
+        public string INSERTCFEDGSET(CFEDGset ObjCFEDGset)
+        {
+            return objCFEDAL.INSERTCFEDGSET(ObjCFEDGset);
+        }
+        public DataSet RetrieveCFEDGSETDetails(string userid, string UnitID)
+        {
+            return objCFEDAL.RetrieveCFEDGSETDetails(userid, UnitID);
+        }
+
+        public string InsertCFECEIGDetails(CFECEIG ObjCFECEIG)
+        {
+            return objCFEDAL.InsertCFECEIGDetails(ObjCFECEIG);
+        }
+        public DataSet GetCFEPOWERCEIGDETAILS(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFEPOWERCEIGDETAILS(userid, UnitID);
+        }
+        public string InsertCFEPetrolrumDetails(CFEPETROLEUM ObjCFEPetroleum)
+        {
+            return objCFEDAL.InsertCFEPetrolrumDetails(ObjCFEPetroleum);
+        }
+        public DataSet GetCFEPETROLEUMDETAILS(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFEPETROLEUMDETAILS(userid, UnitID);
+        }
+        public string InsertCFEExplosiveManuDetails(CFEEXPLOSIVE ObjCFEExplosive)
+        {
+            return objCFEDAL.InsertCFEExplosiveManuDetails(ObjCFEExplosive);
+        }
+        public string InsertCFEExplosiveDetails(CFEEXPLOSIVE ObjCFEExplosive)
+        {
+            return objCFEDAL.InsertCFEExplosiveDetails(ObjCFEExplosive);
+        }
+        public DataSet GetCFEEXPLOSIVE(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFEEXPLOSIVE(userid, UnitID);
+        }
+
+        public string InsertCFETaxDetails(CFETAXDetails ObjCFETax)
+        {
+            return objCFEDAL.InsertCFETaxDetails(ObjCFETax);
+        }
+        public string InsertCFEPROFFESSIONALTAXDetails(CFETAXDetails ObjCFETax)
+        {
+            return objCFEDAL.InsertCFEPROFFESSIONALTAXDetails(ObjCFETax);
+        }
+        public DataSet GetCFETAXDetails(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFETAXDetails(userid, UnitID);
+        }
+        public string InsertCFEHazardous(CFEPCBHAZARDOUSDET ObjCFEhazardous)
+        {
+            return objCFEDAL.InsertCFEHazardous(ObjCFEhazardous);
+        }
+        public DataSet GetCFEHAZARDOUSDEATILS(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFEHAZARDOUSDEATILS(userid, UnitID);
+        }
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 

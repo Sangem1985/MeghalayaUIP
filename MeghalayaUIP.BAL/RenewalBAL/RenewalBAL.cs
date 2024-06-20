@@ -124,5 +124,34 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetApprovalsReqWithFee(ObjApplicationDetails);
         }
+        public string InsertRENSafteySecurityDetails(RenSafteySecurity ObjRenSafteySecurity)
+        {
+            return objRENDAL.InsertRENSafteySecurityDetails(ObjRenSafteySecurity);
+        }
+        public DataSet GetRenSafteySecurity(string userid, string UnitID)
+        {
+            return objRENDAL.GetRenSafteySecurity(userid, UnitID);
+        }
+        public string InsertMigrantWorkDetails(RenMigrantwork ObjRenMigrant)
+        {
+            return objRENDAL.InsertMigrantWorkDetails(ObjRenMigrant);
+        }
+        public string InsertRENMigrantContractorDetails(RenMigrantwork ObjRenMigrant)
+        {
+            return objRENDAL.InsertRENMigrantContractorDetails(ObjRenMigrant);
+        }
+        public DataSet GetRenMigrantWorker(string userid, string UnitID)
+        {
+            return objRENDAL.GetRenMigrantWorker(userid, UnitID);
+        }
+        public string InsertRENFactoryLicDetails(RenFactoryLicense ObjRenFactoryLic)
+        {
+            return objRENDAL.InsertRENFactoryLicDetails(ObjRenFactoryLic);
+        }
+        public DataSet GetRenFactoriesLic(string userid, string UnitID)
+        {
+            return objRENDAL.GetRenFactoriesLic(userid, UnitID);
+        }
+
     }
 }

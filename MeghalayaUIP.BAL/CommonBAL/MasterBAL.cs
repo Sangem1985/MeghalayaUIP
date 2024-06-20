@@ -151,5 +151,17 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetSingleWindowApprovals(fdate,tdate,DeptId);
         }
+        public List<MasterDGPOWER> GetDGPOWER()
+        {
+            return objMasterDAL.GetDGPOWER();
+        }
+        public List<MasterMAXAMOUNTPOWER> GetMaxAmountPower()
+        {
+            return objMasterDAL.GetMaxAmountPower();
+        }
+        public List<MasterNOOFWORKERSYEARS> GetWORKERSYEARS()
+        {
+            return objMasterDAL.GetWORKERSYEARS();
+        }
     }
 }

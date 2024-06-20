@@ -49,6 +49,9 @@ namespace MeghalayaUIP.Common
         public static string GetAcknowlegementDetails = "USP_GET_ACKNOWLEDGEMENT_DETAILS";
         public static string GetSingleWindowDepts = "USP_GET_SINGLE_WINDOW_DASHBOARD_DEPTS";
         public static string GetSingleWindowApprovals = "USP_GET_SINGLE_WINDOW_DASHBOARD_APPROVALS";
+        public static string GetDGPOWER = "USP_GETDGPOWER";
+        public static string GetMAXPOWER = "USP_MAXAMOUNTPOWER";
+        public static string GetWorkYears = "USP_NOOFWORKERSYEARS";
 
     }
     public class MasterCountry
@@ -272,6 +275,21 @@ namespace MeghalayaUIP.Common
     {
         public string MAINCATEGORY_ID { get; set; }
         public string MAINCATEGORY_NAME { get; set; }
+    }
+    public class MasterDGPOWER
+    {
+        public string DGPOWER_ID { get; set; }
+        public string DGPOWER_NAME { get; set; }
+    }
+    public class MasterMAXAMOUNTPOWER
+    {
+        public string MAXAMOUNTPOWER_ID { get; set; }
+        public string MAXAMOUNTPOWER_NAME { get; set; }
+    }
+    public class MasterNOOFWORKERSYEARS
+    {
+        public string NOOFWORKERSYEARS_ID { get; set; }
+        public string NOOFWORKERS_NAME { get; set; }
     }
 
 }

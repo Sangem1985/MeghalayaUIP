@@ -14,6 +14,11 @@
                 alert("Enter a valid email address");
             }
         }
+        $(document).ready(function () {
+            $('input[type="text"]').on('paste', function (e) {
+                e.preventDefault();
+            });
+        });
 
     </script>
     <script type="text/javascript">

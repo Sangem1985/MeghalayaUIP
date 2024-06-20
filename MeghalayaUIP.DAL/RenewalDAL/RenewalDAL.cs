@@ -1463,5 +1463,429 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
         }
+        public string InsertRENSafteySecurityDetails(RenSafteySecurity ObjRenSafteySecurity)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENSafteySecurityDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENSD_CREATEDBY", Convert.ToInt32(ObjRenSafteySecurity.CreatedBy));
+                com.Parameters.AddWithValue("@RENSD_CREATEDBYIP", ObjRenSafteySecurity.IPAddress);
+                com.Parameters.AddWithValue("@RENSD_RENQDID", Convert.ToInt32(ObjRenSafteySecurity.Questionnariid));
+                com.Parameters.AddWithValue("@RENSD_UNITID", Convert.ToInt32(ObjRenSafteySecurity.UnitId));
+
+                com.Parameters.AddWithValue("@RENSD_MIGRANTREGNO", Convert.ToInt32(ObjRenSafteySecurity.MIGRANTREGNO));
+                com.Parameters.AddWithValue("@RENSD_DISTRICREGISSUED", ObjRenSafteySecurity.DISTRICREGISSUED);
+                com.Parameters.AddWithValue("@RENSD_NAMEKIN", ObjRenSafteySecurity.NAMEKIN);
+                com.Parameters.AddWithValue("@RENSD_ADDRESS", ObjRenSafteySecurity.ADDRESS);
+                com.Parameters.AddWithValue("@RENSD_FORCEININDIA", ObjRenSafteySecurity.FORCEININDIA);
+                com.Parameters.AddWithValue("@RENSD_CRIMINALCASE", ObjRenSafteySecurity.CRIMINALCASE);
+                com.Parameters.AddWithValue("@RENSD_UNSOUNDMIND", ObjRenSafteySecurity.UNSOUNDMIND);
+                com.Parameters.AddWithValue("@RENSD_NATUREOFEMP", ObjRenSafteySecurity.NATUREOFEMP);
+                com.Parameters.AddWithValue("@RENSD_EMPEXPECTEDDATE", ObjRenSafteySecurity.EMPEXPECTEDDATE);
+                com.Parameters.AddWithValue("@RENSD_EXPECTEDDURATIONSTAY", ObjRenSafteySecurity.EXPECTEDDURATIONSTAY);
+                com.Parameters.AddWithValue("@RENSD_WORKDETAILS", ObjRenSafteySecurity.WORKDETAILS);
+                com.Parameters.AddWithValue("@RENSD_DISTRICAREA", ObjRenSafteySecurity.DISTRICAREA);
+                com.Parameters.AddWithValue("@RENSD_AREAOFWORK", ObjRenSafteySecurity.AREAOFWORK);
+                com.Parameters.AddWithValue("@RENSD_EXSTINGREGVALIDDATE", ObjRenSafteySecurity.EXSTINGREGVALIDDATE);
+                com.Parameters.AddWithValue("@RENSD_DETAILSOFSPECIFICSKILL", ObjRenSafteySecurity.DETAILSOFSPECIFICSKILL);
+                com.Parameters.AddWithValue("@RENSD_DISTRICAREAOFWORKER", ObjRenSafteySecurity.DISTRICAREAOFWORKER);
+                com.Parameters.AddWithValue("@RENSD_WORKADDRESSAREA", ObjRenSafteySecurity.WORKADDRESSAREA);
+                com.Parameters.AddWithValue("@RENSD_REGRENEWEDDATE", ObjRenSafteySecurity.REGRENEWEDDATE);
+                com.Parameters.AddWithValue("@RENSD_NAMEESTEMP", ObjRenSafteySecurity.NAMEESTEMP);
+                com.Parameters.AddWithValue("@RENSD_ADDRESSEST", ObjRenSafteySecurity.ADDRESSEST);
+                com.Parameters.AddWithValue("@RENSD_CONTACTNO", Convert.ToInt64(ObjRenSafteySecurity.CONTACTNO));
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetRenSafteySecurity(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRenSafteySecurityDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRenSafteySecurityDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string InsertMigrantWorkDetails(RenMigrantwork ObjRenMigrant)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenMigrantWorkDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENMW_CREATEDBY", Convert.ToInt32(ObjRenMigrant.CreatedBy));
+                com.Parameters.AddWithValue("@RENMW_CREATEDBYIP", ObjRenMigrant.IPAddress);
+                com.Parameters.AddWithValue("@RENMW_RENQDID", Convert.ToInt32(ObjRenMigrant.Questionnariid));
+                com.Parameters.AddWithValue("@RENMW_UNITID", Convert.ToInt32(ObjRenMigrant.UnitId));
+
+                com.Parameters.AddWithValue("@RENMW_TITLE", ObjRenMigrant.TITLESS);
+                com.Parameters.AddWithValue("@RENMW_NAME", ObjRenMigrant.NAMES);
+                com.Parameters.AddWithValue("@RENMW_ADDRESS", ObjRenMigrant.ADDRESS);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRENMigrantContractorDetails(RenMigrantwork ObjRenMigrant)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenContractorMigrantWorkDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENCM_CREATEDBY", Convert.ToInt32(ObjRenMigrant.CreatedBy));
+                com.Parameters.AddWithValue("@RENCM_CREATEDBYIP", ObjRenMigrant.IPAddress);
+                com.Parameters.AddWithValue("@RENCM_RENQDID", Convert.ToInt32(ObjRenMigrant.Questionnariid));
+                com.Parameters.AddWithValue("@RENCM_UNITID", Convert.ToInt32(ObjRenMigrant.UnitId));
+
+                com.Parameters.AddWithValue("@RENCM_LICRENO", ObjRenMigrant.LICRENO);
+                com.Parameters.AddWithValue("@RENCM_LICISSUEDDATE", ObjRenMigrant.LICISSUEDDATE);
+                com.Parameters.AddWithValue("@RENCM_LICRENVALIDDATE", ObjRenMigrant.LICRENVALIDDATE);
+                com.Parameters.AddWithValue("@RENCM_TITLE", ObjRenMigrant.TITLE);
+                com.Parameters.AddWithValue("@RENCM_NAME ", ObjRenMigrant.NAME);
+                com.Parameters.AddWithValue("@RENCM_EMAILID ", ObjRenMigrant.EMAILID);
+                com.Parameters.AddWithValue("@RENCM_MOBILENO", Convert.ToInt64(ObjRenMigrant.MOBILENO));
+                com.Parameters.AddWithValue("@RENCM_FATHERNAME", ObjRenMigrant.FATHERNAME);
+                com.Parameters.AddWithValue("@RENCM_STATE", Convert.ToInt32(ObjRenMigrant.STATE));
+                com.Parameters.AddWithValue("@RENCM_DISTRIC", Convert.ToInt32(ObjRenMigrant.DISTRIC));
+                com.Parameters.AddWithValue("@RENCM_MANDAL", Convert.ToInt32(ObjRenMigrant.MANDAL));
+                com.Parameters.AddWithValue("@RENCM_VILLAGE ", Convert.ToInt32(ObjRenMigrant.VILLAGE));
+                com.Parameters.AddWithValue("@RENCM_LOCALITY", ObjRenMigrant.LOCALITY);
+                com.Parameters.AddWithValue("@RENCM_NEARLAND", ObjRenMigrant.NEARLAND);
+                com.Parameters.AddWithValue("@RENCM_PINCODE", Convert.ToInt32(ObjRenMigrant.PINCODE));
+                com.Parameters.AddWithValue("@RENCM_BIRTHAGE", ObjRenMigrant.DATEOFBIRTH);
+                com.Parameters.AddWithValue("@RENCM_DATEOFBIRTH", ObjRenMigrant.DATE);
+                com.Parameters.AddWithValue("@RENCM_AGE", ObjRenMigrant.AGE);
+                com.Parameters.AddWithValue("@RENCM_STATES", Convert.ToInt32(ObjRenMigrant.STATES));
+                com.Parameters.AddWithValue("@RENCM_DISTRICS ", Convert.ToInt32(ObjRenMigrant.DISTRICS));
+                com.Parameters.AddWithValue("@RENCM_MANDALS", Convert.ToInt32(ObjRenMigrant.MANDALS));
+                com.Parameters.AddWithValue("@RENCM_VILLAGES ", Convert.ToInt32(ObjRenMigrant.VILLAGES));
+                com.Parameters.AddWithValue("@RENCM_LOCALITYS", ObjRenMigrant.LOCALITYS);
+                com.Parameters.AddWithValue("@RENCM_LANDMARKS", ObjRenMigrant.LANDMARKS);
+                com.Parameters.AddWithValue("@RENCM_PINCODES ", Convert.ToInt32(ObjRenMigrant.PINCODES));
+                com.Parameters.AddWithValue("@RENCM_ARTICLE5 ", ObjRenMigrant.ARTICLE5);
+                com.Parameters.AddWithValue("@RENCM_CRIMINALCASEAPP", ObjRenMigrant.CRIMINALCASEAPP);
+                com.Parameters.AddWithValue("@RENCM_CONVICTED5APPLICATION", ObjRenMigrant.CONVICTED5APPLICATION);
+                com.Parameters.AddWithValue("@RENCM_DISTRICCOUNCIL", ObjRenMigrant.DISTRICCOUNCIL);
+                com.Parameters.AddWithValue("@RENCM_LICENSE", ObjRenMigrant.LICENSE);
+                com.Parameters.AddWithValue("@RENCM_LICNOS", Convert.ToInt32(ObjRenMigrant.LICNOS));
+                com.Parameters.AddWithValue("@RENCM_DATEOFLICENSE", ObjRenMigrant.DATEOFLICENSE);
+                com.Parameters.AddWithValue("@RENCM_VALIDDATE", ObjRenMigrant.VALIDDATE);
+                com.Parameters.AddWithValue("@RENCM_TRIBAL ", ObjRenMigrant.TRIBAL);
+                com.Parameters.AddWithValue("@RENCM_REMARK ", ObjRenMigrant.REMARK);
+                com.Parameters.AddWithValue("@RENCM_NAMEEST", ObjRenMigrant.NAMEEST);
+                com.Parameters.AddWithValue("@RENCM_STATED ", Convert.ToInt32(ObjRenMigrant.STATED));
+                com.Parameters.AddWithValue("@RENCM_DIST ", Convert.ToInt32(ObjRenMigrant.DIST));
+                com.Parameters.AddWithValue("@RENCM_MAND ", Convert.ToInt32(ObjRenMigrant.MAND));
+                com.Parameters.AddWithValue("@RENCM_VILLA", Convert.ToInt32(ObjRenMigrant.VILLA));
+                com.Parameters.AddWithValue("@RENCM_LOCAL", ObjRenMigrant.LOCAL);
+                com.Parameters.AddWithValue("@RENCM_NEARESTLANDMAEK", ObjRenMigrant.NEARESTLANDMAEK);
+                com.Parameters.AddWithValue("@RENCM_PIN", Convert.ToInt32(ObjRenMigrant.PIN));
+                com.Parameters.AddWithValue("@RENCM_TYPEOFBUSINESS", ObjRenMigrant.TYPEOFBUSINESS);
+                com.Parameters.AddWithValue("@RENCM_REGNO", ObjRenMigrant.REGNO);
+                com.Parameters.AddWithValue("@RENCM_DATEOFREG", ObjRenMigrant.DATEOFREG);
+                com.Parameters.AddWithValue("@RENCM_TITLES", ObjRenMigrant.TITLES);
+                com.Parameters.AddWithValue("@RENCM_NAMEOFEMP", ObjRenMigrant.NAMEOFEMP);
+                com.Parameters.AddWithValue("@RENCM_MIGRANTNAMEEMP", ObjRenMigrant.MIGRANTNAMEEMP);
+                com.Parameters.AddWithValue("@RENCM_CONTRACTWORK", ObjRenMigrant.CONTRACTWORK);
+                com.Parameters.AddWithValue("@RENCM_DATECOMMENCING", ObjRenMigrant.DATECOMMENCING);
+                com.Parameters.AddWithValue("@RENCM_ENDINGDATE", ObjRenMigrant.ENDINGDATE);
+                com.Parameters.AddWithValue("@RENCM_AGENTNAME", ObjRenMigrant.AGENTNAME);
+                com.Parameters.AddWithValue("@RENCM_MAXIMUMNOMIGRANT", ObjRenMigrant.MAXIMUMNOMIGRANT);
+                com.Parameters.AddWithValue("@RENCM_AGENTNAMEADDRESS", ObjRenMigrant.AGENTNAMEADDRESS);
+                com.Parameters.AddWithValue("@RENCM_5CONTRACTOR", ObjRenMigrant.CONTRACTOR);
+                com.Parameters.AddWithValue("@RENCM_DEATILS", ObjRenMigrant.DEATILS);
+                com.Parameters.AddWithValue("@RENCM_SUSPENDINGREVOKING", ObjRenMigrant.SUSPENDINGREVOKING);
+                com.Parameters.AddWithValue("@RENCM_ORDERNO", Convert.ToInt32(ObjRenMigrant.ORDERNO));
+                com.Parameters.AddWithValue("@RENCM_ORDERDATE", ObjRenMigrant.ORDERDATE);
+                com.Parameters.AddWithValue("@RENCM_WORKESTPAST5YEARS", ObjRenMigrant.WORKESTPAST5YEARS);
+                com.Parameters.AddWithValue("@RENCM_ESTDETAILS", ObjRenMigrant.ESTDETAILS);
+                com.Parameters.AddWithValue("@RENCM_PRINCIPLEEMPDETAILS", ObjRenMigrant.PRINCIPLEEMPDETAILS);
+                com.Parameters.AddWithValue("@RENCM_NATUREWORK", ObjRenMigrant.NATUREWORK);
+                com.Parameters.AddWithValue("@RENCM_EMPENCLOSED", ObjRenMigrant.EMPENCLOSED);
+
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetRenMigrantWorker(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENMigrantDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENMigrantDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string InsertRENFactoryLicDetails(RenFactoryLicense ObjRenFactoryLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENFactoryLicDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENFL_CREATEDBY", Convert.ToInt32(ObjRenFactoryLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENFL_CREATEDBYIP", ObjRenFactoryLic.IPAddress);
+                com.Parameters.AddWithValue("@RENFL_RENQDID", Convert.ToInt32(ObjRenFactoryLic.Questionnariid));
+                com.Parameters.AddWithValue("@RENFL_UNITID", Convert.ToInt32(ObjRenFactoryLic.UnitId));
+
+                com.Parameters.AddWithValue("@RENFL_FULLNAME", ObjRenFactoryLic.FULLNAME);
+                com.Parameters.AddWithValue("@RENFL_LICNO", ObjRenFactoryLic.LICNO);
+                com.Parameters.AddWithValue("@RENFL_LICISSUEDDATE", ObjRenFactoryLic.LICISSUEDDATE);
+                com.Parameters.AddWithValue("@RENFL_RENEWALNO", Convert.ToInt32(ObjRenFactoryLic.RENEWALNO));
+                com.Parameters.AddWithValue("@RENFL_RENEWALDATE", ObjRenFactoryLic.RENEWALDATE);
+                com.Parameters.AddWithValue("@RENFL_LICVALIDYEAR", Convert.ToInt32(ObjRenFactoryLic.LICVALIDYEAR));
+                com.Parameters.AddWithValue("@RENFL_FACTORIESL12MONTHS", ObjRenFactoryLic.FACTORIESL12MONTHS);
+                com.Parameters.AddWithValue("@RENFL_NEXT12MONTHS", ObjRenFactoryLic.NEXT12MONTHS);
+                com.Parameters.AddWithValue("@RENFL_MANUPRODUCT", ObjRenFactoryLic.MANUPRODUCT);
+                com.Parameters.AddWithValue("@RENFL_PRINCIPALPRODUCT", ObjRenFactoryLic.PRINCIPALPRODUCT);
+                //com.Parameters.AddWithValue("@RENFL_NAMESOFMANU", ObjRenFactoryLic.NAMESOFMANU);
+                //com.Parameters.AddWithValue("@RENFL_MANUPRODUCT12MONTHS", ObjRenFactoryLic.MANUPRODUCT12MONTHS);
+                com.Parameters.AddWithValue("@RENFL_MAXNOEMP", ObjRenFactoryLic.MAXNOEMP);
+                com.Parameters.AddWithValue("@RENFL_MAXNOWORK", ObjRenFactoryLic.MAXNOWORK);
+                com.Parameters.AddWithValue("@RENFL_NOORDINARIYEMP", ObjRenFactoryLic.NOORDINARIYEMP);
+                com.Parameters.AddWithValue("@RENFL_UNITELECTRICPOWER", ObjRenFactoryLic.UNITELECTRICPOWER);
+                com.Parameters.AddWithValue("@RENFL_TOTALCAPGENERATING", ObjRenFactoryLic.TOTALCAPGENERATING);
+                com.Parameters.AddWithValue("@RENFL_TOTALDGSET", ObjRenFactoryLic.TOTALDGSET);
+                com.Parameters.AddWithValue("@RENFL_MAXPOWER", ObjRenFactoryLic.MAXPOWER);
+                com.Parameters.AddWithValue("@RENFL_FULLNAMEMANAGER", ObjRenFactoryLic.FULLNAMEMANAGER);
+                com.Parameters.AddWithValue("@RENFL_RESIDENTIALADDRESS", ObjRenFactoryLic.RESIDENTIALADDRESS);
+                com.Parameters.AddWithValue("@RENFL_FULLNAMEOWNER", ObjRenFactoryLic.FULLNAMEOWNER);
+                com.Parameters.AddWithValue("@RENFL_OWNERADDRESSBUILD", ObjRenFactoryLic.OWNERADDRESSBUILD);
+                com.Parameters.AddWithValue("@RENFL_NAMEOCCUPIER", ObjRenFactoryLic.NAMEOCCUPIER);
+                com.Parameters.AddWithValue("@RENFL_ADDRESSOCCUPIER", ObjRenFactoryLic.ADDRESSOCCUPIER);
+                com.Parameters.AddWithValue("@RENFL_PRIVATEFIRM", ObjRenFactoryLic.PRIVATEFIRM);
+                com.Parameters.AddWithValue("@RENFL_PUBLICFIRM", ObjRenFactoryLic.PUBLICFIRM);
+                com.Parameters.AddWithValue("@RENFL_NAMEPROPRIETOR", ObjRenFactoryLic.NAMEPROPRIETOR);
+                com.Parameters.AddWithValue("@RENFL_NAMEDIRECTORS", ObjRenFactoryLic.NAMEDIRECTORS);
+                com.Parameters.AddWithValue("@RENFL_GOVTLOCALFACTORY", ObjRenFactoryLic.GOVTLOCALFACTORY);
+                com.Parameters.AddWithValue("@RENFL_MANAGINGAPPOINTEDAGENT", ObjRenFactoryLic.MANAGINGAPPOINTEDAGENT);
+                com.Parameters.AddWithValue("@RENFL_NAMECHIEFHEAD", ObjRenFactoryLic.NAMECHIEFHEAD);
+                com.Parameters.AddWithValue("@RENFL_NAMEOFAGENT", ObjRenFactoryLic.NAMEOFAGENT);
+                com.Parameters.AddWithValue("@RENFL_FACTORYEXTENDED", ObjRenFactoryLic.FACTORYEXTENDED);
+                com.Parameters.AddWithValue("@RENFL_REFNOAPPROVALSITE", ObjRenFactoryLic.REFNOAPPROVALSITE);
+                com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVAL", ObjRenFactoryLic.DATEOFAPPROVAL);
+                com.Parameters.AddWithValue("@RENFL_REFAPPROVALAUTHORITY", ObjRenFactoryLic.REFAPPROVALAUTHORITY);
+                com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVALAUTHORITY", ObjRenFactoryLic.DATEOFAPPROVALAUTHORITY);
+                com.Parameters.AddWithValue("@RENFL_FINALFEES", ObjRenFactoryLic.FINALFEES);
+                com.Parameters.AddWithValue("@RENFL_PENALTY", ObjRenFactoryLic.PENALTY);
+                com.Parameters.AddWithValue("@RENFL_LICVALIDUPTO", ObjRenFactoryLic.LICVALIDUPTO);
+                com.Parameters.AddWithValue("@RENFL_TOTALAMOUNTPAID", ObjRenFactoryLic.TOTALAMOUNTPAID);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetRenFactoriesLic(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRenFactoriesLicenseDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRenFactoriesLicenseDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }

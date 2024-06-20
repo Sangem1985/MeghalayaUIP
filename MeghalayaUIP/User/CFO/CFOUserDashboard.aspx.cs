@@ -74,8 +74,8 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else
                     {
-                        lblmsg0.Text = "Approval for Registration Under MIIPP is under Process ";
-                        Failure.Visible = true;
+                       // lblmsg0.Text = "Approval for Registration Under MIIPP is under Process ";
+                        //Failure.Visible = true;
                         gvCFEApproved.DataSource = null;
                         gvCFEApproved.DataBind();
                     }                    

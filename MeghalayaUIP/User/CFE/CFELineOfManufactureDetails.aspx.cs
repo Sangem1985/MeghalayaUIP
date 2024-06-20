@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,33 +20,42 @@ namespace MeghalayaUIP.User.CFE
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                var ObjUserInfo = new UserInfo();
-                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                if (Session["UserInfo"] != null)
                 {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
-                }
-                if (hdnUserID.Value == "")
-                {
-                    hdnUserID.Value = ObjUserInfo.Userid;
-                }
-                Page.MaintainScrollPositionOnPostBack = true;
-                if (Convert.ToString(Session["CFEUNITID"]) != "")
-                {
-                    UnitID = Convert.ToString(Session["CFEUNITID"]);
-                }
-                else
-                {
-                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
-                    Response.Redirect(newurl);
-                }
-                if (!IsPostBack)
-                {
-                    BindLineOfActivity("");
-                    BindData();
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    if (Convert.ToString(Session["CFEUNITID"]) != "")
+                    {
+                        UnitID = Convert.ToString(Session["CFEUNITID"]);
+                    }
+                    else
+                    {
+                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+                    if (!IsPostBack)
+                    {
+                        BindLineOfActivity("");
+                        BindData();
 
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindLineOfActivity(string Sector)
@@ -71,9 +81,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -92,7 +102,6 @@ namespace MeghalayaUIP.User.CFE
         }
         public void BindData()
         {
-
             try
             {
                 DataSet ds = new DataSet();
@@ -127,24 +136,19 @@ namespace MeghalayaUIP.User.CFE
 
                         if (Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
                         {
-
                             divManf.Visible = true;
                             txtManfItemName.Text = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_MANFPRODUCT"]);
                             txtRMItemName.Text = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_MAINRM"]);
                         }
-
                     }
-
-
                 }
-
             }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-
         }
         protected void btnAddLOM_Click(object sender, EventArgs e)
         {
@@ -184,10 +188,35 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-
         }
+        protected void gvManufacture_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (gvManufacture.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["ManufactureTable"]).Rows.RemoveAt(e.RowIndex);
+                    this.gvManufacture.DataSource = ((DataTable)ViewState["ManufactureTable"]).DefaultView;
+                    this.gvManufacture.DataBind();
+                    gvManufacture.Visible = true;
+                    gvManufacture.Focus();
 
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void btnaddRM_Click(object sender, EventArgs e)
         {
             try
@@ -229,11 +258,36 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void gvRwaMaterial_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
 
+                if (gvRwaMaterial.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["RawMaterialTable"]).Rows.RemoveAt(e.RowIndex);
+                    this.gvRwaMaterial.DataSource = ((DataTable)ViewState["RawMaterialTable"]).DefaultView;
+                    this.gvRwaMaterial.DataBind();
+                    gvRwaMaterial.Visible = true;
+                    gvRwaMaterial.Focus();
 
-
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -298,9 +352,9 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         public string Validations()
         {
             try
@@ -342,22 +396,6 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                btnSave_Click(sender, e);
-                //string url = "~/ User / CFE / CFEPowerDetails.aspx ? Next = " + "N";
-                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Next="+"N");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
-
-
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
             try
@@ -370,59 +408,19 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
-
-        protected void gvRwaMaterial_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void btnNext_Click(object sender, EventArgs e)
         {
             try
             {
-
-                if (gvRwaMaterial.Rows.Count > 0)
-                {
-                    ((DataTable)ViewState["RawMaterialTable"]).Rows.RemoveAt(e.RowIndex);
-                    this.gvRwaMaterial.DataSource = ((DataTable)ViewState["RawMaterialTable"]).DefaultView;
-                    this.gvRwaMaterial.DataBind();
-                    gvRwaMaterial.Visible = true;
-                    gvRwaMaterial.Focus();
-
-                }
-                else
-                {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "";
-                }
+                btnSave_Click(sender, e);              
+                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Next="+"N");
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
             }
         }
-
-        protected void gvManufacture_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            try
-            {
-                if (gvManufacture.Rows.Count > 0)
-                {
-                    ((DataTable)ViewState["ManufactureTable"]).Rows.RemoveAt(e.RowIndex);
-                    this.gvManufacture.DataSource = ((DataTable)ViewState["ManufactureTable"]).DefaultView;
-                    this.gvManufacture.DataBind();
-                    gvManufacture.Visible = true;
-                    gvManufacture.Focus();
-
-                }
-                else
-                {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-
-        }
+        
     }
 }

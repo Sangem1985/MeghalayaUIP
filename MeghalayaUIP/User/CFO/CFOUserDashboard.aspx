@@ -39,6 +39,7 @@
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <AlternatingRowStyle />
+                            <EmptyDataRowStyle BorderStyle="None" BorderColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
                                     <HeaderStyle HorizontalAlign="Center" />
@@ -122,6 +123,13 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                             </Columns>
+                            <EmptyDataTemplate>
+                                <div style="text-align: center; padding: 20px;">
+                                    <p>
+                                        No Records Found
+                                    </p>
+                                </div>
+                            </EmptyDataTemplate>
                         </asp:GridView>
                     </div>
                 </div>

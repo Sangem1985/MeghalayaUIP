@@ -20,7 +20,15 @@
             padding: 2px 5px 2px 10px;
         }
     </style>
-
+    <script type="text/javascript">        
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[type="text"]').forEach(function (input) {
+                input.addEventListener('paste', function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -52,9 +60,9 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
-                              <asp:HiddenField ID="hdnResultTab2" runat="server" />
-                        
-                                 
+                            <asp:HiddenField ID="hdnResultTab2" runat="server" />
+
+
                             <%-- <ul class="nav nav-tabs">
                                 <li class="nav-item" runat="server" id="Li1">
                                     <a class="nav-link  active" href="#basictab1" data-toggle="tab">1.Basic Details</a>
@@ -128,10 +136,18 @@
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Company Proposal *</label>
+                                                                <label class="col-lg-6 col-form-label">GSTIN Number * </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Vertical" RepeatColumns="2">
-                                                                        <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
+                                                                    <asp:TextBox runat="server" ID="txtGSTNo" class="form-control" onblur="validateGST(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-4 col-form-label">Company Proposal *</label>
+                                                                <div class="col-lg-8 d-flex">
+                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal" class=""  >
+                                                                        <asp:ListItem Value="Existing" Text="Existing" ></asp:ListItem>
                                                                         <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
 
@@ -141,14 +157,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">GSTIN Number * </label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtGSTNo" class="form-control" onblur="validateGST(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
 
                                                     <div class="col-md-12 d-flex">

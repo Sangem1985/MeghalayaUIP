@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,9 +48,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -94,9 +95,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -178,9 +179,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -242,9 +243,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -264,23 +265,28 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void btnView_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-            Label lblunitId = (Label)row.FindControl("lblUNITID");
-            Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
-            Session["CFEUNITID"] = lblunitId.Text;
-            Session["CFEQID"] = lblcfeqid.Text;
-            string newurl = "CFEQuestionnaire.aspx";
-            Response.Redirect(newurl);
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
+                Session["CFEUNITID"] = lblunitId.Text;
+                Session["CFEQID"] = lblcfeqid.Text;
+                string newurl = "CFEQuestionnaire.aspx";
+                Response.Redirect(newurl);
+            }
+            catch(Exception ex )
+            { }
         }
 
         protected void btnCombndAppl_Click(object sender, EventArgs e)
@@ -298,10 +304,7 @@ namespace MeghalayaUIP.User.CFE
                 Response.Redirect(newurl);
             }
             catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                //throw ex;
+            {                
             }
         }
 
@@ -321,9 +324,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                //throw ex;
+                
             }
         }
     }

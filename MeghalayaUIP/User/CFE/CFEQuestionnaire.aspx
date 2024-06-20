@@ -301,7 +301,39 @@
 
                                                         </div>
 
+                                                        <div class="col-md-12 d-flex mt-2">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
+                                                                    <div class="col-lg-4">
+                                                                        <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged" ></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">6. Total Project Cost(in Crores)</label>
+                                                                    <div class="col-lg-4">
+                                                                        <asp:Label ID="lblTotProjCost" Text="0.00" runat="server"></asp:Label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex mt-2">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">
+                                                                        7. Enterprise Category
+                                                                    </label>
 
+                                                                    <div class="col-lg-4">
+                                                                        <h5>
+                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">&nbsp;</div>
+                                                        </div>
                                                         <div class="table-responsive" id="Mention_Zero" runat="server" visible="false">
                                                             <table class="table table-bordered mb-0">
                                                                 <thead>
@@ -404,39 +436,7 @@
                                                             </table>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex mt-2">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
-                                                                    <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">6. Total Project Cost(in Crores)</label>
-                                                                    <div class="col-lg-4">
-                                                                        <asp:Label ID="lblTotProjCost" Text="0.00" runat="server"></asp:Label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex mt-2">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">
-                                                                        7. Enterprise Category
-                                                                    </label>
 
-                                                                    <div class="col-lg-4">
-                                                                        <h5>
-                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">&nbsp;</div>
-                                                        </div>
 
                                                         <div class="col-md-12 d-flex mt-2" id="padding">
                                                             <div class="col-md-2">
@@ -846,7 +846,8 @@
                                                                         <td align="right">No of Workers</td>
                                                                         <td>
                                                                             <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox></td>
-                                                                    </tr>s
+                                                                    </tr>
+                                                                    s
                                                                 </tbody>
                                                             </table>
                                                         </div>

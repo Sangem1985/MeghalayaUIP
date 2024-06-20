@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -49,6 +50,7 @@ namespace MeghalayaUIP.User.CFE
                     if (!IsPostBack)
                     {
                         GetAppliedorNot();
+
                     }
                 }
             }
@@ -65,13 +67,10 @@ namespace MeghalayaUIP.User.CFE
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["CFEDA_APPROVALID"]) == "6")
                     {
-                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "6")
-                        {
-                            BindDistricts();
-                        }
-
+                        BindDistricts();
+                        BindData();
                     }
                 }
                 else
@@ -79,7 +78,7 @@ namespace MeghalayaUIP.User.CFE
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/CFE/CFEExplosivesNOC.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous=" + "P");
                     }
@@ -117,6 +116,68 @@ namespace MeghalayaUIP.User.CFE
                 AddSelect(ddlLocDist);
                 AddSelect(ddlLocTaluka);
                 AddSelect(ddlLocVillage);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
+        public void BindData()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.RetrieveCFEDGSETDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_UNITID"]);
+                    txtDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LOCDOORNO"]);
+                    txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LOCALITY"]);
+                    txtLandmark.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LANDMARK"]);
+                    ddlLocDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LOCDISTRICTID"]);
+                    ddlLocDist_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlLocTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LOCMANDALID"]);
+                    ddlLocTaluka_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlLocVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LOCVILLAGEID"]);
+                    txtPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LOCPINCODE"]);
+                    txtSupplierName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_SUPPLIERNAME"]);
+                    txtConnectedLoad.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_TOTLCONNECTEDLOAD"]);
+                    txtPropLoadfrmDGSet.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_TOTLPROPDGSETLOAD"]);
+                    rblInterlockProvision.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_INTERLOCKPROVIDED"]);
+                    txtMotorLoad.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_MOTORLOAD"]);
+                    txtLghtsFansLoad.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LIGHTSFANSLOAD"]);
+                    txtOtherLoad.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_OTHERLOAD"]);
+                    ddlGenRunningMode.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_GENRUNNINGMODE"]);
+                    txtWrkComplDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_WRKCOMPLETIONDATE"]);
+                    txtWrkStartDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_INSTLATIONSTARTDATE"]);
+                    txtCommissiongDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_COMMISSIONINGDATE"]);
+                    txtSuprvisorName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_SUPERVISORNAME"]);
+                    txtSuprvisorLICno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_SUPERVISORLICNO"]);
+                    txtContractorName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_CONTRACTORNAME"]);
+                    txtContractorLICno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_CONTRACTORLICNO"]);
+                    txtDGsetOperatorName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_DGSETOPERATORNAME"]);
+                    txtDGSetCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_DGSETCAPACITY"]);
+                    rblDGSetCapacity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_DGSETCAPACITYIN"]);
+                    txtPowerFactor.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_DGSETPOWERFACTOR"]);
+                    txtRatedVolatge.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_DGSETRATEDVOLTAGE"]);
+                    txtEngineDtls.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_DGSETENGINEDTLS"]);
+                    txtAlternatorDtls.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_DGSETALTERNATORDTLS"]);
+                    ddlEquipment.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_EQUIPMENTTYPE"]);
+                    txtConductorDtls.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_EARTHCONDCTRDTLS"]);
+                    txtConductorPaths.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_CONDUCTORPATHS"]);
+                    txtElectrodeDtls.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_ELECTRODEDTLS"]);
+                    txtImpedance.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_IMPEDANCE"]);
+                    txtTotalImpedance.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_TOTALIMPEDANCE"]);
+                    ddllighting.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_LIGHTINGTYPE"]);
+                    txtAltrnatrInsTest.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_ALTERNATORTESTDTLS"]);
+                    txtEarthTesterNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_EARTHTESTERNO"]);
+                    txtEarthTesterMake.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_EARTHTESTERMAKE"]);
+                    txtEarthTesterRange.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_EARTHTESTERRANGE"]);
+                    txtMeggerNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_MEGGERNO"]);
+                    txtMeggerMake.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_MEGGERMAKE"]);
+                    txtMeggerRange.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_MEGGERRANGE"]);
+
+                }
             }
             catch (Exception ex)
             {
@@ -233,22 +294,103 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 string ErrorMsg = "", result = "";
-
-
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
-                { }
+                {
+                    try
+                    {
+                        ErrorMsg = Validations();
+
+                        if (ErrorMsg == "")
+                        {
+                            CFEDGset ObjCFEDGset = new CFEDGset();
+
+                            ObjCFEDGset.CreatedBy = hdnUserID.Value;
+                            ObjCFEDGset.IPAddress = getclientIP();
+                            ObjCFEDGset.Questionnaireid = Convert.ToString(Session["CFEQID"]); //Convert.ToString(Session["CFEDG_CFEQDID"]);
+                            ObjCFEDGset.UnitId = Convert.ToString(Session["CFEUNITID"]);
+                            ObjCFEDGset.LocDoorno = txtDoorNo.Text;
+                            ObjCFEDGset.Locality = txtLocality.Text;
+                            ObjCFEDGset.Landamark = txtLandmark.Text;
+                            ObjCFEDGset.LocDistrictID = ddlLocDist.SelectedValue;
+                            ObjCFEDGset.LocMandalID = ddlLocTaluka.SelectedValue;
+                            ObjCFEDGset.LocVillageID = ddlLocVillage.SelectedValue;
+                            ObjCFEDGset.LocPincode = txtPincode.Text;
+                            ObjCFEDGset.SupplierName = txtSupplierName.Text;
+                            ObjCFEDGset.TotalConnectedLoad = txtConnectedLoad.Text;
+                            ObjCFEDGset.PropLoadfromDGSet = txtPropLoadfrmDGSet.Text;
+                            ObjCFEDGset.InterlockProvided = rblInterlockProvision.SelectedValue;
+                            ObjCFEDGset.MotorLoad = txtMotorLoad.Text;
+                            ObjCFEDGset.LightsandFansLoad = txtLghtsFansLoad.Text;
+                            ObjCFEDGset.OtherlLoad = txtOtherLoad.Text;
+                            ObjCFEDGset.GenRunningMode = ddlGenRunningMode.SelectedValue;
+                            ObjCFEDGset.WorkCompletionDate = txtWrkComplDate.Text;
+                            ObjCFEDGset.WorkStartingDate = txtWrkStartDate.Text;
+                            ObjCFEDGset.CommissioningDate = txtCommissiongDate.Text;
+                            ObjCFEDGset.SupervisorName = txtSuprvisorName.Text;
+                            ObjCFEDGset.SupervisorLicNo = txtSuprvisorLICno.Text;
+                            ObjCFEDGset.ContractorName = txtContractorName.Text;
+                            ObjCFEDGset.ContractorLicNo = txtContractorLICno.Text;
+                            ObjCFEDGset.DGSetOperatorNmae = txtDGsetOperatorName.Text;
+                            ObjCFEDGset.DGSetCapacity = txtDGSetCapacity.Text;
+                            ObjCFEDGset.DGSetCapacityin = rblDGSetCapacity.SelectedValue;
+                            ObjCFEDGset.DGSetPowerFactor = txtPowerFactor.Text;
+                            ObjCFEDGset.DGSetRatedVoltage = txtRatedVolatge.Text;
+                            ObjCFEDGset.DGSetEngineDetails = txtEngineDtls.Text;
+                            ObjCFEDGset.DGSetAlternatorDetails = txtAlternatorDtls.Text;
+                            ObjCFEDGset.EquipmentType = ddlEquipment.SelectedValue;
+                            ObjCFEDGset.EarthingCondctrDtls = txtConductorDtls.Text;
+                            ObjCFEDGset.ConductrPaths = txtConductorPaths.Text;
+                            ObjCFEDGset.ElectrodeDtls = txtElectrodeDtls.Text;
+                            ObjCFEDGset.Impedance = txtImpedance.Text;
+                            ObjCFEDGset.TotalImpedance = txtTotalImpedance.Text;
+                            ObjCFEDGset.LighingType = ddllighting.SelectedValue;
+                            ObjCFEDGset.AlternatorTestDtls = txtAltrnatrInsTest.Text;
+                            ObjCFEDGset.EarthTesterNo = txtEarthTesterNo.Text;
+                            ObjCFEDGset.EarthTesterMake = txtEarthTesterMake.Text;
+                            ObjCFEDGset.EarthTesterRange = txtEarthTesterRange.Text;
+                            ObjCFEDGset.MeggerNo = txtMeggerNo.Text;
+                            ObjCFEDGset.MeggerMake = txtMeggerMake.Text;
+                            ObjCFEDGset.MeggerRange = txtMeggerRange.Text;
+
+                            result = objcfebal.INSERTCFEDGSET(ObjCFEDGset);
+
+                            if (result != "")
+                            {
+                                success.Visible = true;
+                                lblmsg.Text = "Details Submitted Successfully";
+                                string message = "alert('" + lblmsg.Text + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            }
+                        }
+                        else
+                        {
+                            string message = "alert('" + ErrorMsg + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lblmsg0.Text = ex.Message; Failure.Visible = true;
+                        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                    }
+                }
                 else
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
-            catch (Exception ex) { lblmsg0.Text = ex.Message; Failure.Visible = true; }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
-       
+
         public string Validations()
         {
             try
@@ -474,14 +616,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter megger Range\\n";
                     slno = slno + 1;
                 }
-
                 return errormsg;
-
-
             }
             catch (Exception ex)
             {
                 throw ex;
+                //MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public static string getclientIP()
@@ -505,7 +645,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous="+"P");
+                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {

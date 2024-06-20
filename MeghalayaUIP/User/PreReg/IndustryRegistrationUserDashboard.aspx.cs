@@ -22,7 +22,6 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();

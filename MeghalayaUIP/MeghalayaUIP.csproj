@@ -570,13 +570,18 @@
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEDGSetDetails.aspx" />
+    <Content Include="User\CFE\CFEExplosivesNOC.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
+    <Content Include="User\CFE\CFEFuelNOC.aspx" />
+    <Content Include="User\CFE\CFEHazWasteDetails.aspx" />
     <Content Include="User\CFE\CFEIndustryDetails.aspx" />
     <Content Include="User\CFE\CFELabourDetails.aspx" />
     <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
     <Content Include="User\CFE\CFEPaymentPage.aspx" />
+    <Content Include="User\CFE\CFEPowerCEIGDetails.aspx" />
     <Content Include="User\CFE\CFEPowerDetails.aspx" />
+    <Content Include="User\CFE\CFEProffessionalTax.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
     <Content Include="User\CFE\CFEUploadEnclosures.aspx" />
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
@@ -1031,6 +1036,13 @@
     <Compile Include="User\CFE\CFEDGSetDetails.aspx.designer.cs">
       <DependentUpon>CFEDGSetDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEExplosivesNOC.aspx.cs">
+      <DependentUpon>CFEExplosivesNOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEExplosivesNOC.aspx.designer.cs">
+      <DependentUpon>CFEExplosivesNOC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEFireDetails.aspx.cs">
       <DependentUpon>CFEFireDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1044,6 +1056,20 @@
     </Compile>
     <Compile Include="User\CFE\CFEForestDetails.aspx.designer.cs">
       <DependentUpon>CFEForestDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEFuelNOC.aspx.cs">
+      <DependentUpon>CFEFuelNOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEFuelNOC.aspx.designer.cs">
+      <DependentUpon>CFEFuelNOC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEHazWasteDetails.aspx.cs">
+      <DependentUpon>CFEHazWasteDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEHazWasteDetails.aspx.designer.cs">
+      <DependentUpon>CFEHazWasteDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEIndustryDetails.aspx.cs">
       <DependentUpon>CFEIndustryDetails.aspx</DependentUpon>
@@ -1073,12 +1099,26 @@
     <Compile Include="User\CFE\CFEPaymentPage.aspx.designer.cs">
       <DependentUpon>CFEPaymentPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEPowerCEIGDetails.aspx.cs">
+      <DependentUpon>CFEPowerCEIGDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPowerCEIGDetails.aspx.designer.cs">
+      <DependentUpon>CFEPowerCEIGDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEPowerDetails.aspx.cs">
       <DependentUpon>CFEPowerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\CFE\CFEPowerDetails.aspx.designer.cs">
       <DependentUpon>CFEPowerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEProffessionalTax.aspx.cs">
+      <DependentUpon>CFEProffessionalTax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEProffessionalTax.aspx.designer.cs">
+      <DependentUpon>CFEProffessionalTax.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEQuestionnaire.aspx.cs">
       <DependentUpon>CFEQuestionnaire.aspx</DependentUpon>

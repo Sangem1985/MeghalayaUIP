@@ -150,15 +150,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.DropDownList ddlcompanytype;
 
         /// <summary>
-        /// rblproposal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblproposal;
-
-        /// <summary>
         /// txtGSTNo control.
         /// </summary>
         /// <remarks>
@@ -166,6 +157,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGSTNo;
+
+        /// <summary>
+        /// rblproposal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblproposal;
 
         /// <summary>
         /// ddlRegType control.

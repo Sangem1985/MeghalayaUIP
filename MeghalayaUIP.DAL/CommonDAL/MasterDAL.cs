@@ -1270,5 +1270,107 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public List<MasterDGPOWER> GetDGPOWER()
+        {
+            List<MasterDGPOWER> lstDGPOWERMstr = new List<MasterDGPOWER>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetDGPOWER);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var DGPOWER = new MasterDGPOWER()
+                        {
+                            DGPOWER_ID = Convert.ToString(drOptions["DGPOWER_ID"]),
+                            DGPOWER_NAME = Convert.ToString(drOptions["DGPOWER_NAME"])
+                        };
+                        lstDGPOWERMstr.Add(DGPOWER);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstDGPOWERMstr;
+        }
+        public List<MasterMAXAMOUNTPOWER> GetMaxAmountPower()
+        {
+            List<MasterMAXAMOUNTPOWER> lstPOWERMstr = new List<MasterMAXAMOUNTPOWER>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetMAXPOWER);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var MAXPOWER = new MasterMAXAMOUNTPOWER()
+                        {
+                            MAXAMOUNTPOWER_ID = Convert.ToString(drOptions["MAXAMOUNTPOWER_ID"]),
+                            MAXAMOUNTPOWER_NAME = Convert.ToString(drOptions["MAXAMOUNTPOWER_NAME"])
+                        };
+                        lstPOWERMstr.Add(MAXPOWER);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstPOWERMstr;
+        }
+        public List<MasterNOOFWORKERSYEARS> GetWORKERSYEARS()
+        {
+            List<MasterNOOFWORKERSYEARS> lstWORKYEARSMstr = new List<MasterNOOFWORKERSYEARS>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetWorkYears);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var WORKYEARS = new MasterNOOFWORKERSYEARS()
+                        {
+                            NOOFWORKERSYEARS_ID = Convert.ToString(drOptions["NOOFWORKERSYEARS_ID"]),
+                            NOOFWORKERS_NAME = Convert.ToString(drOptions["NOOFWORKERS_NAME"])
+                        };
+                        lstWORKYEARSMstr.Add(WORKYEARS);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstWORKYEARSMstr;
+        }
     }
 }

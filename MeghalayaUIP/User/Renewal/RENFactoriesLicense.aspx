@@ -55,7 +55,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Full name of the factory *</label>
                                             <div class="col-lg-6">
-                                                <asp:TextBox ID="TextBox1" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtFullName" runat="server" class="form-control" Type="text"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Factory license Number *</label>
                                             <div class="col-lg-6">
-                                                <asp:TextBox ID="TextBox16" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">License Issued Date *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox5" runat="server" class="date form-control" Type="Text"></asp:TextBox>
+                                                <asp:TextBox ID="txtLICIssuedDate" runat="server" class="date form-control" Type="Text"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>
 
                                             </div>
@@ -84,7 +84,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Latest Renewal No *</label>
                                             <div class="col-lg-6">
-                                                <asp:TextBox ID="TextBox12" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtRenewalNo" runat="server" class="form-control" Type="text"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Latest Renewal Date *</label>
                                             <div class="col-lg-6">
-                                               <asp:TextBox ID="TextBox14" runat="server" class="date form-control" Type="Text"></asp:TextBox>
+                                               <asp:TextBox ID="txtRenewaldate" runat="server" class="date form-control" Type="Text"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
@@ -101,7 +101,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Lisence Valid Upto Year *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox15" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtLICValidYear" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Carried on in the factory during the last 12 months (in the case of all factories already in existence) *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txttradeLic" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txttradeLic12" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">To be carried on the factory during the next 12 months (in the case of all factories)  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox8" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtfactorymonths12" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -143,7 +143,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Names of the principal products manufactured during the last 12 months  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox17" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtmanufacture12" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -152,7 +152,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label"> Values of the principal products manufactured during the last 12 months *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox18" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtproductManufacture12" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -169,7 +169,9 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Maximum numbers of workers proposed to be employed on any one day during the year. *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox19" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                               <asp:DropDownList runat="server" ID="ddlEmpday" class="form-control">
+                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                </asp:DropDownList>
 
                                             </div>
                                         </div>
@@ -178,7 +180,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Maximum number of workers employed on any one day during the last 12 months *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox20" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtMaxEmp12" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -191,52 +193,46 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Number of workers to be ordinarily employed in the factory  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox21" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtFactoryEmpWorker" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Whether the Unit is an Electricity/Power Generating Station? *[Visual Radio buttons]</label>
+                                            <label class="col-lg-6 col-form-label">Whether the Unit is an Electricity/Power Generating Station? *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1" checked="">
-                                                    <label class="form-check-label" for="gender_male">
-                                                        Yes
-														
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2">
-                                                    <label class="form-check-label" for="gender_female">
-                                                        No
-														
-                                                    </label>
-                                                </div>
+                                                <asp:RadioButtonList ID="rblpowerGeneration" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblpowerGeneration_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
 
-                                 <div class="col-md-12 d-flex">
+                                 <div class="col-md-12 d-flex" id="Generating" runat="server" visible="false">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Total installed capacity of Generating Station- KW *</label>
                                             <div class="col-lg-6 d-flex">
-                                                Drop Down
+                                                <asp:DropDownList runat="server" ID="ddlGenerating" class="form-control">
+                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                </asp:DropDownList>
 
                                             </div>
                                         </div>
                                     </div>
                                      </div>
-                                 <div class="col-md-12 d-flex">
+                                 <div class="col-md-12 d-flex" id="DGSETKW" runat="server" visible="false">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Total installed capacity of DG Set/Standby Power- KW *</label>
                                             <div class="col-lg-6 d-flex">
-                                                Drop Down
+                                               <asp:DropDownList runat="server" ID="ddlDGSet" class="form-control">
+                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                </asp:DropDownList>
 
                                             </div>
                                         </div>
@@ -245,7 +241,9 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Maximum amount of power(K.W. installed or proposed to be installed) *</label>
                                             <div class="col-lg-6 d-flex">
-                                                 Drop Down
+                                                 <asp:DropDownList runat="server" ID="ddlPowerAmount" class="form-control">
+                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                </asp:DropDownList>
 
                                             </div>
                                         </div>
@@ -261,7 +259,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Full name of the person who shall be the manager of the factory for the purpose of the Act *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox22" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtFullNamefactory" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -270,7 +268,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Residential address of the person who shall be the manager of the factory for the purpose of the Act *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox23" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtaddress" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -283,7 +281,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Full name of the owner of the premises of the building (including the precincts thereof) refer to section 93 *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox24" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtsection93" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -292,7 +290,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Residential address of the owner of the premises of the building (including the precincts thereof) refer to section 93 *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox25" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtaddressdection93" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -304,7 +302,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Full name of the occupier *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox26" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="NameOccupier" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -313,7 +311,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Residential address of the occupier *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox27" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtAddressOccupier" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -324,43 +322,23 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Whether the factory is a private firm proprietor concern?[Visual Radio buttons] *</label>
+                                            <label class="col-lg-6 col-form-label">Whether the factory is a private firm proprietor concern? *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1" checked="">
-                                                    <label class="form-check-label" for="gender_male">
-                                                        Yes
-														
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2">
-                                                    <label class="form-check-label" for="gender_female">
-                                                        No
-														
-                                                    </label>
-                                                </div>
+                                                <asp:RadioButtonList ID="rblfirmconcer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfirmconcer_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Whether the factory is a public firm proprietor concern?[Visual Radio buttons] *</label>
+                                            <label class="col-lg-6 col-form-label">Whether the factory is a public firm proprietor concern? *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1" checked="">
-                                                    <label class="form-check-label" for="gender_male">
-                                                        Yes
-														
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2">
-                                                    <label class="form-check-label" for="gender_female">
-                                                        No
-														
-                                                    </label>
-                                                </div>
+                                                <asp:RadioButtonList ID="rblpublicfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblpublicfactory_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
                                             </div>
                                         </div>
                                     </div>
@@ -369,20 +347,20 @@
 
                                 
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" id="Proprietor" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of proprietor *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox2" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtproprietor" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" id="Director" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of Directors *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox3" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtDirectors" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -391,63 +369,43 @@
                                      <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Whether factory is Government or Local Fund Factory?[Visual Radio buttons] *</label>
+                                            <label class="col-lg-6 col-form-label">Whether factory is Government or Local Fund Factory? *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1" checked="">
-                                                    <label class="form-check-label" for="gender_male">
-                                                        Yes
-														
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2">
-                                                    <label class="form-check-label" for="gender_female">
-                                                        No
-														
-                                                    </label>
-                                                </div>
+                                                 <asp:RadioButtonList ID="rbllocalfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rbllocalfactory_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Whether Managing Agent has been appointed?[Visual Radio buttons] *</label>
+                                            <label class="col-lg-6 col-form-label">Whether Managing Agent has been appointed? *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1" checked="">
-                                                    <label class="form-check-label" for="gender_male">
-                                                        Yes
-														
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2">
-                                                    <label class="form-check-label" for="gender_female">
-                                                        No
-														
-                                                    </label>
-                                                </div>
+                                                 <asp:RadioButtonList ID="rblAgent" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAgent_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
                                             </div>
                                         </div>
                                     </div>
                                     </div>
 
                                  <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" id="Administrative" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of Chief Administrative Head *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox4" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtChiefHead" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" id="ManagingAgent" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of Managing Agents *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox6" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtMangingAgent" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -459,50 +417,71 @@
                                     <h4 class="card-title ml-3 mt-3">Construct of factory after commencement of the Rules</h4>
                                 </div>
 
-
-                                    
-                                    
-                                    
-                                    
-
-                                
-
                                 <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">In the case of factory constructed or extended after the date of the commencement of the Rules *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1" checked="">
-                                                    <label class="form-check-label" for="gender_male">
-                                                        Yes
-														
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2">
-                                                    <label class="form-check-label" for="gender_female">
-                                                        No
-														
-                                                    </label>
-                                                </div>
+                                                 <asp:RadioButtonList ID="rblDateofRules" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDateofRules_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
+                                                </asp:RadioButtonList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <div class="col-md-12 d-flex" id="Div1" runat="server" visible="false">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Reference number of approval of the plant for site whether for old or new building and for construction or extension of the factory by the state Government/Chief Inspector(1)  *</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtapprovalbuilding" runat="server" class="form-control" Type="text"></asp:TextBox>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label"> Date of approval of the plant for site whether for old or new building and for construction or extension of the factory by the state Government/Chief Inspector(1) *</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtsiteApproval" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
 
+                               </div>
+                                <div class="col-md-12 d-flex" id="Div2" runat="server" visible="false">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Reference number of approval of the arrangements, if any , made for the disposal of trade waste and effluents and the name of the authority granting such approval.(2)  *</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtapprovalnumber" runat="server" class="form-control" Type="text"></asp:TextBox>
 
-                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-6 col-form-label">Date of approval of the arrangements, if any , made for the disposal of trade waste and effluents and the name of the authority granting such approval(2)  *</label>
+                                            <div class="col-lg-6 d-flex">
+                                                <asp:TextBox ID="txtArrangement" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                  <i class="fi fi-rr-calendar-lines"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                               </div>
                                 <div class="col-md-12 d-flex">
 
                                     <h4 class="card-title ml-3 mt-3">Fees to be payed on calculation</h4>
                                 </div>
-
 
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Final Fees *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                73373837.00
+                                               <%-- 73373837.00--%>
+                                                <asp:Label ID="Fees" runat="server"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -511,20 +490,19 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Penalty *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                1000.00
+                                               <%-- 1000.00--%>
+                                                <asp:Label ID="Penalty" runat="server"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
-
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">License Valid Upto *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                07-Jun-2024
+                                              <%--  07-Jun-2024--%>
+                                                <asp:Label ID="LicValidUpto" runat="server"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -533,7 +511,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Total Amount to be Paid *</label>
                                             <div class="col-lg-6 d-flex radio">
-                                                10000000.00
+                                              <%--  10000000.00--%>
+                                                  <asp:Label ID="totalamount" runat="server"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -546,7 +525,7 @@
                                 <div class="col-md-12 text-right mt-2 mb-2">
 
                                     <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
-                                    <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                    <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                     <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
                                 </div>
