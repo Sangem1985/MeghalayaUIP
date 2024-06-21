@@ -148,7 +148,7 @@
                         <li>3.	Guwahati airport (118 km from Shillong)</li>
                         <li>4.	Additional helipads and heliports planned across the state</li>
                     </ul>
-                    <h3>Meghalaya’s key/priority sectors are:</h3>
+                    <%--<h3>Meghalaya’s key/priority sectors are:</h3>
                     <p>Explore the cornerstone of Meghalaya's economic landscape through its key priority sectors. From Tourism to Power, delve into the diverse industries propelling the State's development forward.</p>
                     <ul>
                         <li>1.	Hotels & Hospitality</li>
@@ -170,21 +170,23 @@
                         <li>14.	Logistics</li>
                         <li>15.	Green Startups</li>
                         <li>16.	Others & any other industry notified by the Government of Meghalaya</li>
-                    </ul>
+                    </ul>--%>
                     <h3>Unique Strengths and Opportunities</h3>
                     <p>Meghalaya presents abundant opportunities for growth and development across various sectors. From its natural resources to emerging industries, the state offers a fertile ground for investment and progress. </p>
-                    <ul>
+                   <img src="assets/assetsbeta/images/USO.png" alt="SPDP"  style="margin-left: 51px;"  />
+                    <%-- <ul>
                         <li>1.	Natural Resources: Abundant flora, fauna, forests, medicinal plants, minerals (coal, limestone, quartz, feldspar, granite, industrial clay, sillimanite, uranium). </li>
                         <li>2.	Agriculture and Horticulture: High-value crops like Strawberry, Ginger, Lakadong turmeric, Honey, black pepper, Potato, Jackfruit, Pineapple, Areca Nut, and exotic flowers</li>
                         <li>3.	Organic Produce: Most state produce is naturally organic</li>
                         <li>4.	Industrial Potential: Mineral-based industry, horticulture and agro-based industry, electronics and IT, export-oriented units, tourism, and emerging service sectors</li>
-                    </ul>
+                    </ul>--%>
                     <p><b>The State of Meghalaya has several GI tags:</b></p>
                     <p>Khasi Lakadong Turmeric, Khasi Mandarin, Memong Narang, Garo dakmanda (Meghalaya Garo Textile), Meghalaya Lyrnai Pottery and Meghalaya Chubitchi (alcoholic beverage)</p>
                     <h3>Development Priorities (Infographics)</h3>
                     
                     <p>From political stability to rich cultural heritage, the state lays down its roadmap for progress. Let's delve into Meghalaya's core development areas, each contributing to its journey towards prosperity:</p>
-                    <ul>
+                   <img src="assets/assetsbeta/images/spdp.png" alt="SPDP"/>
+                    <%--<ul>
                         <li>1.	Political Stability: Stable environment</li>
                         <li>2.	GSDP Growth: Strong growth in recent years</li>
                         <li>3.	Human Resources: Literate and trainable workforce</li>
@@ -202,9 +204,8 @@
 
                         <li>13.	Environment: Safe, clean, and pollution-free</li>
                         <li>14.	Micro Enterprises: Strong base in traditional crafts and agriculture</li>
-                        <%--<li>15.	Green Startups</li>
-                        <li>16.	Others & any other industry notified by the Government of Meghalaya</li>--%>
-                    </ul>
+                        
+                    </ul>--%>
                     <h3>Why Invest in Meghalaya?</h3>
                     <p>Investing in Meghalaya presents a compelling choice backed by lucrative investment incentives. The state's commitment to Ease of Doing Business initiatives ensures a streamlined regulatory framework, minimizing compliance hurdles for investors. Additionally, Meghalaya offers attractive incentives such as tax exemptions, subsidies, and land lease options, fostering a conducive environment for investment across sectors like tourism, agriculture, and renewable energy.</p>
                     

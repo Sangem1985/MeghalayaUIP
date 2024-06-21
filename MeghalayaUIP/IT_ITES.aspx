@@ -22,12 +22,13 @@
                         <li>2. Employment generated – 60,000 jobs </li>
                     </ul>
                     <p><b>Key projects</b></p>
-                    <p>Here are the key IT & ITES projects of the State of Meghalaya:</p>
+                    <img src="assets/assetsbeta/images/ITE.png" style="border-radius: 8px;">
+                    <%--<p>Here are the key IT & ITES projects of the State of Meghalaya:</p>
                     <ul>
                         <li>1.	New Age Technology Parks at New Shillong & Tura<br />
 To house commercial and residential facilities and house new age sectors. Knowledge cities at New Shillong and Tura, which will leverage and expand on the human capital that Meghalaya houses to create intellectual property and thousands of jobs.
 </li>
-                    </ul>
+                    </ul>--%>
                     </div>
                 </div>
             </div>

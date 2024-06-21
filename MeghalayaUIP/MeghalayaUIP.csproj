@@ -251,6 +251,7 @@
     <Content Include="assets\assetsbeta\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\assetsbeta\fonts\slick.svg" />
     <Content Include="assets\assetsbeta\fonts\themify9f24.svg" />
+    <Content Include="assets\assetsbeta\images\2T.png" />
     <Content Include="assets\assetsbeta\images\4.png" />
     <Content Include="assets\assetsbeta\images\5.png" />
     <Content Include="assets\assetsbeta\images\6.png" />
@@ -260,6 +261,7 @@
     <Content Include="assets\assetsbeta\images\about.png" />
     <Content Include="assets\assetsbeta\images\advant.png" />
     <Content Include="assets\assetsbeta\images\advantagemeg.png" />
+    <Content Include="assets\assetsbeta\images\AH.png" />
     <Content Include="assets\assetsbeta\images\ajax-loader.gif" />
     <Content Include="assets\assetsbeta\images\bg-whatsnew.png" />
     <Content Include="assets\assetsbeta\images\body2.png" />
@@ -268,6 +270,7 @@
     <Content Include="assets\assetsbeta\images\circle1.png" />
     <Content Include="assets\assetsbeta\images\circle2.png" />
     <Content Include="assets\assetsbeta\images\count.png" />
+    <Content Include="assets\assetsbeta\images\CSPS.png" />
     <Content Include="assets\assetsbeta\images\da1.png" />
     <Content Include="assets\assetsbeta\images\destination\1.jfif" />
     <Content Include="assets\assetsbeta\images\destination\1.png" />
@@ -328,6 +331,7 @@
     <Content Include="assets\assetsbeta\images\helpImage4.png" />
     <Content Include="assets\assetsbeta\images\hero-bg.jpg" />
     <Content Include="assets\assetsbeta\images\Hospitality_image.png" />
+    <Content Include="assets\assetsbeta\images\ITE.png" />
     <Content Include="assets\assetsbeta\images\logo-2.png" />
     <Content Include="assets\assetsbeta\images\Logo.png" />
     <Content Include="assets\assetsbeta\images\Logo_dark.png" />
@@ -373,11 +377,14 @@
     <Content Include="assets\assetsbeta\images\slider\slide-8.jpg" />
     <Content Include="assets\assetsbeta\images\slider\sp\slide-2.jpg" />
     <Content Include="assets\assetsbeta\images\slider\sp\slide-3.jpg" />
+    <Content Include="assets\assetsbeta\images\spdp.png" />
     <Content Include="assets\assetsbeta\images\stateprofile.png" />
     <Content Include="assets\assetsbeta\images\swc.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg-2.png" />
     <Content Include="assets\assetsbeta\images\testimonials-bg.png" />
     <Content Include="assets\assetsbeta\images\touistfootfall.jpg" />
+    <Content Include="assets\assetsbeta\images\TS.png" />
+    <Content Include="assets\assetsbeta\images\USO.png" />
     <Content Include="assets\assetsbeta\js\bootstrap.min.js" />
     <Content Include="assets\assetsbeta\js\jquery-plugin-collection.js" />
     <Content Include="assets\assetsbeta\js\jquery.min.js" />
