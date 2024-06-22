@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -380,7 +380,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -428,6 +428,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -570,6 +571,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnSave_Click( sender,  e);
+                if (ErrorMsg == "") 
                 Response.Redirect("~/User/CFE/CFELabourDetails.aspx?Next=" + "N");
 
             }

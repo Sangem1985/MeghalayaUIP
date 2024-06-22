@@ -152,9 +152,9 @@
                                             <label class="col-lg-6 col-form-label">
                                                 7. Registration Date *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <%--														<asp:TextBox ID="txtRegDate" runat="server" class="form-control" onkeypress="datefunction(date_input)"></asp:TextBox>--%>
+                                                <%--<asp:TextBox ID="txtRegDate" runat="server" class="form-control" onkeypress="datefunction(date_input)"></asp:TextBox>--%>
 
-                                                <asp:TextBox ID="txtRegDate" runat="server" class="date form-control" TabIndex="1" ValidationGroup="group" type="text"></asp:TextBox>
+                                                <asp:TextBox ID="txtRegDate" runat="server" TabIndex="1" ValidationGroup="group" class="date form-control" ></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>
 
 
@@ -583,9 +583,9 @@
 
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-5 col-form-label">10. Affected in Road Widening*</label>
+                                            <label class="col-lg-6 col-form-label">10. Affected in Road Widening*</label>
                                             <div class="col-lg-6 d-flex radio">
                                                 <asp:RadioButtonList ID="rblAffectedroad" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAffectedroad_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
@@ -594,7 +594,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6" runat="server" id="divAffectArea" visible="false">
+                                    <div class="col-md-4" runat="server" id="divAffectArea" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">11. 	Extend of affected area in sq.mts*</label>
                                             <div class="col-lg-6 d-flex">

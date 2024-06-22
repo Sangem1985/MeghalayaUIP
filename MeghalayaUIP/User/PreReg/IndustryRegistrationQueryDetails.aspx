@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <div class="page-wrapper">
         <div class="content container-fluid">
             <%--  <section class="comp-section">--%>
@@ -92,32 +93,16 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12 d-flex">
-                                                <%-- <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Response Attachment</label>
-                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna><asp:FileUpload ID="fupResAttachment" runat="server" /></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-12 col-form-label"><asp:Button ID="btnAttach" runat="server" class="form-control" Text="Attach Files" CssClass="btn btn-green" Width="100px" OnClick="btnAttach_Click" /></label>                                           
-                                        </div>
-                                    </div>--%>
-                                                <%--<div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label"></label>
-                                            <div class="col-lg-6 d-flex"><spna class="dots">:</spna></div>
-                                        </div>
-                                    </div>--%>
+                                            <div class="col-md-12 ">
+                                             
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Response Attachment</label>
-                                                    <div class="col-lg-1 d-flex">: </div>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <label class="col-lg-3 col-form-label">Response Attachment</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <spna class="dots">:</spna>
                                                         <asp:FileUpload runat="server" ID="fupAttachment" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
+                                                        <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="30px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hplAttachment" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>

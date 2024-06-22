@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -629,7 +630,19 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
-
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEQuestionnaire.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
@@ -2480,9 +2493,6 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             { throw ex; }
         }
-
-
-
         public static string getclientIP()
         {
             string result = string.Empty;

@@ -20,15 +20,8 @@
             padding: 2px 5px 2px 10px;
         }
     </style>
-    <script type="text/javascript">        
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('input[type="text"]').forEach(function (input) {
-                input.addEventListener('paste', function (e) {
-                    e.preventDefault();
-                });
-            });
-        });
-    </script>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -146,9 +139,9 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Company Proposal *</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal"   >
-                                                                         <asp:ListItem Value="New" Text="New" style="padding-right:10px"></asp:ListItem>
-                                                                        <asp:ListItem Value="Existing" Text="Existing" style="padding-right:10px" ></asp:ListItem>                                                                       
+                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal">
+                                                                        <asp:ListItem Value="New" Text="New" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
 
 

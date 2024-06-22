@@ -17,7 +17,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -182,6 +182,12 @@ namespace MeghalayaUIP.User.CFE
                     gvManufacture.DataSource = dt;
                     gvManufacture.DataBind();
                     ViewState["ManufactureTable"] = dt;
+
+
+                    txtManfItemName.Text = "";
+                    txtManfAnnualCapacity.Text = "";
+                    txtManfValue.Text = "";
+
                 }
             }
             catch (Exception ex)
@@ -252,6 +258,11 @@ namespace MeghalayaUIP.User.CFE
                     gvRwaMaterial.DataSource = dt;
                     gvRwaMaterial.DataBind();
                     ViewState["RawMaterialTable"] = dt;
+
+                    txtRMItemName.Text = "";
+                    txtRMAnnualCapacity.Text = "";
+                    txtRMValue.Text = "";
+                    txtRMSource.Text = "";
                 }
             }
             catch (Exception ex)
@@ -292,7 +303,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "";
+
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
@@ -316,7 +327,7 @@ namespace MeghalayaUIP.User.CFE
                         string A = objcfebal.InsertCFELineofManf(objCFEManufacture);
                         if (A != "")
                         { count1 = count1 + 1; }
-                    }                    
+                    }
                     for (int i = 0; i < gvRwaMaterial.Rows.Count; i++)
                     {
                         objCFEManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
@@ -346,6 +357,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -363,15 +375,15 @@ namespace MeghalayaUIP.User.CFE
                 string errormsg = "";
                 if (divManf.Visible == true && gvManufacture.Rows.Count <= 0)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Line of Manufacture Details \\n";
+                    errormsg = errormsg + slno + ". Please Enter Line of Manufacture Details and click on Add Details button \\n";
                     slno = slno + 1;
                 }
                 if (gvRwaMaterial.Rows.Count <= 0)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Raw Material Details \\n";
+                    errormsg = errormsg + slno + ". Please Enter Raw Material Details click on Add Details button \\n";
                     slno = slno + 1;
                 }
-                    
+
                 return errormsg;
             }
             catch (Exception ex)
@@ -412,8 +424,10 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                btnSave_Click(sender, e);              
-                Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Next="+"N");
+                btnSave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFEHazWasteDetails.aspx?Next=" + "N");
+
             }
             catch (Exception ex)
             {
@@ -421,6 +435,6 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
-        
+
     }
 }

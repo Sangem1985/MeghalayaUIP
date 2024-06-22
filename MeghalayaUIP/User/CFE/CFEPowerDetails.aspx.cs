@@ -95,7 +95,7 @@ namespace MeghalayaUIP.User.CFE
                         if (Convert.ToString(Request.QueryString[0]) == "N")
                             Response.Redirect("~/User/CFE/CFEDGSetDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/CFE/CFEHazWasteDetails.aspx?Previous=" + "P");
                     }
                 }
             }
@@ -299,7 +299,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
+                Response.Redirect("~/User/CFE/CFEHazWasteDetails.aspx?Previous=" +"P");
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -306,7 +307,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged" ></asp:TextBox>
+                                                                        <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -730,9 +731,71 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">Do You Required NoC for Ground Water Abstraction for Commercial Connection<span class="text-danger">*</span></label>
+                                                                    <div class="col-lg-6 d-flex">
+                                                                        <asp:RadioButtonList ID="rblNocGroundWater" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">Do You Required Certificate for non-availability of water supply from water supply agency<span class="text-danger">*</span></label>
+                                                                    <div class="col-lg-6 d-flex">
+                                                                        <asp:RadioButtonList ID="rblwatersupply" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">Do You Required Permission to Draw Water from River/Public Tanks <span class="text-danger">*</span></label>
+                                                                    <div class="col-lg-6 d-flex">
+                                                                        <asp:RadioButtonList ID="rblRiverTanks" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">Do You Required Water Connection for the Municipal Area <span class="text-danger">*</span></label>
+                                                                    <div class="col-lg-6 d-flex">
+                                                                        <asp:RadioButtonList ID="rblMunicipal" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">Do You Required Grant of Water Connection to Non Municipal urban areas<span class="text-danger">*</span></label>
+                                                                    <div class="col-lg-6 d-flex">
+                                                                        <asp:RadioButtonList ID="rblGrantwater" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                                            <asp:ListItem Text="No" Value="N" />
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="table labertype mb-3">
                                                             <table class="table">
                                                                 <thead>

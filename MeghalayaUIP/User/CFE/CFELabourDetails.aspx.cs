@@ -18,7 +18,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID, result;
+        string UnitID, result, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -1326,7 +1326,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -1604,7 +1604,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 Btnsave_Click(sender, e);
-                Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx?Next=" + "N");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

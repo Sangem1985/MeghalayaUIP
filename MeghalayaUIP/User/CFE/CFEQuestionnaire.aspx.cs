@@ -157,6 +157,7 @@ namespace MeghalayaUIP.User.CFE
                     rblForContr1970.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CONTRLABOURACT1970"]);
                     rblForContr1970_SelectedIndexChanged(null, EventArgs.Empty);
                     txtContr1970wrkrs.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERSCONTR1970"]);
+
                     GetApprovals(); ;
                 }
                 else
@@ -868,6 +869,15 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.ContractLabourAct1970 = rblForContr1970.SelectedValue;
                     objCFEQsnaire.ContractLabourAct1970_Workers = txtContr1970wrkrs.Text.Trim();
                     objCFEQsnaire.CreatedBy = hdnUserID.Value;
+
+                    objCFEQsnaire.GrandWaterConnection = rblNocGroundWater.SelectedValue;
+                    objCFEQsnaire.WaterSupplyAgency = rblwatersupply.SelectedValue;
+                    objCFEQsnaire.RiverPublicTanker = rblRiverTanks.SelectedValue;
+                    objCFEQsnaire.MuncipalAreawater = rblMunicipal.SelectedValue;
+                    objCFEQsnaire.NonMuncipalAreaUrban = rblGrantwater.SelectedValue;
+
+
+
                     int count = 0;
                     result = objcfebal.InsertQuestionnaireCFE(objCFEQsnaire);
                     if (result != "100")
@@ -905,6 +915,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -1288,6 +1299,8 @@ namespace MeghalayaUIP.User.CFE
                 DataTable dtAct1970 = new DataTable(); DataTable dtAct1979 = new DataTable(); DataTable dtAct1996 = new DataTable();
                 DataTable dtContrLbrAct = new DataTable(); DataTable dtContAct1970 = new DataTable();
 
+                DataTable dtGroundwater = new DataTable(); DataTable watersupply = new DataTable(); DataTable rivertanker = new DataTable();
+                DataTable Municipal = new DataTable(); DataTable NonMunicipal = new DataTable();
 
                 objCFEQ.EnterpriseCategory = lblEntCategory.Text;
                 if (lblPCBCategory.Text.Trim() != "White")
@@ -1415,6 +1428,38 @@ namespace MeghalayaUIP.User.CFE
                     dtContAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtContAct1970);
                 }
+                if (rblNocGroundWater.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "19";
+                    dtGroundwater = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtGroundwater);
+                }
+                if (rblwatersupply.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "20";
+                    watersupply = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(watersupply);
+                }
+                if (rblRiverTanks.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "21";
+                    rivertanker = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(rivertanker);
+                }
+                if (rblMunicipal.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "22";
+                    Municipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(Municipal);
+                }
+                if (rblGrantwater.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "23";
+                    NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(NonMunicipal);
+                }
+
+
                 if (dtApprReq.Rows.Count > 0)
                 {
                     divApprovals.Visible = true;

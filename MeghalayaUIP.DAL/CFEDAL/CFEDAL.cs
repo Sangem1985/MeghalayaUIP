@@ -271,6 +271,13 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEQD_NOOFWORKERSCONTR1970", objCFEQsnaire.ContractLabourAct1970_Workers);
                 com.Parameters.AddWithValue("@CFEQD_CREATEDBY", Convert.ToInt32(objCFEQsnaire.CreatedBy));
                 com.Parameters.AddWithValue("@CFEQD_CREATEDBYIP", objCFEQsnaire.IPAddress);
+
+                com.Parameters.AddWithValue("@CFEQD_NOCGROUNDWATER", objCFEQsnaire.GrandWaterConnection);
+                com.Parameters.AddWithValue("@CFEQD_NONAVAILABILITYCERT", objCFEQsnaire.WaterSupplyAgency);
+                com.Parameters.AddWithValue("@CFEQD_PERRIVERPUBLICTANKERS", objCFEQsnaire.RiverPublicTanker);
+                com.Parameters.AddWithValue("@CFEQD_MUNICIPALAREAWATERCON", objCFEQsnaire.MuncipalAreawater);
+                com.Parameters.AddWithValue("@CFEQD_WATERCONNONMUNICIPALURBAN", objCFEQsnaire.NonMuncipalAreaUrban);
+
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

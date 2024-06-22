@@ -163,6 +163,7 @@ namespace MeghalayaUIP.Common
 
         public string NearWaterBodyLocation { get; set; }
         public string ExistingBoreWell { get; set; }
+
         public string LabourAct1970 { get; set; }
         public string LabourAct1970_Workers { get; set; }
         public string LabourAct1979 { get; set; }
@@ -175,6 +176,11 @@ namespace MeghalayaUIP.Common
         public string ContractLabourAct_Workers { get; set; }
         public string ContractLabourAct1970 { get; set; }
         public string ContractLabourAct1970_Workers { get; set; }
+        public string GrandWaterConnection { get; set; }
+        public string WaterSupplyAgency { get; set; }
+        public string RiverPublicTanker { get; set; }
+        public string MuncipalAreawater { get; set; }
+        public string NonMuncipalAreaUrban { get; set; }
 
     }
     public class CFECommonDet

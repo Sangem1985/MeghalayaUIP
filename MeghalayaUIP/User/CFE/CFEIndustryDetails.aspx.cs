@@ -17,7 +17,7 @@ namespace MeghalayaUIP.User.CFE
 
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID;
+        string UnitID , ErrorMsg = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -246,7 +246,7 @@ namespace MeghalayaUIP.User.CFE
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGTYPE"]);
                         txtRegistrationNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGNO"]);
-                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGDATE"]);
+                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGDATE"]);
                         ddlFactories.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_FACTORYTYPE"]);
                         txtPromoterName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]);
                         txtSoWoDo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]);
@@ -301,7 +301,7 @@ namespace MeghalayaUIP.User.CFE
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGTYPE"]);
                         txtRegistrationNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
-                        txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGISTRATIONDATE"]);                                        
+                        txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGDATE"]);                                        
                         
                         txtPromoterName.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_NAME"]);
                         txtEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_EMAIL"]);
@@ -317,9 +317,9 @@ namespace MeghalayaUIP.User.CFE
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPEMP"]);
 
                         if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "Y")
-                            ddlFactories.SelectedValue = "1";
+                            ddlFactories.SelectedValue = "Hazardous";
                         else if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "N")
-                            ddlFactories.SelectedValue = "2";
+                            ddlFactories.SelectedValue = "Non Hazardous";
                         if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_RDCTNGREQ"]) == "Y")
                         { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
                     }
@@ -332,9 +332,9 @@ namespace MeghalayaUIP.User.CFE
                     txtpincode.Enabled = false;
                     txtMobileno.Enabled = false;
                     txtEmail.Enabled = false;
-                    ddlCompanyType.Enabled = false;
-                    rblproposal.Enabled = false;
-                    lbltotalEmp.Enabled = false;
+                    //ddlCompanyType.Enabled = false;
+                    //rblproposal.Enabled = false;
+                    //lbltotalEmp.Enabled = false;
                     txtRegDate.Enabled = false;
                     ddlFactories.Enabled = false;
                 }
@@ -423,7 +423,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                ErrorMsg = ""; string result = "";
 
                 ErrorMsg = Validations();
 
@@ -507,6 +507,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;                    
                 }
             }
             catch (Exception ex)
@@ -715,6 +716,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnSave_Click(sender, e);
+                if(ErrorMsg == "")
                 Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
             }
             catch (Exception ex)

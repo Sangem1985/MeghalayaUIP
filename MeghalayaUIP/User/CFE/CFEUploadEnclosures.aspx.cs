@@ -22,7 +22,7 @@ namespace MeghalayaUIP.User.CFE
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
 
-        string UnitID, result;
+        string UnitID, result, errormsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -94,7 +94,32 @@ namespace MeghalayaUIP.User.CFE
                                     hplAadhar.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hplAadhar.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 2)
+                                {
+                                    hplEPIC.Visible = true;
+                                    hplEPIC.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplEPIC.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 3)
+                                {
+                                    hplApplPhoto.Visible = true;
+                                    hplApplPhoto.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplApplPhoto.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 4)
+                                {
+                                    hplLandDoc.Visible = true;
+                                    hplLandDoc.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplLandDoc.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 5)
+                                {
+                                    hplLandDoc.Visible = true;
+                                    hplLandDoc.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplLandDoc.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                                }
                             }
+
 
                         }
                     }
@@ -490,7 +515,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 int slno = 1;
-                string errormsg = "";
+                
                 if (string.IsNullOrEmpty(hplAadhar.Text) || hplAadhar.Text == "" || hplAadhar.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Upload Aadhar Document \\n";
@@ -518,7 +543,8 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (errormsg == "")
                 {
-
+                    string message = "alert('" + "Attachments Details saved Successfully" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
                 else
                 {
@@ -551,7 +577,9 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEPaymentPage.aspx");
+                btnSave_Click(sender, e);
+                if (errormsg == "")
+                    Response.Redirect("~/User/CFE/CFEPaymentPage.aspx");
             }
             catch (Exception ex)
             {

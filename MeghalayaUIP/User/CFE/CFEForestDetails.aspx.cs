@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -75,7 +75,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "15")
                         {
-                            
+
                         }
                         if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "16")
                         {
@@ -166,7 +166,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 throw ex;
             }
-        }    
+        }
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -283,7 +283,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -306,7 +306,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQForest.GPSCoodinates = txtGPSCordinates.Text;
                     objCFEQForest.Purpose = txtPurpose.Text;
                     objCFEQForest.ForestDivision = ddlForest.SelectedValue;
-                    objCFEQForest.information = txtInformation.Text;                  
+                    objCFEQForest.information = txtInformation.Text;
                     objCFEQForest.Species = txtspecies.Text;
                     objCFEQForest.EstTimberLength = txtTimberlength.Text;
                     objCFEQForest.EstTimberVolume = txtTimberVolume.Text;
@@ -319,7 +319,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQForest.South = txtSouth.Text;
 
                     result = objcfebal.InsertCFEForestDet(objCFEQForest);
-                   
+
                     if (result != "")
                     {
                         success.Visible = true;
@@ -359,7 +359,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnSave_Click(sender, e);
-                Response.Redirect("~/User/CFE/CFEWaterDetails.aspx?Next="+"N");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFEWaterDetails.aspx?Next=" + "N");
 
             }
             catch (Exception ex)

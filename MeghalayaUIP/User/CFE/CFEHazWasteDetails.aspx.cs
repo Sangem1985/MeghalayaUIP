@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -80,9 +80,9 @@ namespace MeghalayaUIP.User.CFE
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
                     }
                 }
             }
@@ -155,7 +155,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string  result = "";
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
@@ -195,6 +195,12 @@ namespace MeghalayaUIP.User.CFE
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -275,7 +281,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEExplosivesNOC.aspx?Previous=" + "P");
+                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
             }
             catch (Exception ex)
             {
@@ -291,7 +297,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnSave_Click(sender, e);
-                Response.Redirect("~/User/CFE/CFEProffessionalTax.aspx?Next=" + "N");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

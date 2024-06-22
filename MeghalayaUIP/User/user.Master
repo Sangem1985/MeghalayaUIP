@@ -5,6 +5,33 @@
 <html lang="en">
 
 <head runat="server">
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
+                input.addEventListener('keypress', preventInvalidChars)
+                input.addEventListener('paste', function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[type="text"]').forEach(function (input) {
+                input.addEventListener('keypress', preventInvalidChars)
+                input.addEventListener('paste', function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+        function preventInvalidChars(event) {
+            var charCode = event.charCode || event.keyCode;
+            var charStr = String.fromCharCode(charCode);
+
+            // Check if the character is < or >
+            if (charStr === '<' || charStr === '>') {
+                event.preventDefault();
+            }
+        }
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Invest Meghalaya - Dashboard</title>

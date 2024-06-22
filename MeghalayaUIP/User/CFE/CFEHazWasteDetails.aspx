@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Pollution Control Details</h3>
+                            <h3 class="card-title">Authorization under the Hazardous and Other Waste</h3>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -33,22 +33,22 @@
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Authorization required for (Please tick appropriate activity or activities *</label>
-                                            <div class="col-lg-11 d-flex">
-                                                <asp:CheckBoxList ID="CHKAuthorized" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Generation" Value="1"></asp:ListItem>
-                                                    <asp:ListItem Text="Collection" Value="2"></asp:ListItem>
-                                                    <asp:ListItem Text="Storage" Value="3"></asp:ListItem>
-                                                    <asp:ListItem Text="Transportation" Value="4"></asp:ListItem>
-                                                    <asp:ListItem Text="Reception" Value="5"></asp:ListItem>
-                                                    <asp:ListItem Text="Reuse" Value="6"></asp:ListItem>
-                                                    <asp:ListItem Text="Recycling" Value="7"></asp:ListItem>
-                                                    <asp:ListItem Text="Recovery" Value="8"></asp:ListItem>
-                                                    <asp:ListItem Text="Pre-processing" Value="9"></asp:ListItem>
-                                                    <asp:ListItem Text="Co-processing" Value="10"></asp:ListItem>
-                                                    <asp:ListItem Text="Utilization" Value="11"></asp:ListItem>
-                                                    <asp:ListItem Text="Treatment" Value="12"></asp:ListItem>
-                                                    <asp:ListItem Text="Disposal" Value="13"></asp:ListItem>
-                                                    <asp:ListItem Text="Incineration" Value="14"></asp:ListItem>
+                                            <div class="col-lg-12 d-flex">
+                                                <asp:CheckBoxList ID="CHKAuthorized" runat="server" RepeatDirection="Vertical" RepeatColumns="7" style="padding:20px" >
+                                                    <asp:ListItem Text="Generation" Value="1" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Collection" Value="2" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Storage" Value="3" style="padding-right:20px" ></asp:ListItem>
+                                                    <asp:ListItem Text="Transportation" Value="4" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Reception" Value="5" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Reuse" Value="6" style="padding-right:20px" ></asp:ListItem>
+                                                    <asp:ListItem Text="Recycling" Value="7" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Recovery" Value="8" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Pre-processing" Value="9" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Co-processing" Value="10" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Utilization" Value="11" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Treatment" Value="12" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Disposal" Value="13" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Incineration" Value="14" style="padding-right:20px"></asp:ListItem>
                                                 </asp:CheckBoxList>
                                             </div>
                                         </div>
@@ -56,62 +56,67 @@
                                 </div>
                                 <h4 class="card-title ml-3">Nature and Quantity</h4>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Nature and Quantity to waste handled per annum (in Metric Tons) *</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Metric Tons) *</label>
+                                            <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtMetricTons" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Nature and Quantity to waste stored at any time (in Metric Tons) *</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Metric Tons) *</label>
+                                            <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtstoredtons" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    
+                                </div>
+                                 <div class="col-md-12 d-flex">
+                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Nature and Quantity to waste handled per annum (in Kilo Litre) *</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Kilo Litre) *</label>
+                                            <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtwasteannum" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-4">
+                                      <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Nature and Quantity to waste stored at any time (in Kilo Litre)  *</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Kilo Litre)  *</label>
+                                            <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtnature" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                 </div>
+                                <div class="col-md-12 d-flex">
+                                   
+                                    <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Year of commissioning and commence of production *</label>
-                                            <div class="col-lg-6 d-flex">
+                                            <label class="col-lg-8 col-form-label">Year of commissioning and commence of production *</label>
+                                            <div class="col-lg-4 d-flex">
                                                 <asp:TextBox ID="txtYearpro" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-5 col-form-label">Whether the industry works:- *</label>
+                                            <div class="col-lg-7 d-flex">
+                                                <asp:CheckBoxList ID="chkindustrywork" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:ListItem Text="01 Shift" Value="1" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="02 Shifts" Value="2" style="padding-right:20px"></asp:ListItem>
+                                                    <asp:ListItem Text="Round the clock" Value="3" style="padding-right:20px"></asp:ListItem>
+                                                </asp:CheckBoxList>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Whether the industry works:- *</label>
-                                            <div class="col-lg-11 d-flex">
-                                                <asp:CheckBoxList ID="chkindustrywork" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="01 Shift" Value="1"></asp:ListItem>
-                                                    <asp:ListItem Text="02 Shifts" Value="2"></asp:ListItem>
-                                                    <asp:ListItem Text="Round the clock" Value="3"></asp:ListItem>
-                                                </asp:CheckBoxList>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <br />

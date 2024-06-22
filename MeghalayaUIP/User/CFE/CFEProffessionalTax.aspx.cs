@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -265,7 +265,7 @@ namespace MeghalayaUIP.User.CFE
 
             try
             {
-                string ErrorMsg = "", result = "";
+                string  result = "";
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
@@ -326,7 +326,12 @@ namespace MeghalayaUIP.User.CFE
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
-
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -508,8 +513,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnsave_Click(sender, e);
-
-                Response.Redirect("~/User/CFE/CFEPowerCEIGDetails.aspx?Next=" + "N");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFEPowerCEIGDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

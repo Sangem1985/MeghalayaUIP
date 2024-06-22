@@ -236,6 +236,7 @@ namespace MeghalayaUIP.User.PreReg
                                     if (result > 0)
                                     {
                                         lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
+                                        hplAttachment.Text = fupAttachment.FileName;
                                         lbldept.Text = fupAttachment.FileName;
                                         success.Visible = true;
                                         Failure.Visible = false;

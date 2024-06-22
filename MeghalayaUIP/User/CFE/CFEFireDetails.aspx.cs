@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -302,11 +302,11 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Existing or proposed Approach Road \\n";
                     slno = slno + 1;
                 }
-                //if (ddlbuilding.SelectedIndex == -1 || ddlbuilding.SelectedItem.Text == "--Select--")
-                //{
-                //    errormsg = errormsg + slno + ". Please Select Category of Building \\n";
-                //    slno = slno + 1;
-                //}
+                if (ddlbuilding.SelectedIndex == -1 || ddlbuilding.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Category of Building \\n";
+                    slno = slno + 1;
+                }
                 if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Fee amount RS \\n";
@@ -459,7 +459,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string  result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -538,7 +538,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnSave_Click(sender, e);
-                Response.Redirect("~/User/CFE/CFEExplosivesNOC.aspx?Next=" + "N");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFEExplosivesNOC.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {
