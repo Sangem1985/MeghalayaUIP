@@ -81,6 +81,7 @@
     <Content Include="assets\admin\css\feathericon.min.css" />
     <Content Include="assets\admin\css\font-awesome.min.css" />
     <Content Include="assets\admin\css\menustyle.css" />
+    <Content Include="assets\admin\css\PSIP.css" />
     <Content Include="assets\admin\css\select2.min.css" />
     <Content Include="assets\admin\css\style.css" />
     <Content Include="assets\admin\css\user.css" />
@@ -331,6 +332,11 @@
     <Content Include="assets\assetsbeta\images\helpImage4.png" />
     <Content Include="assets\assetsbeta\images\hero-bg.jpg" />
     <Content Include="assets\assetsbeta\images\Hospitality_image.png" />
+    <Content Include="assets\assetsbeta\images\Innerpageslides\agri.png" />
+    <Content Include="assets\assetsbeta\images\Innerpageslides\hstpt.png" />
+    <Content Include="assets\assetsbeta\images\Innerpageslides\itites.png" />
+    <Content Include="assets\assetsbeta\images\Innerpageslides\power.png" />
+    <Content Include="assets\assetsbeta\images\Innerpageslides\tbg.png" />
     <Content Include="assets\assetsbeta\images\ITE.png" />
     <Content Include="assets\assetsbeta\images\logo-2.png" />
     <Content Include="assets\assetsbeta\images\Logo.png" />
