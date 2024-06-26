@@ -117,6 +117,7 @@ namespace MeghalayaUIP.User.CFE
                         txtNameEst.Text = ds.Tables[0].Rows[0]["CFEPD_NAMEEST"].ToString();
                         txtLandHoldingNo.Text = ds.Tables[0].Rows[0]["CFEPD_LANDHOLDINGNO"].ToString();
                         rblLand.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_LANDLEASER"].ToString();
+                        rblLand_SelectedIndexChanged(null, EventArgs.Empty);
                         txtRegNo.Text = ds.Tables[0].Rows[0]["CFEPD_REGNO"].ToString();
                         txtHoldingNo.Text = ds.Tables[0].Rows[0]["CFEPD_AREALANDHOLDINGNO"].ToString();
                         txtNorth.Text = ds.Tables[0].Rows[0]["CFEPD_NORTH"].ToString();

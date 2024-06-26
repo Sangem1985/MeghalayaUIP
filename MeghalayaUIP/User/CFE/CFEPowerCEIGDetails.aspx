@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEPowerCEIGDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEPowerCEIGDetails" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="page-wrapper">
+    <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -206,7 +207,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                     <div class="col-md-4">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Street Name *</label>
                                             <div class="col-lg-6 d-flex">
@@ -215,8 +216,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                   <div class="col-md-12 d-flex">
-                                          <div class="col-md-4">
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Pincode *</label>
                                             <div class="col-lg-6 d-flex">
@@ -224,7 +225,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                         <div class="col-md-4">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Telephone(incl STD Code)</label>
                                             <div class="col-lg-6 d-flex">
@@ -232,7 +233,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                         <div class="col-md-4">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Nearest Telephone No*</label>
                                             <div class="col-lg-6 d-flex">
@@ -240,126 +241,142 @@
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                 <div class="col-md-12 d-flex">
-                                        <div class="col-md-4">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of Commencement of Production(dd-MMM-yyyy)*</label>
                                             <div class="col-lg-6 d-flex">
-                                              <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
-                                     </div>
+                                </div>
 
-                                   <div class="col-md-12 d-flex">
-                                  <div class="col-md-12">
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Agreement letter between Contractor & Owner *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupoWNER" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnowner" OnClick="btnowner_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-5 d-flex">
                                                 <asp:HyperLink ID="hypowner" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lblowner" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnowner" OnClick="btnowner_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                   <div class="col-md-12 d-flex">
-                                          <div class="col-md-12">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Contractor License copy *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupLic" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnLic" OnClick="btnLic_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-5 d-flex">
                                                 <asp:HyperLink ID="hypLic" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lblLic" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnLic" OnClick="btnLic_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                   <div class="col-md-12 d-flex">
-                                          <div class="col-md-12">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Contractor/Project electrical supervisor permit copy  *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupElectrical" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnElectrical" OnClick="btnElectrical_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-5 d-flex">
                                                 <asp:HyperLink ID="hypElectrical" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lblElectrical" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnElectrical" OnClick="btnElectrical_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                   <div class="col-md-12 d-flex">
-                                          <div class="col-md-12">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Feasibility report from the DISCOMS  *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupdiscoms" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnDiscoms" OnClick="btnDiscoms_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-5 d-flex">
                                                 <asp:HyperLink ID="hypdiscoms" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lbldiscoms" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnDiscoms" OnClick="btnDiscoms_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                  <div class="col-md-12 d-flex">
-                                          <div class="col-md-12">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Electrical Single line diagram from Point of Commencement of supply to the end use of electrical energy  *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupenergy" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnEnergy" OnClick="btnEnergy_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-5 d-flex">
                                                 <asp:HyperLink ID="hypenergy" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lblenergy" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnEnergy" OnClick="btnEnergy_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                             </div>
+
+
                                         </div>
                                     </div>
-                                       </div>
-                                     <div class="col-md-12 d-flex">
-                                          <div class="col-md-12">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">The structural layout showing plan and Elevations with sectional and safe clearances  *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupPlan" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnPlan" OnClick="btnPlan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-5 d-flex">
                                                 <asp:HyperLink ID="hypplan" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lblplan" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnPlan" OnClick="btnPlan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                   <div class="col-md-12 d-flex">
-                                          <div class="col-md-12">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">General arrangement of the equipment drawing showing the location of various equipments.  *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupDraw" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnDraw" OnClick="btnDraw_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-5 d-flex">
                                                 <asp:HyperLink ID="hypDraw" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lblDraw" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnDraw" OnClick="btnDraw_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-
-
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                   <div class="col-md-12 d-flex">
-                                          <div class="col-md-12">
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">The earthing layout diagram  *</label>
-                                            <div class="col-lg-8 d-flex">
+                                            <div class="col-lg-3 d-flex">
                                                 <asp:FileUpload ID="fupEarth" runat="server" />
+                                                <asp:Button Text="Upload" runat="server" ID="btnEarth" OnClick="btnEarth_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                            </div>
+                                            <div class="col-lg-4 d-flex">
                                                 <asp:HyperLink ID="hypEarth" runat="server" Target="_blank"></asp:HyperLink>
                                                 <asp:Label ID="lblEarth" runat="server" />
-                                                <asp:Button Text="Upload DPR" runat="server" ID="btnEarth" OnClick="btnEarth_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                             </div>
                                         </div>
                                     </div>
-                                       </div>
-                                  <div class="col-md-12 text-right mt-2 mb-2">
+                                </div>
+                                <div class="col-md-12 text-right mt-2 mb-2">
                                     <asp:Button Text="Previous" runat="server" ID="btnPrevious" OnClick="btnPrevious_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
                                     <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                     <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />

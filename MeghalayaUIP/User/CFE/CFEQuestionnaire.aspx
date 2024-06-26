@@ -294,7 +294,8 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)" 
+                                                                           AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged" ></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -313,7 +314,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">6. Total Project Cost(in Crores)</label>
+                                                                    <label class="col-lg-6 col-form-label">6. Total Project Cost(INR)</label>
                                                                     <div class="col-lg-4">
                                                                         <asp:Label ID="lblTotProjCost" Text="0.00" runat="server"></asp:Label>
                                                                     </div>

@@ -53,6 +53,9 @@ namespace MeghalayaUIP.Common
         public static string GetMAXPOWER = "USP_MAXAMOUNTPOWER";
         public static string GetWorkYears = "USP_NOOFWORKERSYEARS";
 
+        public static string GetIndustryParks = "USP_INSINDUSTRIALPARKS";
+        public static string GetWaterSource = "USP_GETWATERSOURCEMASTER";
+
     }
     public class MasterCountry
     {
@@ -291,5 +294,16 @@ namespace MeghalayaUIP.Common
         public string NOOFWORKERSYEARS_ID { get; set; }
         public string NOOFWORKERS_NAME { get; set; }
     }
+    public class MasterINDUSTRIALPARKS
+    {
+        public string INDUSTRIALPARK_ID { get; set; }
+        public string INDUSTRIALPARK_NAME { get; set; }
+    }
+    public class MasterWaterSource
+    {
+        public string WATERSOURCE_ID { get; set; }
+        public string WATERSOURCE_NAME { get; set; }
+    }
+   
 
 }

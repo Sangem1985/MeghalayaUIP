@@ -67,13 +67,13 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet(); DataSet ds1 = new DataSet(); DataSet ds2 = new DataSet();
-                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "15","20,21,23");
-                ds1 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5","19");
-                ds2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2","22");
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "15", "20,21,23");
+                ds1 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5", "19");
+                ds2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2", "22");
 
-                if (ds.Tables[0].Rows.Count > 0 || ds1.Tables[0].Rows.Count > 0 || ds2.Tables[0].Rows.Count > 0 )
+                if (ds.Tables[0].Rows.Count > 0 || ds1.Tables[0].Rows.Count > 0 || ds2.Tables[0].Rows.Count > 0)
                 {
-                    if(ds.Tables[0].Rows.Count > 0)
+                    if (ds.Tables[0].Rows.Count > 0)
                     { }
 
                 }
@@ -266,7 +266,9 @@ namespace MeghalayaUIP.User.CFE
                     txtdemand.Text = ds.Tables[0].Rows[0]["CFEWD_DEMANDPERDAY"].ToString();
                     txtinformation.Text = ds.Tables[0].Rows[0]["CFEWD_INFORMATION"].ToString();
                     ddldistric.Text = ds.Tables[0].Rows[0]["CFEWD_DISTRIC"].ToString();
+                    ddldistric_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlmandal.Text = ds.Tables[0].Rows[0]["CFEWD_MANDAL"].ToString();
+                    ddlmandal_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlvillage.Text = ds.Tables[0].Rows[0]["CFEWD_VILLAGE"].ToString();
                     txtlocality.Text = ds.Tables[0].Rows[0]["CFEWD_LOCALITY"].ToString();
                     txtlandmark.Text = ds.Tables[0].Rows[0]["CFEWD_LANDMARK"].ToString();
@@ -570,9 +572,9 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                btnSave_Click( sender,  e);
-                if (ErrorMsg == "") 
-                Response.Redirect("~/User/CFE/CFELabourDetails.aspx?Next=" + "N");
+                btnSave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFELabourDetails.aspx?Next=" + "N");
 
             }
             catch (Exception ex)

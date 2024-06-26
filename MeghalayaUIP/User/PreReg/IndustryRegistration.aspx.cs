@@ -887,6 +887,8 @@ namespace MeghalayaUIP.User.PreReg
 
                 int slno = 1;
                 string errormsg = "";
+                string test1 = Convert.ToString(Request.Form["latitude"]);
+                string test2 = Convert.ToString(Request.Form["logititude"]);
 
                 if (ddlcompanytype.SelectedValue == "0" || ddlcompanytype.SelectedValue == "--Select--")
                 {

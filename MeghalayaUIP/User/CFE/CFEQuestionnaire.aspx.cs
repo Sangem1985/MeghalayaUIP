@@ -16,10 +16,11 @@ namespace MeghalayaUIP.User.CFE
 {
     public partial class CFEQuestionnaire : System.Web.UI.Page
     {
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -196,7 +197,7 @@ namespace MeghalayaUIP.User.CFE
                         txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
                         txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
                         lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
-                        lblEntCategory.Text = "MEGA PROJECT";
+                        //lblEntCategory.Text = "MEGA PROJECT";
                     }
                 }
 
@@ -333,7 +334,7 @@ namespace MeghalayaUIP.User.CFE
                 ddlVillage.Items.Clear();
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                
+
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -800,7 +801,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string  result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -930,7 +931,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnSave3_Click(sender, e);
-                Response.Redirect("~/User/CFE/CFECommonApplication.aspx");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFECommonApplication.aspx");
             }
             catch (Exception ex)
             {
@@ -1522,7 +1524,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (txtAnnualTurnOver.Text != "")
+                if (txtAnnualTurnOver.Text != "" && txtPMCost.Text != "")
                 {
                     string Res = objcfebal.GETANNUALTURNOVER(txtPMCost.Text.ToString(), txtAnnualTurnOver.Text.ToString());
                     if (Res != "")
@@ -1546,8 +1548,14 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
             }
+        }
+
+        protected void txtPMCost_TextChanged(object sender, EventArgs e)
+        {
+            txtAnnualTurnOver_TextChanged(sender, e);
+
         }
     }
 }

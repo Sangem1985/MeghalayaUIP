@@ -75,6 +75,7 @@ namespace MeghalayaUIP.User.CFE
                         {
                             BindDistricts();
                             BINDDATA();
+                            BindBuildingType();
                         }
 
                     }
@@ -207,7 +208,92 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void BindBuildingType()
+        {
+            try
+            {
+                ddlbuilding.Items.Clear();
 
+                List<MasterBuildingType> objDistrictModel = new List<MasterBuildingType>();
+                string strmode = string.Empty;
+                strmode = "";
+
+                objDistrictModel = mstrBAL.GetBuildingType();
+                if (objDistrictModel != null)
+                {
+                    ddlbuilding.DataSource = objDistrictModel;
+                    ddlbuilding.DataValueField = "BUILDINGTYPE_ID";
+                    ddlbuilding.DataTextField = "BUILDINGTYPE_NAME";
+                    ddlbuilding.DataBind();
+                }
+                else
+                {
+                    ddlbuilding.DataSource = null;
+                    ddlbuilding.DataBind();
+                }
+                AddSelect(ddlbuilding);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void BINDDATA()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetRetriveFireDet(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+                if (ds != null)
+                {
+                    if (ds.Tables.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
+                            ddldistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTRICID"]);
+                            ddlmandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MANDALID"]);
+                            ddlvillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_VILLAGEID"]);
+
+                            ddldistric.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTRICNAME"]);
+                            ddlmandal.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MANDALNAME"]);
+                            ddlvillage.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_VILLAGENAME"]);
+
+                            txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_Locality"]);
+                            txtlandmark.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_Landmark"]);
+                            txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_Pincode"]);
+                            txtheight.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_BUILDINGHT"]);
+                            txtheightfloor.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FLOORHT"]);
+                            txtplot.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_PLOTAREA"]);
+                            txtbuildup.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_BUILDINGAREA"]);
+                            txtdriveway.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DRIVEPROPSED"]);
+
+
+                            txtBreadth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_EXISTINGROAD"]);
+                            ddlbuilding.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_CATEGORYBUILD"]);
+                            //  ddlbuilding.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_CATEGORYBUILD"]);
+                            txtAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FEEAMOUNT"]);
+                            txtEast.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_East"]);
+                            txtdistance.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCEEAST"]);
+                            txtWest.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_West"]);
+                            txtbuilding.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCEWEST"]);
+                            txtnorth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_North"]);
+                            txtproposedbuid.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCENORTH"]);
+                            txtsouth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_South"]);
+
+                            txtdistancebuild.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCESOUTH"]);
+                            txtstation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FIRESTATION"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void ddldistric_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -227,7 +313,6 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void ddlmandal_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -245,7 +330,72 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }       
+        }           
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string  result = "";
+                ErrorMsg = Validations();
+                if (ErrorMsg == "")
+                {
+                    CFEFire ObjCCFEFireDetails = new CFEFire();
+
+                    ObjCCFEFireDetails.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                    ObjCCFEFireDetails.CreatedBy = hdnUserID.Value;
+                    ObjCCFEFireDetails.IPAddress = getclientIP();
+                    ObjCCFEFireDetails.Questionnariid = Convert.ToString(Session["CFEQID"]);
+                    ObjCCFEFireDetails.UnitId = Convert.ToString(Session["CFEUNITID"]);
+                    ObjCCFEFireDetails.DistricId = ddldistric.SelectedValue;
+                    ObjCCFEFireDetails.MandalId = ddlmandal.SelectedValue;
+                    ObjCCFEFireDetails.VillageId = ddlvillage.SelectedValue;
+                    ObjCCFEFireDetails.DistricName = ddldistric.SelectedItem.Text;
+                    ObjCCFEFireDetails.MandalName = ddlmandal.SelectedItem.Text;
+                    ObjCCFEFireDetails.VillageName = ddlvillage.SelectedItem.Text;
+                    ObjCCFEFireDetails.Locality = txtLocality.Text;
+                    ObjCCFEFireDetails.Landmark = txtlandmark.Text;
+                    ObjCCFEFireDetails.Pincode = txtpincode.Text;
+                    ObjCCFEFireDetails.HeightBuilding = txtheight.Text;
+                    ObjCCFEFireDetails.HeightFloor = txtheightfloor.Text;
+                    ObjCCFEFireDetails.PlotArea = txtplot.Text;
+                    ObjCCFEFireDetails.builoduparea = txtbuildup.Text;
+                    ObjCCFEFireDetails.ProposedDrive = txtdriveway.Text;
+                    ObjCCFEFireDetails.ExistingRoad = txtBreadth.Text;
+                    ObjCCFEFireDetails.CategoryBuilding = ddlbuilding.SelectedValue;
+                    ObjCCFEFireDetails.FeeAmount = txtAmount.Text;
+                    ObjCCFEFireDetails.East = txtEast.Text;
+                    ObjCCFEFireDetails.Distancebuild = txtdistance.Text;
+                    ObjCCFEFireDetails.West = txtWest.Text;
+                    ObjCCFEFireDetails.Distanceproposed = txtbuilding.Text;
+                    ObjCCFEFireDetails.North = txtnorth.Text;
+                    ObjCCFEFireDetails.Distancemeter = txtproposedbuid.Text;
+                    ObjCCFEFireDetails.South = txtsouth.Text;
+                    ObjCCFEFireDetails.buildingdist = txtdistancebuild.Text;
+                    ObjCCFEFireDetails.Firestation = txtstation.Text;
+
+                    result = objcfebal.InsertCFEFireDetails(ObjCCFEFireDetails);
+
+                    if (result != "")
+                    {
+                        success.Visible = true;
+                        lblmsg.Text = "Fire Details Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         public string Validations()
         {
             try
@@ -396,129 +546,6 @@ namespace MeghalayaUIP.User.CFE
             }
 
             return result;
-        }
-
-        public void BINDDATA()
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetRetriveFireDet(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
-                if (ds != null)
-                {
-                    if (ds.Tables.Count > 0)
-                    {
-                        if (ds.Tables[0].Rows.Count > 0)
-                        {
-                            //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
-                            ddldistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTRICID"]);
-                            ddlmandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MANDALID"]);
-                            ddlvillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_VILLAGEID"]);
-
-                            ddldistric.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTRICNAME"]);
-                            ddlmandal.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MANDALNAME"]);
-                            ddlvillage.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_VILLAGENAME"]);
-
-                            txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_Locality"]);
-                            txtlandmark.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_Landmark"]);
-                            txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_Pincode"]);
-                            txtheight.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_BUILDINGHT"]);
-                            txtheightfloor.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FLOORHT"]);
-                            txtplot.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_PLOTAREA"]);
-                            txtbuildup.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_BUILDINGAREA"]);
-                            txtdriveway.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DRIVEPROPSED"]);
-
-
-                            txtBreadth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_EXISTINGROAD"]);
-                            ddlbuilding.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_CATEGORYBUILD"]);
-                            //  ddlbuilding.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_CATEGORYBUILD"]);
-                            txtAmount.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FEEAMOUNT"]);
-                            txtEast.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_East"]);
-                            txtdistance.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCEEAST"]);
-                            txtWest.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_West"]);
-                            txtbuilding.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCEWEST"]);
-                            txtnorth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_North"]);
-                            txtproposedbuid.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCENORTH"]);
-                            txtsouth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_South"]);
-
-                            txtdistancebuild.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCESOUTH"]);
-                            txtstation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FIRESTATION"]);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string  result = "";
-                ErrorMsg = Validations();
-                if (ErrorMsg == "")
-                {
-                    CFEFire ObjCCFEFireDetails = new CFEFire();
-
-                    ObjCCFEFireDetails.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                    ObjCCFEFireDetails.CreatedBy = hdnUserID.Value;
-                    ObjCCFEFireDetails.IPAddress = getclientIP();
-                    ObjCCFEFireDetails.Questionnariid = Convert.ToString(Session["CFEQID"]);
-                    ObjCCFEFireDetails.UnitId = Convert.ToString(Session["CFEUNITID"]);
-                    ObjCCFEFireDetails.DistricId = ddldistric.SelectedValue;
-                    ObjCCFEFireDetails.MandalId = ddlmandal.SelectedValue;
-                    ObjCCFEFireDetails.VillageId = ddlvillage.SelectedValue;
-                    ObjCCFEFireDetails.DistricName = ddldistric.SelectedItem.Text;
-                    ObjCCFEFireDetails.MandalName = ddlmandal.SelectedItem.Text;
-                    ObjCCFEFireDetails.VillageName = ddlvillage.SelectedItem.Text;
-                    ObjCCFEFireDetails.Locality = txtLocality.Text;
-                    ObjCCFEFireDetails.Landmark = txtlandmark.Text;
-                    ObjCCFEFireDetails.Pincode = txtpincode.Text;
-                    ObjCCFEFireDetails.HeightBuilding = txtheight.Text;
-                    ObjCCFEFireDetails.HeightFloor = txtheightfloor.Text;
-                    ObjCCFEFireDetails.PlotArea = txtplot.Text;
-                    ObjCCFEFireDetails.builoduparea = txtbuildup.Text;
-                    ObjCCFEFireDetails.ProposedDrive = txtdriveway.Text;
-                    ObjCCFEFireDetails.ExistingRoad = txtBreadth.Text;
-                    ObjCCFEFireDetails.CategoryBuilding = ddlbuilding.SelectedValue;
-                    ObjCCFEFireDetails.FeeAmount = txtAmount.Text;
-                    ObjCCFEFireDetails.East = txtEast.Text;
-                    ObjCCFEFireDetails.Distancebuild = txtdistance.Text;
-                    ObjCCFEFireDetails.West = txtWest.Text;
-                    ObjCCFEFireDetails.Distanceproposed = txtbuilding.Text;
-                    ObjCCFEFireDetails.North = txtnorth.Text;
-                    ObjCCFEFireDetails.Distancemeter = txtproposedbuid.Text;
-                    ObjCCFEFireDetails.South = txtsouth.Text;
-                    ObjCCFEFireDetails.buildingdist = txtdistancebuild.Text;
-                    ObjCCFEFireDetails.Firestation = txtstation.Text;
-
-                    result = objcfebal.InsertCFEFireDetails(ObjCCFEFireDetails);
-
-                    if (result != "")
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "Fire Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-                }
-                else
-                {
-                    string message = "alert('" + ErrorMsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
         }
         protected void btnPrevious_Click(object sender, EventArgs e)
         {

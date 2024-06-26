@@ -79,7 +79,7 @@ namespace MeghalayaUIP.User.CFE
                             GetVoltageMaster();
                             GetPowerPlants();
                             Binddata();
-                            Binddata(); //Attachments
+                            BindAttachments();
                         }
 
                     }
@@ -299,277 +299,6 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlMandal.ClearSelection();
-                ddlVillage.ClearSelection();
-                if (ddlDistrict.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlMandal, ddlDistrict.SelectedValue);
-                }
-                else return;
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlVillage.ClearSelection();
-                if (ddlMandal.SelectedItem.Text != "--Select--")
-                {
-
-                    BindVillages(ddlVillage, ddlMandal.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        protected void ddlRegulation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlRegulation.SelectedValue == "1") //32
-                {
-                    divpowerplants1.Visible = true;
-                    divpowerplants2.Visible = true;
-                    divvoltages.Visible = false;
-                }
-                else if (ddlRegulation.SelectedValue == "2") //43(3)
-                {
-                    divpowerplants1.Visible = false;
-                    divpowerplants2.Visible = false;
-                    divvoltages.Visible = true;
-                }
-                else
-                {
-                    divvoltages.Visible = false;
-                    divpowerplants1.Visible = false;
-                    divpowerplants2.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        protected void btnsave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string result = "";
-                ErrorMsg = validations();
-                if (ErrorMsg == "")
-                {
-                    CFECEIG ObjCFECEIG = new CFECEIG();
-
-                    ObjCFECEIG.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                    ObjCFECEIG.CreatedBy = hdnUserID.Value;
-                    ObjCFECEIG.UnitId = Convert.ToString(Session["CFEUNITID"]);
-                    ObjCFECEIG.IPAddress = getclientIP();
-
-                    ObjCFECEIG.ALREADY = txtInstall.Text;
-                    ObjCFECEIG.PROPOSED = txtProposed.Text;
-                    ObjCFECEIG.TOTAL = txtTotal.Text;
-                    ObjCFECEIG.CONNECTEDLOAD = ddlLOAD.SelectedValue;
-                    ObjCFECEIG.INSTALLED = txtAlready.Text;
-                    ObjCFECEIG.PROPOSE = txtPropose.Text;
-                    ObjCFECEIG.TOTALS = txtTotals.Text;
-                    ObjCFECEIG.REGULATION = ddlRegulation.SelectedValue;
-                    ObjCFECEIG.voltage = ddlvtg.SelectedValue;
-                    ObjCFECEIG.Plant = ddlPlant.SelectedValue;
-                    ObjCFECEIG.CAPACITY = txtCapacity.Text;
-                    ObjCFECEIG.LOCATIONFACTORY = ddlLocFactory.SelectedValue;
-                    ObjCFECEIG.SURVEYNO = txtSurvey.Text;
-                    ObjCFECEIG.EXTENT = txtExtent.Text;
-                    ObjCFECEIG.DISTRIC = ddlDistrict.SelectedValue;
-                    ObjCFECEIG.MANDAL = ddlMandal.SelectedValue;
-                    ObjCFECEIG.VILLAGE = ddlVillage.SelectedValue;
-                    ObjCFECEIG.STREETNAME = txtStreet.Text;
-                    ObjCFECEIG.PINCODE = txtPincode.Text;
-                    ObjCFECEIG.TELEPHOPNE = txtTelephone.Text;
-                    ObjCFECEIG.NEARESTPHONENO = txtNearestNo.Text;
-                    ObjCFECEIG.DATE = txtDate.Text;
-
-                    result = objcfebal.InsertCFECEIGDetails(ObjCFECEIG);
-
-                    if (result != "")
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "CEIG Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        public string validations()
-        {
-            try
-            {
-                int slno = 1;
-                string errormsg = "";
-
-                if (string.IsNullOrEmpty(txtInstall.Text) || txtInstall.Text == "" || txtInstall.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Already Installed \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtProposed.Text) || txtProposed.Text == "" || txtProposed.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Proposed \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtTotal.Text) || txtTotal.Text == "" || txtTotal.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Total \\n";
-                    slno = slno + 1;
-                }
-                if (ddlLOAD.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Type of Connected Load \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtAlready.Text) || txtAlready.Text == "" || txtAlready.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Already Installed \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPropose.Text) || txtPropose.Text == "" || txtPropose.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Proposed \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtTotals.Text) || txtTotals.Text == "" || txtTotals.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Total \\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegulation.SelectedIndex == -1 || ddlRegulation.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Regulation Type \\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegulation.SelectedValue == "1")
-                {
-                    if (ddlPlant.SelectedIndex == -1 || ddlPlant.SelectedItem.Text == "--Select--")
-                    {
-                        errormsg = errormsg + slno + ". Please Select Power Plant Type \\n";
-                        slno = slno + 1;
-                    }
-                    if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Aggregate Capacity  \\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (ddlRegulation.SelectedValue == "2")
-                {
-                    if (ddlvtg.SelectedIndex == -1 || ddlvtg.SelectedItem.Text == "--Select--")
-                    {
-                        errormsg = errormsg + slno + ". Please Select Voltage Rating  \\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Capacity \\n";
-                    slno = slno + 1;
-                }
-                if (ddlLocFactory.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Proposed Location of Factory \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtSurvey.Text) || txtSurvey.Text == "" || txtSurvey.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Survey \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtExtent.Text) || txtExtent.Text == "" || txtExtent.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Extent \\n";
-                    slno = slno + 1;
-                }
-                if (ddlDistrict.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Distric \\n";
-                    slno = slno + 1;
-                }
-                if (ddlMandal.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Mandal \\n";
-                    slno = slno + 1;
-                }
-                if (ddlVillage.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Village \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtStreet.Text) || txtStreet.Text == "" || txtStreet.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Street Name \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtTelephone.Text) || txtTelephone.Text == "" || txtTelephone.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Telephone \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtNearestNo.Text) || txtNearestNo.Text == "" || txtNearestNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Phone Number \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Date \\n";
-                    slno = slno + 1;
-                }
-                return errormsg;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
         public void Binddata()
         {
             try
@@ -624,8 +353,7 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
-        protected void BindData() //attachments
+        protected void BindAttachments()
         {
             try
             {
@@ -705,6 +433,70 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
+        protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlMandal.ClearSelection();
+                ddlVillage.ClearSelection();
+                if (ddlDistrict.SelectedItem.Text != "--Select--")
+                {
+                    BindMandal(ddlMandal, ddlDistrict.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlVillage.ClearSelection();
+                if (ddlMandal.SelectedItem.Text != "--Select--")
+                {
+
+                    BindVillages(ddlVillage, ddlMandal.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void ddlRegulation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRegulation.SelectedValue == "1") //32
+                {
+                    divpowerplants1.Visible = true;
+                    divpowerplants2.Visible = true;
+                    divvoltages.Visible = false;
+                }
+                else if (ddlRegulation.SelectedValue == "2") //43(3)
+                {
+                    divpowerplants1.Visible = false;
+                    divpowerplants2.Visible = false;
+                    divvoltages.Visible = true;
+                }
+                else
+                {
+                    divvoltages.Visible = false;
+                    divpowerplants1.Visible = false;
+                    divpowerplants2.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void btnowner_Click(object sender, EventArgs e)
         {
             try
@@ -726,7 +518,7 @@ namespace MeghalayaUIP.User.CFE
 
                         CFEAttachments objOwner = new CFEAttachments();
                         objOwner.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                        objOwner.Questionnareid = Convert.ToString(Session["CFEUNITQID"]);
+                        objOwner.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objOwner.MasterID = "1";
                         objOwner.FilePath = serverpath + fupoWNER.PostedFile.FileName;
                         objOwner.FileName = fupoWNER.PostedFile.FileName;
@@ -760,17 +552,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        public void DeleteFile(string strFileName)
-        {
-            if (strFileName.Trim().Length > 0)
-            {
-                FileInfo fi = new FileInfo(strFileName);
-                if (fi.Exists)//if file exists delete it
-                {
-                    fi.Delete();
-                }
             }
         }
         protected void btnLic_Click(object sender, EventArgs e)
@@ -1001,7 +782,6 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnPlan_Click(object sender, EventArgs e)
         {
             try
@@ -1236,6 +1016,270 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             { throw ex; }
         }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
+            }
+        }
+        protected void btnsave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string result = "";
+                ErrorMsg = validations();
+                if (ErrorMsg == "")
+                {
+                    CFECEIG ObjCFECEIG = new CFECEIG();
+
+                    ObjCFECEIG.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                    ObjCFECEIG.CreatedBy = hdnUserID.Value;
+                    ObjCFECEIG.UnitId = Convert.ToString(Session["CFEUNITID"]);
+                    ObjCFECEIG.IPAddress = getclientIP();
+
+                    ObjCFECEIG.ALREADY = txtInstall.Text;
+                    ObjCFECEIG.PROPOSED = txtProposed.Text;
+                    ObjCFECEIG.TOTAL = txtTotal.Text;
+                    ObjCFECEIG.CONNECTEDLOAD = ddlLOAD.SelectedValue;
+                    ObjCFECEIG.INSTALLED = txtAlready.Text;
+                    ObjCFECEIG.PROPOSE = txtPropose.Text;
+                    ObjCFECEIG.TOTALS = txtTotals.Text;
+                    ObjCFECEIG.REGULATION = ddlRegulation.SelectedValue;
+                    ObjCFECEIG.voltage = ddlvtg.SelectedValue;
+                    ObjCFECEIG.Plant = ddlPlant.SelectedValue;
+                    ObjCFECEIG.CAPACITY = txtCapacity.Text;
+                    ObjCFECEIG.LOCATIONFACTORY = ddlLocFactory.SelectedValue;
+                    ObjCFECEIG.SURVEYNO = txtSurvey.Text;
+                    ObjCFECEIG.EXTENT = txtExtent.Text;
+                    ObjCFECEIG.DISTRIC = ddlDistrict.SelectedValue;
+                    ObjCFECEIG.MANDAL = ddlMandal.SelectedValue;
+                    ObjCFECEIG.VILLAGE = ddlVillage.SelectedValue;
+                    ObjCFECEIG.STREETNAME = txtStreet.Text;
+                    ObjCFECEIG.PINCODE = txtPincode.Text;
+                    ObjCFECEIG.TELEPHOPNE = txtTelephone.Text;
+                    ObjCFECEIG.NEARESTPHONENO = txtNearestNo.Text;
+                    ObjCFECEIG.DATE = txtDate.Text;
+
+                    result = objcfebal.InsertCFECEIGDetails(ObjCFECEIG);
+
+                    if (result != "")
+                    {
+                        success.Visible = true;
+                        lblmsg.Text = "CEIG Details Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public string validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+
+                if (string.IsNullOrEmpty(txtInstall.Text) || txtInstall.Text == "" || txtInstall.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Already Installed \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtProposed.Text) || txtProposed.Text == "" || txtProposed.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Proposed \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtTotal.Text) || txtTotal.Text == "" || txtTotal.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Total \\n";
+                    slno = slno + 1;
+                }
+                if (ddlLOAD.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Type of Connected Load \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtAlready.Text) || txtAlready.Text == "" || txtAlready.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Already Installed \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtPropose.Text) || txtPropose.Text == "" || txtPropose.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Proposed \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtTotals.Text) || txtTotals.Text == "" || txtTotals.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Total \\n";
+                    slno = slno + 1;
+                }
+                if (ddlRegulation.SelectedIndex == -1 || ddlRegulation.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Regulation Type \\n";
+                    slno = slno + 1;
+                }
+                if (ddlRegulation.SelectedValue == "1")
+                {
+                    if (ddlPlant.SelectedIndex == -1 || ddlPlant.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Power Plant Type \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Aggregate Capacity  \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (ddlRegulation.SelectedValue == "2")
+                {
+                    if (ddlvtg.SelectedIndex == -1 || ddlvtg.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Voltage Rating  \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Capacity \\n";
+                    slno = slno + 1;
+                }
+                if (ddlLocFactory.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Proposed Location of Factory \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtSurvey.Text) || txtSurvey.Text == "" || txtSurvey.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Survey \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtExtent.Text) || txtExtent.Text == "" || txtExtent.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Extent \\n";
+                    slno = slno + 1;
+                }
+                if (ddlDistrict.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Distric \\n";
+                    slno = slno + 1;
+                }
+                if (ddlMandal.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Mandal \\n";
+                    slno = slno + 1;
+                }
+                if (ddlVillage.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Village \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtStreet.Text) || txtStreet.Text == "" || txtStreet.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Street Name \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Pincode \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtTelephone.Text) || txtTelephone.Text == "" || txtTelephone.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Telephone \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtNearestNo.Text) || txtNearestNo.Text == "" || txtNearestNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Phone Number \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Date \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypowner.Text) || hypowner.Text == "" || hypowner.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Agreement letter between Contractor & Owner \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypLic.Text) || hypLic.Text == "" || hypLic.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Contractor License copy \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypElectrical.Text) || hypElectrical.Text == "" || hypElectrical.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Contractor/Project electrical supervisor permit copy \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypdiscoms.Text) || hypdiscoms.Text == "" || hypdiscoms.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Feasibility report from the DISCOMS \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypenergy.Text) || hypenergy.Text == "" || hypenergy.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Electrical Single line diagram \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypplan.Text) || hypplan.Text == "" || hypplan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload The structural layout showing plan and Elevations with sectional and safe clearances \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypDraw.Text) || hypDraw.Text == "" || hypDraw.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload General arrangement of the equipment drawing \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypEarth.Text) || hypEarth.Text == "" || hypEarth.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload The earthing layout diagram \\n";
+                    slno = slno + 1;
+                }
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
             try
@@ -1248,7 +1292,6 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
-
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try

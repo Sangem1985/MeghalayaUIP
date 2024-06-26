@@ -1436,6 +1436,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)

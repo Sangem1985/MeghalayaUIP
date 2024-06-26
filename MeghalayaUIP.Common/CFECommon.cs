@@ -25,25 +25,33 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEQuestionnaire = "USP_INSCFEQUESTIONNAREDETAILS";
         public static string InsertCFEQuestionnaireApprovals = "USP_INSCFEREQUIREDAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFEQUESTIONNAIREAPPROVALS";
+
         public static string InsertCFEDepartmentapprovals = "USP_INSCFEDEPARTMENTAPPROVALS";
         public static string GetCFEObtainedOffline = "USP_GETCFEALREADYOBTAINEDAPPROVALS";
         public static string GetCFEIndustryDetails = "USP_GETCFEINDUSTRYDETAILS";
         public static string InsertCFEIndustryDetails = "USP_INSCFEINDUSTRYDETAILS";
+
         public static string GetCFELOMANDRMDetails = "USP_GETCFELOMANDRMDETAILS";
         public static string InsertCFEManufactureDetails = "USP_INSCFELINEOFMANFDETAILS";
         public static string InsertCFERAWMaterialDetails = "USP_INSCFERAWMATERIALDETAILS";
+
         public static string GetCFEPowerDetRetrive = "USP_GETRETRIVECFEPOWERDET";
         public static string InsertCFEPowerDet = "USP_INSCFEPOWERDETAILS";
+
         public static string GetRetriveFireDetails = "USP_GETRETRIVEFIRE";
-        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";        
+        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS"; 
+        
         public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";           
         public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
+
         public static string INSERTCFEWaterDet = "USP_INSCFEWATERDETAILS";
         public static string GetCFEWaterDetails = "USP_GETCFEWATERDETAILS";
+
         public static string GetCFEApprovalsAmounttoPay = "USP_GETCFEAPPROVALSAMOUNTTOPAY";
         public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS";
         public static string InsertCFEAttachments = "USP_INSCFEATTACHMENTS";
         public static string GetCFEAttachments = "USP_GETCFEATTACHMENTS";
+
         public static string GetUserCFEApplStatus = "USP_GETCFEAPPLSTATUS";
         public static string GetUserCFEApplStatusView = "USP_GETCFEAPPLSTATUSVIEW";
 

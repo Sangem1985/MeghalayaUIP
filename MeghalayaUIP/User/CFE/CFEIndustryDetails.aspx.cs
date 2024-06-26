@@ -17,7 +17,7 @@ namespace MeghalayaUIP.User.CFE
 
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID , ErrorMsg = "";
+        string UnitID, ErrorMsg = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -301,8 +301,8 @@ namespace MeghalayaUIP.User.CFE
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGTYPE"]);
                         txtRegistrationNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
-                        txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGDATE"]);                                        
-                        
+                        txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGDATE"]);
+
                         txtPromoterName.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_NAME"]);
                         txtEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_EMAIL"]);
                         txtMobileno.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MOBILE"]);
@@ -324,7 +324,7 @@ namespace MeghalayaUIP.User.CFE
                         { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
                     }
                     txtIndustryName.Enabled = false;
-                    txtPromoterName.Enabled = false;                  
+                    txtPromoterName.Enabled = false;
                     ddlDistric.Enabled = false;
                     ddlMandal.Enabled = false;
                     ddlVillage.Enabled = false;
@@ -389,7 +389,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 if (rblAffectedroad.SelectedValue == "Y")
-                { 
+                {
                     divAffectArea.Visible = true;
                 }
                 else
@@ -418,7 +418,7 @@ namespace MeghalayaUIP.User.CFE
                 lbltotalEmp.Text = "Invalid input";
             }
         }
-        
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -507,7 +507,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;                    
+                    return;
                 }
             }
             catch (Exception ex)
@@ -528,127 +528,14 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Company Registration  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPromoterName.Text) || txtPromoterName.Text == "" || txtPromoterName.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name Promoter  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtSoWoDo.Text) || txtSoWoDo.Text == "" || txtSoWoDo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter S/O  \\n";
-                    slno = slno + 1;
-                }
-                if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
-                    slno = slno + 1;
-                }
-                if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                    slno = slno + 1;
-                }
-                if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Village \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Street Name  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Door No\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode No\\n";
-                    slno = slno + 1;
-
-                }
-                if (string.IsNullOrEmpty(txtMobileno.Text) || txtMobileno.Text == "" || txtMobileno.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Mobile No\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtAltMobile.Text) || txtAltMobile.Text == "" || txtAltMobile.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter AlterNative Mobile No\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == "" || txtEmail.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter EmailId No\\n";
-                    slno = slno + 1;
-                }
                 if (ddlCompanyType.SelectedIndex == -1 || ddlCompanyType.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Organization \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLandlineno.Text) || txtLandlineno.Text == "" || txtLandlineno.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Landline No\\n";
+                    errormsg = errormsg + slno + ". Please Select Type of Company \\n";
                     slno = slno + 1;
                 }
                 if (rblproposal.SelectedIndex == -1 || rblproposal.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Proposal For \\n";
-                    slno = slno + 1;
-                }
-
-                if (rblAbled.SelectedIndex == -1 || rblAbled.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Differently Abled \\n";
-                    slno = slno + 1;
-                }
-                if (rblWomen.SelectedIndex == -1 || rblWomen.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select WOMEN \\n";
-                    slno = slno + 1;
-                }
-
-                //if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Land Value in Lakh\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Building Value In Lakh\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtPlant_Machinery.Text) || txtPlant_Machinery.Text == "" || txtPlant_Machinery.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Plant & Machinary\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtTotalProjValue.Text) || txtTotalProjValue.Text == "" || txtTotalProjValue.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Total Value In Lakh\\n";
-                //    slno = slno + 1;
-                //}
-                if (string.IsNullOrEmpty(txtMale.Text) || txtMale.Text == "" || txtMale.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Male\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtFemale.Text) || txtFemale.Text == "" || txtFemale.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Female\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtIndirectMale.Text) || txtIndirectMale.Text == "" || txtIndirectMale.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Direct Male\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtIndirectFemale.Text) || txtIndirectFemale.Text == "" || txtIndirectFemale.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Direct Female\\n";
                     slno = slno + 1;
                 }
                 if (ddlRegType.SelectedIndex == -1 || ddlRegType.SelectedItem.Text == "--Select--")
@@ -668,9 +555,188 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (ddlFactories.SelectedIndex == -1 || ddlFactories.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Factory \\n";
+                    errormsg = errormsg + slno + ". Please Select Factory Type \\n";
                     slno = slno + 1;
                 }
+
+
+                if (string.IsNullOrEmpty(txtPromoterName.Text) || txtPromoterName.Text == "" || txtPromoterName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Name Promoter  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtSoWoDo.Text) || txtSoWoDo.Text == "" || txtSoWoDo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter S/O.  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == "" || txtEmail.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter EmailId No\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtMobileno.Text) || txtMobileno.Text == "" || txtMobileno.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Mobile No\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtAltMobile.Text) || txtAltMobile.Text == "" || txtAltMobile.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter AlterNative Mobile No\\n";
+                    slno = slno + 1;
+                }
+                //if (string.IsNullOrEmpty(txtLandlineno.Text) || txtLandlineno.Text == "" || txtLandlineno.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Landline No\\n";
+                //    slno = slno + 1;
+                //}
+                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Door No\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Street Name  \\n";
+                    slno = slno + 1;
+                }
+                if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                    slno = slno + 1;
+                }
+                if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                    slno = slno + 1;
+                }
+                if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Village \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Pincode No\\n";
+                    slno = slno + 1;
+
+                }
+                if (rblWomen.SelectedIndex == -1 || rblWomen.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Women Entrepreneur or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblAbled.SelectedIndex == -1 || rblAbled.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Differently Abled or not \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtArchitectName.Text) || txtArchitectName.Text == "" || txtArchitectName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Architect Name\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtArchitectLicNo.Text) || txtArchitectLicNo.Text == "" || txtArchitectLicNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Architect LIC No\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtArchitectMobileno.Text) || txtArchitectMobileno.Text == "" || txtArchitectMobileno.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Architect Mobile No\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtStrEngnrName.Text) || txtStrEngnrName.Text == "" || txtStrEngnrName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Structural Engineer Name\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtStrLicNo.Text) || txtStrLicNo.Text == "" || txtStrLicNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Structural Engineer LIC No\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtStrEngnrMobileno.Text) || txtStrEngnrMobileno.Text == "" || txtStrEngnrMobileno.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Structural Engineer Mobile No\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDevelopmentArea.Text) || txtDevelopmentArea.Text == "" || txtDevelopmentArea.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Proposed Area for Development(in Sq. mts) \\n";
+                    slno = slno + 1;
+                }
+                if (ddlApproachRoad.SelectedIndex == -1 || ddlApproachRoad.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Type of Approach Road \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtExstngWidth.Text) || txtExstngWidth.Text == "" || txtExstngWidth.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Existing Width of Approach Road(in feet) \\n";
+                    slno = slno + 1;
+                }
+                if (rblAffectedroad.SelectedIndex == -1 || rblAffectedroad.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Affected in Road Widening or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblAffectedroad.SelectedValue == "Y")
+                {
+
+                    if (string.IsNullOrEmpty(txtAffectedArea.Text) || txtAffectedArea.Text == "" || txtAffectedArea.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Extent of affected area in sq.mts* \\n";
+                        slno = slno + 1;
+                    }
+                }
+
+                if (string.IsNullOrEmpty(txtMale.Text) || txtMale.Text == "" || txtMale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Male Employee \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtFemale.Text) || txtFemale.Text == "" || txtFemale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Female Employee \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDirectOthers.Text) || txtDirectOthers.Text == "" || txtDirectOthers.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Direct Other Employee\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtIndirectMale.Text) || txtIndirectMale.Text == "" || txtIndirectMale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Direct Male Employee\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtIndirectFemale.Text) || txtIndirectFemale.Text == "" || txtIndirectFemale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Direct Female Employee\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtInDirectOthers.Text) || txtInDirectOthers.Text == "" || txtInDirectOthers.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
+                    slno = slno + 1;
+                }
+                if (divRDctng.Visible == true)
+                {
+                    if (string.IsNullOrEmpty(txtRdCutlenght.Text) || txtRdCutlenght.Text == "" || txtRdCutlenght.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtRdCutLocations.Text) || txtRdCutLocations.Text == "" || txtRdCutLocations.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
+                        slno = slno + 1;
+                    }
+                }
+
+
+
 
                 return errormsg;
 
@@ -716,8 +782,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 btnSave_Click(sender, e);
-                if(ErrorMsg == "")
-                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
             }
             catch (Exception ex)
             {

@@ -1372,5 +1372,73 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstWORKYEARSMstr;
         }
+        public List<MasterINDUSTRIALPARKS> GetIndustryParks()
+        {
+            List<MasterINDUSTRIALPARKS> lstIndustryParkMstr = new List<MasterINDUSTRIALPARKS>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetIndustryParks);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var WORKYEARS = new MasterINDUSTRIALPARKS()
+                        {
+                            INDUSTRIALPARK_ID = Convert.ToString(drOptions["INDUSTRIALPARK_ID"]),
+                            INDUSTRIALPARK_NAME = Convert.ToString(drOptions["INDUSTRIALPARK_NAME"])
+                        };
+                        lstIndustryParkMstr.Add(WORKYEARS);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstIndustryParkMstr;
+        }
+        public List<MasterWaterSource> GetWaterSource()
+        {
+            List<MasterWaterSource> lstWaterSourceMstr = new List<MasterWaterSource>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetWaterSource);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var WORKYEARS = new MasterWaterSource()
+                        {
+                            WATERSOURCE_ID = Convert.ToString(drOptions["WATERSOURCE_ID"]),
+                            WATERSOURCE_NAME = Convert.ToString(drOptions["WATERSOURCE_NAME"])
+                        };
+                        lstWaterSourceMstr.Add(WORKYEARS);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstWaterSourceMstr;
+        }
     }
 }

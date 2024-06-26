@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="CFECommon.cs" />
     <Compile Include="CFOCommon.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="LACommon.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="MasterModel.cs" />
     <Compile Include="PreRegCommon.cs" />

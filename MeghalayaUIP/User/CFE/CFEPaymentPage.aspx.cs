@@ -149,6 +149,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (grdApprovals.Rows.Count == count)
                 {
+
                     success.Visible = true;
                     lblmsg.Text = "Payment Details Submitted Successfully";
                     string message = "alert('" + lblmsg.Text + "')";

@@ -47,7 +47,6 @@ namespace MeghalayaUIP.User.CFE
                     {
                         BindLineOfActivity("");
                         BindData();
-
                     }
                 }
             }
@@ -118,7 +117,7 @@ namespace MeghalayaUIP.User.CFE
                             gvManufacture.DataSource = ds.Tables[0];
                             gvManufacture.DataBind();
                             gvManufacture.Visible = true;
-
+                            ViewState["ManufactureTable"] = ds.Tables[0];
                         }
                         if (ds.Tables[1].Rows.Count > 0)
                         {
@@ -127,6 +126,7 @@ namespace MeghalayaUIP.User.CFE
                             gvRwaMaterial.DataSource = ds.Tables[1];
                             gvRwaMaterial.DataBind();
                             gvRwaMaterial.Visible = true;
+                            ViewState["RawMaterialTable"] = ds.Tables[1];
                         }
                     }
                     else

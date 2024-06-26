@@ -135,21 +135,21 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetMAINCATEGORY();
         }
-        public DataSet GetCertifcateDetails(string TypeOfApplication, string UIDNo,string UnitName)
+        public DataSet GetCertifcateDetails(string TypeOfApplication, string UIDNo, string UnitName)
         {
-            return objMasterDAL.GetCertifcateDetails(TypeOfApplication, UIDNo, UnitName); 
+            return objMasterDAL.GetCertifcateDetails(TypeOfApplication, UIDNo, UnitName);
         }
         public DataSet GetAcknowlegementDetails(string UnitId, string AppType)
         {
             return objMasterDAL.GetAcknowlegementDetails(UnitId, AppType);
         }
-        public DataSet GetSingleWindowDepts(string fdate,string tdate,string DeptId)
+        public DataSet GetSingleWindowDepts(string fdate, string tdate, string DeptId)
         {
             return objMasterDAL.GetSingleWindowDepts(fdate, tdate, DeptId);
         }
-        public DataSet GetSingleWindowApprovals(string fdate, string tdate,string DeptId)
+        public DataSet GetSingleWindowApprovals(string fdate, string tdate, string DeptId)
         {
-            return objMasterDAL.GetSingleWindowApprovals(fdate,tdate,DeptId);
+            return objMasterDAL.GetSingleWindowApprovals(fdate, tdate, DeptId);
         }
         public List<MasterDGPOWER> GetDGPOWER()
         {
@@ -162,6 +162,14 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public List<MasterNOOFWORKERSYEARS> GetWORKERSYEARS()
         {
             return objMasterDAL.GetWORKERSYEARS();
+        }
+        public List<MasterINDUSTRIALPARKS> GetIndustryParks()
+        {
+            return objMasterDAL.GetIndustryParks();
+        }
+        public List<MasterWaterSource> GetWaterSource()
+        {
+            return objMasterDAL.GetWaterSource();
         }
     }
 }

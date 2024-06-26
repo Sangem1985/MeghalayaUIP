@@ -625,6 +625,9 @@
     <Content Include="User\Dashboard\OpenDashboard.aspx" />
     <Content Include="User\Grievance\Grievance.aspx" />
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
+    <Content Include="User\LA\LAApplDetails.aspx" />
+    <Content Include="User\LA\LAQuestionnaire.aspx" />
+    <Content Include="User\LA\LAUserDashBoard.aspx" />
     <Content Include="User\MainDashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryPrintPage.aspx" />
@@ -1342,6 +1345,27 @@
     </Compile>
     <Compile Include="User\Grievance\GrievanceUserView.aspx.designer.cs">
       <DependentUpon>GrievanceUserView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LA\LAApplDetails.aspx.cs">
+      <DependentUpon>LAApplDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LA\LAApplDetails.aspx.designer.cs">
+      <DependentUpon>LAApplDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LA\LAQuestionnaire.aspx.cs">
+      <DependentUpon>LAQuestionnaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LA\LAQuestionnaire.aspx.designer.cs">
+      <DependentUpon>LAQuestionnaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LA\LAUserDashBoard.aspx.cs">
+      <DependentUpon>LAUserDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LA\LAUserDashBoard.aspx.designer.cs">
+      <DependentUpon>LAUserDashBoard.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\MainDashboard.aspx.cs">
       <DependentUpon>MainDashboard.aspx</DependentUpon>

@@ -2585,7 +2585,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPT_DISTRICEST", Convert.ToInt32(ObjCFETax.DISTRICEST));
                 com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
                 com.Parameters.AddWithValue("@CFEPT_TOTALNOEMPEST", Convert.ToInt32(ObjCFETax.TOTALNOEMPEST));
-                com.Parameters.AddWithValue("@CFEPT_DATE", ObjCFETax.DATE);
+                com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact( ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFEPT_CONSTITUTIONEST", ObjCFETax.CONSTITUTIONEST);
                 com.Parameters.AddWithValue("@CFEPT_GOODSSUPPLIESEST", ObjCFETax.GOODSSUPPLIESEST);
                 com.Parameters.AddWithValue("@CFEPT_ADDITIONPLACEBUSINESS", ObjCFETax.ADDITIONPLACEBUSINESS);

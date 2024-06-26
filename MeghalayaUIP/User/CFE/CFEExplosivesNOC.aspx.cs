@@ -59,7 +59,60 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetCFEEXPLOSIVE(hdnUserID.Value, UnitID);
+                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_CFEUNITID"]);
+                        txtExplosive.Text = ds.Tables[0].Rows[0]["CFEED_EXPLOSIVESITE"].ToString();
+                        txtRoadVan.Text = ds.Tables[0].Rows[0]["CFEED_EXPLOSIVEROADVAN"].ToString();
+                        rblcriminal1973.SelectedValue = ds.Tables[0].Rows[0]["CFEED_CRIMINAL1973"].ToString();
+                        if (rblcriminal1973.SelectedValue == "Y")
+                        {
+                            Details.Visible = true;
+                            txtDetails.Text = ds.Tables[0].Rows[0]["CFEED_DETAIL"].ToString();
+                        }
+                        else { Details.Visible = false; }
+                        rblLIC1884.SelectedValue = ds.Tables[0].Rows[0]["CFEED_EXPLOSIVE1884"].ToString();
+                        if (rblLIC1884.SelectedValue == "Y")
+                        {
+                            LicDetails.Visible = true;
+                            txtDet.Text = ds.Tables[0].Rows[0]["CFEED_DETAILS"].ToString();
+                        }
+                        else { LicDetails.Visible = false; }
+                        rblApproval101.SelectedValue = ds.Tables[0].Rows[0]["CFEED_APPROVAL101"].ToString();
+                        if (rblApproval101.SelectedValue == "Y")
+                        {
+                            approvaldet.Visible = true;
+                            txtDetail.Text = ds.Tables[0].Rows[0]["CFEED_APPROVALDETAILS"].ToString();
+                        }
+                        else { approvaldet.Visible = false; }
+                        txtinformation.Text = ds.Tables[0].Rows[0]["CFEED_ANYINFORMATION"].ToString();
 
+
+                    }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFEME_CFEQDID"]);
+                        GVEXPLOSIVE.DataSource = ds.Tables[1];
+                        GVEXPLOSIVE.DataBind();
+                        GVEXPLOSIVE.Visible = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void rblcriminal1973_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -77,7 +130,6 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void rblLIC1884_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -95,7 +147,6 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void rblApproval101_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -113,7 +164,6 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -165,24 +215,6 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
-
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -276,15 +308,24 @@ namespace MeghalayaUIP.User.CFE
                     slno = slno + 1;
                 }
                 if (rblcriminal1973.SelectedIndex == -1)
-                {
-                    Details.Visible = true;
+                {                    
+                        errormsg = errormsg + slno + ". Please Select Additional Inforamation point 1 Yes or No \\n";
+                        slno = slno + 1;                    
+                }
+                else if (rblcriminal1973.SelectedValue == "Y")
+                {                 
                     if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
                     {
-                        errormsg = errormsg + slno + ". Please Enter Details \\n";
+                        errormsg = errormsg + slno + ". Please Enter Additional Inforamation point 1 Details \\n";
                         slno = slno + 1;
                     }
                 }
                 if (rblLIC1884.SelectedIndex == -1)
+                {                    
+                        errormsg = errormsg + slno + ". Please Select Additional Inforamation point 2 Yes or No  \\n";
+                        slno = slno + 1;                   
+                }
+                else if (rblLIC1884.SelectedValue == "Y")
                 {
                     if (string.IsNullOrEmpty(txtDet.Text) || txtDet.Text == "" || txtDet.Text == null)
                     {
@@ -293,10 +334,15 @@ namespace MeghalayaUIP.User.CFE
                     }
                 }
                 if (rblApproval101.SelectedIndex == -1)
+                {                    
+                        errormsg = errormsg + slno + ". Please Select Additional Inforamation point 3 Yes or No \\n";
+                        slno = slno + 1;                    
+                }
+                else if (rblApproval101.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
+                    if (string.IsNullOrEmpty(txtDetail.Text) || txtDetail.Text == "" || txtDetail.Text == null)
                     {
-                        errormsg = errormsg + slno + ". Please Enter Details \\n";
+                        errormsg = errormsg + slno + ". Please Enter Additional Inforamation point 3 Details \\n";
                         slno = slno + 1;
                     }
                 }
@@ -312,61 +358,23 @@ namespace MeghalayaUIP.User.CFE
                 throw ex;
             }
         }
-        public void Binddata()
+        public static string getclientIP()
         {
-            try
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
             {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetCFEEXPLOSIVE(hdnUserID.Value, UnitID);
-                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0)
-                {
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_CFEUNITID"]);
-                        txtExplosive.Text = ds.Tables[0].Rows[0]["CFEED_EXPLOSIVESITE"].ToString();
-                        txtRoadVan.Text = ds.Tables[0].Rows[0]["CFEED_EXPLOSIVEROADVAN"].ToString();
-                        rblcriminal1973.SelectedValue = ds.Tables[0].Rows[0]["CFEED_CRIMINAL1973"].ToString();
-                        if (rblcriminal1973.SelectedValue == "Y")
-                        {
-                            Details.Visible = true;
-                            txtDetails.Text = ds.Tables[0].Rows[0]["CFEED_DETAIL"].ToString();
-                        }
-                        else { Details.Visible = false; }
-                        rblLIC1884.SelectedValue = ds.Tables[0].Rows[0]["CFEED_EXPLOSIVE1884"].ToString();
-                        if (rblLIC1884.SelectedValue == "Y")
-                        {
-                            LicDetails.Visible = true;
-                            txtDet.Text = ds.Tables[0].Rows[0]["CFEED_DETAILS"].ToString();
-                        }
-                        else { LicDetails.Visible = false; }
-                        rblApproval101.SelectedValue = ds.Tables[0].Rows[0]["CFEED_APPROVAL101"].ToString();
-                        if (rblApproval101.SelectedValue == "Y")
-                        {
-                            approvaldet.Visible = true;
-                            txtDetail.Text = ds.Tables[0].Rows[0]["CFEED_APPROVALDETAILS"].ToString();
-                        }
-                        else { approvaldet.Visible = false; }
-                        txtinformation.Text = ds.Tables[0].Rows[0]["CFEED_ANYINFORMATION"].ToString();
-
-
-                    }
-                    if (ds.Tables[1].Rows.Count > 0)
-                    {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFEME_CFEQDID"]);
-                        GVEXPLOSIVE.DataSource = ds.Tables[1];
-                        GVEXPLOSIVE.DataBind();
-                        GVEXPLOSIVE.Visible = true;
-                    }
-                }
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
             }
-            catch (Exception ex)
+            else
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
             }
+
+            return result;
         }
-
         protected void GVEXPLOSIVE_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-    
+
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -14,12 +14,12 @@
                             <h4 class="card-title">Proffessional Tax Details</h4>
                         </div>
                         <div class="card-body">
-                            <div class="col-md-12 d-flex">
+                            <div class="col-md-12 ">
                                 <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                                     <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                                 </div>
                             </div>
-                            <div class="col-md-12 d-flex">
+                            <div class="col-md-12 ">
                                 <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
                                     <strong>Warning!</strong>
                                     <asp:Label ID="lblmsg0" runat="server"></asp:Label>
@@ -102,13 +102,14 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of commencement *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtDate" runat="server" class="form-control" Type="Date"></asp:TextBox>
+                                                <asp:TextBox ID="txtDate" runat="server" class="date form-control"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-8">
+                                    <div class="col-md-8" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label">Constitution of Establishment *</label>
                                             <div class="col-lg-8">
@@ -129,13 +130,10 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Additional Place of Business *</label>
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-6">
                                                 <asp:RadioButtonList ID="rblAdditional" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAdditional_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -143,6 +141,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Business Details</label>
                                 </div>
                                 <div class="col-md-12 d-flex" id="Business" runat="server" visible="false">
                                     <div class="col-md-4">
@@ -186,6 +187,7 @@
                                         <asp:Button ID="btnAdd" Text="Add Details" OnClick="btnAdd_Click" class="btn btn-rounded btn-green" runat="server" Width="110px" />
                                     </div>
                                 </div>
+                                <div class="col-md-12 d-flex"></div>
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <asp:GridView ID="GVState" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
@@ -230,10 +232,10 @@
 
                                 </div>
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-8 col-form-label">Do you have registration under any other act? *</label>
-                                            <div class="col-lg-3">
+                                            <label class="col-lg-6 col-form-label">Do you have registration under any other act? *</label>
+                                            <div class="col-lg-6">
                                                 <asp:RadioButtonList ID="rblother" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblother_SelectedIndexChanged">
                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                     <asp:ListItem Text="No" Value="N" />
@@ -241,12 +243,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
                                     <div class="col-md-4" id="RegistrationType" runat="server" visible="false">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Registration Type *</label>
-                                            <div class="col-lg-4 d-flex">
+                                            <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList runat="server" ID="ddlRegType" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                 </asp:DropDownList>
@@ -261,6 +261,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
                                 </div>
                                 <div class="col-md-12 text-right mt-2 mb-2">
 

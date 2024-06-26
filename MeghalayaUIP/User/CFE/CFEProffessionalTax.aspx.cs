@@ -397,6 +397,14 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Additional \\n";
                     slno = slno + 1;
                 }
+                if (rblAdditional.SelectedValue == "Y")
+                {
+                    if (GVState.Rows.Count == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Additional place of Business details then click on Add Details Button \\n";
+                        slno = slno + 1;
+                    }
+                }
                 if (rblDesignation.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Enter Designation \\n";
@@ -445,6 +453,7 @@ namespace MeghalayaUIP.User.CFE
                         rblConstitution.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_CONSTITUTIONEST"].ToString();
                         txtGoodssupplie.Text = ds.Tables[0].Rows[0]["CFEPT_GOODSSUPPLIESEST"].ToString();
                         rblAdditional.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_ADDITIONPLACEBUSINESS"].ToString();
+                        rblAdditional_SelectedIndexChanged(null, EventArgs.Empty);
                         rblDesignation.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_DESIGNATION"].ToString();
                         rblother.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_REGUNDERACT"].ToString();
                         if (rblother.SelectedValue == "Y")
@@ -454,6 +463,7 @@ namespace MeghalayaUIP.User.CFE
                             ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_REGTYPE"].ToString();
                             TXTRegNo.Text = ds.Tables[0].Rows[0]["CFEPT_REGNO"].ToString();
                         }
+                      
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
