@@ -12,7 +12,34 @@
     </nav>
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid"> 
-            <div class="card">
+              <div class="card" id="NoApplications" runat="server" visible="false">
+                <div class="card-header d-flex justify-content-between">
+                    <h3 class="card-title mt-1"><b>Industries Registered with IMA/MIIPP 2024 </b></h3>
+                    <h4 class="card-title mt-1">
+                        <label id="Label1" runat="server"></label>
+
+                    </h4>
+                </div>
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between" style="background: #e0e4fd; padding: 10px 8px 2px; border-radius: 4px; margin-bottom: 10px;">
+
+                        <h4 style="display: flex; align-items: center;"> <label id="lblunitname" runat="server"></label>, Interested in Starting a New Investment? Get Started</h4>
+                        <h4><a href="../PreReg/IndustryRegistration.aspx"><span class="badge rounded-pill bg-dark text-sm p-2" style="font-size: 16px; color: #fff; background: #033260 !important; display: flex; align-items: center;"><i class="fi fi-tr-bullseye-arrow"></i>&nbsp; New Project</span></a></h4>
+
+                    </div>
+                    <div class="card item1" style="width: 13rem;">
+                        <div class="card-body item">
+                            <h5 class="card-title text-black"><a href="#" style="color: #000;">Future</a></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">UNIT ID :  <label id="lbunitid" runat="server"></label></h6>
+                            <p class="card-subtitle mb-2 text-muted"> <label id="lbltime" runat="server"></label></p>
+                            <a href="../PreReg/IndustryRegistration.aspx" class="card-link" style="color: darkblue">Draft</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="Applications" runat="server" visible="false">
                  <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title mt-1"><b>Welcome to Dashboard </b></h4>
                     <h4 class="card-title mt-1">

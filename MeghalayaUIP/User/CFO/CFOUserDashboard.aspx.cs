@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -54,6 +55,53 @@ namespace MeghalayaUIP.User.CFO
             }
 
         }
+
+        protected void gvCFOApproved_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.Header)
+                {
+                    GridView HeaderGrid = (GridView)sender;
+                    GridViewRow HeaderGridRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                    TableHeaderCell HeaderCell = new TableHeaderCell();
+                    HeaderCell.ColumnSpan = 5;
+                    HeaderCell.RowSpan = 1;
+                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    HeaderCell.Text = "";
+                    HeaderCell.Font.Bold = true;
+                    HeaderGridRow.Cells.Add(HeaderCell);
+
+
+                    HeaderCell = new TableHeaderCell();
+                    HeaderCell.ColumnSpan = 5;
+                    HeaderCell.RowSpan = 1;
+                    HeaderCell.Font.Bold = true;
+                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    HeaderCell.Text = "Pre Operational Approvals";
+                    HeaderGridRow.Cells.Add(HeaderCell);
+
+                    HeaderCell = new TableHeaderCell();
+                    HeaderCell.ColumnSpan = 3;
+                    HeaderCell.RowSpan = 1;
+                    HeaderCell.Font.Bold = true;
+                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    HeaderCell.Text = "";
+                    HeaderGridRow.Cells.Add(HeaderCell);
+
+                    gvCFOApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
         public void BindApproved()
         {
             try
@@ -69,15 +117,15 @@ namespace MeghalayaUIP.User.CFO
                 {
                     if (dsApproved.Tables[0].Rows.Count > 0)
                     {
-                        gvCFEApproved.DataSource = dsApproved.Tables[0];
-                        gvCFEApproved.DataBind();
+                        gvCFOApproved.DataSource = dsApproved.Tables[0];
+                        gvCFOApproved.DataBind();
                     }
                     else
                     {
                        // lblmsg0.Text = "Approval for Registration Under MIIPP is under Process ";
                         //Failure.Visible = true;
-                        gvCFEApproved.DataSource = null;
-                        gvCFEApproved.DataBind();
+                        gvCFOApproved.DataSource = null;
+                        gvCFOApproved.DataBind();
                     }                    
                 }
             }
@@ -87,13 +135,13 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
             }
         }
-        protected void gvCFEApproved_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvCFOApproved_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    int gvrcnt = gvCFEApproved.Rows.Count;
+                    int gvrcnt = gvCFOApproved.Rows.Count;
                     Button btnApply;
                     Button btnApprvlsReq;
                     Button btnApplstatus;

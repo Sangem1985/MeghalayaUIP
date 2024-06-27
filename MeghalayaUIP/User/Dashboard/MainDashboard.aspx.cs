@@ -52,27 +52,59 @@ namespace MeghalayaUIP.User.Dashboard
         }
         public void BindData(string userid)
         {
+
             try
             {
-                DataSet ds = new DataSet();
-                ds = objcommonDAL.GetMainApplicantDashBoard(userid);
-                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                if (Session["UserInfo"] != null)
                 {
-                    gvUserDashboard.DataSource = ds.Tables[0];
-                    gvUserDashboard.DataBind(); 
-                }
-                else
-                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        // txtPANno.Text = ObjUserInfo.PANno;
+                        //unitname.InnerText = ObjUserInfo.EntityName;
+                    }
 
-                    Failure.Visible = true;
-                    hplIndReg.Visible = true;
-                    hplIndReg.ForeColor = System.Drawing.Color.Green;
-                    hplIndReg.Text = "Click here to Apply Registration under MIIPP (2024)";
-                    hplIndReg.NavigateUrl = "PreReg/IndustryRegistration.aspx";
-                    lblmsg0.Text = "There are no Applications to Show ";
-                    gvUserDashboard.DataSource = null;
-                    gvUserDashboard.DataBind();
+                    DataSet ds = new DataSet();
+                    ds = objcommonDAL.GetMainApplicantDashBoard(userid);
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        gvUserDashboard.DataSource = ds.Tables[0];
+                        gvUserDashboard.DataBind();
+                        NoApplications.Visible = false;
+                        Applications.Visible = true;
+                    }
+                    else
+                    {
+                        NoApplications.Visible = true;
+                        Applications.Visible = false;
+                        DateTime now = DateTime.Now;
+                        string timestamp = now.ToString("MMM d, yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
+                        string greeting;
+                        if (now.Hour < 12)
+                        {
+                            greeting = "Good Morning !";
+                        }
+                        else if (now.Hour < 18)
+                        {
+                            greeting = "Good Afternoon !";
+                        }
+                        else
+                        {
+                            greeting = "Good Evening !";
+                        }
+                        lblunitname.InnerText = greeting + " " + ObjUserInfo.EntityName;
+                        lbltime.InnerText = timestamp;
+                        //Failure.Visible = true;
+                        //hplIndReg.Visible = true;
+                        //hplIndReg.ForeColor = System.Drawing.Color.Green;
+                        //hplIndReg.Text = "Click here to Apply Registration under MIIPP (2024)";
+                        //hplIndReg.NavigateUrl = "PreReg/IndustryRegistration.aspx";
+                        //lblmsg0.Text = "There are no Applications to Show ";
+                        gvUserDashboard.DataSource = null;
+                        gvUserDashboard.DataBind();
 
+                    }
                 }
             }
             catch (Exception ex)

@@ -28,13 +28,14 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h4>Approved Pre-Establishment Applications</h4>
+                    <h4>Pre-Operational Approvals</h4>
 
 
                     <div class="table-responsive CFEUSERDASHBOARD">
-                        <asp:GridView ID="gvCFEApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                        <asp:GridView ID="gvCFOApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover" ForeColor="#333333"
-                            GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvCFEApproved_RowDataBound" ShowFooter="true">
+                            GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvCFOApproved_RowDataBound"
+                            OnRowCreated="gvCFOApproved_RowCreated" ShowFooter="true">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -48,32 +49,32 @@
                                         <%# Container.DataItemIndex + 1%>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                <asp:BoundField HeaderText="Registration ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
                                 <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <%--7--%>
-                                <asp:TemplateField HeaderText="Approvals Applied" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Applied" ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPLIEDCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Approvals Approved" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Approved" ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplApproved" Text='<%#Eval("APPROVEDDCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Approvals Under Process" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Under Process" ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplundrProcess" Text='<%#Eval("UNDERPROCESSCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Approvals Rejected" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Rejected" ItemStyle-Width="12%">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplRejected" Text='<%#Eval("REJECTEDDCOUNT")%>' />
                                     </ItemTemplate>
