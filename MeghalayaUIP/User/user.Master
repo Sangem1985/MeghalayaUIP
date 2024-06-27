@@ -211,7 +211,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                 </li>
                                 <li class="nav-item">
                                     <%--<a class="nav-link" href="../PreReg/IndustryRegistration.aspx">Industry Registration</a>--%>
-                                    <asp:LinkButton ID="linkland" runat="server" class="nav-link"><i class="fi fi-br-land-layer-location"></i> Land Allotment <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkland" runat="server" class="nav-link" OnClick="linkland_Click"><i class="fi fi-br-land-layer-location"></i> Land Allotment <span class="sr-only">(current)</span></asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">

@@ -105,26 +105,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12 d-flex justify-content-end">
-                                    <asp:Button ID="btnAddIndustrial" runat="server" Text="Add More" OnClick="btnAddIndustrial_Click" CssClass="btn btn-green btn-rounded mt-2 mb-4" Width="110px" />
-                                </div>
-                                <div class="col-md-12 d-flex justify-content-center">
-                                    <asp:GridView ID="GVIndustrialArea" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                        GridLines="None"
-                                        Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVIndustrialArea_RowDeleting">
-                                        <RowStyle BackColor="#ffffff" />
-                                        <Columns>
-                                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Name of the industrial park" DataField="IE_NAMEOFINUSTRIALPARK" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Quantum of land required (in square metres)" DataField="IE_LANDREQ" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                            <asp:BoundField HeaderText="Nos. of sheds required" DataField="IE_SHEDSNO" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-
-                                        </Columns>
-                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                        <AlternatingRowStyle BackColor="White" />
-                                    </asp:GridView>
-                                </div>
+                                
                                 <h5 class="card-title ml-4 mt-3">Proposed items for manufacturing</h5>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -390,9 +371,9 @@
                                 </div>
 
                                 <div class="col-md-12 text-right mb-3">
-                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
                                     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                    <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
 
                                 </div>
                             </div>

@@ -32,9 +32,6 @@
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
-
-
-
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
@@ -948,7 +945,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><b>Details of Approvals with Fee (in Rs.)</b></h4>
+                                <h4 class="card-title"><b>Details of Approvals with Fee</b></h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

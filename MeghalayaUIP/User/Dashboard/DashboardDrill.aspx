@@ -6,7 +6,7 @@
     <link href="../../assets/admin/css/user.css" rel="stylesheet" />
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            <%--<li class="breadcrumb-item active" aria-current="page">Dashboard</li>--%>
         </ol>
     </nav>
     <div class="page-wrapper griddesignmulticount">
@@ -16,13 +16,13 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title mt-1"><b>Dashboard </b></h4>
-                    
-                        <div class="col-md-1">
-                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
-                        </div>
-                   
+
+                    <div class="col-md-1">
+                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    </div>
+
                 </div>
-                
+
                 <div class="col-md-12 d-flex card mb-2 pb-0" style="background: #f3f3f3; border-radius: 0px; display: flex !important; flex-wrap: nowrap; flex-direction: row;">
                     <div class="col-md-6 justify-content-around" style="align-items: center;">
                         <div class="justify-content-between justify-content-around">
@@ -97,7 +97,7 @@
                                         </thead>
                                         <tbody>
                                             <tr id="trPreReg" runat="server" visible="true">
-                                                <th scope="col" style="text-align: left !important;">Industries Registered with IMA/MIIPP</th>
+                                                <th scope="col" style="text-align: left !important;">Industries Registered with IMA/MIIPP 2024</th>
                                                 <td>
                                                     <span class="status4">
                                                         <asp:LinkButton ID="btnPreRegTotal" runat="server" OnClick="btnPreRegTotal_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
@@ -118,6 +118,31 @@
                                                 </td>
                                                 <td><span class="status3">
                                                     <asp:LinkButton ID="btnPreRegQuery" runat="server" OnClick="btnPreRegQuery_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
+                                                </span>
+                                                </td>
+                                            </tr>
+                                            <tr id="trLA" runat="server" visible="true">
+                                                <th scope="col" style="text-align: left !important;">Land Allotment</th>
+                                                <td>
+                                                    <span class="status4">
+                                                        <asp:LinkButton ID="btnLATotal" runat="server" Text="0" OnClick="btnLATotal_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
+                                                    </span>
+                                                </td>
+                                                <td><span class="status">
+                                                    <asp:LinkButton ID="btnLAApproved" runat="server" Text="0" OnClick="btnLAApproved_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
+                                                </span>
+                                                </td>
+                                                <td><span class="status1">
+                                                    <asp:LinkButton ID="btnLAUnderProcess" runat="server" Text="0" OnClick="btnLAUnderProcess_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
+                                                </span>
+                                                </td>
+                                                <td><span class="status2">
+                                                    <asp:LinkButton ID="btnLARejected" runat="server" Text="0" OnClick="btnLARejected_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
+                                                </span>
+
+                                                </td>
+                                                <td><span class="status3">
+                                                    <asp:LinkButton ID="btnLAQuery" runat="server" Text="0" OnClick="btnLAQuery_Click" Font-Underline="false" ForeColor="White"></asp:LinkButton>
                                                 </span>
                                                 </td>
                                             </tr>

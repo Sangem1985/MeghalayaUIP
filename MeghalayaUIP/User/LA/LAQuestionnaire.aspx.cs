@@ -82,12 +82,12 @@ namespace MeghalayaUIP.User.LA
                         txtGenerated.Text = ds.Tables[0].Rows[0]["ISD_WASTEGENERATED"].ToString();
 
                     }
-                    if (ds.Tables[1].Rows.Count > 0)
-                    {
-                        GVIndustrialArea.DataSource = ds.Tables[1];
-                        GVIndustrialArea.DataBind();
-                        GVIndustrialArea.Visible = true;
-                    }
+                    //if (ds.Tables[1].Rows.Count > 0)
+                    //{
+                    //    GVIndustrialArea.DataSource = ds.Tables[1];
+                    //    GVIndustrialArea.DataBind();
+                    //    GVIndustrialArea.Visible = true;
+                    //}
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         GVManu.DataSource = ds.Tables[2];
@@ -384,55 +384,7 @@ namespace MeghalayaUIP.User.LA
             }
         }
 
-        protected void btnAddIndustrial_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(ddlname.SelectedValue) || string.IsNullOrEmpty(txtQuantum.Text) || string.IsNullOrEmpty(txtSheds.Text))
-                {
-                    lblmsg0.Text = "Please Enter All Details";
-                    Failure.Visible = true;
-                }
-                else
-                {
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("IE_UNITID", typeof(string));
-                    dt.Columns.Add("IE_CREATEDBY", typeof(string));
-                    dt.Columns.Add("IE_CREATEDBYIP", typeof(string));
-                    dt.Columns.Add("IE_NAMEOFINUSTRIALPARK", typeof(string));
-                    dt.Columns.Add("IE_LANDREQ", typeof(string));
-                    dt.Columns.Add("IE_SHEDSNO", typeof(string));
-
-
-
-                    if (ViewState["INDUSTRIAL"] != null)
-                    {
-                        dt = (DataTable)ViewState["INDUSTRIAL"];
-                    }
-
-                    DataRow dr = dt.NewRow();
-                    dr["IE_UNITID"] = Convert.ToString(ViewState["UnitID"]);
-                    dr["IE_CREATEDBY"] = hdnUserID.Value;
-                    dr["IE_CREATEDBYIP"] = getclientIP();
-                    dr["IE_NAMEOFINUSTRIALPARK"] = ddlname.SelectedValue;
-                    dr["IE_LANDREQ"] = txtQuantum.Text;
-                    dr["IE_SHEDSNO"] = txtSheds.Text;
-
-
-                    dt.Rows.Add(dr);
-                    GVIndustrialArea.Visible = true;
-                    GVIndustrialArea.DataSource = dt;
-                    GVIndustrialArea.DataBind();
-                    ViewState["INDUSTRIAL"] = dt;
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+       
 
         protected void btnAddManu_Click(object sender, EventArgs e)
         {
@@ -632,32 +584,7 @@ namespace MeghalayaUIP.User.LA
             }
         }
 
-        protected void GVIndustrialArea_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            try
-            {
-                if (GVIndustrialArea.Rows.Count > 0)
-                {
-                    ((DataTable)ViewState["INDUSTRIAL"]).Rows.RemoveAt(e.RowIndex);
-                    this.GVIndustrialArea.DataSource = ((DataTable)ViewState["INDUSTRIAL"]).DefaultView;
-                    this.GVIndustrialArea.DataBind();
-                    GVIndustrialArea.Visible = true;
-                    GVIndustrialArea.Focus();
-
-                }
-                else
-                {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+        
 
         protected void GVManu_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -780,27 +707,27 @@ namespace MeghalayaUIP.User.LA
                     LANDQUESTIONNAIRE Objindustry = new LANDQUESTIONNAIRE();
 
                     int count = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
-                    for (int i = 0; i < GVIndustrialArea.Rows.Count; i++)
-                    {
-                        Objindustry.Questionnariid = Quesstionriids;
-                        Objindustry.CreatedBy = hdnUserID.Value;
-                        Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
-                        Objindustry.IPAddress = getclientIP();
-                        Objindustry.NAMEINDUSTRYPARK = GVIndustrialArea.Rows[i].Cells[1].Text;
-                        Objindustry.QUANTUMLAND = GVIndustrialArea.Rows[i].Cells[2].Text;
-                        Objindustry.SHEDSNO = GVIndustrialArea.Rows[i].Cells[3].Text;
+                    //for (int i = 0; i < GVIndustrialArea.Rows.Count; i++)
+                    //{
+                    //    Objindustry.Questionnariid = Quesstionriids;
+                    //    Objindustry.CreatedBy = hdnUserID.Value;
+                    //    Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
+                    //    Objindustry.IPAddress = getclientIP();
+                    //    Objindustry.NAMEINDUSTRYPARK = GVIndustrialArea.Rows[i].Cells[1].Text;
+                    //    Objindustry.QUANTUMLAND = GVIndustrialArea.Rows[i].Cells[2].Text;
+                    //    Objindustry.SHEDSNO = GVIndustrialArea.Rows[i].Cells[3].Text;
 
-                        string A = Objland.InsertindustrialareaDetails(Objindustry);
-                        if (A != "")
-                        { count = count + 1; }
-                    }
-                    if (GVIndustrialArea.Rows.Count == count)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "INDUSTRIALSHEDS Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
+                    //    string A = Objland.InsertindustrialareaDetails(Objindustry);
+                    //    if (A != "")
+                    //    { count = count + 1; }
+                    //}
+                    //if (GVIndustrialArea.Rows.Count == count)
+                    //{
+                    //    success.Visible = true;
+                    //    lblmsg.Text = "INDUSTRIALSHEDS Details Submitted Successfully";
+                    //    string message = "alert('" + lblmsg.Text + "')";
+                    //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    //}
 
                     for (int i = 0; i < GVManu.Rows.Count; i++)
                     {

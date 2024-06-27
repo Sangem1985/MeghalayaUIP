@@ -132,5 +132,10 @@ namespace MeghalayaUIP.User
         {
             Response.Redirect("~/User/Grievance/GrievanceUserView.aspx");
         }
+
+        protected void linkland_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/LA/LAQuestionnaire.aspx");
+        }
     }
 }

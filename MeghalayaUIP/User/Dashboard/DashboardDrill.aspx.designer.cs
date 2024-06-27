@@ -186,6 +186,60 @@ namespace MeghalayaUIP.User.Dashboard
         protected global::System.Web.UI.WebControls.LinkButton btnPreRegQuery;
 
         /// <summary>
+        /// trLA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trLA;
+
+        /// <summary>
+        /// btnLATotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLATotal;
+
+        /// <summary>
+        /// btnLAApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLAApproved;
+
+        /// <summary>
+        /// btnLAUnderProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLAUnderProcess;
+
+        /// <summary>
+        /// btnLARejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLARejected;
+
+        /// <summary>
+        /// btnLAQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLAQuery;
+
+        /// <summary>
         /// trCFE control.
         /// </summary>
         /// <remarks>

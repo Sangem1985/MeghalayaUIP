@@ -123,24 +123,6 @@ namespace MeghalayaUIP.User.LA
         protected global::System.Web.UI.WebControls.TextBox txtSheds;
 
         /// <summary>
-        /// btnAddIndustrial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddIndustrial;
-
-        /// <summary>
-        /// GVIndustrialArea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVIndustrialArea;
-
-        /// <summary>
         /// txtNameProduct control.
         /// </summary>
         /// <remarks>
