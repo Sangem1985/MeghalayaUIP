@@ -1162,7 +1162,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYDETPID")%>'></asp:Label>
+                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDTODEPTID")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="UNIT ID">
@@ -1176,15 +1176,15 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
                                             <asp:TemplateField HeaderText="Response">
                                                 <ItemTemplate>
-                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Text='<%#Eval("Responce") %>' Height="100px" Width="250px" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server"></asp:TextBox>
                                                     <br />
                                                     <br />
-                                                    <asp:FileUpload ID="FileUploadquery" runat="server" class="btn btn-success" />
+                                                    <asp:FileUpload ID="FileUploadquery" runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Send Response to IMA/Forward To applicant">
+                                            <asp:TemplateField HeaderText="Send Response to IMA">
                                                 <ItemTemplate>
-                                                    <asp:Button ID="btnsendresponsetoIMA" CssClass="btn btn-success" runat="server" Text="Send Response to IMA Officer" OnClick="btnsendresponsetoIMA_Click" /><br />
+                                                    <asp:Button ID="btnsendresponsetoIMA" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnsendresponsetoIMA_Click" /><br />
                                                     <br />
                                                     <%--<asp:Button ID="btnsendIMAQuerytoApplicant" CssClass="btn btn-success" runat="server" Text="Forward Query to Applicant" OnClick="btnsendIMAQuerytoApplicant_Click" />--%>
                                                 </ItemTemplate>

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-       <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
+    <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
 
     <asp:HiddenField ID="hdnUserID" runat="server" />
     <div class="col-md-12 d-flex">
@@ -45,7 +45,8 @@
 
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkApprReq" OnClick="linkApprReq_Click">
+                                            <%--<a href="#" style="text-decoration: none;">--%>
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-vote-nay"></i>
@@ -60,12 +61,13 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Approvals Required as per IMA</p>
                                             </div>
-                                        </a>
+                                            <%--</a>--%>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkOfflineAppr" OnClick="linkOfflineAppr_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-search-alt"></i>
@@ -82,7 +84,7 @@
                                                     Approvals already obtained                                         
                                                 </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
 
@@ -101,7 +103,8 @@
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkApprApplied" OnClick="linkApprApplied_Click">
+                                            <%--<a href="#" style="text-decoration: none;">--%>
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-memo-circle-check"></i>
@@ -116,13 +119,13 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Applied Approvals</p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
 
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkTobeApplied" OnClick="linkTobeApplied_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-search-alt"></i>
@@ -137,14 +140,10 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Yet to be applied </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
-
-
                             </div>
-
-
                         </div>
                     </section>
                 </div>
@@ -159,7 +158,7 @@
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkAddlPaymnt" OnClick="linkAddlPaymnt_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-memo-circle-check"></i>
@@ -174,13 +173,13 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Additional Payment required</p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
 
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkAddlPaymntdone" OnClick="linkAddlPaymntdone_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-search-alt"></i>
@@ -198,14 +197,10 @@
                                                     &nbsp;
                                                 </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
-
-
                             </div>
-
-
                         </div>
                     </section>
                 </div>
@@ -219,7 +214,7 @@
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkQryRaised" OnClick="linkQryRaised_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-file-download"></i>
@@ -234,12 +229,12 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Query Raised </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkQueryReplied" OnClick="linkQueryReplied_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-memo-circle-check"></i>
@@ -256,12 +251,12 @@
                                                     Query Respond 
                                                 </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkQueryYettoRespond" OnClick="linkQueryYettoRespond_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-vote-nay"></i>
@@ -276,12 +271,12 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Yet to Respond </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkScrtnyRejected" OnClick="linkScrtnyRejected_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-search-alt"></i>
@@ -296,12 +291,13 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Rejected</p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment">
+                                        <asp:LinkButton runat="server" ID="linkScrtnyCmpltd" OnClick="linkScrtnyCmpltd_Click">
+                                            <%--<a href="#" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment">--%>
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-pending"></i>
@@ -316,12 +312,12 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Completed</p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkScrtnyPendng" OnClick="linkScrtnyPendng_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-search-alt"></i>
@@ -336,7 +332,7 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Pending</p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -353,7 +349,7 @@
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkApprovalIssued" OnClick="linkApprovalIssued_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-memo-circle-check"></i>
@@ -370,13 +366,13 @@
                                                     Total Applications 
                                                 </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
 
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkApprovalPending" OnClick="linkApprovalPending_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-search-alt"></i>
@@ -393,12 +389,12 @@
                                                     Approval Pending 
                                                 </p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
-                                        <a href="#" style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="linkApprovalRejected" OnClick="linkApprovalRejected_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-vote-nay"></i>
@@ -413,23 +409,15 @@
                                             <div class="card-footer p-3">
                                                 <p class="mb-0">Applications Rejected</p>
                                             </div>
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
-
                             </div>
-
-
                         </div>
                     </section>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
 
 </asp:Content>

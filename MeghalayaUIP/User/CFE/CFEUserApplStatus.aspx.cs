@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.CFE
 {
     public partial class CFEUserApplStatus : System.Web.UI.Page
     {
-        string UnitID;
+        string UnitID, newurl = "";
 
         CFEBAL objcfebal = new CFEBAL();
         protected void Page_Load(object sender, EventArgs e)
@@ -58,8 +58,8 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                DataSet  ds=new DataSet();
-                ds= objcfebal.GetUserCFEApplStatus(hdnUserID.Value, UnitID);
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetUserCFEApplStatus(hdnUserID.Value, UnitID);
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
@@ -91,5 +91,145 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void linkApprReq_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalsReq.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+        protected void linkOfflineAppr_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalsObtained.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkApprApplied_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalsApplied.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkTobeApplied_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalstobeApplied.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkAddlPaymnt_Click(object sender, EventArgs e)
+        {
+            if (lblAddlPaymentReq.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkAddlPaymntdone_Click(object sender, EventArgs e)
+        {
+            if (lblAddlPaymentPaid.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkQryRaised_Click(object sender, EventArgs e)
+        {
+            if (lblQueryRaised.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkQueryReplied_Click(object sender, EventArgs e)
+        {
+            if (lblQueryReplied.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkQueryYettoRespond_Click(object sender, EventArgs e)
+        {
+            if (lblQueryYettoRespond.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkScrtnyRejected_Click(object sender, EventArgs e)
+        {
+            if (lblScrtnyRejected.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkScrtnyCmpltd_Click(object sender, EventArgs e)
+        {
+            if (lblScrtnyCmpltd.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkScrtnyPendng_Click(object sender, EventArgs e)
+        {
+            if (lblScrtnyPendng.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkApprovalIssued_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalIssued.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Approved";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkApprovalPending_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalPending.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=UnderProcess";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkApprovalRejected_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalRejected.Text != "0")
+            {
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+       
     }
 }

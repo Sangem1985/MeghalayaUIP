@@ -65,7 +65,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.Investerid = Session["INVESTERID"].ToString();
                     prd.UserID = ObjUserInfo.UserID;
                     prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-                    prd.Stage = Convert.ToInt32(Session["stage"]);
+                    //prd.Stage = Convert.ToInt32(Session["stage"]);
                     if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
                     {
                         prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);

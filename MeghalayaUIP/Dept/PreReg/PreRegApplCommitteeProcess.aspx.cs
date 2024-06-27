@@ -198,7 +198,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdApplStatus.DataSource = ds.Tables[6];
                             grdApplStatus.DataBind();
                         }
-                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "8" || 
+                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "8" ||
                             Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "12")
                         {
                             verifypanel.Visible = true;
@@ -315,7 +315,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         verifypanel.Visible = false;
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         //BindaApplicatinDetails();
-                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
                         //return;
                     }
                     else if (ddlStatus.SelectedValue == "9")
@@ -323,7 +323,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         verifypanel.Visible = false;
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         //BindaApplicatinDetails();
-                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
                         //return;
                     }
                 }
