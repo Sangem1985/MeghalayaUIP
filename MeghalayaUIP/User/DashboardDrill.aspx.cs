@@ -227,7 +227,30 @@ namespace MeghalayaUIP.User
                 Failure.Visible = true;
             }
         }
+        protected void btnLATotal_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        protected void btnLAApproved_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLAUnderProcess_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLARejected_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLAQuery_Click(object sender, EventArgs e)
+        {
+
+        }
         protected void btnCFETotal_Click(object sender, EventArgs e)
         {
             try
@@ -370,5 +393,7 @@ namespace MeghalayaUIP.User
             }
 
         }
+
+
     }
 }

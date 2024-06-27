@@ -6,7 +6,7 @@
     
      <nav aria-label="breadcrumb">
         <ol class="breadcrumb d-flex justify-content-between">
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            <%--<li class="breadcrumb-item active" aria-current="page">Dashboard</li>--%>
             <li><a href="#"><span class="badge bg-primary text-white fw-bold">Visit Guidance Site</span></a></li>
         </ol>
     </nav>

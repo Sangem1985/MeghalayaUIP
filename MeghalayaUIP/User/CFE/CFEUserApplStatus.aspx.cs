@@ -149,7 +149,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblQueryRaised.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=QueryRaised";
                 Response.Redirect(newurl);
             }
         }
@@ -176,7 +176,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblScrtnyRejected.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=ScrutinyRejected";
                 Response.Redirect(newurl);
             }
 
@@ -186,7 +186,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblScrtnyCmpltd.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=ScrutinyCompleted";
                 Response.Redirect(newurl);
             }
         }
@@ -195,7 +195,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblScrtnyPendng.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=ScrutinyPending";
                 Response.Redirect(newurl);
             }
         }
@@ -224,7 +224,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblApprovalRejected.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Rejected";
                 Response.Redirect(newurl);
             }
 
