@@ -76,14 +76,14 @@ namespace MeghalayaUIP.Dept.PreReg
                     string UNITID = Arguents[0];
                     string INVESTERID = Arguents[1];
 
-                    int stage = 3;
+                    //int stage = 3;
 
                     prd.Unitid = UNITID;
                     prd.Investerid = INVESTERID;
-                    prd.Stage = stage;
+                   // prd.Stage = stage;
                     Session["UNITID"] = UNITID;
                     Session["INVESTERID"] = INVESTERID;
-                    Session["stage"] = stage;
+                    //Session["stage"] = stage;
                     Response.Redirect("PreRegApplDeptProcess.aspx?status=" + Request.QueryString["status"].ToString());
                 }
             }

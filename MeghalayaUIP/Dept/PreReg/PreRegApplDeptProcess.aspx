@@ -933,7 +933,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" id="verifypanel" runat="server" visible="true">
+                        <div class="panel panel-default" id="verifypanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSix">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -1128,7 +1128,7 @@ However, you can register your unit to get required approvals/ clearances.</asp:
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" id="QueryResondpanel" runat="server" visible="true">
+                        <div class="panel panel-default" id="QueryResondpanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSeven">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"

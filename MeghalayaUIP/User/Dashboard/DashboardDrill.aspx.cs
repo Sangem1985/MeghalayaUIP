@@ -127,7 +127,7 @@ namespace MeghalayaUIP.User.Dashboard
             try
             {
                 System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
-                li.Text = "--Select--";
+                li.Text = "--All--";
                 li.Value = "%";
                 ddl.Items.Insert(0, li);
             }
