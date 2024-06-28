@@ -142,6 +142,12 @@ namespace MeghalayaUIP.BAL.CFOBAL
             return objCFODAL.GetApprovalDataByDeptId(CFOQDID, UNITID, DEPTID);
         }
 
+        public DataSet GetCFOTracker(string UserID, string UnitID, string Type)
+        {
+            return objCFODAL.GetCFOTracker(UserID, UnitID, Type);
+        }
+        public DataSet GetUserCFOApplStatus(string Userid, string UNITID)
+        { return objCFODAL.GetUserCFOApplStatus(Userid, UNITID); }
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public DataTable GetCFODashBoard(CFODtls objCFO)

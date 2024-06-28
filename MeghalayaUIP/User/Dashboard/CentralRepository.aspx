@@ -55,9 +55,6 @@
                                                 <asp:DropDownList ID="ddlModule" runat="server" class="form-control"
                                                     AutoPostBack="true" OnSelectedIndexChanged="ddlModule_SelectedIndexChanged">
                                                 </asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="rfv_ddlModule" runat="server" ControlToValidate="ddlModule"
-                                                    Display="None" ErrorMessage="Please Select module" InitialValue="0" ForeColor="Red"
-                                                    ValidationGroup="Search" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -68,10 +65,7 @@
                                                 <asp:DropDownList ID="ddldept" runat="server" class="form-control txtbox"
                                                     TabIndex="1">
                                                     <asp:ListItem>--Select--</asp:ListItem>
-                                                </asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="rfvddldept" runat="server" ControlToValidate="ddldept"
-                                                    Display="None" ErrorMessage="Please Select module" InitialValue="0" ForeColor="Red"
-                                                    ValidationGroup="Search" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                </asp:DropDownList>                                               
                                             </div>
                                         </div>
                                     </div>

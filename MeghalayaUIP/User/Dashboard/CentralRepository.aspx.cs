@@ -217,8 +217,10 @@ namespace MeghalayaUIP.User.Dashboard
             try
             {
                 DataSet dsCR = new DataSet();
-                
-                dsCR = masterBAL.GetCentralRepository(Convert.ToInt16(ddlModule.SelectedValue),Convert.ToInt16(ddldept.SelectedValue), txtFDate.Text, txtTDate.Text, Convert.ToInt16(hdnUserID.Value));
+                string deptid = ddldept.SelectedValue == "--Select--" ? "0" : ddldept.SelectedValue;
+
+
+                dsCR = masterBAL.GetCentralRepository(Convert.ToInt16(ddlModule.SelectedValue), Convert.ToInt16(deptid), txtFDate.Text, txtTDate.Text, Convert.ToInt16(hdnUserID.Value));
                 if (dsCR.Tables.Count > 0)
                 {
                     if (dsCR.Tables[0].Rows.Count > 0)
@@ -227,7 +229,7 @@ namespace MeghalayaUIP.User.Dashboard
                         grdCentralRepo.DataBind();
                         divgrd.Visible = true;
                     }
-                    else 
+                    else
                     {
                         grdCentralRepo.DataSource = null;
                         grdCentralRepo.DataBind();
@@ -257,10 +259,10 @@ namespace MeghalayaUIP.User.Dashboard
                 Label relativeFilePath = (Label)row.FindControl("lblpath");
                 Label fileName = (Label)row.FindControl("lblfilename");
 
-                string virtualPath = relativeFilePath.Text +"\\"+ fileName.Text;
+                string virtualPath = relativeFilePath.Text + "\\" + fileName.Text;
 
-                string physicalPath = virtualPath.Replace(@"\", "/");                                                                   
-               
+                string physicalPath = virtualPath.Replace(@"\", "/");
+
                 if (File.Exists(physicalPath))
                 {
                     string script = "openPdf('" + physicalPath + "');";
@@ -279,6 +281,6 @@ namespace MeghalayaUIP.User.Dashboard
                 }
             }
         }
-       
+
     }
 }
