@@ -134,6 +134,30 @@ section.about-style-four .single-item.wow.fadeInLeft.animated, section.about-sty
 section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
     overflow: unset !important;
 }
+section.innerpages h3 {
+    font-family: "Roboto", sans-serif !important;
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 15px;
+    color: #192d66;
+    font-weight: 550;
+    padding-top: 15px;
+}
+section.innerpages h4 {
+    font-family: "Roboto", sans-serif !important;
+    color: #6e88ae;
+    padding-top: 15px;
+    font-size: 1.3rem !important;
+    font-weight: 500;
+}
+.main-header.style-six {
+    border-bottom: 1px solid #708ab0;
+}
+section.innerpages {
+    margin-bottom: 30px;
+}
+.main-footer.style-two .footer-top {
+    padding: 20px 0px;
+}
     </style>
 </head>
 <body class="boxed_wrapper">
@@ -169,8 +193,8 @@ section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
                         <div class="language dropdownn">
                             <a class="dropdown-toggle" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">Login</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                <li><a href="login.html">User Login</a></li>
-                                <li><a href="#">Department Login</a></li>
+                                <li><a href="login.aspx">User Login</a></li>
+                                <li><a href="Deptlogin.aspx">Department Login</a></li>
                                 <!-- <li><a href="#">Ger</a></li>
                                 <li><a href="#">Fre</a></li> -->
                             </ul>
@@ -186,7 +210,7 @@ section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
         <div class="container">
             <div class="inner-container clearfix">
                 <div class="left-content pull-left">
-                    <figure class="logo-box"><a href="index.html"><img src="assets/assetsnew/images/Logo_dark.png" alt="" style="width: 70%;margin-top: 16px;"></a></figure>
+                    <figure class="logo-box"><a href="HomeNew.aspx"><img src="assets/assetsnew/images/Logo_dark.png" alt="" style="width: 70%;margin-top: 16px;"></a></figure>
                 </div>
                 <div class="right-content pull-right">
                     <div class="info-box">
@@ -220,9 +244,7 @@ section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
                             </div>
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="home.html">Home</a>
-                                       
-                                    </li>
+                                    <li><a href="HomeNew.aspx">Home</a></li>
                                     <li class="dropdown"><a href="#">About <i class="fi fi-br-chevron-double-down"></i></a>
                                         <ul>
                                             <li><a href="stateprofile.aspx">State Profile</a></li>
@@ -232,7 +254,7 @@ section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
                                     </li> 
                                     <li class="dropdown"><a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
                                         <ul>
-                                            <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf">Meghalaya Next Vision
+                                            <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf" target="_blank">Meghalaya Next Vision
                                                 2028</a></li>
                                             
                                             
@@ -240,11 +262,11 @@ section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
                                     </li>
                                     <li class="dropdown"><a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
                                         <ul>
-                                            <li><a href="Documents/MIIPP%202024.pdf" class="text-black">MIIPP, 2024</a></li>
+                                            <li><a href="Documents/MIIPP%202024.pdf" class="text-black"  target="_blank">MIIPP, 2024</a></li>
                                             <li><a href="Documents/Meghalaya Tourism.pdf" class="text-black" target="_blank">Meghalaya Tourism Policy</a></li>
     
                                             <li><a href="Documents/IT Policy 2024.pdf" class="text-black" target="_blank">IT/ITES Policy 2024</a></li>
-                                            <li><a href="Documents/Meghalaya Power Policy.pdf" class="text-black">Meghalaya
+                                            <li><a href="Documents/Meghalaya Power Policy.pdf" class="text-black"  target="_blank">Meghalaya
                                                 Power Policy, 2024</a></li>
                                             
                                         </ul>

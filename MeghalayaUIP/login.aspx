@@ -1,11 +1,28 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="MeghalayaUIP.login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outerNew.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="MeghalayaUIP.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .main-wrapper.login-body {
+    width: 100%;
+}
+        section.about-us-section.section-padding {
+    padding: 0px 0px 0px !important;
+}
+        .login-body {
+    min-height: 70vh;
+    padding: 10px 0px;
+}
+        .login-wrapper h1 {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 26px !important;
+}
+    </style>
     <link href="assets/css/login.css" rel="stylesheet" />
      <section class="about-us-section section-padding">
-            <div class="container">
-                <div class="row">
+            <div class="">
+                <div class="">
                      <table style="width: 100%">
                                     <tr>
                                         <td>

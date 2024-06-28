@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="MeghalayaUIP.Contact" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outerNew.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="MeghalayaUIP.Contact" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -9,6 +9,52 @@
 }
         .contact-pg-section .office-info h3 {
     border: none !important;
+}
+        .contact-pg-section .office-info {
+    background-color: #131e4a;
+    position: relative;
+    padding: 30px 10px;
+    margin-top: -92px;
+    margin-left: 0px;
+}
+        .contact-pg-section .office-info h3 {
+    border: none !important;
+}
+        .contact-pg-section .office-info h3 {
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: normal;
+    color: #fff;
+    margin: 0px 25px 0.8em;
+}
+        .contact-pg-section {
+    padding-bottom: 35px;
+}
+        section.innerpages ul {
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+        .contact-pg-section .office-info li {
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: #fff;
+}
+        section.contact-pg-section.section-padding {
+    padding: 100px 0px;
+}
+        .contact-pg-section .office-info li i {
+    color: #fd5f17;
+    display: inline-block;
+    padding-right: 5px;
+}
+        .contact-pg-section .office-info > div + div {
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+        i.ti-location-pin, i.ti-mobile, i.ti-email {
+    display: none !important;
 }
     </style>
     <section class="innerpages">
@@ -37,7 +83,7 @@
                                 <ul style="height: 125px;">
                                     <li><i class="ti-location-pin"></i> Director of Commerce Industries,<br /> Administrative Building, Lower Lachumiere, Shillong - 793001, East Khasi Hills District, Meghalaya.</li>
                                     <li><i class="ti-mobile"></i> Phone No. : (0364) 2226253</li>
-                                    <li><i class="ti-email"></i> Email : f</li>
+                                    
                                 </ul>
                             </div>
                             <div>

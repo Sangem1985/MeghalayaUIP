@@ -138,7 +138,7 @@
                         <div class="text"><button class="button-box">Click Here !</button></div>
                     </div>
                 </div></div>
-                <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
+               <%-- <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
                     <div class="inner-box">
                         <div class="author-info">
                             <figure class="author-thumb"><i class="fi fi-tr-clipboard-user"></i></figure>
@@ -157,7 +157,7 @@
                         </div>
                         <div class="text"><button class="button-box">Click Here !</button></div>
                     </div>
-                </div></div>
+                </div></div>--%>
                <!-- <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
                     <div class="inner-box">
                         <div class="author-info">
