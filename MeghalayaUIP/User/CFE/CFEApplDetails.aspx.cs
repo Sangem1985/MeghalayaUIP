@@ -47,7 +47,7 @@ namespace MeghalayaUIP.User.CFE
                 else
                 {
                     Response.Redirect("~/Login.aspx");
-                }              
+                }
             }
             catch (Exception ex)
             {
@@ -59,36 +59,38 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-               
+
                 if (Session["CFEUNITID"] != null && hdnUserID.Value != null)
                 {
                     DataSet ds = new DataSet();
                     ds = objcfebal.GetCFEApplicationDetails(Convert.ToString(Session["CFEUNITID"]), hdnUserID.Value);
+                    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        DataRow row = ds.Tables[0].Rows[0];
+                        lblnameUnit.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
 
-                    DataRow row = ds.Tables[0].Rows[0];
-                    lblnameUnit.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
-                   
-                    lblconstitution.Text = Convert.ToString(row["CONST_TYPE"]);
-                    lblProposal.Text = Convert.ToString(row["CFEQD_PROPOSALFOR"]);
-                    lblLocation.Text = Convert.ToString(row["DistrictName"]);
-                    lblMandal.Text = Convert.ToString(row["Mandalname"]);
-                    lblVillage.Text = Convert.ToString(row["VillageName"]);
-                    lblExtentland.Text = Convert.ToString(row["CFEQD_TOTALEXTENTLAND"]);
-                    lblBuilt.Text = Convert.ToString(row["CFEQD_BUILTUPAREA"]);
-                    lblSectors.Text = Convert.ToString(row["CFEQD_SECTOR"]);
-                    lblActivity.Text = Convert.ToString(row["LineofActivity_Name"]);
-                    lblPollution.Text = Convert.ToString(row["CFEQD_PCBCATEGORY"]);
-                    lblIndustry.Text = Convert.ToString(row["INDUSTRYTYPE"]);
+                        lblconstitution.Text = Convert.ToString(row["CONST_TYPE"]);
+                        lblProposal.Text = Convert.ToString(row["CFEQD_PROPOSALFOR"]);
+                        lblLocation.Text = Convert.ToString(row["DistrictName"]);
+                        lblMandal.Text = Convert.ToString(row["Mandalname"]);
+                        lblVillage.Text = Convert.ToString(row["VillageName"]);
+                        lblExtentland.Text = Convert.ToString(row["CFEQD_TOTALEXTENTLAND"]);
+                        lblBuilt.Text = Convert.ToString(row["CFEQD_BUILTUPAREA"]);
+                        lblSectors.Text = Convert.ToString(row["CFEQD_SECTOR"]);
+                        lblActivity.Text = Convert.ToString(row["LineofActivity_Name"]);
+                        lblPollution.Text = Convert.ToString(row["CFEQD_PCBCATEGORY"]);
+                        lblIndustry.Text = Convert.ToString(row["INDUSTRYTYPE"]);
 
-                    lblUnitLocation.Text = Convert.ToString(row["CFEQD_UNTLOCATION"]);
-                    lblMIDCL.Text = Convert.ToString(row["CFEQD_MIDCLLAND"]);
-                    lblproposeEMP.Text = Convert.ToString(row["CFEQD_PROPEMP"]);
-                    lblLANDINR.Text = Convert.ToString(row["CFEQD_LANDVALUE"]);
-                    lblBuildingINR.Text = Convert.ToString(row["CFEQD_BUILDINGVALUE"]);
-                    lblMachineryINR.Text = Convert.ToString(row["CFEQD_PMCOST"]);
-                    lblExpectTurnINR.Text = Convert.ToString(row["CFEQD_EXPECTEDTURNOVER"]);
-                    lblTPCost.Text = Convert.ToString(row["CFEQD_TOTALPROJCOST"]);
-                    lblEnterpriseCat.Text = Convert.ToString(row["CFEQD_ENTERPRISETYPE"]);
+                        lblUnitLocation.Text = Convert.ToString(row["CFEQD_UNTLOCATION"]);
+                        lblMIDCL.Text = Convert.ToString(row["CFEQD_MIDCLLAND"]);
+                        lblproposeEMP.Text = Convert.ToString(row["CFEQD_PROPEMP"]);
+                        lblLANDINR.Text = Convert.ToString(row["CFEQD_LANDVALUE"]);
+                        lblBuildingINR.Text = Convert.ToString(row["CFEQD_BUILDINGVALUE"]);
+                        lblMachineryINR.Text = Convert.ToString(row["CFEQD_PMCOST"]);
+                        lblExpectTurnINR.Text = Convert.ToString(row["CFEQD_EXPECTEDTURNOVER"]);
+                        lblTPCost.Text = Convert.ToString(row["CFEQD_TOTALPROJCOST"]);
+                        lblEnterpriseCat.Text = Convert.ToString(row["CFEQD_ENTERPRISETYPE"]);
+                    }
 
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                     {

@@ -80,13 +80,13 @@
                                                         </ItemTemplate>
                                                         <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Date of Query" ItemStyle-HorizontalAlign="Center">
+                                                    <asp:TemplateField HeaderText="Query Raised Date" ItemStyle-HorizontalAlign="Center">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="hplQuery" Text='<%#Eval("DATEOFQUERY")%>' Target="_blank" runat="server" />
                                                         </ItemTemplate>
                                                         <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Date of Query Response">
+                                                    <asp:TemplateField HeaderText="Response to Query Date">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="hplQueryResponse" Text='<%#Eval("DATEOFQUERYRRESPONSE")%>' Target="_blank" runat="server" />
                                                         </ItemTemplate>

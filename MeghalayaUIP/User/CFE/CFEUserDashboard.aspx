@@ -28,15 +28,18 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <div class="col-md-12 d-flex">
                         <div class="col-md-11">
-                            <h4 style="margin-left: -10px;">Pre-Establishment Approvals</h4>
+                            <h4 style="margin-left: -10px;">Pre-Establishment Approvals :
+                                <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
                         </div>
-                        <div>
-                            <asp:Label runat="server" ID="lblhdng"></asp:Label>
-                        </div>
+
                         <div class="col-md-1">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
+                    <%--<div class="justify-content-between justify-content-around">
+                        <h4 class="card-title mb-0 mt-2">
+                           </h4>
+                    </div>--%>
 
                     <div class="table-responsive CFEUSERDASHBOARD">
 
