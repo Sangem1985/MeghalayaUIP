@@ -60,12 +60,12 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// gvCFEApproved control.
+        /// gvCFOApproved control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCFEApproved;
+        protected global::System.Web.UI.WebControls.GridView gvCFOApproved;
     }
 }
