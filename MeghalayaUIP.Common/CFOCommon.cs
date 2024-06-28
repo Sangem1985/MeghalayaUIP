@@ -42,6 +42,9 @@ namespace MeghalayaUIP.Common
         public static string InsertPaymentDetails = "USP_INSCFOPAYMENTDETAILS";
         public static string GetApprovalDataByDeptId = "USP_GETCFOAPPROVALBYDEPTID";
 
+        public static string GetCFOTracker = "USP_GETUSERCFOAPPLTRACKER";
+        public static string GetUserCFOApplStatus = "USP_GETCFOAPPLSTATUS";
+
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public static string GetCFODashBoard = "USP_CFODASHBOARDCOUNT";

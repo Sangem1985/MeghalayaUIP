@@ -804,6 +804,7 @@
     <Content Include="User\CFO\CFOPaymentPage.aspx" />
     <Content Include="User\CFO\CFOProffessionalTax.aspx" />
     <Content Include="User\CFO\CFOQuestionnaire.aspx" />
+    <Content Include="User\CFO\CFOTracker.aspx" />
     <Content Include="User\CFO\CFOUploadEnclosures.aspx" />
     <Content Include="User\CFO\CFOUserApplStatus.aspx" />
     <Content Include="User\CFO\CFOUserDashboard.aspx" />
@@ -1467,6 +1468,13 @@
     </Compile>
     <Compile Include="User\CFO\CFOQuestionnaire.aspx.designer.cs">
       <DependentUpon>CFOQuestionnaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOTracker.aspx.cs">
+      <DependentUpon>CFOTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOTracker.aspx.designer.cs">
+      <DependentUpon>CFOTracker.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOUploadEnclosures.aspx.cs">
       <DependentUpon>CFOUploadEnclosures.aspx</DependentUpon>

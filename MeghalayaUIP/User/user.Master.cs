@@ -137,5 +137,10 @@ namespace MeghalayaUIP.User
         {
             Response.Redirect("~/User/LA/LAQuestionnaire.aspx");
         }
+
+        protected void lnkCentralrepository_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Dashboard/CentralRepository.aspx");
+        }
     }
 }

@@ -294,6 +294,13 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                     <%--<a class="nav-link" href="#"></a>--%>
                                 </li>
                             </ul>
+                            <ul style="list-style: none; margin-bottom: -3px !important; width: 8%; text-align: right; justify-content: right;" class="d-flex">
+                                <li class="nav-item">
+
+                                    <asp:LinkButton ID="lnkCentralrepository" runat="server" OnClick="lnkCentralrepository_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-source-document" Title="Central Repository"></i><%--<img src="../../assets/admin/img/home.png" style="width:34%;box-shadow: 0px 0px 8px 0px #999999;border-radius: 16px;" alt="back to Home" Title="Back to Home"/>--%> </asp:LinkButton>
+                                    <%--<a class="nav-link" href="#"></a>--%>
+                                </li>
+                            </ul>
                         </div>
                     </nav>
                 </div>
