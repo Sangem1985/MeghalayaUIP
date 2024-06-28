@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.PreReg
 {
     public partial class IndustryRegistration : System.Web.UI.Page
     {
-        int index; string ErrorMsg = "";
+        int index; string ErrorMsg1 = "", ErrorMsg2 = "", ErrorMsg3 = "", ErrorMsg4 = "";
 
         readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
@@ -728,6 +728,9 @@ namespace MeghalayaUIP.User.PreReg
                     divManf1.Visible = false;
                     txtMainManf.Text = "";
                     txtManfprodct.Text = "";
+                    txtRawmaterial.Text = "";
+                    txtAnnualCapacity.Text = "";
+                    txtMeasurementUnits.Text = "";
                 }
 
 
@@ -743,8 +746,8 @@ namespace MeghalayaUIP.User.PreReg
             {
                 
                 int result = 0;
-                ErrorMsg = Step1validations();
-                if (ErrorMsg == "")
+                ErrorMsg1 = Step1validations();
+                if (ErrorMsg1 == "")
                 {
                     IndustryDetails ID = new IndustryDetails();
                     if (Convert.ToString(ViewState["UnitID"]) != "")
@@ -868,7 +871,7 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else
                 {
-                    string message = "alert('" + ErrorMsg + "')";
+                    string message = "alert('" + ErrorMsg1 + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     return;
                 }
@@ -1405,8 +1408,8 @@ namespace MeghalayaUIP.User.PreReg
 
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
-                    ErrorMsg = Step2validations();
-                    if (ErrorMsg == "")
+                    ErrorMsg2 = Step2validations();
+                    if (ErrorMsg2 == "")
                     {
                         DataTable dt = new DataTable();
                         DataRow dr;
@@ -1464,9 +1467,9 @@ namespace MeghalayaUIP.User.PreReg
                     }
                     else
                     {
-                        Failure.Visible = true;
-                        lblmsg0.Text = ErrorMsg;
-                        string message = "alert('" + ErrorMsg + "')";
+                        //Failure.Visible = true;
+                        //lblmsg0.Text = ErrorMsg2;
+                        string message = "alert('" + ErrorMsg2 + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         return;
                     }
@@ -1788,6 +1791,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     string message = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex) { }
@@ -1827,7 +1831,7 @@ namespace MeghalayaUIP.User.PreReg
 
             try
             {
-
+                
                 string result = "";
                 if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "")
                 {
@@ -1846,26 +1850,31 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else
                 {
-                    string message1;
+                    
                     if (Convert.ToString(ViewState["UnitID"]) == "")
                     {
-                        message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        ErrorMsg3 = ErrorMsg3+ "Please Fill Basic Details & Basic Revenue Projections \\n";
+                        
                     }
                     if (gvPromoters.Rows.Count <= 0)
                     {
-                        message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        ErrorMsg3 = ErrorMsg3+ "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button \\n";
+                       
                     }
                     if (lbldpr.Text == "")
                     {
-                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        ErrorMsg3 = ErrorMsg3+"Please Upload Detailed Project Report and click on Upload Button \\n";
+                      
                     }
                     if (hdnResultTab2.Value == "")
                     {
-                        message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        ErrorMsg3 = ErrorMsg3 +"Please Enter Details of Revenue Projections and click on Save button \\n";
+                       
+                    }
+                    if(ErrorMsg3 != "")
+                    {
+                        string msg = "alert('" + ErrorMsg3 + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", ErrorMsg3, true);
                     }
                 }
             }
@@ -2473,9 +2482,9 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 string result = "";
-                ErrorMsg = Step4validations();
+                ErrorMsg4 = Step4validations();
 
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && ErrorMsg != "")
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && ErrorMsg4 != "")
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
                     // dt.Columns.Remove("IDD_COUNTRYName");
@@ -2561,14 +2570,14 @@ namespace MeghalayaUIP.User.PreReg
         protected void btnNext1_Click(object sender, EventArgs e)
         {
             btnsave1_Click(sender, e);
-            if(ErrorMsg=="")
+            if(ErrorMsg1=="")
             MVprereg.ActiveViewIndex = 1;
             else return;
         }
         protected void btnNext2_Click(object sender, EventArgs e)
         {
             btnsave2_Click(sender, e);
-            if (ErrorMsg == "")
+            if (ErrorMsg2 == "")
                 MVprereg.ActiveViewIndex = 2;
             else return;
 
@@ -2576,7 +2585,7 @@ namespace MeghalayaUIP.User.PreReg
         protected void btnNext3_Click(object sender, EventArgs e)
         {
             btnSave3_Click(sender, e);
-            if (ErrorMsg == "")
+            if (ErrorMsg3 == "")
                 MVprereg.ActiveViewIndex = 3;
             else return;
         }
