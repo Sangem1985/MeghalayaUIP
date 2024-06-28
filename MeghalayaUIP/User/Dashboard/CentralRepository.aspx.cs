@@ -35,6 +35,9 @@ namespace MeghalayaUIP.User.Dashboard
                     }
                     if (!IsPostBack)
                     {
+                        DateTime today = DateTime.Today;
+                        txtTDate.Text = today.ToString("dd-MM-yyyy");
+                        txtFDate.Text = today.ToString("dd-MM-yyyy");
                         BindModuleType();
                     }
                 }
@@ -259,7 +262,7 @@ namespace MeghalayaUIP.User.Dashboard
                 Label relativeFilePath = (Label)row.FindControl("lblpath");
                 Label fileName = (Label)row.FindControl("lblfilename");
 
-                string virtualPath = relativeFilePath.Text + "\\" + fileName.Text;
+                string virtualPath = relativeFilePath.Text;// + "\\" + fileName.Text;
 
                 string physicalPath = virtualPath.Replace(@"\", "/");
 
@@ -275,10 +278,22 @@ namespace MeghalayaUIP.User.Dashboard
                     //Response.TransmitFile(physicalPath);
                     //Response.End();
                 }
-                else
+                else 
                 {
-                    Response.Write("<script>alert('File not found.');</script>");
+                    string script = "openPdf('" + virtualPath + "');";
+
+                    ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
+
+
+                    //Response.ContentType = "application/pdf";
+                    //Response.AppendHeader("Content-Disposition", $"attachment; filename={fileName.Text}");
+                    //Response.TransmitFile(physicalPath);
+                    //Response.End();
                 }
+                //else
+                //{
+                //    Response.Write("<script>alert('File not found.');</script>");
+                //}
             }
         }
 
