@@ -96,7 +96,7 @@
             margin-left: -18px;
         }
 
-        i.fi.fi-br-house-chimney-user {
+        i.fi.fi-br-house-chimney-user, i.fi.fi-br-source-document {
             background: #fff;
             padding: 9px 9px 3px;
             margin: 2px;
@@ -105,7 +105,9 @@
             *box-shadow: 2px 3px 5px 3px #fbfbfb40;
             box-shadow: 3px 3px #6c6c6cb8;
         }
-
+         i.fi.fi-br-source-document {
+            background:#a7d1ff;
+        }
         ul.navbar-nav li:hover {
             background: #ffffff2b;
             padding: 0px 0px 0px 0px;
@@ -153,7 +155,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                         </body>
                     </li>
 
-                    <li class="ml-4 mt-3 mr-2"><i class="fi fi-br-headset"></i>Help Line No : <b>03564 123456</b></li>
+                    <li class="ml-4 mt-3 mr-2"><i class="fi fi-br-headset"></i> Help Line No : <b>03564 123456</b></li>
                     <!-- /Notifications -->
 
                     <!-- User Menu -->
@@ -287,20 +289,21 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                 </li>
 
                             </ul>
-                            <ul style="list-style: none; margin-bottom: -3px !important; width: 8%; text-align: right; justify-content: right;" class="d-flex">
+                             <ul style="list-style: none; margin-bottom: -3px !important; width: 8%; text-align: right; justify-content: right;" class="d-flex">
                                 <li class="nav-item">
 
-                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-house-chimney-user" Title="Back to Home"></i><%--<img src="../../assets/admin/img/home.png" style="width:34%;box-shadow: 0px 0px 8px 0px #999999;border-radius: 16px;" alt="back to Home" Title="Back to Home"/>--%> </asp:LinkButton>
+                                    <asp:LinkButton ID="lnkCentralrepository" runat="server" OnClick="lnkCentralrepository_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-source-document" Title="Central Repository"></i> </asp:LinkButton>
                                     <%--<a class="nav-link" href="#"></a>--%>
                                 </li>
                             </ul>
                             <ul style="list-style: none; margin-bottom: -3px !important; width: 8%; text-align: right; justify-content: right;" class="d-flex">
                                 <li class="nav-item">
 
-                                    <asp:LinkButton ID="lnkCentralrepository" runat="server" OnClick="lnkCentralrepository_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-source-document" Title="Central Repository"></i><%--<img src="../../assets/admin/img/home.png" style="width:34%;box-shadow: 0px 0px 8px 0px #999999;border-radius: 16px;" alt="back to Home" Title="Back to Home"/>--%> </asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-house-chimney-user" Title="Back to Home"></i> </asp:LinkButton>
                                     <%--<a class="nav-link" href="#"></a>--%>
                                 </li>
                             </ul>
+                           
                         </div>
                     </nav>
                 </div>
