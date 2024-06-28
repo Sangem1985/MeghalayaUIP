@@ -13,6 +13,7 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using MeghalayaUIP.CommonClass;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -37,7 +38,7 @@ namespace MeghalayaUIP.User.PreReg
                         txtPANno.Text = ObjUserInfo.PANno;
                         txtPANno.Enabled = false;
                         txtUnitName.Text = ObjUserInfo.EntityName;
-                        txtUnitName.Enabled = false;
+                        //txtUnitName.Enabled = false;
                     }
                     if (hdnUserID.Value == "")
                     {
@@ -141,11 +142,11 @@ namespace MeghalayaUIP.User.PreReg
                             txtAnnualCapacity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"]);
                             txtRawmaterial.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_MAINRM"]);
                             txtMeasurementUnits.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"]);
-                            
+
                             txtServcActvty.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"]);
                             txtServctobeprovded.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNAME"]);
                             txtSrviceno.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SRVCNO"]);
-                            
+
                             txtWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_WASTEDETAILS"]);
                             txtHazWasteDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"]);
 
@@ -734,6 +735,8 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex) { }
         }
+
+        //---------------------------------Step 1 Code ---------------------------//
         protected void btnsave1_Click(object sender, EventArgs e)
         {
             try
@@ -867,6 +870,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (SqlException ex)
@@ -1229,26 +1233,7 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Central Scheme (INR)\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hplcompanyregistration.Text) || hplcompanyregistration.Text == "" || hplcompanyregistration.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload CompanyRegistration Document \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hplUdyam.Text) || hplUdyam.Text == "" || hplUdyam.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Udyam Document \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hplPAN.Text) || hplPAN.Text == "" || hplPAN.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload PAN Document \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hplGSTIN.Text) || hplGSTIN.Text == "" || hplGSTIN.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload GST Document \\n";
-                    slno = slno + 1;
-                }
+
                 return errormsg;
             }
             catch (Exception ex)
@@ -1846,15 +1831,15 @@ namespace MeghalayaUIP.User.PreReg
                 string result = "";
                 if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "")
                 {
-                    DataTable dt = (DataTable)ViewState["PromtrsTable"];
-                    // dt.Columns.Remove("IDD_COUNTRYName");
-                    result = indstregBAL.InsertIndustryRegDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
+                    DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
+                    //dtnew.Columns.Remove("IDD_COUNTRYName");
+                    result = indstregBAL.InsertIndPromotersDetails(dtnew, ViewState["UnitID"].ToString(), hdnUserID.Value);
                     if (result != "")
                     {
                         success.Visible = true;
-                        btnSave3.Enabled = false;
-                        lblmsg.Text = "Application Submitted Successfully";
-                        string message = "alert('" + "Application Submitted Successfully" + "')";
+                        btnPreview.Enabled = false;
+                        //lblmsg.Text = "Application Submitted Successfully";
+                        string message = "alert('" + "Promoter/Director Details Submitted Successfully" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
@@ -2013,126 +1998,367 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
-        protected void btnPreview_Click(object sender, EventArgs e)
+
+        //---------------------------------Step 4 Code ---------------------------//
+        protected void btnregistration_Click(object sender, EventArgs e)
         {
             try
             {
-
-                string result = "";
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "")
+                if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
-                    DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
-                    //dtnew.Columns.Remove("IDD_COUNTRYName");
-                    result = indstregBAL.InsertIndPromotersDetails(dtnew, ViewState["UnitID"].ToString(), hdnUserID.Value);
-                    if (result != "")
+                    string Error = ""; string message = "";
+                    if (fupcompanyregistration.HasFile)
                     {
-                        success.Visible = true;
-                        btnPreview.Enabled = false;
-                        //lblmsg.Text = "Application Submitted Successfully";
-                        string message = "alert('" + "Promoter/Director Details Submitted Successfully" + "')";
+                        Error = validations(fupcompanyregistration);
+                        if (Error == "")
+                        {
+                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "CompanyRegistration" + "\\");
+                            if (!Directory.Exists(serverpath))
+                            {
+                                Directory.CreateDirectory(serverpath);
+
+                            }
+                            fupcompanyregistration.PostedFile.SaveAs(serverpath + "\\" + fupcompanyregistration.PostedFile.FileName);
+
+                            IndustryDetails objattachments = new IndustryDetails();
+
+                            objattachments.UnitID = ViewState["UnitID"].ToString();
+                            objattachments.UserID = hdnUserID.Value;
+                            objattachments.FileType = fupcompanyregistration.PostedFile.ContentType;
+                            objattachments.FileName = fupcompanyregistration.PostedFile.FileName;
+                            objattachments.Filepath = serverpath + fupcompanyregistration.PostedFile.FileName;
+                            objattachments.FileDescription = "CompanyRegistration";
+                            objattachments.Deptid = "0";
+                            objattachments.ApprovalId = "0";
+
+                            int result = 0;
+                            result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                            if (result != 0)
+                            {
+                                hplcompanyregistration.Text = fupcompanyregistration.PostedFile.FileName;
+                                hplcompanyregistration.NavigateUrl = serverpath;
+                                hplcompanyregistration.Target = "blank";
+                                message = "alert('" + "Company Registration Document Uploaded successfully" + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            }
+                        }
+                        else
+                        {
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + "Please Upload Document" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
-                else
                 {
-                    string message1;
-                    if (Convert.ToString(ViewState["UnitID"]) == "")
-                    {
-                        message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
-                    }
-                    if (gvPromoters.Rows.Count <= 0)
-                    {
-                        message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
-                    }
-                    if (lbldpr.Text == "")
-                    {
-                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
-                    }
-                    if (hdnResultTab2.Value == "")
-                    {
-                        message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
-                    }
-
+                    string message = "alert('" + "Please Fill Basic Details and then Upload" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void btnNext1_Click(object sender, EventArgs e)
-        {
-            MVprereg.ActiveViewIndex = 1;
-        }
-        protected void btnNext2_Click(object sender, EventArgs e)
-        {
-            MVprereg.ActiveViewIndex = 2;
 
-        }
-        protected void btnPreviuos2_Click(object sender, EventArgs e)
+        protected void btnUdyam_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 0;
-
-        }
-        protected void btnPreviuos3_Click(object sender, EventArgs e)
-        {
-            MVprereg.ActiveViewIndex = 1;
-        }
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
+            try
             {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    string Error = ""; string message = "";
+                    if (fupUdyam.HasFile)
+                    {
+                        Error = validations(fupUdyam);
+                        if (Error == "")
+                        {
+                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "UdyamRegistration" + "\\");
+                            if (!Directory.Exists(serverpath))
+                            {
+                                Directory.CreateDirectory(serverpath);
+
+                            }
+                            fupUdyam.PostedFile.SaveAs(serverpath + "\\" + fupUdyam.PostedFile.FileName);
+
+                            IndustryDetails objattachments = new IndustryDetails();
+
+                            objattachments.UnitID = ViewState["UnitID"].ToString();
+                            objattachments.UserID = hdnUserID.Value;
+                            objattachments.FileType = fupUdyam.PostedFile.ContentType;
+                            objattachments.FileName = fupUdyam.PostedFile.FileName;
+                            objattachments.Filepath = serverpath + fupUdyam.PostedFile.FileName;
+                            objattachments.FileDescription = "UdyamRegistration";
+                            objattachments.Deptid = "0";
+                            objattachments.ApprovalId = "0";
+
+                            int result = 0;
+                            result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                            if (result != 0)
+                            {
+                                hplUdyam.Text = fupUdyam.PostedFile.FileName;
+                                hplUdyam.NavigateUrl = serverpath;
+                                hplUdyam.Target = "blank";
+                                message = "alert('" + "Udyam Registration Document Uploaded successfully" + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            }
+                        }
+                        else
+                        {
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + "Please Upload Document" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                {
+                    string message = "alert('" + "Please Fill Basic Details and then Upload" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-
-            return result;
-        }
-        protected void MVprereg_ActiveViewChanged(object sender, EventArgs e)
-        {
-            index = MVprereg.ActiveViewIndex;
-            if (index == 0)
-            { Link1.CssClass = "Underlined1"; }
-            if (index == 1)
-            { Link2.CssClass = "Underlined2"; }
-            if (index == 2)
-            { Link3.CssClass = "Underlined3"; }
-
         }
 
-        protected void Link1_Click(object sender, EventArgs e)
+        protected void btnCIN_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 0;
-            var cls = Link1.Attributes["class"];
-            Link1.Attributes.Add("class", cls + " nav-tab");
+            try
+            {
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    string Error = ""; string message = "";
+                    if (fupCIN.HasFile)
+                    {
+                        Error = validations(fupCIN);
+                        if (Error == "")
+                        {
+                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "CIN" + "\\");
+                            if (!Directory.Exists(serverpath))
+                            {
+                                Directory.CreateDirectory(serverpath);
 
+                            }
+                            fupCIN.PostedFile.SaveAs(serverpath + "\\" + fupCIN.PostedFile.FileName);
+
+                            IndustryDetails objattachments = new IndustryDetails();
+
+                            objattachments.UnitID = ViewState["UnitID"].ToString();
+                            objattachments.UserID = hdnUserID.Value;
+                            objattachments.FileType = fupCIN.PostedFile.ContentType;
+                            objattachments.FileName = fupCIN.PostedFile.FileName;
+                            objattachments.Filepath = serverpath + fupCIN.PostedFile.FileName;
+                            objattachments.FileDescription = "CIN";
+                            objattachments.Deptid = "0";
+                            objattachments.ApprovalId = "0";
+
+                            int result = 0;
+                            result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                            if (result != 0)
+                            {
+                                hplCIN.Text = fupCIN.PostedFile.FileName;
+                                hplCIN.NavigateUrl = serverpath;
+                                hplCIN.Target = "blank";
+                                message = "alert('" + "CIN Document Uploaded successfully" + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            }
+                        }
+                        else
+                        {
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + "Please Upload Document" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                {
+                    string message = "alert('" + "Please Fill Basic Details and then Upload" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
-        protected void Link2_Click(object sender, EventArgs e)
+        protected void btnGSTIN_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 1;
+            try
+            {
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    string Error = ""; string message = "";
+                    if (fupGSTIN.HasFile)
+                    {
+                        Error = validations(fupGSTIN);
+                        if (Error == "")
+                        {
+                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "GSTIN" + "\\");
+                            if (!Directory.Exists(serverpath))
+                            {
+                                Directory.CreateDirectory(serverpath);
 
+                            }
+                            fupGSTIN.PostedFile.SaveAs(serverpath + "\\" + fupGSTIN.PostedFile.FileName);
+
+                            IndustryDetails objattachments = new IndustryDetails();
+
+                            objattachments.UnitID = ViewState["UnitID"].ToString();
+                            objattachments.UserID = hdnUserID.Value;
+                            objattachments.FileType = fupGSTIN.PostedFile.ContentType;
+                            objattachments.FileName = fupGSTIN.PostedFile.FileName;
+                            objattachments.Filepath = serverpath + fupGSTIN.PostedFile.FileName;
+                            objattachments.FileDescription = "GSTIN";
+                            objattachments.Deptid = "0";
+                            objattachments.ApprovalId = "0";
+
+                            int result = 0;
+                            result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                            if (result != 0)
+                            {
+                                hplGSTIN.Text = fupGSTIN.PostedFile.FileName;
+                                hplGSTIN.NavigateUrl = serverpath;
+                                hplGSTIN.Target = "blank";
+                                message = "alert('" + "GSTIN Document Uploaded successfully" + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            }
+                        }
+                        else
+                        {
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + "Please Upload Document" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                {
+                    string message = "alert('" + "Please Fill Basic Details and then Upload" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
-        protected void Link3_Click(object sender, EventArgs e)
+        protected void btnPAN_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 2;
+            try
+            {
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    string Error = ""; string message = "";
+                    if (fupPAN.HasFile)
+                    {
+                        Error = validations(fupPAN);
+                        if (Error == "")
+                        {
+                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "PAN" + "\\");
+                            if (!Directory.Exists(serverpath))
+                            {
+                                Directory.CreateDirectory(serverpath);
+
+                            }
+                            fupPAN.PostedFile.SaveAs(serverpath + "\\" + fupPAN.PostedFile.FileName);
+
+                            IndustryDetails objattachments = new IndustryDetails();
+
+                            objattachments.UnitID = ViewState["UnitID"].ToString();
+                            objattachments.UserID = hdnUserID.Value;
+                            objattachments.FileType = fupPAN.PostedFile.ContentType;
+                            objattachments.FileName = fupPAN.PostedFile.FileName;
+                            objattachments.Filepath = serverpath + fupPAN.PostedFile.FileName;
+                            objattachments.FileDescription = "PAN";
+                            objattachments.Deptid = "0";
+                            objattachments.ApprovalId = "0";
+
+                            int result = 0;
+                            result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                            if (result != 0)
+                            {
+                                hplPAN.Text = fupPAN.PostedFile.FileName;
+                                hplPAN.NavigateUrl = serverpath;
+                                hplPAN.Target = "blank";
+                                message = "alert('" + "PAN Document Uploaded successfully" + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            }
+                        }
+                        else
+                        {
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + "Please Upload Document" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                {
+                    string message = "alert('" + "Please Fill Basic Details and then Upload" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         public string validations(FileUpload Attachment)
         {
             try
             {
+
                 int slno = 1; string Error = "";
                 if (Attachment.PostedFile.ContentType != "application/pdf"
                      || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
@@ -2190,319 +2416,231 @@ namespace MeghalayaUIP.User.PreReg
             catch (Exception ex)
             { throw ex; }
         }
-        protected void btnregistration_Click(object sender, EventArgs e)
+        protected void btnPreview_Click(object sender, EventArgs e)
         {
             try
             {
-                string Error = ""; string message = "";
-                if (fupcompanyregistration.HasFile)
+                string result = "", errormsg = "";
+                errormsg = Step4validations();
+
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && errormsg != "")
                 {
-                    Error = validations(fupcompanyregistration);
-                    if (Error == "")
-                    { 
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                         + ViewState["UnitID"].ToString() + "\\" + "CompanyRegistration" + "\\");
-                        if (!Directory.Exists(serverpath))
-                        {
-                            Directory.CreateDirectory(serverpath);
 
-                        }
-                        fupcompanyregistration.PostedFile.SaveAs(serverpath + "\\" + fupcompanyregistration.PostedFile.FileName);
-                       
-                        IndustryDetails objattachments = new IndustryDetails();
-
-                        objattachments.UnitID = ViewState["UnitID"].ToString();
-                        objattachments.UserID = hdnUserID.Value;
-                        objattachments.FileType = fupcompanyregistration.PostedFile.ContentType;
-                        objattachments.FileName = fupcompanyregistration.PostedFile.FileName;
-                        objattachments.Filepath = serverpath + fupcompanyregistration.PostedFile.FileName;
-                        objattachments.FileDescription = "CompanyRegistration";
-                        objattachments.Deptid = "0";
-                        objattachments.ApprovalId = "0";
-
-                        int result = 0;
-                        result = indstregBAL.InsertAttachments_PREREG(objattachments);
-                         
-                        if (result != 0)
-                        {
-                            hplcompanyregistration.Text = fupcompanyregistration.PostedFile.FileName;
-                            hplcompanyregistration.NavigateUrl = serverpath;
-                            hplcompanyregistration.Target = "blank";
-                            message = "alert('" + "Company Registration Document Uploaded successfully" + "')";
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        }
-                    }
-                    else
-                    {
-                        message = "alert('" + Error + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
-                    }
                 }
                 else
                 {
-                    message = "alert('" + "Please Upload Document" + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    string message1;
+                    if (Convert.ToString(ViewState["UnitID"]) == "")
+                    {
+                        message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        return;
+                    }
+                    if (gvPromoters.Rows.Count <= 0)
+                    {
+                        message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        return;
+                    }
+                    if (lbldpr.Text == "")
+                    {
+                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        return;
+                    }
+                    if (hdnResultTab2.Value == "")
+                    {
+                        message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        return;
+                    }
+                    if (errormsg != "")
+                    {
+                        message1 = "alert('" + errormsg + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        return;
+                    }
+
                 }
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
-
-        protected void btnUdyam_Click(object sender, EventArgs e)
+        protected void btnSave4_Click(object sender, EventArgs e)
         {
             try
             {
-                string Error = ""; string message = "";
-                if (fupUdyam.HasFile)
+                string result = "", errormsg = "";
+                errormsg = Step4validations();
+
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && errormsg != "")
                 {
-                    Error = validations(fupUdyam);
-                    if (Error == "")
+                    DataTable dt = (DataTable)ViewState["PromtrsTable"];
+                    // dt.Columns.Remove("IDD_COUNTRYName");
+                    result = indstregBAL.InsertIndustryRegDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
+                    if (result != "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                         + ViewState["UnitID"].ToString() + "\\" + "UdyamRegistration" + "\\");
-                        if (!Directory.Exists(serverpath))
-                        {
-                            Directory.CreateDirectory(serverpath);
-
-                        }
-                        fupUdyam.PostedFile.SaveAs(serverpath + "\\" + fupUdyam.PostedFile.FileName);
-
-                        IndustryDetails objattachments = new IndustryDetails();
-
-                        objattachments.UnitID = ViewState["UnitID"].ToString();
-                        objattachments.UserID = hdnUserID.Value;
-                        objattachments.FileType = fupUdyam.PostedFile.ContentType;
-                        objattachments.FileName = fupUdyam.PostedFile.FileName;
-                        objattachments.Filepath = serverpath + fupUdyam.PostedFile.FileName;
-                        objattachments.FileDescription = "UdyamRegistration";
-                        objattachments.Deptid = "0";
-                        objattachments.ApprovalId = "0";
-
-                        int result = 0;
-                        result = indstregBAL.InsertAttachments_PREREG(objattachments);
-
-                        if (result != 0)
-                        {
-                            hplUdyam.Text = fupUdyam.PostedFile.FileName;
-                            hplUdyam.NavigateUrl = serverpath;
-                            hplUdyam.Target = "blank";
-                            message = "alert('" + "Udyam Registration Document Uploaded successfully" + "')";
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        }
-                    }
-                    else
-                    {
-                        message = "alert('" + Error + "')";
+                        success.Visible = true;
+                        btnSave3.Enabled = false;
+                        lblmsg.Text = "Application Submitted Successfully";
+                        string message = "alert('" + "Application Submitted Successfully" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
                     }
                 }
                 else
                 {
-                    message = "alert('" + "Please Upload Document" + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    string message1;
+                    if (Convert.ToString(ViewState["UnitID"]) == "")
+                    {
+                        message1 = "alert('" + "Please Fill Basic Details & Basic Revenue Projections" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (gvPromoters.Rows.Count <= 0)
+                    {
+                        message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (lbldpr.Text == "")
+                    {
+                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (hdnResultTab2.Value == "")
+                    {
+                        message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+
                 }
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
-        }
 
-        protected void btnCIN_Click(object sender, EventArgs e)
+        }
+        public string Step4validations()
         {
             try
             {
-                string Error = ""; string message = "";
-                if (fupCIN.HasFile)
+
+                int slno = 1;
+                string errormsg = "";
+                if (string.IsNullOrEmpty(hplcompanyregistration.Text) || hplcompanyregistration.Text == "" || hplcompanyregistration.Text == null)
                 {
-                    Error = validations(fupCIN);
-                    if (Error == "")
-                    {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                         + ViewState["UnitID"].ToString() + "\\" + "CIN" + "\\");
-                        if (!Directory.Exists(serverpath))
-                        {
-                            Directory.CreateDirectory(serverpath);
-
-                        }
-                        fupCIN.PostedFile.SaveAs(serverpath + "\\" + fupCIN.PostedFile.FileName);
-
-                        IndustryDetails objattachments = new IndustryDetails();
-
-                        objattachments.UnitID = ViewState["UnitID"].ToString();
-                        objattachments.UserID = hdnUserID.Value;
-                        objattachments.FileType = fupCIN.PostedFile.ContentType;
-                        objattachments.FileName = fupCIN.PostedFile.FileName;
-                        objattachments.Filepath = serverpath + fupCIN.PostedFile.FileName;
-                        objattachments.FileDescription = "CIN";
-                        objattachments.Deptid = "0";
-                        objattachments.ApprovalId = "0";
-
-                        int result = 0;
-                        result = indstregBAL.InsertAttachments_PREREG(objattachments);
-
-                        if (result != 0)
-                        {
-                            hplCIN.Text = fupCIN.PostedFile.FileName;
-                            hplCIN.NavigateUrl = serverpath;
-                            hplCIN.Target = "blank";
-                            message = "alert('" + "CIN Document Uploaded successfully" + "')";
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        }
-                    }
-                    else
-                    {
-                        message = "alert('" + Error + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
-                    }
+                    errormsg = errormsg + slno + ". Please Upload CompanyRegistration Document \\n";
+                    slno = slno + 1;
                 }
-                else
+                if (string.IsNullOrEmpty(hplUdyam.Text) || hplUdyam.Text == "" || hplUdyam.Text == null)
                 {
-                    message = "alert('" + "Please Upload Document" + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    errormsg = errormsg + slno + ". Please Upload Udyam Document \\n";
+                    slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hplPAN.Text) || hplPAN.Text == "" || hplPAN.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload PAN Document \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplGSTIN.Text) || hplGSTIN.Text == "" || hplGSTIN.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload GST Document \\n";
+                    slno = slno + 1;
+                }
+
+                return errormsg;
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
 
-        protected void btnGSTIN_Click(object sender, EventArgs e)
+
+        protected void btnNext1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string Error = ""; string message = "";
-                if (fupGSTIN.HasFile)
-                {
-                    Error = validations(fupGSTIN);
-                    if (Error == "")
-                    {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                         + ViewState["UnitID"].ToString() + "\\" + "GSTIN" + "\\");
-                        if (!Directory.Exists(serverpath))
-                        {
-                            Directory.CreateDirectory(serverpath);
-
-                        }
-                        fupGSTIN.PostedFile.SaveAs(serverpath + "\\" + fupGSTIN.PostedFile.FileName);
-
-                        IndustryDetails objattachments = new IndustryDetails();
-
-                        objattachments.UnitID = ViewState["UnitID"].ToString();
-                        objattachments.UserID = hdnUserID.Value;
-                        objattachments.FileType = fupGSTIN.PostedFile.ContentType;
-                        objattachments.FileName = fupGSTIN.PostedFile.FileName;
-                        objattachments.Filepath = serverpath + fupGSTIN.PostedFile.FileName;
-                        objattachments.FileDescription = "GSTIN";
-                        objattachments.Deptid = "0";
-                        objattachments.ApprovalId = "0";
-
-                        int result = 0;
-                        result = indstregBAL.InsertAttachments_PREREG(objattachments);
-
-                        if (result != 0)
-                        {
-                            hplGSTIN.Text = fupGSTIN.PostedFile.FileName;
-                            hplGSTIN.NavigateUrl = serverpath;
-                            hplGSTIN.Target = "blank";
-                            message = "alert('" + "GSTIN Document Uploaded successfully" + "')";
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        }
-                    }
-                    else
-                    {
-                        message = "alert('" + Error + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
-                    }
-                }
-                else
-                {
-                    message = "alert('" + "Please Upload Document" + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
+            MVprereg.ActiveViewIndex = 1;
         }
-
-        protected void btnPAN_Click(object sender, EventArgs e)
+        protected void btnNext2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string Error = ""; string message = "";
-                if (fupPAN.HasFile)
-                {
-                    Error = validations(fupPAN);
-                    if (Error == "")
-                    {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                         + ViewState["UnitID"].ToString() + "\\" + "PAN" + "\\");
-                        if (!Directory.Exists(serverpath))
-                        {
-                            Directory.CreateDirectory(serverpath);
+            MVprereg.ActiveViewIndex = 2;
 
-                        }
-                        fupPAN.PostedFile.SaveAs(serverpath + "\\" + fupPAN.PostedFile.FileName);
-
-                        IndustryDetails objattachments = new IndustryDetails();
-
-                        objattachments.UnitID = ViewState["UnitID"].ToString();
-                        objattachments.UserID = hdnUserID.Value;
-                        objattachments.FileType = fupPAN.PostedFile.ContentType;
-                        objattachments.FileName = fupPAN.PostedFile.FileName;
-                        objattachments.Filepath = serverpath + fupPAN.PostedFile.FileName;
-                        objattachments.FileDescription = "PAN";
-                        objattachments.Deptid = "0";
-                        objattachments.ApprovalId = "0";
-
-                        int result = 0;
-                        result = indstregBAL.InsertAttachments_PREREG(objattachments);
-
-                        if (result != 0)
-                        {
-                            hplPAN.Text = fupPAN.PostedFile.FileName;
-                            hplPAN.NavigateUrl = serverpath;
-                            hplPAN.Target = "blank";
-                            message = "alert('" + "PAN Document Uploaded successfully" + "')";
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        }
-                    }
-                    else
-                    {
-                        message = "alert('" + Error + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
-                    }
-                }
-                else
-                {
-                    message = "alert('" + "Please Upload Document" + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
         }
+        protected void btnNext3_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 3;
+        }
+        protected void btnPreviuos2_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 0;
+
+        }
+        protected void btnPreviuos3_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 1;
+        }
+        protected void BtnPrevious4_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 2;
+
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
+        protected void MVprereg_ActiveViewChanged(object sender, EventArgs e)
+        {
+            index = MVprereg.ActiveViewIndex;
+            if (index == 0)
+            { Link1.CssClass = "Underlined1"; }
+            if (index == 1)
+            { Link2.CssClass = "Underlined2"; }
+            if (index == 2)
+            { Link3.CssClass = "Underlined3"; }
+
+        }
+
+        protected void Link1_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 0;
+            var cls = Link1.Attributes["class"];
+            Link1.Attributes.Add("class", cls + " nav-tab");
+
+        }
+
+        protected void Link2_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 1;
+
+        }
+
+        protected void Link3_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 2;
+        }
+        protected void Link4_Click(object sender, EventArgs e)
+        {
+            MVprereg.ActiveViewIndex = 3;
+        }
+
+
+
+
+
+
     }
 }

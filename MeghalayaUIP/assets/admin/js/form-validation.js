@@ -404,6 +404,56 @@ function fnValidatePAN(Obj) {
     }
 }
 
+//function validateGST(Obj) {
+//    debugger;
+//    if (Obj == null) Obj = window.event.srcElement;
+//    if (Obj.value != "") {
+//        ObjVal = Obj.value;
+//        var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+//        var code = /([C,P,H,F,A,T,B,L,J,G,c,p,h,f,a,t,b,l,j,g])/;
+//        var code_chk = ObjVal.substring(3, 4);
+//        if (ObjVal.search(panPat) == -1) {
+//            Obj.focus();
+//            Obj.value = "";
+//            alert("Invalid Pan No");
+
+//            return false;
+//        }
+//        if (code.test(code_chk) == false) {
+//            Obj.value = "";
+//            alert("Invaild PAN Card No.");
+//            return false;
+//        }
+//    }
+//}
+//function validateGST(Obj) {
+//    if (Obj == null)
+//    { var gstNumber = window.event.srcElement };
+//    var regex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}$/;
+//    if (gstNumber != null || gstNumber != "") {
+//        if (!regex.test(gstNumber)) {
+//            alert("Enter a valid GST number");
+//            event.target.value = "";
+//            event.target.focus();
+//            return false;
+//        }
+//    }
+//
+
+//function validateGST(event) {
+//    var gstNumber = event.target.value.trim();
+//    var regex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}$/;
+//    if (gstNumber != "") {
+//        if (!regex.test(gstNumber)) {
+//            alert("Enter a valid GST number");
+//            event.target.value = "";
+//            event.target.focus();
+//            return false;
+//        }
+//    }
+//}
+
+
 function Adharcontrol(evt, obj, dd, mm, yyyy) {
 
     //debugger                        
@@ -617,16 +667,7 @@ function validateNumberAndDot(event) {
     }
 }
 
-function validateGST(event) {
-    var gstNumber = event.target.value.trim();
-    var regex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}$/;
 
-    if (!regex.test(gstNumber)) {
-        alert("Enter a valid GST number");
-        event.target.value = "";
-        event.target.focus();   
-    }
-}
 
 function ValidatePAN(evt) {
 

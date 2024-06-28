@@ -22,6 +22,8 @@
     </style>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
+
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -82,6 +84,9 @@
                                 <li class="nav-item">
                                     <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                    3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
+                                <li class="nav-item">
+                                    <asp:LinkButton ID="Link4" class="nav-link active" runat="server" OnClick="Link4_Click" Style="padding-right: 20px; font-size: 20px"> 
+                                    4. Enclosures </asp:LinkButton></li>
                             </ul>
                             <div class="tab-content">
                                 <asp:MultiView ID="MVprereg" runat="server" OnActiveViewChanged="MVprereg_ActiveViewChanged">
@@ -719,71 +724,6 @@
                                                     </div>
                                                 </div>
                                                 <br />
-                                                <div class="col-md-12 d-flex">
-                                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Attachments</span></label>
-                                                </div>
-                                                <div class="col-md-12" style="padding-top: 10px">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">Company Registration/Incorporation Date</label>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupcompanyregistration" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="btnregistration" class="btn btn-rounded btn-dark mb-4" OnClick="btnregistration_Click" />
-                                                        </div>
-                                                        <div class="col-lg-3 d-flex">
-                                                            <asp:HyperLink ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">Udyam/IEM</label>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupUdyam" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="btnUdyam" class="btn btn-rounded btn-dark mb-4" OnClick="btnUdyam_Click" />
-                                                        </div>
-                                                        <div class="col-lg-3 d-flex">
-                                                            <asp:HyperLink ID="hplUdyam" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                    </div>
-                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">PAN</label>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupPAN" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="btnPAN" class="btn btn-rounded btn-dark mb-4" OnClick="btnPAN_Click" />
-                                                        </div>
-                                                        <div class="col-lg-3 d-flex">
-                                                            <asp:HyperLink ID="hplPAN" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                    </div>
-                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">GST</label>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupGSTIN" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="btnGSTIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnGSTIN_Click" />
-                                                        </div>
-                                                        <div class="col-lg-3 d-flex">
-                                                            <asp:HyperLink ID="hplGSTIN" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                    </div>
-                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">CIN</label>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupCIN" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="btnCIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnCIN_Click" />
-                                                        </div>
-                                                        <div class="col-lg-3 d-flex">
-                                                            <asp:HyperLink ID="hplCIN" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-12 d-flex" id="eligible" runat="server" visible="false">
                                                     <div class="col-md-12">
                                                         <div class="form-group row">
@@ -791,7 +731,7 @@
                                                                 <b>
                                                                     <label class="col-lg-12 col-form-label text-center" id="lbleligibletext" runat="server">
                                                                         Note:  Based on your input regarding Sector/Year of establishment/production, your Unit is not eligible for Incentive under MIIPP, 2024.
-However, you can register your unit to get required approvals/ clearances.</label></b>
+                                                                        However, you can register your unit to get required approvals/ clearances.</label></b>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -1169,12 +1109,101 @@ However, you can register your unit to get required approvals/ clearances.</labe
 
 
 
-                                                            <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>--%>
+                                                            <%--<button type="submit" class="btn btn-rounded btn-success btn-lg">Previous</button>    class="btn btn-rounded btn-submit btn-lg"--%>
                                                         </div>
                                                         <div class="col-md-10 text-right">
                                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
+                                                            <asp:Button ID="btnSave3" Text="Save as Draft" runat="server" class="btn btn-rounded btn-success btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
+                                                            <asp:Button Text="Next" runat="server" ID="btnNext3" class="btn btn-rounded btn-update btn-lg"  OnClick="btnNext3_Click" Width="150px" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </asp:View>
+
+
+                                    <asp:View ID="viewAttachments" runat="server">
+                                        <div class="tab-pane active" id="basictab3">
+
+                                            <div class="card-body" runat="server" id="div1">
+                                                <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
+                                                <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">4. Enclosures</h4>
+
+                                                <div class="row">
+                                                    <div class="col-md-12 d-flex">
+                                                        <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Attachments</span></label>
+                                                    </div>
+                                                    <div class="col-md-12" style="padding-top: 10px">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">Company Registration Certificate</label>
+                                                            <div class="col-lg-2 d-flex">
+                                                                <asp:FileUpload ID="fupcompanyregistration" runat="server" />
+                                                            </div>
+                                                            <div class="col-lg-1 d-flex">
+                                                                <asp:Button Text="Upload" runat="server" ID="btnregistration" class="btn btn-rounded btn-dark mb-4" OnClick="btnregistration_Click" />
+                                                            </div>
+                                                            <div class="col-lg-3 d-flex">
+                                                                <asp:HyperLink ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">Udyam/IEM</label>
+                                                            <div class="col-lg-2 d-flex">
+                                                                <asp:FileUpload ID="fupUdyam" runat="server" />
+                                                            </div>
+                                                            <div class="col-lg-1 d-flex">
+                                                                <asp:Button Text="Upload" runat="server" ID="btnUdyam" class="btn btn-rounded btn-dark mb-4" OnClick="btnUdyam_Click" />
+                                                            </div>
+                                                            <div class="col-lg-3 d-flex">
+                                                                <asp:HyperLink ID="hplUdyam" runat="server" Target="_blank"></asp:HyperLink>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">PAN</label>
+                                                            <div class="col-lg-2 d-flex">
+                                                                <asp:FileUpload ID="fupPAN" runat="server" />
+                                                            </div>
+                                                            <div class="col-lg-1 d-flex">
+                                                                <asp:Button Text="Upload" runat="server" ID="btnPAN" class="btn btn-rounded btn-dark mb-4" OnClick="btnPAN_Click" />
+                                                            </div>
+                                                            <div class="col-lg-3 d-flex">
+                                                                <asp:HyperLink ID="hplPAN" runat="server" Target="_blank"></asp:HyperLink>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">GST</label>
+                                                            <div class="col-lg-2 d-flex">
+                                                                <asp:FileUpload ID="fupGSTIN" runat="server" />
+                                                            </div>
+                                                            <div class="col-lg-1 d-flex">
+                                                                <asp:Button Text="Upload" runat="server" ID="btnGSTIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnGSTIN_Click" />
+                                                            </div>
+                                                            <div class="col-lg-3 d-flex">
+                                                                <asp:HyperLink ID="hplGSTIN" runat="server" Target="_blank"></asp:HyperLink>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">CIN</label>
+                                                            <div class="col-lg-2 d-flex">
+                                                                <asp:FileUpload ID="fupCIN" runat="server" />
+                                                            </div>
+                                                            <div class="col-lg-1 d-flex">
+                                                                <asp:Button Text="Upload" runat="server" ID="btnCIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnCIN_Click" />
+                                                            </div>
+                                                            <div class="col-lg-3 d-flex">
+                                                                <asp:HyperLink ID="hplCIN" runat="server" Target="_blank"></asp:HyperLink>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
+
+                                                        <div class="col-md-10 text-right">
+                                                            <asp:Button Text="Previous" runat="server" ID="BtnPrevious4" class="btn btn-rounded btn-info btn-lg" OnClick="BtnPrevious4_Click" Width="150px" />
                                                             <asp:Button Text="Preview" runat="server" ID="btnPreview" class="btn btn-rounded btn-update btn-lg" Enabled="false" OnClick="btnPreview_Click" Width="150px" />
-                                                            <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
+
+                                                            <asp:Button ID="btnSave4" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave4_Click" BackColor="Green" Width="150px" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1281,6 +1310,21 @@ However, you can register your unit to get required approvals/ clearances.</labe
                 }
             }
         }
+    </script>
+    <script type="text/javascript">
+        function validateGST(event) {
+            var gstNumber = event.target.value.trim();
+            var regex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}$/;
+            if (gstNumber != "") {
+                if (!regex.test(gstNumber)) {
+                    alert("Enter a valid GST number");
+                    event.target.value = "";
+                    event.target.focus();
+                    return false;
+                }
+            }
+        }
+
     </script>
 
 

@@ -626,9 +626,12 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (rblFelltrees.SelectedValue == "Y")
                         divtrees.Visible = true;
-                    else divtrees.Visible = false;
+                    else
+                    {
+                        divtrees.Visible = false;
+                        txtNoofTrees.Text = "";
+                    }
                 }
-
             }
             catch (Exception ex)
             {
@@ -644,7 +647,11 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (rblHighTension.SelectedValue == "Y")
                         divHTMeter.Visible = true;
-                    else divHTMeter.Visible = false;
+                    else
+                    {
+                        divHTMeter.Visible = false;
+                        ddlRegulation.ClearSelection();
+                    }
                 }
             }
             catch (Exception ex)
@@ -666,6 +673,8 @@ namespace MeghalayaUIP.User.CFE
                 else if (ddlRegulation.SelectedValue == "2") //43(3)
                 {
                     divpowerplants1.Visible = false;
+                    ddlPowerPlant.ClearSelection();
+                    txtAggrCapacity.Text = "";
                     divpowerplants2.Visible = false;
                     divvoltages.Visible = true;
                 }
@@ -673,6 +682,8 @@ namespace MeghalayaUIP.User.CFE
                 {
                     divvoltages.Visible = false;
                     divpowerplants1.Visible = false;
+                    ddlPowerPlant.ClearSelection();
+                    txtAggrCapacity.Text = "";
                     divpowerplants2.Visible = false;
                 }
             }

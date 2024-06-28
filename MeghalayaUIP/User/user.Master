@@ -350,7 +350,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                 format: "dd-mm-yyyy",
             });
 
-            $('.date').datepicker('setDate', new Date());
+            //$('.date').datepicker('setDate', new Date());
 
         </script>
     </form>
