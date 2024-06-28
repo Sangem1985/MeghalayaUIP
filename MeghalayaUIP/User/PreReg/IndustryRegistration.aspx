@@ -85,7 +85,7 @@
                                     <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                    3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="Link4" class="nav-link active" runat="server" OnClick="Link4_Click" Style="padding-right: 20px; font-size: 20px"> 
+                                    <asp:LinkButton ID="Link4" class="nav-link" runat="server" OnClick="Link4_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;"> 
                                     4. Enclosures </asp:LinkButton></li>
                             </ul>
                             <div class="tab-content">
