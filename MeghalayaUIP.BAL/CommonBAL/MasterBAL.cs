@@ -171,5 +171,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetWaterSource();
         }
+        public DataSet GetCentralRepository(int moduleid, int deptid, string fdate, string tdate, int userid)
+        {
+            return objMasterDAL.GetCentralRepository(moduleid, deptid, fdate, tdate, userid);
+        }
     }
 }

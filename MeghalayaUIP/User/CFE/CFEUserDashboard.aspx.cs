@@ -64,6 +64,10 @@ namespace MeghalayaUIP.User.CFE
                     UnitID = Request.QueryString[0];
                 }
                 else UnitID = "%";
+                if (UnitID == "%")
+                    lblHdng.Text = " Status of Application for All Units";
+                else lblHdng.Text = "";
+
                 dsApproved = objcfebal.GetPREREGandCFEapplications(hdnUserID.Value, UnitID);
                 if (dsApproved.Tables.Count > 0)
                 {

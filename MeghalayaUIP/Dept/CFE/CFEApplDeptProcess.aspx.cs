@@ -307,42 +307,29 @@ namespace MeghalayaUIP.Dept.CFE
                 }
                 if (ddlStatus.SelectedValue != "")
                 {
-                    if (ddlStatus.SelectedValue == "5" || ddlStatus.SelectedValue == "16")
+                    if (ddlStatus.SelectedValue == "5" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
                     {
-                        if ((ddlStatus.SelectedValue == "16" || ddlStatus.SelectedValue == "5") && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
-                        {
-                            if (ddlStatus.SelectedValue == "5")
-                            {
-                                lblmsg0.Text = "Please Enter Query Description";
-                                Failure.Visible = true;
-                                return;
-                            }
-                            else if (ddlStatus.SelectedValue == "16")
-                            {
-                                lblmsg0.Text = "Please Enter Rejection Reason";
-                                Failure.Visible = true;
-                                return;
-                            }
-
-                        }
+                        lblmsg0.Text = "Please Enter Query Description";
+                        Failure.Visible = true;
+                        return;
                     }
-                    else if (ddlStatus.SelectedValue == "11")
+                    else if (ddlStatus.SelectedValue == "16" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
                     {
-                        if (string.IsNullOrWhiteSpace(txtAdditionalAmount.Text) || txtAdditionalAmount.Text == "" || txtAdditionalAmount.Text == null)
-                        {
-                            lblmsg0.Text = "Please Enter Additional Amount";
-                            Failure.Visible = true;
-                            return;
-                        }
-                        else
-                        {
-                            if (txtAdditionalAmount.Text.Trim() == "0")
-                            {
-                                lblmsg0.Text = "Additional Amount should not be Zero";
-                                Failure.Visible = true;
-                                return;
-                            }
-                        }
+                        lblmsg0.Text = "Please Enter Rejection Reason";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else if (ddlStatus.SelectedValue == "11" && (string.IsNullOrWhiteSpace(txtAdditionalAmount.Text) || txtAdditionalAmount.Text == "" || txtAdditionalAmount.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Additional Amount";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else if (ddlStatus.SelectedValue == "11" && txtAdditionalAmount.Text.Trim() == "0")
+                    {
+                        lblmsg0.Text = "Additional Amount should not be Zero";
+                        Failure.Visible = true;
+                        return;
                     }
                     else
                     {
@@ -577,7 +564,7 @@ namespace MeghalayaUIP.Dept.CFE
                 {
                     if (ddlapproval.SelectedValue == "16")
                     {
-                        
+
                         if ((ddlapproval.SelectedValue == "16") && (string.IsNullOrWhiteSpace(txtRejection.Text) || txtRejection.Text == "" || txtRejection.Text == null))
                         {
                             if (ddlapproval.SelectedValue == "16")
@@ -600,10 +587,10 @@ namespace MeghalayaUIP.Dept.CFE
                         objcfeDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                         objcfeDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
                         objcfeDtls.Questionnaireid = Session["Questionnaireid"].ToString();
-                        if(ddlapproval.SelectedValue=="16")
+                        if (ddlapproval.SelectedValue == "16")
                         { objcfeDtls.Remarks = txtRejection.Text; }
                         if (ddlapproval.SelectedValue == "13")
-                        { objcfeDtls.ReferenceNumber = txtreferenceno.Text; }                         
+                        { objcfeDtls.ReferenceNumber = txtreferenceno.Text; }
                         objcfeDtls.PrescrutinyRejectionFlag = "N";
                         //if (Request.QueryString["status"].ToString() == "APPROVALPENDING")
                         //{
@@ -665,7 +652,7 @@ namespace MeghalayaUIP.Dept.CFE
                     tdbtnreject.Visible = true;
                     tdapprovalAction.Visible = true;
                     trapproval.Visible = false;
-                   // trapprovalupload.Visible = false;
+                    // trapprovalupload.Visible = false;
                     trrejection.Visible = true;
                     txtRejection.Visible = true;
                     tdapproverejection.Visible = true;
@@ -678,7 +665,7 @@ namespace MeghalayaUIP.Dept.CFE
                 else
                 {
                     trapproval.Visible = true;
-                   // trapprovalupload.Visible = true;
+                    // trapprovalupload.Visible = true;
                     trrejection.Visible = false;
                     txtRejection.Visible = false;
                     tdapproverejection.Visible = false;

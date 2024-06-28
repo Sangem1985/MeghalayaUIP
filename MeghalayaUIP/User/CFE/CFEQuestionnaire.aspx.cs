@@ -20,7 +20,7 @@ namespace MeghalayaUIP.User.CFE
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-      
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -139,6 +139,14 @@ namespace MeghalayaUIP.User.CFE
                     txtNoofTrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFTREES"]);
                     rblwaterbody.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERBODYVICINITY"]);
                     rblborewell.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BOREWELLEXISTS"]);
+
+                    rblNocGroundWater.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOCGROUNDWATER"]);
+                    rblwatersupply.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NONAVAILABILITYCERT"]);
+                    rblRiverTanks.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PERRIVERPUBLICTANKERS"]);
+                    rblMunicipal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MUNICIPALAREAWATERCON"]);
+                    rblGrantwater.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERCONNONMUNICIPALURBAN"]);
+
+
                     //CFEQD_BOREWELLREQ CFEQD_BOREWELLKLD   CFEQD_RIVERSnCANALS CFEQD_RIVERSnCANALSKLD
 
                     rblLbrAct1970.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LABOURACT1970"]);
@@ -801,7 +809,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string  result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {

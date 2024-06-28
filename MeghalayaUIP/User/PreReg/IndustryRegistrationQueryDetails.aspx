@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Query Reasons</h4>
+                            <h4 class="card-title">Industry Registrations: Query Details</h4>
                             <p style="position: absolute; right: 10px; top: 6px; color: red;">
                                 *All Fields Are
 										Mandatory

@@ -6076,3 +6076,6 @@ div#accordion .table-responsive a {
 }
 
 
+table#ContentPlaceHolder1_gvPreRegApproved input[type=submit]:disabled, table#ContentPlaceHolder1_gvCFOApproved input[type=submit]:disabled {
+	height: 35px !important;
+}

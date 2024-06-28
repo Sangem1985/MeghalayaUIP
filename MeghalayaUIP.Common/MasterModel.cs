@@ -56,6 +56,8 @@ namespace MeghalayaUIP.Common
         public static string GetIndustryParks = "USP_INSINDUSTRIALPARKS";
         public static string GetWaterSource = "USP_GETWATERSOURCEMASTER";
 
+        public static string GetCentralRepository = "USP_GET_CENTRALREPOSITORY_FILES";
+
     }
     public class MasterCountry
     {

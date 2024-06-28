@@ -143,7 +143,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 if (ddlUnitNames.SelectedValue != "%")
                 {
-                    lblHdng.Text = "Status Of Application";
+                    lblHdng.Text = "Status Of Applications";
                     divUnit.Visible = true;
                     lblUnitID.Text = ddlUnitNames.SelectedValue;
                     lblUnitName.Text = Convert.ToString(ddlUnitNames.SelectedItem.Text);
