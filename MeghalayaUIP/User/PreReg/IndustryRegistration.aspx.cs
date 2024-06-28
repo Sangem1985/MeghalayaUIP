@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.PreReg
 {
     public partial class IndustryRegistration : System.Web.UI.Page
     {
-        int index;
+        int index; string ErrorMsg = "";
 
         readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
@@ -741,7 +741,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                string ErrorMsg = "";
+                
                 int result = 0;
                 ErrorMsg = Step1validations();
                 if (ErrorMsg == "")
@@ -1401,7 +1401,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string /*ErrorMsg = "",*/ result = "";
 
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
@@ -2472,10 +2472,10 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                string result = "", errormsg = "";
-                errormsg = Step4validations();
+                string result = "";
+                ErrorMsg = Step4validations();
 
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && errormsg != "")
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && ErrorMsg != "")
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
                     // dt.Columns.Remove("IDD_COUNTRYName");
@@ -2560,16 +2560,25 @@ namespace MeghalayaUIP.User.PreReg
 
         protected void btnNext1_Click(object sender, EventArgs e)
         {
+            btnsave1_Click(sender, e);
+            if(ErrorMsg=="")
             MVprereg.ActiveViewIndex = 1;
+            else return;
         }
         protected void btnNext2_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 2;
+            btnsave2_Click(sender, e);
+            if (ErrorMsg == "")
+                MVprereg.ActiveViewIndex = 2;
+            else return;
 
         }
         protected void btnNext3_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 3;
+            btnSave3_Click(sender, e);
+            if (ErrorMsg == "")
+                MVprereg.ActiveViewIndex = 3;
+            else return;
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
