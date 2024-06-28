@@ -619,6 +619,7 @@
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
+    <Content Include="User\Dashboard\CentralRepository.aspx" />
     <Content Include="User\Dashboard\DashboardDrill.aspx" />
     <Content Include="User\Dashboard\Dashboardstatus.aspx" />
     <Content Include="User\Dashboard\MainDashboard.aspx" />
@@ -1304,6 +1305,13 @@
     <Compile Include="User\Dashboardstatus.aspx.designer.cs">
       <DependentUpon>Dashboardstatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Dashboard\CentralRepository.aspx.cs">
+      <DependentUpon>CentralRepository.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Dashboard\CentralRepository.aspx.designer.cs">
+      <DependentUpon>CentralRepository.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Dashboard\DashboardDrill.aspx.cs">
       <DependentUpon>DashboardDrill.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1331,6 +1339,9 @@
     </Compile>
     <Compile Include="User\Dashboard\OpenDashboard.aspx.designer.cs">
       <DependentUpon>OpenDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Dashboard\ServePdfFile.ashx.cs">
+      <DependentUpon>ServePdfFile.ashx</DependentUpon>
     </Compile>
     <Compile Include="User\Grievance\Grievance.aspx.cs">
       <DependentUpon>Grievance.aspx</DependentUpon>
@@ -1925,6 +1936,7 @@
     <Content Include="assets\StandedOperation\WorkFlow_Interstate_Migrant_Workers.pdf" />
     <None Include="packages.config" />
     <Content Include="User\user.Master" />
+    <Content Include="User\Dashboard\ServePdfFile.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
