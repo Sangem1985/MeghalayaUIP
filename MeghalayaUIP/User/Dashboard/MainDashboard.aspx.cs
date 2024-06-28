@@ -73,11 +73,16 @@ namespace MeghalayaUIP.User.Dashboard
                         gvUserDashboard.DataBind();
                         NoApplications.Visible = false;
                         Applications.Visible = true;
+                        lblinterest.Visible = false;
+                        divfuture.Visible = false;
                     }
-                    else
+                    else if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                     {
                         NoApplications.Visible = true;
+                        divfuture.Visible = true;
                         Applications.Visible = false;
+                        lblinterest.Visible= false;
+                        lbunitid.InnerText= ds.Tables[1].Rows[0]["UNITID"].ToString();
                         DateTime now = DateTime.Now;
                         string timestamp = now.ToString("MMM d, yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
                         string greeting;
@@ -104,6 +109,13 @@ namespace MeghalayaUIP.User.Dashboard
                         gvUserDashboard.DataSource = null;
                         gvUserDashboard.DataBind();
 
+                    }
+                    else
+                    {
+                        NoApplications.Visible = true;
+                        divfuture.Visible = false;
+                        Applications.Visible = false;
+                        lblinterest.Visible = true;
                     }
                 }
             }

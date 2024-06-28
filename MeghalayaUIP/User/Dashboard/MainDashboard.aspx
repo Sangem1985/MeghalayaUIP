@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
     
-     <nav aria-label="breadcrumb">
+     <%--<nav aria-label="breadcrumb">
         <ol class="breadcrumb d-flex justify-content-between">
-            <%--<li class="breadcrumb-item active" aria-current="page">Dashboard</li>--%>
+            <li class="breadcrumb-item active" aria-current="page">&nbsp;</li>
             <li><a href="#"><span class="badge bg-primary text-white fw-bold">Visit Guidance Site</span></a></li>
         </ol>
-    </nav>
+    </nav>--%>
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid"> 
               <div class="card" id="NoApplications" runat="server" visible="false">
@@ -24,11 +24,13 @@
 
                     <div class="d-flex justify-content-between" style="background: #e0e4fd; padding: 10px 8px 2px; border-radius: 4px; margin-bottom: 10px;">
 
-                        <h4 style="display: flex; align-items: center;"> <label id="lblunitname" runat="server"></label>, Interested in Starting a New Investment? Get Started</h4>
+                        <h4 style="display: flex; align-items: center;"> <label id="lblunitname" runat="server"></label>
+                            </br>
+                            <label id="lblinterest" runat="server"> Interested in Starting a New Investment? Get Started</label></h4>
                         <h4><a href="../PreReg/IndustryRegistration.aspx"><span class="badge rounded-pill bg-dark text-sm p-2" style="font-size: 16px; color: #fff; background: #033260 !important; display: flex; align-items: center;"><i class="fi fi-tr-bullseye-arrow"></i>&nbsp; New Project</span></a></h4>
 
                     </div>
-                    <div class="card item1" style="width: 13rem;">
+                    <div class="card item1" style="width: 13rem;" id="divfuture" runat="server" visible="false">
                         <div class="card-body item">
                             <h5 class="card-title text-black"><a href="#" style="color: #000;">Future</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">UNIT ID :  <label id="lbunitid" runat="server"></label></h6>
