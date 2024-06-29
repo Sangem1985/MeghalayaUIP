@@ -71,7 +71,7 @@
                     <div class="container-fluid">
                         <div class="table-responsive">
                             <asp:GridView ID="gvUserDashboard" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover" ForeColor="#333333"
+                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered table-striped table-hover" ForeColor="#333333"
                                 GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvUserDashboard_RowDataBound">
                                 <RowStyle />
                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" Height="33px" HorizontalAlign ="Center" />

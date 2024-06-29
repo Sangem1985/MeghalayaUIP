@@ -121,8 +121,8 @@
                         <div class="card-body">
                             <div class="col-md-12 justify-content-center d-flex">
 
-                                <asp:GridView ID="grdCentralRepo" runat="server" AutoGenerateColumns="false" CssClass="ChildGrid"
-                                    ShowFooter="false" OnRowCommand="grdCentralRepo_RowCommand">
+                                <asp:GridView ID="grdCentralRepo" runat="server" AutoGenerateColumns="false" 
+                                    ShowFooter="false" OnRowCommand="grdCentralRepo_RowCommand" CssClass="table table-bordered table-striped">
                                     <Columns>
                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S.No." HeaderStyle-BackColor="#650855">
                                             <ItemTemplate>

@@ -132,7 +132,7 @@ namespace MeghalayaUIP.User.CFE
                     if (hplRejctd.Text != "0")
                         hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
+                        hplQryRaised.NavigateUrl = "~/User/CFE/CFEUserApplStatusView.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
 
                     int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
                     TotApplied = TotApplied + TotalAppl;

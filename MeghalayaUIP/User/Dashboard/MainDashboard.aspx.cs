@@ -116,6 +116,22 @@ namespace MeghalayaUIP.User.Dashboard
                         divfuture.Visible = false;
                         Applications.Visible = false;
                         lblinterest.Visible = true;
+                        DateTime now = DateTime.Now;
+                        string timestamp = now.ToString("MMM d, yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
+                        string greeting;
+                        if (now.Hour < 12)
+                        {
+                            greeting = "Good Morning !";
+                        }
+                        else if (now.Hour < 18)
+                        {
+                            greeting = "Good Afternoon !";
+                        }
+                        else
+                        {
+                            greeting = "Good Evening !";
+                        }
+                        lblunitname.InnerText = greeting + " " + ObjUserInfo.EntityName;
                     }
                 }
             }

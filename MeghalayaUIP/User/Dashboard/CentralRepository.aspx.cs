@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -35,10 +36,8 @@ namespace MeghalayaUIP.User.Dashboard
                     }
                     if (!IsPostBack)
                     {
-                        DateTime today = DateTime.Today;
-                        txtTDate.Text = today.ToString("dd-MM-yyyy");
-                        txtFDate.Text = today.ToString("dd-MM-yyyy");
                         BindModuleType();
+
                     }
                 }
             }
@@ -47,8 +46,8 @@ namespace MeghalayaUIP.User.Dashboard
                 lblmsg0.Text = "Oops, You've have encountered an error!!";
                 Failure.Visible = true;
             }
-        }
 
+        }
         protected void BindModuleType()
         {
             try
@@ -149,9 +148,6 @@ namespace MeghalayaUIP.User.Dashboard
 
             }
         }
-
-
-
         protected void BindPreRegDepts()
         {
             try
@@ -214,7 +210,6 @@ namespace MeghalayaUIP.User.Dashboard
                 throw ex;
             }
         }
-
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -251,7 +246,6 @@ namespace MeghalayaUIP.User.Dashboard
                 throw ex;
             }
         }
-
         protected void grdCentralRepo_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "ViewFile")
@@ -262,7 +256,7 @@ namespace MeghalayaUIP.User.Dashboard
                 Label relativeFilePath = (Label)row.FindControl("lblpath");
                 Label fileName = (Label)row.FindControl("lblfilename");
 
-                string virtualPath = relativeFilePath.Text;// + "\\" + fileName.Text;
+                string virtualPath = relativeFilePath.Text;// +"\\"+ fileName.Text;
 
                 string physicalPath = virtualPath.Replace(@"\", "/");
 
@@ -278,24 +272,18 @@ namespace MeghalayaUIP.User.Dashboard
                     //Response.TransmitFile(physicalPath);
                     //Response.End();
                 }
-                else 
+                else
                 {
-                    string script = "openPdf('" + virtualPath + "');";
+                    Context.Response.Write("<script>");
+                    Context.Response.Write("window.open('" + physicalPath + "', '_newtab');");
+                    Context.Response.Write("</script>");
 
-                    ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
+                    //string script = "openPdf('" + physicalPath + "');";
 
-
-                    //Response.ContentType = "application/pdf";
-                    //Response.AppendHeader("Content-Disposition", $"attachment; filename={fileName.Text}");
-                    //Response.TransmitFile(physicalPath);
-                    //Response.End();
+                    //ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
+                    //Response.Write("<script>alert('File not found.');</script>");
                 }
-                //else
-                //{
-                //    Response.Write("<script>alert('File not found.');</script>");
-                //}
             }
         }
-
     }
 }

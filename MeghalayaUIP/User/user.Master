@@ -175,9 +175,9 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                 <div class="user-text">
 
                                     <p class="text-muted mb-0">Last Login:<br />
-                                        <b>05 June 2024, 01:08 PM</b></p>
+                                        <b><label id="lbltime" runat="server"></label></b></p>
                                     <hr />
-                                    <p class="text-muted mb-0">sowjanya128@gmail.com</p>
+                                    <p class="text-muted mb-0"><label id="lblusername" runat="server"></label></p>
                                 </div>
                             </div>
                             <%--<a class="dropdown-item" href="#">sowjanya128@gmail.com</a>--%>
