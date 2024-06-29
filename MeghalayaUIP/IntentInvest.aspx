@@ -26,6 +26,10 @@
       .widget.link-widget ul {
     width: 100% !important;
 }
+      section.innerpages {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
     </style>
     <section class="innerpages IntentInvest">
         <div class="container">
@@ -193,8 +197,8 @@
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Project Proposal *</label>
-                                                            <div class="col-lg-6 d-flex">
+                                                            <label class="col-lg-5 col-form-label">Project Proposal *</label>
+                                                            <div class="col-lg-7 d-flex">
                                                                 <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal">
                                                                     <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                     <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>

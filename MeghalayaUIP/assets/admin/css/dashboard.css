@@ -411,6 +411,9 @@ div#basictab2 {
 div#basictab3 {
     border: 1px solid #007aff;
 }
+div#basictab4 {
+    border: 1px solid #81baf7;
+}
 
 span.icon {
     position: absolute;
@@ -431,6 +434,12 @@ span.icon3 {
     top: 70px;
     color: #4db6ac;
     left: 56% !important;
+}
+span.icon4 {
+    position: absolute;
+    top: 70px;
+    color: #81baf7;
+    left: 84% !important;
 }
 
 i.fi {

@@ -17,6 +17,8 @@
                     <h3>FAQs</h3>
                      <div class="row">
                     <div class="col col-xs-12">
+
+
                         <div class="panel-group faq-accordion theme-accordion-s1" id="accordion">
                             <div class="panel panel-default">
                                 <div class="panel-heading">

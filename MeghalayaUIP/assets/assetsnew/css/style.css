@@ -1922,7 +1922,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 .counter-block-one .count-outer span{
   position: relative;
   display: inline-block;
-  font-size: 50px;
+  font-size: 32px;
   line-height: 50px;
   font-weight: 700;
   color: #192d66;
@@ -19874,3 +19874,248 @@ p.numb {
   margin-top: 75px !important;
 }
 
+.btn-box.pull-right a {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #293cbd;
+    text-transform: uppercase;
+    text-align: left;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px dotted #6e88ae;
+}
+    .btn-box.pull-right a:hover {
+        background: #6e88ae;
+        color: #fff;
+        border-radius: 30px;
+    }
+.col-md-12.d-flex.tracking {
+    margin-left: -57px;
+    margin-top: -25px;
+}
+.btn-box.pull-right i.fi {
+    position: absolute;
+    font-size: 46px;
+    opacity: 0.1;
+    right: 12px;
+    top: 15px;
+}
+section.innerpages p {
+    padding: 6px 0px;
+}
+section.innerpages ul li {
+    padding: 3px 0px;
+}
+section.innerpages i.fi {
+    padding-right: 8px;
+}
+
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 60px;
+}
+
+@media (max-width: 991px) {
+    .pagination-wrapper {
+        text-align: left;
+        margin-top: 40px;
+    }
+}
+
+.pagination-wrapper .pg-pagination {
+    display: inline-block;
+    overflow: hidden;
+    list-style-type: none;
+    text-align: center;
+}
+
+    .pagination-wrapper .pg-pagination li {
+        float: left;
+        margin-right: 10px;
+    }
+
+@media (max-width: 767px) {
+    .pagination-wrapper .pg-pagination li {
+        margin-right: 5px;
+    }
+}
+
+.pagination-wrapper .pg-pagination li:last-child {
+    margin-right: 0;
+}
+
+.pagination-wrapper .pg-pagination li a {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    line-height: 47px;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #a9b8c4;
+    border: 2px solid #c9cfd4;
+    display: block;
+    border-radius: 0;
+}
+
+@media (max-width: 991px) {
+    .pagination-wrapper .pg-pagination li a {
+        width: 40px;
+        height: 40px;
+        line-height: 37px;
+        font-size: 15px;
+        font-size: 0.9375rem;
+    }
+}
+
+.pagination-wrapper .pg-pagination .active a,
+.pagination-wrapper .pg-pagination li a:hover {
+    background: #fd5f17;
+    border-color: #fd5f17;
+    color: #fff;
+}
+
+.pagination-wrapper .pg-pagination .fi:before {
+    font-size: 15px;
+    font-size: 0.9375rem;
+}
+
+.pagination-wrapper-left {
+    text-align: left;
+}
+
+.pagination-wrapper-right {
+    text-align: right;
+}
+
+@media screen and (min-width: 1200px) {
+    .pagination-wrapper-right {
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .pagination-wrapper-right {
+        margin-top: 45px;
+        text-align: left;
+    }
+}
+
+.theme-accordion-s1 {
+    margin-bottom: 0;
+}
+
+    .theme-accordion-s1 .panel-default {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .theme-accordion-s1 .panel-heading {
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .theme-accordion-s1 .panel + .panel {
+        margin-top: 15px;
+    }
+
+    .theme-accordion-s1 .panel-heading a {
+        background: #fd5f17;
+        font-size: 16px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        display: block;
+        padding: 18px 25px;
+        position: relative;
+    }
+
+@media (max-width: 991px) {
+    .theme-accordion-s1 .panel-heading a {
+        font-size: 15px;
+        font-size: 0.9375rem;
+        padding: 15px 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .theme-accordion-s1 .panel-heading a {
+        padding: 12px 15px;
+    }
+}
+
+.theme-accordion-s1 .panel-heading a:before {
+    font-family: 'Font Awesome 5 Brands';
+    content: "\e64b";
+    font-size: 15px;
+    font-size: 0.9375rem;
+    position: absolute;
+    right: 25px;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+@media (max-width: 991px) {
+    .theme-accordion-s1 .panel-heading a:before {
+        font-size: 18px;
+        font-size: 1.125rem;
+        right: 20px;
+    }
+}
+
+.theme-accordion-s1 .panel-heading a:focus {
+    text-decoration: none;
+}
+
+.theme-accordion-s1 .panel-heading .collapsed {
+    background-color: #fff;
+    color: #131e4a;
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(68, 68, 68, 0.1);
+    box-shadow: 0px 5px 15px 0px rgba(68, 68, 68, 0.1);
+}
+
+    .theme-accordion-s1 .panel-heading .collapsed:before {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+.theme-accordion-s1 .panel-heading + .panel-collapse > .panel-body {
+    background-color: #fff;
+    border: 0;
+    padding: 40px 25px 15px;
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(68, 68, 68, 0.1);
+    box-shadow: 0px 5px 15px 0px rgba(68, 68, 68, 0.1);
+}
+
+@media (max-width: 991px) {
+    .theme-accordion-s1 .panel-heading + .panel-collapse > .panel-body {
+        padding: 20px 25px 10px;
+        font-size: 15px;
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .theme-accordion-s1 .panel-heading + .panel-collapse > .panel-body {
+        padding: 15px 15px 8px;
+    }
+}
+
+.theme-accordion-s1 .panel-heading + .panel-collapse > .panel-body p {
+    margin-bottom: 1.3em;
+}

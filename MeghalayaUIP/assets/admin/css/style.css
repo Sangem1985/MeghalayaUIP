@@ -6079,3 +6079,27 @@ div#accordion .table-responsive a {
 table#ContentPlaceHolder1_gvPreRegApproved input[type=submit]:disabled, table#ContentPlaceHolder1_gvCFOApproved input[type=submit]:disabled {
 	height: 35px !important;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 8px !important;
+	height:8px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 12px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #768bf9;
+	border-radius: 12px;
+}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #0b3654;
+	}
