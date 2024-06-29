@@ -807,6 +807,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.FileUpload fupDPR;
 
         /// <summary>
+        /// btndpr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btndpr;
+
+        /// <summary>
         /// hypdpr control.
         /// </summary>
         /// <remarks>
@@ -823,15 +832,6 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbldpr;
-
-        /// <summary>
-        /// btndpr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btndpr;
 
         /// <summary>
         /// btnPreviuos2 control.

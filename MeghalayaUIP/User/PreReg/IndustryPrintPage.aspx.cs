@@ -30,7 +30,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
-                        userid = ObjUserInfo.Userid;
+                        hdnUserID.Value = ObjUserInfo.Userid;
                     }
 
                     if (!IsPostBack)
@@ -59,64 +59,66 @@ namespace MeghalayaUIP.User.PreReg
             {
 
                 string UnitID = Request.QueryString[0].ToString();
-                string InvesterID = Request.QueryString[1].ToString();
+                string InvesterID = hdnUserID.Value;
                 if (UnitID != null && InvesterID != null)
                 {
                     DataSet ds = new DataSet();
                     ds = preBAL.GetIndRegUserApplDetails(UnitID, InvesterID);
+                    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
 
-
-                    lblPANNo.Text = ds.Tables[0].Rows[0]["COMPANYPANNO"].ToString();
-                    lblproposal.Text = ds.Tables[0].Rows[0]["COMPANYTYPE"].ToString();
-                    lblRegistration.Text = ds.Tables[0].Rows[0]["REGISTRATIONDATE"].ToString();
-                    lblUdyam.Text = ds.Tables[0].Rows[0]["UDYAMNO"].ToString();
-                    lblGSTNumber.Text = ds.Tables[0].Rows[0]["GSTNNO"].ToString();
-                    lblName.Text = ds.Tables[0].Rows[0]["REP_NAME"].ToString();
-                    lblEmail.Text = ds.Tables[0].Rows[0]["REP_EMAIL"].ToString();
-                    lbllocality.Text = ds.Tables[0].Rows[0]["REP_LOCALITY"].ToString();
-                    lbldistic.Text = ds.Tables[0].Rows[0]["REP_DISTRICT"].ToString();
-                    lblMandal.Text = ds.Tables[0].Rows[0]["REP_MANDAL"].ToString();
-                    lblVillage.Text = ds.Tables[0].Rows[0]["REP_VILLAGE"].ToString();
-                    lblPincode.Text = ds.Tables[0].Rows[0]["REP_PINCODE"].ToString();
-                    lblLand.Text = ds.Tables[0].Rows[0]["UNIT_LANDTYPE"].ToString();
-                    lblDoor.Text = ds.Tables[0].Rows[0]["UNIT_DOORNO"].ToString();
-                    lblLocal.Text = ds.Tables[0].Rows[0]["UNIT_LOCALITY"].ToString();
-                    lbldist.Text = ds.Tables[0].Rows[0]["UNIT_DISTRICT"].ToString();
-                    lbltaluka.Text = ds.Tables[0].Rows[0]["UNIT_MANDAL"].ToString();
-                    lblvilla.Text = ds.Tables[0].Rows[0]["UNIT_VILLAGE"].ToString();
-                    lblPIN.Text = ds.Tables[0].Rows[0]["UNIT_PINCODE"].ToString();
-                    lblDate.Text = ds.Tables[0].Rows[0]["PROJECT_DCP"].ToString();
-                    lblActivity.Text = ds.Tables[0].Rows[0]["PROJECT_NOA"].ToString();
-                    lblManufacture.Text = ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"].ToString();
-                    lbProductManf.Text = ds.Tables[0].Rows[0]["PROJECT_MANFPRODUCT"].ToString();
-                    lblMainActivity.Text = ds.Tables[0].Rows[0]["PROJECT_MANFPRODNO"].ToString();
-                    lblProvided.Text = ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"].ToString();
-                    lblExisting.Text = ds.Tables[0].Rows[0]["PROJECT_SRVCNO"].ToString();
-                    lblSector.Text = ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"].ToString();
-                    lblLineActivity.Text = ds.Tables[0].Rows[0]["LineofActivity_Name"].ToString();
-                    lblPCB.Text = ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"].ToString();
-                    lblRawMaterial.Text = ds.Tables[0].Rows[0]["PROJECT_MAINRM"].ToString();
-                    lblgenerated.Text = ds.Tables[0].Rows[0]["PROJECT_WASTEDETAILS"].ToString();
-                    lblHazardous.Text = ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"].ToString();
-                    lblCivil.Text = ds.Tables[0].Rows[0]["PROJECT_CIVILCONSTR"].ToString();
-                    lblLandarea.Text = ds.Tables[0].Rows[0]["PROJECT_LANDAREA"].ToString();
-                    lblBuilding.Text = ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"].ToString();
-                    lblWater.Text = ds.Tables[0].Rows[0]["PROJECT_WATERREQ"].ToString();
-                    lblPower.Text = ds.Tables[0].Rows[0]["PROJECT_POWERRREQ"].ToString();
-                    lblMeasurement.Text = ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"].ToString();
-                    lblCapacity.Text = ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"].ToString();
-                    lblProjectCost.Text = ds.Tables[0].Rows[0]["PROJECT_EPCOST"].ToString();
-                    lblPlantMach.Text = ds.Tables[0].Rows[0]["PROJECT_PMCOST"].ToString();
-                    lblInvestment.Text = ds.Tables[0].Rows[0]["PROJECT_IFC"].ToString();
-                    lblFixedassets.Text = ds.Tables[0].Rows[0]["PROJECT_DFA"].ToString();
-                    lblValueLand.Text = ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"].ToString();
-                    lblBuildingshed.Text = ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"].ToString();
-                    lblvaluewater.Text = ds.Tables[0].Rows[0]["PROJECT_WATERVALUE"].ToString();
-                    lblElectricity.Text = ds.Tables[0].Rows[0]["PROJECT_ELECTRICITYVALUE"].ToString();
-                    lblworkingCapital.Text = ds.Tables[0].Rows[0]["PROJECT_WORKINGCAPITAL"].ToString();
-                    lblCapitalsub.Text = ds.Tables[0].Rows[0]["FRD_CAPITALSUBSIDY"].ToString();
-                    lblPromoters.Text = ds.Tables[0].Rows[0]["FRD_PROMOTEREQUITY"].ToString();
-                    lblLoanAmount.Text = ds.Tables[0].Rows[0]["FRD_LOAN"].ToString();
+                        lblPANNo.Text = ds.Tables[0].Rows[0]["COMPANYPANNO"].ToString();
+                        lblproposal.Text = ds.Tables[0].Rows[0]["COMPANYTYPE"].ToString();
+                        lblRegistration.Text = ds.Tables[0].Rows[0]["REGISTRATIONDATE"].ToString();
+                        lblUdyam.Text = ds.Tables[0].Rows[0]["UDYAMNO"].ToString();
+                        lblGSTNumber.Text = ds.Tables[0].Rows[0]["GSTNNO"].ToString();
+                        lblName.Text = ds.Tables[0].Rows[0]["REP_NAME"].ToString();
+                        lblEmail.Text = ds.Tables[0].Rows[0]["REP_EMAIL"].ToString();
+                        lbllocality.Text = ds.Tables[0].Rows[0]["REP_LOCALITY"].ToString();
+                        lbldistic.Text = ds.Tables[0].Rows[0]["REP_DISTRICT"].ToString();
+                        lblMandal.Text = ds.Tables[0].Rows[0]["REP_MANDAL"].ToString();
+                        lblVillage.Text = ds.Tables[0].Rows[0]["REP_VILLAGE"].ToString();
+                        lblPincode.Text = ds.Tables[0].Rows[0]["REP_PINCODE"].ToString();
+                        lblLand.Text = ds.Tables[0].Rows[0]["UNIT_LANDTYPE"].ToString();
+                        lblDoor.Text = ds.Tables[0].Rows[0]["UNIT_DOORNO"].ToString();
+                        lblLocal.Text = ds.Tables[0].Rows[0]["UNIT_LOCALITY"].ToString();
+                        lbldist.Text = ds.Tables[0].Rows[0]["UNIT_DISTRICT"].ToString();
+                        lbltaluka.Text = ds.Tables[0].Rows[0]["UNIT_MANDAL"].ToString();
+                        lblvilla.Text = ds.Tables[0].Rows[0]["UNIT_VILLAGE"].ToString();
+                        lblPIN.Text = ds.Tables[0].Rows[0]["UNIT_PINCODE"].ToString();
+                        lblDate.Text = ds.Tables[0].Rows[0]["PROJECT_DCP"].ToString();
+                        lblActivity.Text = ds.Tables[0].Rows[0]["PROJECT_NOA"].ToString();
+                        lblManufacture.Text = ds.Tables[0].Rows[0]["PROJECT_MANFACTIVITY"].ToString();
+                        lbProductManf.Text = ds.Tables[0].Rows[0]["PROJECT_MANFPRODUCT"].ToString();
+                        lblMainActivity.Text = ds.Tables[0].Rows[0]["PROJECT_MANFPRODNO"].ToString();
+                        lblProvided.Text = ds.Tables[0].Rows[0]["PROJECT_SRVCACTIVITY"].ToString();
+                        lblExisting.Text = ds.Tables[0].Rows[0]["PROJECT_SRVCNO"].ToString();
+                        lblSector.Text = ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"].ToString();
+                        lblLineActivity.Text = ds.Tables[0].Rows[0]["LineofActivity_Name"].ToString();
+                        lblPCB.Text = ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"].ToString();
+                        lblRawMaterial.Text = ds.Tables[0].Rows[0]["PROJECT_MAINRM"].ToString();
+                        lblgenerated.Text = ds.Tables[0].Rows[0]["PROJECT_WASTEDETAILS"].ToString();
+                        lblHazardous.Text = ds.Tables[0].Rows[0]["PROJECT_HAZWASTEDETAILS"].ToString();
+                        lblCivil.Text = ds.Tables[0].Rows[0]["PROJECT_CIVILCONSTR"].ToString();
+                        lblLandarea.Text = ds.Tables[0].Rows[0]["PROJECT_LANDAREA"].ToString();
+                        lblBuilding.Text = ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"].ToString();
+                        lblWater.Text = ds.Tables[0].Rows[0]["PROJECT_WATERREQ"].ToString();
+                        lblPower.Text = ds.Tables[0].Rows[0]["PROJECT_POWERRREQ"].ToString();
+                        lblMeasurement.Text = ds.Tables[0].Rows[0]["PROJECT_UNITOFMEASURE"].ToString();
+                        lblCapacity.Text = ds.Tables[0].Rows[0]["PROJECT_ANNUALCAPACITY"].ToString();
+                        lblProjectCost.Text = ds.Tables[0].Rows[0]["PROJECT_EPCOST"].ToString();
+                        lblPlantMach.Text = ds.Tables[0].Rows[0]["PROJECT_PMCOST"].ToString();
+                        lblInvestment.Text = ds.Tables[0].Rows[0]["PROJECT_IFC"].ToString();
+                        lblFixedassets.Text = ds.Tables[0].Rows[0]["PROJECT_DFA"].ToString();
+                        lblValueLand.Text = ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"].ToString();
+                        lblBuildingshed.Text = ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"].ToString();
+                        lblvaluewater.Text = ds.Tables[0].Rows[0]["PROJECT_WATERVALUE"].ToString();
+                        lblElectricity.Text = ds.Tables[0].Rows[0]["PROJECT_ELECTRICITYVALUE"].ToString();
+                        lblworkingCapital.Text = ds.Tables[0].Rows[0]["PROJECT_WORKINGCAPITAL"].ToString();
+                        lblCapitalsub.Text = ds.Tables[0].Rows[0]["FRD_CAPITALSUBSIDY"].ToString();
+                        lblPromoters.Text = ds.Tables[0].Rows[0]["FRD_PROMOTEREQUITY"].ToString();
+                        lblLoanAmount.Text = ds.Tables[0].Rows[0]["FRD_LOAN"].ToString();
+                    }
 
                     if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0)
                     {

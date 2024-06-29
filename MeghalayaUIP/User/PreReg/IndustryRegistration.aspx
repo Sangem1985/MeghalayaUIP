@@ -810,14 +810,22 @@
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>
-                                                    <div class="col-md-12" style="padding-top: 10px">
+                                                    <br />
+                                                    <div class="col-md-12" style="padding-top: 40px">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Upload Detailed Project Report (DPR)</label>
-                                                            <div class="col-lg-4 d-flex">
-                                                                <asp:FileUpload ID="fupDPR" runat="server" />
-                                                                <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
-                                                                <asp:Label ID="lbldpr" runat="server" />
-                                                                <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
+                                                            <label class="col-lg-4 col-form-label"><b>Upload Detailed Project Report (DPR)</b></label>
+                                                            <div class="col-lg-8 d-flex">
+                                                                <div class="col-lg-3 d-flex">
+                                                                    <asp:FileUpload ID="fupDPR" runat="server" />
+                                                                </div>
+                                                                <div class="col-lg-2 d-flex">
+                                                                    <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
+                                                                </div>
+                                                                <div class="col-lg-2 d-flex">
+                                                                    <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
+                                                                    <asp:Label ID="lbldpr" runat="server" Visible="false" />
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1114,7 +1122,7 @@
                                                         <div class="col-md-10 text-right">
                                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
                                                             <asp:Button ID="btnSave3" Text="Save as Draft" runat="server" class="btn btn-rounded btn-success btn-lg" OnClick="btnSave3_Click" BackColor="Green" Width="150px" />
-                                                            <asp:Button Text="Next" runat="server" ID="btnNext3" class="btn btn-rounded btn-update btn-lg"  OnClick="btnNext3_Click" Width="150px" />
+                                                            <asp:Button Text="Next" runat="server" ID="btnNext3" class="btn btn-rounded btn-update btn-lg" OnClick="btnNext3_Click" Width="150px" />
                                                         </div>
                                                     </div>
                                                 </div>
