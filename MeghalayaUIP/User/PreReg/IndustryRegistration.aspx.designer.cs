@@ -1131,13 +1131,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.View viewAttachments;
 
         /// <summary>
-        /// div1 control.
+        /// divenclos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divenclos;
 
         /// <summary>
         /// fupcompanyregistration control.

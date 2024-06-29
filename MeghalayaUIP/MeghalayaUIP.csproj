@@ -566,6 +566,7 @@
     <Content Include="assets\assetsnew\images\resource\testimonial-5.png" />
     <Content Include="assets\assetsnew\images\resource\testimonial-6.png" />
     <Content Include="assets\assetsnew\images\resource\wehelp-1.jpg" />
+    <Content Include="assets\assetsnew\images\trackbg.jpg" />
     <Content Include="assets\assetsnew\images\turndown.gif" />
     <Content Include="assets\assetsnew\js\aos.js" />
     <Content Include="assets\assetsnew\js\appear.js" />

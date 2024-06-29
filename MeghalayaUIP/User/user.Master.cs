@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 using MeghalayaUIP.Common;
+using System.Globalization;
 
 namespace MeghalayaUIP.User
 {
@@ -75,7 +76,10 @@ namespace MeghalayaUIP.User
             }
 
             lblUser.Text = ObjUserInfo.Fullname;
-
+            DateTime now = DateTime.Now;
+            string timestamp = now.ToString("dd MMMM yyyy, hh:mm tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
+            lbltime.InnerText = timestamp;
+            lblusername.InnerText= ObjUserInfo.Email;
         }
 
         protected void fnSetNewControls_Click(object sender, EventArgs e)

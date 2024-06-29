@@ -10,6 +10,14 @@
         section.about-us-section.section-padding {
     padding: 0px 0px 0px !important;
 }
+        .login-wrapper_reg {
+    max-width: 950px !important;
+}
+        h1{
+            font-weight:600;
+            font-family:"Poppins", sans-serif !important;
+            font-size:26px !important;
+        }
     </style>
     <link href="assets/css/login.css" rel="stylesheet" />
     <section class="about-us-section section-padding">

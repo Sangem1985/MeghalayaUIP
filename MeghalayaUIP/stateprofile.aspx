@@ -31,14 +31,14 @@
         }
 
         .carousel-caption.d-none.d-md-block h5 {
-            margin-top: -200px !important;
+            margin-top: -260px !important;
             margin-left: 102px;
             text-align: left;
         }
 
         .carousel-caption.d-none.d-md-block p {
             font-size: 72px;
-            font-size: 28px;
+            font-size: 30px;
             font-weight: bold;
             color: #fff;
             margin: 0 0 0.4em;
@@ -53,6 +53,13 @@
         }
         .carousel-caption.d-none.d-md-block p, h5 {
     text-align: left;
+    line-height: 38px;
+}
+        span.carousel-control-prev-icon, span.carousel-control-next-icon {
+    display: none;
+}
+        ol.carousel-indicators {
+    display: none;
 }
     </style>
 </asp:Content>
@@ -244,10 +251,9 @@
                     </ul>--%>
                     <p><b>The State of Meghalaya has several GI tags:</b></p>
                     <p>Khasi Lakadong Turmeric, Khasi Mandarin, Memong Narang, Garo dakmanda (Meghalaya Garo Textile), Meghalaya Lyrnai Pottery and Meghalaya Chubitchi (alcoholic beverage)</p>
-                    <h3>Development Priorities (Infographics)</h3>
+                    
 
-                    <p>From political stability to rich cultural heritage, the state lays down its roadmap for progress. Let's delve into Meghalaya's core development areas, each contributing to its journey towards prosperity:</p>
-                    <img src="assets/assetsbeta/images/spdp.png" alt="SPDP" />
+                    
                     <%--<ul>
                         <li>1.	Political Stability: Stable environment</li>
                         <li>2.	GSDP Growth: Strong growth in recent years</li>

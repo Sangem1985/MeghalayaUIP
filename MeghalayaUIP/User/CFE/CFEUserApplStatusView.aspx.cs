@@ -32,8 +32,8 @@ namespace MeghalayaUIP.User.CFE
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["CFEUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["CFEUNITID"]); }
+                    if (Request.QueryString[0].ToString() != "")
+                    { UnitID = Request.QueryString[0].ToString(); }
                     else
                     {
                         string newurl = "~/User/CFE/CFEUserDashboard.aspx";
@@ -53,6 +53,11 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+
         }
 
         public void BindApplStatus(string Userid, string Unitid, string Status)

@@ -1814,7 +1814,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 SqlDataAdapter da;
                 da = new SqlDataAdapter(CFOConstants.GetCFOTracker, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CommonConstants.GetUserCFETracker;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOTracker;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
@@ -1851,7 +1851,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 SqlDataAdapter da;
                 da = new SqlDataAdapter(CFOConstants.GetUserCFOApplStatus, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFEConstants.GetUserCFEApplStatus;
+                da.SelectCommand.CommandText = CFOConstants.GetUserCFOApplStatus;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;

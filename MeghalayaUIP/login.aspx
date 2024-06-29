@@ -18,6 +18,12 @@
     font-weight: 600 !important;
     font-size: 26px !important;
 }
+         h1{
+            font-weight:500 !important;
+        }
+        .login-wrapper .loginbox .login-left {
+    padding: 60px !important;
+}
     </style>
     <link href="assets/css/login.css" rel="stylesheet" />
      <section class="about-us-section section-padding">

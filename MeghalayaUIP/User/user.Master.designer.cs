@@ -51,6 +51,24 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.Label lblUser;
 
         /// <summary>
+        /// lbltime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbltime;
+
+        /// <summary>
+        /// lblusername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblusername;
+
+        /// <summary>
         /// aLogout control.
         /// </summary>
         /// <remarks>

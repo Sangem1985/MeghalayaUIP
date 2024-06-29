@@ -19,6 +19,19 @@
         tr.GridviewScrollC1Item td, tr.GridviewScrollC1Item2 td {
             padding: 2px 5px 2px 10px;
         }
+        td.btn.btn-rounded.btn-danger1 {
+    background: red;
+    color: #fff !important;
+    padding: 1px 5px;
+    width: 73%;
+    margin: 5px 14px;
+    border: 1px solid #000;
+}
+     td.btn.btn-rounded.btn-danger1   a:hover, td.btn.btn-rounded.btn-danger1 a:active, td.btn.btn-rounded.btn-danger1 a:focus {
+    outline: none;
+    text-decoration: none;
+    color: #ffffff;
+}
     </style>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
@@ -85,7 +98,7 @@
                                     <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                    3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="Link4" class="nav-link" runat="server" OnClick="Link4_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;"> 
+                                    <asp:LinkButton ID="Link4" class="nav-link" runat="server" OnClick="Link4_Click" style="padding-right: 10px;font-size: 18px !important;margin-top: -8px !important;padding: 10px 10px 6px !important;margin-left: 8px !important;"> 
                                     4. Enclosures </asp:LinkButton></li>
                             </ul>
                             <div class="tab-content">
@@ -1075,41 +1088,44 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-10 d-flex">
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="table-responsive">
                                                         <asp:GridView ID="gvPromoters" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                            GridLines="None" OnRowDeleting="gvPromoters_RowDeleting"
-                                                            Width="100%" EnableModelValidation="True" Visible="false">
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="5" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
+                                                            GridLines="None" OnRowDeleting="gvPromoters_RowDeleting" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
+                                                            Width="140%" EnableModelValidation="True" Visible="false">
                                                             <RowStyle BackColor="#ffffff" />
+                                                            
                                                             <Columns>
 
-                                                                <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="DIRECTOR_NO" DataField="IDD_DIRECTOR_NO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
-                                                                <asp:BoundField HeaderText="UNITID" DataField="IDD_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
-                                                                <asp:BoundField HeaderText="INVESTERID" DataField="IDD_INVESTERID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
-                                                                <asp:BoundField HeaderText="First Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Last Name" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Nationality" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-CssClass="btn btn-rounded btn-danger1" ItemStyle-VerticalAlign="Middle" ItemStyle-Wrap="true" ItemStyle-ForeColor="White"  />
+                                                                <asp:BoundField HeaderText="DIRECTOR_NO" DataField="IDD_DIRECTOR_NO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                                                <asp:BoundField HeaderText="UNITID" DataField="IDD_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                                                <asp:BoundField HeaderText="INVESTERID" DataField="IDD_INVESTERID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                                                <asp:BoundField HeaderText="First Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Last Name" DataField="IDD_LASTNAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Nationality" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
 
-                                                                <asp:BoundField HeaderText="Door No." DataField="IDD_DOORNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Street" DataField="IDD_STREET" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Country" DataField="IDD_COUNTRYName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="State" DataField="IDD_STATEName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="District" DataField="IDD_DISTRICTName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Mandal" DataField="IDD_MANDALName" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Village" DataField="IDD_CITYName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Door No." DataField="IDD_DOORNO" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Street" DataField="IDD_STREET" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Country" DataField="IDD_COUNTRYName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="State" DataField="IDD_STATEName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="District" DataField="IDD_DISTRICTName" ItemStyle-Width="300px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Mandal" DataField="IDD_MANDALName" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Village" DataField="IDD_CITYName" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
 
-                                                                <asp:BoundField HeaderText="Pincode" DataField="IDD_PINCODE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="E-mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                <asp:BoundField HeaderText="Mobile" DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Pincode" DataField="IDD_PINCODE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="E-mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                <asp:BoundField HeaderText="Mobile" DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
 
                                                             </Columns>
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                            <AlternatingRowStyle BackColor="White" />
+                                                            
                                                         </asp:GridView>
+                                                            </div>
                                                     </div>
 
                                                     <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
@@ -1133,74 +1149,74 @@
 
 
                                     <asp:View ID="viewAttachments" runat="server">
-                                        <div class="tab-pane active" id="basictab3">
+                                        <div class="tab-pane active" id="basictab4">
 
-                                            <div class="card-body" runat="server" id="div1">
-                                                <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
-                                                <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">4. Enclosures</h4>
+                                            <div class="card-body" runat="server" id="divenclos">
+                                                <span class="icon4"><i class="fi fi-br-caret-down"></i></span>
+                                                <h4 class="card-title" style="background: #4794e7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">4. Enclosures</h4>
 
                                                 <div class="row">
-                                                    <div class="col-md-12 d-flex">
+                                                    <%--<div class="col-md-12 d-flex">
                                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Attachments</span></label>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-md-12" style="padding-top: 10px">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">Company Registration Certificate</label>
-                                                            <div class="col-lg-2 d-flex">
+                                                            <label class="col-lg-4 col-form-label">1. Company Registration Certificate</label>
+                                                            <div class="col-lg-3 d-flex">
                                                                 <asp:FileUpload ID="fupcompanyregistration" runat="server" />
                                                             </div>
                                                             <div class="col-lg-1 d-flex">
                                                                 <asp:Button Text="Upload" runat="server" ID="btnregistration" class="btn btn-rounded btn-dark mb-4" OnClick="btnregistration_Click" />
                                                             </div>
-                                                            <div class="col-lg-3 d-flex">
+                                                            <div class="col-lg-4 d-flex">
                                                                 <asp:HyperLink ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">Udyam/IEM</label>
-                                                            <div class="col-lg-2 d-flex">
+                                                            <label class="col-lg-4 col-form-label">2. Udyam/IEM</label>
+                                                            <div class="col-lg-3 d-flex">
                                                                 <asp:FileUpload ID="fupUdyam" runat="server" />
                                                             </div>
                                                             <div class="col-lg-1 d-flex">
                                                                 <asp:Button Text="Upload" runat="server" ID="btnUdyam" class="btn btn-rounded btn-dark mb-4" OnClick="btnUdyam_Click" />
                                                             </div>
-                                                            <div class="col-lg-3 d-flex">
+                                                            <div class="col-lg-4 d-flex">
                                                                 <asp:HyperLink ID="hplUdyam" runat="server" Target="_blank"></asp:HyperLink>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">PAN</label>
-                                                            <div class="col-lg-2 d-flex">
+                                                            <label class="col-lg-4 col-form-label">3. PAN</label>
+                                                            <div class="col-lg-3 d-flex">
                                                                 <asp:FileUpload ID="fupPAN" runat="server" />
                                                             </div>
                                                             <div class="col-lg-1 d-flex">
                                                                 <asp:Button Text="Upload" runat="server" ID="btnPAN" class="btn btn-rounded btn-dark mb-4" OnClick="btnPAN_Click" />
                                                             </div>
-                                                            <div class="col-lg-3 d-flex">
+                                                            <div class="col-lg-4 d-flex">
                                                                 <asp:HyperLink ID="hplPAN" runat="server" Target="_blank"></asp:HyperLink>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">GST</label>
-                                                            <div class="col-lg-2 d-flex">
+                                                            <label class="col-lg-4 col-form-label">4. GST</label>
+                                                            <div class="col-lg-3 d-flex">
                                                                 <asp:FileUpload ID="fupGSTIN" runat="server" />
                                                             </div>
                                                             <div class="col-lg-1 d-flex">
                                                                 <asp:Button Text="Upload" runat="server" ID="btnGSTIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnGSTIN_Click" />
                                                             </div>
-                                                            <div class="col-lg-3 d-flex">
+                                                            <div class="col-lg-4 d-flex">
                                                                 <asp:HyperLink ID="hplGSTIN" runat="server" Target="_blank"></asp:HyperLink>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">CIN</label>
-                                                            <div class="col-lg-2 d-flex">
+                                                            <label class="col-lg-4 col-form-label">5. CIN</label>
+                                                            <div class="col-lg-3 d-flex">
                                                                 <asp:FileUpload ID="fupCIN" runat="server" />
                                                             </div>
                                                             <div class="col-lg-1 d-flex">
                                                                 <asp:Button Text="Upload" runat="server" ID="btnCIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnCIN_Click" />
                                                             </div>
-                                                            <div class="col-lg-3 d-flex">
+                                                            <div class="col-lg-4 d-flex">
                                                                 <asp:HyperLink ID="hplCIN" runat="server" Target="_blank"></asp:HyperLink>
                                                             </div>
                                                         </div>

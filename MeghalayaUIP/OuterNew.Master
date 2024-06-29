@@ -51,8 +51,10 @@ li.button-box:hover{
     display: none;
 }
 section.about-style-three {
-    background: #fff;
+    background: url(assets/assetsnew/images/trackbg.jpg);
     padding: 30px 0px;
+    background-size: cover;
+    background-position: top;
 }
 h1.head1 {
     background: #A7CFDF;
