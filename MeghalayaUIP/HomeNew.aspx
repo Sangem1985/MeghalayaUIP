@@ -41,50 +41,6 @@
 
         </div>
     </section>
-
-    <section class="counter-style-two">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                    <div class="content-box wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInLeft;">
-                        <div class="top-text">Statistics</div>
-                        <h1>Acto Energy<br>Natural gas-fired power</h1>
-                        <div class="text">
-                            <p>The United States is home to a thriving renewable energy industry, with globally competitive firms in all technology subsectors, including the wind, solar</p>
-                            <p>Renewable Energy: The United States is home to a thriving renewable energy industry</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
-                    <div class="inner-box">
-                        <div class="bold-text">Invest, Innovate and Create in Meghalaya</div>
-                        <div class="counter-outer">
-                            <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                                <div class="text">Opportunity</div>
-                                <div class="count-outer count-box counted">
-                                    <span class="count-text" data-speed="1500" data-stop="20">$ 27.13</span><span>bn</span>
-                                </div>
-                            </div>
-                            <div class="counter-block-one wow zoomIn animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: zoomIn;">
-                                <div class="text">Power Distribution Project</div>
-                                <div class="count-outer count-box counted">
-                                    <span class="count-text" data-speed="1500" data-stop="10">$ 7.43</span><span>bn</span>
-                                </div>
-                            </div>
-                            <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                                <div class="text">Gas Grid</div>
-                                <div class="count-outer count-box counted">
-                                    <span class="count-text" data-speed="1500" data-stop="99">$ 1.16</span><span class="symble">bn</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <section class="about-us-section2">
         <div class="container">
             <div class="row">
@@ -101,49 +57,72 @@
 
         </div>
     </section>
+    <section class="counter-style-two" style="margin-top: 26px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div class="content-box wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInLeft;">
+                        <div class="top-text" style="font-size: 26px;text-transform: capitalize;font-weight: 700;">Empowering Businesses, Empowering you..</div>
+                       <%-- <h1>UNNATI 2024</h1>
+                        <h1>MIIPP 2024</h1>--%>
+                        <%--<img src="assets/assetsnew/images/boult.gif" style="margin-left: -60px;">--%>
+                        <div class="col-md-12" style="margin-left: -60px;margin-top: 25px;">
+                            <div class="col-md-12" id="modelinghover">
+                                <a data-toggle="modal" data-target=".exampleModalCenter"><img src="assets/assetsnew/images/MIIPP.gif" /></a>
+                            </div>
+                            <div class="col-md-12" id="modelinghover1">
+                                <a data-toggle="modal" data-target=".bd-example-modal-lg"><img src="assets/assetsnew/images/UNNATI.gif" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                    <div class="inner-box">
+                        <div class="bold-text" style="font-size: 26px;text-transform: capitalize;font-weight: 700;">Invest, Innovate and Create in Meghalaya</div>
+                        <div class="counter-outer">
+                            <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
+                                <div class="text">Opportunitys</div>
+                                <div class="count-outer count-box counted">
+                                    <span class="count-text" data-speed="1500" data-stop="20">$ 27.13</span><span>bn</span>
+                                </div>
+                            </div>
+                            <div class="counter-block-one wow zoomIn animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: zoomIn;">
+                                <div class="text">Power Distribution Projects</div>
+                                <div class="count-outer count-box counted">
+                                    <span class="count-text" data-speed="1500" data-stop="10">$ 7.43</span><span>bn</span>
+                                </div>
+                            </div>
+                            <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
+                                <div class="text">North East Gas Grid</div>
+                                <div class="count-outer count-box counted">
+                                    <span class="count-text" data-speed="1500" data-stop="99">$ 1.16</span><span class="symble">bn</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
 
     <!-- about-style-three -->
 
     <section class="testimonial-style-five centred overall1">
         <div class="container">
 
-            <div class="three-column-carousel owl-carousel owl-theme owl-loaded owl-drag">
+            <div class="owl-carousel">
 
 
-                <%--<div class="owl-item" style="width: 370px; margin-right: 30px;">
-                    <div class="testimonial-content">
-                        <div class="inner-box">
-                            <div class="author-info">
-                                <figure class="author-thumb"><i class="fi fi-tr-lightbulb-setting"></i></figure>
-                                <h5>MIIPP 2024</h5>
-                                <span class="designation">Attractive Incentives available.<br />
-                                    Click here to know more.</span>
-                            </div>
-                            <div class="text">
-                                <button class="button-box" href="#">Click Here !</button></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item" style="width: 370px; margin-right: 30px;">
-                    <div class="testimonial-content">
-                        <div class="inner-box">
-                            <div class="author-info">
-                                <figure class="author-thumb"><i class="fi fi-tr-customization-cogwheel"></i></figure>
-                                <h5>UNNATI 2024</h5>
-                                <span class="designation">Attractive Incentives available.<br />
-                                    Click here to know more.</span>
-                            </div>
-                            <div class="text">
-                                <button class="button-box">Click Here !</button></div>
-                        </div>
-                    </div>
-                </div>--%>
+                
                 <div class="owl-item" style="width: 370px; margin-right: 30px;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
                                 <figure class="author-thumb"><i class="fi fi-tr-box-alt"></i></figure>
-                                <h5>Incentive Package</h5>
+                                <h5>INCENTIVE PACKAGE</h5>
                                 <span class="designation">Click here to know about incentive package based on your Investment</span>
                             </div>
                             <div class="text">
@@ -181,158 +160,13 @@
                         </div>
                     </div>
                 </div>
-                <%--<div class="owl-item active" style="width: 370px; margin-right: 30px;">
-                    <div class="testimonial-content">
-                        <div class="inner-box">
-                            <div class="author-info">
-                                <figure class="author-thumb"><i class="fi fi-tr-audit"></i></figure>
-                                <h5>Clearance/ approvals </h5>
-                                <span class="designation">Apply for Clearance/ approvals for your business</span>
-                            </div>
-                            <div class="text">
-                                <button class="button-box">Click Here !</button></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item" style="width: 370px; margin-right: 30px;">
-                    <div class="testimonial-content">
-                        <div class="inner-box">
-                            <div class="author-info">
-                                <figure class="author-thumb"><i class="fi fi-tr-issue-loupe"></i></figure>
-                                <h5>Tracking</h5>
-                                <span class="designation">Track Application Status<br />
-                                    &nbsp;</span>
-                            </div>
-                            <div class="text">
-                                <button class="button-box">Click Here !</button></div>
-                        </div>
-                    </div>
-                </div>--%>
-                <%-- <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><i class="fi fi-tr-clipboard-user"></i></figure>
-                            <h5>User Login</h5>
-                            <span class="designation">User Login<br/>&nbsp;</span>
-                        </div>
-                        <div class="text"><button class="button-box">Click Here !</button></div>
-                    </div>
-                </div></div>
-                <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><i class="fi fi-tr-sign-in-alt"></i></figure>
-                            <h5>Department Login</h5>
-                            <span class="designation">Department Login<br/>&nbsp;</span>
-                        </div>
-                        <div class="text"><button class="button-box">Click Here !</button></div>
-                    </div>
-                </div></div>--%>
-                <!-- <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-3.png" alt=""></figure>
-                            <h5>Tamim Anj</h5>
-                            <span class="designation">Febric Indusrtries CTO</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div>
-                <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-4.png" alt=""></figure>
-                            <h5>Anjek Mac</h5>
-                            <span class="designation">Ecology Engineer</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div>
-                <div class="owl-item" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-5.png" alt=""></figure>
-                            <h5>Tom Cruse</h5>
-                            <span class="designation">CEO</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div>
-                <div class="owl-item cloned" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-3.png" alt=""></figure>
-                            <h5>Tamim Anj</h5>
-                            <span class="designation">Febric Indusrtries CTO</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div>
-                <div class="owl-item cloned" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-4.png" alt=""></figure>
-                            <h5>Anjek Mac</h5>
-                            <span class="designation">Ecology Engineer</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div>
-                <div class="owl-item cloned" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-5.png" alt=""></figure>
-                            <h5>Tom Cruse</h5>
-                            <span class="designation">CEO</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div>
-                <div class="owl-item cloned" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-3.png" alt=""></figure>
-                            <h5>Tamim Anj</h5>
-                            <span class="designation">Febric Indusrtries CTO</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div>
-                <div class="owl-item cloned" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-4.png" alt=""></figure>
-                            <h5>Anjek Mac</h5>
-                            <span class="designation">Ecology Engineer</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div> -->
-                <!-- <div class="owl-item cloned" style="width: 370px; margin-right: 30px;"><div class="testimonial-content">
-                    <div class="inner-box">
-                        <div class="author-info">
-                            <figure class="author-thumb"><img src="assets/assetsnew/images/resource/testimonial-5.png" alt=""></figure>
-                            <h5>Tom Cruse</h5>
-                            <span class="designation">CEO</span>
-                        </div>
-                        <div class="text">"Compared to other design software, Acto has a more intuitive and stable environment."</div>
-                    </div>
-                </div></div> -->
+               
 
             </div>
         </div>
-        <div class="owl-nav">
-            <div class="owl-prev"><span class="fas fa-arrow-left"></span></div>
-            <div class="owl-next"><span class="fas fa-arrow-right"></span></div>
-        </div>
-        <div class="owl-dots">
-            <div class="owl-dot"><span></span></div>
-            <div class="owl-dot active"><span></span></div>
-            <div class="owl-dot"><span></span></div>
-            <div class="owl-dot"><span></span></div>
-        </div>
-        </div>
-        </div>
+        
+        
+       
     </section>
 
     <section class="about-style-three">
@@ -509,7 +343,7 @@
     <section class="team-section" style="background-image: url(assets/images/background/team-bg.jpg);">
         <div class="container">
             <div class="sec-title">
-                <h1>KEY SECTORS</h1>
+                <h1 style="font-size:36px;text-transform: capitalize;">Key Sectors</h1>
                 <p>Our experienced staff, combined with our global network, allow us to provide the support you need.</p>
             </div>
             <div class="three-column-carousel owl-carousel owl-theme">
@@ -602,6 +436,251 @@
         </div>
     </section>
     <!-- team-section end -->
+     <div class="modal fade exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h5 class="modal-title" id="exampleModalLongTitle1">
+                            <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%;position: absolute;left: -95px;top: -5px;border-radius: 12px;">
+                            <%--<img src="assetsbeta/images/circle1.png" style="width: 10%; position: absolute; left: 25px; top: 7px;">--%>
+                            Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 &nbsp;&nbsp;&nbsp;&nbsp;<span
+                                style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="Documents/unnati2024.pdf" target="_blank">Read the UNNATI 2024 scheme document here.</a></span>
+                        </h5>
 
 
+
+                    </div>
+                    <div class="modal-body">
+                        <p class="colorpurpule">Available Incentives</p>
+                        <table class="table table-bordered modeltab1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">INCENTIVES</th>
+                                    <th scope="col" style="background: #2F5596;color:#fff;">Where GST is applicable</th>
+                                    <th scope="col" style="background: #0170C1;color:#fff;">Where GST is not applicable</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">01. Capital Investment Incentive<br />
+                                        (For Both New & Expanding Units)​</th>
+                                    <td>
+                                        <ul>
+                                            <li><i class="fi fi-br-redo"></i>Zone A: 30%  with cap of Rs. 5 Cr.</li>
+                                            <li style="height: 25px;"><i class="fi fi-br-redo"></i>Zone B:  50% with cap of Rs. 7.5 Cr.</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li><i class="fi fi-br-redo"></i>Zone A:  30% of with cap of Rs. 10 Cr.</li>
+                                            <li style="height: 25px;"><i class="fi fi-br-redo"></i>Zone B:   50% with cap of Rs. 10 Cr.​</li>
+                                        </ul>
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">02. Central Capital Interest Subvention<br />
+                                        (For Both New & Expanding Units)</th>
+                                    <td colspan="2">
+                                        <ul>
+                                            <li><i class="fi fi-br-redo"></i>Zone A:  3% interest subvention offered for 7 years​.</li>
+                                            <li style="height: 25px;"><i class="fi fi-br-redo"></i>Zone B:  5% interest subvention offered for 7 years.</li>
+                                        </ul>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">03. Manufacturing Services linked incentive<br />
+                                        (MSLI) – Fo& r New Units only</th>
+
+                                    <td>
+                                        <ul>
+                                            <li style="height: 50px;"><i class="fi fi-br-redo"></i>Zone A: 75% of eligible value of investment in P&M.</li>
+                                            <li><i class="fi fi-br-redo"></i>Zone B: 100% of eligible value of investment in P&M</li>
+                                        </ul>
+                                    </td>
+
+                                    <td>N.A.
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="colorpurpule">
+                            <br />
+                            Eligibility
+                        </p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr style="background: #2F5596; color: #fff; text-align: center;">
+                                    <th scope="col" style="color:#fff;">Where GST is applicable</th>
+                                    <th scope="col" style="color:#fff;">Where GST is not applicable</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b><i class="fi fi-br-redo"></i>Capital Investment Incentive (For Both New & Expanding Units):</b>
+                                        <br />
+                                        <i class="fi fi-br-redo"></i>For manufacturing units, minimum investment of <b>Rs 50 Lakhs for Micro and Rs 1 Crore for others</b>
+                                        <br />
+                                        <i class="fi fi-br-redo"></i>For service units, minimum investment of <b>Rs 50 Lakh for Micro & others</b>
+                                        <br />
+                                        Unit will be considered ‘Expansion’ only if the cost of new P&M required is <b>at least 25%</b> of the total investment
+                                    </td>
+                                    <td><b><i class="fi fi-br-redo"></i>Capital Investment Incentive (For Both New & Expanding Units):</b>
+                                        <br />
+                                        <i class="fi fi-br-redo"></i>For manufacturing units, minimum investment of <b>Rs 50 Lakhs for Micro and Rs 1 Crore for others</b>
+                                        <br />
+                                        <i class="fi fi-br-redo"></i>For service units, minimum investment of <b>Rs 50 Lakh for Micro & others</b>
+                                        <br />
+                                        Unit will be considered ‘Expansion’ only if the cost of new P&M required is <b>at least 25%</b> of the total investment
+                                    </td>
+                                </tr>
+                                <tr style="background: #9CC5E9;">
+                                    <td><b><i class="fi fi-br-redo"></i>Central Capital Interest Subvention (For Both New & Expanding Units):​</b><br />
+                                        <i class="fi fi-br-redo"></i>Interest on loan up to the principal amount of <b>Rs. 250</b><br />
+                                        <i class="fi fi-br-redo"></i>Interest on loan amount <b>exceeding Rs. 250 crore</b> would <b>not be eligible</b><br />
+                                        <b><i class="fi fi-br-redo"></i>Only amount disbursed will be eligible</b></td>
+                                    <td><b><i class="fi fi-br-redo"></i>Central Capital Interest Subvention (For Both New & Expanding Units):​</b><br />
+                                        <i class="fi fi-br-redo"></i>Interest on loan up to the principal amount of <b>Rs. 250</b><br />
+                                        <i class="fi fi-br-redo"></i>Interest on loan amount <b>exceeding Rs. 250 crore</b> would <b>not be eligible</b><br />
+                                        <b><i class="fi fi-br-redo"></i>Only amount disbursed will be eligible</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b><i class="fi fi-br-redo"></i>Manufacturing & Services linked incentive (MSLI)– For New Units only – </b>
+                                        <br />
+                                        <i class="fi fi-br-redo"></i>new registration number for GST</td>
+                                    <td>N.A</td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                        <p><i># Eligible value of investment in plant and machinery (for manufacturing sector) / construction of building & durable physical assets​ (for service sector)</i></p>
+                        <p><i># P&M – Plant & Machinery</i></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+     <!-- second model box -->
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%;position: absolute;left: -95px;top: -5px;border-radius: 12px;">
+                            Meghalaya Industrial and Investment
+                        Promotion Policy (MIIPP) 2024 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span
+                            style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="Documents/mipp2024.pdf" target="_blank">Read
+                            the MIIPP 2024 document here.</a></span>
+                        </h5>
+                        <p></p>
+
+
+                    </div>
+                    <div class="modal-body">
+                        <p class="colorblue">Available Incentives</p>
+                        <table class="table table-bordered modeltab">
+                            <thead>
+                                <tr>
+                                    <th scope="col">INCENTIVES</th>
+                                    <th scope="col" style="background: #9B57CE;">Micro<br />
+                                        (< INR 1 Cr) </th>
+                                    <th scope="col" style="background: #9B57CE;">Small<br />
+                                        (INR 1 – 10 Cr)</th>
+                                    <th scope="col" style="background: #9B57CE;">Medium
+                                        <br />
+                                        (INR 10 – 50 Cr) </th>
+                                    <th scope="col" style="background: #9B57CE;">Large<br />
+                                        (> INR 50 Cr) </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">State Capital Investment Subsidy</th>
+                                    <td colspan="4" class="text-black" style="background: rgba(237,237,237,1);">
+                                  <ul>
+                                    <li><i class="fi fi-br-redo"></i> Micro, Small and Medium Industrial Unit: Subsidy @30 % (thirty percent) on cost of Plant &amp; Machinery, subject to a ceiling of priority sector- Rs 10 crore , ceiling for non-priority sector shall be Rs 8 crore.
+                                    </li>
+                                    <li><i class="fi fi-br-redo"></i> Large Industrial Unit: Subsidy @30 % (thirty percent) on cost of construction of Building and Plant &amp; Machinery more than Rs 50 crore, subject to a ceiling of priority sector- Rs 15 crore, ceiling for non-priority
+                                      sector shall be Rs 12 crore.&ZeroWidthSpace;</li>
+                                  </ul>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Interest Subvention Subsidy</th>
+                                    <td colspan="4" class="text-black" style="background: rgba(237,237,237,1);">
+                                  <ul>
+                                    <li><i class="fi fi-br-redo"></i> For Priority Sectors, 5% interest subvention offered for 7 years.
+                                    </li>
+                                    <li><i class="fi fi-br-redo"></i> For Non-priority Sectors, 4% interest subvention offered for 7 years.&ZeroWidthSpace;</li>
+                                  </ul>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Net SGST Reimbursement</th>
+                                    <td colspan="4" class="text-black" style="background: rgba(237,237,237,1);">
+
+
+                                  <ul>
+                                    <li><i class="fi fi-br-redo"></i> For Priority Sectors , 100% Net SGST for a period of 15 years from the date of commercial production subject to a ceiling of 150% of FCI.
+                                    </li>
+                                    <li><i class="fi fi-br-redo"></i> For Non-Priority Sectors , 100% Net SGST for a period of 10 years from the date of commercial production subject to a ceiling of 100% of
+                                      FCI.
+                                    </li>
+
+
+                                  </ul>
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="headingas">
+                            <h4>Additional Benefits for Investments more then INR 100 Crores :
+                            </h4>
+                            <p style="color: #fff;">Customized Package of Incentives available</p>
+                        </div>
+                        <p class="colorblue">
+                            <br />
+                            Additional Incentives
+                        </p>
+                        <img src="assets/assetsbeta/images/modelimg2.jpg" alt="" />
+
+                        <p class="colorblue">
+                            <br />
+                            Main Eligibility Criteria
+                        </p>
+                        <img src="assets/assetsbeta/images/modelimg3.jpg" alt="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+$('.carousel').carousel({
+  interval: false,
+});
+    </script>
 </asp:Content>

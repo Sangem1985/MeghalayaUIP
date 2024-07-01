@@ -371,10 +371,10 @@ section.innerpages {
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                             <div class="logo-widget footer-widget">
-                                <figure class="footer-logo"><a href="index.html"><img src="assets/assetsnew/images/logo.png" alt=""></a></figure>
+                                <figure class="footer-logo"><a href="index.html"><img src="assets/assetsnew/images/logo.png" alt="" style="width:80%;"></a></figure>
                                 <ul>
                                     <li>Invest Meghalaya Authority,<br> Secretariat Main Building, M.G Road,<br>
-                                        Shillong - 793 001, East Khasi Hills District, Meghalaya.<br/><br/></li>
+                                        Shillong - 793 001, East Khasi Hills District, Meghalaya.<br/></li>
 
                                     <li><i class="fi fi-br-envelope"></i> <span>Email:</span>
                                         <b>investmeghalayaauthority@gmail.com</b></li>
@@ -394,20 +394,20 @@ section.innerpages {
                                         <li><a href="#">About EODB</a></li>
                                         <li><a href="#">Information Wizard</a></li>
                                         <li><a href="#">About</a></li>
-                                        <li><a href="#">Approach</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                             <div class="links-widget footer-widget">
-                                <h4 class="widget-title">FOR INVESTORS</h4>
+                                <h4 class="widget-title">For Investors</h4>
                                 <div class="widget-content">
                                     <ul>
                                         <li><a href="#">UNNATI 2024</a></li>
                                         <li><a href="#">MIIPP 2024</a></li>
-                                        <li><a href="#">INCENTIVE PACKAGE</a></li>
-                                        <li><a href="#">INTENT TO INVEST</a></li>
+                                        <li><a href="#">Incentive Package</a></li>
+                                        <li><a href="#">Intent to Invets</a></li>
                                         <!-- <li><a href="#">Logistics</a></li> -->
                                     </ul>
                                 </div>
