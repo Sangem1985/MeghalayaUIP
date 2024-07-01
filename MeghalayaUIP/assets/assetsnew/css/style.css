@@ -20220,3 +20220,10 @@ table.table.table-bordered.modeltab th {
     font-size: 14px;
     text-align: center;
 }
+
+section.testimonial-style-five.centred.overall1 button.button-box:hover {
+    background: #164976;
+}
+section.testimonial-style-five.centred.overall1 button.button-box a:hover {
+   color:#fff !important;
+}

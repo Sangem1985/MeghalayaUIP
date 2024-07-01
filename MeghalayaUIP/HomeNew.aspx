@@ -115,7 +115,7 @@
 
             <div class="owl-carousel">
 
-
+                
                 
                 <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                     <div class="testimonial-content">
@@ -125,11 +125,17 @@
                                 <h5>INCENTIVE PACKAGE</h5>
                                 <span class="designation">Click here to know about incentive package based on your Investment</span>
                             </div>
+                       
                             <div class="text">
-                                <button class="button-box">Click Here !</button></div>
+                                <button class="button-box"><a href="https://investmeghalaya.gov.in/resources/homePage/17/megeodb/documents/incentives.pdf" target="_blank" style="color:#164976">Click Here !</a></button>
+                                
+                            </div>
+                             
                         </div>
+                        
                     </div>
                 </div>
+                   
                 <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomUp;">
                     <div class="testimonial-content">
                         <div class="inner-box">
@@ -142,7 +148,7 @@
                               will get in touch.</span>
                             </div>
                             <div class="text">
-                                <button class="button-box">Click Here !</button></div>
+                                <button class="button-box"><a href="IntentInvest.aspx" style="color:#164976">Click Here !</a></button></div>
                         </div>
                     </div>
                 </div>
@@ -155,8 +161,9 @@
                                 <span class="designation">Register your business to claim Incentives.<br>
                                     Fill a simple <span class="heihet">Registration Form.</span></span>
                             </div>
+
                             <div class="text">
-                                <button class="button-box">Click Here !</button></div>
+                                <button class="button-box"><a href="login.aspx" style="color:#164976">Click Here !</a></button></div>
                         </div>
                     </div>
                 </div>
@@ -193,7 +200,7 @@
                         <div class="col-md-8">
                             
                             <div class="btn-box pull-right">
-                                <a href="#" style="
+                                <a href="login.aspx" style="
     width: 105%;
 "><i class="fi fi-br-form"></i> Apply for Clearance/ approvals<br />
                                     for your business</a>
@@ -202,7 +209,7 @@
                         <div class="col-md-4">
                             
                             <div class="btn-box pull-right">
-                                <a href="#" style="width: 151%;"><i class="fi fi-br-search"></i> Track Application Status</a>
+                                <a href="login.aspx" style="width: 151%;"><i class="fi fi-br-search"></i> Track Application Status</a>
                             </div>
                         </div>
                     </div>
@@ -349,74 +356,89 @@
             <div class="three-column-carousel owl-carousel owl-theme">
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
+                        <figure class="image-box"><a href="Hospitality.aspx">
                             <img src="assets/assetsnew/images/resource/team-1.jpg" alt=""></a></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Hotel</a></h4>
+                            <h4><a href="Hospitality.aspx">Hotel</a></h4>
                             <span class="designation">Meghalaya's hospitality sector create memorable experiences for visitors...</span>
                         </div>
                     </div>
                 </div>
+                
+               
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-4.jpg" alt=""></a></figure>
+                        <a href="Tourism.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-4.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Tourism and Hospitality</a></h4>
+                            <h4>Tourism and Hospitality</h4>
                             <span class="designation">Mawmluh Cave in Sohra, Meghalaya, was selected by the International Union of Geological Sciences – IUGS (UNESCO).</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-7.jpg" alt=""></a></figure>
+                        <a href="#">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-7.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Healthcare</a></h4>
+                            <h4>Healthcare</h4>
                             <span class="designation">The total tele-density of Meghalaya is 74 Mn</span>
                         </div>
+                            </a>
                     </div>
                 </div>
+             
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-6.jpg" alt=""></a></figure>
+                        <a href="IT_ITES.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-6.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">IT & ITes</a></h4>
+                            <h4>IT & ITes</h4>
                             <span class="designation">Meghalaya's Information Technology (IT) and Information Technology Enabled Services (ITES) sectors...</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-9.jpg" alt=""></a></figure>
+                        <a href="Power.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-9.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Hydroelectric Power</a></h4>
+                            <h4>Hydroelectric Power</h4>
                             <span class="designation">Meghalaya has a total installed power generation capacity of 651 MW in 2023.</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-8.jpg" alt=""></a></figure>
+                        <a href="#">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-8.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Education</a></h4>
+                            <h4>Education</h4>
                             <span class="designation">Nipun Bharat Mission: 50 schools are part of the 208 schools taken up in Phase 1 for the upgradation works.</span>
                         </div>
+                            </a>
                     </div>
                 </div>
-
+                
 
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-2.jpg" alt=""></a></figure>
+                        <a href="Agri-Horti.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-2.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Food Processing</a></h4>
+                            <h4>Food Processing</h4>
                             <span class="designation">Meghalaya has 76% forest land, certainly above the Indian average of only 25%, whereas the net sown area is 9%</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">

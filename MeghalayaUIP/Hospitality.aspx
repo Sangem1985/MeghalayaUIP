@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="Hospitality.aspx.cs" Inherits="MeghalayaUIP.Hospitality" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outerNew.Master" AutoEventWireup="true" CodeBehind="Hospitality.aspx.cs" Inherits="MeghalayaUIP.Hospitality" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="assets/admin/css/PSIP.css" rel="stylesheet" />
 </asp:Content>
@@ -7,9 +7,9 @@
     <div class="master-head-wappers master-head-wappers-inner d-flex align-items-center
          justify-content-center innersliderbanner" style="background-image: url(assets/assetsbeta/images/Innerpageslides/hstpt.png);">
         <div class="pageheader-captionn2">
-            <h1>Hospitality</h1>
+            <h1>Hotel</h1>
            
-            <p>Meghalaya's hospitality sector plays a vital role in welcoming visitors to the state, offering a range 
+            <p>Meghalaya's Hotel sector plays a vital role in welcoming visitors to the state, offering a range 
                         of accommodation options and services to cater to diverse traveller preferences.</p>
             <div class="arrow-implation" style="visibility: hidden;">
                 <div class="scroll-down-more">

@@ -24,7 +24,7 @@
                         The Government of India is committed to fostering a business-friendly environment across the country to attract investments, generate employment opportunities, and drive economic growth. 
                     </p>
                     <p>Concerted efforts are taken to simplify, rationalize, and digitize Government to Business (G2B) and Government to Citizen (G2C) interfaces, creating a seamless ecosystem facilitating Ease of Doing Business for investors and Ease of Living for citizens. By streamlining processes, reducing bureaucracy, and leveraging technology, the Government aims to provide a conducive environment stimulating economic activity, employment generation, and overall development in Meghalaya and other parts of the nation.</p>
-                    <h3>Key Initiatives: (Infographics)</h3>
+                    <h3>Key Initiatives:</h3>
                     <p>The State of Meghalaya has implemented key initiatives to enhance its business environment, focusing on minimizing regulatory compliance and decriminalizing minor offenses. </p>
 
                     <p><b>a. Ease of Doing Business Framework (DPIIT): </b></p>
