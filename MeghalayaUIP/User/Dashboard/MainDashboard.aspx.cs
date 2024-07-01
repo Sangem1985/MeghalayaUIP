@@ -55,6 +55,21 @@ namespace MeghalayaUIP.User.Dashboard
 
             try
             {
+                DateTime now = DateTime.Now;
+                string timestamp = now.ToString("MMM d, yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
+                string greeting;
+                if (now.Hour < 12)
+                {
+                    greeting = "Good Morning !";
+                }
+                else if (now.Hour < 18)
+                {
+                    greeting = "Good Afternoon !";
+                }
+                else
+                {
+                    greeting = "Good Evening !";
+                }
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();
@@ -83,21 +98,7 @@ namespace MeghalayaUIP.User.Dashboard
                         Applications.Visible = false;
                         lblinterest.Visible= false;
                         lbunitid.InnerText= ds.Tables[1].Rows[0]["UNITID"].ToString();
-                        DateTime now = DateTime.Now;
-                        string timestamp = now.ToString("MMM d, yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
-                        string greeting;
-                        if (now.Hour < 12)
-                        {
-                            greeting = "Good Morning !";
-                        }
-                        else if (now.Hour < 18)
-                        {
-                            greeting = "Good Afternoon !";
-                        }
-                        else
-                        {
-                            greeting = "Good Evening !";
-                        }
+                       
                         lblunitname.InnerText = greeting + " " + ObjUserInfo.EntityName;
                         lbltime.InnerText = timestamp;
                         //Failure.Visible = true;
@@ -115,22 +116,7 @@ namespace MeghalayaUIP.User.Dashboard
                         NoApplications.Visible = true;
                         divfuture.Visible = false;
                         Applications.Visible = false;
-                        lblinterest.Visible = true;
-                        DateTime now = DateTime.Now;
-                        string timestamp = now.ToString("MMM d, yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
-                        string greeting;
-                        if (now.Hour < 12)
-                        {
-                            greeting = "Good Morning !";
-                        }
-                        else if (now.Hour < 18)
-                        {
-                            greeting = "Good Afternoon !";
-                        }
-                        else
-                        {
-                            greeting = "Good Evening !";
-                        }
+                        lblinterest.Visible = true;                        
                         lblunitname.InnerText = greeting + " " + ObjUserInfo.EntityName;
                     }
                 }

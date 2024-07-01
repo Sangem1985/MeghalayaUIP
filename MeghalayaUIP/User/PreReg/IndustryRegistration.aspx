@@ -52,7 +52,7 @@
                     <div class="card">
                         <div class="card-header">
 
-                            <h4 class="card-title"><b>Industry Registration with Invest Meghalaya Authority/MIIPP</b></h4>
+                            <h4 class="card-title"><b>Industry Registration with Invest Meghalaya Authority/MIIPP 2024</b></h4>
 
                         </div>
                         <div class="card-body">
