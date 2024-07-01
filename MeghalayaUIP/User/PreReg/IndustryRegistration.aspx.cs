@@ -932,8 +932,8 @@ namespace MeghalayaUIP.User.PreReg
 
                 int slno = 1;
                 string errormsg = "";
-                string test1 = Convert.ToString(Request.Form["latitude"]);
-                string test2 = Convert.ToString(Request.Form["logititude"]);
+                //string test1 = Convert.ToString(Request.Form["latitude"]);
+                //string test2 = Convert.ToString(Request.Form["logititude"]);
 
                 if (ddlcompanytype.SelectedValue == "0" || ddlcompanytype.SelectedValue == "--Select--")
                 {
@@ -1050,11 +1050,13 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Select Land Required Type \\n";
                     slno = slno + 1;
                 }
-
-                if (string.IsNullOrEmpty(txtPropLocDoorno.Text) || txtPropLocDoorno.Text == "" || txtPropLocDoorno.Text == null)
+                if (rblLandType.SelectedValue == "Required")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Unit Door number \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtPropLocDoorno.Text) || txtPropLocDoorno.Text == "" || txtPropLocDoorno.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Unit Door number \\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (string.IsNullOrEmpty(txtPropLocLocality.Text) || txtPropLocLocality.Text == "" || txtPropLocLocality.Text == null)
                 {
@@ -1228,11 +1230,11 @@ namespace MeghalayaUIP.User.PreReg
                 }
 
 
-                if (string.IsNullOrEmpty(txtPromoterEquity.Text) || txtPromoterEquity.Text == "" || txtPromoterEquity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Promoter’s and Contributors (INR) \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtPromoterEquity.Text) || txtPromoterEquity.Text == "" || txtPromoterEquity.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Promoter’s and Contributors (INR) \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtEquityAmount.Text) || txtEquityAmount.Text == "" || txtEquityAmount.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Equity Amount (INR) \\n";
@@ -1258,11 +1260,11 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter State Scheme (INR)\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtCapitalSubsidy.Text) || txtCapitalSubsidy.Text == "" || txtCapitalSubsidy.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Capital Subsidy (INR)\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtCapitalSubsidy.Text) || txtCapitalSubsidy.Text == "" || txtCapitalSubsidy.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Capital Subsidy (INR)\\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtUNNATI.Text) || txtUNNATI.Text == "" || txtUNNATI.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Benefits from UNNATI (INR)\\n";
