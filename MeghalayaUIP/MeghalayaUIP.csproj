@@ -533,6 +533,7 @@
     <Content Include="assets\assetsnew\images\invotebg.gif" />
     <Content Include="assets\assetsnew\images\invotebgirr.gif" />
     <Content Include="assets\assetsnew\images\invotebgunder.png" />
+    <Content Include="assets\assetsnew\images\keysectors.png" />
     <Content Include="assets\assetsnew\images\lighbulb.png" />
     <Content Include="assets\assetsnew\images\lighbulb1.png" />
     <Content Include="assets\assetsnew\images\Logo.png" />
@@ -573,6 +574,7 @@
     <Content Include="assets\assetsnew\images\resource\testimonial-5.png" />
     <Content Include="assets\assetsnew\images\resource\testimonial-6.png" />
     <Content Include="assets\assetsnew\images\resource\wehelp-1.jpg" />
+    <Content Include="assets\assetsnew\images\sectors.png" />
     <Content Include="assets\assetsnew\images\trackbg.jpg" />
     <Content Include="assets\assetsnew\images\turndown.gif" />
     <Content Include="assets\assetsnew\images\UNNATI.gif" />

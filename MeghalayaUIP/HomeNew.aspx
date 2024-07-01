@@ -3,7 +3,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+     <style>
+        .servicedesk button.btn.btn-primary {
+    position: fixed;
+    bottom: 35px;
+    right: 25px;
+    z-index: 999;
+    overflow: hidden;
+    user-select: none;
+    border: initial !important;
+    border-style: none !important;
+    border-width: 2px !important;
+    border-left-width: 2px !important;
+    border-right-width: 2px !important;
+    border-top-width: 2px !important;
+    border-bottom-width: 2px !important;
+    border-color: #000 !important;
+    border-radius: 4px !important;
+    box-shadow: 2px 6px 9px #a79090;
+    background: linear-gradient(to right, #9C27B0 0%, #311EFF 50%, #1d275e 100%);
+    font-weight: 500;
+}
+        button.scroll-top.scroll-to-target.open {
+    display: none;
+}
+        .modal-content.custom {
+    position: fixed;
+    left: 436px !important;
+    float: right !important;
+    display: flex;
+    z-index: 10000;
+    top: 180px;
+}
+       
+    </style>
     <!-- main-slider -->
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
         <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;">
@@ -117,7 +150,7 @@
 
                 
                 
-                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
+                <div class="owl-item active wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -136,7 +169,8 @@
                     </div>
                 </div>
                    
-                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomUp;">
+                <div class="owl-item active wow fadeInUp animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; 
+animation-delay: 1000ms; animation-name: fadeInUp;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -152,7 +186,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
+                <div class="owl-item active wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -182,11 +216,11 @@
 
 
 
-    <section class="about-section-two1 easy" style="padding: 0px !important;">
+    <section class="about-section-two1 easy active">
         <div class="container">
             <div class="row">
             <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
-            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess">
+            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                 <!-- <img src="assets/assetsnew/images/easyicon.png" alt="image" style="width: 65%"/> -->
                 <div class="col-md-2 mt-3">
 
@@ -195,7 +229,7 @@
                             <p class="numb">01</p>
                             <!-- <i class="fi fi-rr-file-user"></i> -->
                             <!-- <h4>Register</h4> -->
-                            <p>Have a<br />
+                            <p style="margin-top: -26px;">Have a<br />
                                 business Idea or want to expand your Business?</p>
                         </div>
                         <img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />
@@ -207,7 +241,7 @@
                             <p class="numb">02</p>
                             <!-- <i class="fi fi-br-form"></i>
 						<h4>Indent</h4> -->
-                            <p>
+                           <p style="margin-top: -26px;">
                                 Fill <span style="color: #ffeb3b;">
                                     <br />
                                     to Invest form</span> and our team will reach out
@@ -222,7 +256,7 @@
                             <p class="numb">03</p>
                             <!-- <i class="fi fi-br-supplier-alt"></i>
 						<h4>Stock</h4> -->
-                            <p>
+                            <p style="margin-top: -26px;">
                                 Prepare your<br />
                                 Documents (Project DPR, loan sanctions, etc.) 
                             </p>
@@ -266,7 +300,7 @@
                             <p class="numb">06</p>
                             <!-- <i class="fi fi-br-feedback"></i>
 						<h4>Feedback</h4> -->
-                            <p>
+                            <p style="margin-top: -26px;">
                                 Commence<br />
                                 your
                                 <br />
@@ -282,7 +316,7 @@
                             <p class="numb">07</p>
                             <!-- <i class="fi fi-br-feedback"></i>
 						<h4>Feedback</h4> -->
-                            <p>
+                            <p style="margin-top: -26px;">
                                 <span style="color: #ffeb3b;">Eligible Unit</span><br />
                                 can avail Incentives under <span style="color: #ffeb3b;">MIIPP 2024 & UNNATI 2024</span>
 
@@ -300,7 +334,7 @@
 
 
     <!-- team-section -->
-    <section class="team-section" style="background-image: url(assets/images/background/team-bg.jpg);">
+    <section class="team-section" style="background: url(assets/assetsnew/images/sectors.png);background-size: auto;">
         <div class="container">
             <div class="sec-title">
                 <h1 style="font-size:36px;text-transform: capitalize;">Key Sectors</h1>
@@ -436,7 +470,7 @@
                     <div class="col-md-12 d-flex tracking">
                         <div class="col-md-8">
                             
-                            <div class="btn-box pull-right">
+                            <div class="btn-box pull-right wow fadeInUp animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInUp;">
                                 <a href="login.aspx" style="
     width: 105%;
 "><i class="fi fi-br-form"></i> Apply for Clearance/ approvals<br />
@@ -445,7 +479,7 @@
                         </div>
                         <div class="col-md-4">
                             
-                            <div class="btn-box pull-right">
+                            <div class="btn-box pull-right  wow fadeInDown animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInDown;">
                                 <a href="login.aspx" style="width: 151%;"><i class="fi fi-br-search"></i> Track Application Status</a>
                             </div>
                         </div>
@@ -703,9 +737,31 @@
                 </div>
             </div>
         </div>
-    <script>
-$('.carousel').carousel({
-  interval: false,
-});
-    </script>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content custom">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLabel">
+            <ul>
+                <li> <span>Email:</span>
+                                        <b>investmeghalayaauthority@gmail.com</b></li>
+            <li> <span>Call Us:</span>
+                 <b>+91 7085741695</b>
+
+            </li>
+               </ul> </h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fi fi-br-times-hexagon"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <img src="assets/assetsnew/images/popupimg.png" />
+      </div>
+      <%--<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>--%>
+    </div>
+  </div>
+</div>
 </asp:Content>
