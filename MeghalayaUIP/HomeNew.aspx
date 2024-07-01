@@ -223,10 +223,10 @@
 
 
     <section class="about-section-two1 easy" style="padding: 0px !important;">
-        <div class="container" style="padding: 0px !important; margin-left: -8px;">
-            <div class="row clearfix"></div>
+        <div class="container">
+            <div class="row">
             <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
-            <div class="col-md-12 d-flex mb-3 mt-5 text-center easyprocess">
+            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess">
                 <!-- <img src="assets/assetsnew/images/easyicon.png" alt="image" style="width: 65%"/> -->
                 <div class="col-md-2 mt-3">
 
@@ -332,7 +332,7 @@
                     </div>
                 </div>
             </div>
-
+                </div>
         </div>
 
     </section>
