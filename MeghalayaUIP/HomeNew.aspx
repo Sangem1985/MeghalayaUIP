@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col col-xs-12 text-center bgview">
 
-                    <h3>Welcome to Invest Meghalaya</h3>
+                    <h3 class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p>
                         Empowering Investor at every stage of their journey.<br>
                         Set up your business in Meghalaya with ease- now one of the fastest growing business
@@ -47,7 +47,7 @@
                 <div class="col col-xs-12 text-center bgview1">
 
                     <div class="text" style="margin-top: 21px;">
-                        <p>
+                        <p class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInDown;">
                             <span class="colorblue">Apply for Incentives</span> for your business under <span class="colorblue">Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 and Meghalaya Industrial and  Investment Promotion Policy (MIIPP) 2024</span> to make your business  more profitable.
                         </p>
 
@@ -61,7 +61,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                    <div class="content-box wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInLeft;">
+                    <div class="content-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInLeft;">
                         <div class="top-text" style="font-size: 26px;text-transform: capitalize;font-weight: 700;">Empowering Businesses, Empowering you..</div>
                        <%-- <h1>UNNATI 2024</h1>
                         <h1>MIIPP 2024</h1>--%>
@@ -110,14 +110,14 @@
 
     <!-- about-style-three -->
 
-    <section class="testimonial-style-five centred overall1">
+    <section class="testimonial-style-five centred overall1" >
         <div class="container">
 
             <div class="owl-carousel">
 
 
                 
-                <div class="owl-item" style="width: 370px; margin-right: 30px;">
+                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="owl-item active" style="width: 370px; margin-right: 30px;">
+                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomUp;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="owl-item active" style="width: 370px; margin-right: 30px;">
+                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -179,11 +179,11 @@
 
                             <h2 class="head2">The only interface with Investors</h2>
                             <div class="middle-content">
-                                <div class="text"><i class="fi fi-sr-thumbtack"></i>End to end online and transparent systems for granting clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Participating 20+ departments provide 100+ regulatory clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Information repository for your business realted queires.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Address your grievances.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Easy tracking of applications status.</div>
+                                <div class="text"><i class="fi fi-sr-thumbtack"></i> End to end online and transparent systems for granting clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Participating 20+ departments provide 100+ regulatory clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Information repository for your business realted queires.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Address your grievances.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Easy tracking of applications status.</div>
                             </div>
 
                         </div>
