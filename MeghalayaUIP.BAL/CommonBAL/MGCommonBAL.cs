@@ -57,5 +57,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
             return objCommonDAL.UpdateGrievanceDeptProcess(Process, ProcessFalg, Remarks, ReplyFilePath, ReplyFileType, ReplyFileName,
                 GrvncID, UserID, DeptID, IPAddress);
         }
+        public DataSet GetGrowthFinancialYear()
+        {
+            return objCommonDAL.GetGrowthFinancialYear();
+        }
     }
 }

@@ -369,6 +369,41 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
+
+        public DataSet GetGrowthFinancialYear()
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetGrowthFinancialYear, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetGrowthFinancialYear;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection; 
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }        
         //---------------------------------dept------------------------//
         public DataSet GetDepGrievanceDashboard(string DeptID, string Userid)
         {

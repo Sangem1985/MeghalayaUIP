@@ -10271,11 +10271,21 @@ footer.main-footer.style-two.style-four.home-5 {
 
 /** testimonial-style-five **/
 
-.testimonial-style-five{
-  position: relative;
-  background: #fff;
-  padding: 70px 0px 50px 0px;
+.testimonial-style-five {
+    position: relative;
+    background: url(../../../assets/assetsnew/images/invotebgirr.gif);
+    /* padding: 70px 0px 50px 0px; */
+    padding: 70px 0px 230px 0px;
+    background-position: center;
+    background-size: contain;
 }
+    .testimonial-style-five .owl-carousel {
+        display: block !important;
+        width: 120%;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        z-index: 1;
+    }
 
 .testimonial-style-five .sec-title .top-text{
   position: relative;
@@ -13431,9 +13441,10 @@ footer.main-footer.style-two.style-four.home-5 {
   z-index: 1;
 }
 
-.counter-style-two .inner-box .counter-block-one{
-  background: #ffd9cc;
-}
+    .counter-style-two .inner-box .counter-block-one {
+        background: #ffd9cc;
+        box-shadow: 1px 4px 9px #6d88af;
+    }
 
 .counter-style-two .inner-box .counter-block-one:nth-child(2) {
   position: absolute;
@@ -13460,6 +13471,13 @@ footer.main-footer.style-two.style-four.home-5 {
 
 
 /** statistics-section **/
+
+section.counter-style-two {
+    background: url(../../../assets/assetsnew/images/invotebg.gif);
+    background-size: cover;
+    background-position: top;
+    padding: 40px 0px !important;
+}
 
 .statistics-section{
   position: relative;
@@ -19781,7 +19799,7 @@ button.button-box {
 button.button-box {
   display: none;
 }
-.inner-box:hover {
+section.testimonial-style-five.centred.overall1 .inner-box:hover {
   background: linear-gradient(to left, #3F51B5, #009338) !important;
   button.button-box {
     display:flex;
@@ -19806,8 +19824,8 @@ button.button-box {
   padding: 0px 30px 30px 30px;
 }
 .inner-box span.heihet {
-  color: #192d66;
-  font-weight: 600;
+    color: var(--orange);
+    font-weight: 600;
 }
 
 .easyprocess .col-md-2 {
@@ -19871,7 +19889,8 @@ p.numb {
   
 }
 .col-md-12.d-flex.mb-3.mt-5.text-center.easyprocess {
-  margin-top: 75px !important;
+    margin-top: 75px !important;
+    margin-left: -80px;
 }
 
 .btn-box.pull-right a {
@@ -20118,4 +20137,86 @@ section.innerpages i.fi {
 
 .theme-accordion-s1 .panel-heading + .panel-collapse > .panel-body p {
     margin-bottom: 1.3em;
+}
+section.counter-style-two {
+    padding: 0px;
+}
+
+div#modelinghover img:hover, div#modelinghover1 img:hover {
+    transition: transform .9s;
+    transform: scale(1.04);
+}
+
+/*modelpopuphomepage*/
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 1050px;
+    }
+}
+h5#exampleModalLongTitle1 {
+    font-size: 24px;
+    display: flex;
+    color: #0077D3;
+    font-family: 'Roboto';
+    text-transform: capitalize;
+    align-items: baseline;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    margin-left: 115px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+    h5#exampleModalLongTitle1 span a {
+        color: #007fff;
+        margin-top: 10px;
+    }
+
+.modal-dialog.modal-lg .colorpurpule {
+    color: #0077D3;
+    font-weight: 500;
+}
+.modal-dialog.modal-lg .colorpurpule {
+    color: #0077D3;
+    font-weight: 500;
+}
+table.table.table-bordered.modeltab1 th {
+    background: #0070c0;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 14px;
+    text-align: center;
+}
+.modal-dialog.modal-lg .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #BED8EF;
+}
+.modal-dialog.modal-lg  td{
+    color:#000;
+}
+h5#exampleModalLongTitle {
+    font-size: 24px;
+    display: flex;
+    color: #4f2c69;
+    font-family: 'Roboto';
+    text-transform: capitalize;
+    margin-left: 115px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+    h5#exampleModalLongTitle span a {
+        color: #9b57ce;
+        margin-top: 10px;
+    }
+.modal-dialog.modal-lg .colorblue {
+    color: #4f2c69;
+    font-weight: 500;
+}
+table.table.table-bordered.modeltab th {
+    background: #7131A1;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 14px;
+    text-align: center;
 }
