@@ -553,6 +553,7 @@
     <Content Include="assets\assetsnew\images\main-slider\wim.mp4" />
     <Content Include="assets\assetsnew\images\MIIPP.gif" />
     <Content Include="assets\assetsnew\images\popupcircle.gif" />
+    <Content Include="assets\assetsnew\images\popupimg.png" />
     <Content Include="assets\assetsnew\images\resource\about-3.jpg" />
     <Content Include="assets\assetsnew\images\resource\single-service-1.jpg" />
     <Content Include="assets\assetsnew\images\resource\single-service-5.jpg" />

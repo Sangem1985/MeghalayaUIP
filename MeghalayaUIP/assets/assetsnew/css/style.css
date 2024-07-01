@@ -19821,7 +19821,7 @@ section.testimonial-style-five.centred.overall1 .inner-box:hover {
   
 }
 .testimonial-style-five .testimonial-content .inner-box:hover{
-  padding: 0px 30px 30px 30px;
+  padding: 0px 30px 12px 30px;
 }
 .inner-box span.heihet {
     color: var(--orange);
@@ -19858,8 +19858,9 @@ color: #fff070;
 
 }
 section.about-section-two1.easy {
-  background: url(../images/easybg.png) 100%;
-  background-size: cover;
+    background: url(../images/easybg.png) 100%;
+    background-size: cover;
+    margin-bottom: 15px;
 }
 .icontext p {
   color: #fff;

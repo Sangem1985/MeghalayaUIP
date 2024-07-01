@@ -68,10 +68,10 @@
                         <%--<img src="assets/assetsnew/images/boult.gif" style="margin-left: -60px;">--%>
                         <div class="col-md-12" style="margin-left: -60px;margin-top: 25px;">
                             <div class="col-md-12" id="modelinghover">
-                                <a data-toggle="modal" data-target=".exampleModalCenter"><img src="assets/assetsnew/images/MIIPP.gif" /></a>
+                                <a data-toggle="modal" data-target=".bd-example-modal-lg"><img src="assets/assetsnew/images/MIIPP.gif" /></a>
                             </div>
                             <div class="col-md-12" id="modelinghover1">
-                                <a data-toggle="modal" data-target=".bd-example-modal-lg"><img src="assets/assetsnew/images/UNNATI.gif" /></a>
+                                <a data-toggle="modal" data-target=".exampleModalCenter"><img src="assets/assetsnew/images/UNNATI.gif" /></a>
                             </div>
                         </div>
                     </div>
@@ -176,54 +176,7 @@
        
     </section>
 
-    <section class="about-style-three">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <div class="top-content">
-                            <!-- <div class="top-text">About Acto</div> -->
-
-                            <h2 class="head2">The only interface with Investors</h2>
-                            <div class="middle-content">
-                                <div class="text"><i class="fi fi-sr-thumbtack"></i> End to end online and transparent systems for granting clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Participating 20+ departments provide 100+ regulatory clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Information repository for your business realted queires.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Address your grievances.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Easy tracking of applications status.</div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-12 d-flex tracking">
-                        <div class="col-md-8">
-                            
-                            <div class="btn-box pull-right">
-                                <a href="login.aspx" style="
-    width: 105%;
-"><i class="fi fi-br-form"></i> Apply for Clearance/ approvals<br />
-                                    for your business</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            
-                            <div class="btn-box pull-right">
-                                <a href="login.aspx" style="width: 151%;"><i class="fi fi-br-search"></i> Track Application Status</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
-
-                    <video autoplay="" muted="" loop="" id="myVideo" style="width: 100%;">
-                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;">
-                    </video>
-
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
 
 
@@ -458,6 +411,56 @@
         </div>
     </section>
     <!-- team-section end -->
+
+
+    <section class="about-style-three">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div class="content-box">
+                        <div class="top-content">
+                            <!-- <div class="top-text">About Acto</div> -->
+
+                            <h2 class="head2">The only interface with Investors</h2>
+                            <div class="middle-content">
+                                <div class="text"><i class="fi fi-sr-thumbtack"></i> End to end online and transparent systems for granting clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Participating 20+ departments provide 100+ regulatory clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Information repository for your business realted queires.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Address your grievances.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Easy tracking of applications status.</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 d-flex tracking">
+                        <div class="col-md-8">
+                            
+                            <div class="btn-box pull-right">
+                                <a href="login.aspx" style="
+    width: 105%;
+"><i class="fi fi-br-form"></i> Apply for Clearance/ approvals<br />
+                                    for your business</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            
+                            <div class="btn-box pull-right">
+                                <a href="login.aspx" style="width: 151%;"><i class="fi fi-br-search"></i> Track Application Status</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+
+                    <video autoplay="" muted="" loop="" id="myVideo" style="width: 100%;">
+                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;">
+                    </video>
+
+                </div>
+            </div>
+        </div>
+    </section>
      <div class="modal fade exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
