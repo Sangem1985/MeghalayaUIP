@@ -42,8 +42,24 @@ namespace MeghalayaUIP.User.CFE
                     Page.MaintainScrollPositionOnPostBack = true;
                     if (!IsPostBack)
                     {
-                        Status = Request.QueryString[0].ToString();
-                        BindApplStatus(hdnUserID.Value,UnitID, Status);
+                        if (Request.QueryString[1].ToString() != "")
+                        {
+                            Status = Request.QueryString[1].ToString();
+
+                            BindApplStatus(hdnUserID.Value, UnitID, Status);
+
+                            if(Status== "QueryRaised"|| Status == "QRYRESPOND")
+                            {
+                                gvCFEApplStatus.Columns[4].Visible = true;
+                                gvCFEApplStatus.Columns[5].Visible = true;
+                            }
+                            else
+                            {
+                                gvCFEApplStatus.Columns[4].Visible = false;
+                                gvCFEApplStatus.Columns[5].Visible = false;
+                            }
+                        }
+                            
                     }
                 }
             }

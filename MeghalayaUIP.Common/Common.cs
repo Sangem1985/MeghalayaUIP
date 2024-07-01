@@ -18,7 +18,8 @@ namespace MeghalayaUIP.Common
 
         public static string InsertGrievance = "USP_INS_GRIEVANCE";
         public static string GetUserGrievanceList= "USP_GETUSERGRIEVANCES";
-
+        public static string GetGrowthFinancialYear = "USP_GET_GROWTH_FINANCIALYEAR";
+        
         //-----dept----
         public static string GetDeptGrievanceDashboard = "USP_GETDEPTGRIEVANCEDASHBOARD";
         public static string GetDepGrievanceList = "USP_GETGRIEVANCEBYDEPT";

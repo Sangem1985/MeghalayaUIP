@@ -771,6 +771,7 @@
     <Content Include="RenewalServices.aspx" />
     <Content Include="SingleWindowPortalDashboard.aspx" />
     <Content Include="stateprofile.aspx" />
+    <Content Include="StateProfileNew.aspx" />
     <Content Include="Tourism.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
@@ -1231,6 +1232,13 @@
     </Compile>
     <Compile Include="stateprofile.aspx.designer.cs">
       <DependentUpon>stateprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StateProfileNew.aspx.cs">
+      <DependentUpon>StateProfileNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StateProfileNew.aspx.designer.cs">
+      <DependentUpon>StateProfileNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tourism.aspx.cs">
       <DependentUpon>Tourism.aspx</DependentUpon>
