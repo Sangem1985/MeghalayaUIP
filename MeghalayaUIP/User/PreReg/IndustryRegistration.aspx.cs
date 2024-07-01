@@ -260,8 +260,8 @@ namespace MeghalayaUIP.User.PreReg
                                     hplCIN.NavigateUrl = sen;
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
-                                }                               
-                               
+                                }
+
                                 i++;
                             }
 
@@ -1373,7 +1373,7 @@ namespace MeghalayaUIP.User.PreReg
                                 objattachments.UserID = hdnUserID.Value;
                                 objattachments.FileType = fupDPR.PostedFile.ContentType; ;
                                 objattachments.FileName = fupDPR.PostedFile.FileName;
-                                objattachments.Filepath = newPath.ToString()+ fupDPR.PostedFile.FileName; ;
+                                objattachments.Filepath = newPath.ToString() + fupDPR.PostedFile.FileName; ;
                                 objattachments.FileDescription = "DPR";
                                 objattachments.Deptid = "0";
                                 objattachments.ApprovalId = "0";
@@ -1539,11 +1539,7 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 int slno = 0; string errormsg = "";
-                if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
-                {
-                    errormsg = errormsg + slno + "Please Upload Detailed Project Report (DPR) " + "\\n";
-                    slno = slno + 1;
-                }
+               
                 if (grdRevenueProj.Rows.Count > 0)
                 {
                     for (int j = 0; j < grdRevenueProj.Rows.Count; j++)
@@ -1878,7 +1874,7 @@ namespace MeghalayaUIP.User.PreReg
             {
 
                 string result = "";
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "")
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" )
                 {
                     DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
                     //dtnew.Columns.Remove("IDD_COUNTRYName");
@@ -1905,12 +1901,7 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         ErrorMsg3 = ErrorMsg3 + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button \\n";
 
-                    }
-                    if (lbldpr.Text == "")
-                    {
-                        ErrorMsg3 = ErrorMsg3 + "Please Upload Detailed Project Report and click on Upload Button \\n";
-
-                    }
+                    }                    
                     if (hdnResultTab2.Value == "")
                     {
                         ErrorMsg3 = ErrorMsg3 + "Please Enter Details of Revenue Projections and click on Save button \\n";
@@ -2493,6 +2484,93 @@ namespace MeghalayaUIP.User.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void btnBankAppraisal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    string Error = ""; string message = "";
+                    if (fupBankAppraisal.HasFile)
+                    {
+                        Error = validations(fupBankAppraisal);
+                        if (Error == "")
+                        {
+                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "BankAppraisal" + "\\");
+                            if (!Directory.Exists(serverpath))
+                            {
+                                Directory.CreateDirectory(serverpath);
+
+                            }
+                            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                            int count = dir.GetFiles().Length;
+                            if (count == 0)
+                                fupBankAppraisal.PostedFile.SaveAs(serverpath + "\\" + fupBankAppraisal.PostedFile.FileName);
+                            else
+                            {
+                                if (count == 1)
+                                {
+                                    string[] Files = Directory.GetFiles(serverpath);
+
+                                    foreach (string file in Files)
+                                    {
+                                        File.Delete(file);
+                                    }
+                                    fupBankAppraisal.PostedFile.SaveAs(serverpath + "\\" + fupBankAppraisal.PostedFile.FileName);
+                                }
+                            }
+
+
+                            IndustryDetails objattachments = new IndustryDetails();
+
+                            objattachments.UnitID = ViewState["UnitID"].ToString();
+                            objattachments.UserID = hdnUserID.Value;
+                            objattachments.FileType = fupBankAppraisal.PostedFile.ContentType;
+                            objattachments.FileName = fupBankAppraisal.PostedFile.FileName;
+                            objattachments.Filepath = serverpath + fupBankAppraisal.PostedFile.FileName;
+                            objattachments.FileDescription = "BankAppraisal";
+                            objattachments.Deptid = "0";
+                            objattachments.ApprovalId = "0";
+
+                            int result = 0;
+                            result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                            if (result != 0)
+                            {
+                                hplBankAppraisal.Text = fupBankAppraisal.PostedFile.FileName;
+                                hplBankAppraisal.NavigateUrl = serverpath;
+                                hplBankAppraisal.Target = "blank";
+                                message = "alert('" + "Bank Appraisal Document Uploaded successfully" + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            }
+                        }
+                        else
+                        {
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + "Please Upload Document" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                {
+                    string message = "alert('" + "Please Fill Basic Details and then Upload" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         public string validations(FileUpload Attachment)
         {
             try
@@ -2688,6 +2766,17 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Upload GST Document \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
+                {
+                    errormsg = errormsg + slno + "Please Upload Detailed Project Report (DPR) " + "\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplBankAppraisal.Text) || hplBankAppraisal.Text == "" || hplBankAppraisal.Text == null)
+                {
+                    errormsg = errormsg + slno + "Please Upload Bank Appraisal " + "\\n";
+                    slno = slno + 1;
+                }
+                
 
                 return errormsg;
             }
@@ -2770,6 +2859,19 @@ namespace MeghalayaUIP.User.PreReg
             Link1.Attributes.Add("class", cls + " nav-tab");
 
         }
+
+        protected void rblLandType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblLandType.SelectedValue == "Own")
+            { txtPropLocDoorno.Enabled = true; }
+            else if (rblLandType.SelectedValue == "Required")
+            {
+                txtPropLocDoorno.Enabled = false;
+                txtPropLocDoorno.Text = "";
+            }
+        }
+
+        
 
         protected void Link2_Click(object sender, EventArgs e)
         {

@@ -91,7 +91,7 @@
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
                                     <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
-                                    2. Basic Revenue Projections</asp:LinkButton></li>
+                                    2. Revenue Projections</asp:LinkButton></li>
                                 <%-- </li>
                                     <li class="nav-item">--%>
                                 <li class="nav-item">
@@ -302,7 +302,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Is Land Required *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:RadioButtonList runat="server" ID="rblLandType" RepeatDirection="Horizontal">
+                                                                    <asp:RadioButtonList runat="server" ID="rblLandType" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLandType_SelectedIndexChanged">
                                                                         <asp:ListItem Value="Own" Text="Own Land"></asp:ListItem>
                                                                         <asp:ListItem Value="Required" Text="Required"></asp:ListItem>
                                                                     </asp:RadioButtonList>
@@ -761,7 +761,7 @@
 
                                             <div class="card-body" runat="server" id="divRevenue">
                                                 <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
-                                                <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Basic Revenue Projections</h4>
+                                                <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Revenue Projections</h4>
                                                 <%--<form action="#">--%>
                                                 <div class="row">
 
@@ -824,24 +824,7 @@
                                                         </asp:GridView>
                                                     </div>
                                                     <br />
-                                                    <div class="col-md-12" style="padding-top: 40px">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label"><b>Upload Detailed Project Report (DPR)</b></label>
-                                                            <div class="col-lg-8 d-flex">
-                                                                <div class="col-lg-3 d-flex">
-                                                                    <asp:FileUpload ID="fupDPR" runat="server" />
-                                                                </div>
-                                                                <div class="col-lg-2 d-flex">
-                                                                    <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
-                                                                </div>
-                                                                <div class="col-lg-2 d-flex">
-                                                                    <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
-                                                                    <asp:Label ID="lbldpr" runat="server" Visible="false" />
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    
 
                                                     <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
                                                         <div class="col-md-2">
@@ -1220,7 +1203,37 @@
                                                                 <asp:HyperLink ID="hplCIN" runat="server" Target="_blank"></asp:HyperLink>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">6. Upload Detailed Project Report (DPR)</label>
+                                                            <%--<div class="col-lg-8 d-flex">--%>
+                                                                <div class="col-lg-3 d-flex">
+                                                                    <asp:FileUpload ID="fupDPR" runat="server" />
+                                                                </div>
+                                                                <div class="col-lg-1 d-flex">
+                                                                    <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
+                                                                </div>
+                                                                <div class="col-lg-4 d-flex">
+                                                                    <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
+                                                                    <asp:Label ID="lbldpr" runat="server" Visible="false" />
+                                                                </div>
+
+                                                            <%--</div>--%>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">7. Bank Appraisal</label>
+                                                            <div class="col-lg-3 d-flex">
+                                                                <asp:FileUpload ID="fupBankAppraisal" runat="server" />
+                                                            </div>
+                                                            <div class="col-lg-1 d-flex">
+                                                                <asp:Button Text="Upload" runat="server" ID="btnBankAppraisal" class="btn btn-rounded btn-dark mb-4" OnClick="btnBankAppraisal_Click"  />
+                                                            </div>
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:HyperLink ID="hplBankAppraisal" runat="server" Target="_blank"></asp:HyperLink>
+                                                            </div>
+                                                        </div>
                                                     </div>
+
+                                                  
                                                     <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
 
                                                         <div class="col-md-10 text-right">
