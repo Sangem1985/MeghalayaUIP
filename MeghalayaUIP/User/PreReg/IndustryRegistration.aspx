@@ -302,7 +302,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Is Land Required *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:RadioButtonList runat="server" ID="rblLandType" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLandType_SelectedIndexChanged">
+                                                                    <asp:RadioButtonList runat="server" ID="rblLandType" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLandType_SelectedIndexChanged">
                                                                         <asp:ListItem Value="Own" Text="Own Land"></asp:ListItem>
                                                                         <asp:ListItem Value="Required" Text="Required"></asp:ListItem>
                                                                     </asp:RadioButtonList>
