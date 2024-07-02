@@ -34,7 +34,7 @@ namespace MeghalayaUIP.User.Dashboard
                 if (Request.QueryString.Count > 0)
                 {
                     UnitID = Convert.ToString(Request.QueryString[0]);
-                    lblType.Text = Request.QueryString[1].ToString();
+                    lblType.Text =" "+ Request.QueryString[1].ToString();
                 }
                 else
                 {

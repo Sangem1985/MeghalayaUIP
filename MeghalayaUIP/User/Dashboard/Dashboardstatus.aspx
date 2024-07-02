@@ -15,7 +15,7 @@
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title">Welcome to Dashboard
+                    <h4 class="card-title">Applicantion
                         <asp:Label ID="lblType" runat="server"></asp:Label></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>

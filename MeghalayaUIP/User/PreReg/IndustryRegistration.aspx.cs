@@ -1541,7 +1541,7 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 int slno = 0; string errormsg = "";
-               
+
                 if (grdRevenueProj.Rows.Count > 0)
                 {
                     for (int j = 0; j < grdRevenueProj.Rows.Count; j++)
@@ -1876,7 +1876,7 @@ namespace MeghalayaUIP.User.PreReg
             {
 
                 string result = "";
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" )
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "")
                 {
                     DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
                     //dtnew.Columns.Remove("IDD_COUNTRYName");
@@ -1903,7 +1903,7 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         ErrorMsg3 = ErrorMsg3 + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button \\n";
 
-                    }                    
+                    }
                     if (hdnResultTab2.Value == "")
                     {
                         ErrorMsg3 = ErrorMsg3 + "Please Enter Details of Revenue Projections and click on Save button \\n";
@@ -2768,17 +2768,20 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Upload GST Document \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
+                if (rblproposal.SelectedValue == "Existing")
                 {
-                    errormsg = errormsg + slno + "Please Upload Detailed Project Report (DPR) " + "\\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
+                    {
+                        errormsg = errormsg + slno + "Please Upload Detailed Project Report (DPR) " + "\\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (string.IsNullOrEmpty(hplBankAppraisal.Text) || hplBankAppraisal.Text == "" || hplBankAppraisal.Text == null)
                 {
                     errormsg = errormsg + slno + "Please Upload Bank Appraisal " + "\\n";
                     slno = slno + 1;
                 }
-                
+
 
                 return errormsg;
             }
@@ -2873,7 +2876,7 @@ namespace MeghalayaUIP.User.PreReg
             }
         }
 
-        
+
 
         protected void Link2_Click(object sender, EventArgs e)
         {

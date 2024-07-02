@@ -383,14 +383,14 @@
                                                     </div>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2"  id="Annual" runat="server" visible="false">
+                                                        <div class="col-md-2" id="Annual" runat="server" visible="false">
                                                             <label>7. Annual Capacity</label>
                                                         </div>
                                                         <div class="col-md-2" id="capacity" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblAnnualCap" runat="server"></asp:Label>
                                                         </div>
 
-                                                        <div class="col-md-2"  id="Unit" runat="server" visible="false">
+                                                        <div class="col-md-2" id="Unit" runat="server" visible="false">
                                                             <label>8. Unit of	Measurement</label>
                                                         </div>
                                                         <div class="col-md-2" id="Measurment" runat="server" visible="false">
