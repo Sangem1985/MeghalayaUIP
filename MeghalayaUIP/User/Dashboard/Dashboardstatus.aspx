@@ -1,8 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="Dashboardstatus.aspx.cs" Inherits="MeghalayaUIP.User.Dashboard.Dashboardstatus" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <link href="../assets/admin/css/user.css" rel="stylesheet" />
+    <link href="../assets/admin/css/user.css" rel="stylesheet" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Pre Establishment</li>
+        </ol>
+    </nav>
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid">
 
