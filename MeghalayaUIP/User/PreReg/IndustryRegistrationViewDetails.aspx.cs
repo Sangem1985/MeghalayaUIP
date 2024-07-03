@@ -77,6 +77,8 @@ namespace MeghalayaUIP.User.PreReg
                     lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
                     lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                     lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
+                    if (lblisland.Text == "Own") 
+                    { divDrNo1.Visible = true; divDrNo2.Visible = true; }
 
                     lblpromotndcont.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
                     lblequityamount.Text = Convert.ToString(row["FRD_EQUITY"]);
@@ -152,17 +154,17 @@ namespace MeghalayaUIP.User.PreReg
                         lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
                         lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
                     }
-                 
-                  
 
-                  
-                 
+
+
+
+
 
                     lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
                     lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
                     lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
 
-                  
+
                     lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
                     lblhazdtls.Text = Convert.ToString(row["PROJECT_HAZWASTEDETAILS"]);
                     lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
@@ -171,8 +173,8 @@ namespace MeghalayaUIP.User.PreReg
 
                     lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
                     lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
-                 
-                 
+
+
                     lblEstProjcost.Text = Convert.ToString(row["PROJECT_EPCOST"]);
                     lblPMCost.Text = Convert.ToString(row["PROJECT_PMCOST"]);
                     lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
@@ -203,14 +205,14 @@ namespace MeghalayaUIP.User.PreReg
                         grdQueries.DataSource = ds.Tables[4];
                         grdQueries.DataBind();
                     }
-                    if(ds.Tables[5].Rows.Count > 0)
+                    if (ds.Tables[5].Rows.Count > 0)
                     {
                         linkViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILENAME"]);
-                        hplViewDPR.Text= Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
+                        hplViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
                     }
                     if (ds.Tables[6].Rows.Count > 0)
                     {
-                        
+
                         grdQryAttachments.DataSource = ds.Tables[6];
                         grdQryAttachments.DataBind();
                     }
@@ -247,7 +249,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                string UnitID="";
+                string UnitID = "";
                 if (Request.QueryString.Count > 0)
                 {
                     if (Convert.ToString(Request.QueryString["ViewStatus"]) == "Total")
@@ -255,8 +257,8 @@ namespace MeghalayaUIP.User.PreReg
                     else
                         UnitID = Convert.ToString(Request.QueryString[0]);
                 }
-                
-                Response.Redirect("~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID="+ UnitID);
+
+                Response.Redirect("~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + UnitID);
 
             }
             catch (Exception ex)
@@ -275,7 +277,7 @@ namespace MeghalayaUIP.User.PreReg
 
         protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
         {
-            LinkButton lnkview = (LinkButton) sender;
+            LinkButton lnkview = (LinkButton)sender;
             GridViewRow row = (GridViewRow)lnkview.NamingContainer;
             HyperLink hplview = (HyperLink)row.FindControl("hplViewQueryAttachment");
 
