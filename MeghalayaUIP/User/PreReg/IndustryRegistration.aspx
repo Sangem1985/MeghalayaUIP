@@ -85,7 +85,7 @@
             </div>
             <p>
                 <ul>
-                    <li>Please be ready with all the filled <b>details</b> and <b>attached documents</b>.</li>
+                    <li>Please be ready with all <b>details</b> to be filled and <b>attachments to be Uploaded</b>.</li>
                     <li>By submitting this application, you agree that the information provided is accurate and complete. Any false information may result in the rejection of your application.</li>
                     <li>We reserve the right to verify the information provided in your application. Providing false or misleading information may result in disqualification.
 

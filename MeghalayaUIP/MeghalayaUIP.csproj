@@ -813,6 +813,7 @@
     <Content Include="User\CFO\CFODrugLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOExcise.aspx" />
     <Content Include="User\CFO\CFOFireDetails.aspx" />
+    <Content Include="User\CFO\CFOIndustryDetails.aspx" />
     <Content Include="User\CFO\CFOLabourDetails.aspx" />
     <Content Include="User\CFO\CFOLegalMeterology.aspx" />
     <Content Include="User\CFO\CFOPaymentPage.aspx" />
@@ -1454,6 +1455,13 @@
     </Compile>
     <Compile Include="User\CFO\CFOFireDetails.aspx.designer.cs">
       <DependentUpon>CFOFireDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOIndustryDetails.aspx.cs">
+      <DependentUpon>CFOIndustryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOIndustryDetails.aspx.designer.cs">
+      <DependentUpon>CFOIndustryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOLabourDetails.aspx.cs">
       <DependentUpon>CFOLabourDetails.aspx</DependentUpon>

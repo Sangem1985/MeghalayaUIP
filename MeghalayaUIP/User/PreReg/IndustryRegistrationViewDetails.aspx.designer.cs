@@ -816,6 +816,24 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.HyperLink hplViewDPR;
 
         /// <summary>
+        /// lnkBankAppraisal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkBankAppraisal;
+
+        /// <summary>
+        /// HyBankAppraisal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyBankAppraisal;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>

@@ -15,6 +15,223 @@ namespace MeghalayaUIP.DAL.CFODAL
     public class CFODAL
     {
         string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
+
+        public DataSet GetCFOIndustryDetails(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOIndustryDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOIndustryDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string InsertCFOIndustryDetails(CFOCommonDet objCFOEntrepreneur)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOIndustryDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOID_CREATEDBY", Convert.ToInt32(objCFOEntrepreneur.CreatedBy));
+                com.Parameters.AddWithValue("@CFOID_CREATEDBYIP", objCFOEntrepreneur.IPAddress);
+
+                com.Parameters.AddWithValue("@CFOID_PREREGUIDNO", objCFOEntrepreneur.PreRegUID);
+                com.Parameters.AddWithValue("@CFOID_UNITID", Convert.ToInt32(objCFOEntrepreneur.UNITID));
+
+                com.Parameters.AddWithValue("@CFOID_COMPANYNAME", objCFOEntrepreneur.CompanyName);
+                com.Parameters.AddWithValue("@CFOID_COMPANYTYPE", Convert.ToInt32(objCFOEntrepreneur.CompanyType));
+                com.Parameters.AddWithValue("@CFOID_PROPOSALFOR", objCFOEntrepreneur.CompanyPraposal);
+                com.Parameters.AddWithValue("@CFOID_REGTYPE", Convert.ToInt32(objCFOEntrepreneur.CompanyRegType));
+                com.Parameters.AddWithValue("@CFOID_REGNO", objCFOEntrepreneur.CompanyRegNo);
+                com.Parameters.AddWithValue("@CFOID_REGDATE", DateTime.ParseExact(objCFOEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOID_FACTORYTYPE", objCFOEntrepreneur.FactoryType);
+                com.Parameters.AddWithValue("@CFOID_REPNAME", objCFOEntrepreneur.AuthRep_Name);
+                com.Parameters.AddWithValue("@CFOID_REPSoWoDo", objCFOEntrepreneur.AuthRep_SoWoDo);
+                com.Parameters.AddWithValue("@CFOID_REPEMAIL", objCFOEntrepreneur.AuthRep_Email);
+                com.Parameters.AddWithValue("@CFOID_REPMOBILE", Convert.ToInt64(objCFOEntrepreneur.AuthRep_Mobile));
+                com.Parameters.AddWithValue("@CFOID_REPALTMOBILE", objCFOEntrepreneur.AuthRep_AltMobile);
+                com.Parameters.AddWithValue("@CFOID_REPTELPHNO", objCFOEntrepreneur.AuthRep_TelNo);
+                com.Parameters.AddWithValue("@CFOID_REPDOORNO", objCFOEntrepreneur.AuthRep_DoorNo);
+                com.Parameters.AddWithValue("@CFOID_REPLOCALITY", objCFOEntrepreneur.AuthRep_Locality);
+                com.Parameters.AddWithValue("@CFOID_REPDISTRICTID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_DistrictID));
+                com.Parameters.AddWithValue("@CFOID_REPMANDALID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_MandalID));
+                com.Parameters.AddWithValue("@CFOID_REPVILLAGEID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_VillageID));
+                com.Parameters.AddWithValue("@CFOID_REPPINCODE", Convert.ToInt32(objCFOEntrepreneur.AuthRep_Pincode));
+                com.Parameters.AddWithValue("@CFOID_REPISDIFFABLED", objCFOEntrepreneur.AuthRep_DiffAbled);
+                com.Parameters.AddWithValue("@CFOID_REPISWOMANENTR", objCFOEntrepreneur.AuthRep_Woman);
+
+                com.Parameters.AddWithValue("@CFOID_DEVELOPAREA", Convert.ToDecimal(objCFOEntrepreneur.DevelopmentArea));
+
+                com.Parameters.AddWithValue("@CFOID_ARCHTCTNAME", objCFOEntrepreneur.ArchitechtureName);
+                com.Parameters.AddWithValue("@CFOID_ARCHTCTLICNO", objCFOEntrepreneur.ArchitechtureLICNo);
+                com.Parameters.AddWithValue("@CFOID_ARCHTCTMOBILE", Convert.ToInt64(objCFOEntrepreneur.ArchitechtureMobileNo));
+                com.Parameters.AddWithValue("@CFOID_SRTCTENGNRNAME", objCFOEntrepreneur.strctralName);
+                com.Parameters.AddWithValue("@CFOID_SRTCTENGNRLICNO", objCFOEntrepreneur.strctralLicNo);
+                com.Parameters.AddWithValue("@CFOID_SRTCTENGNRMOBILE", Convert.ToInt64(objCFOEntrepreneur.strctralMobileNo));
+
+                com.Parameters.AddWithValue("@CFOID_APPROACHROADTYPE", objCFOEntrepreneur.ApprchRdType);
+                com.Parameters.AddWithValue("@CFOID_APPROACHROADWIDTH", Convert.ToDecimal(objCFOEntrepreneur.ApprchRdWidth));
+                com.Parameters.AddWithValue("@CFOID_AFFECTEDRDWDNG", objCFOEntrepreneur.AffectedRdWdng);
+                com.Parameters.AddWithValue("@CFOID_AFFECTEDRDAREA", objCFOEntrepreneur.AffectedExtended);
+
+                com.Parameters.AddWithValue("@CFOID_TOTALEMP", Convert.ToInt32(objCFOEntrepreneur.TotalEmp));
+
+                com.Parameters.AddWithValue("@CFOID_DIRECTMALE", Convert.ToInt32(objCFOEntrepreneur.DirectMale));
+                com.Parameters.AddWithValue("@CFOID_DIRECTFEMALE", Convert.ToInt32(objCFOEntrepreneur.DirectFemale));
+                com.Parameters.AddWithValue("@CFOID_DIRECTOTHERS", Convert.ToInt32(objCFOEntrepreneur.DirectOthers));
+
+                com.Parameters.AddWithValue("@CFOID_INDIRECTMALE", Convert.ToInt32(objCFOEntrepreneur.InDirectMale));
+                com.Parameters.AddWithValue("@CFOID_INDIRECTFEMALE", Convert.ToInt32(objCFOEntrepreneur.InDirectFemale));
+                com.Parameters.AddWithValue("@CFOID_INDIRECTOTHERS", Convert.ToInt32(objCFOEntrepreneur.InDirectOthers));
+
+                com.Parameters.AddWithValue("@CFOID_RDCUTLENGTH", objCFOEntrepreneur.RoadCut);
+                com.Parameters.AddWithValue("@CFOID_RDCUTLOCATIONS", objCFOEntrepreneur.RoadCutLocation);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFOLineofManf(CFOLineOfManuf objCFOManufacture)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOManufactureDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOLM_CREATEDBY", Convert.ToInt32(objCFOManufacture.CreatedBy));
+                com.Parameters.AddWithValue("@CFOLM_CREATEDBYIP", objCFOManufacture.IPAddress);
+                com.Parameters.AddWithValue("@CFOLM_CFOQDID", Convert.ToInt32(objCFOManufacture.Questionnareid));
+                com.Parameters.AddWithValue("@CFOLM_UNITID", Convert.ToInt32(objCFOManufacture.UNITID));
+                com.Parameters.AddWithValue("@CFOLM_LOAID", Convert.ToInt32(objCFOManufacture.LOAID));
+                com.Parameters.AddWithValue("@CFOLM_ITEMNAME", objCFOManufacture.ManfItemName);
+                com.Parameters.AddWithValue("@CFOLM_ITEMANNUALCAPACITY", Convert.ToDecimal(objCFOManufacture.ManfItemAnnualCapacity));
+                com.Parameters.AddWithValue("@CFOLM_ITEMVALUE", Convert.ToDecimal(objCFOManufacture.ManfItemValue));
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFORawMaterial(CFOLineOfManuf objCFOManufacture)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFORAWMaterialDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFORM_CREATEDBY", Convert.ToInt32(objCFOManufacture.CreatedBy));
+                com.Parameters.AddWithValue("@CFORM_CREATEDBYIP", objCFOManufacture.IPAddress);
+                com.Parameters.AddWithValue("@CFORM_CFOQDID", Convert.ToInt32(objCFOManufacture.Questionnareid));
+                com.Parameters.AddWithValue("@CFORM_UNITID", Convert.ToInt32(objCFOManufacture.UNITID));
+                com.Parameters.AddWithValue("@CFORM_LOAID", Convert.ToInt32(objCFOManufacture.LOAID));
+                com.Parameters.AddWithValue("@CFORM_ITEMNAME", objCFOManufacture.RMItemName);
+                com.Parameters.AddWithValue("@CFORM_ITEMANNUALCAPACITY", Convert.ToDecimal(objCFOManufacture.RMItemAnnualCapacity));
+                com.Parameters.AddWithValue("@CFORM_ITEMVALUE", Convert.ToDecimal(objCFOManufacture.RMItemValue));
+                com.Parameters.AddWithValue("@CFORM_SOURCEOFSUPPLY", objCFOManufacture.RMSourceofSupply);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         public string InsertCFOExciseData(CFOExciseDetails data, List<CFOExciseBrandDetails> brandDetails, List<CFOExciseLiquorDetails> liquorDetails)
         {
             string res = "Fail";
