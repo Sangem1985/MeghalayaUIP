@@ -88,6 +88,8 @@ namespace MeghalayaUIP.Dept.PreReg
                             lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
                             lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                             lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
+                            if (lblisland.Text == "Own")
+                            { divDrNo1.Visible = true; divDrNo2.Visible = true; }
 
                             lblpromotndcont.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
                             lblequityamount.Text = Convert.ToString(row["FRD_EQUITY"]);
@@ -109,6 +111,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                 lblnote.Visible = false;
                             }
 
+
                             lblName.Text = Convert.ToString(row["REP_NAME"]);
                             lblMobile.Text = Convert.ToString(row["REP_MOBILE"]);
                             lblEmail.Text = Convert.ToString(row["REP_EMAIL"]);
@@ -129,21 +132,29 @@ namespace MeghalayaUIP.Dept.PreReg
                             lblDateofcomm.Text = Convert.ToString(row["PROJECT_DCP"]);
                             lblNatureofAct.Text = Convert.ToString(row["PROJECT_NOA"]);
                             if (lblNatureofAct.Text == "Manufacturing")
-                                divManf.Visible = true;
-                            else divServc.Visible = true;
+                            {
+                                divManf1.Visible = true;
+                                divManf2.Visible = true;
+                            }
+                            else { divService.Visible = true; }
                             lblMainmanuf.Text = Convert.ToString(row["PROJECT_MANFACTIVITY"]);
+
                             lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
                             lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
+                            lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
+                            lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
+                            lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
 
                             lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
                             lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
                             lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
 
+
                             lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
                             lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
                             lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
 
-                            lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
+
                             lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
                             lblhazdtls.Text = Convert.ToString(row["PROJECT_HAZWASTEDETAILS"]);
                             lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
@@ -152,8 +163,8 @@ namespace MeghalayaUIP.Dept.PreReg
 
                             lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
                             lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
-                            lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
-                            lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
+
+
                             lblEstProjcost.Text = Convert.ToString(row["PROJECT_EPCOST"]);
                             lblPMCost.Text = Convert.ToString(row["PROJECT_PMCOST"]);
                             lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
@@ -183,9 +194,52 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
                         {
-                            linkViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[0]["FILENAME"]);
-                            hplViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[0]["FILELOCATION"]);
-                        }
+                            int c = ds.Tables[3].Rows.Count;
+                            string Filedesc = "";
+                            int i = 0;
+
+                            while (i < c)
+                            {
+                                Filedesc = ds.Tables[3].Rows[i]["FILEDESCRIPTION"].ToString();
+                                if (Filedesc.Contains("CompanyRegistration"))
+                                {
+                                    lnkCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
+                                    HyCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
+                                }
+                                if (Filedesc.Contains("UdyamRegistration"))
+                                {
+                                    lnkUdyam.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
+                                    HyUdyam.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
+                                }
+                                if (Filedesc.Contains("PAN"))
+                                {
+                                    lnkPAN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
+                                    HyPAN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
+                                }
+                                if (Filedesc.Contains("GSTIN"))
+                                {
+                                    lnkGST.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
+                                    HyGST.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
+                                }
+                                if (Filedesc.Contains("CIN"))
+                                {
+                                    lnkCIN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
+                                    HyCIN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
+                                }
+                                if (Filedesc.Contains("DPR"))
+                                {
+                                    linkViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
+                                    hplViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
+                                }
+                                if (Filedesc.Contains("BankAppraisal"))
+                                {
+                                    lnkBankAppraisal.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
+                                    HyBankAppraisal.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
+                                }
+                                i++;
+                            }
+                        }  
+                        
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                         {
                             grdQueries.DataSource = ds.Tables[4];
@@ -567,6 +621,80 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void lnkCmpnyRegcertificate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyCmpnyRegcertificate.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        protected void lnkUdyam_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyUdyam.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        protected void lnkPAN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyPAN.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+        protected void lnkGST_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyGST.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+        protected void lnkCIN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyCIN.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        protected void lnkBankAppraisal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyBankAppraisal.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
             }
         }
     }

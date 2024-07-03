@@ -794,7 +794,14 @@
                                                                         <asp:HyperLink ID="hplViewDPR" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
                                                                     </td>
                                                                 </tr>
-
+                                                                <tr>
+                                                                    <td>7.</td>
+                                                                    <td class="fw-bold">Bank Appraisal</td>
+                                                                    <td style="text-align: center;">
+                                                                        <asp:LinkButton ID="lnkBankAppraisal" runat="server" OnClick="lnkBankAppraisal_Click" Target="_blank"></asp:LinkButton>
+                                                                        <asp:HyperLink ID="HyBankAppraisal" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
+                                                                    </td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
