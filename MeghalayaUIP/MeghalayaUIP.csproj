@@ -849,8 +849,10 @@
     <Content Include="User\Renewal\RENCinemaLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
     <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
+    <Content Include="User\Renewal\RenewalServices.aspx" />
     <Content Include="User\Renewal\RENFactoriesLicense.aspx" />
     <Content Include="User\Renewal\RENIndustryDetails.aspx" />
+    <Content Include="User\Renewal\RENQuestionnaire.aspx" />
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
     <Content Include="User\UserDashboard.aspx" />
@@ -1710,6 +1712,13 @@
     <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.designer.cs">
       <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Renewal\RenewalServices.aspx.cs">
+      <DependentUpon>RenewalServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RenewalServices.aspx.designer.cs">
+      <DependentUpon>RenewalServices.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Renewal\RENFactoriesLicense.aspx.cs">
       <DependentUpon>RENFactoriesLicense.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1723,6 +1732,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENIndustryDetails.aspx.designer.cs">
       <DependentUpon>RENIndustryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENQuestionnaire.aspx.cs">
+      <DependentUpon>RENQuestionnaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENQuestionnaire.aspx.designer.cs">
+      <DependentUpon>RENQuestionnaire.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENSafetySecurityDetails.aspx.cs">
       <DependentUpon>RENSafetySecurityDetails.aspx</DependentUpon>
