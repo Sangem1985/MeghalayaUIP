@@ -5,6 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
     <link href="../../assets/admin/css/deptdashboard3.css" rel="stylesheet" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
+            <li class="breadcrumb-item">Grievance </li>
+            <li class="breadcrumb-item active" aria-current="page">Status</li>
+        </ol>
     <div class="page-wrapper cfeappldeptdrill">
         <div class="content container-fluid">
             <div class="col-md-12 row mb-3">

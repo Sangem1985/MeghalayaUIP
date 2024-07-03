@@ -50,7 +50,7 @@
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
             <%--<li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>--%>
-
+            <li class="breadcrumb-item">Committee </li>
             <li class="breadcrumb-item active" aria-current="page">Industry Registration View Details</li>
         </ol>
     </nav>

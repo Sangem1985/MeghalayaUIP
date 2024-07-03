@@ -3,11 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>             
+            <li class="breadcrumb-item active" aria-current="page">Industry Registration</li>
+        </ol>
+    </nav>
     <div class="page-wrapper" style="margin: 10px 0px !important;">
 
         <div class="container-fluid">
             <div class="card" style="padding: 10px; border-radius: 4px;">
-                <h2 style="font-size: 22px; color: #3f51b5;">Department Dashboard</h2>
+                <%--<h2 style="font-size: 22px; color: #3f51b5;">Department Dashboard</h2>--%>
                 <div class="card mt-2" visible="false" runat="server">
                     <div class="card-header">
                         <h3>Industry Registration Applications</h3>

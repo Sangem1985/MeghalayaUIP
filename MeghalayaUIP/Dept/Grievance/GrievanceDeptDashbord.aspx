@@ -4,6 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>             
+            <li class="breadcrumb-item active" aria-current="page">Grievance</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
 
@@ -21,7 +27,7 @@
                 </div>
                 <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="card-header">
-                    <h3>Grievance Department Dashbord</h3>
+                    <h3>Department Dashbord</h3>
                 </div>
                 <section id="dashboardcount2">
                     <div class="container-fluid">
