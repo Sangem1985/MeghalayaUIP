@@ -28,8 +28,8 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h4>Pre-Operational Approvals</h4>
-
+                    <h4>Pre-Operational Approvals :
+                     <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
 
                     <div class="table-responsive CFEUSERDASHBOARD">
                         <asp:GridView ID="gvCFOApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"

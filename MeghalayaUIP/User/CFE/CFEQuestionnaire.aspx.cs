@@ -1271,7 +1271,7 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnPreviuos3_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            MVQues.ActiveViewIndex = 1;
 
         }
 

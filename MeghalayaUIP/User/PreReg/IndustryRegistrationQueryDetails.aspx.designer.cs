@@ -87,6 +87,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblUnitName;
 
         /// <summary>
+        /// lblQueryBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQueryBy;
+
+        /// <summary>
         /// lblQueryRaised control.
         /// </summary>
         /// <remarks>

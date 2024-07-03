@@ -258,10 +258,10 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                         <asp:LinkButton ID="lnkGrvStatus" runat="server" OnClick="lnkGrvStatus_Click" class="dropdown-item">Grievance Status<span class="sr-only">(current)</span></asp:LinkButton>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkOther" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fi fi-br-person-circle-question"></i>Other Services
+                                <li class="nav-item dropdown">
+                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fi fi-br-person-circle-question"></i>Other Services
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkOther">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <asp:LinkButton ID="lnkCentralRep" runat="server" OnClick="lnkCentralRep_Click" class="dropdown-item">Central Repository<span class="sr-only">(current)</span></asp:LinkButton>                                        
                                     </div>                                     
                                 </li>
@@ -270,7 +270,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                              <ul style="list-style: none; margin-bottom: -3px !important; width: 8%; text-align: right; justify-content: right;" class="d-flex">
                                 <li class="nav-item">
 
-                                    <asp:LinkButton ID="lnkCentralrepository" runat="server" OnClick="lnkCentralrepository_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-source-document" Title="Central Repository"></i> </asp:LinkButton>
+                                    <asp:LinkButton ID="lnkCentralrepository" runat="server" Visible="false" OnClick="lnkCentralrepository_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-source-document" Title="Central Repository"></i> </asp:LinkButton>
                                     <%--<a class="nav-link" href="#"></a>--%>
                                 </li>
                             </ul>
