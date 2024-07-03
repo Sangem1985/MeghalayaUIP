@@ -536,7 +536,14 @@
     <Content Include="assets\assetsnew\images\info\icon12.png" />
     <Content Include="assets\assetsnew\images\info\icon13.png" />
     <Content Include="assets\assetsnew\images\info\icon2.jpg" />
+    <Content Include="assets\assetsnew\images\info\icon21.png" />
+    <Content Include="assets\assetsnew\images\info\icon22.png" />
+    <Content Include="assets\assetsnew\images\info\icon23.png" />
+    <Content Include="assets\assetsnew\images\info\icon24.png" />
     <Content Include="assets\assetsnew\images\info\icon3.jpg" />
+    <Content Include="assets\assetsnew\images\info\icon31.png" />
+    <Content Include="assets\assetsnew\images\info\icon32.png" />
+    <Content Include="assets\assetsnew\images\info\icon33.png" />
     <Content Include="assets\assetsnew\images\invotebg.gif" />
     <Content Include="assets\assetsnew\images\invotebgirr.gif" />
     <Content Include="assets\assetsnew\images\invotebgunder.png" />

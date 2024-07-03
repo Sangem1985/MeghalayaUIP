@@ -34,12 +34,46 @@
                     <h3>Key Initiatives:</h3>
                     <p>The State of Meghalaya has implemented key initiatives to enhance its business environment, focusing on minimizing regulatory compliance and decriminalizing minor offenses. </p>
 
-                    <p><b>a. Ease of Doing Business Framework (DPIIT): </b></p>
+                    <%--<p><b>a. Ease of Doing Business Framework (DPIIT): </b></p>
                     <ul>
                         <li>1.	Minimize regulatory compliance.</li>
                         <li>2.	Decriminalize minor offenses.</li>
                         <li>3.	State Governments implement annual reforms</li>
-                    </ul>
+                    </ul>--%>
+                    <section class="project-section case-page-3 eodb1 p-0 pt-2 mb-5">
+                        <div class="large-container">
+                            <h3>Services Offered</h3>
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-6 col-sm-12 project-block">
+                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p>
+                                            <img src="assets/assetsnew/images/info/icon31.png" />
+                                        </p>
+                                        <p class="texttop" style="color:#fff;"><b>Minimize regulatory compliance.</b></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 project-block">
+                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p>
+                                            <img src="assets/assetsnew/images/info/icon32.png" />
+                                        </p>
+                                        <p class="texttop" style="color:#fff;">
+                                            <b>Decriminalize minor offenses.</b>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 project-block">
+                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p>
+                                            <img src="assets/assetsnew/images/info/icon33.png" />
+                                        </p>
+                                        <p class="texttop" style="color:#fff;"><b>State Governments implement annual reforms.</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <%--<p><b>b. Meghalaya's EoDB Performance: </b></p>
                     <ul>
                         <li>1.	Pre-2019: Among the lowest in Ease of Doing Business rankings.</li>
@@ -79,14 +113,48 @@
                         </div>
                     </section>
 
-                    <p><b>c. Proactive Steps in Meghalaya: </b></p>
+                   <%-- <p><b>c. Proactive Steps in Meghalaya: </b></p>
                     <ul>
                         <li>1.	Digitization of records.</li>
                         <li>2.	Minimizing compliance burdens.</li>
                         <li>3.	Identified 304 compliances (280 for businesses, 24 for citizens).</li>
                         <li>4.	Reduced 167 compliances (143 for businesses, 24 for citizens).</li>
-                    </ul>
+                    </ul>--%>
+                    <section class="project-section case-page-3 eodb4 p-0 pt-2 mb-5">
+                        <div class="large-container">
+                            <h3>Proactive Steps in Meghalaya</h3>
+                            <div class="row">
 
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p>
+                                            <img src="assets/assetsnew/images/info/icon21.png" />
+                                        </p>
+                                        <p class="texteodb4 1">Digitization of records.</p>
+                                    </div>
+                                    </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p><img src="assets/assetsnew/images/info/icon22.png" /></p>
+                                        <p class="texteodb4 2">Minimizing compliance<br /> burdens.</p>
+                                    </div>
+                                    </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p><img src="assets/assetsnew/images/info/icon23.png" /></p>
+                                        <p class="texteodb4 3">Identified 304 compliances<br /> (280 Businesses, 24 Citizens).</p>
+                                    </div>
+                                    </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p><img src="assets/assetsnew/images/info/icon24.png" /></p>
+                                        <p class="texteodb4 4">Reduced 167 compliances<br /> (143 Businesses, 24 Citizens).</p>
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
                     <%--<p><b>d. Services Offered :</b></p>
                     <ul>
                         <li>1.	132 End-to-end online services.</li>
@@ -107,7 +175,7 @@
                             <div class="row">
 
                                 <div class="col-lg-4 col-md-6 col-sm-12 project-block">
-                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                         <p>
                                             <img src="assets/assetsnew/images/info/icon11.png" />
                                         </p>
@@ -115,7 +183,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 project-block">
-                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                         <p>
                                             <img src="assets/assetsnew/images/info/icon12.png" />
                                         </p>
@@ -126,7 +194,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 project-block">
-                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                    <div class="setup wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                         <p>
                                             <img src="assets/assetsnew/images/info/icon13.png" />
                                         </p>
