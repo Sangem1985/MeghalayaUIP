@@ -533,6 +533,7 @@
     <Content Include="assets\assetsnew\images\invotebg.gif" />
     <Content Include="assets\assetsnew\images\invotebgirr.gif" />
     <Content Include="assets\assetsnew\images\invotebgunder.png" />
+    <Content Include="assets\assetsnew\images\keysectors.png" />
     <Content Include="assets\assetsnew\images\lighbulb.png" />
     <Content Include="assets\assetsnew\images\lighbulb1.png" />
     <Content Include="assets\assetsnew\images\Logo.png" />
@@ -553,6 +554,7 @@
     <Content Include="assets\assetsnew\images\main-slider\wim.mp4" />
     <Content Include="assets\assetsnew\images\MIIPP.gif" />
     <Content Include="assets\assetsnew\images\popupcircle.gif" />
+    <Content Include="assets\assetsnew\images\popupimg.png" />
     <Content Include="assets\assetsnew\images\resource\about-3.jpg" />
     <Content Include="assets\assetsnew\images\resource\single-service-1.jpg" />
     <Content Include="assets\assetsnew\images\resource\single-service-5.jpg" />
@@ -572,10 +574,12 @@
     <Content Include="assets\assetsnew\images\resource\testimonial-5.png" />
     <Content Include="assets\assetsnew\images\resource\testimonial-6.png" />
     <Content Include="assets\assetsnew\images\resource\wehelp-1.jpg" />
+    <Content Include="assets\assetsnew\images\sectors.png" />
     <Content Include="assets\assetsnew\images\trackbg.jpg" />
     <Content Include="assets\assetsnew\images\turndown.gif" />
     <Content Include="assets\assetsnew\images\UNNATI.gif" />
     <Content Include="assets\assetsnew\images\UNNATI_2.gif" />
+    <Content Include="assets\assetsnew\images\uso.gif" />
     <Content Include="assets\assetsnew\js\aos.js" />
     <Content Include="assets\assetsnew\js\appear.js" />
     <Content Include="assets\assetsnew\js\bootstrap.min.js" />

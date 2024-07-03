@@ -208,7 +208,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (ds.Tables[5].Rows.Count > 0)
                     {
                         linkViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILENAME"]);
-                        hplViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
+                        hplViewDPR.Text= Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
                     }
                     if (ds.Tables[6].Rows.Count > 0)
                     {
@@ -272,7 +272,6 @@ namespace MeghalayaUIP.User.PreReg
         protected void linkViewDPR_Click(object sender, EventArgs e)
         {
             Response.Redirect(hplViewDPR.Text);
-
         }
 
         protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
@@ -282,6 +281,73 @@ namespace MeghalayaUIP.User.PreReg
             HyperLink hplview = (HyperLink)row.FindControl("hplViewQueryAttachment");
 
             Response.Redirect(hplview.Text);
+        }
+
+        protected void lnkCmpnyRegcertificate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyCmpnyRegcertificate.Text);
+            }
+            catch(Exception ex) 
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void lnkUdyam_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyUdyam.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void lnkPAN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyPAN.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void lnkGST_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyGST.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void lnkCIN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyCIN.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
     }
 }

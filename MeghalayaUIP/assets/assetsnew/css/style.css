@@ -2437,12 +2437,13 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   overflow: hidden;
 }
 
-.project-block-one .inner-box .lower-content{
-  position: relative;
-  display: block;
-  background: #fff;
-  padding: 30px 40px 25px 40px;
-}
+    .project-block-one .inner-box .lower-content {
+        position: relative;
+        display: block;
+        background: #fff;
+        padding: 30px 5px 25px 10px;
+        height: 256px;
+    }
 
 .project-block-one .inner-box .lower-content:after{
   position: absolute;
@@ -2704,15 +2705,15 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   margin-top: -15px !important;
 }
 
-.team-section:before{
-  position: absolute;
-  content: '';
-  background: rgba(25, 45, 102, 0.9);
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-}
+    .team-section:before {
+        position: absolute;
+        content: '';
+        background: rgb(25 45 102 / 59%);
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+    }
 
 .team-section .sec-title h1{
   color: #fff;
@@ -10212,15 +10213,17 @@ footer.main-footer.style-two.style-four.home-5 {
   z-index: 1;
 }
 
-.counter-block-two .inner-box{
-  position: relative;
-  display: block;
-  background: #fff;
-  text-align: center;
-  padding: 40px 30px 30px 30px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  transition: all 500ms ease;
+.counter-block-two .inner-box {
+    position: relative;
+    display: block;
+    background: #fff;
+    text-align: center;
+    padding: 20px 10px 20px 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transition: all 500ms ease;
+    border-radius: 16px;
+    border: 1px dotted #ccc;
 }
 
 .counter-block-two .inner-box:hover{
@@ -10239,7 +10242,7 @@ footer.main-footer.style-two.style-four.home-5 {
 .counter-block-two .inner-box .count-outer span{
   position: relative;
   display: inline-block;
-  font-size: 36px;
+  font-size: 18px;
   line-height: 45px;
   font-weight: 700;
   color: #0c0d24;
@@ -19740,8 +19743,8 @@ section.about-us-section1 {
   margin-top: -80px;
 }
 section.about-us-section1 h3 {
-  font-family: sans-serif;
-  font-size: 24px;
+  /*font-family: sans-serif;*/
+  font-size: 26px;
   color: #fff;
 }
 section.about-us-section1 p {
@@ -19821,7 +19824,7 @@ section.testimonial-style-five.centred.overall1 .inner-box:hover {
   
 }
 .testimonial-style-five .testimonial-content .inner-box:hover{
-  padding: 0px 30px 30px 30px;
+  padding: 0px 30px 12px 30px;
 }
 .inner-box span.heihet {
     color: var(--orange);
@@ -19858,8 +19861,9 @@ color: #fff070;
 
 }
 section.about-section-two1.easy {
-  background: url(../images/easybg.png) 100%;
-  background-size: cover;
+    background: url(../images/easybg.png) 100%;
+    background-size: cover;
+    margin-bottom: 15px;
 }
 .icontext p {
   color: #fff;
@@ -19869,12 +19873,11 @@ section.about-section-two1.easy {
   padding: 10px;
 }
 p.pftext {
-  position: absolute;
-  font-size: 26px;
-  left: 28%;
-  margin-top: 20px;
-  font-family: 'Roboto' !important;
-  color: #fff;
+    position: absolute;
+    font-size: 26px;
+    left: 24.5%;
+    margin-top: 20px;
+    color: #fff;
 }
 p.numb {
   position: absolute;
@@ -19902,7 +19905,7 @@ p.numb {
     text-transform: uppercase;
     text-align: left;
     background: #fff;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 12px 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border: 1px dotted #6e88ae;
@@ -19910,7 +19913,8 @@ p.numb {
     .btn-box.pull-right a:hover {
         background: #6e88ae;
         color: #fff;
-        border-radius: 30px;
+        border-radius: 70px;
+        text-shadow: 2px 4px 10px #000;
     }
 .col-md-12.d-flex.tracking {
     margin-left: -57px;
@@ -20219,4 +20223,11 @@ table.table.table-bordered.modeltab th {
     vertical-align: middle;
     font-size: 14px;
     text-align: center;
+}
+
+section.testimonial-style-five.centred.overall1 button.button-box:hover {
+    background: #164976;
+}
+section.testimonial-style-five.centred.overall1 button.button-box a:hover {
+   color:#fff !important;
 }

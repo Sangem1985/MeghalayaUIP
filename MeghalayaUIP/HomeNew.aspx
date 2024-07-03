@@ -3,7 +3,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+     <style>
+        .servicedesk button.btn.btn-primary {
+    position: fixed;
+    bottom: 35px;
+    right: 25px;
+    z-index: 999;
+    overflow: hidden;
+    user-select: none;
+    border: initial !important;
+    border-style: none !important;
+    border-width: 2px !important;
+    border-left-width: 2px !important;
+    border-right-width: 2px !important;
+    border-top-width: 2px !important;
+    border-bottom-width: 2px !important;
+    border-color: #000 !important;
+    border-radius: 4px !important;
+    box-shadow: 2px 6px 9px #a79090;
+    background: linear-gradient(to right, #9C27B0 0%, #311EFF 50%, #1d275e 100%);
+    font-weight: 500;
+}
+        button.scroll-top.scroll-to-target.open {
+    display: none;
+}
+        .modal-content.custom {
+    position: fixed;
+    left: 436px !important;
+    float: right !important;
+    display: flex;
+    z-index: 10000;
+    top: 180px;
+}
+       
+    </style>
     <!-- main-slider -->
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
         <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;">
@@ -68,10 +101,10 @@
                         <%--<img src="assets/assetsnew/images/boult.gif" style="margin-left: -60px;">--%>
                         <div class="col-md-12" style="margin-left: -60px;margin-top: 25px;">
                             <div class="col-md-12" id="modelinghover">
-                                <a data-toggle="modal" data-target=".exampleModalCenter"><img src="assets/assetsnew/images/MIIPP.gif" /></a>
+                                <a data-toggle="modal" data-target=".bd-example-modal-lg"><img src="assets/assetsnew/images/MIIPP.gif" /></a>
                             </div>
                             <div class="col-md-12" id="modelinghover1">
-                                <a data-toggle="modal" data-target=".bd-example-modal-lg"><img src="assets/assetsnew/images/UNNATI.gif" /></a>
+                                <a data-toggle="modal" data-target=".exampleModalCenter"><img src="assets/assetsnew/images/UNNATI.gif" /></a>
                             </div>
                         </div>
                     </div>
@@ -115,9 +148,9 @@
 
             <div class="owl-carousel">
 
-
                 
-                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
+                
+                <div class="owl-item active wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -125,12 +158,19 @@
                                 <h5>INCENTIVE PACKAGE</h5>
                                 <span class="designation">Click here to know about incentive package based on your Investment</span>
                             </div>
+                       
                             <div class="text">
-                                <button class="button-box">Click Here !</button></div>
+                                <button class="button-box"><a href="https://investmeghalaya.gov.in/resources/homePage/17/megeodb/documents/incentives.pdf" target="_blank" style="color:#164976">Click Here !</a></button>
+                                
+                            </div>
+                             
                         </div>
+                        
                     </div>
                 </div>
-                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomUp;">
+                   
+                <div class="owl-item active wow fadeInUp animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; 
+animation-delay: 1000ms; animation-name: fadeInUp;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -142,11 +182,11 @@
                               will get in touch.</span>
                             </div>
                             <div class="text">
-                                <button class="button-box">Click Here !</button></div>
+                                <button class="button-box"><a href="IntentInvest.aspx" style="color:#164976">Click Here !</a></button></div>
                         </div>
                     </div>
                 </div>
-                <div class="owl-item active" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
+                <div class="owl-item active wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="width: 370px; margin-right: 30px;visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                     <div class="testimonial-content">
                         <div class="inner-box">
                             <div class="author-info">
@@ -155,8 +195,9 @@
                                 <span class="designation">Register your business to claim Incentives.<br>
                                     Fill a simple <span class="heihet">Registration Form.</span></span>
                             </div>
+
                             <div class="text">
-                                <button class="button-box">Click Here !</button></div>
+                                <button class="button-box"><a href="login.aspx" style="color:#164976">Click Here !</a></button></div>
                         </div>
                     </div>
                 </div>
@@ -169,64 +210,17 @@
        
     </section>
 
-    <section class="about-style-three">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <div class="top-content">
-                            <!-- <div class="top-text">About Acto</div> -->
-
-                            <h2 class="head2">The only interface with Investors</h2>
-                            <div class="middle-content">
-                                <div class="text"><i class="fi fi-sr-thumbtack"></i> End to end online and transparent systems for granting clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Participating 20+ departments provide 100+ regulatory clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Information repository for your business realted queires.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Address your grievances.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Easy tracking of applications status.</div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-12 d-flex tracking">
-                        <div class="col-md-8">
-                            
-                            <div class="btn-box pull-right">
-                                <a href="#" style="
-    width: 105%;
-"><i class="fi fi-br-form"></i> Apply for Clearance/ approvals<br />
-                                    for your business</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            
-                            <div class="btn-box pull-right">
-                                <a href="#" style="width: 151%;"><i class="fi fi-br-search"></i> Track Application Status</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
-
-                    <video autoplay="" muted="" loop="" id="myVideo" style="width: 100%;">
-                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;">
-                    </video>
-
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
 
 
 
 
-    <section class="about-section-two1 easy" style="padding: 0px !important;">
+    <section class="about-section-two1 easy active">
         <div class="container">
             <div class="row">
             <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
-            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess">
+            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                 <!-- <img src="assets/assetsnew/images/easyicon.png" alt="image" style="width: 65%"/> -->
                 <div class="col-md-2 mt-3">
 
@@ -235,7 +229,7 @@
                             <p class="numb">01</p>
                             <!-- <i class="fi fi-rr-file-user"></i> -->
                             <!-- <h4>Register</h4> -->
-                            <p>Have a<br />
+                            <p style="margin-top: -26px;">Have a<br />
                                 business Idea or want to expand your Business?</p>
                         </div>
                         <img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />
@@ -247,7 +241,7 @@
                             <p class="numb">02</p>
                             <!-- <i class="fi fi-br-form"></i>
 						<h4>Indent</h4> -->
-                            <p>
+                           <p style="margin-top: -26px;">
                                 Fill <span style="color: #ffeb3b;">
                                     <br />
                                     to Invest form</span> and our team will reach out
@@ -262,7 +256,7 @@
                             <p class="numb">03</p>
                             <!-- <i class="fi fi-br-supplier-alt"></i>
 						<h4>Stock</h4> -->
-                            <p>
+                            <p style="margin-top: -26px;">
                                 Prepare your<br />
                                 Documents (Project DPR, loan sanctions, etc.) 
                             </p>
@@ -306,7 +300,7 @@
                             <p class="numb">06</p>
                             <!-- <i class="fi fi-br-feedback"></i>
 						<h4>Feedback</h4> -->
-                            <p>
+                            <p style="margin-top: -26px;">
                                 Commence<br />
                                 your
                                 <br />
@@ -322,7 +316,7 @@
                             <p class="numb">07</p>
                             <!-- <i class="fi fi-br-feedback"></i>
 						<h4>Feedback</h4> -->
-                            <p>
+                            <p style="margin-top: -26px;">
                                 <span style="color: #ffeb3b;">Eligible Unit</span><br />
                                 can avail Incentives under <span style="color: #ffeb3b;">MIIPP 2024 & UNNATI 2024</span>
 
@@ -340,7 +334,7 @@
 
 
     <!-- team-section -->
-    <section class="team-section" style="background-image: url(assets/images/background/team-bg.jpg);">
+    <section class="team-section" style="background: url(assets/assetsnew/images/sectors.png);background-size: auto;">
         <div class="container">
             <div class="sec-title">
                 <h1 style="font-size:36px;text-transform: capitalize;">Key Sectors</h1>
@@ -349,74 +343,89 @@
             <div class="three-column-carousel owl-carousel owl-theme">
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
+                        <figure class="image-box"><a href="Hospitality.aspx">
                             <img src="assets/assetsnew/images/resource/team-1.jpg" alt=""></a></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Hotel</a></h4>
+                            <h4><a href="Hospitality.aspx">Hotel</a></h4>
                             <span class="designation">Meghalaya's hospitality sector create memorable experiences for visitors...</span>
                         </div>
                     </div>
                 </div>
+                
+               
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-4.jpg" alt=""></a></figure>
+                        <a href="Tourism.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-4.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Tourism and Hospitality</a></h4>
+                            <h4>Tourism and Hospitality</h4>
                             <span class="designation">Mawmluh Cave in Sohra, Meghalaya, was selected by the International Union of Geological Sciences – IUGS (UNESCO).</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-7.jpg" alt=""></a></figure>
+                        <a href="#">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-7.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Healthcare</a></h4>
+                            <h4>Healthcare</h4>
                             <span class="designation">The total tele-density of Meghalaya is 74 Mn</span>
                         </div>
+                            </a>
                     </div>
                 </div>
+             
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-6.jpg" alt=""></a></figure>
+                        <a href="IT_ITES.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-6.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">IT & ITes</a></h4>
+                            <h4>IT & ITes</h4>
                             <span class="designation">Meghalaya's Information Technology (IT) and Information Technology Enabled Services (ITES) sectors...</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-9.jpg" alt=""></a></figure>
+                        <a href="Power.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-9.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Hydroelectric Power</a></h4>
+                            <h4>Hydroelectric Power</h4>
                             <span class="designation">Meghalaya has a total installed power generation capacity of 651 MW in 2023.</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-8.jpg" alt=""></a></figure>
+                        <a href="#">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-8.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Education</a></h4>
+                            <h4>Education</h4>
                             <span class="designation">Nipun Bharat Mission: 50 schools are part of the 208 schools taken up in Phase 1 for the upgradation works.</span>
                         </div>
+                            </a>
                     </div>
                 </div>
-
+                
 
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="#">
-                            <img src="assets/assetsnew/images/resource/team-2.jpg" alt=""></a></figure>
+                        <a href="Agri-Horti.aspx">
+                        <figure class="image-box">
+                            <img src="assets/assetsnew/images/resource/team-2.jpg" alt=""></figure>
                         <div class="lower-content">
-                            <h4><a href="#">Food Processing</a></h4>
+                            <h4>Food Processing</h4>
                             <span class="designation">Meghalaya has 76% forest land, certainly above the Indian average of only 25%, whereas the net sown area is 9%</span>
                         </div>
+                            </a>
                     </div>
                 </div>
                 <div class="team-block-one">
@@ -436,6 +445,56 @@
         </div>
     </section>
     <!-- team-section end -->
+
+
+    <section class="about-style-three">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div class="content-box">
+                        <div class="top-content">
+                            <!-- <div class="top-text">About Acto</div> -->
+
+                            <h2 class="head2">The only interface with Investors</h2>
+                            <div class="middle-content">
+                                <div class="text"><i class="fi fi-sr-thumbtack"></i> End to end online and transparent systems for granting clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Participating 20+ departments provide 100+ regulatory clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Information repository for your business realted queires.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Address your grievances.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i> Easy tracking of applications status.</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 d-flex tracking">
+                        <div class="col-md-8">
+                            
+                            <div class="btn-box pull-right wow fadeInUp animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInUp;">
+                                <a href="login.aspx" style="
+    width: 105%;
+"><i class="fi fi-br-form"></i> Apply for Clearance/ approvals<br />
+                                    for your business</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            
+                            <div class="btn-box pull-right  wow fadeInDown animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInDown;">
+                                <a href="login.aspx" style="width: 151%;"><i class="fi fi-br-search"></i> Track Application Status</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+
+                    <video autoplay="" muted="" loop="" id="myVideo" style="width: 100%;">
+                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;">
+                    </video>
+
+                </div>
+            </div>
+        </div>
+    </section>
      <div class="modal fade exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -678,9 +737,31 @@
                 </div>
             </div>
         </div>
-    <script>
-$('.carousel').carousel({
-  interval: false,
-});
-    </script>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content custom">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLabel">
+            <ul>
+                <li> <span>Email:</span>
+                                        <b>investmeghalayaauthority@gmail.com</b></li>
+            <li> <span>Call Us:</span>
+                 <b>+91 7085741695</b>
+
+            </li>
+               </ul> </h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fi fi-br-times-hexagon"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <img src="assets/assetsnew/images/popupimg.png" />
+      </div>
+      <%--<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>--%>
+    </div>
+  </div>
+</div>
 </asp:Content>

@@ -53,8 +53,8 @@ li.button-box:hover{
 section.about-style-three {
     background: url(assets/assetsnew/images/trackbg.jpg);
     padding: 30px 0px;
-    background-size: cover;
-    background-position: top;
+background-size: contain;
+    background-position: left;
 }
 h1.head1 {
     background: #A7CFDF;
@@ -161,6 +161,7 @@ section.innerpages {
     padding: 20px 0px;
 }
     </style>
+   
 </head>
 <body class="boxed_wrapper">
     <form id="form1" runat="server">
@@ -181,7 +182,7 @@ section.innerpages {
         <div class="container">
             <div class="inner-container clearfix">
                 <ul class="header-info pull-left" style="width: 30%;">
-                    <li><a href="#" style="text-transform: none;">Toll Free Number : 1800 890 1030</a></li>
+                    <li><a href="#" style="text-transform: none;">Toll Free Number : <b>1800 890 1030</b> | Open: <b>24/7</b></a></li>
                     <!-- <li><a href="beta2/index.html" target="_blank"><i class="fi fi-rr-chevron-double-down"></i> Click here for Second Design</a></li> -->
                     
                 </ul>
@@ -391,9 +392,9 @@ section.innerpages {
                                     <ul>
                                         <li><a href="#">Why invest in Meghalaya</a></li>
                                         <li><a href="#">Site Map</a></li>
-                                        <li><a href="#">About EODB</a></li>
+                                        <li><a href="#">EODB</a></li>
                                         <li><a href="#">Information Wizard</a></li>
-                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Auto Renewal</a></li>
                                         
                                     </ul>
                                 </div>
@@ -404,11 +405,11 @@ section.innerpages {
                                 <h4 class="widget-title">For Investors</h4>
                                 <div class="widget-content">
                                     <ul>
-                                        <li><a href="#">UNNATI 2024</a></li>
-                                        <li><a href="#">MIIPP 2024</a></li>
-                                        <li><a href="#">Incentive Package</a></li>
-                                        <li><a href="#">Intent to Invets</a></li>
-                                        <!-- <li><a href="#">Logistics</a></li> -->
+                                        <li><a href="#">Central Inspection System</a></li>
+                                        <li><a href="#">Service Dashboard</a></li>
+                                        <li><a href="#">Know Your Approvals</a></li>
+                                        <li><a href="#">Know Your Incentives</a></li>
+                                         <li><a href="#">Land Availability</a></li> 
                                     </ul>
                                 </div>
                             </div>
@@ -447,6 +448,14 @@ section.innerpages {
     </footer>
     <!-- main-footer end -->
 
+            <!-- Button trigger modal -->
+            <div class="servicedesk">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <i class="fi fi-tr-admin-alt"></i> Investors Desk
+</button>
+</div>
+
+<!-- Modal -->
 
 
 <!--Scroll to top-->

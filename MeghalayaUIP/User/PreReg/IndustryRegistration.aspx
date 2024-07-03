@@ -449,7 +449,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Unit of Measurement of Annual Capacity*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtMeasurementUnits" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtMeasurementUnits" class="form-control" onkeypress="return Names(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>

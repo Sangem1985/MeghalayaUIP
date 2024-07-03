@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="Tourism.aspx.cs" Inherits="MeghalayaUIP.Tourism" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outerNew.Master" AutoEventWireup="true" CodeBehind="Tourism.aspx.cs" Inherits="MeghalayaUIP.Tourism" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="assets/admin/css/PSIP.css" rel="stylesheet" />

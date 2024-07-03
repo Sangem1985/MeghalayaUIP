@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="Agri-Horti.aspx.cs" Inherits="MeghalayaUIP.Agri_Horti" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outerNew.Master" AutoEventWireup="true" CodeBehind="Agri-Horti.aspx.cs" Inherits="MeghalayaUIP.Agri_Horti" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <link href="assets/admin/css/PSIP.css" rel="stylesheet" />
 </asp:Content>
