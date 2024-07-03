@@ -8,6 +8,10 @@ namespace MeghalayaUIP.Common
 {
     public class CFOConstants
     {
+        public static string GetCFOIndustryDetails = "USP_GETCFOINDUSTRYDETAILS";
+        public static string InsertCFOIndustryDetails = "USP_INSCFOINDUSTRYDETAILS";
+        public static string InsertCFOManufactureDetails = "USP_INSCFOLINEOFMANFDETAILS";
+        public static string InsertCFORAWMaterialDetails = "USP_INSCFORAWMATERIALDETAILS";
 
         public static string InsertCFOLabourDet = "USP_INSCFOLABOURDETAILS";
         public static string InsertCFOLabourContractorDetails = "USP_INSCFOCONTRACTLABOURDETAILS";
@@ -553,6 +557,96 @@ namespace MeghalayaUIP.Common
         public string DeptDesc { get; set; }
         public string ReferenceNumber { get; set; }
         public string IPAddress { get; set; }
+    }
+    public class CFOCommonDet
+    {
+        public string Questionnariid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string PreRegUID { get; set; }
+        public string CompanyName { get; set; }
+        public string CompanyType { get; set; }
+        public string CompanyPraposal { get; set; }
+        public string CompanyRegType { get; set; }
+        public string CompanyRegNo { get; set; }
+        public string CompanyRegDate { get; set; }
+        public string FactoryType { get; set; }
+        public string AuthRep_Name { get; set; }
+        public string AuthRep_SoWoDo { get; set; }
+        public string AuthRep_Email { get; set; }
+        public string AuthRep_Mobile { get; set; }
+        public string AuthRep_AltMobile { get; set; }
+        public string AuthRep_TelNo { get; set; }
+        public string AuthRep_DoorNo { get; set; }
+        public string AuthRep_Locality { get; set; }
+        public string AuthRep_DistrictID { get; set; }
+        public string AuthRep_DistrictName { get; set; }
+        public string AuthRep_MandalID { get; set; }
+        public string AuthRep_MandalName { get; set; }
+        public string AuthRep_VillageID { get; set; }
+        public string AuthRep_VillageName { get; set; }
+        public string AuthRep_Pincode { get; set; }
+        public string AuthRep_Caste { get; set; }
+        public string AuthRep_Minority { get; set; }
+        public string AuthRep_DiffAbled { get; set; }
+        public string AuthRep_Woman { get; set; }
+
+        public string Unit_Location { get; set; }
+        public string Unit_DoorNo { get; set; }
+        public string Unit_Locality { get; set; }
+        public string Unit_DistrictID { get; set; }
+        public string Unit_MandalID { get; set; }
+        public string Unit_VillageID { get; set; }
+        public string Unit_DistrictName { get; set; }
+        public string Unit_MandalName { get; set; }
+        public string Unit_VillageName { get; set; }
+        public string Unit_Pincode { get; set; }
+        public string Unit_TelNo { get; set; }
+        public string BuildingHeight { get; set; }
+        public string BuiltUpArea { get; set; }
+        public string ExtentofLand { get; set; }
+
+        public string DevelopmentArea { get; set; }
+        public string ApprchRdType { get; set; }
+        public string ApprchRdWidth { get; set; }
+        public string AffectedRdWdng { get; set; }
+        public string AffectedRdWidth { get; set; }
+        public string TotalEmp { get; set; }
+        public string DirectMale { get; set; }
+        public string DirectFemale { get; set; }
+        public string DirectOthers { get; set; }
+        public string InDirectMale { get; set; }
+        public string InDirectFemale { get; set; }
+        public string InDirectOthers { get; set; }
+
+        public string strctralLicNo { get; set; }
+        public string strctralMobileNo { get; set; }
+        public string strctralName { get; set; }
+        public string ArchitechtureName { get; set; }
+        public string ArchitechtureLICNo { get; set; }
+        public string ArchitechtureMobileNo { get; set; }
+        public string AffectedExtended { get; set; }
+        public string RoadCutLocation { get; set; }
+        public string RoadCut { get; set; }
+
+
+    }
+    public class CFOLineOfManuf
+    {
+        public string Questionnareid { get; set; }
+
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string LOAID { get; set; }
+        public string ManfItemName { get; set; }
+        public string ManfItemAnnualCapacity { get; set; }
+        public string ManfItemValue { get; set; }
+        public string RMItemName { get; set; }
+        public string RMItemAnnualCapacity { get; set; }
+        public string RMItemValue { get; set; }
+        public string RMSourceofSupply { get; set; }
     }
     public class CFOAttachments
     {

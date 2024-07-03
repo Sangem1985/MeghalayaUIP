@@ -3,14 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-											<li class="breadcrumb-item"><a href="Grievance.aspx">Grievance</a></li>
-                                            
-											<li class="breadcrumb-item active" aria-current="page">Grievance Status</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <%--<li class="breadcrumb-item"><a href="Grievance.aspx">Grievance</a></li>--%>
+            <li class="breadcrumb-item active" aria-current="page">Grievance Status</li>
+        </ol>
+    </nav>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <div class="page-wrapper" style="">
         <div class="content container-fluid">
@@ -80,7 +79,7 @@
                                                                     <asp:BoundField HeaderText="Status" DataField="STATUS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                                                 </Columns>
-                                                                 <EmptyDataTemplate > No Records Found </EmptyDataTemplate>
+                                                                <EmptyDataTemplate>No Records Found </EmptyDataTemplate>
                                                                 <HeaderStyle Font-Bold="True" ForeColor="White" />
                                                                 <AlternatingRowStyle BackColor="White" />
                                                             </asp:GridView>
@@ -143,7 +142,7 @@
                                                                     <asp:BoundField HeaderText="Status" DataField="STATUS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                                                 </Columns>
-                                                                 <EmptyDataTemplate > No Records Found </EmptyDataTemplate>
+                                                                <EmptyDataTemplate>No Records Found </EmptyDataTemplate>
                                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                                 <AlternatingRowStyle BackColor="White" />
                                                             </asp:GridView>
@@ -205,7 +204,7 @@
                                                                 <asp:BoundField HeaderText="Status" DataField="STATUS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                                             </Columns>
-                                                             <EmptyDataTemplate > No Records Found </EmptyDataTemplate>
+                                                            <EmptyDataTemplate>No Records Found </EmptyDataTemplate>
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                             <AlternatingRowStyle BackColor="White" />
                                                         </asp:GridView>
@@ -239,7 +238,7 @@
                                                     <div class="col-sm-12 mt-2">
                                                         <asp:GridView ID="gvGrvncRejected" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover table-responsive mb-0 GRD" ForeColor="#333333"
-                                                            GridLines="None" Width="100%" EnableModelValidation="True"   >
+                                                            GridLines="None" Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <Columns>
@@ -264,7 +263,7 @@
                                                                 <asp:BoundField HeaderText="Status" DataField="STATUS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                                             </Columns>
-                                                            <EmptyDataTemplate > No Records Found </EmptyDataTemplate>
+                                                            <EmptyDataTemplate>No Records Found </EmptyDataTemplate>
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                             <AlternatingRowStyle BackColor="White" />
                                                         </asp:GridView>

@@ -112,6 +112,9 @@ namespace MeghalayaUIP.User.CFO
                     UnitID = Request.QueryString[0];
                 }
                 else UnitID = "%";
+                if (UnitID == "%")
+                    lblHdng.Text = " Status of Application for All Units";
+                else lblHdng.Text = "";
                 dsApproved = objcfObal.GetCFEApprovedandCFOAppliedApplications(hdnUserID.Value, UnitID);
                 if (dsApproved.Tables.Count > 0)
                 {
@@ -187,9 +190,8 @@ namespace MeghalayaUIP.User.CFO
                         btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
                         btnApply.Enabled = true;
                         //btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                        //btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                       // btnApplstatus.Style.Add("border", "none");
-                        //btnApplstatus.Style.Add("color", "black");
+                        btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                       
                     }
                     else
                     {

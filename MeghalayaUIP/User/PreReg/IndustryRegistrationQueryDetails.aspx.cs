@@ -71,7 +71,7 @@ namespace MeghalayaUIP.User.PreReg
                     lblQueryRaised.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYBY"]);
                     lblQueryRaisedDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYDATE"]);
                     lblQueryDescription.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYRAISEDESC"]);
-                    //  txtQueryResponse.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYRESPONSEBY"]);
+                    lblQueryBy.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYBYDEPT"]);
                     //  btnAttach.Text = Convert.ToString(ds.Tables[0].Rows[0]["RESPONSEBYIP"]);
                 }
 

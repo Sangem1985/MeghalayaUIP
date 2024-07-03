@@ -19,7 +19,7 @@
     </div>
     <div class="card mt-2">
         <div class="modal-header" style="padding: 3px 30px;">
-            <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Operational Approval</h4>
+            <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Operational Approvalss</h4>
             <h5 class="modal-title cfe" id="myLargeModalLabel cfe2">Status View : 
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Open this select Status</option>

@@ -291,8 +291,8 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)" 
-                                                                           AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged" ></asp:TextBox>
+                                                                        <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)"
+                                                                            AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -687,7 +687,7 @@
                                                             <div class="col-md-6" runat="server" visible="false" id="divtrees">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        Number of
+                                                                        13a. Number of
 																		trees to be felled
                                                                          (Girth of tree > 30
 																		centimeters)</label>
@@ -697,12 +697,9 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-
-
                                                         </div>
                                                         <div class="col-md-12 d-flex">
-                                                            <div class="col-md-11">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">14. Does the unit Location fall within 100mts vicinity of any water body?</label>
                                                                     <div class="col-lg-6 d-flex">
@@ -713,11 +710,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex">
-                                                        </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-11">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
                                                                         15. Do you have Existing borewell in proposed factory Location</label>
@@ -730,10 +723,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                       
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Do You Required NoC for Ground Water Abstraction for Commercial Connection<span class="text-danger">*</span></label>
+                                                                    <label class="col-lg-6 col-form-label">16. Do You Required NoC for Ground Water Abstraction for Commercial Connection<span class="text-danger">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:RadioButtonList ID="rblNocGroundWater" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -745,7 +739,7 @@
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Do You Required Certificate for non-availability of water supply from water supply agency<span class="text-danger">*</span></label>
+                                                                    <label class="col-lg-6 col-form-label">17. Do You Required Certificate for non-availability of water supply from water supply agency<span class="text-danger">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:RadioButtonList ID="rblwatersupply" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -759,7 +753,7 @@
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Do You Required Permission to Draw Water from River/Public Tanks <span class="text-danger">*</span></label>
+                                                                    <label class="col-lg-6 col-form-label">18. Do You Required Permission to Draw Water from River/Public Tanks <span class="text-danger">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:RadioButtonList ID="rblRiverTanks" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -771,7 +765,7 @@
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Do You Required Water Connection for the Municipal Area <span class="text-danger">*</span></label>
+                                                                    <label class="col-lg-6 col-form-label">19. Do You Required Water Connection for the Municipal Area <span class="text-danger">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:RadioButtonList ID="rblMunicipal" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -784,7 +778,7 @@
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Do You Required Grant of Water Connection to Non Municipal urban areas<span class="text-danger">*</span></label>
+                                                                    <label class="col-lg-6 col-form-label">20. Do You Required Grant of Water Connection to Non Municipal urban areas<span class="text-danger">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:RadioButtonList ID="rblGrantwater" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -798,12 +792,12 @@
                                                             <table class="table">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th colspan="3" style="margin: 0px !important; padding: 3px 14px !important;">16. Labour Application Type</th>
+                                                                        <th colspan="3" style="margin: 0px !important; padding: 3px 14px !important;">21. Labour Application Type</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td>16 a.</td>
+                                                                        <td>21 a.</td>
                                                                         <td>Does your Establishment employ 05 or more contract Labour as defined in the
                                                                        
                                                                     Contract Labour(Regulation and Abolition)Act, 1970?</td>
@@ -823,7 +817,7 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td>16 b.</td>
+                                                                        <td>21 b.</td>
                                                                         <td>Does your Establishment employ 05 or more Inter-State migrant workmen as defined
                                                                     in the Inter-state Migrant Workmen Act, 1979?</td>
                                                                         <td>
@@ -841,7 +835,7 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td>16 c.</td>
+                                                                        <td>21 c.</td>
                                                                         <td>Does your Establishment fall under the definition of establishment as per Building
                                                                     and Other Constrution Worker(RE&COS) Act, 1996?</td>
                                                                         <td>
@@ -871,7 +865,7 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td>16 d.</td>
+                                                                        <td>21 d.</td>
                                                                         <td>License under Contract Labour Act (For Contractor)
                                                                         <br />
                                                                         </td>
@@ -889,7 +883,7 @@
                                                                             <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>16 e.</td>
+                                                                        <td>21 e.</td>
                                                                         <td>Does your Establishment employ 05 or more contract Labour(License for Contractors) as defined in the contract labour
                                                                     <br />
                                                                             (Regulation and Abolition) Act,1970? 
@@ -908,7 +902,6 @@
                                                                         <td>
                                                                             <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox></td>
                                                                     </tr>
-                                                                    s
                                                                 </tbody>
                                                             </table>
                                                         </div>

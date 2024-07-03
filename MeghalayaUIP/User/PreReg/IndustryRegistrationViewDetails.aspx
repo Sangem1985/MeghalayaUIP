@@ -84,7 +84,7 @@
             <div class="card flex-fill">
                 <div class="col-md-12 d-flex ">
                     <div class="col-md-11 pb-2 pt-2 ">
-                        <h4>MIIP Registration Details</h4>
+                        <h4>Industry Registration Details</h4>
                     </div>
                     <div class="col-md-1 pb-2 pt-2">
                         <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
@@ -794,7 +794,14 @@
                                                                         <asp:HyperLink ID="hplViewDPR" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
                                                                     </td>
                                                                 </tr>
-
+                                                                <tr>
+                                                                    <td>7.</td>
+                                                                    <td class="fw-bold">Bank Appraisal</td>
+                                                                    <td style="text-align: center;">
+                                                                        <asp:LinkButton ID="lnkBankAppraisal" runat="server" OnClick="lnkBankAppraisal_Click" Target="_blank"></asp:LinkButton>
+                                                                        <asp:HyperLink ID="HyBankAppraisal" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
+                                                                    </td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>

@@ -110,7 +110,7 @@ namespace MeghalayaUIP.Dept
 
         protected void linkDeptdshbrd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Dept/DeptDashBoard.aspx");
+            Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx");
         }
     }
 }

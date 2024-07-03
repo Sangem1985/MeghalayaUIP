@@ -34,7 +34,14 @@ namespace MeghalayaUIP.User.Dashboard
                 if (Request.QueryString.Count > 0)
                 {
                     UnitID = Convert.ToString(Request.QueryString[0]);
-                    lblType.Text =" "+ Request.QueryString[1].ToString();
+                    lblType.Text =" "+ Request.QueryString[1].ToString()+":";
+                    if(Request.QueryString[1].ToString()== "UnderProcess")
+                    { lblType.Text = " Under Process:"; }
+                    if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
+                    { lblType.Text = " Scrutiny Completed:"; }
+                    if (Request.QueryString[1].ToString() == "ScrutinyPending")
+                    { lblType.Text = " Scrutiny Pending:"; }
+                    
                 }
                 else
                 {
@@ -61,8 +68,8 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 DataSet dsApprovals = new DataSet();
                 UnitID = Convert.ToString(Request.QueryString[0]);
-                //UnitID = "1007";
-                dsApprovals = objcommonBAL.GetCFEUserDashboardStatus(hdnUserID.Value, UnitID, lblType.Text);
+              
+                dsApprovals = objcommonBAL.GetCFEUserDashboardStatus(hdnUserID.Value, UnitID, Request.QueryString[1].ToString());
                 if (dsApprovals.Tables.Count > 0)
                 {
                     if (dsApprovals.Tables[0].Rows.Count > 0)

@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFO
 {
     public partial class CFOQuestionnaire : System.Web.UI.Page
     {
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
@@ -395,7 +395,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string  result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -518,7 +518,9 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx");
+                btnSave3_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx");
             }
             catch (Exception ex)
             {

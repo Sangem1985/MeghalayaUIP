@@ -78,23 +78,9 @@ namespace MeghalayaUIP.User.CFE
                     }
                     else
                     {
-                        //lblmsg0.Text = "Approval for Registration Under MIIPP is under Process ";
-                        //Failure.Visible = true;
                         gvPreRegApproved.DataSource = null;
                         gvPreRegApproved.DataBind();
-                    }
-                    //if (dsApproved.Tables[1].Rows.Count > 0)
-                    //{
-                    //    gvCFEApplied.DataSource = dsApproved.Tables[1];
-                    //    gvCFEApplied.DataBind();
-                    //    gvCFEApplied.Visible= false;
-                    //}
-                    //else
-                    //{
-                    //    gvCFEApplied.DataSource = null;
-                    //    gvCFEApplied.DataBind();
-                    //}
-
+                    }                    
                 }
             }
             catch (Exception ex)

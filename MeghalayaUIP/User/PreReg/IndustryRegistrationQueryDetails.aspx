@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Industry Registrations: Query Details</h4>
+                            <h4 class="card-title">Industry Registration: Query Details</h4>
                             <p style="position: absolute; right: 10px; top: 6px; color: red;">
                                 *All Fields Are
 										Mandatory
@@ -62,7 +62,9 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Query raised by</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryRaised"></asp:Label>
+                                                            <spna class="dots">:</spna>
+                                                             <asp:Label runat="server" ID="lblQueryBy" ></asp:Label>
+                                                            <asp:Label runat="server" ID="lblQueryRaised" Visible="false"></asp:Label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -86,7 +88,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-3 col-form-label">Query Response</label>
+                                                    <label class="col-lg-3 col-form-label">Query Response *</label>
                                                     <div class="col-lg-9 d-flex">
                                                         <spna class="dots">:</spna><asp:TextBox runat="server" class="form-control" Style="height: 100px; width: 800px; resize: vertical;" TextMode="MultiLine" ID="txtQueryResponse" placeholder="Enter Query Response" name="QueryResponse" />
                                                     </div>
@@ -101,8 +103,8 @@
                                                         <spna class="dots">:</spna>
                                                         <asp:FileUpload runat="server" ID="fupAttachment" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="30px" Width="110px" />
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hplAttachment" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>

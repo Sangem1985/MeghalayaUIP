@@ -35,6 +35,11 @@ namespace MeghalayaUIP.Dept.Grievance
                     success.Visible = false;
                     if (!IsPostBack)
                     {
+                        if(Request.QueryString["status"] != null)
+                        {
+                            ddlStatus.SelectedValue = Request.QueryString["status"].ToString();
+                        }
+
                         BindData(ObjUserInfo.Deptid);
 
                     }

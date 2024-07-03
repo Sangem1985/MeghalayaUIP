@@ -73,7 +73,7 @@ namespace MeghalayaUIP.User.CFE
 
         protected void lbtnBack_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/User/CFE/CFEUserDashboard.aspx");
         }
 
         public void BindApplStatus(string Userid, string Unitid, string Status)

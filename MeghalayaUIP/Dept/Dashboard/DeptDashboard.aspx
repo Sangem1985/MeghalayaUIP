@@ -1,22 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="DeptDashboard.aspx.cs" Inherits="MeghalayaUIP.Dept.Dashboard.DeptDashboard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb">
-											<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
-
         <div class="content container-fluid">
             <div class="card">
                 <section id="dashboardcount">
                     <div class="container-fluid">
                         <div class="row">
                         </div>
-                        <div class="row mt-2">                             
-                             <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
+                        <div class="row mt-2">
+                            <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
                                 <div class="card-counter primarydashboard1">
                                     <asp:LinkButton ID="lnkIntent" runat="server" OnClick="lnkIntent_Click">
 									<i class="fa fa-user-plus"></i>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-3" id="Grievance" runat="server" visible="true">
                                 <div class="card-counter success">
-                                    <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click" >
+                                    <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click">
                                     <img src="../../assets/admin/img/inc.png" alt="logo">
                                     <span class="count-numbers">Grievance</span>
                                     <span class="count-name"></span>

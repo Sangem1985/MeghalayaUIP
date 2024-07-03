@@ -12,6 +12,22 @@ namespace MeghalayaUIP.BAL.CFOBAL
     public class CFOBAL
     {
         public CFODAL objCFODAL { get; } = new CFODAL();
+        public DataSet GetCFOIndustryDetails(string userid, string UnitID)
+        {
+            return objCFODAL.GetCFOIndustryDetails(userid, UnitID);
+        }
+        public string InsertCFOIndustryDetails(CFOCommonDet objCFOEntrepreneur)
+        {
+            return objCFODAL.InsertCFOIndustryDetails(objCFOEntrepreneur);
+        }
+        public string InsertCFOLineofManf(CFOLineOfManuf objCFOManufacture)
+        {
+            return objCFODAL.InsertCFOLineofManf(objCFOManufacture);
+        }
+        public string InsertCFORawMaterial(CFOLineOfManuf objCFOManufacture)
+        {
+            return objCFODAL.InsertCFORawMaterial(objCFOManufacture);
+        }
         public string InsertCFOExciseData(CFOExciseDetails data, List<CFOExciseBrandDetails> brandDetails, List<CFOExciseLiquorDetails> liquorDetails)
         {
             return objCFODAL.InsertCFOExciseData(data, brandDetails, liquorDetails);
