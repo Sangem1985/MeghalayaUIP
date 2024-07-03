@@ -77,7 +77,7 @@ namespace MeghalayaUIP.User.PreReg
                     lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
                     lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                     lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
-                    if (lblisland.Text == "Own") 
+                    if (lblisland.Text == "Own")
                     { divDrNo1.Visible = true; divDrNo2.Visible = true; }
 
                     lblpromotndcont.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
@@ -121,43 +121,22 @@ namespace MeghalayaUIP.User.PreReg
                     lblDateofcomm.Text = Convert.ToString(row["PROJECT_DCP"]);
                     lblNatureofAct.Text = Convert.ToString(row["PROJECT_NOA"]);
                     if (lblNatureofAct.Text == "Manufacturing")
-                        divManf.Visible = true;
-                    else divServc.Visible = true;
+                    {
+                        divManf1.Visible = true;
+                        divManf2.Visible = true;
+                    }
+                    else { divService.Visible = true; }
                     lblMainmanuf.Text = Convert.ToString(row["PROJECT_MANFACTIVITY"]);
-                    if (lblMainmanuf.Text == "MANFACTURE")
-                    {
-                        Manufacture.Visible = true;
-                        Annual.Visible = true;
-                        capacity.Visible = true;
-                        Unit.Visible = true;
-                        Measurment.Visible = true;
-                        Main.Visible = false;
-                        Activity.Visible = false;
-                        divServc.Visible = false;
-                        lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
-                        lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
-                        lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
-                        lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
-                        lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
-                    }
-                    else
-                    {
-                        Main.Visible = true;
-                        Activity.Visible = true;
-                        divServc.Visible = true;
-                        Manufacture.Visible = false;
-                        Annual.Visible = false;
-                        capacity.Visible = false;
-                        Unit.Visible = false;
-                        Measurment.Visible = false;
-                        lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
-                        lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
-                        lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
-                    }
 
+                    lblmanufProdct.Text = Convert.ToString(row["PROJECT_MANFPRODUCT"]);
+                    lblProdNo.Text = Convert.ToString(row["PROJECT_MANFPRODNO"]);
+                    lblmainRM.Text = Convert.ToString(row["PROJECT_MAINRM"]);
+                    lblAnnualCap.Text = Convert.ToString(row["PROJECT_ANNUALCAPACITY"]);
+                    lblunitofmeasure.Text = Convert.ToString(row["PROJECT_UNITOFMEASURE"]);
 
-
-
+                    lblMainSrvc.Text = Convert.ToString(row["PROJECT_SRVCACTIVITY"]);
+                    lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
+                    lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
 
 
                     lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
@@ -208,7 +187,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (ds.Tables[5].Rows.Count > 0)
                     {
                         linkViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILENAME"]);
-                        hplViewDPR.Text= Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
+                        hplViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
                     }
                     if (ds.Tables[6].Rows.Count > 0)
                     {
@@ -289,7 +268,7 @@ namespace MeghalayaUIP.User.PreReg
             {
                 Response.Redirect(HyCmpnyRegcertificate.Text);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
