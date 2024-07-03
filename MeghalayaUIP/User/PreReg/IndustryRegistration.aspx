@@ -37,49 +37,49 @@
     </style>
     <style>
         .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-}
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
 
-/* Modal content */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
+        /* Modal content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
 
-/* Close button */
-.close {
-    color: #2c2929;
-    font-size: 28px;
-    font-weight: bold;
-    float: right;
-    text-align: right;
-}
+        /* Close button */
+        .close {
+            color: #2c2929;
+            font-size: 28px;
+            font-weight: bold;
+            float: right;
+            text-align: right;
+        }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
     </style>
-   
+
     <div id="myModal" class="modal">
         <div class="modal-content">
-            
-            <div class="card-header" style="background: #c7dbff;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-between;align-items: flex-end;">
+
+            <div class="card-header" style="background: #c7dbff; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: space-between; align-items: flex-end;">
                 <h4 class="card-title"><b>Welcome to the Industry Registration with Invest Meghalaya Authority/MIIPP 2024</b></h4>
                 <h4><span class="close">&times;</span></h4>
             </div>
@@ -89,11 +89,11 @@
                     <li>By submitting this application, you agree that the information provided is accurate and complete. Any false information may result in the rejection of your application.</li>
                     <li>We reserve the right to verify the information provided in your application. Providing false or misleading information may result in disqualification.
 
-</li>
+                    </li>
                     <li>If your application is successful, you agree to comply with all relevant terms of service and policies of our organization.</li>
                 </ul>
             </p>
-            <p><b><i class="fi fi-br-triangle-warning"></i> Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant. After getting full complete of the application, it will be treated as valid submission.</p>
+            <p><b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant. After getting full complete of the application, it will be treated as valid submission.</p>
         </div>
     </div>
 
@@ -1279,7 +1279,7 @@
                                                                 <asp:FileUpload ID="fupDPR" runat="server" />
                                                             </div>
                                                             <div class="col-lg-1 d-flex">
-                                                                <asp:Button Text="Upload DPR" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
+                                                                <asp:Button Text="Upload" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" Width="150px" />
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
@@ -1330,37 +1330,46 @@
     <%--  </ContentTemplate>
     </asp:UpdatePanel>--%>
 
-    
-    
-    
-    
-				                
-		<script>
-            window.onload = function () {
-                // Get the modal
-                var modal = document.getElementById("myModal");
 
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
 
+
+
+
+    <script>
+        function showModalOnce() {
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // Open the modal
+            //modal.style.display = "block";
+
+            // Check if the modal has been shown before
+            if (!localStorage.getItem('modalShown')) {
                 // Open the modal
                 modal.style.display = "block";
+                // Set localStorage to indicate that the modal has been shown
+                localStorage.setItem('modalShown', 'true');
+            }
 
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function () {
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
                     modal.style.display = "none";
                 }
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
             }
-        </script>		                
-   
-    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>ipt>
+        }
+        window.onload = showModalOnce;
+    </script>
+
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    ipt>
 
     <script type="text/javascript">
         function validateNames(input) {
@@ -1462,7 +1471,7 @@
         }
 
     </script>
-   
+
 
     <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script>

@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <%--<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx"></a></li>--%>
+            <li class="breadcrumb-item active" aria-current="page">Pre-Establishment</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card">
@@ -21,7 +27,7 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <div class="col-md-12 d-flex">
                         <div class="col-md-11">
-                            <h4 style="margin-left: -10px;">VIEW DETAILS</h4>
+                            <h4 style="margin-left: -10px;">Pre-Establishment Queries Dashboard</h4>
                         </div>
                         <div class="col-md-1">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
@@ -48,10 +54,10 @@
                                 <asp:BoundField HeaderText="Department Full Name" DataField="NAMEOFDEPARTMENT" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
                                 <asp:BoundField HeaderText="Approval Name" DataField="APPROVALNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Status" DataField="PRESENTSTATUS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Query Raise Date" DataField="QUERYRAISE" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Query Description" DataField="QUERYREMARKS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Query Response Date" DataField="QUERYRESPOSNEDATE" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Query Response Remarks" DataField="QUERYRESPOSNEREMARKS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderText="Query Raise Date" DataField="QUERYRAISE" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderText="Query Description" DataField="QUERYREMARKS" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderText="Query Response Date" DataField="QUERYRESPOSNEDATE" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderText="Query Response Remarks" DataField="QUERYRESPOSNEREMARKS" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                 <asp:TemplateField HeaderText="DEPTID" Visible="false">
                                     <ItemTemplate>

@@ -5,11 +5,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <!-- Page Wrapper -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <%--<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx"></a></li>--%>
+            <li class="breadcrumb-item active" aria-current="page">Pre-Establishment</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card flex-fill">
 
-                <h4 class="mt-2 ml-4">View Details</h4>
+                <h4 class="mt-2 ml-4">Pre-Establishment Application Details</h4>
                 <div class="col-md-12 d-flex">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -30,7 +36,7 @@
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion"
                                         href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                                        class="collapsed">CFE Application Details
+                                        class="collapsed">Application Details
                                     </a>
 
                                 </h4>
@@ -39,7 +45,7 @@
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>CFE Questionnaire Details</h3>
+                                        <h3>Pre-Establishment Questionnaire Details</h3>
                                     </div>
                                     <div class="alldetails" id="bodypart">
                                         <div class="row mt-4">

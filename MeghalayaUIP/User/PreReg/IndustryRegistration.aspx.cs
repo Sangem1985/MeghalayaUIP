@@ -261,6 +261,13 @@ namespace MeghalayaUIP.User.PreReg
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                 }
+                                if (sen.Contains("BankAppraisal"))
+                                {
+                                    hplBankAppraisal.Visible = true;
+                                    hplBankAppraisal.NavigateUrl = sen;
+                                    hplBankAppraisal.Text = ds.Tables[3].Rows[i][1].ToString();
+                                    hplBankAppraisal.Text = ds.Tables[3].Rows[i][1].ToString();
+                                }
 
                                 i++;
                             }
