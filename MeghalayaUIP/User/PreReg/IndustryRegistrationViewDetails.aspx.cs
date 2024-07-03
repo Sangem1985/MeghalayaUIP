@@ -152,17 +152,17 @@ namespace MeghalayaUIP.User.PreReg
                         lblSrvcProvdng.Text = Convert.ToString(row["PROJECT_SRVCNAME"]);
                         lblSrvcNo.Text = Convert.ToString(row["PROJECT_SRVCNO"]);
                     }
-                 
-                  
 
-                  
-                 
+
+
+
+
 
                     lblSector.Text = Convert.ToString(row["PROJECT_SECTORNAME"]);
                     lblLOA.Text = Convert.ToString(row["LineofActivity_Name"]);
                     lblPCBcatogry.Text = Convert.ToString(row["PROJECT_PCBCATEGORY"]);
 
-                  
+
                     lblwastedtls.Text = Convert.ToString(row["PROJECT_WASTEDETAILS"]);
                     lblhazdtls.Text = Convert.ToString(row["PROJECT_HAZWASTEDETAILS"]);
                     lblcivilConstr.Text = Convert.ToString(row["PROJECT_CIVILCONSTR"]);
@@ -171,8 +171,8 @@ namespace MeghalayaUIP.User.PreReg
 
                     lblWaterReq.Text = Convert.ToString(row["PROJECT_WATERREQ"]);
                     lblPowerReq.Text = Convert.ToString(row["PROJECT_POWERRREQ"]);
-                 
-                 
+
+
                     lblEstProjcost.Text = Convert.ToString(row["PROJECT_EPCOST"]);
                     lblPMCost.Text = Convert.ToString(row["PROJECT_PMCOST"]);
                     lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
@@ -203,14 +203,51 @@ namespace MeghalayaUIP.User.PreReg
                         grdQueries.DataSource = ds.Tables[4];
                         grdQueries.DataBind();
                     }
-                    if(ds.Tables[5].Rows.Count > 0)
+                    if (ds.Tables[5].Rows.Count > 0)
                     {
-                        linkViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[0]["FILENAME"]);
-                        hplViewDPR.Text= Convert.ToString(ds.Tables[5].Rows[0]["FILELOCATION"]);
+                        int c = ds.Tables[5].Rows.Count;
+                        int i = 0;
+                        string FileName;
+                        while (i < c)
+                        {
+                            FileName = ds.Tables[5].Rows[i]["FILEDESCRIPTION"].ToString();
+                            if (FileName.Contains("CompanyRegistration"))
+                            {
+                                lnkCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
+                                HyCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
+                            }
+                            if (FileName.Contains("UdyamRegistration"))
+                            {
+                                lnkUdyam.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
+                                HyUdyam.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
+                            }
+                            if (FileName.Contains("PAN"))
+                            {
+                                lnkPAN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
+                                HyPAN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
+                            }
+                            if (FileName.Contains("GSTIN"))
+                            {
+                                lnkGST.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
+                                HyGST.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
+                            }
+                            if (FileName.Contains("CIN"))
+                            {
+                                lnkCIN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
+                                HyCIN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
+                            }
+                            if (FileName.Contains("DPR"))
+                            {
+                                linkViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
+                                hplViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
+                            }
+
+                            i++;
+                        }
                     }
                     if (ds.Tables[6].Rows.Count > 0)
                     {
-                        
+
                         grdQryAttachments.DataSource = ds.Tables[6];
                         grdQryAttachments.DataBind();
                     }
@@ -247,7 +284,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                string UnitID="";
+                string UnitID = "";
                 if (Request.QueryString.Count > 0)
                 {
                     if (Convert.ToString(Request.QueryString["ViewStatus"]) == "Total")
@@ -255,8 +292,8 @@ namespace MeghalayaUIP.User.PreReg
                     else
                         UnitID = Convert.ToString(Request.QueryString[0]);
                 }
-                
-                Response.Redirect("~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID="+ UnitID);
+
+                Response.Redirect("~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + UnitID);
 
             }
             catch (Exception ex)
@@ -270,16 +307,82 @@ namespace MeghalayaUIP.User.PreReg
         protected void linkViewDPR_Click(object sender, EventArgs e)
         {
             Response.Redirect(hplViewDPR.Text);
-
         }
 
         protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
         {
-            LinkButton lnkview = (LinkButton) sender;
+            LinkButton lnkview = (LinkButton)sender;
             GridViewRow row = (GridViewRow)lnkview.NamingContainer;
             HyperLink hplview = (HyperLink)row.FindControl("hplViewQueryAttachment");
 
             Response.Redirect(hplview.Text);
+        }
+
+        protected void lnkCmpnyRegcertificate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyCmpnyRegcertificate.Text);
+            }
+            catch(Exception ex) 
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void lnkUdyam_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyUdyam.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void lnkPAN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyPAN.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void lnkGST_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyGST.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void lnkCIN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(HyCIN.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
     }
 }
