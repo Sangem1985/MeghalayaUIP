@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
     
      <%--<nav aria-label="breadcrumb">
@@ -103,4 +104,5 @@
         
             </div>
     </div>
+     
 </asp:Content>

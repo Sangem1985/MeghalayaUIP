@@ -35,7 +35,67 @@
                 color: #ffffff;
             }
     </style>
-    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <style>
+        .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close button */
+.close {
+    color: #2c2929;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    text-align: right;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+   
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            
+            <div class="card-header" style="background: #c7dbff;display: flex;flex-wrap: nowrap;flex-direction: row;justify-content: space-between;align-items: flex-end;">
+                <h4 class="card-title"><b>Welcome to the Industry Registration with Invest Meghalaya Authority/MIIPP 2024</b></h4>
+                <h4><span class="close">&times;</span></h4>
+            </div>
+            <p>
+                <ul>
+                    <li>Please be ready with all the filled <b>details</b> and <b>attached documents</b>.</li>
+                    <li>By submitting this application, you agree that the information provided is accurate and complete. Any false information may result in the rejection of your application.</li>
+                    <li>We reserve the right to verify the information provided in your application. Providing false or misleading information may result in disqualification.
+
+</li>
+                    <li>If your application is successful, you agree to comply with all relevant terms of service and policies of our organization.</li>
+                </ul>
+            </p>
+            <p><b><i class="fi fi-br-triangle-warning"></i> Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant. After getting full complete of the application, it will be treated as valid submission.</p>
+        </div>
+    </div>
 
 
 
@@ -689,7 +749,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                         <div class="col-md-4">
+                                                        <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Unsecured Loan (INR)</label>
                                                                 <div class="col-lg-6 d-flex">
@@ -699,7 +759,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
-                                                       
+
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Internal Resources (INR)</label>
@@ -742,7 +802,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                                 <br />
@@ -1270,7 +1330,37 @@
     <%--  </ContentTemplate>
     </asp:UpdatePanel>--%>
 
-    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    
+    
+    
+    
+				                
+		<script>
+            window.onload = function () {
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // Open the modal
+                modal.style.display = "block";
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+        </script>		                
+   
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>ipt>
 
     <script type="text/javascript">
         function validateNames(input) {
@@ -1372,7 +1462,7 @@
         }
 
     </script>
-
+   
 
     <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script>

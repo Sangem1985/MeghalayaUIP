@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
+    
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid">
             <div class="card">
@@ -80,4 +81,7 @@
             </div>
         </div>
     </div>
+    
+
+    
 </asp:Content>
