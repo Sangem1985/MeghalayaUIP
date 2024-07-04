@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Inustry Registration: Query DashBoard</h4>
+                                <h4 class="card-title">Industry Registration: Query DashBoard</h4>
                                 <p style="position: absolute; right: 10px; top: 6px; color: red;">
                                     *All Fields Are
 										Mandatory

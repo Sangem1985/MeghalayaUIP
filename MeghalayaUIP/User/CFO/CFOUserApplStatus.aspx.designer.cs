@@ -87,6 +87,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblCAFstatus;
 
         /// <summary>
+        /// linkApprReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApprReq;
+
+        /// <summary>
         /// lblApprovalsReq control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApprovalsReq;
+
+        /// <summary>
+        /// linkOfflineAppr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkOfflineAppr;
 
         /// <summary>
         /// lblApprovalsObtained control.
@@ -105,6 +123,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblApprovalsObtained;
 
         /// <summary>
+        /// linkApprApplied control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApprApplied;
+
+        /// <summary>
         /// lblApprovalsApplied control.
         /// </summary>
         /// <remarks>
@@ -112,6 +139,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApprovalsApplied;
+
+        /// <summary>
+        /// linkTobeApplied control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkTobeApplied;
 
         /// <summary>
         /// lblApprovalstobeApplied control.
@@ -123,6 +159,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblApprovalstobeApplied;
 
         /// <summary>
+        /// linkAddlPaymnt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkAddlPaymnt;
+
+        /// <summary>
         /// lblAddlPaymentReq control.
         /// </summary>
         /// <remarks>
@@ -130,6 +175,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAddlPaymentReq;
+
+        /// <summary>
+        /// linkAddlPaymntdone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkAddlPaymntdone;
 
         /// <summary>
         /// lblAddlPaymentPaid control.
@@ -141,6 +195,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblAddlPaymentPaid;
 
         /// <summary>
+        /// linkQryRaised control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkQryRaised;
+
+        /// <summary>
         /// lblQueryRaised control.
         /// </summary>
         /// <remarks>
@@ -148,6 +211,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblQueryRaised;
+
+        /// <summary>
+        /// linkQueryReplied control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkQueryReplied;
 
         /// <summary>
         /// lblQueryReplied control.
@@ -159,6 +231,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblQueryReplied;
 
         /// <summary>
+        /// linkQueryYettoRespond control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkQueryYettoRespond;
+
+        /// <summary>
         /// lblQueryYettoRespond control.
         /// </summary>
         /// <remarks>
@@ -166,6 +247,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblQueryYettoRespond;
+
+        /// <summary>
+        /// linkScrtnyRejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyRejected;
 
         /// <summary>
         /// lblScrtnyRejected control.
@@ -177,6 +267,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblScrtnyRejected;
 
         /// <summary>
+        /// linkScrtnyCmpltd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyCmpltd;
+
+        /// <summary>
         /// lblScrtnyCmpltd control.
         /// </summary>
         /// <remarks>
@@ -184,6 +283,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblScrtnyCmpltd;
+
+        /// <summary>
+        /// linkScrtnyPendng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyPendng;
 
         /// <summary>
         /// lblScrtnyPendng control.
@@ -195,6 +303,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblScrtnyPendng;
 
         /// <summary>
+        /// linkApprovalIssued control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApprovalIssued;
+
+        /// <summary>
         /// lblApprovalIssued control.
         /// </summary>
         /// <remarks>
@@ -204,6 +321,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblApprovalIssued;
 
         /// <summary>
+        /// linkApprovalPending control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApprovalPending;
+
+        /// <summary>
         /// lblApprovalPending control.
         /// </summary>
         /// <remarks>
@@ -211,6 +337,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApprovalPending;
+
+        /// <summary>
+        /// linkApprovalRejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApprovalRejected;
 
         /// <summary>
         /// lblApprovalRejected control.

@@ -12,7 +12,7 @@ namespace MeghalayaUIP.User.CFO
 {
     public partial class CFOUserApplStatus : System.Web.UI.Page
     {
-        string UnitID;
+        string UnitID, newurl = "";
 
         CFOBAL objcfobal = new CFOBAL();
         protected void Page_Load(object sender, EventArgs e)
@@ -31,7 +31,9 @@ namespace MeghalayaUIP.User.CFO
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
                     if (Convert.ToString(Session["CFOUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                    { UnitID = Convert.ToString(Session["CFOUNITID"]);
+                        lbluidno.Text = UnitID;
+                    }
                     else
                     {
                         string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -80,7 +82,7 @@ namespace MeghalayaUIP.User.CFO
                         lblApprovalRejected.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRREJ"]);
                     }
                 }
-                 
+
             }
             catch (Exception ex)
             {
@@ -88,5 +90,145 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
             }
         }
+        protected void linkApprReq_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalsReq.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+        protected void linkOfflineAppr_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalsObtained.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkApprApplied_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalsApplied.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkTobeApplied_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalstobeApplied.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkAddlPaymnt_Click(object sender, EventArgs e)
+        {
+            if (lblAddlPaymentReq.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkAddlPaymntdone_Click(object sender, EventArgs e)
+        {
+            if (lblAddlPaymentPaid.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkQryRaised_Click(object sender, EventArgs e)
+        {
+            if (lblQueryRaised.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=QueryRaised";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkQueryReplied_Click(object sender, EventArgs e)
+        {
+            if (lblQueryReplied.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkQueryYettoRespond_Click(object sender, EventArgs e)
+        {
+            if (lblQueryYettoRespond.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkScrtnyRejected_Click(object sender, EventArgs e)
+        {
+            if (lblScrtnyRejected.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=ScrutinyRejected";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkScrtnyCmpltd_Click(object sender, EventArgs e)
+        {
+            if (lblScrtnyCmpltd.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=ScrutinyCompleted";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkScrtnyPendng_Click(object sender, EventArgs e)
+        {
+            if (lblScrtnyPendng.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=ScrutinyPending";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void linkApprovalIssued_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalIssued.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Approved";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkApprovalPending_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalPending.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=UnderProcess";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+        protected void linkApprovalRejected_Click(object sender, EventArgs e)
+        {
+            if (lblApprovalRejected.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Rejected";
+                Response.Redirect(newurl);
+            }
+
+        }
+
+
     }
 }

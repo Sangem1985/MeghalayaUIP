@@ -93,7 +93,7 @@
                     <li>If your application is successful, you agree to comply with all relevant terms of service and policies of our organization.</li>
                 </ul>
             </p>
-            <p><b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant. After getting full complete of the application, it will be treated as valid submission.</p>
+            <p><b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant.</p>
         </div>
     </div>
 

@@ -86,18 +86,18 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (dsApprovals.Tables[0].Rows.Count > 0)
                     {
-                        grdApprovals.DataSource = dsApprovals.Tables[0]; 
+                        grdApprovals.DataSource = dsApprovals.Tables[0];
                         grdApprovals.DataBind();
                         hdnQuesid.Value = Convert.ToString(dsApprovals.Tables[0].Rows[0]["CFEQA_CFEQDID"]);
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        divOffline.Visible= true; //btnNext.Enabled = false;
+                        divOffline.Visible = true; btnNext.Visible = false; btnNext2.Visible = true;
                         for (int i = 0; i < dsApprovals.Tables[1].Rows.Count; i++)
                         {
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC
                             {
-                                divPCB.Visible= true;
+                                divPCB.Visible = true;
                                 hpl1PCB.Visible = true;
                                 hpl1PCB.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl1PCB.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
@@ -123,161 +123,161 @@ namespace MeghalayaUIP.User.CFE
                                 hpl4EleCon.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl4EleCon.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 5) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 5)
                             {
                                 divFctryPlan.Visible = true;
                                 hpl5FctryPlan.Visible = true;
                                 hpl5FctryPlan.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl5FctryPlan.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 6) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 6)
                             {
                                 divDGsetNOC.Visible = true;
                                 hpl6DGsetNOC.Visible = true;
                                 hpl6DGsetNOC.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl6DGsetNOC.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 7) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 7)
                             {
                                 divFireSfty.Visible = true;
                                 hpl7FireSfty.Visible = true;
                                 hpl7FireSfty.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl7FireSfty.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 8) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 8)
                             {
                                 divRSDSLic.Visible = true;
                                 hpl8RSDSLic.Visible = true;
                                 hpl8RSDSLic.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl8RSDSLic.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 9) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 9)
                             {
                                 divExplsvNOC.Visible = true;
                                 hpl9ExplsvNOC.Visible = true;
                                 hpl9ExplsvNOC.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl9ExplsvNOC.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 10) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 10)
                             {
                                 divPtrlNOC.Visible = true;
                                 hpl10PtrlNOC.Visible = true;
                                 hpl10PtrlNOC.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl10PtrlNOC.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 11) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 11)
                             {
                                 divRdCtng.Visible = true;
                                 hpl11RdCtng.Visible = true;
                                 hpl11RdCtng.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl11RdCtng.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 12) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 12)
                             {
                                 divNonEncmb.Visible = true;
                                 hpl12NonEncmb.Visible = true;
                                 hpl12NonEncmb.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl12NonEncmb.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 13) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 13)
                             {
                                 divProfTax.Visible = true;
                                 hpl13ProfTax.Visible = true;
                                 hpl13ProfTax.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl13ProfTax.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 14) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 14)
                             {
                                 divElcInsp.Visible = true;
                                 hpl14ElcInsp.Visible = true;
                                 hpl14ElcInsp.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl14ElcInsp.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 15) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 15)
                             {
                                 divForstDist.Visible = true;
                                 hpl15ForstDist.Visible = true;
                                 hpl15ForstDist.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl15ForstDist.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 16) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 16)
                             {
                                 divNonForstLand.Visible = true;
                                 hpl16NonForstLand.Visible = true;
                                 hpl16NonForstLand.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl16NonForstLand.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 17) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 17)
                             {
                                 divIrrgNOC.Visible = true;
                                 hpl17IrrgNOC.Visible = true;
                                 hpl17IrrgNOC.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl17IrrgNOC.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 18) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 18)
                             {
                                 divRevNOC.Visible = true;
                                 hpl18RevNOC.Visible = true;
                                 hpl18RevNOC.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl18RevNOC.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 19) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 19)
                             {
                                 divGrndWtrNOC.Visible = true;
                                 hpl19GrndWtrNOC.Visible = true;
                                 hpl19GrndWtrNOC.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl19GrndWtrNOC.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 20) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 20)
                             {
                                 divNoWtrSplyCertfct.Visible = true;
                                 hpl20NoWtrSply.Visible = true;
                                 hpl20NoWtrSply.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl20NoWtrSply.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 21) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 21)
                             {
                                 divPrmsntoDrawWtr.Visible = true;
                                 hpl21ToDrawWtr.Visible = true;
                                 hpl21ToDrawWtr.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl21ToDrawWtr.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 22) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 22)
                             {
                                 divMunicipalWatr.Visible = true;
                                 hpl22MunicipalWatr.Visible = true;
                                 hpl22MunicipalWatr.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl22MunicipalWatr.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 23) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 23)
                             {
                                 divUrbanWatr.Visible = true;
                                 hpl23UrbanWatr.Visible = true;
                                 hpl23UrbanWatr.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl23UrbanWatr.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 25) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 25)
                             {
                                 divLbrAct1970.Visible = true;
                                 hpl25LbrAct1970.Visible = true;
                                 hpl25LbrAct1970.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl25LbrAct1970.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 26) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 26)
                             {
                                 divLbrAct1979.Visible = true;
                                 hpl26LbrAct1979.Visible = true;
                                 hpl26LbrAct1979.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl26LbrAct1979.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 27) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 27)
                             {
                                 divLbrAct1996.Visible = true;
                                 hpl27LbrAct1996.Visible = true;
                                 hpl27LbrAct1996.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILEPATH"]);
                                 hpl27LbrAct1996.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
-                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 28) 
+                            if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 28)
                             {
                                 divContrLbrAct.Visible = true;
                                 hpl28ContrLbrAct.Visible = true;
@@ -604,7 +604,7 @@ namespace MeghalayaUIP.User.CFE
 
                             }
                         }
-                        
+
                         success.Visible = true;
                         lblmsg.Text = "Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
@@ -647,8 +647,10 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                btnSubmit_Click( sender,  e);
-                Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx");
+                btnSubmit_Click(sender, e);
+                if (divOffline.Visible == false)
+                { Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx"); }
+
             }
             catch (Exception ex)
             {
@@ -2477,6 +2479,12 @@ namespace MeghalayaUIP.User.CFE
             catch (Exception ex)
             { throw ex; }
         }
+
+        protected void btnNext2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx");
+        }
+
         public static bool ValidateFileExtension(FileUpload Attachment)
         {
             try
