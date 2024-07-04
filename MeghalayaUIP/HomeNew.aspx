@@ -122,7 +122,7 @@
                         <div class="bold-text" style="font-size: 26px; text-transform: capitalize; font-weight: 700;">Invest, Innovate and Create in Meghalaya</div>
                         <div class="counter-outer">
                             <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                                <div class="text">Opportunitys</div>
+                                <div class="text">Opportunities</div>
                                 <div class="count-outer count-box counted">
                                     <span class="count-text" data-speed="1500" data-stop="20">$ 27.13</span><span>bn</span>
                                 </div>
