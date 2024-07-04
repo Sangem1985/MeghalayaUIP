@@ -38,11 +38,11 @@
             top: 180px;
         }
     </style>
-    <p style="background: #a8cfe5; display: flex; flex-direction: row; flex-wrap: nowrap; align-content: center; justify-content: center; align-items: center; color: #000; padding: 2px 2px;">
+  <%--  <p style="background: #a8cfe5; display: flex; flex-direction: row; flex-wrap: nowrap; align-content: center; justify-content: center; align-items: center; color: #000; padding: 2px 2px;">
         &nbsp;<i class="fi fi-br-bell-notification-social-media" style="line-height: 10px;"></i> &nbsp; Did you Know :
         <marquee style="width: 86%; font-weight: 300;">
             <b> Meghalaya will host the National Games in 2024</b></marquee>
-    </p>
+    </p>--%>
     <!-- main-slider -->
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
         <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;">
@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInLeft;">
-                        <div class="top-text" style="font-size: 26px; text-transform: capitalize; font-weight: 700;">Empowering Businesses, Empowering you..</div>
+                        <div class="top-text" style="font-size: 26px; text-transform: capitalize; font-weight: 700;color: #4577c1 !important;">Empowering Businesses, Empowering you..</div>
                         <%-- <h1>UNNATI 2024</h1>
                         <h1>MIIPP 2024</h1>--%>
                         <%--<img src="assets/assetsnew/images/boult.gif" style="margin-left: -60px;">--%>
