@@ -449,11 +449,7 @@ section.innerpages {
     <!-- main-footer end -->
 
             <!-- Button trigger modal -->
-            <div class="servicedesk">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  <i class="fi fi-tr-admin-alt"></i> Investors Desk
-</button>
-</div>
+            
 
 <!-- Modal -->
 

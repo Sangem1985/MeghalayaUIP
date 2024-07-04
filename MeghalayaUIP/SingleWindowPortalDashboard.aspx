@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="SingleWindowPortalDashboard.aspx.cs" Inherits="MeghalayaUIP.SingleWindowPortalDashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outerNew.Master" AutoEventWireup="true" CodeBehind="SingleWindowPortalDashboard.aspx.cs" Inherits="MeghalayaUIP.SingleWindowPortalDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -51,6 +51,15 @@
             color: #3d2a6c;
             font-weight: 500;
         }
+         input#ContentPlaceHolder1_txtFDate, input#ContentPlaceHolder1_txtTDate {
+    width: 110%;
+}
+        .bg-info {
+    background-color: #fdfdfd00 !important;
+}
+        table#ContentPlaceHolder1_gvDepts {
+    width: 96.9% !important;
+}
     </style>
     <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--%>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -137,33 +146,33 @@
 
 
                     <h3>Single Window Portal Dashboard</h3>
-                    <div class="col-md-12" style="margin-bottom: 8px;">
+                    <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-md-5 col-form-label">
-                                    From Date</label>
-                                <div class="col-lg-7 d-flex">
+                                <label class="col-md-5 col-form-label" style="text-align: right;">
+                                    From Date :</label>
+                                <div class="col-lg-7 d-flex" style="text-align: left;margin-left: -20px;">
 
                                     <input type="date" id="txtFDate" runat="server" class="date form-control" />
-                                    <i class="fi fi-rr-calendar-lines"></i>
+                                   
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-md-5 col-form-label">
-                                    To Date</label>
-                                <div class="col-lg-7 d-flex">
+                                <label class="col-md-5 col-form-label" style="text-align: right;">
+                                    To Date :</label>
+                               <div class="col-lg-7 d-flex" style="text-align: left;margin-left: -20px;">
                                     <%--<asp:TextBox ID="txtTDate" runat="server" class="date form-control"></asp:TextBox>--%>
                                     <input type="date" id="txtTDate" runat="server" class="date form-control" />
-                                    <i class="fi fi-rr-calendar-lines"></i>
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="col-md-6">Department Name :</div>
+                        <div class="col-md-4 d-flex">
+                            <div class="col-md-6" style="margin-top: 4px;">Department Name :</div>
                             <div class="col-md-6">
-                                <asp:DropDownList ID="ddlDept" runat="server" style="width: 100%; height: 32px;">
+                                <asp:DropDownList ID="ddlDept" runat="server" class=" form-control" >
                                 </asp:DropDownList>
                             </div>
                         </div>
