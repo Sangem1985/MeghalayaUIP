@@ -777,7 +777,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="assets/assetsnew/images/popupimg.png" />
+                    <a href="login.aspx"><img src="assets/assetsnew/images/popupimg.png" /></a>
                 </div>
                 <%--<div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

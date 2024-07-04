@@ -7,26 +7,26 @@
         p.texttop111.wow.fadeInUp.animated.animated {
     width: 24%;
     position: absolute;
-    top: 155px;
-    color: #fff;
-    left: 98px;
-    text-align: center;
+    top: 73px;
+    color: #000;
+    left: 32px;
+    text-align: left;
 }
         p.texttop211.wow.fadeInUp.animated.animated {
     width: 24%;
     position: absolute;
-    top: 155px;
-    color: #fff;
-    left: 37.5%;
-    text-align: center;
+    top: 31px;
+    color: #000;
+    left: 31.5%;
+    text-align: left;
 }
         p.texttop311.wow.fadeInUp.animated.animated {
-    width: 24%;
+   width: 24%;
     position: absolute;
-    top: 155px;
-    color: #fff;
-    right: 8.5%;
-    text-align: center;
+    top: -14px;
+    color: #000;
+    right: 17.5%;
+    text-align: left;
 }
         p.texttop {
             position: absolute;
@@ -44,7 +44,35 @@
     font-size: 1.3rem !important;
     font-weight: 500;
 }
-        p.texttop111.wow.fadeInUp.animated.animated:hover, p.texttop211.wow.fadeInUp.animated.animated:hover, p.texttop311.wow.fadeInUp.animated.animated:hover{
+        p.texttop114.wow.fadeInUp.animated.animated {
+    text-align: left;
+    position: absolute;
+    top: 58%;
+    left: 13%;
+    font-size: 33px;
+    color: #fff;
+    font-weight: 900;
+}
+        
+        p.texttop214.wow.fadeInUp.animated.animated {
+    text-align: center;
+    position: absolute;
+    top: 48%;
+    left: 40%;
+    font-size: 33px;
+    color: #fff;
+    font-weight: 900;
+}
+        p.texttop314.wow.fadeInUp.animated.animated {
+    text-align: right;
+    position: absolute;
+    top: 36%;
+    right: 21%;
+    font-size: 33px;
+    color: #fff;
+    font-weight: 900;
+}
+       p.texttop114.wow.fadeInUp.animated.animated:hover,p.texttop214.wow.fadeInUp.animated.animated:hover,p.texttop314.wow.fadeInUp.animated.animated:hover, p.texttop111.wow.fadeInUp.animated.animated:hover, p.texttop211.wow.fadeInUp.animated.animated:hover, p.texttop311.wow.fadeInUp.animated.animated:hover{
             transition: transform .6s;
     transform: scale(1.2);
     font-weight:600;
@@ -163,21 +191,30 @@
 ">
                                     <div class="setup">
                                         
-                                            <img src="assets/assetsnew/images/info/steps.png" />
+                                            <img src="assets/assetsnew/images/info/steps123.png" />
                                       
                                         <p class="texttop111 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
                                             
-                                                Among the lowest in Ease of<br />
-                                                Doing Business rankings.
+                                                Among the lowest in Ease of<br />Doing Business rankings
                                         </p>
                                         <p class="texttop211 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
-                                            Recognized as an “Emerging<br />
-                                                Business Ecosystem” by DPIIT.
+                                            Recognized as an “Emerging<br /> Business Ecosystem” by DPIIT
                                         </p>
                                         <p class="texttop311 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
-                                            211 reforms successfully
-                                            <br />
-                                                implemented by the State.
+                                            211 reforms successfully <br />implemented by the State
+                                        </p>
+                                    </div>
+                                    <div class="setup123">
+                                      
+                                        <p class="texttop114 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                            
+                                                2019
+                                        </p>
+                                        <p class="texttop214 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                            2020
+                                        </p>
+                                        <p class="texttop314 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                            2022
                                         </p>
                                     </div>
                                 </div>
@@ -269,7 +306,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 project-block">
-                                    <div class="setup wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                    <div class="setup wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                         <p>
                                             <img src="assets/assetsnew/images/info/icon43.png">
                                         </p>
@@ -283,7 +321,39 @@
                     </section>
 
                     <h4>Meghalaya-Centralized Inspection System Goals</h4>
+
                     <section class="project-section case-page-3 eodb p-0 pt-2 mb-5">
+                        <div class="large-container">
+                            <div class="row">
+                                <img src="assets/assetsnew/images/info/cis.jpg" />
+                                <div class="cis1 1 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                    Streamline the inspection<br /> procedures
+                                </div>
+                                <div class="cis1 2 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInDown;">
+                                    Ensure timely and synchronized<br /> inspections between various departments
+                                </div>
+                                <div class="cis1 3 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                    Maintain transparency in inspections,<br /> its frequency and reduce duplications
+                                </div>
+                                <div class="cis1 4 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInDown;">
+                                    Improve cooperation and coordination<br /> between inspection authorities
+                                </div>
+                                <div class="cis1 5 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                    Enable Unified review of information<br /> about past inspections, schedules of<br /> controls, registries of controls, and <br />compliance with Inspection Laws
+                                </div>
+                                <div class="cis1 6 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInDown;">
+                                    To eliminate the regulatory uncertainty<br /> that generates an inspection
+                                </div>
+                            </div>
+                            </div>
+                        </section>
+                    <%--<section class="project-section case-page-3 eodb p-0 pt-2 mb-5">
                         <div class="large-container">
                             <div class="row">
                                 
@@ -340,7 +410,7 @@
 
                             </div>
                         </div>
-                    </section>
+                    </section>--%>
 
 
                 </div>
