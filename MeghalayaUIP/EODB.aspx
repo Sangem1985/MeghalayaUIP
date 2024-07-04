@@ -4,6 +4,30 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
+        p.texttop111.wow.fadeInUp.animated.animated {
+    width: 24%;
+    position: absolute;
+    top: 155px;
+    color: #fff;
+    left: 98px;
+    text-align: center;
+}
+        p.texttop211.wow.fadeInUp.animated.animated {
+    width: 24%;
+    position: absolute;
+    top: 155px;
+    color: #fff;
+    left: 37.5%;
+    text-align: center;
+}
+        p.texttop311.wow.fadeInUp.animated.animated {
+    width: 24%;
+    position: absolute;
+    top: 155px;
+    color: #fff;
+    right: 8.5%;
+    text-align: center;
+}
         p.texttop {
             position: absolute;
     top: 10px;
@@ -20,6 +44,12 @@
     font-size: 1.3rem !important;
     font-weight: 500;
 }
+        p.texttop111.wow.fadeInUp.animated.animated:hover, p.texttop211.wow.fadeInUp.animated.animated:hover, p.texttop311.wow.fadeInUp.animated.animated:hover{
+            transition: transform .6s;
+    transform: scale(1.2);
+    font-weight:600;
+
+        }
     </style>
     <section class="innerpages">
         <div class="container">
@@ -93,7 +123,7 @@
                         <li>3.	2022: 211 reforms successfully implemented by the State.</li>
                     </ul>--%>
                      <h4>Meghalaya's Transformation in BRAP</h4>
-                    <section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
+                    <%--<section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
                         <div class="large-container">
                            
                             <div class="row">
@@ -116,6 +146,36 @@
                                         </p>
                                         <p class="texttop3 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
                                             <span style="font-size: 24px;font-weight:900">Pre-2022</span><br />211 reforms successfully
+                                            <br />
+                                                implemented by the State.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>--%>
+                    <section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
+                        <div class="large-container">
+                           
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6 col-sm-12 project-block" style="
+    text-align: center;
+">
+                                    <div class="setup">
+                                        
+                                            <img src="assets/assetsnew/images/info/steps.png" />
+                                      
+                                        <p class="texttop111 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                            
+                                                Among the lowest in Ease of<br />
+                                                Doing Business rankings.
+                                        </p>
+                                        <p class="texttop211 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                            Recognized as an “Emerging<br />
+                                                Business Ecosystem” by DPIIT.
+                                        </p>
+                                        <p class="texttop311 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;"">
+                                            211 reforms successfully
                                             <br />
                                                 implemented by the State.
                                         </p>

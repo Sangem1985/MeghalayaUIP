@@ -547,6 +547,7 @@
     <Content Include="assets\assetsnew\images\info\icon41.png" />
     <Content Include="assets\assetsnew\images\info\icon42.png" />
     <Content Include="assets\assetsnew\images\info\icon43.png" />
+    <Content Include="assets\assetsnew\images\info\steps.png" />
     <Content Include="assets\assetsnew\images\invotebg.gif" />
     <Content Include="assets\assetsnew\images\invotebgirr.gif" />
     <Content Include="assets\assetsnew\images\invotebgunder.png" />

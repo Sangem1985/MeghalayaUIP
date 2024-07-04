@@ -255,7 +255,7 @@
                                 <p style="margin-top: -26px;">
                                     Fill <span style="color: #ffeb3b;">
                                         <br />
-                                        to Invest form</span> and our team will reach out
+                                        Intent to Invest form</span> and our team will reach out
                                 </p>
                             </div>
                             <img src="assets/assetsnew/images/easy/icon2.png" alt="icon" />
