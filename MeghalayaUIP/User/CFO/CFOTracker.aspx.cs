@@ -33,6 +33,12 @@ namespace MeghalayaUIP.User.CFO
                 {
                     UnitID = Convert.ToString(Request.QueryString[0]);
                     lblType.Text = Request.QueryString[1].ToString();
+                    if (Request.QueryString[1].ToString() == "UnderProcess")
+                    { lblType.Text = " Under Process:"; }
+                    if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
+                    { lblType.Text = " Scrutiny Completed:"; }
+                    if (Request.QueryString[1].ToString() == "ScrutinyPending")
+                    { lblType.Text = " Scrutiny Pending:"; }
                 }
                 else
                 {
@@ -60,7 +66,7 @@ namespace MeghalayaUIP.User.CFO
                 DataSet dsApprovals = new DataSet();
                 UnitID = Convert.ToString(Request.QueryString[0]);
                 //UnitID = "1007";
-                dsApprovals = objcfobal.GetCFOTracker(hdnUserID.Value, UnitID, lblType.Text);
+                dsApprovals = objcfobal.GetCFOTracker(hdnUserID.Value, UnitID, Request.QueryString[1].ToString());
                 if (dsApprovals.Tables.Count > 0)
                 {
                     if (dsApprovals.Tables[0].Rows.Count > 0)
@@ -71,8 +77,8 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_UNITID"]);
-                        lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_COMPANYNAME"]);
+                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFOQD_UNITID"]);
+                        lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFOQD_COMPANYNAME"]);
 
                     }
                 }

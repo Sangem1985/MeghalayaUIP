@@ -31,7 +31,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><b>Questionnaire - For Pre Operational</b></h4>
+                                <h4 class="card-title"><b>Questionnaire (Know Your Approvals) - For Pre Operational</b></h4>
                                 <p style="position: absolute; right: 10px; top: 6px; color: red;">
                                     *All Fields Are
 										Mandatory
@@ -108,7 +108,8 @@
                                                                         3. Proposal For</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
-                                                                            <asp:ListItem Text="New" Value="New"></asp:ListItem>
+                                                                            <asp:ListItem Text="New" Value="New" style="padding-right: 10px" ></asp:ListItem>
+                                                                             <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
                                                                             <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
                                                                         </asp:RadioButtonList>
 
@@ -136,7 +137,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        5.District
+                                                                        1.District
                                                                     </label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
@@ -147,7 +148,7 @@
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">6. Mandal</label>
+                                                                    <label class="col-lg-6 col-form-label">2. Mandal</label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                                             <asp:ListItem Text="Select Mandal" Value="0" />
@@ -158,7 +159,7 @@
 
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">7. Village</label>
+                                                                    <label class="col-lg-6 col-form-label">3. Village</label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:DropDownList ID="ddlVillage" runat="server" class="form-control">
                                                                             <asp:ListItem Text="Select Village" Value="0" />
@@ -171,7 +172,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        8. Total
+                                                                        4. Total
 																		Extent of Land<br />
                                                                         (in sq.m)</label>
                                                                     <div class="col-lg-6 d-flex">
@@ -182,7 +183,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        9. Built up
+                                                                        5. Built up
 																		Area (In Sq.m)</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control"></asp:TextBox>
@@ -191,7 +192,7 @@
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">10. Sector</label>
+                                                                    <label class="col-lg-6 col-form-label">6. Sector</label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:DropDownList ID="ddlSector" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged">
                                                                             <asp:ListItem Text="Select" Value="0" />
@@ -205,7 +206,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        11. Line of
+                                                                        7. Line of
 																		Activity</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged">
@@ -217,7 +218,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        12. Pollution
+                                                                        8. Pollution
 																		Category of Enterprise</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"></asp:Label>
@@ -227,7 +228,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        13. Whether land purchased from MIDCL</label>
+                                                                        9. Whether land purchased from MIDCL</label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <div class="form-check form-check-inline ">
                                                                             <asp:RadioButtonList ID="rblMIDCL" runat="server" RepeatDirection="Horizontal">
@@ -244,7 +245,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        14. Location
+                                                                        10. Location
 																		of the unit</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control"></asp:TextBox>

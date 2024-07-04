@@ -19,7 +19,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4>Pre Establishment - Approvals Abstract:</h4>
-                                <h5 class="alert alert-warning alert-dismissible fade show">The following are the Approvals required for Establishment of your Unit. Please
+                                <h5 class="alert alert-warning alert-dismissible fade show">The following are the Pre Establishment Approvals required. Please
                                                     select the Approvals for which you intend to apply for.</h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
                                 <asp:HiddenField ID="hdnQuesid" runat="server" />
@@ -753,6 +753,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-12 text-right">
+                    <asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false"  />
+
                 </div>
             </section>
 

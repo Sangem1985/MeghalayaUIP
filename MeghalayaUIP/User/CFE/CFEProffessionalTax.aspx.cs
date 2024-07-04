@@ -382,11 +382,11 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Date\\n";
                     slno = slno + 1;
                 }
-                if (rblConstitution.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Constitution \\n";
-                    slno = slno + 1;
-                }
+                //if (rblConstitution.SelectedIndex == -1)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Constitution \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtGoodssupplie.Text) || txtGoodssupplie.Text == "" || txtGoodssupplie.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Description Goods Supplies\\n";

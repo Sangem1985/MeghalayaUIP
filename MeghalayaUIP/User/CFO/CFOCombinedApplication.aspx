@@ -19,7 +19,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4>Pre Operational - Approvals Abstract:</h4>
-                                <h5 class="alert alert-warning alert-dismissible fade show">The following are the Approvals required. Please
+                                <h5 class="alert alert-warning alert-dismissible fade show">The following are the Pre-Operational Approvals required. Please
                                                     select the Approvals for which you intend to apply for.</h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
                                 <asp:HiddenField ID="hdnQuesid" runat="server" />
