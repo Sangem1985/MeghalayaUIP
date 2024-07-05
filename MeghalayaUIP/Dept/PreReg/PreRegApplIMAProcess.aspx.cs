@@ -792,5 +792,16 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
             }
         }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/PreReg/PreRegApplIMAView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

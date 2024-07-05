@@ -109,5 +109,16 @@ namespace MeghalayaUIP.Dept
 
             //}
         }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }
