@@ -44,7 +44,8 @@
     width: 90%;
     position: absolute;
     bottom: 60px;
-    z-index: 9;
+    z-index: 9999;
+    margin-left: 100px;
 }
 
 .container-with-margin {
@@ -168,8 +169,8 @@ h1 {
         }
 
     .hexagon:hover {
-        transform: rotate(-240deg);
-        transition: .6s ease-in;
+        transform: scale(1.03);
+        transition: .9s ease-in;
     }
 section.innerpages img {
    border-radius:8px;

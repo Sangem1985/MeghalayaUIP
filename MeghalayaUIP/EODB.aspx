@@ -230,7 +230,40 @@
                         <li>4.	Reduced 167 compliances (143 for businesses, 24 for citizens).</li>
                     </ul>--%>
                     <h4>Proactive Steps in Meghalaya</h4>
-                    <section class="project-section case-page-3 eodb4 p-0 pt-2 mb-5">
+                     <section class="project-section case-page-3 eodb41 p-0 pt-2 mb-5">
+                        <div class="large-container">
+                            
+                            <div class="row">
+                                <img src="assets/assetsnew/images/info/psm.png" />
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt1 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; 
+animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <p class="texteodb4 1">Digitization of records</p>
+                                    </div>
+                                    </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt2 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        
+                                        <p class="texteodb4 2">Minimizing compliance<br />burdens</p>
+                                    </div>
+                                    </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt3 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        
+                                        <p class="texteodb4 3">Identified<br />304 compliances<br />(280 Businesses, 24 Citizens)</p>
+                                    </div>
+                                    </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="imgtexxt4 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        
+                                        <p class="texteodb4 4">Reduced 167<br />compliances<br />(143 Businesses, 24 Citizens)</p>
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+                   <%-- <section class="project-section case-page-3 eodb4 p-0 pt-2 mb-5">
                         <div class="large-container">
                             
                             <div class="row">
@@ -264,7 +297,7 @@
 
                                 </div>
                             </div>
-                        </section>
+                        </section>--%>
                     <%--<p><b>d. Services Offered :</b></p>
                     <ul>
                         <li>1.	132 End-to-end online services.</li>
