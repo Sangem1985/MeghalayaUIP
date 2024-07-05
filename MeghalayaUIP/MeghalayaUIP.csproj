@@ -549,6 +549,7 @@
     <Content Include="assets\assetsnew\images\info\icon41.png" />
     <Content Include="assets\assetsnew\images\info\icon42.png" />
     <Content Include="assets\assetsnew\images\info\icon43.png" />
+    <Content Include="assets\assetsnew\images\info\indbox.png" />
     <Content Include="assets\assetsnew\images\info\psm.png" />
     <Content Include="assets\assetsnew\images\info\road.png" />
     <Content Include="assets\assetsnew\images\info\steps.png" />

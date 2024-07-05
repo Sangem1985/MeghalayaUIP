@@ -35,8 +35,41 @@
             float: right !important;
             display: flex;
             z-index: 10000;
-            top: 180px;
+            top: 250px;
         }
+        p.smallinv {
+    position: absolute;
+    width: 70%;
+    text-align: left;
+    top: 9px;
+    font-weight: 600;
+    font-family: sans-serif;
+    left: 4%;
+}
+        .invticon {
+    position: absolute;
+    right: 24px;
+    top: 16px;
+    font-size: 39px;
+    opacity: 0.5;
+}
+        div#invstpopup img {
+    box-shadow: 2px 4px 9px #4e4141;
+    border-radius: 14px;
+}
+        div#invstpopup .col-md-6.p-0:hover{
+             p.smallinv {
+    color: #3F51B5;
+}
+                        .invticon {
+    opacity: 1;
+    color: blue;
+}
+                        img {
+    box-shadow: none !important;
+}
+        }
+       
     </style>
   <%--  <p style="background: #a8cfe5; display: flex; flex-direction: row; flex-wrap: nowrap; align-content: center; justify-content: center; align-items: center; color: #000; padding: 2px 2px;">
         &nbsp;<i class="fi fi-br-bell-notification-social-media" style="line-height: 10px;"></i> &nbsp; Did you Know :
@@ -776,13 +809,84 @@
                         <span aria-hidden="true"><i class="fi fi-br-times-hexagon"></i></span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <a href="login.aspx"><img src="assets/assetsnew/images/popupimg.png" /></a>
+                <div class="modal-body" id="invstpopup">
+                    <div class="col-md-12 d-flex">
+                        
+                        <div class="col-md-6 p-0">
+                            <a href="login.aspx">
+                            <img src="assets/assetsnew/images/info/indbox.png" style="margin-left: -14px;">
+                            <div class="textinvd1">
+                                <p class="smallinv">Central Inspection System</p>
+                            </div>
+                            <div class="invticon">
+                                <i class="fi fi-tr-operating-system-upgrade"></i>
+                            </div>
+                                </a>
+                        </div>
+                            
+                        <div class="col-md-6 p-0">
+                            <a href="login.aspx">
+                            <img src="assets/assetsnew/images/info/indbox.png" />
+                            <div class="textinvd1">
+                                <p class="smallinv">Service<br />Dashboard</p>
+                             </div>
+                               <div class="invticon">
+                                 <i class="fi fi-tr-dashboard-panel"></i>
+                            </div>
+                                </a>
+                        </div>
+                        </div>
+                        <div class="col-md-12 d-flex mt-2">
+                        <div class="col-md-6 p-0 pr-0">
+                            <a href="login.aspx">
+                            <img src="assets/assetsnew/images/info/indbox.png" style="margin-left: -14px;">
+                            <div class="textinvd1">
+                                <p class="smallinv">Know Your Approvals</p>
+                            </div>
+                            <div class="invticon">
+                                 <i class="fi fi-tr-memo-circle-check"></i>
+                            </div>
+                                </a>
+                        </div>
+                        <div class="col-md-6 p-0">
+                            <a href="login.aspx">
+                            <img src="assets/assetsnew/images/info/indbox.png" />
+                            <div class="textinvd1">
+                                <p class="smallinv">Know Your Incentives</p>
+                            </div>
+                            <div class="invticon">
+                                 <i class="fi fi-tr-user-gear"></i>
+                        </div>
+                                </a>
+                             </div>
+                            </div>
+                        <div class="col-md-12 d-flex mt-2">
+                        <div class="col-md-6 p-0 pr-0">
+                            <a href="login.aspx">
+                           <img src="assets/assetsnew/images/info/indbox.png" style="margin-left: -14px;">
+                            <div class="textinvd1">
+                                <p class="smallinv">Building Plan Status</p>
+                            </div>
+                            <div class="invticon">
+                                 <i class="fi fi-tr-building"></i>
+                        </div>
+                                </a>
+                            </div>
+                        <div class="col-md-6 p-0">
+                            <a href="login.aspx">
+                            <img src="assets/assetsnew/images/info/indbox.png" />
+                            <div class="textinvd1">
+                                <p class="smallinv">Track Licenses</p>
+                            </div>
+                            <div class="invticon">
+                                 <i class="fi fi-tr-track"></i>
+                        </div>
+                                </a>
+                    </div>
+                            </div>
+                    <%--<a href="login.aspx"><img src="assets/assetsnew/images/popupimg.png" /></a>--%>
                 </div>
-                <%--<div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>--%>
+               
             </div>
         </div>
     </div>

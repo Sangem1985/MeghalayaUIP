@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="../Dept/CFE/CFEDeptDashboard.aspx">Pre Establishment</a></li>
+            <li class="breadcrumb-item"><a href="../../Dept/CFE/CFEDeptDashboard.aspx">Pre Establishment</a></li>
             <li class="breadcrumb-item active" aria-current="page">Applications Details</li>
         </ol>
     </nav>
