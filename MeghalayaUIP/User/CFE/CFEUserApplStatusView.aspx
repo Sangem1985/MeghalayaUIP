@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <%--<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx"></a></li>--%>
             <li class="breadcrumb-item active" aria-current="page">Pre-Establishment</li>
@@ -56,9 +56,14 @@
                                 <asp:BoundField HeaderText="Status" DataField="PRESENTSTATUS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Query Raise Date" DataField="QUERYRAISE" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Query Description" DataField="QUERYREMARKS" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Query Response Date" DataField="QUERYRESPOSNEDATE" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Query Response Remarks" DataField="QUERYRESPOSNEREMARKS" Visible="true" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-
+                                <asp:BoundField HeaderText="Query Response Date" DataField="QUERYRESPOSNEDATE" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderText="Query Response Remarks" DataField="QUERYRESPOSNEREMARKS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:TemplateField HeaderText="Query Respond" ItemStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnkQueryCount" CssClass="btn btn-info" runat="server" Text="Respond to Query" PostBackUrl='<%#Eval("UNITID","~/User/PreReg/IRQueryReason.aspx?UNITID={0}")%>'></asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="DEPTID" Visible="false">
                                     <ItemTemplate>
                                         <asp:Label runat="server" ID="lblDEPTID" Text='<%#Eval("DEPTID") %>'> </asp:Label>
@@ -82,9 +87,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </asp:Content>

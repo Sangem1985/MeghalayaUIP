@@ -1476,6 +1476,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Parameters.AddWithValue("@CFEA_UNITID", Convert.ToInt32(objAttachments.UNITID));
                 com.Parameters.AddWithValue("@CFEA_CFEQDID", Convert.ToInt32(objAttachments.Questionnareid));
+                com.Parameters.AddWithValue("@CFEA_QUERYID", objAttachments.QueryID);
                 com.Parameters.AddWithValue("@CFEA_MASTERAID", objAttachments.MasterID);
                 com.Parameters.AddWithValue("@CFEA_FILEPATH", objAttachments.FilePath);
                 com.Parameters.AddWithValue("@CFEA_FILENAME", objAttachments.FileName);
@@ -2585,7 +2586,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPT_DISTRICEST", Convert.ToInt32(ObjCFETax.DISTRICEST));
                 com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
                 com.Parameters.AddWithValue("@CFEPT_TOTALNOEMPEST", Convert.ToInt32(ObjCFETax.TOTALNOEMPEST));
-                com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact( ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact(ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFEPT_CONSTITUTIONEST", ObjCFETax.CONSTITUTIONEST);
                 com.Parameters.AddWithValue("@CFEPT_GOODSSUPPLIESEST", ObjCFETax.GOODSSUPPLIESEST);
                 com.Parameters.AddWithValue("@CFEPT_ADDITIONPLACEBUSINESS", ObjCFETax.ADDITIONPLACEBUSINESS);
@@ -2741,7 +2742,47 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetCFEQueryDashBoard(string Unitid, string Queryid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
 
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFEQueryDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEQueryDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Unitid));
+                if (Queryid != "" && Queryid != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(Queryid));
+                }
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
 
         //-------------------------- DEPARTMENT STARTED HERE -------------------//
 

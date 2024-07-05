@@ -124,8 +124,8 @@ namespace MeghalayaUIP.User.Grievance
                 AddSelect(ddldept);
                 if (ddlModule.SelectedValue == "7")
                 {
-                    ddldept.SelectedValue = "1012";
-                    ddldept.Enabled = false;
+                    ddldept.SelectedValue = "104";
+                        ddldept.Enabled = false;
                 }
             }
             catch (Exception ex)

@@ -283,116 +283,6 @@ namespace MeghalayaUIP.Dept.CFO
                 throw ex;
             }
         }
-
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
-                }
-                if (ddlStatus.SelectedValue != "")
-                {
-                    if (ddlStatus.SelectedValue == "5" || ddlStatus.SelectedValue == "16")
-                    {
-                        if ((ddlStatus.SelectedValue == "16" || ddlStatus.SelectedValue == "5") && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
-                        {
-                            if (ddlStatus.SelectedValue == "5")
-                            {
-                                lblmsg0.Text = "Please Enter Query Description";
-                                Failure.Visible = true;
-                                return;
-                            }
-                            else if (ddlStatus.SelectedValue == "16")
-                            {
-                                lblmsg0.Text = "Please Enter Rejection Reason";
-                                Failure.Visible = true;
-                                return;
-                            }
-
-                        }
-                    }
-                    else if (ddlStatus.SelectedValue == "11")
-                    {
-                        if (string.IsNullOrWhiteSpace(txtAdditionalAmount.Text) || txtAdditionalAmount.Text == "" || txtAdditionalAmount.Text == null)
-                        {
-                            lblmsg0.Text = "Please Enter Additional Amount";
-                            Failure.Visible = true;
-                            return;
-                        }
-                        else
-                        {
-                            if (txtAdditionalAmount.Text.Trim() == "0")
-                            {
-                                lblmsg0.Text = "Additional Amount should not be Zero";
-                                Failure.Visible = true;
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        objcfoDtls.Unitid = Session["UNITID"].ToString();
-                        objcfoDtls.Investerid = Session["INVESTERID"].ToString();
-                        if (ddlStatus != null)
-                            objcfoDtls.status = Convert.ToInt32(ddlStatus.SelectedValue);
-                        objcfoDtls.UserID = ObjUserInfo.UserID;
-                        objcfoDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                        objcfoDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
-                        objcfoDtls.Questionnaireid = Session["Questionnaireid"].ToString();
-                        objcfoDtls.Remarks = txtRequest.Text;
-                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
-                        {
-                            if (ddlStatus.SelectedValue == "16")
-                            {
-                                objcfoDtls.PrescrutinyRejectionFlag = "Y";
-                            }
-                            else
-                            {
-                                objcfoDtls.PrescrutinyRejectionFlag = "N";
-                            }
-                        }
-                        var Hostname = Dns.GetHostName();
-                        objcfoDtls.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
-
-                        string valid = objcfobal.UpdateCFODepartmentProcess(objcfoDtls);
-                        btnSubmit.Enabled = false;
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFEApplDeptProcess.aspx'", true);
-                        return;
-                    }
-
-                }
-                else
-                {
-                    lblmsg0.Text = "Please Select Action";
-                    Failure.Visible = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
-            }
-        }
-
-
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -407,9 +297,9 @@ namespace MeghalayaUIP.Dept.CFO
                     }
                     // username = ObjUserInfo.UserName;
                 }
-                if (ddlStatus.SelectedValue == "5" || ddlStatus.SelectedValue == "16" || ddlStatus.SelectedValue == "11")
+                if (ddlStatus.SelectedValue == "6" || ddlStatus.SelectedValue == "17" || ddlStatus.SelectedValue == "11")
                 {
-                    if (ddlStatus.SelectedValue == "5")
+                    if (ddlStatus.SelectedValue == "6")
                     {
                         tdquryorrej.Visible = true;
                         tdquryorrejTxtbx.Visible = true;
@@ -418,7 +308,7 @@ namespace MeghalayaUIP.Dept.CFO
                         //Payment.Visible = false;
                         txtAdditionalAmount.Visible = false;
                     }
-                    else if (ddlStatus.SelectedValue == "16")
+                    else if (ddlStatus.SelectedValue == "17")
                     {
                         tdquryorrej.Visible = true;
                         tdquryorrejTxtbx.Visible = true;
@@ -437,7 +327,7 @@ namespace MeghalayaUIP.Dept.CFO
                         txtRequest.Visible = false;
                     }
                 }
-                else if (ddlStatus.SelectedValue == "4")
+                else if (ddlStatus.SelectedValue == "12")
                 {
                     //tblaction.Visible = true;
                     //lblaction.Text = "Please Enter Query Description";
@@ -454,50 +344,7 @@ namespace MeghalayaUIP.Dept.CFO
                 lblmsg0.Text = ex.Message;
             }
         }
-
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
-
-        protected void btnQuery_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                btnSubmit_Click(sender, e);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                string User_id = "0";
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
-                }
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
-            }
-        }
-
-        protected void btnApprove_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
@@ -510,50 +357,59 @@ namespace MeghalayaUIP.Dept.CFO
                     }
                     // username = ObjUserInfo.UserName;
                 }
-                if (ddlapproval.SelectedValue != "")
+                if (ddlStatus.SelectedValue != "")
                 {
-                    if (ddlapproval.SelectedValue == "16")
+                    if (ddlStatus.SelectedValue == "6" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
                     {
-                        if ((ddlapproval.SelectedValue == "16") && (string.IsNullOrWhiteSpace(txtRejection.Text) || txtRejection.Text == "" || txtRejection.Text == null))
-                        {
-                            if (ddlapproval.SelectedValue == "16")
-                            {
-                                lblmsg0.Text = "Please Enter Rejection Reason";
-                                Failure.Visible = true;
-                                return;
-                            }
-
-                        }
+                        lblmsg0.Text = "Please Enter Query Description";
+                        Failure.Visible = true;
+                        return;
                     }
-
+                    else if (ddlStatus.SelectedValue == "17" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Rejection Reason";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else if (ddlStatus.SelectedValue == "11" && (string.IsNullOrWhiteSpace(txtAdditionalAmount.Text) || txtAdditionalAmount.Text == "" || txtAdditionalAmount.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Additional Amount";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else if (ddlStatus.SelectedValue == "11" && txtAdditionalAmount.Text.Trim() == "0")
+                    {
+                        lblmsg0.Text = "Additional Amount should not be Zero";
+                        Failure.Visible = true;
+                        return;
+                    }
                     else
                     {
                         objcfoDtls.Unitid = Session["UNITID"].ToString();
                         objcfoDtls.Investerid = Session["INVESTERID"].ToString();
                         if (ddlStatus != null)
-                            objcfoDtls.status = Convert.ToInt32(ddlapproval.SelectedValue);
+                            objcfoDtls.status = Convert.ToInt32(ddlStatus.SelectedValue);
                         objcfoDtls.UserID = ObjUserInfo.UserID;
                         objcfoDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                         objcfoDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
                         objcfoDtls.Questionnaireid = Session["Questionnaireid"].ToString();
-                        if (ddlapproval.SelectedValue == "16")
-                        { objcfoDtls.Remarks = txtRejection.Text; }
-                        if (ddlapproval.SelectedValue == "13")
-                        { objcfoDtls.ReferenceNumber = txtreferenceno.Text; }
-                        objcfoDtls.PrescrutinyRejectionFlag = "N";
-                        //if (Request.QueryString["status"].ToString() == "APPROVALPENDING")
-                        //{
-                        //    if (ddlStatus.SelectedValue == "16")
-                        //    {
-                        //        objcfeDtls.PrescrutinyRejectionFlag = "N";
-                        //    }                             
-                        //}
-                        var Hostname = Dns.GetHostName();
-                        objcfoDtls.IPAddress = Dns.GetHostByName(Hostname).AddressList[0].ToString();
+                        objcfoDtls.Remarks = txtRequest.Text;
+                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                        {
+                            if (ddlStatus.SelectedValue == "17")
+                            {
+                                objcfoDtls.PrescrutinyRejectionFlag = "Y";
+                            }
+                            else
+                            {
+                                objcfoDtls.PrescrutinyRejectionFlag = "N";
+                            }
+                        }
+                        objcfoDtls.IPAddress = getclientIP();
 
                         string valid = objcfobal.UpdateCFODepartmentProcess(objcfoDtls);
                         btnSubmit.Enabled = false;
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFEApplDeptProcess.aspx'", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFOApplDeptProcess.aspx'", true);
                         return;
                     }
 
@@ -581,7 +437,6 @@ namespace MeghalayaUIP.Dept.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
-
         protected void ddlapproval_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -627,7 +482,6 @@ namespace MeghalayaUIP.Dept.CFO
                 lblmsg0.Text = ex.Message;
             }
         }
-
         protected void btnUpldapproval_Click(object sender, EventArgs e)
         {
             try
@@ -685,6 +539,105 @@ namespace MeghalayaUIP.Dept.CFO
                 Failure.Visible = true;
             }
         }
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnSubmit_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
+        protected void btnApprove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    // username = ObjUserInfo.UserName;
+                }
+                if (ddlapproval.SelectedValue != "")
+                {
+                    if (ddlapproval.SelectedValue == "16")
+                    {
+                        if ((ddlapproval.SelectedValue == "16") && (string.IsNullOrWhiteSpace(txtRejection.Text) || txtRejection.Text == "" || txtRejection.Text == null))
+                        {
+                            if (ddlapproval.SelectedValue == "16")
+                            {
+                                lblmsg0.Text = "Please Enter Rejection Reason";
+                                Failure.Visible = true;
+                                return;
+                            }
+
+                        }
+                    }
+
+                    else
+                    {
+                        objcfoDtls.Unitid = Session["UNITID"].ToString();
+                        objcfoDtls.Investerid = Session["INVESTERID"].ToString();
+                        if (ddlStatus != null)
+                            objcfoDtls.status = Convert.ToInt32(ddlapproval.SelectedValue);
+                        objcfoDtls.UserID = ObjUserInfo.UserID;
+                        objcfoDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                        objcfoDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
+                        objcfoDtls.Questionnaireid = Session["Questionnaireid"].ToString();
+                        if (ddlapproval.SelectedValue == "16")
+                        { objcfoDtls.Remarks = txtRejection.Text; }
+                        if (ddlapproval.SelectedValue == "13")
+                        { objcfoDtls.ReferenceNumber = txtreferenceno.Text; }
+                        objcfoDtls.PrescrutinyRejectionFlag = "N";
+                        objcfoDtls.IPAddress = getclientIP();
+
+                        string valid = objcfobal.UpdateCFODepartmentProcess(objcfoDtls);
+                        btnSubmit.Enabled = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFEApplDeptProcess.aspx'", true);
+                        return;
+                    }
+
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Select Action";
+                    Failure.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
         public string validations(FileUpload Attachment)
         {
             try
@@ -730,7 +683,6 @@ namespace MeghalayaUIP.Dept.CFO
             catch (Exception ex)
             { throw ex; }
         }
-
         protected void btnreject_Click(object sender, EventArgs e)
         {
             try
@@ -740,7 +692,6 @@ namespace MeghalayaUIP.Dept.CFO
             catch (Exception ex)
             { }
         }
-
         public static bool ValidateFileExtension(FileUpload Attachment)
         {
             try
@@ -756,6 +707,36 @@ namespace MeghalayaUIP.Dept.CFO
             }
             catch (Exception ex)
             { throw ex; }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/CFO/CFOApplDeptView.aspx?status=" + Request.QueryString["status"].ToString());
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
         }
     }
 }

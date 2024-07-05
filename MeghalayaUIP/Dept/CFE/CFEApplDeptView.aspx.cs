@@ -79,7 +79,7 @@ namespace MeghalayaUIP.Dept.CFE
         {
             try
             {
-                Response.Redirect("~/Dept/CFE/CFEApplDeptdrill.aspx?status=" + Request.QueryString["status"].ToString());
+                Response.Redirect("~/Dept/CFE/CFEDeptDashboard.aspx");
             }
             catch (Exception ex)
             {

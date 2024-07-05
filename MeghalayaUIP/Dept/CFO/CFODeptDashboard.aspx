@@ -4,8 +4,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Pre-Opearational</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Department Dashboard</li>
+        </ol>
+    </nav>
     <div class="page-wrapper cfodeptdashboard">
         <div class="content container-fluid">
+            <div class="col-md-11">
+                <h4 style="margin-left: -10px; padding-top: 20px">Pre-Opearational Applications :
+                 <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+
+            </div>
+
             <div class="card">
                 <div class="card-header">
                     <h3>Pre-Scrutiny Stage</h3>

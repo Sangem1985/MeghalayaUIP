@@ -7,6 +7,11 @@
     <!-- Page Wrapper -->
     <div class="page-wrapper">
         <div class="content container-fluid">
+            <div class="card-header d-flex justify-content-between">
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+            </div>
             <div class="card flex-fill">
 
                 <h4 class="mt-2 ml-4">View Details</h4>
@@ -28,7 +33,7 @@
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion"
                                         href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                                        class="collapsed">CFO Application Details
+                                        class="collapsed">Pre-Opearational Application Details
                                     </a>
 
                                 </h4>
@@ -37,7 +42,7 @@
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>CFO Questionnaire Details</h3>
+                                        <h3>Pre-Opearational Questionnaire Details</h3>
                                     </div>
                                     <div class="alldetails" id="bodypart">
                                         <div class="row mt-4">
@@ -1599,7 +1604,7 @@
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix">Verification of Application
+                                        aria-controls="collapseSix"><asp:Label runat="server" ID="lblVerf">Scrutiny Verification of Application</asp:Label>
                                     </a>
                                 </h4>
                             </div>
@@ -1638,8 +1643,8 @@
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="Completed" Value="12"></asp:ListItem>
                                                         <asp:ListItem Text="Completed with Payment Request" Value="11"></asp:ListItem>
-                                                        <asp:ListItem Text="Raise Query" Value="5"></asp:ListItem>
-                                                        <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>
+                                                        <asp:ListItem Text="Raise Query" Value="6"></asp:ListItem>
+                                                        <asp:ListItem Text="Rejected" Value="17"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">

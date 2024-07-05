@@ -36,6 +36,7 @@
                                     <div class="card-body">
 
                                         <div class="row">
+                                            <h6 class="fs-20">Unit Details</h6>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
@@ -59,21 +60,6 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
-                                                            3. Proposal For</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="New" Value="New"></asp:ListItem>
-                                                                <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
-                                                            </asp:RadioButtonList>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">
                                                             4. Nature of
 																		Industry</label>
                                                         <div class="col-lg-6">
@@ -85,7 +71,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h6 class="fs-20">Unit Location</h6>
+                                            <div class="col-md-12 d-flex">
+                                                
+                                            </div>
+                                            
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
@@ -205,6 +194,82 @@
                                                     </div>
 
                                                 </div>
+                                            </div>
+                                            <h6 class="fs-20">Project Financials</h6>
+
+
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">
+                                                            1. Employment</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">2. Value of Land as per saleDeed(In INR)</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:TextBox ID="txtLandValue" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">3. Value of Building(In INR)</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="col-md-12 d-flex mt-2">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">6. Total Project Cost(INR)</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:Label ID="lblTotProjCost" Text="0.00" runat="server"></asp:Label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 d-flex mt-2">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">
+                                                            7. Enterprise Category
+                                                        </label>
+
+                                                        <div class="col-lg-4">
+                                                            <h5>
+                                                                <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">&nbsp;</div>
                                             </div>
                                         </div>
 

@@ -56,5 +56,17 @@ namespace MeghalayaUIP.Dept.CFO
 
             }
         }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/DeptDashboard.aspx");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
     }
 }

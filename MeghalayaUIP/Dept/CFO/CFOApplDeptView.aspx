@@ -6,7 +6,7 @@
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <h4>Applications</h4>
+                    <h4>Pre-Opearational Applications</h4>
                     <asp:GridView ID="gvCFODtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                         GridLines="None" OnRowCommand="gvCFODtls_RowCommand"

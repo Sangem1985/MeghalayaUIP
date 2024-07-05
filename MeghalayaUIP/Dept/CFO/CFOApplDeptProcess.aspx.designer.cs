@@ -15,6 +15,15 @@ namespace MeghalayaUIP.Dept.CFO
     {
 
         /// <summary>
+        /// lbtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -1363,6 +1372,15 @@ namespace MeghalayaUIP.Dept.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl verifypanel;
+
+        /// <summary>
+        /// lblVerf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVerf;
 
         /// <summary>
         /// scrutiny control.
