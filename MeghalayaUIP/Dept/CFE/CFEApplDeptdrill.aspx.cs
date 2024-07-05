@@ -38,7 +38,7 @@ namespace MeghalayaUIP.Dept.CFE
                     }
                     else
                     {
-                       
+
                     }
                 }
             }
@@ -72,7 +72,7 @@ namespace MeghalayaUIP.Dept.CFE
                 }
 
                 dt = CfeBAL.GetCFEDashBoard(objCFE);
-                
+
                 LBLPRESCRUTINYPENDING.Text = dt.Rows[0]["PRESCRUTINYPENDING"].ToString();
                 LBLPRESCRUTINYPENDINGWITHIN.Text = dt.Rows[0]["PRESCRUTINYPENDINGWITHIN"].ToString();
                 LBLPRESCRUTINYPENDINGBEYOND.Text = dt.Rows[0]["PRESCRUTINYPENDINGBEYOND"].ToString();
@@ -92,7 +92,7 @@ namespace MeghalayaUIP.Dept.CFE
                 lblREJECTEDWITHIN.Text = dt.Rows[0]["REJECTEDWITHIN"].ToString();
                 lblREJECTEDBEYOND.Text = dt.Rows[0]["REJECTEDBEYOND"].ToString();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             { }
         }
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,8 +163,19 @@ namespace MeghalayaUIP.Dept.CFE
                     ApprovalRejected.Visible = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             { }
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/CFE/CFEDeptDashboard.aspx");
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

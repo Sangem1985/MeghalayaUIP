@@ -69,11 +69,13 @@ namespace MeghalayaUIP.Dept.CFE
                         verifypanel.Visible = true;
                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDINGWITHIN" || Request.QueryString["status"].ToString() == "PRESCRUTINYPENDINGBEYOND")
                         {
+                            lblVerf.Text = "Scrutiny Verification of Application";
                             scrutiny.Visible = true;
                             Approval.Visible = false;
                         }
                         else
                         {
+                            lblVerf.Text = "Approval Process";
                             scrutiny.Visible = false;
                             Approval.Visible = true;
                         }
@@ -291,7 +293,64 @@ namespace MeghalayaUIP.Dept.CFE
                 throw ex;
             }
         }
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+                if (ddlStatus.SelectedValue == "6" || ddlStatus.SelectedValue == "16" || ddlStatus.SelectedValue == "11")
+                {
+                    if (ddlStatus.SelectedValue == "6")
+                    {
+                        tdquryorrej.Visible = true;
+                        tdquryorrejTxtbx.Visible = true;
+                        txtRequest.Visible = true;
+                        lblremarks.Text = "Please Enter Query Details";
+                        //Payment.Visible = false;
+                        txtAdditionalAmount.Visible = false;
+                    }
+                    else if (ddlStatus.SelectedValue == "16")
+                    {
+                        tdquryorrej.Visible = true;
+                        tdquryorrejTxtbx.Visible = true;
+                        txtRequest.Visible = true;
+                        lblremarks.Text = "Please Enter Rejection Reason";
+                        //Payment.Visible = false;
+                        txtAdditionalAmount.Visible = false;
+                    }
+                    else if (ddlStatus.SelectedValue == "11")
+                    {
+                        txtAdditionalAmount.Visible = true;
+                        lblremarks.Text = "Please Enter Additional Amount";
+                        tdquryorrej.Visible = true;
+                        tdquryorrejTxtbx.Visible = true;
+                        txtRequest.Visible = false;
+                    }
+                }
+                else if (ddlStatus.SelectedValue == "12")
+                {
+                    //tblaction.Visible = true;
+                    //lblaction.Text = "Please Enter Query Description";
 
+                }
+                else
+                {
+                    //tblaction.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -307,13 +366,13 @@ namespace MeghalayaUIP.Dept.CFE
                 }
                 if (ddlStatus.SelectedValue != "")
                 {
-                    if (ddlStatus.SelectedValue == "5" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
+                    if (ddlStatus.SelectedValue == "6" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
                     {
                         lblmsg0.Text = "Please Enter Query Description";
                         Failure.Visible = true;
                         return;
                     }
-                    else if (ddlStatus.SelectedValue == "16" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
+                    else if (ddlStatus.SelectedValue == "17" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
                     {
                         lblmsg0.Text = "Please Enter Rejection Reason";
                         Failure.Visible = true;
@@ -353,7 +412,6 @@ namespace MeghalayaUIP.Dept.CFE
                                 objcfeDtls.PrescrutinyRejectionFlag = "N";
                             }
                         }
-                        //var Hostname = Dns.GetHostName();
                         objcfeDtls.IPAddress = getclientIP();
 
                         string valid = objcfebal.UpdateCFEDepartmentProcess(objcfeDtls);
@@ -443,7 +501,8 @@ namespace MeghalayaUIP.Dept.CFE
         //    }
         //}
 
-        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+
+        protected void ddlapproval_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -457,46 +516,35 @@ namespace MeghalayaUIP.Dept.CFE
                     }
                     // username = ObjUserInfo.UserName;
                 }
-                if (ddlStatus.SelectedValue == "5" || ddlStatus.SelectedValue == "16" || ddlStatus.SelectedValue == "11")
+                if (ddlapproval.SelectedValue == "16")
                 {
-                    if (ddlStatus.SelectedValue == "5")
-                    {
-                        tdquryorrej.Visible = true;
-                        tdquryorrejTxtbx.Visible = true;
-                        txtRequest.Visible = true;
-                        lblremarks.Text = "Please Enter Query Details";
-                        //Payment.Visible = false;
-                        txtAdditionalAmount.Visible = false;
-                    }
-                    else if (ddlStatus.SelectedValue == "16")
-                    {
-                        tdquryorrej.Visible = true;
-                        tdquryorrejTxtbx.Visible = true;
-                        txtRequest.Visible = true;
-                        lblremarks.Text = "Please Enter Rejection Reason";
-                        //Payment.Visible = false;
-                        txtAdditionalAmount.Visible = false;
-                    }
-                    else if (ddlStatus.SelectedValue == "11")
-                    {
-                        //ayment.Visible = true;
-                        txtAdditionalAmount.Visible = true;
-                        lblremarks.Text = "Please Enter Additional Amount";
-                        tdquryorrej.Visible = true;
-                        tdquryorrejTxtbx.Visible = true;
-                        txtRequest.Visible = false;
-                    }
-                }
-                else if (ddlStatus.SelectedValue == "4")
-                {
-                    //tblaction.Visible = true;
-                    //lblaction.Text = "Please Enter Query Description";
-
+                    tdbtnreject.Visible = true;
+                    tdapprovalAction.Visible = true;
+                    trapproval.Visible = false;
+                    // trapprovalupload.Visible = false;
+                    trrejection.Visible = true;
+                    txtRejection.Visible = true;
+                    tdapproverejection.Visible = true;
+                    lblremarks.Text = "Please Enter Rejection Reason";
+                    tdapprovalAction.Visible = true;
+                    btnreject.Visible = true;
+                    btnApprove.Visible = false;
+                    TRAPPROVE.Visible = false;
                 }
                 else
                 {
-                    //tblaction.Visible = false;
+                    trapproval.Visible = true;
+                    // trapprovalupload.Visible = true;
+                    trrejection.Visible = false;
+                    txtRejection.Visible = false;
+                    tdapproverejection.Visible = false;
+                    tdapprovalAction.Visible = false;
+                    btnreject.Visible = false;
+                    btnApprove.Visible = true;
+                    TRAPPROVE.Visible = true;
+                    tdbtnreject.Visible = false;
                 }
+
             }
             catch (Exception ex)
             {
@@ -504,25 +552,6 @@ namespace MeghalayaUIP.Dept.CFE
                 lblmsg0.Text = ex.Message;
             }
         }
-
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
-
         protected void btnQuery_Click(object sender, EventArgs e)
         {
             try
@@ -546,7 +575,6 @@ namespace MeghalayaUIP.Dept.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
-
         protected void btnApprove_Click(object sender, EventArgs e)
         {
             try
@@ -632,58 +660,6 @@ namespace MeghalayaUIP.Dept.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
-
-        protected void ddlapproval_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
-                }
-                if (ddlapproval.SelectedValue == "16")
-                {
-                    tdbtnreject.Visible = true;
-                    tdapprovalAction.Visible = true;
-                    trapproval.Visible = false;
-                    // trapprovalupload.Visible = false;
-                    trrejection.Visible = true;
-                    txtRejection.Visible = true;
-                    tdapproverejection.Visible = true;
-                    lblremarks.Text = "Please Enter Rejection Reason";
-                    tdapprovalAction.Visible = true;
-                    btnreject.Visible = true;
-                    btnApprove.Visible = false;
-                    TRAPPROVE.Visible = false;
-                }
-                else
-                {
-                    trapproval.Visible = true;
-                    // trapprovalupload.Visible = true;
-                    trrejection.Visible = false;
-                    txtRejection.Visible = false;
-                    tdapproverejection.Visible = false;
-                    tdapprovalAction.Visible = false;
-                    btnreject.Visible = false;
-                    btnApprove.Visible = true;
-                    TRAPPROVE.Visible = true;
-                    tdbtnreject.Visible = false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-        }
-
         protected void btnUpldapproval_Click(object sender, EventArgs e)
         {
             try
@@ -787,7 +763,6 @@ namespace MeghalayaUIP.Dept.CFE
             catch (Exception ex)
             { throw ex; }
         }
-
         protected void btnreject_Click(object sender, EventArgs e)
         {
             try
@@ -796,20 +771,6 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             { }
-        }
-
-        protected void lbtnBack_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("~/Dept/CFE/CFEApplDeptView.aspx?status=" + Request.QueryString["status"].ToString());
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                //throw ex;
-            }
         }
 
         public static bool ValidateFileExtension(FileUpload Attachment)
@@ -827,6 +788,36 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             { throw ex; }
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/CFE/CFEApplDeptView.aspx?status=" + Request.QueryString["status"].ToString());
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
         }
     }
 }

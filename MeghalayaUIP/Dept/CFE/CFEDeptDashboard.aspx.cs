@@ -49,7 +49,7 @@ namespace MeghalayaUIP.Dept.CFE
 
                     lblAPPROVALPENDING.Text = dt.Rows[0]["APPROVALPENDING"].ToString();
                     lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
-                    //lblPREREJECTED.Text = dt.Rows[0]["PREREJECTED"].ToString(); 
+                    lblPREREJECTED.Text = dt.Rows[0]["PREREJECTED"].ToString(); 
                 }
             }
             catch (Exception ex)
@@ -57,5 +57,17 @@ namespace MeghalayaUIP.Dept.CFE
 
             }
         }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
     }
 }

@@ -7,13 +7,21 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
-
-            <li class="breadcrumb-item active" aria-current="page">Department Dashboard</li>
+            <%--<li class="breadcrumb-item"><a href="#"></a></li>--%>
+            <li class="breadcrumb-item active" aria-current="page">Pre Establishment</li>
         </ol>
     </nav>
     <div class="page-wrapper deptcfeodeptdashboard">
         <div class="content container-fluid">
+            <div class="col-md-12 d-flex">
+                <div class="col-md-11">
+                    <h4 style="margin-left: -10px; padding-top: 20px">Pre Establishment Applications :</h4>
+                </div>
+                <div class="col-md-1" style="padding-top: 20px">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 20px;margin-top: 18px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header">
                     <h3>Pre-Scrutiny Stage</h3>
@@ -142,7 +150,7 @@
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Query Response Pending<br />
+                                                Query Response<br />Pending
                                             </p>
                                         </div>
                                     </a>

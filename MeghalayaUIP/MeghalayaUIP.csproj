@@ -825,6 +825,8 @@
     <Content Include="User\CFE\CFEPowerCEIGDetails.aspx" />
     <Content Include="User\CFE\CFEPowerDetails.aspx" />
     <Content Include="User\CFE\CFEProffessionalTax.aspx" />
+    <Content Include="User\CFE\CFEQueryDashBoard.aspx" />
+    <Content Include="User\CFE\CFEQueryResponse.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
     <Content Include="User\CFE\CFEUploadEnclosures.aspx" />
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
@@ -1391,6 +1393,20 @@
     </Compile>
     <Compile Include="User\CFE\CFEProffessionalTax.aspx.designer.cs">
       <DependentUpon>CFEProffessionalTax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEQueryDashBoard.aspx.cs">
+      <DependentUpon>CFEQueryDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEQueryDashBoard.aspx.designer.cs">
+      <DependentUpon>CFEQueryDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEQueryResponse.aspx.cs">
+      <DependentUpon>CFEQueryResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEQueryResponse.aspx.designer.cs">
+      <DependentUpon>CFEQueryResponse.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEQuestionnaire.aspx.cs">
       <DependentUpon>CFEQuestionnaire.aspx</DependentUpon>

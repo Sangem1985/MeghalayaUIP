@@ -230,6 +230,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFEHAZARDOUSDEATILS(userid, UnitID);
         }
+        public DataSet GetCFEQueryDashBoard(string Unitid, string Queryid)
+        {
+            return objCFEDAL.GetCFEQueryDashBoard(Unitid,  Queryid);
+        }
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 

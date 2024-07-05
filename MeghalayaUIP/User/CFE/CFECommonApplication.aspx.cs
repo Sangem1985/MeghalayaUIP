@@ -92,7 +92,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        divOffline.Visible = true; btnNext.Visible = false; btnNext2.Visible = true;
+                        divOffline.Visible = true; btnNext.Visible = true; btnNext2.Visible = true;
                         for (int i = 0; i < dsApprovals.Tables[1].Rows.Count; i++)
                         {
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC

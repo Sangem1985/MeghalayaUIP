@@ -80,6 +80,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFETAXDETAILS = "USP_GETCFEPROFFESSIONALTAXDETAILS";
         public static string InsertCFEPCBHAZARDOUSDETAILS = "USP_INSCFEHAZWASTEDETAILS";
         public static string GetCFEHazardousDetails = "USP_GETCFEHAZWASTEDETAILS";
+        public static string GetCFEQueryDashBoard = "USP_GETCFEQUERYRAISEDDEPT";
 
         /// <summary>
         /// DEPARTMENT STARTED
@@ -669,6 +670,7 @@ namespace MeghalayaUIP.Common
         public string FileDescription { get; set; }
         public string FileType { get; set; }
         public string MasterID { get; set; }
+        public string QueryID { get; set; }
 
     }
     public class Labour_Details
@@ -987,6 +989,17 @@ namespace MeghalayaUIP.Common
         public string YEAROFPRODUCTION { get; set; }
         public string INDUSTRYWORK { get; set; }
     }
-
+    public class CFEQueryDet
+    {      
+      
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public string Deptid { get; set; }
+        public string Approvalid { get; set; }
+        public string QueryID { get; set; }
+        public string IPAddress { get; set; }      
+        public string QueryResponse { get; set; }     
+        
+    }
 
 }
