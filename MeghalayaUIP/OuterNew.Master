@@ -182,7 +182,7 @@ section.innerpages {
         <div class="container">
             <div class="inner-container clearfix">
                 <ul class="header-info pull-left" style="width: 30%;">
-                    <li><a href="#" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
+                    <li><a href="tel:+91 7085741695" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
                     <!-- <li><a href="beta2/index.html" target="_blank"><i class="fi fi-rr-chevron-double-down"></i> Click here for Second Design</a></li> -->
                     
                 </ul>
@@ -248,7 +248,7 @@ section.innerpages {
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
                                     <li><a href="HomeNew.aspx">Home</a></li>
-                                    <li class="dropdown"><a href="#">About <i class="fi fi-br-chevron-double-down"></i></a>
+                                    <li class="dropdown"><a href="#">Why Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
                                         <ul>
                                             <li><a href="stateprofile.aspx">State Profile</a></li>
                                         <li><a href="EODB.aspx">Ease of Doing Business</a></li>
@@ -271,6 +271,28 @@ section.innerpages {
                                             <li><a href="Documents/IT Policy 2024.pdf" class="text-black" target="_blank">IT/ITES Policy 2024</a></li>
                                             <li><a href="Documents/Meghalaya Power Policy.pdf" class="text-black"  target="_blank">Meghalaya
                                                 Power Policy, 2024</a></li>
+                                            <li class="dropdown"><a href="#">Others</a>
+                                                    <ul>
+                                                <li><a href="Documents/Procure MSME.pdf" class="text-black">Meghalaya
+                                                    Procurement Preference Policy for Micro and small Enterprises,
+                                                    2020</a></li>
+                                                <li><a href="Documents/Meghalaya Startup Policy.pdf" class="text-black" target="_blank">Meghalaya Start up Policy,2018</a></li>
+                                                <li><a href="Documents/Mines and Minerals Policy.pdf" class="text-black" target="_blank">Meghalaya Mines and Minerals Policy, 2012</a></li>
+                                                <li><a href="Documents/Education Policy.pdf" class="text-black" target="_blank">Meghalaya State Education Policy, 2018</a></li>
+                                                <li><a href="Documents/Health Policy.pdf" class="text-black" target="_blank">Meghalaya Health Policy, 2021</a></li>
+                                                <li><a href="Documents/Telecom infrastructure Policy.pdf" class="text-black" target="_blank">Meghalaya Telecom Infrastructure Policy, 2018</a>
+                                                </li>
+                                                <li><a href="Documents/Organic Farming policy.pdf" class="text-black" target="_blank">Meghalaya State Organic Farming Policy,2023</a></li>
+                                                <li><a href="Documents/Sports Policy.pdf" class="text-black" target="_blank">Meghalaya State Sports Policy, 2019</a></li>
+                                                <li><a href="Documents/PPP Policy.pdf" class="text-black" target="_blank">Meghalaya Public Private Partnership Policy (PPP),
+                                                    2021</a></li>
+                                                <li><a href="Documents/EV Policy.pdf" class="text-black" target="_blank">Meghalaya Electronic Vehicle Policy, 2021</a></li>
+                                                <li><a href="Documents/" class="text-black" target="_blank">Industrial and
+                                                    Investment Promotion Policy,2024</a></li>
+                                            </ul>
+
+
+                                                </li>
                                             
                                         </ul>
                                     </li>
@@ -287,7 +309,7 @@ section.innerpages {
                                     
                                     <li class="dropdown"><a href="#">Resources <i class="fi fi-br-chevron-double-down"></i></a>
                                         <ul>
-                                            <li><a href="https://mspsdc.meghalaya.gov.in/dashboard1.htm" target="_blank">Dashboard</a></li>
+                                            <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
                                             <li><a href="Notifications.aspx">Notifications</a></li>
                                             <li><a href="Faq.aspx">FAQs</a></li>
                                             <li><a href="Contact.aspx">Contact</a></li>
@@ -378,9 +400,9 @@ section.innerpages {
                                         Shillong - 793 001, East Khasi Hills District, Meghalaya.<br/></li>
 
                                     <li><i class="fi fi-br-envelope"></i> <span>Email:</span>
-                                        <b>investmeghalayaauthority@gmail.com</b></li>
+                                        <a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority@gmail.com</a></li>
                                         <li><i class="fi fi-br-phone-call"></i> <span>Call Us:</span>
-                                        <b>+91 7085741695</b></li>
+                                        <a href="tel:+91 7085741695">+91 7085741695</a></li>
 
                                 </ul>
                             </div>
@@ -390,11 +412,11 @@ section.innerpages {
                                 <h4 class="widget-title">Quick Links</h4>
                                 <div class="widget-content">
                                     <ul>
-                                        <li><a href="#">Why invest in Meghalaya</a></li>
-                                        <li><a href="#">Site Map</a></li>
-                                        <li><a href="#">EODB</a></li>
-                                        <li><a href="#">Information Wizard</a></li>
-                                        <li><a href="#">Auto Renewal</a></li>
+                                        <li><a href="stateprofile.aspx">Why invest in Meghalaya</a></li>
+                                        <li><a href="EODB.aspx">EODB</a></li>
+                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
+                                        <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
+                                         <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
                                         
                                     </ul>
                                 </div>
@@ -405,11 +427,11 @@ section.innerpages {
                                 <h4 class="widget-title">For Investors</h4>
                                 <div class="widget-content">
                                     <ul>
-                                        <li><a href="#">Central Inspection System</a></li>
-                                        <li><a href="#">Service Dashboard</a></li>
-                                        <li><a href="#">Know Your Approvals</a></li>
-                                        <li><a href="#">Know Your Incentives</a></li>
-                                         <li><a href="#">Land Availability</a></li> 
+                                        <li><a href="login.aspx">Central Inspection System</a></li>
+                                        <li><a href="login.aspx">Service Dashboard</a></li>
+                                        <li><a href="login.aspx">Know Your Approvals</a></li>
+                                        <li><a href="login.aspx">Know Your Incentives</a></li>
+                                         <li><a href="login.aspx">Land Availability</a></li> 
                                     </ul>
                                 </div>
                             </div>

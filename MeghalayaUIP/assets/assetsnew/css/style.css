@@ -851,21 +851,21 @@ ul.dropdown-menu.show li:hover {
 
 /** sub-menu **/
 
-.main-menu .navigation > li > ul > li > ul{
-  position:absolute;
-  left:100%;
-  top:0%;
-  width:230px;
-  z-index:100;
-  display:none;
-  padding: 0px 0px;
-  background-color: #ffffff;
-  border-top: 3px solid #fd571c;
-  -webkit-box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
-  -ms-box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
-  -o-box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
-  -moz-box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
-  box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
+.main-menu .navigation > li > ul > li > ul {
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    width: 320px;
+    z-index: 100;
+    display: none;
+    padding: 0px 0px;
+    background-color: #ffffff;
+    border-top: 3px solid #53729f;
+    -webkit-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
+    -ms-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
+    -o-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
+    -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.05);
 }
 
 .main-menu .navigation li > ul > li.dropdown:hover > ul {
@@ -902,10 +902,10 @@ ul.dropdown-menu.show li:hover {
   -o-transition:all 500ms ease;
 }
 
-.main-menu .navigation > li > ul > li > ul > li:hover > a{
-  background:#fd571c;
-  color: #fff !important;
-}
+    .main-menu .navigation > li > ul > li > ul > li:hover > a {
+        background: #53729f;
+        color: #fff !important;
+    }
 
 .main-menu .navigation > li > ul > li.dropdown > a:after {
   position: absolute;
@@ -20299,22 +20299,24 @@ p.texttop3 {
 }
 p.texteodb4 {
     position: absolute;
-    top: 75px;
+    top: -94px;
     left: 42px;
     font-weight: 100;
     transition: transform .9s;
     text-align: center !important;
+    color:#fff;
 }
     p.texteodb4.\32 {
-        left: 21px;
+        left: 40px;
     }
     p.texteodb4.\33 {
-        left: 41px;
-        top: 57px;
+        left: 26px;
+        top: -117px;
     }
     p.texteodb4.\34 {
-        left: 21px;
-        top: 57px;
+        left: 31px;
+        top: -117px;
+        color: #fff;
     }
 p.texteodb4:hover{
     font-weight:900;
@@ -20324,7 +20326,7 @@ p.texteodb4:hover{
         font-weight: 600;
         font-family: sans-serif;
         font-size: 16px;
-        transform: scale(1.0);
+        transform: scale(1.1);
         text-align: center !important;
     }
 
@@ -20351,4 +20353,116 @@ p.texttop11 {
 section.project-section.case-page-3.eodb4.p-0.pt-2.mb-5 .col-lg-3.col-md-6.col-sm-12.project-block {
     min-width: 25%;
     padding: 0px 3px;
+}
+.cis1.\31 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    left: 10%;
+    bottom: 14%;
+}
+.cis1.\32 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    left: 4%;
+    bottom: 48%;
+}
+.cis1.\33 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    left: 11%;
+    top: 11%;
+}
+.cis1.\34 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    right: 11%;
+    top: 11%;
+}
+.cis1.\35 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    right: 6%;
+    top: 39%;
+}
+.cis1.\36 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    right: 7%;
+    bottom: 14%;
+}
+.cis1:hover, p.road1:hover, p.road2:hover, p.road3:hover, p.road1234:hover, p.road2235:hover, p.road3236:hover, p.road1112:hover, p.road2112:hover
+, p.road3112:hover,p.road4114:hover{
+    color: black;
+    transition: transform .6s;
+    transform: scale(0.9);
+}
+p.road1 {
+    position: absolute;
+    top: 60px;
+    text-align: center;
+    left: 41%;
+    color:#fff;
+}
+p.road2 {
+    position: absolute;
+    top: 86px;
+    text-align: center;
+    right: 33.5%;
+    color: #fff;
+}
+p.road3 {
+    position: absolute;
+    bottom: 76px;
+    text-align: center;
+    left: 27.5%;
+    color: #fff;
+    background: #36dcb4;
+}
+p.road1112 {
+    position: absolute;
+    left: 27%;
+    color: #000;
+    bottom: 45.5%;
+}
+p.road2112 {
+    position: absolute;
+    left: 41%;
+    color: #000;
+    bottom: 17%;
+}
+p.road3112 {
+    position: absolute;
+    left: 39%;
+    color: #000;
+    bottom: 67%;
+}
+p.road4114 {
+    position: absolute;
+    left: 57%;
+    color: #000;
+    bottom: 51%;
+}
+p.road1234 {
+    position: absolute;
+    top: 27%;
+    left: 27%;
+    color: #000;
+}
+p.road2235 {
+    position: absolute;
+    top: 8%;
+    left: 32%;
+    color: #000;
+}
+p.road3236 {
+    position: absolute;
+    right: 20%;
+    bottom: 21%;
+    color: #000;
 }

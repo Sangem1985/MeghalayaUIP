@@ -47,28 +47,31 @@
             background: #121FCF;
             background: linear-gradient(to right, #FFFFFE 20%, #fff 100%);
             -webkit-background-clip: text;
-            
             text-align: left;
             margin-left: 100px;
             /* line-height: 44px; */
         }
+
         .carousel-caption.d-none.d-md-block p, h5 {
-    text-align: left;
-    line-height: 38px;
-}
+            text-align: left;
+            line-height: 38px;
+        }
+
         span.carousel-control-prev-icon, span.carousel-control-next-icon {
-    display: none;
-}
+            display: none;
+        }
+
         ol.carousel-indicators {
-    display: none;
-}
+            display: none;
+        }
+
         section.innerpages h4 {
-    font-family: "Roboto", sans-serif !important;
-    color: #4577c1 !important;
-    padding-top: 15px;
-    font-size: 1.3rem !important;
-    font-weight: 500;
-}
+            font-family: "Roboto", sans-serif !important;
+            color: #4577c1 !important;
+            padding-top: 15px;
+            font-size: 1.3rem !important;
+            font-weight: 500;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -166,7 +169,7 @@
                     </nav>
 
                     <h3>Meghalaya’s strengths</h3>
-                    <p>Located in India's North-Eastern Region (NER), Meghalaya, fondly referred to as the "Abode of Clouds," holds significant strategic importance that offers unique economic opportunities to drive regional growth. .</p>
+                    <p>Located in India's North-Eastern Region (NER), Meghalaya, fondly referred to as the "Abode of Clouds," holds significant strategic importance that offers unique economic opportunities to drive regional growth.</p>
                     <p>Bordered by Assam to the North and Northeast and Bangladesh to the South and Southwest, Meghalaya's advantageous position is further strengthened by the upcoming BBIN2 Corridor. This corridor will transform Meghalaya into a crucial connecting node for Bangladesh, Bhutan, and Nepal.</p>
                     <p>Additionally, its proximity to the Bay of Bengal underscores its potential to become a major trade hub for the NER.</p>
                     <p>Moreover, the Government of India is committed to accelerating the development and connectivity of the NER, including Meghalaya, through initiatives like the NITI Forum for regional growth, comprehensive transportation projects, and the Act East Policy. These efforts aim to enhance trade and relations with Southeast Asian countries, evident in initiatives such as establishing rail sections, air connectivity with NER and ASEAN countries, and constructing National Highway corridors linking Meghalaya with Bangladesh.</p>
@@ -176,336 +179,402 @@
                     <%--<p><b></b></p>--%>
 
                     <section class="fact-counter about-page-2 p-0">
-        <div class="container">
-            <div class="inner-container">
-                <h4>Key Demographic:</h4>
-                <div class="row mt-3">
-                    
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-land-location"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="22429">0</span> <span>Sq. km</span>
+                        <div class="container">
+                            <div class="inner-container">
+                                <h4>Key Demographic:</h4>
+                                <div class="row mt-3">
+
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-land-location"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="22429">0</span> <span>Sq. km</span>
+                                                </div>
+                                                <div class="text">Area<br />
+                                                    &nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-land-layer-location"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="29.7">0</span> <span>L</span>
+                                                </div>
+                                                <div class="text">Total Population (2011)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-trees"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="76">0</span>  <span>%</span>
+                                                </div>
+                                                <div class="text">Forest Cover (2021)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-smoke"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="33">0</span>
+                                                </div>
+                                                <div class="text">Air Quality (AQI of capitals)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-department"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="75.5">0</span> <span>%</span>
+                                                </div>
+                                                <div class="text">Literacy rate (2011)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-venus-mars"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="989">0</span>
+                                                </div>
+                                                <div class="text">Sex Ratio (Per 1000 males)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-users"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="11.11">0</span> <span>L</span>
+                                                </div>
+                                                <div class="text">Youth
+                                                    <br />
+                                                    Population</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-house-building"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="23.7">0</span> <span>L</span>
+                                                </div>
+                                                <div class="text">Urban<br />
+                                                    Population</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-house-chimney"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="6">0</span> <span>L</span>
+                                                </div>
+                                                <div class="text">Rural
+                                                    <br />
+                                                    Population</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-web"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="76">0</span>
+                                                </div>
+                                                <div class="text">Mobile Connections per 100 Person (2023)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
+                                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                            <div class="inner-box">
+                                                <div class="icon-box"><i class="fi fi-tr-site"></i></div>
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="1500" data-stop="59">0</span>
+                                                </div>
+                                                <div class="text">Internet subscribers per 100 population (2023)</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="text">Area<br />&nbsp;</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-land-layer-location"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="29.7">0</span> <span>L</span>
-                                </div>
-                                <div class="text">Total Population (2011)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-trees"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="76">0</span>  <span>%</span>
-                                </div>
-                                <div class="text">Forest Cover (2021)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-smoke"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="33">0</span>
-                                </div>
-                                <div class="text">Air Quality (AQI of capitals)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-department"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="75.5">0</span> <span>%</span>
-                                </div>
-                                <div class="text">Literacy rate (2011)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-venus-mars"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="989">0</span>
-                                </div>
-                                <div class="text">Sex Ratio (Per 1000 males)</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-users"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="11.11">0</span> <span>L</span>
-                                </div>
-                                <div class="text">Youth <br />Population</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-house-building"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="23.7">0</span> <span>L</span>
-                                </div>
-                                <div class="text">Urban<br /> Population</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-house-chimney"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="6">0</span> <span>L</span>
-                                </div>
-                                <div class="text">Rural <br />Population</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-web"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="76">0</span>
-                                </div>
-                                <div class="text">Mobile Connections per 100 Person (2023)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
-                        <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="fi fi-tr-site"></i></div>
-                                <div class="count-outer count-box">
-                                    <span class="count-text" data-speed="1500" data-stop="59">0</span>
-                                </div>
-                                <div class="text">Internet subscribers per 100 population (2023)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-                    
+                    </section>
+
 
 
                     <section class="service-style-four service-page-3 centred p-0">
-        <div class="container">
-            <div class="inner-container">
-                <h4 style="text-align:left;">Economic Indicators</h4>
-                <div class="row mt-2">
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="fi fi-tr-chart-arrow-grow"></i></div>
-                                <h3><a href="service-single.html">6.8%</a></h3>
-                                <div class="text">Export Growth (2017 to 2022)</div>
-                               <%-- <div class="btn-box"><a href="service-single.html">Explore</a></div>--%>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="fi fi-tr-tax-alt"></i></div>
-                                <h3><a href="service-single.html">$5.9Bn</a></h3>
-                                <div class="text">GSDP (2024)</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="fi fi-tr-challenge-alt"></i></div>
-                                <h3><a href="service-single.html">52,9773 crore</a></h3>
-                                <div class="text">GSDP (2024-2025-Projected)</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="fi fi-tr-career-growth"></i></div>
-                                <h3><a href="service-single.html">11.4%</a></h3>
-                                <div class="text">GSDP Growth (2023 to 2025)</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="flaticon-support"></i></div>
-                                <h3><a href="service-single.html">1.39602 L</a></h3>
-                                <div class="text">Per Capita GSDP</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="fi fi-tr-tools"></i></div>
-                                <h3><a href="service-single.html">60%</a></h3>
-                                <div class="text">Labour force participation rate</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="fi fi-tr-corporate-alt"></i></div>
-                                <h3><a href="service-single.html">34%</a></h3>
-                                <div class="text">Women’s participation in the workforce (Rural)</div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
-                            <div class="inner-box">
-                                <div class="left-layer"></div>
-                                <div class="right-layer"></div>
-                                <div class="icon-box"><i class="fi fi-tr-house-tree"></i></div>
-                                <h3><a href="service-single.html">24%</a></h3>
-                                <div class="text">Women’s participation in the workforce (Urban)</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <div class="container">
+                            <div class="inner-container">
+                                <h4 style="text-align: left;">Economic Indicators</h4>
+                                <div class="row mt-2">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-chart-arrow-grow"></i></div>
+                                                <h3><a href="service-single.html">6.8%</a></h3>
+                                                <div class="text">Export Growth (2017 to 2022)</div>
+                                                <%-- <div class="btn-box"><a href="service-single.html">Explore</a></div>--%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-tax-alt"></i></div>
+                                                <h3><a href="service-single.html">$5.9Bn</a></h3>
+                                                <div class="text">GSDP (2024)</div>
 
-                     
-                    <h3>Connectivity</h3>
-                    <p>Meghalaya's connectivity is key to its development. With extensive road, rail, and air networks, the state ensures seamless transportation for growth and accessibility.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-challenge-alt"></i></div>
+                                                <h3><a href="service-single.html">52,9773 crore</a></h3>
+                                                <div class="text">GSDP (2024-2025-Projected)</div>
 
-                    <h4>Road Connectivity :</h4>
-                    <ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-career-growth"></i></div>
+                                                <h3><a href="service-single.html">11.4%</a></h3>
+                                                <div class="text">GSDP Growth (2023 to 2025)</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="flaticon-support"></i></div>
+                                                <h3><a href="service-single.html">1.39602 L</a></h3>
+                                                <div class="text">Per Capita GSDP</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-tools"></i></div>
+                                                <h3><a href="service-single.html">60%</a></h3>
+                                                <div class="text">Labour force participation rate</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-corporate-alt"></i></div>
+                                                <h3><a href="service-single.html">34%</a></h3>
+                                                <div class="text">Women’s participation in the workforce (Rural)</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                                            <div class="inner-box">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-house-tree"></i></div>
+                                                <h3><a href="service-single.html">24%</a></h3>
+                                                <div class="text">Women’s participation in the workforce (Urban)</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <h3>Connectivity:</h3>
+                    <p>
+                        Meghalaya's connectivity is key to its development. With extensive road, rail, and air networks, the state ensures
+                        seamless transportation for growth and accessibility.
+                    </p>
+                    <h4 style="margin-bottom: -71px;">Road Connectivity
+                        <br>
+                        <br>
+                        <br>
+                        :</h4>
+
+                    <section class="service-style-four service-page-3 centred p-0 m-0">
+                        <div class="container">
+                            <div class="inner-container">
+                                <img src="assets/assetsnew/images/info/road.png" style="width: 40%;">
+                                <p class="road1 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Road Network:<br />
+                                    13,000 km</p>
+                                <p class="road2 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Road Density:<br />
+                                    0.48 km/sq. km<br />
+                                    density</p>
+                                <p class="road3 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Ongoing developments:<br />
+                                    SARDP, PMGSY, and Shillong<br />
+                                    Smart-city programs</p>
+                            </div>
+                        </div>
+                    </section>
+                    <%--<ul>
                         <li>1.	Road Network: 13,000 km</li>
                         <li>2.	Road Density: 0.48 km/sq. km density</li>
                         <li>3.	Ongoing developments: SARDP, PMGSY, and Shillong Smart-city program</li>
-                    </ul>
+                    </ul>--%>
                     <h4>Rail Connectivity :</h4>
-                    <ul>
-                        <li>1.	Railhead at Mendipathar</li>
-                        <li>2.	Regular service connecting Mendipathar and Guwahati</li>
-                        <li>3.	Ongoing projects linking Meghalaya with Manipur, Mizoram, Nagaland, and Sikkim</li>
-                    </ul>
-                    <h4>Aviation Connectivity :</h4>
-                    <ul>
-                        <li>1.	Airport at Umroi (30 km from Shillong)</li>
-                        <li>2.	Helicopter service connecting Shillong to Guwahati and Tura</li>
-                        <li>3.	Guwahati airport (118 km from Shillong)</li>
-                        <li>4.	Additional helipads and heliports planned across the state</li>
-                    </ul>
+                    <section class="service-style-four">
+                        <div class="container">
+                            <div class="inner-container" style="text-align: center;">
+                                <img src="assets/assetsnew/images/info/train.jpg" style="width: 40%;">
+                                <div class="train1">
+                                <p class="road1234 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Railhead at<br />
+                                    Mendipathar</p>
+                                    </div>
+                                 <div class="train2">
+                                <p class="road2235 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Regular service connecting<br />
+                                    Mendipathar and Guwahati<br />
+                                    density</p>
+                                     </div>
+                                      <div class="train3">
+                                <p class="road3236 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Ongoing projects linking Meghalaya<br />
+                                    with Manipur, Mizoram, Nagaland<br />
+                                    , and Sikkim</p>
+                                          </div>
+                            </div>
+                        </div>
+                    </section>
                     
+                    <h4>Aviation Connectivity :</h4>
+                    
+                    <section class="service-style-four" style="padding-top: 0px !important;">
+                        <div class="container">
+                            <div class="inner-container" style="text-align: center;">
+                                <img src="assets/assetsnew/images/info/flight.png" style="width: 40%;">
+                                <p class="road1112 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Airport at Umroi<br />
+                                    (30 km from Shillong)</p>
+                                <p class="road2112 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Helicopter service connecting<br />
+                                    Shillong to Guwahati and Tura<br />
+                                    density</p>
+                                <p class="road3112 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Guwahati airport<br />
+                                    (118 km from Shillong)</p>
+                                <p class="road4114  wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">Additional helipads and heliports<br />
+                                    planned across the state</p>
+                            </div>
+                        </div>
+                    </section>
                     <h3>Unique Strengths and Opportunities</h3>
                     <p>Meghalaya presents abundant opportunities for growth and development across various sectors. From its natural resources to emerging industries, the state offers a fertile ground for investment and progress. </p>
                     <%--<img src="assets/assetsnew/images/uso.gif" alt="SPDP" style="margin-left: 0px;" />--%>
 
                     <section class="project-section case-page-3 p-0 pt-2">
-        <div class="large-container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                        <div class="inner-box">
-                           
-                            <div class="lower-content">
-                                <%--<div class="count-number">01</div>--%>
-                                <h3><a href="case-single.html">Natural Resources</a></h3>
-                                <div class="text">Abundant flora, fauna, forests, medicinal plants, minerals (coal, limestone, quartz, feldspar, granite, industrial clay, sillimanite, uranium)</div>
+                        <div class="large-container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <div class="inner-box">
+
+                                            <div class="lower-content">
+                                                <%--<div class="count-number">01</div>--%>
+                                                <h3><a href="case-single.html">Natural Resources</a></h3>
+                                                <div class="text">Abundant flora, fauna, forests, medicinal plants, minerals (coal, limestone, quartz, feldspar, granite, industrial clay, sillimanite, uranium)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="200ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms; animation-name: fadeInUp;">
+                                        <div class="inner-box">
+
+                                            <div class="lower-content">
+                                                <%--<div class="count-number">02</div>--%>
+                                                <h3><a href="case-single.html">Agriculture and Horticulture</a></h3>
+                                                <div class="text">High-value crops like Strawberry, Ginger, Lakadong turmeric, Honey, black pepper, Potato, Jackfruit, Pineapple, Areca Nut, and exotic flowers</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="400ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 400ms; animation-name: fadeInUp;">
+                                        <div class="inner-box">
+
+                                            <div class="lower-content">
+                                                <%--<div class="count-number">03</div>--%>
+                                                <h3><a href="case-single.html">Organic Produce</a></h3>
+                                                <div class="text">Most state produce is naturally organic</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                                        <div class="inner-box">
+
+                                            <div class="lower-content">
+                                                <%-- <div class="count-number">04</div>--%>
+                                                <h3><a href="case-single.html">Industrial Potential</a></h3>
+                                                <div class="text">Mineral-based industry, horticulture and agro-based industry, electronics and IT, export-oriented units, tourism, and emerging service sectors</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="200ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms; animation-name: fadeInUp;">
-                        <div class="inner-box">
-                            
-                            <div class="lower-content">
-                                <%--<div class="count-number">02</div>--%>
-                                <h3><a href="case-single.html">Agriculture and Horticulture</a></h3>
-                                <div class="text">High-value crops like Strawberry, Ginger, Lakadong turmeric, Honey, black pepper, Potato, Jackfruit, Pineapple, Areca Nut, and exotic flowers</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="400ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 400ms; animation-name: fadeInUp;">
-                        <div class="inner-box">
-                           
-                            <div class="lower-content">
-                                <%--<div class="count-number">03</div>--%>
-                                <h3><a href="case-single.html">Organic Produce</a></h3>
-                                <div class="text">Most state produce is naturally organic</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
-                        <div class="inner-box">
-                            
-                            <div class="lower-content">
-                               <%-- <div class="count-number">04</div>--%>
-                                <h3><a href="case-single.html">Industrial Potential</a></h3>
-                                <div class="text">Mineral-based industry, horticulture and agro-based industry, electronics and IT, export-oriented units, tourism, and emerging service sectors</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-            </div>
-        </div>
-    </section>
+                    </section>
                     <h3>Meghalaya Growth Path:</h3>
-                    
+
 
                     <img src="assets/assetsbeta/images/growrth.png" alt="Growth pic" />
                     <h3>The State of Meghalaya has several GI tags:</h3>
-                    
-                    
+
+
                     <div class="col-md-12 d-flex msgi">
                         <div class="col-md-2 wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms"
                             style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInDown;">
@@ -528,8 +597,8 @@
                             <p>Meghalaya Lyrnai Pottery and Meghalaya Chubitchi (alcoholic beverage)</p>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
 

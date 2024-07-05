@@ -530,7 +530,9 @@
     <Content Include="assets\assetsnew\images\icons\turbo-1.png" />
     <Content Include="assets\assetsnew\images\icons\turbo-2.png" />
     <Content Include="assets\assetsnew\images\IM_png_logo.png" />
+    <Content Include="assets\assetsnew\images\info\cis.jpg" />
     <Content Include="assets\assetsnew\images\info\eodbp.png" />
+    <Content Include="assets\assetsnew\images\info\flight.png" />
     <Content Include="assets\assetsnew\images\info\icon1.jpg" />
     <Content Include="assets\assetsnew\images\info\icon11.png" />
     <Content Include="assets\assetsnew\images\info\icon12.png" />
@@ -547,7 +549,11 @@
     <Content Include="assets\assetsnew\images\info\icon41.png" />
     <Content Include="assets\assetsnew\images\info\icon42.png" />
     <Content Include="assets\assetsnew\images\info\icon43.png" />
+    <Content Include="assets\assetsnew\images\info\psm.png" />
+    <Content Include="assets\assetsnew\images\info\road.png" />
     <Content Include="assets\assetsnew\images\info\steps.png" />
+    <Content Include="assets\assetsnew\images\info\steps123.png" />
+    <Content Include="assets\assetsnew\images\info\train.jpg" />
     <Content Include="assets\assetsnew\images\invotebg.gif" />
     <Content Include="assets\assetsnew\images\invotebgirr.gif" />
     <Content Include="assets\assetsnew\images\invotebgunder.png" />
