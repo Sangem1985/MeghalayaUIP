@@ -13,15 +13,24 @@
     </nav>
     <div class="page-wrapper cfodeptdashboard">
         <div class="content container-fluid">
+           <div class="col-md-12 d-flex" style="
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: baseline;    margin-top: -20px;
+">
             <div class="col-md-11">
                 <h4 style="margin-left: -10px; padding-top: 20px">Pre-Opearational Applications :
                  <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
+                </div>
                 <div class="col-md-1">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"> Back <i class="fi fi-br-angle-double-small-left" style="position: absolute;left: 75%;
+    margin-top: -3px;"></i></asp:LinkButton>
                 </div>
 
             </div>
-
+            
             <div class="card">
                 <div class="card-header">
                     <h3>Pre-Scrutiny Stage</h3>

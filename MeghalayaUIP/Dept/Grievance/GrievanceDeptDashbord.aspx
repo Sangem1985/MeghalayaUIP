@@ -13,7 +13,7 @@
     <div class="page-wrapper">
         <div class="content container-fluid">
 
-            <div class="card">
+            <div class="card grievance">
                 <div class="col-md-12 d-flex">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>

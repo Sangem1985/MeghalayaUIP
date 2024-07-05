@@ -315,3 +315,8 @@ section#dashboardcount2 {
 .page-wrapper.cfeuserapplstatus .card .card-header {
     border-bottom: none !important;
 }
+
+.card.grievance i.fi {
+    color: #fff;
+    line-height: 54px;
+}

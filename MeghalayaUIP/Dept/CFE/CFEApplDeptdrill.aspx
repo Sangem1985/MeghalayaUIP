@@ -15,13 +15,13 @@
         <div class="content container-fluid">
 
             <div class="card-header d-flex  justify-content-between">
-                <h4 class="card-title mt-1" ><b>Pre Establishment Applications with Time Lines</b></h4>
+                <h4 class="card-title mt-1" style="font-size:18px !important;"><b>Pre Establishment Applications with Time Lines</b></h4>
                 <div class="col-md-1">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
             </div>
             <div class="col-md-12 d-flex row mb-3">
-                <div class="col-md-8">&nbsp;</div>
+                
                 <div class="col-md-2">Applications Status</div>
                 <div class="col-md-2 d-flex">
                     <spna class="dots">:&nbsp;&nbsp;</spna>
@@ -36,6 +36,7 @@
                     </asp:DropDownList>
 
                 </div>
+                <div class="col-md-8">&nbsp;</div>
             </div>
             <%--*************************************--%>
             <div class="card" id="Prescrutinycompleted" runat="server" visible="false">
