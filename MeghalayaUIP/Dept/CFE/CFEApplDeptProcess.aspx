@@ -4,10 +4,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Application Details</li>
+        </ol>
+    </nav>
     <!-- Page Wrapper -->
     <div class="page-wrapper">
         <div class="content container-fluid">
-            <div class="card-header d-flex justify-content-between">             
+            <div class="card-header d-flex justify-content-between">
+                <h4 class="card-title mt-1"><b>Pre Establishment Application Details</b></h4>
+
                 <div class="col-md-1">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
@@ -33,7 +42,7 @@
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion"
                                         href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                                        class="collapsed">CFE Application Details
+                                        class="collapsed">Application Details
                                     </a>
 
                                 </h4>
@@ -42,7 +51,7 @@
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>CFE Questionnaire Details</h3>
+                                        <h3>Questionnaire Details</h3>
                                     </div>
                                     <div class="alldetails" id="bodypart">
                                         <div class="row mt-4">
@@ -1613,7 +1622,7 @@
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix">Verification of Application
+                                        aria-controls="collapseSix"><asp:Label runat="server" ID="lblVerf"></asp:Label>
                                     </a>
                                 </h4>
                             </div>

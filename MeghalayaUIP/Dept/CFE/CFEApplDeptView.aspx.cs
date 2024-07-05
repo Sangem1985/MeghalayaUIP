@@ -83,9 +83,7 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-                //lblmsg0.Text = ex.Message;
-                //Failure.Visible = true;
-                //throw ex;
+                
             }
         }
     }

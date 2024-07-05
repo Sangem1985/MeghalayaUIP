@@ -6,20 +6,17 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
-
+            <li class="breadcrumb-item"><a href="../Dept/CFE/CFEDeptDashboard.aspx">Pre Establishment</a></li>
             <li class="breadcrumb-item active" aria-current="page">Applications Details</li>
         </ol>
     </nav>
     <div class="page-wrapper" style="">
         <div class="content container-fluid">
              <div class="card-header d-flex justify-content-between">
-               <h4 class="card-title mt-1"><b>View Pre Establishment Applications</b></h4> 
-
+               <h4 class="card-title mt-1"><b>View Pre Establishment Applications</b></h4>
                 <div class="col-md-1">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
-
             </div>
             <div class="card">
                 <div class="card-body">

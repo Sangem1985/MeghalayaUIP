@@ -74,11 +74,13 @@ namespace MeghalayaUIP.Dept.CFO
                         verifypanel.Visible = true;
                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
                         {
+                            lblVerf.Text = "Scrutiny Verification of Application";
                             scrutiny.Visible = true;
                             Approval.Visible = false;
                         }
                         else
                         {
+                            lblVerf.Text = "Approval Process";
                             scrutiny.Visible = false;
                             Approval.Visible = true;
                         }

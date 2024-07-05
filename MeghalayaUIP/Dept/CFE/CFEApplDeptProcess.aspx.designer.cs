@@ -1383,6 +1383,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl verifypanel;
 
         /// <summary>
+        /// lblVerf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVerf;
+
+        /// <summary>
         /// scrutiny control.
         /// </summary>
         /// <remarks>

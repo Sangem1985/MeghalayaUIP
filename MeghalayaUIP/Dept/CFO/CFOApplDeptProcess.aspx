@@ -1604,7 +1604,7 @@
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix"><asp:Label runat="server" ID="lblVerf">Scrutiny Verification of Application</asp:Label>
+                                        aria-controls="collapseSix"><asp:Label runat="server" ID="lblVerf"></asp:Label>
                                     </a>
                                 </h4>
                             </div>

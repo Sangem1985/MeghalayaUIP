@@ -61,7 +61,7 @@ namespace MeghalayaUIP.Dept.CFE
         {
             try
             {                
-                Response.Redirect("~/Dept/DeptDashboard.aspx");
+                Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
             }
             catch (Exception ex)
             {
