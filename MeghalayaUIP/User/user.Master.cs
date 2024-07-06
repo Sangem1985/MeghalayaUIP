@@ -139,7 +139,7 @@ namespace MeghalayaUIP.User
 
         protected void linkland_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/LA/LAQuestionnaire.aspx");
+            Response.Redirect("~/User/LA/LAUserDashBoard.aspx");
         }
 
         protected void lnkCentralrepository_Click(object sender, EventArgs e)

@@ -64,6 +64,10 @@ namespace MeghalayaUIP.Common
         public static string GetCFOProffessionalTaxDetails = "USP_GETCFOPROFTAXDETAILS";
         public static string GetCFOFireDet = "USP_GETCFOFIREDETAILS";
         public static string GetCFOBusinessLicDetails = "USP_GETCFOBUSINESSLICDETAILS";
+        public static string GetCFOLINEOFACTIVITYDetails = "USP_GETCFOLINEOFACTIVITY";
+        public static string InsertCFOLineOfActivityDetails = "USP_INSCFOLINEOFACTIVITYDETAILS";
+        public static string GetCFOQueryDashBoard = "USP_GETCFOQUERYRAISEDDEPT";
+        public static string InsertCFOQueryResponse = "USP_UPDATECFOAPPLQUERYRESPONSE";
     }
     public class CFOExciseDetails
     {
@@ -638,7 +642,7 @@ namespace MeghalayaUIP.Common
 
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
-        public string UNITID { get; set; }
+        public string UnitID { get; set; }
         public string LOAID { get; set; }
         public string ManfItemName { get; set; }
         public string ManfItemAnnualCapacity { get; set; }
@@ -662,6 +666,19 @@ namespace MeghalayaUIP.Common
         public string FileDescription { get; set; }
         public string FileType { get; set; }
         public string MasterID { get; set; }
+
+    }
+    public class CFOQueryDet
+    {
+
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public string Deptid { get; set; }
+        public string Approvalid { get; set; }
+        public string QueryID { get; set; }
+        public string IPAddress { get; set; }
+        public string QueryResponse { get; set; }
+        public string Questionnariid { get; set; }
 
     }
 

@@ -843,8 +843,11 @@
     <Content Include="User\CFO\CFOIndustryDetails.aspx" />
     <Content Include="User\CFO\CFOLabourDetails.aspx" />
     <Content Include="User\CFO\CFOLegalMeterology.aspx" />
+    <Content Include="User\CFO\CFOLineOfManufactureDetails.aspx" />
     <Content Include="User\CFO\CFOPaymentPage.aspx" />
     <Content Include="User\CFO\CFOProffessionalTax.aspx" />
+    <Content Include="User\CFO\CFOQueryDashBoard.aspx" />
+    <Content Include="User\CFO\CFOQueryResponse.aspx" />
     <Content Include="User\CFO\CFOQuestionnaire.aspx" />
     <Content Include="User\CFO\CFOTracker.aspx" />
     <Content Include="User\CFO\CFOUploadEnclosures.aspx" />
@@ -1520,6 +1523,13 @@
     <Compile Include="User\CFO\CFOLegalMeterology.aspx.designer.cs">
       <DependentUpon>CFOLegalMeterology.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFO\CFOLineOfManufactureDetails.aspx.cs">
+      <DependentUpon>CFOLineOfManufactureDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOLineOfManufactureDetails.aspx.designer.cs">
+      <DependentUpon>CFOLineOfManufactureDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFO\CFOPaymentPage.aspx.cs">
       <DependentUpon>CFOPaymentPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1533,6 +1543,20 @@
     </Compile>
     <Compile Include="User\CFO\CFOProffessionalTax.aspx.designer.cs">
       <DependentUpon>CFOProffessionalTax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOQueryDashBoard.aspx.cs">
+      <DependentUpon>CFOQueryDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOQueryDashBoard.aspx.designer.cs">
+      <DependentUpon>CFOQueryDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOQueryResponse.aspx.cs">
+      <DependentUpon>CFOQueryResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOQueryResponse.aspx.designer.cs">
+      <DependentUpon>CFOQueryResponse.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOQuestionnaire.aspx.cs">
       <DependentUpon>CFOQuestionnaire.aspx</DependentUpon>

@@ -158,7 +158,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOLM_CREATEDBY", Convert.ToInt32(objCFOManufacture.CreatedBy));
                 com.Parameters.AddWithValue("@CFOLM_CREATEDBYIP", objCFOManufacture.IPAddress);
                 com.Parameters.AddWithValue("@CFOLM_CFOQDID", Convert.ToInt32(objCFOManufacture.Questionnareid));
-                com.Parameters.AddWithValue("@CFOLM_UNITID", Convert.ToInt32(objCFOManufacture.UNITID));
+                com.Parameters.AddWithValue("@CFOLM_UNITID", Convert.ToInt32(objCFOManufacture.UnitID));
                 com.Parameters.AddWithValue("@CFOLM_LOAID", Convert.ToInt32(objCFOManufacture.LOAID));
                 com.Parameters.AddWithValue("@CFOLM_ITEMNAME", objCFOManufacture.ManfItemName);
                 com.Parameters.AddWithValue("@CFOLM_ITEMANNUALCAPACITY", Convert.ToDecimal(objCFOManufacture.ManfItemAnnualCapacity));
@@ -204,7 +204,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFORM_CREATEDBY", Convert.ToInt32(objCFOManufacture.CreatedBy));
                 com.Parameters.AddWithValue("@CFORM_CREATEDBYIP", objCFOManufacture.IPAddress);
                 com.Parameters.AddWithValue("@CFORM_CFOQDID", Convert.ToInt32(objCFOManufacture.Questionnareid));
-                com.Parameters.AddWithValue("@CFORM_UNITID", Convert.ToInt32(objCFOManufacture.UNITID));
+                com.Parameters.AddWithValue("@CFORM_UNITID", Convert.ToInt32(objCFOManufacture.UnitID));
                 com.Parameters.AddWithValue("@CFORM_LOAID", Convert.ToInt32(objCFOManufacture.LOAID));
                 com.Parameters.AddWithValue("@CFORM_ITEMNAME", objCFOManufacture.RMItemName);
                 com.Parameters.AddWithValue("@CFORM_ITEMANNUALCAPACITY", Convert.ToDecimal(objCFOManufacture.RMItemAnnualCapacity));
@@ -2503,6 +2503,171 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+        public DataSet GetCFOLineOfActivityDetails(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOLINEOFACTIVITYDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOLINEOFACTIVITYDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string InsertCFOLineOfActivityDetails(CFOLineOfManuf objCFOManufacture)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOLineOfActivityDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOLA_CREATEDBY", Convert.ToInt32(objCFOManufacture.CreatedBy));
+                com.Parameters.AddWithValue("@CFOLA_CREATEDBYIP", objCFOManufacture.IPAddress);
+                com.Parameters.AddWithValue("@CFOLA_CFEQDID", Convert.ToInt32(objCFOManufacture.Questionnareid));
+                com.Parameters.AddWithValue("@CFOLA_UNITID", Convert.ToInt32(objCFOManufacture.UnitID));
+                com.Parameters.AddWithValue("@CFOLA_LINEOFACTIVITY", objCFOManufacture.LOAID);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetCFOQueryDashBoard(string Unitid, string Queryid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOQueryDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOQueryDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Unitid));
+                if (Queryid != "" && Queryid != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(Queryid));
+                }
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+        public string InsertCFOQueryResponse(CFOQueryDet CFOQuery)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.InsertCFOQueryResponse;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(CFOQuery.Unitid));
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(CFOQuery.Investerid));
+                com.Parameters.AddWithValue("@CFOQDID", Convert.ToInt32(CFOQuery.Questionnariid));
+                com.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(CFOQuery.QueryID));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(CFOQuery.Deptid));
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(CFOQuery.Approvalid));
+                com.Parameters.AddWithValue("@RESPONSE", CFOQuery.QueryResponse);
+                com.Parameters.AddWithValue("@IPADDRESS", CFOQuery.IPAddress);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
 
     }

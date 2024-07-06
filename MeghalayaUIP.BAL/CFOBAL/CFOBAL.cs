@@ -212,5 +212,21 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetCFOBusinessLicenseDetails(userid, UnitID);
         }
+        public DataSet GetCFOLineOfActivityDetails(string userid, string UnitID)
+        {
+            return objCFODAL.GetCFOLineOfActivityDetails(userid, UnitID);
+        }
+        public string InsertCFOLineOfActivityDetails(CFOLineOfManuf objCFOManufacture)
+        {
+            return objCFODAL.InsertCFOLineOfActivityDetails(objCFOManufacture);
+        }
+        public DataSet GetCFOQueryDashBoard(string Unitid, string Queryid)
+        {
+            return objCFODAL.GetCFOQueryDashBoard(Unitid, Queryid);
+        }
+        public string InsertCFOQueryResponse(CFOQueryDet CFOQuery)
+        {
+            return objCFODAL.InsertCFOQueryResponse(CFOQuery);
+        }
     }
 }

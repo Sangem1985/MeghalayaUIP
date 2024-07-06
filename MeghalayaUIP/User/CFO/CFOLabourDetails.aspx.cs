@@ -59,7 +59,7 @@ namespace MeghalayaUIP.User.CFO
                         }
                         else
                         {
-                            Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx?Previous=P");
+                            Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
                         }
                     }
                     BindBoilerType();
@@ -480,7 +480,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx?Previous=P");
+                Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
             }
             catch (Exception ex)
             {
