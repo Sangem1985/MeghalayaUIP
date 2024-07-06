@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=TOTALAPPLICATIONS" style="text-decoration: none;">
+                                    <a href="CFOApplDeptView.aspx?status=TOTALAPPLICATIONS" style="text-decoration: none;" id="anchrTotal" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-file-download"></i>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFOApplDeptdrill.aspx" style="text-decoration: none;">
+                                    <a href="CFOApplDeptdrill.aspx" style="text-decoration: none;" id="anchrScrtnyCmpld" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=REJECTED" style="text-decoration: none;">
+                                    <a href="CFOApplDeptView.aspx?status=REJECTED" style="text-decoration: none;" id="anchrScrtnyRjctd" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>
@@ -102,7 +102,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=PRESCRUTINYPENDING" style="text-decoration: none;">
+                                    <a href="CFOApplDeptView.aspx?status=PRESCRUTINYPENDING" style="text-decoration: none;" id="anchrScrtnyPndng" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=ADDITIONALPAYMENTRAISED" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment">
+                                    <a href="CFOApplDeptView.aspx?status=ADDITIONALPAYMENTRAISED" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment" id="anchrAddlPaymnt" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-pending"></i>
@@ -144,7 +144,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=QUERYPENDING" style="text-decoration: none;">
+                                    <a href="CFOApplDeptView.aspx?status=QUERYPENDING" style="text-decoration: none;" id="anchrQryRaised" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -159,7 +159,7 @@
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Query Response Pending<br />
+                                                Query Response<br /> Pending<br />
                                             </p>
                                         </div>
                                     </a>
@@ -179,7 +179,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=TOTALAPPROVALISSUED" style="text-decoration: none;">
+                                    <a href="CFOApplDeptView.aspx?status=TOTALAPPROVALISSUED" style="text-decoration: none;" id="anchrApproved" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -202,7 +202,7 @@
 
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=APPROVALPENDING" style="text-decoration: none;">
+                                    <a href="CFOApplDeptView.aspx?status=APPROVALPENDING" style="text-decoration: none;" id="anchrAprvlPndng" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -224,7 +224,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFOApplDeptView.aspx?status=REJECTED" style="text-decoration: none;">
+                                    <a href="CFOApplDeptView.aspx?status=REJECTED" style="text-decoration: none;" id="anchrAprvlRjctd" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>

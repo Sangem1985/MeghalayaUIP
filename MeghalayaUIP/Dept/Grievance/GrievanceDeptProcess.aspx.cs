@@ -15,7 +15,7 @@ namespace MeghalayaUIP.Dept.Grievance
     {
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MGCommonBAL objcomBal = new MGCommonBAL();
-        string Reply_FilePath="", Reply_FileType="", Reply_FileName="";
+        string Reply_FilePath = "", Reply_FileType = "", Reply_FileName = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace MeghalayaUIP.Dept.Grievance
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
-                Failure.Visible = true;               
+                Failure.Visible = true;
             }
         }
         public void BindData(string DeptID)
@@ -64,21 +64,21 @@ namespace MeghalayaUIP.Dept.Grievance
             {
                 DataSet ds = new DataSet();
 
-                ds = objcomBal.GetDepGrievanceList(DeptID, Request.QueryString[0]);
+                ds = objcomBal.GetDepGrievanceList(DeptID, Request.QueryString[0], null);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    lblindustry.Text= Convert.ToString(ds.Tables[0].Rows[0]["UNITNAME"]);
-                    lblEmail.Text= Convert.ToString(ds.Tables[0].Rows[0]["EMAIL"]);
-                    lblUID.Text= Convert.ToString(ds.Tables[0].Rows[0]["UID_NO"]);
-                    lblName.Text= Convert.ToString(ds.Tables[0].Rows[0]["APPLICANTNAME"]);
+                    lblindustry.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNITNAME"]);
+                    lblEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["EMAIL"]);
+                    lblUID.Text = Convert.ToString(ds.Tables[0].Rows[0]["UID_NO"]);
+                    lblName.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPLICANTNAME"]);
                     lblNumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["MOBILE"]);
-                    lblSubject.Text= Convert.ToString(ds.Tables[0].Rows[0]["SUBJECT"]);
-                    lblDate.Text= Convert.ToString(ds.Tables[0].Rows[0]["REGDATE"]);
-                    lblDistric.Text= Convert.ToString(ds.Tables[0].Rows[0]["DistrictName"]);
+                    lblSubject.Text = Convert.ToString(ds.Tables[0].Rows[0]["SUBJECT"]);
+                    lblDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGDATE"]);
+                    lblDistric.Text = Convert.ToString(ds.Tables[0].Rows[0]["DistrictName"]);
                     lblDescription.Text = Convert.ToString(ds.Tables[0].Rows[0]["DESCRIPTION"]);
                     hplAttach.NavigateUrl = Convert.ToString(ds.Tables[0].Rows[0]["GRIEVANCE_FILEPATH"]);
                     hplAttach.Text = Convert.ToString(ds.Tables[0].Rows[0]["GRIEVNACE_FILENAME"]);
-                   
+
                 }
                 else
                 {
@@ -97,10 +97,10 @@ namespace MeghalayaUIP.Dept.Grievance
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 int Result = 0;
-                if(ddlProcess.SelectedItem.Text!= "--Select--" && !string.IsNullOrEmpty(txtRemarks.Text) && txtRemarks.Text != "" 
+                if (ddlProcess.SelectedItem.Text != "--Select--" && !string.IsNullOrEmpty(txtRemarks.Text) && txtRemarks.Text != ""
                     && txtRemarks.Text != null)
                 {
                     string newPath = "";
@@ -115,19 +115,19 @@ namespace MeghalayaUIP.Dept.Grievance
 
                                 string[] fileType = fupReplyFile.PostedFile.FileName.Split('.');
                                 int i = fileType.Length;
-                                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || 
+                                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" ||
                                     fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" ||
-                                    fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || 
-                                    fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || 
+                                    fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" ||
+                                    fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" ||
                                     fileType[i - 1].ToUpper().Trim() == "DWG")
                                 {
-                                   
-                                    newPath = System.IO.Path.Combine(sFileDir, hdnGrvID.Value+hdnUserID.Value);
+
+                                    newPath = System.IO.Path.Combine(sFileDir, hdnGrvID.Value + hdnUserID.Value);
                                     Reply_FilePath = newPath + System.DateTime.Now.ToString("ddMMyyyyhhmmss");
                                     Reply_FileType = fileType[i - 1].ToUpper().Trim();
                                     Reply_FileName = sFileName;
                                     //////////////
-                                   // FileNameofrMail = Reply_FilePath + "\\" + Reply_FileType;
+                                    // FileNameofrMail = Reply_FilePath + "\\" + Reply_FileType;
                                     if (!Directory.Exists(Reply_FilePath))
 
                                         System.IO.Directory.CreateDirectory(Reply_FilePath);
@@ -166,15 +166,16 @@ namespace MeghalayaUIP.Dept.Grievance
                     }
 
 
-                    Result = objcomBal.UpdateGrievanceDeptProcess(ddlProcess.SelectedItem.Text, ddlProcess.SelectedValue, txtRemarks.Text, 
+                    Result = objcomBal.UpdateGrievanceDeptProcess(ddlProcess.SelectedItem.Text, ddlProcess.SelectedValue, txtRemarks.Text,
                         Reply_FilePath, Reply_FileType, Reply_FileName, hdnGrvID.Value, hdnUserID.Value,
-                        Convert.ToString( ObjUserInfo.Deptid), getclientIP());
+                        Convert.ToString(ObjUserInfo.Deptid), getclientIP());
                     if (Result != 0)
                     {
                         lblmsg.Text = "Details Submited Successfully..!";
                         success.Visible = true;
                         string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='GrievanceDeptDashbord.aspx'", true);
 
                     }
                     else
@@ -182,6 +183,19 @@ namespace MeghalayaUIP.Dept.Grievance
                         lblmsg0.Text = "Error Occured, Please try again!";
                         Failure.Visible = false;
                     }
+                }
+                else
+                {
+                    string ErrorMsg = "";
+                    if (ddlProcess.SelectedItem.Text == "--Select--")
+                        ErrorMsg = "Please Select Process \\n ";
+
+                    if (string.IsNullOrEmpty(txtRemarks.Text) || txtRemarks.Text == "" || txtRemarks.Text == null)
+                        ErrorMsg = ErrorMsg+"Please Enter Remarks";
+
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
                 }
             }
             catch (Exception ex)

@@ -64,7 +64,16 @@ namespace MeghalayaUIP.Dept.Grievance
                     lbltotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["TOTAL"]);
                     lblpendingTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["PENDINGTOTAL"]);
                     lblRedressedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REDRESSEDTOTAL"]);
-                    lblRejectedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDTOTAL"]);                  
+                    lblRejectedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDTOTAL"]);
+                    if (lbltotal.Text == "0")
+                        anchrTotal.HRef = "#";
+                    if (lblpendingTotal.Text == "0")
+                        anchrPending.HRef = "#";
+                    if (lblRedressedTotal.Text == "0")
+                        anchrRedressed.HRef = "#";
+                    if (lblRejectedTotal.Text == "0")
+                        anchrRejected.HRef = "#";
+
 
                 }
                 else

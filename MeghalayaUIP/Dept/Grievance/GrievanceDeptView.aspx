@@ -45,7 +45,7 @@
                                     <%# Container.DataItemIndex + 1%>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                            <asp:TemplateField HeaderText="GRIEVANCEID" ItemStyle-Width="3%" Visible="false" >
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <ItemStyle HorizontalAlign="Left" />
                                 <ItemTemplate>
@@ -68,7 +68,7 @@
                             <asp:TemplateField HeaderText="Actions" ItemStyle-Width="12%">
                                 <%--SortExpression="ciw_id"--%>
                                 <ItemTemplate>
-                                    <asp:Button ID="BtnProcess" runat="server" Text='Process' CssClass="btn btn-info" OnClick="BtnProcess_Click" />
+                                    <asp:Button ID="BtnProcess" runat="server" Text='Process' CssClass="btn btn-rounded btn-info" OnClick="BtnProcess_Click" />
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>

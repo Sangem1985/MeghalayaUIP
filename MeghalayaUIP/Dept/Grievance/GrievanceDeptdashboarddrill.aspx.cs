@@ -86,6 +86,24 @@ namespace MeghalayaUIP.Dept.Grievance
                     lblRejectedTotal.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDTOTAL"]);
                     lblRejectedWithin.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDWITHIN"]);
                     lblRejectedBeyond.Text = Convert.ToString(ds.Tables[0].Rows[0]["REJECTEDBEYOND"]);
+                    if (lblPendingTotal.Text == "0")
+                        anchrPendingTotal.HRef = "#";
+                    if (lblPendingWithin.Text == "0")
+                        anchrPendingWithin.HRef = "#";
+                    if (lblPendingBeyond.Text == "0")
+                        anchrPendingBeyond.HRef = "#";
+                    if (lblRedressedTotal.Text == "0")
+                        anchrRedressedTotal.HRef = "#";
+                    if (lblRedressedWithin.Text == "0")
+                        anchrRedressedWithin.HRef = "#";
+                    if (lblRedressedBeyond.Text == "0")
+                        anchrRedressedBeyond.HRef = "#";
+                    if (lblRejectedTotal.Text == "0")
+                        anchrRejectedTotal.HRef = "#";
+                    if (lblRejectedWithin.Text == "0")
+                        anchrRejectedWithin.HRef = "#";
+                    if (lblRejectedBeyond.Text == "0")
+                        anchrRejectedBeyond.HRef = "#";
 
                 }
                 else

@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Total" style="text-decoration: none;">
+                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Total" style="text-decoration: none;" id="anchrTotal" runat="server" >
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -64,7 +64,7 @@
 
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Pending" style="text-decoration: none;">
+                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Pending" style="text-decoration: none;" id="anchrPending" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Redressed" style="text-decoration: none;">
+                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Redressed" style="text-decoration: none;" id="anchrRedressed" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Rejected" style="text-decoration: none;">
+                                    <a href="GrievanceDeptdashboarddrill.aspx?status=Rejected" style="text-decoration: none;" id="anchrRejected" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>

@@ -129,7 +129,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Pending" id="anchrPendingTotal" runat="server" >
                                     <div class="card 1">
                                         <div class="card-headr">
                                             <div class="text">Pending Total</div>
@@ -143,7 +143,7 @@
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Pending" id="anchrPendingWithin" runat="server">
                                     <div class="card 2">
                                         <div class="card-headr">
                                             <div class="text">Pending With in 7 Days</div>
@@ -157,7 +157,7 @@
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Pending" id="anchrPendingBeyond" runat="server" >
                                     <div class="card 4">
                                         <div class="card-headr">
                                             <div class="text">Pending Beyond 7 Days</div>
@@ -184,7 +184,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Redressed" id="anchrRedressedTotal" runat="server">
                                     <div class="card 1">
                                         <div class="card-headr">
                                             <div class="text">Redressed Total</div>
@@ -198,7 +198,7 @@
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Redressed" id="anchrRedressedWithin" runat="server">
                                     <div class="card 2">
                                         <div class="card-headr">
                                             <div class="text">Redressed With in 7 Days</div>
@@ -212,7 +212,7 @@
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Redressed" id="anchrRedressedBeyond" runat="server">
                                     <div class="card 4">
                                         <div class="card-headr">
                                             <div class="text">Redressed Beyond 7 Days</div>
@@ -238,7 +238,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Rejected" id="anchrRejectedTotal" runat="server">
                                     <div class="card 1">
                                         <div class="card-headr">
                                             <div class="text">Rejected Total</div>
@@ -252,7 +252,7 @@
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Rejected" id="anchrRejectedWithin" runat="server">
                                     <div class="card 2">
                                         <div class="card-headr">
                                             <div class="text">Rejected With in 7 Days</div>
@@ -266,7 +266,7 @@
                                 </a>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <a href="GrievanceDeptView.aspx">
+                                <a href="GrievanceDeptView.aspx?status=Rejected" id="anchrRejectedBeyond" runat="server">
                                     <div class="card 4">
                                         <div class="card-headr">
                                             <div class="text">Rejected Beyond 7 Days</div>

@@ -69,6 +69,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// anchrTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrTotal;
+
+        /// <summary>
         /// lbltotal control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace MeghalayaUIP.Dept.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal;
+
+        /// <summary>
+        /// anchrPending control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrPending;
 
         /// <summary>
         /// lblpendingTotal control.
@@ -87,6 +105,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.Label lblpendingTotal;
 
         /// <summary>
+        /// anchrRedressed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRedressed;
+
+        /// <summary>
         /// lblRedressedTotal control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace MeghalayaUIP.Dept.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRedressedTotal;
+
+        /// <summary>
+        /// anchrRejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRejected;
 
         /// <summary>
         /// lblRejectedTotal control.

@@ -42,14 +42,35 @@ namespace MeghalayaUIP.Dept.CFE
 
                     lblTOTALAPPLICATIONS.Text = dt.Rows[0]["TOTALAPPLICATIONS"].ToString();
                     lblPRESCRUTINYCOMPLETED.Text = dt.Rows[0]["PRESCRUTINYCOMPLETED"].ToString();
-                    lblQUERYPENDING.Text = dt.Rows[0]["QUERYPENDING"].ToString();
                     lblPRESCRUTINYPENDING.Text = dt.Rows[0]["PRESCRUTINYPENDING"].ToString();
+                    lblPREREJECTED.Text = dt.Rows[0]["PRESCRUTINYREJECTED"].ToString();
                     lblADDITIONALPAYMENTRAISED.Text = dt.Rows[0]["ADDITIONALPAYMENTRAISED"].ToString();
-                    lblTOTALAPPROVALISSUED.Text = dt.Rows[0]["TOTALAPPROVALISSUED"].ToString();
+                    lblQUERYPENDING.Text = dt.Rows[0]["QUERYPENDING"].ToString();
 
+
+                    lblTOTALAPPROVALISSUED.Text = dt.Rows[0]["TOTALAPPROVALISSUED"].ToString();
                     lblAPPROVALPENDING.Text = dt.Rows[0]["APPROVALPENDING"].ToString();
                     lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
-                    lblPREREJECTED.Text = dt.Rows[0]["PREREJECTED"].ToString(); 
+
+                    if (lblTOTALAPPLICATIONS.Text == "0")
+                        anchrTotal.HRef = "#";
+                    if (lblPRESCRUTINYCOMPLETED.Text == "0")
+                        anchrScrtnyCmpld.HRef = "#";
+                    if (lblPRESCRUTINYPENDING.Text == "0")
+                        anchrScrtnyPndng.HRef = "#";
+                    if (lblPREREJECTED.Text == "0")
+                        anchrScrtnyRjctd.HRef = "#";
+                    if (lblADDITIONALPAYMENTRAISED.Text == "0")
+                        anchrAddlPaymnt.HRef = "#";
+                    if (lblQUERYPENDING.Text == "0")
+                        anchrQryRaised.HRef = "#";
+                    if (lblTOTALAPPROVALISSUED.Text == "0")
+                        anchrApproved.HRef = "#";
+                    if (lblAPPROVALPENDING.Text == "0")
+                        anchrAprvlPndng.HRef = "#";
+                    if (lblREJECTED.Text == "0")
+                        anchrAprvlRjctd.HRef = "#";
+
                 }
             }
             catch (Exception ex)
@@ -60,12 +81,12 @@ namespace MeghalayaUIP.Dept.CFE
         protected void lbtnBack_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 

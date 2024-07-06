@@ -58,12 +58,12 @@ namespace MeghalayaUIP.Dept.Grievance
             {
                 DataSet ds = new DataSet();
 
-                ds = objcomBal.GetDepGrievanceList(DeptID, null);
+                ds = objcomBal.GetDepGrievanceList(DeptID,  null, Convert.ToString(Request.QueryString["status"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     gvGrievanceDtls.DataSource = ds.Tables[0];
                     gvGrievanceDtls.DataBind();
-                    for(int i=0; i<= gvGrievanceDtls.Rows.Count; i++)
+                    for(int i=0; i< gvGrievanceDtls.Rows.Count; i++)
                     {
                         Button BtnProcess = (Button)gvGrievanceDtls.Rows[i].FindControl("BtnProcess");
                         if (gvGrievanceDtls.Rows[i].Cells[11].Text == "Pending")

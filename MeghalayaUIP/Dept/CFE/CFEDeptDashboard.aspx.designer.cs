@@ -24,6 +24,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
 
         /// <summary>
+        /// anchrTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrTotal;
+
+        /// <summary>
         /// lblTOTALAPPLICATIONS control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTOTALAPPLICATIONS;
+
+        /// <summary>
+        /// anchrScrtnyCmpld control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrScrtnyCmpld;
 
         /// <summary>
         /// lblPRESCRUTINYCOMPLETED control.
@@ -42,6 +60,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Label lblPRESCRUTINYCOMPLETED;
 
         /// <summary>
+        /// anchrScrtnyRjctd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrScrtnyRjctd;
+
+        /// <summary>
         /// lblPREREJECTED control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPREREJECTED;
+
+        /// <summary>
+        /// anchrScrtnyPndng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrScrtnyPndng;
 
         /// <summary>
         /// lblPRESCRUTINYPENDING control.
@@ -60,6 +96,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Label lblPRESCRUTINYPENDING;
 
         /// <summary>
+        /// anchrAddlPaymnt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrAddlPaymnt;
+
+        /// <summary>
         /// lblADDITIONALPAYMENTRAISED control.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,15 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblADDITIONALPAYMENTRAISED;
+
+        /// <summary>
+        /// anchrQryRaised control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrQryRaised;
 
         /// <summary>
         /// lblQUERYPENDING control.
@@ -78,6 +132,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Label lblQUERYPENDING;
 
         /// <summary>
+        /// anchrApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrApproved;
+
+        /// <summary>
         /// lblTOTALAPPROVALISSUED control.
         /// </summary>
         /// <remarks>
@@ -87,6 +150,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Label lblTOTALAPPROVALISSUED;
 
         /// <summary>
+        /// anchrAprvlPndng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrAprvlPndng;
+
+        /// <summary>
         /// lblAPPROVALPENDING control.
         /// </summary>
         /// <remarks>
@@ -94,6 +166,15 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAPPROVALPENDING;
+
+        /// <summary>
+        /// anchrAprvlRjctd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrAprvlRjctd;
 
         /// <summary>
         /// lblREJECTED control.

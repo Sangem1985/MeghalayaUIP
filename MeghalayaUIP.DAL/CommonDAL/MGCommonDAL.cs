@@ -441,7 +441,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
-        public DataSet GetDepGrievanceList(string DeptID, string GrvncID)
+        public DataSet GetDepGrievanceList(string DeptID, string GrvncID, string Status)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -459,6 +459,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
                 da.SelectCommand.Parameters.AddWithValue("@GRIEVANCEID", GrvncID);
+                da.SelectCommand.Parameters.AddWithValue("@STATUS", Status);
 
                 da.Fill(ds);
 

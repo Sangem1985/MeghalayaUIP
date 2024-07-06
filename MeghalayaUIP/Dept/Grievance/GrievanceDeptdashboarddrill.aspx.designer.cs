@@ -87,6 +87,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPending;
 
         /// <summary>
+        /// anchrPendingTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrPendingTotal;
+
+        /// <summary>
         /// lblPendingTotal control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.Label lblPendingTotal;
 
         /// <summary>
+        /// anchrPendingWithin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrPendingWithin;
+
+        /// <summary>
         /// lblPendingWithin control.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,15 @@ namespace MeghalayaUIP.Dept.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPendingWithin;
+
+        /// <summary>
+        /// anchrPendingBeyond control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrPendingBeyond;
 
         /// <summary>
         /// lblPendingBeyond control.
@@ -123,6 +150,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRedressed;
 
         /// <summary>
+        /// anchrRedressedTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRedressedTotal;
+
+        /// <summary>
         /// lblRedressedTotal control.
         /// </summary>
         /// <remarks>
@@ -132,6 +168,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.Label lblRedressedTotal;
 
         /// <summary>
+        /// anchrRedressedWithin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRedressedWithin;
+
+        /// <summary>
         /// lblRedressedWithin control.
         /// </summary>
         /// <remarks>
@@ -139,6 +184,15 @@ namespace MeghalayaUIP.Dept.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRedressedWithin;
+
+        /// <summary>
+        /// anchrRedressedBeyond control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRedressedBeyond;
 
         /// <summary>
         /// lblRedressedBeyond control.
@@ -159,6 +213,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRejected;
 
         /// <summary>
+        /// anchrRejectedTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRejectedTotal;
+
+        /// <summary>
         /// lblRejectedTotal control.
         /// </summary>
         /// <remarks>
@@ -168,6 +231,15 @@ namespace MeghalayaUIP.Dept.Grievance
         protected global::System.Web.UI.WebControls.Label lblRejectedTotal;
 
         /// <summary>
+        /// anchrRejectedWithin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRejectedWithin;
+
+        /// <summary>
         /// lblRejectedWithin control.
         /// </summary>
         /// <remarks>
@@ -175,6 +247,15 @@ namespace MeghalayaUIP.Dept.Grievance
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRejectedWithin;
+
+        /// <summary>
+        /// anchrRejectedBeyond control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrRejectedBeyond;
 
         /// <summary>
         /// lblRejectedBeyond control.

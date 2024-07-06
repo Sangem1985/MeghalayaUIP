@@ -40,15 +40,35 @@ namespace MeghalayaUIP.Dept.CFO
                     dt = CfoBAL.GetCFODashBoard(objCFO);
 
                     lblTOTALAPPLICATIONS.Text = dt.Rows[0]["TOTALAPPLICATIONS"].ToString();
-                    lblPRESCRUTINYCOMPLETED.Text = dt.Rows[0]["PRESCRUTINYCOMPLETED"].ToString();
-                    lblQUERYPENDING.Text = dt.Rows[0]["QUERYPENDING"].ToString();
+                    lblPRESCRUTINYCOMPLETED.Text = dt.Rows[0]["PRESCRUTINYCOMPLETED"].ToString();                 
                     lblPRESCRUTINYPENDING.Text = dt.Rows[0]["PRESCRUTINYPENDING"].ToString();
+                    lblPREREJECTED.Text = dt.Rows[0]["PRESCRUTINYREJECTED"].ToString();
                     lblADDITIONALPAYMENTRAISED.Text = dt.Rows[0]["ADDITIONALPAYMENTRAISED"].ToString();
+                    lblQUERYPENDING.Text = dt.Rows[0]["QUERYPENDING"].ToString();
+                
                     lblTOTALAPPROVALISSUED.Text = dt.Rows[0]["TOTALAPPROVALISSUED"].ToString();
-
                     lblAPPROVALPENDING.Text = dt.Rows[0]["APPROVALPENDING"].ToString();
                     lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
-                    lblPREREJECTED.Text = "0"; 
+               
+                    
+                    if (lblTOTALAPPLICATIONS.Text == "0")
+                        anchrTotal.HRef = "#";
+                    if (lblPRESCRUTINYCOMPLETED.Text == "0")
+                        anchrScrtnyCmpld.HRef = "#";
+                    if (lblPRESCRUTINYPENDING.Text == "0")
+                        anchrScrtnyPndng.HRef = "#";
+                    if (lblPREREJECTED.Text == "0")
+                        anchrScrtnyRjctd.HRef = "#";
+                    if (lblADDITIONALPAYMENTRAISED.Text == "0")
+                        anchrAddlPaymnt.HRef = "#";
+                    if (lblQUERYPENDING.Text == "0")
+                        anchrQryRaised.HRef = "#";
+                    if (lblTOTALAPPROVALISSUED.Text == "0")
+                        anchrApproved.HRef = "#";
+                    if (lblAPPROVALPENDING.Text == "0")
+                        anchrAprvlPndng.HRef = "#";
+                    if (lblREJECTED.Text == "0")
+                        anchrAprvlRjctd.HRef = "#";
                 }
             }
             catch (Exception ex)
