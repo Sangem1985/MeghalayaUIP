@@ -48,7 +48,7 @@ namespace MeghalayaUIP.Dept.CFO
 
                     lblAPPROVALPENDING.Text = dt.Rows[0]["APPROVALPENDING"].ToString();
                     lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
-                    //lblPREREJECTED.Text = dt.Rows[0]["PREREJECTED"].ToString(); 
+                    lblPREREJECTED.Text = "0"; 
                 }
             }
             catch (Exception ex)
