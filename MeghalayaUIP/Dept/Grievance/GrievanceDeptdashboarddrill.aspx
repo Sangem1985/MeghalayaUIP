@@ -14,10 +14,13 @@
         </ol>
     <div class="page-wrapper cfeappldeptdrill">
         <div class="content container-fluid">
-            <div class="col-md-12 row mb-3">
-
-                <div class="col-md-6">&nbsp;</div>
-                <div class="col-md-12 d-flex">
+            <div class="card-header d-flex  justify-content-between">
+                <h4 class="card-title mt-1" style="font-size:18px !important;"><b>Grievance Status</b></h4>
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+            </div>
+             <div class="col-md-12 d-flex">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                     </div>
@@ -28,12 +31,13 @@
                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                     </div>
                 </div>
+            <div class="col-md-12 row mb-3" >
+                            
                 <asp:HiddenField ID="hdnUserID" runat="server" />
-                <div class="col-md-3">Grievance Applications Status</div>
-
-                <div class="col-md-3 d-flex">
+                <div class="col-md-2">Select Status to View</div>
+                <div class="col-md-2 d-flex">
                     <spna class="dots">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spna>
-                    <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="true" class="form-control">
+                    <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                         <asp:ListItem Text="Total" Value="Total"></asp:ListItem>
                         <asp:ListItem Text="Pending" Value="Pending"></asp:ListItem>
@@ -41,6 +45,7 @@
                         <asp:ListItem Text="Rejected" Value="Rejected"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
+                <div class="col-md-6">&nbsp;</div>   
             </div>
             <%--<div class="card" >
                 <div class="card-header">

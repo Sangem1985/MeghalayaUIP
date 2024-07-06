@@ -63,6 +63,18 @@ namespace MeghalayaUIP.Dept.Grievance
                 {
                     gvGrievanceDtls.DataSource = ds.Tables[0];
                     gvGrievanceDtls.DataBind();
+                    for(int i=0; i<= gvGrievanceDtls.Rows.Count; i++)
+                    {
+                        Button BtnProcess = (Button)gvGrievanceDtls.Rows[i].FindControl("BtnProcess");
+                        if (gvGrievanceDtls.Rows[i].Cells[11].Text == "Pending")
+                        {
+                            BtnProcess.Enabled = true;
+                        }
+                        else
+                            BtnProcess.Enabled = false; ;
+                    }
+                    //gvGrievanceDtls.Columns[11].
+
                 }
                 else
                 {
@@ -91,6 +103,17 @@ namespace MeghalayaUIP.Dept.Grievance
                 Response.Redirect(newurl);
             }
 
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Grievance/GrievanceDeptdashboarddrill.aspx");
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

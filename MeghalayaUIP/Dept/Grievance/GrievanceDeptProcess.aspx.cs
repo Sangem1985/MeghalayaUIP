@@ -218,5 +218,16 @@ namespace MeghalayaUIP.Dept.Grievance
 
             return result;
         }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Grievance/GrievanceDeptView.aspx");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

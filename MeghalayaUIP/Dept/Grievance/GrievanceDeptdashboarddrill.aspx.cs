@@ -18,7 +18,6 @@ namespace MeghalayaUIP.Dept.Grievance
         {
             try
             {
-
                 if (Session["DeptUserInfo"] != null)
                 {
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
@@ -68,31 +67,8 @@ namespace MeghalayaUIP.Dept.Grievance
                 {
                     if (Request.QueryString.Count > 0)
                     {
-                        if (Convert.ToString(Request.QueryString[0]) == "Total")
-                        {
-                            divPending.Visible = true;
-                            divRedressed.Visible = true;
-                            divRejected.Visible = true;
-                        }
-                        else if (Convert.ToString(Request.QueryString[0]) == "Pending")
-                        {
-                            divPending.Visible = true;
-                            divRedressed.Visible = false;
-                            divRejected.Visible = false;
-                        }
-                        else if (Convert.ToString(Request.QueryString[0]) == "Redressed")
-                        {
-                            divPending.Visible = false;
-                            divRedressed.Visible = true;
-                            divRejected.Visible = false;
-                        }
-                        else if (Convert.ToString(Request.QueryString[0]) == "Rejected")
-                        {
-                            divPending.Visible = false;
-                            divRedressed.Visible = false;
-                            divRejected.Visible = true;
-                        }
-
+                        ddlStatus.SelectedValue= Request.QueryString[0].ToString();
+                        ddlStatus_SelectedIndexChanged(null, EventArgs.Empty);
                     }
                     else
                     {
@@ -124,6 +100,47 @@ namespace MeghalayaUIP.Dept.Grievance
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
+
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Grievance/GrievanceDeptDashbord.aspx");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlStatus.SelectedValue == "Total" || ddlStatus.SelectedValue == "0")
+            {
+                divPending.Visible = true;
+                divRedressed.Visible = true;
+                divRejected.Visible = true;
+            }
+            else if (ddlStatus.SelectedValue == "Pending")
+            {
+                divPending.Visible = true;
+                divRedressed.Visible = false;
+                divRejected.Visible = false;
+            }
+            else if (ddlStatus.SelectedValue == "Redressed")
+            {
+                divPending.Visible = false;
+                divRedressed.Visible = true;
+                divRejected.Visible = false;
+            }
+            else if (ddlStatus.SelectedValue == "Rejected")
+            {
+                divPending.Visible = false;
+                divRedressed.Visible = false;
+                divRejected.Visible = true;
+            }
+
 
         }
     }

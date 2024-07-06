@@ -10,7 +10,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="#">Industry Registrations</a></li>
+            <li class="breadcrumb-item"><a href="../PreReg/PreRegApplIMAView.aspx">Industry Registrations</a></li>
             <li class="breadcrumb-item active" aria-current="page">Application Details</li>
         </ol>
     </nav>

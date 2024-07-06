@@ -12,6 +12,12 @@
         </ol>
     <div class="page-wrapper" style="">
         <div class="content container-fluid">
+            <div class="card-header d-flex  justify-content-between">
+                <h4 class="card-title mt-1" style="font-size:18px !important;"><b>View Grievance Applications</b></h4>
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div class="col-md-12 d-flex">
@@ -26,7 +32,7 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <h4>View Grievance Applications</h4>
+                    <h4></h4>
                     <asp:GridView ID="gvGrievanceDtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True">

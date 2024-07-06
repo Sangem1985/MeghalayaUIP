@@ -48,7 +48,43 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
                 DataTable dt = new DataTable();
-                prd.ViewStatus = Request.QueryString["status"].ToString();
+                lblHdng.Text = "";
+                if (Request.QueryString.Count > 0)
+                {
+                    prd.ViewStatus = Request.QueryString["status"].ToString();
+
+                    if (Request.QueryString["status"].ToString() == "IMATOTAL")
+                    { lblHdng.Text = "Industry Registration Total Applications"; }
+                    else if (Request.QueryString["status"].ToString() == "IMATOBEPROCESSED")
+                    { lblHdng.Text = "Industry Registration Applications - to be Processed"; }
+                    else if (Request.QueryString["status"].ToString() == "IMAPPROVED")
+                    { lblHdng.Text = "Industry Registration Applications - Forwarded to Committee"; }
+                    else if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY")
+                    { lblHdng.Text = "Industry Registration Applications - Query Raised to Departments"; }
+                    else if (Request.QueryString["status"].ToString() == "DEPTREPLIEDTOIMA")
+                    { lblHdng.Text = "Industry Registration Applications - Queries Redressed by Departments"; }
+                    else if (Request.QueryString["status"].ToString() == "IMAQUERYTOAPPLCNT")
+                    { lblHdng.Text = "Industry Registration Applications - Query Raised to Investor"; }
+                    else if (Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA")
+                    { lblHdng.Text = "Industry Registration Applications - Queries Redressed by Investor"; }
+                    else if (Request.QueryString["status"].ToString() == "COMMQUERYTOIMA")
+                    { lblHdng.Text = "Industry Registration Applications Query Raised by Committee"; }
+                    else if (Request.QueryString["status"].ToString() == "IMAREPLIEDTOCOMM")
+                    { lblHdng.Text = "Industry Registration Applications - Committee Queries Redressed by IMA"; }
+                    else if (Request.QueryString["status"].ToString() == "IMAFWDCOMMQRYTOAPPLCNT")
+                    { lblHdng.Text = "Industry Registration Applications - Committe Query Forwarded to Investor"; }
+                    else if (Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY")
+                    { lblHdng.Text = "Industry Registration Applications - Committe Query Redressed by Investor"; }
+                    else if (Request.QueryString["status"].ToString() == "IMAFWDCOMMQRYTODEPT")
+                    { lblHdng.Text = "Industry Registration Applications - Committe Query Forwarded to Departments"; }
+                    else if (Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
+                    { lblHdng.Text = "Industry Registration Applications - Committe Query Redressed by Departments"; }
+                }
+                else
+                {
+                    prd.ViewStatus = "IMATOTAL";
+                    lblHdng.Text = "Industry Registration Total Applications";
+                }
                 if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
                 {
                     prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);

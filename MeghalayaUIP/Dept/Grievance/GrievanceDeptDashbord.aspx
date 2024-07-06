@@ -12,7 +12,12 @@
     </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
-
+             <div class="card-header d-flex justify-content-between">
+                <h4 class="card-title mt-1"><b>Grievance Applications</b></h4>
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+            </div>
             <div class="card grievance">
                 <div class="col-md-12 d-flex">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
@@ -27,7 +32,7 @@
                 </div>
                 <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="card-header">
-                    <h3>Department Dashbord</h3>
+                    <h3>Status Dashbord</h3>
                 </div>
                 <section id="dashboardcount2">
                     <div class="container-fluid">
