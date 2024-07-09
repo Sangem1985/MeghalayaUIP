@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -131,7 +131,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 {
                     PublicWorKDepartment ObjCFOWorkDepartment = new PublicWorKDepartment();
@@ -175,39 +175,68 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 int slno = 1;
-                string errormsg = "";
+
                 if (string.IsNullOrEmpty(txtNameBank.Text) || txtNameBank.Text == "" || txtNameBank.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Address\\n";
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Address\\n";
                     slno = slno + 1;
                 }
-                if (rblPurApplication.SelectedIndex == -1 || rblPurApplication.SelectedItem.Text == "--Select--")
+                if (rblPurApplication.SelectedIndex == -1)
                 {
-                    errormsg = errormsg + slno + ". Please Select Purpose of Application \\n";
+                    ErrorMsg = ErrorMsg + slno + ". Please Select Purpose of Application \\n";
                     slno = slno + 1;
                 }
-                if (rblRegister.SelectedIndex == -1 || rblRegister.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Contract Registring \\n";
-                    slno = slno + 1;
-                }
+                //if (rblRegister.SelectedValue == "1")
+                //{
+                //    applicant.Visible = true;
+                //    director.Visible = true;
+                //    if (ddlDirector.SelectedIndex == 0)
+                //    {
+                //        errormsg = errormsg + slno + ". Please Enter Directorate\\n";
+                //        slno = slno + 1;
+                //    }
+                //    else { director.Visible = false; }
+                //}
+                //else if (rblRegister.SelectedValue == "2")
+                //{
+                //    applicant.Visible = true;
+                //    circle.Visible = true;
+                //    if (ddlCircle.SelectedIndex == 0)
+                //    {
+                //        errormsg = errormsg + slno + ". Please Enter Circle\\n";
+                //        slno = slno + 1;
+                //    }
+                //    else { circle.Visible = false; }
+                //}
+                //else if (rblRegister.SelectedValue == "3")
+                //{
+                //    applicant.Visible = true;
+                //    division.Visible = true;
+                //    if (ddlDivision.SelectedIndex == 0)
+                //    {
+                //        errormsg = errormsg + slno + ". Please Enter Division\\n";
+                //        slno = slno + 1;
+                //    }
+                //    else { division.Visible = false; }
+                //}
+
                 if (string.IsNullOrEmpty(txtTurnOver.Text) || txtTurnOver.Text == "" || txtTurnOver.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Turn Over (in Rs. Lakhs)\\n";
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Turn Over (in Rs. Lakhs)\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtFinancial.Text) || txtFinancial.Text == "" || txtFinancial.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Total Value of Works in last 3 financial years (in Rs. Lakhs)\\n";
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Total Value of Works in last 3 financial years (in Rs. Lakhs)\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtContractor.Text) || txtContractor.Text == "" || txtContractor.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Date from which working as contractor\\n";
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Date from which working as contractor\\n";
                     slno = slno + 1;
                 }
 
-                return errormsg;
+                return ErrorMsg;
             }
             catch (Exception ex)
             {
@@ -234,12 +263,34 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?next=N");
+            try
+            {
+                btnsave_Click(sender, e);
+
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+           // Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+           // Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
         }
     }
 }

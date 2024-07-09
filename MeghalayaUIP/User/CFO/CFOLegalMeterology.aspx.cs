@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -282,7 +282,7 @@ namespace MeghalayaUIP.User.CFO
             //string UnitId = "1001";
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -391,16 +391,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Instrument type \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Date\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtRegNumber.Text) || txtRegNumber.Text == "" || txtRegNumber.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Current Reg Number\\n";
-                    slno = slno + 1;
-                }
+
                 if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name\\n";
@@ -471,55 +462,43 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Facilities of steel casting\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtinstrment.Text) || txtinstrment.Text == "" || txtinstrment.Text == null)
+                if (rblfactory.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Instrument type\\n";
-                    slno = slno + 1;
+                    Registration.Visible = true;
+                    if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Date\\n";
+                        slno = slno + 1;
+                    }
+                    else { Registration.Visible = false; }
+                    Registration.Visible = true;
+                    if (string.IsNullOrEmpty(txtRegNumber.Text) || txtRegNumber.Text == "" || txtRegNumber.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Current Reg Number\\n";
+                        slno = slno + 1;
+                    }
+                    else { Registration.Visible = false; }
+
                 }
-                if (string.IsNullOrEmpty(txtClass.Text) || txtClass.Text == "" || txtClass.Text == null)
+                if (rblMunicipal.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Class\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Capacity\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtMake.Text) || txtMake.Text == "" || txtMake.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Make\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtModel.Text) || txtModel.Text == "" || txtModel.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Model\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtSerial.Text) || txtSerial.Text == "" || txtSerial.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Serial No\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtProduct.Text) || txtProduct.Text == "" || txtProduct.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Product\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtQuantity.Text) || txtQuantity.Text == "" || txtQuantity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Quantity\\n";
-                    slno = slno + 1;
-                }
-                if (rblfactory.SelectedIndex == -1 || rblfactory.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select any current registration number of factory/ shop/ establishment \\n";
-                    slno = slno + 1;
-                }
-                if (rblMunicipal.SelectedIndex == -1 || rblMunicipal.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select current registration number of Municipal Trade licence/ADC? \\n";
-                    slno = slno + 1;
+                    ADCLicense.Visible = true;
+                    if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Date of registration \\n";
+                        slno = slno + 1;
+                    }
+                    else { ADCLicense.Visible = false; }
+
+                    DateReg.Visible = true;
+
+                    if (string.IsNullOrEmpty(txtcurrentReg.Text) || txtcurrentReg.Text == "" || txtcurrentReg.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Current Registration Number  \\n";
+                        slno = slno + 1;
+                    }
+                    else { DateReg.Visible = false; }
+
                 }
                 if (rblFirm.SelectedIndex == -1 || rblFirm.SelectedItem.Text == "--Select--")
                 {
@@ -531,44 +510,99 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Select Is it a limited company? \\n";
                     slno = slno + 1;
                 }
-                if (rblState.SelectedIndex == -1 || rblState.SelectedItem.Text == "--Select--")
+                if (rblState.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select from places outside the State/Country? \\n";
-                    slno = slno + 1;
+                    State.Visible = true;
+
+                    if (string.IsNullOrEmpty(txtLICNumber.Text) || txtLICNumber.Text == "" || txtLICNumber.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Licence number  \\n";
+                        slno = slno + 1;
+                    }
+                    else { State.Visible = false; }
+
+                    Country.Visible = true;
+
+                    if (string.IsNullOrEmpty(txtRegWeight.Text) || txtRegWeight.Text == "" || txtRegWeight.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Registration of Importer of Weights and Measures  \\n";
+                        slno = slno + 1;
+                    }
+                    else { Country.Visible = false; }
                 }
-                if (rblstateside.SelectedIndex == -1 || rblstateside.SelectedItem.Text == "--Select--")
+                if (rblstateside.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select manufactured will be sold within the State or out side the state or both \\n";
                     slno = slno + 1;
                 }
-                if (rblDealer.SelectedIndex == -1 || rblDealer.SelectedItem.Text == "--Select--")
+                if (rblDealer.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select applied previously for a dealer's licence,either in this State or elsewhere   \\n";
-                    slno = slno + 1;
+                    DealerLic.Visible = true;
+
+                    if (string.IsNullOrEmpty(txtGiveDetails.Text) || txtGiveDetails.Text == "" || txtGiveDetails.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Give details  \\n";
+                        slno = slno + 1;
+                    }
+                    else { DealerLic.Visible = false; }
                 }
                 if (rblelectric.SelectedIndex == -1 || rblelectric.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Availability of electric energy   \\n";
                     slno = slno + 1;
                 }
-                if (rblLicdealer.SelectedIndex == -1 || rblLicdealer.SelectedItem.Text == "--Select--")
+                if (rblLicdealer.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select applied previously for a manufacturer's licence?   \\n";
-                    slno = slno + 1;
+                    applieddealer.Visible = true;
+                    if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Give Details\\n";
+                        slno = slno + 1;
+                    }
+                    else { applieddealer.Visible = false; }
+
                 }
-                if (rblInstitute.SelectedIndex == -1 || rblInstitute.SelectedItem.Text == "--Select--")
+                if (rblInstitute.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select received any loan from Government or financial Institution?   \\n";
-                    slno = slno + 1;
+                    NameBanker.Visible = true;
+                    if (string.IsNullOrEmpty(txtBanker.Text) || txtBanker.Text == "" || txtBanker.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Bankers Details\\n";
+                        slno = slno + 1;
+                    }
+                    else { NameBanker.Visible = false; }
+
+                    DetailsGet.Visible = true;
+                    if (string.IsNullOrEmpty(txtGetDetails.Text) || txtGetDetails.Text == "" || txtGetDetails.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Give Details\\n";
+                        slno = slno + 1;
+                    }
+                    else { DetailsGet.Visible = false; }
                 }
-                if (rblLoan.SelectedIndex == -1 || rblLoan.SelectedItem.Text == "--Select--")
+                if (rblLoan.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select sufficient stock of loan/test weights. etc.?  \\n";
-                    slno = slno + 1;
+                    weightloan.Visible = true;
+                    if (string.IsNullOrEmpty(txtDetailsGET.Text) || txtDetailsGET.Text == "" || txtDetailsGET.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Give Details\\n";
+                        slno = slno + 1;
+                    }
+                    else { weightloan.Visible = false; }
                 }
-                if (rblRepaire.SelectedIndex == -1 || rblRepaire.SelectedItem.Text == "--Select--")
+                if (rblRepaire.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select applied previously for a repairer's licence? \\n";
+                    License.Visible = true;
+                    if (string.IsNullOrEmpty(txtResults.Text) || txtResults.Text == "" || txtResults.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter with what results?\\n";
+                        slno = slno + 1;
+                    }
+                    else { License.Visible = false; }
+                }
+                if (GVLegalDept.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Instrument Details \\n";
                     slno = slno + 1;
                 }
                 return errormsg;
@@ -636,12 +670,33 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+
+         //   Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+           // Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Previous=P");
         }
     }
 }

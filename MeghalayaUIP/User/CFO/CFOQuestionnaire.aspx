@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+       <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         .page-wrapper.tabs {
     a#ContentPlaceHolder1_Link1 {
@@ -88,7 +89,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         1. Name of Unit</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -176,7 +177,7 @@
 																		Extent of Land<br />
                                                                         (in sq.m)</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox ID="txtLandArea" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtLandArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -186,7 +187,7 @@
                                                                         5. Built up
 																		Area (In Sq.m)</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -248,7 +249,7 @@
                                                                         10. Location
 																		of the unit</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
                                                                     </div>
                                                                 </div>
 
@@ -290,7 +291,7 @@
                                                                         1. Proposed
 																		Employment</label>
                                                                     <div class="col-lg-4">
-                                                                        <asp:TextBox ID="txtPropEmp" runat="server" class="form-control"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>

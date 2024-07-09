@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -29,7 +29,6 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                UnitID = Convert.ToString(Session["CFOUNITID"]);
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
                 { UnitID = Convert.ToString(Session["CFOUNITID"]); }
                 else
@@ -193,12 +192,12 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            String Quesstionriids = "1001";
-            string UnitId = "1001";
+            //String Quesstionriids = "1001";
+            //string UnitId = "1001";
 
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 {
                     CFOPROFESSIONALTAX ObjCFOPROFESSIONALTAX = new CFOPROFESSIONALTAX();
@@ -206,7 +205,7 @@ namespace MeghalayaUIP.User.CFO
                     int count = 0, count1 = 0, count2 = 0;
                     for (int i = 0; i < GVState.Rows.Count; i++)
                     {
-                        ObjCFOPROFESSIONALTAX.Questionnariid = Quesstionriids;
+                        ObjCFOPROFESSIONALTAX.Questionnariid = Convert.ToString(Session["CFOQID"]); //Quesstionriids;;
                         ObjCFOPROFESSIONALTAX.CreatedBy = hdnUserID.Value;
                         ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOPROFESSIONALTAX.IPAddress = getclientIP();
@@ -232,7 +231,7 @@ namespace MeghalayaUIP.User.CFO
 
                     for (int i = 0; i < GVCOUNTRY.Rows.Count; i++)
                     {
-                        ObjCFOPROFESSIONALTAX.Questionnariid = Quesstionriids;
+                        ObjCFOPROFESSIONALTAX.Questionnariid = Convert.ToString(Session["CFOQID"]); ;
                         ObjCFOPROFESSIONALTAX.CreatedBy = hdnUserID.Value;
                         ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOPROFESSIONALTAX.IPAddress = getclientIP();
@@ -258,7 +257,7 @@ namespace MeghalayaUIP.User.CFO
 
                     for (int i = 0; i < GVFOREIGN.Rows.Count; i++)
                     {
-                        ObjCFOPROFESSIONALTAX.Questionnariid = Quesstionriids;
+                        ObjCFOPROFESSIONALTAX.Questionnariid = Convert.ToString(Session["CFOQID"]); 
                         ObjCFOPROFESSIONALTAX.CreatedBy = hdnUserID.Value;
                         ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOPROFESSIONALTAX.IPAddress = getclientIP();
@@ -280,16 +279,12 @@ namespace MeghalayaUIP.User.CFO
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
-
-
-
-
-
-                    { ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["UnitID"]); }
+                   
+                    ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["CFOUNITID"]); 
                     ObjCFOPROFESSIONALTAX.CreatedBy = hdnUserID.Value;
                     ObjCFOPROFESSIONALTAX.IPAddress = getclientIP();
-                    ObjCFOPROFESSIONALTAX.Questionnariid = Quesstionriids;
-                    ObjCFOPROFESSIONALTAX.UnitId = UnitId;
+                    ObjCFOPROFESSIONALTAX.Questionnariid = Convert.ToString(Session["CFOQID"]);
+                  //  ObjCFOPROFESSIONALTAX.UnitId = UnitId;
 
                     ObjCFOPROFESSIONALTAX.NameEst = txtEstDet.Text;
                     ObjCFOPROFESSIONALTAX.AddressEst = txtaddress.Text;
@@ -354,7 +349,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Address\\n";
                     slno = slno + 1;
                 }
-                if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                if (ddlDistric.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Distric \\n";
                     slno = slno + 1;
@@ -384,30 +379,52 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Gross Annual Income\\n";
                     slno = slno + 1;
                 }
-                if (rblBusiness.SelectedIndex == -1 || rblBusiness.SelectedItem.Text == "--Select--")
+                if (rblBusiness.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select Place of Business in Meghalaya \\n";
-                    slno = slno + 1;
+
+                    if (GVState.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Additional Place of Business Details \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (rblbusinessindia.SelectedIndex == -1 || rblbusinessindia.SelectedItem.Text == "--Select--")
+                if (rblbusinessindia.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select Place of Business in India \\n";
-                    slno = slno + 1;
+                    if (GVCOUNTRY.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Additional Place of Business Details \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (rblForeign.SelectedIndex == -1 || rblForeign.SelectedItem.Text == "--Select--")
+                if (rblForeign.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select Foreign Country \\n";
-                    slno = slno + 1;
+                    if (GVFOREIGN.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Other Details \\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (string.IsNullOrEmpty(txtBranch.Text) || txtBranch.Text == "" || txtBranch.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Branch Cretificate\\n";
                     slno = slno + 1;
                 }
-                if (rblother.SelectedIndex == -1 || rblother.SelectedItem.Text == "--Select--")
+                if (rblother.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select registration under any other act \\n";
-                    slno = slno + 1;
+                    //RegistrationType.Visible = true;
+                    //if (ddlRegType.SelectedIndex == 0)
+                    //{
+                    //    errormsg = errormsg + slno + ". Please Enter Registration Type\\n";
+                    //    slno = slno + 1;
+                    //}
+
+                    RegNo.Visible = true;
+                    if (string.IsNullOrEmpty(TXTRegNo.Text) || TXTRegNo.Text == "" || TXTRegNo.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Regisration No\\n";
+                        slno = slno + 1;
+                    }
+
                 }
 
                 return errormsg;
@@ -584,12 +601,32 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+           // Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
+            try
+            {
+                Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+          //  Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
         }
         protected void BindDistric()
         {

@@ -747,7 +747,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOPT_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPT_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
                 com.Parameters.AddWithValue("@CFOPT_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPT_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+                com.Parameters.AddWithValue("@CFOPT_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPT_ESTBLSHNAME", ObjCFOPROFESSIONALTAX.NameEst);
                 com.Parameters.AddWithValue("@CFOPT_ESTBLSHADDRESS", ObjCFOPROFESSIONALTAX.AddressEst);

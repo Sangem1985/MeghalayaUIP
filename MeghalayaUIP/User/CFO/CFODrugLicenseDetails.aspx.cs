@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -172,7 +172,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 {
                     CFOHealthyWelfare ObjCFOHealthyWelfare = new CFOHealthyWelfare();
@@ -292,16 +292,16 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Valida Permission\\n";
                     slno = slno + 1;
                 }
-                if (rblApplication.SelectedIndex == -1 || rblApplication.SelectedItem.Text == "--Select--")
+                if (rblApplication.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Applicant Type \\n";
                     slno = slno + 1;
                 }
-                if (rblLicense.SelectedIndex == -1 || rblLicense.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Canceled License \\n";
-                    slno = slno + 1;
-                }
+                //if (rblLicense.SelectedIndex == -1 || rblLicense.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Canceled License \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txttradeLic.Text) || txttradeLic.Text == "" || txttradeLic.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Trade License\\n";
@@ -317,46 +317,65 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Cold Storage\\n";
                     slno = slno + 1;
                 }
-                if (rblinsection.SelectedIndex == -1 || rblinsection.SelectedItem.Text == "--Select--")
+                if (rblinsection.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select premise and plan ready for inspection? \\n";
+                    InspectionDate.Visible = true;
+                    if (string.IsNullOrEmpty(txtInspection.Text) || txtInspection.Text == "" || txtInspection.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Date for Inspection\\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (GVHealthy.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Details of Technical Staff employed for Manufacturing \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                if (GVTESTING.Rows.Count <= 0)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Name\\n";
+                    errormsg = errormsg + slno + ". Please Enter Details Of Technical Staff Employed For Testing \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtQualification.Text) || txtQualification.Text == "" || txtQualification.Text == null)
+                if (GVDrug.Rows.Count <= 0)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Qualification\\n";
+                    errormsg = errormsg + slno + ". Please Enter Drug Details \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtExperience.Text) || txtExperience.Text == "" || txtExperience.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Experience Year\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtNameTest.Text) || txtNameTest.Text == "" || txtNameTest.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtQualifyTest.Text) || txtQualifyTest.Text == "" || txtQualifyTest.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Qualification\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtExperienceTest.Text) || txtExperienceTest.Text == "" || txtExperienceTest.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Experience Year\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtNameDrug.Text) || txtNameDrug.Text == "" || txtNameDrug.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Drug\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Name\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtQualification.Text) || txtQualification.Text == "" || txtQualification.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Qualification\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtExperience.Text) || txtExperience.Text == "" || txtExperience.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Experience Year\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtNameTest.Text) || txtNameTest.Text == "" || txtNameTest.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Name\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtQualifyTest.Text) || txtQualifyTest.Text == "" || txtQualifyTest.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Qualification\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtExperienceTest.Text) || txtExperienceTest.Text == "" || txtExperienceTest.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Experience Year\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtNameDrug.Text) || txtNameDrug.Text == "" || txtNameDrug.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Drug\\n";
+                //    slno = slno + 1;
+                //}
 
                 return errormsg;
             }
@@ -539,12 +558,32 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+           // Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+          //  Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
         }
 
         protected void GVHealthy_RowDeleting(object sender, GridViewDeleteEventArgs e)

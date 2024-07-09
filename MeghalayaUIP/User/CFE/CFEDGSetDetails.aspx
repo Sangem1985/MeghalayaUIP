@@ -104,7 +104,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">PinCode*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtPincode" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                <asp:TextBox ID="txtPincode" runat="server" class="form-control" MaxLength="6" onkeypress="return NumberOnly()"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Motor (AC)*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMotorLoad" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtMotorLoad" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Light and Fans *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtLghtsFansLoad" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtLghtsFansLoad" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Other (to be specified)*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtOtherLoad" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtOtherLoad" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -239,7 +239,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Supervisor License Number *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtSuprvisorLICno" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtSuprvisorLICno" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -257,7 +257,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Contractor License Number *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtContractorLICno" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtContractorLICno" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -316,7 +316,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Engine Make/Serial No.*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEngineDtls" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtEngineDtls" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -324,7 +324,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Alternator Make/Serial No *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtAlternatorDtls" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtAlternatorDtls" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -349,7 +349,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Size & materials of earthing conductor *   </label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtConductorDtls" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtConductorDtls" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -368,7 +368,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Type & size electrode and length/dia *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtElectrodeDtls" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtElectrodeDtls" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -406,7 +406,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Insulation Test of Alternator *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtAltrnatrInsTest" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtAltrnatrInsTest" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -418,7 +418,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Earth Tester No. *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEarthTesterNo" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtEarthTesterNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -427,7 +427,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Make (Earth Tester)*   </label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEarthTesterMake" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtEarthTesterMake" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -446,7 +446,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Megger No. *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMeggerNo" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtMeggerNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -454,7 +454,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Make (Megger) *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMeggerMake" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtMeggerMake" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -462,7 +462,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Range (Megger) *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtMeggerRange" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtMeggerRange" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

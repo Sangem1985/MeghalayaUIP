@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -325,7 +325,7 @@ namespace MeghalayaUIP.User.CFO
             //  String Questionnareid = "1001";
             try
             {
-                string ErrorMsg = "";
+               
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
@@ -446,6 +446,16 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Line Of Activity  \\n";
                     slno = slno + 1;
                 }
+                if (gvRwaMaterial.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Details Of Raw Materials Used in Process\\n";
+                    slno = slno + 1;
+                }
+                if (gvManufacture.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Details Of Manufacture Items\\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
             }
@@ -460,7 +470,8 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 btnSave_Click(sender, e);
-                Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Next=" + "N");
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

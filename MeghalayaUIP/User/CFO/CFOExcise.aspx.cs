@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFO
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL bal = new CFOBAL();
         UserInfo ObjUserInfo;
-        string UnitID;
+        string UnitID, Errormsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -200,126 +200,17 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            bool isValid = true;
-            string Errormsg = "";
-
-            if (string.IsNullOrEmpty(rblArtical5.SelectedValue))
+            Errormsg = Validations();
+            if (Errormsg == "")
             {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '1.Please select Are you citizen of India', allowOutsideClick:false})", true);
-                rblArtical5.Focus();
-                return;
-
+                SaveData();
             }
-
-            // Add similar checks for other RadioButtonLists
-            if (string.IsNullOrEmpty(rblapplicant.SelectedValue))
+            else
             {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '2.Please select Has the applicant', allowOutsideClick:false})", true);
-                rblapplicant.Focus();
-                return;
+                string message = "alert('" + Errormsg + "')";
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
             }
-            if (string.IsNullOrEmpty(rblMember.SelectedValue))
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '3.Please select Whether applicant’s direct family member', allowOutsideClick:false})", true);
-                rblMember.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(rblTax.SelectedValue))
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '4.Please select Are you/applicant an Income Tax Payer', allowOutsideClick:false})", true);
-                rblTax.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(rblsaletax.SelectedValue))
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '5.Please select Do you/Applicant pay Sales Tax', allowOutsideClick:false})", true);
-                rblsaletax.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(rblprofession.SelectedValue))
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '6.Please select Do you/Applicant pay Professional Tax', allowOutsideClick:false})", true);
-                rblprofession.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(rblgoverment.SelectedValue)) // Assuming this triggers more fields, handle accordingly
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '7.Please select applicant in any way related to a Government', allowOutsideClick:false})", true);
-                rblgoverment.Focus();
-                return;
-            }
-            else if (rblgoverment.SelectedValue == "Y")
-            {
-                if (string.IsNullOrEmpty(txttradeLic.Text))
-                {
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter related to Government Details', allowOutsideClick:false})", true);
-                    txttradeLic.Focus();
-                    return;
-                }
-            }
-            if (string.IsNullOrEmpty(rblviolation.SelectedValue))
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '8.Please select applicant been punished or penalized for Violation', allowOutsideClick:false})", true);
-                rblviolation.Focus();
-                return;
-            }
-            else if (rblviolation.SelectedValue == "Y")
-            {
-                if (string.IsNullOrEmpty(txtexciselaw.Text))
-                {
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Violation Details', allowOutsideClick:false})", true);
-                    txtexciselaw.Focus();
-                    return;
-                }
-            }
-            if (string.IsNullOrEmpty(rblConvicted.SelectedValue))
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '9.Please select applicant has ever been convicted by Court of Law', allowOutsideClick:false})", true);
-                rblConvicted.Focus();
-                return;
-            }
-            else if (rblConvicted.SelectedValue == "Y")
-            {
-                if (string.IsNullOrEmpty(txtDetails.Text))
-                {
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter convicted by Court of Law Details', allowOutsideClick:false})", true);
-                    txtDetails.Focus();
-                    return;
-                }
-            }
-
-
-
-
-            if (string.IsNullOrEmpty(rblBrand.SelectedValue))
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please select Renewal of BIO Brands', allowOutsideClick:false})", true);
-                rblBrand.Focus();
-                return;
-            }
-            if (rblBrand.SelectedValue == "Y")
-            {
-                if (string.IsNullOrWhiteSpace(txtFromDate.Text)) // Assuming this triggers more fields, handle accordingly
-                {
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Registration-From Date', allowOutsideClick:false})", true);
-                    txtFromDate.Focus();
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(txtTodate.Text)) // Assuming this triggers more fields, handle accordingly
-                {
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Registration-To Date', allowOutsideClick:false})", true);
-                    txtTodate.Focus();
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(txtAddress.Text)) // Assuming this triggers more fields, handle accordingly
-                {
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Name and address of the Firm', allowOutsideClick:false})", true);
-                    txtAddress.Focus();
-                    return;
-                }
-            }
-
-            SaveData();
+          
         }
 
         public void SaveData()
@@ -367,6 +258,162 @@ namespace MeghalayaUIP.User.CFO
             {
                 ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'oops..',text: 'Submission failed', allowOutsideClick:false})", true);
                 return;
+            }
+        }
+        public string Validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+
+                if (rblArtical5.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '1.Please select Are you citizen of India', allowOutsideClick:false})", true);
+                    //rblArtical5.Focus();
+
+                    errormsg = errormsg + slno + ". Please Enter 1.Please select Are you citizen of India\\n";
+                    slno = slno + 1;
+                }
+
+                // Add similar checks for other RadioButtonLists
+                if (rblapplicant.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '2.Please select Has the applicant', allowOutsideClick:false})", true);
+                    //rblapplicant.Focus();
+                    errormsg = errormsg + slno + ". Please Enter 2.Please select Has the applicant\\n";
+                    slno = slno + 1;
+                }
+                if (rblMember.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '3.Please select Whether applicant’s direct family member', allowOutsideClick:false})", true);
+                    //rblMember.Focus();
+                    errormsg = errormsg + slno + ". Please Enter 2.Please select Has the applicant\\n";
+                    slno = slno + 1;
+                }
+                if (rblTax.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '4.Please select Are you/applicant an Income Tax Payer', allowOutsideClick:false})", true);
+                    //rblTax.Focus();
+                    errormsg = errormsg + slno + ". Please Enter 4.Please select Are you/applicant an Income Tax Payer\\n";
+                    slno = slno + 1;
+                }
+                if (rblsaletax.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '5.Please select Do you/Applicant pay Sales Tax', allowOutsideClick:false})", true);
+                    //rblsaletax.Focus();
+                    errormsg = errormsg + slno + ". Please Enter 5.Please select Do you/Applicant pay Sales Tax\\n";
+                    slno = slno + 1;
+                }
+                if (rblprofession.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '6.Please select Do you/Applicant pay Professional Tax', allowOutsideClick:false})", true);
+                    //rblprofession.Focus();
+                    errormsg = errormsg + slno + ". Please Enter 6.Please select Do you/Applicant pay Professional Tax\\n";
+                    slno = slno + 1;
+                }
+                if (rblgoverment.SelectedIndex == -1) // Assuming this triggers more fields, handle accordingly
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '7.Please select applicant in any way related to a Government', allowOutsideClick:false})", true);
+                    //rblgoverment.Focus();
+                    errormsg = errormsg + slno + ". Please Enter 7.Please select applicant in any way related to a Government\\n";
+                    slno = slno + 1;
+                }
+                else if (rblgoverment.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txttradeLic.Text) || txttradeLic.Text == "" || txttradeLic.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter 7.Please select applicant in any way related to a Government\\n";
+                        slno = slno + 1;
+
+                    }
+                }
+                if (rblviolation.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '8.Please select applicant been punished or penalized for Violation', allowOutsideClick:false})", true);
+                    //rblviolation.Focus();
+
+                    errormsg = errormsg + slno + ". Please Enter 8.Please select applicant been punished or penalized for Violation\\n";
+                    slno = slno + 1;
+                }
+                else if (rblviolation.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txtexciselaw.Text) || txtexciselaw.Text == "" || txtexciselaw.Text == null)
+                    {
+                        //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Violation Details', allowOutsideClick:false})", true);
+                        //txtexciselaw.Focus();
+                        errormsg = errormsg + slno + ". Please Enter Please enter Violation Details\\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (rblConvicted.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: '9.Please select applicant has ever been convicted by Court of Law', allowOutsideClick:false})", true);
+                    //rblConvicted.Focus();
+                    errormsg = errormsg + slno + ". 9.Please select applicant has ever been convicted by Court of Law\\n";
+                    slno = slno + 1;
+                }
+                else if (rblConvicted.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
+                    {
+                        //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter convicted by Court of Law Details', allowOutsideClick:false})", true);
+                        //txtDetails.Focus();
+                        errormsg = errormsg + slno + ". Please enter convicted by Court of Law Details\\n";
+                        slno = slno + 1;
+                    }
+                }
+
+
+
+
+                if (rblBrand.SelectedIndex == -1)
+                {
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please select Renewal of BIO Brands', allowOutsideClick:false})", true);
+                    //rblBrand.Focus();
+                    errormsg = errormsg + slno + ". Please select Renewal of BIO Brands\\n";
+                    slno = slno + 1;
+                }
+                if (rblBrand.SelectedValue == "Y")
+                {
+                    if (string.IsNullOrWhiteSpace(txtFromDate.Text) || txtFromDate.Text == "" || txtFromDate.Text == null) // Assuming this triggers more fields, handle accordingly
+                    {
+                        //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Registration-From Date', allowOutsideClick:false})", true);
+                        //txtFromDate.Focus();
+                        errormsg = errormsg + slno + ". Please enter Registration-From Date\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrWhiteSpace(txtTodate.Text) || txtTodate.Text == "" || txtTodate.Text == null) // Assuming this triggers more fields, handle accordingly
+                    {
+                        //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Registration-To Date', allowOutsideClick:false})", true);
+                        //txtTodate.Focus();
+                        errormsg = errormsg + slno + ". Please enter Registration-To Date\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrWhiteSpace(txtAddress.Text) || txtAddress.Text == "" || txtAddress.Text == null) // Assuming this triggers more fields, handle accordingly
+                    {
+                        //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Name and address of the Firm', allowOutsideClick:false})", true);
+                        //txtAddress.Focus();
+                        errormsg = errormsg + slno + ". Please enter Name and address of the Firm\\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (gvBrandDetails.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter Brand Details \\n";
+                    slno = slno + 1;
+                }
+                if (GvLiquor.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter Brand Details \\n";
+                    slno = slno + 1;
+                }
+
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         public static string getclientIP()
@@ -597,12 +644,32 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+          //  Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+            try
+            {
+                btnsave_Click(sender, e);
+                if (Errormsg == "")
+                    Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+          //  Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
         }
     }
 }

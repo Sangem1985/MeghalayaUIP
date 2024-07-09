@@ -308,24 +308,15 @@ namespace MeghalayaUIP.User.CFE
                     slno = slno + 1;
                 }
                 if (rblcriminal1973.SelectedIndex == -1)
-                {                    
-                        errormsg = errormsg + slno + ". Please Select Additional Inforamation point 1 Yes or No \\n";
-                        slno = slno + 1;                    
-                }
-                else if (rblcriminal1973.SelectedValue == "Y")
-                {                 
+                {
+                    Details.Visible = true;
                     if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
                     {
-                        errormsg = errormsg + slno + ". Please Enter Additional Inforamation point 1 Details \\n";
+                        errormsg = errormsg + slno + ". Please Enter Details \\n";
                         slno = slno + 1;
                     }
                 }
                 if (rblLIC1884.SelectedIndex == -1)
-                {                    
-                        errormsg = errormsg + slno + ". Please Select Additional Inforamation point 2 Yes or No  \\n";
-                        slno = slno + 1;                   
-                }
-                else if (rblLIC1884.SelectedValue == "Y")
                 {
                     if (string.IsNullOrEmpty(txtDet.Text) || txtDet.Text == "" || txtDet.Text == null)
                     {
@@ -334,15 +325,10 @@ namespace MeghalayaUIP.User.CFE
                     }
                 }
                 if (rblApproval101.SelectedIndex == -1)
-                {                    
-                        errormsg = errormsg + slno + ". Please Select Additional Inforamation point 3 Yes or No \\n";
-                        slno = slno + 1;                    
-                }
-                else if (rblApproval101.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtDetail.Text) || txtDetail.Text == "" || txtDetail.Text == null)
+                    if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
                     {
-                        errormsg = errormsg + slno + ". Please Enter Additional Inforamation point 3 Details \\n";
+                        errormsg = errormsg + slno + ". Please Enter Details \\n";
                         slno = slno + 1;
                     }
                 }

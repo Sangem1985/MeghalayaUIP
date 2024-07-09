@@ -429,6 +429,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 else if (ddlStatus.SelectedValue == "11") //reject
                 {
                     tblaction.Visible = true;
+                    txtRequest.Visible = true;
                     txtQuery.Visible = false;
                     trcommvalues.Visible = false;
                     lblaction.Text = "Enter Rejection Remarks ";

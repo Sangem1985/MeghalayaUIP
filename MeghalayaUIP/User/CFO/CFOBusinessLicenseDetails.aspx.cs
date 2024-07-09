@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -201,44 +201,55 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Date\\n";
                     slno = slno + 1;
                 }
-                if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                if (rblBusiness.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
-                    slno = slno + 1;
+                    stall.Visible = true;
+                    if (string.IsNullOrEmpty(txtHolding.Text) || txtHolding.Text == "" || txtHolding.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Holding Number\\n";
+                        slno = slno + 1;
+                    }
+
+                    if (ddlDistric.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Market Name \\n";
+                        slno = slno + 1;
+                    }
+
                 }
-                if (rblBusiness.SelectedIndex == -1 || rblBusiness.SelectedItem.Text == "--Select--")
+                else
                 {
-                    errormsg = errormsg + slno + ". Please Select Place Location Stall \\n";
-                    slno = slno + 1;
+                    Districmaster.Visible = true;
+                    if (ddlESTDistric.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select District of Establishment\\n";
+                        slno = slno + 1;
+                    }
+
+                    if (string.IsNullOrEmpty(txtstall.Text) || txtstall.Text == "" || txtstall.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Stall Number\\n";
+                        slno = slno + 1;
+                    }
+
                 }
-                if (rblmunicipality.SelectedIndex == -1 || rblmunicipality.SelectedItem.Text == "--Select--")
+                if (rblmunicipality.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select Place Municipality Applicant \\n";
-                    slno = slno + 1;
-                }
-                if (ddlAnnual.SelectedIndex == -1 || ddlAnnual.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Annual Gross \\n";
-                    slno = slno + 1;
-                }
-                if (ddlNature.SelectedIndex == -1 || ddlNature.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Main Category \\n";
-                    slno = slno + 1;
-                }
-                if (ddlBusiness.SelectedIndex == -1 || ddlBusiness.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select SUB Category \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtFees.Text) || txtFees.Text == "" || txtFees.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Fees\\n";
-                    slno = slno + 1;
+                    Municipality.Visible = true;
+                    if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Details\\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Total Amount\\n";
+                    slno = slno + 1;
+                }
+                if (GVPollution.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Nature of Business \\n";
                     slno = slno + 1;
                 }
 
@@ -255,7 +266,7 @@ namespace MeghalayaUIP.User.CFO
 
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 {
                     PollutionControlBoard ObjCFOPollutionControl = new PollutionControlBoard();
@@ -343,7 +354,18 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOExcise.aspx?next=N");
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOExcise.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+           
         }
         protected void BindDistricEST()
         {

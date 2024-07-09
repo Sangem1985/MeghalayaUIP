@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -116,7 +116,7 @@ namespace MeghalayaUIP.User.CFO
 
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 {
                     HOMEDEPARTMENT ObjCFOFireDepartment = new HOMEDEPARTMENT();
@@ -460,12 +460,32 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+           // Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+          //  Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
         }
         protected void BindBuildingType()
         {

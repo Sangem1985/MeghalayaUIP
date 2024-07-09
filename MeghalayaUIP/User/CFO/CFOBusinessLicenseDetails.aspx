@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+      <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
      <nav aria-label="breadcrumb">
 										<ol class="breadcrumb mb-0">
 											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -74,7 +75,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Holding Number *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtHolding" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtHolding" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -104,7 +105,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Stall number *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtstall" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtstall" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -125,7 +126,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Details (if Yes)*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtDetails" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +172,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Fees *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtFees" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtFees" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +212,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Total Amount *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

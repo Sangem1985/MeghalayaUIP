@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -42,7 +43,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of Establishment *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEstDet" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtEstDet" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +51,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Address of Establishment *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtaddress" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtaddress" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +72,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Pin Code of Establishment *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtPincode" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtPincode" runat="server" class="form-control" onkeypress="return validatePincode(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +80,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Total number of Employees working in Establishment</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEmployeeESt" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtEmployeeESt" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +88,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Description of Goods and Services supplied by the Establishment *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtGoodssupplie" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                <asp:TextBox ID="txtGoodssupplie" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +107,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Gross Annual income in the last financial year *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtIncome" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtIncome" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +133,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Place of Business*</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txtplacebusiness" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtplacebusiness" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -140,7 +141,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Address*</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txtadd" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtadd" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +161,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Total working employees *</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txtEMP" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEMP" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,7 +212,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Place of Business*</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txtBusinessplace" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtBusinessplace" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -219,7 +220,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Address*</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txtAddeddet" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtAddeddet" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -239,7 +240,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Total working employees *</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txtwork" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtwork" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -292,7 +293,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Principal Place of Work *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtPrinciple" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtPrinciple" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -300,7 +301,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Address*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtAdded" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtAdded" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -308,7 +309,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Employer Name *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEmployee" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtEmployee" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -318,7 +319,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Monthly Salary/Wages *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtsalary" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtsalary" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -379,7 +380,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">No. of Branch Certificate of enrolment required  *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtBranch" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtBranch" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -413,7 +414,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Regisration No*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TXTRegNo" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="TXTRegNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

@@ -3,12 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
 
-            <li class="breadcrumb-item active" aria-current="page">Public Work Department Details</li>
+            <li class="breadcrumb-item active" aria-current="page">ContractorsRegistration Details</li>
         </ol>
     </nav>
     <div class="page-wrapper">
@@ -17,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Public Work Department</h4>
+                            <h4 class="card-title">ContractorsRegistration</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 d-flex">
@@ -143,7 +144,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of Bank   :*</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtNameBank" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtNameBank" runat="server" class="form-control" onkeypress="return Names(this)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +152,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Turn Over (in Rs. Lakhs): *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtTurnOver" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +162,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Total Value of Works in last 3 financial years (in Rs. Lakhs): *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtFinancial" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtFinancial" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

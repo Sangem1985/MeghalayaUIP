@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+       <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -60,7 +61,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Metric Tons) *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtMetricTons" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtMetricTons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +69,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Metric Tons) *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtstoredtons" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtstoredtons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +80,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Kilo Litre) *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtwasteannum" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtwasteannum" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +88,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Kilo Litre)  *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtnature" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtnature" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +99,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Year of commissioning and commence of production *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtYearpro" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtYearpro" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

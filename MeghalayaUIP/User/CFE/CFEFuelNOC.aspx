@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -45,7 +45,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">No Objection Certificate (NOC) required for (mention the purpose clearly) *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtNOCreq" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                <asp:TextBox ID="txtNOCreq" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Name of Establishment   *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtNameEst" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtNameEst" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Land Holding Certificate No *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtLandHoldingNo" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtLandHoldingNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Please enter Lease Deed Registration No *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtRegNo" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtRegNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -146,7 +146,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Area of Land as per Land Holding Certificate No *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtHoldingNo" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtHoldingNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">(i) North *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtNorth" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtNorth" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -170,7 +170,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">(ii) East *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEast" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">(iii) South *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtsouth" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtsouth" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">(iv) West *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtwest" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtwest" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">(i) Frontage*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtFrontage" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtFrontage" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">(ii) Depth *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtDepth" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtDepth" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

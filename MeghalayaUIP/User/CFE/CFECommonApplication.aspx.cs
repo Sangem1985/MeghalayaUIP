@@ -11,6 +11,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -23,7 +24,7 @@ namespace MeghalayaUIP.User.CFE
         decimal TotalFee, TotalFeeAmount;
         decimal amounts1;
         decimal amounts22 = 0;
-        string UnitID, result;
+        string UnitID, result, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -92,7 +93,8 @@ namespace MeghalayaUIP.User.CFE
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        divOffline.Visible = true; btnNext.Visible = true; btnNext2.Visible = true;
+                        divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false;
+                        btnNext2.Visible = true;
                         for (int i = 0; i < dsApprovals.Tables[1].Rows.Count; i++)
                         {
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC
@@ -361,6 +363,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         e.Row.Cells[6].Text = e.Row.Cells[3].Text;
                     }
+                    
 
                     if (e.Row.Cells[6].Text != "" && amounts != 0)
                     {
@@ -525,11 +528,12 @@ namespace MeghalayaUIP.User.CFE
                     string A = objcfebal.InsertCFEDepartmentApprovals(objCFEQsnaire);
                     if (A != "")
                     { count = count + 1; }
-                    //}
 
                 }
                 if (grdApprovals.Rows.Count == count)
                 {
+                    SetGridLabelValue();
+
                     DataSet dsOffline = new DataSet();
                     dsOffline = objcfebal.GetCFEAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                     if (dsOffline.Tables.Count > 0)
@@ -620,7 +624,28 @@ namespace MeghalayaUIP.User.CFE
             }
 
         }
+        public void SetGridLabelValue()
+        {
+            try
+            {
+                int rowsIndex = grdApprovals.Rows.Count;
 
+                if (rowsIndex > 0)
+                {
+
+                    for (int i = 0; i < rowsIndex; i++)
+                    {
+                        CheckBox chkCheck = (CheckBox)grdApprovals.Rows[i].FindControl("ChkApproval");
+                        GridViewRow grdRwos = (GridViewRow)chkCheck.NamingContainer;
+                        if (chkCheck.Checked == true)
+                            grdRwos.Cells[6].Text = grdRwos.Cells[3].Text;
+                        else
+                            grdRwos.Cells[6].Text ="0";
+                    }
+                }
+            }
+            catch(Exception ex) { }
+        }
         protected void btnClear_Click(object sender, EventArgs e)
         {
             try { }
@@ -664,6 +689,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup1PCB.HasFile)
                 {
@@ -2482,7 +2508,142 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnNext2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx");
+            ErrorMsg = OfflineValidations();
+            if (ErrorMsg == "")
+                Response.Redirect("~/User/CFE/CFEIndustryDetails.aspx");
+            else
+            {
+                string message = "alert('" + ErrorMsg + "')";
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                return;
+            }
+        }
+        public string OfflineValidations()
+        {
+            string errormsg = "";
+            int SlNo = 1;
+            if (divPCB.Visible == true && (string.IsNullOrWhiteSpace(hpl1PCB.Text) || hpl1PCB.Text == "" || hpl1PCB.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Pre Establishment Approval from Pollution Control Board  \\n";
+            }
+            if (divHazPCB.Visible == true && (string.IsNullOrWhiteSpace(hpl2HazPCB.Text) || hpl2HazPCB.Text == "" || hpl2HazPCB.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Authorization under the Hazardous and Other Waste (Management and Transboundary Movement) Rules 2016  \\n";
+            }
+            if (divSrvcCon.Visible == true && (string.IsNullOrWhiteSpace(hpl3SrvcCon.Text) || hpl3SrvcCon.Text == "" || hpl3SrvcCon.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Service Connection Certificate \\n";
+            }
+            if (divEleCon.Visible == true && (string.IsNullOrWhiteSpace(hpl4EleCon.Text) || hpl4EleCon.Text == "" || hpl4EleCon.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Obtaining Electricity Connection \\n";
+            }
+            if (divFctryPlan.Visible == true && (string.IsNullOrWhiteSpace(hpl5FctryPlan.Text) || hpl5FctryPlan.Text == "" || hpl5FctryPlan.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Factory Plan Approval \\n";
+            }
+            if (divDGsetNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl6DGsetNOC.Text) || hpl6DGsetNOC.Text == "" || hpl6DGsetNOC.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload NOC DG Set \\n";
+            }
+            if (divFireSfty.Visible == true && (string.IsNullOrWhiteSpace(hpl7FireSfty.Text) || hpl7FireSfty.Text == "" || hpl7FireSfty.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Provisional Fire Safety Certificate \\n";
+            }
+            if (divRSDSLic.Visible == true && (string.IsNullOrWhiteSpace(hpl8RSDSLic.Text) || hpl8RSDSLic.Text == "" || hpl8RSDSLic.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Licence to store RS, DS  \\n";
+            }
+            if (divExplsvNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl9ExplsvNOC.Text) || hpl9ExplsvNOC.Text == "" || hpl9ExplsvNOC.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload NOC required for setting up of Explosives Manufacturing, Storage, Sale, Transport\\n";
+            }
+            if (divPtrlNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl10PtrlNOC.Text) || hpl10PtrlNOC.Text == "" || hpl10PtrlNOC.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload NOC Required for Setting Up of Petroleum, Diesel & Naphtha Manufacturing, Storage, Sale, Transport\\n";
+            }
+            if (divRdCtng.Visible == true && (string.IsNullOrWhiteSpace(hpl11RdCtng.Text) || hpl11RdCtng.Text == "" || hpl11RdCtng.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Road Cutting Permission Letter \\n";
+            }
+            if (divNonEncmb.Visible == true && (string.IsNullOrWhiteSpace(hpl12NonEncmb.Text) || hpl12NonEncmb.Text == "" || hpl12NonEncmb.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Non Encumbrance Certificate \\n";
+            }
+            if (divProfTax.Visible == true && (string.IsNullOrWhiteSpace(hpl13ProfTax.Text) || hpl13ProfTax.Text == "" || hpl13ProfTax.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Certificate of Registration of Professional Tax under the Meghalaya Professions Trades Callings and Employment Taxation Rules \\n";
+            }
+            if (divElcInsp.Visible == true && (string.IsNullOrWhiteSpace(hpl14ElcInsp.Text) || hpl14ElcInsp.Text == "" || hpl14ElcInsp.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Electrical Drawing Approval from Electrical Inspectorate \\n";
+            }
+            if (divForstDist.Visible == true && (string.IsNullOrWhiteSpace(hpl15ForstDist.Text) || hpl15ForstDist.Text == "" || hpl15ForstDist.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Letter for distance from Forest \\n";
+            }
+            if (divNonForstLand.Visible == true && (string.IsNullOrWhiteSpace(hpl16NonForstLand.Text) || hpl16NonForstLand.Text == "" || hpl16NonForstLand.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Non-Forest Land Certificate \\n";
+            }
+            if (divIrrgNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl17IrrgNOC.Text) || hpl17IrrgNOC.Text == "" || hpl17IrrgNOC.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload FTL NOC for Change of Land use (Irrigation) \\n";
+            }
+            if (divRevNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl18RevNOC.Text) || hpl18RevNOC.Text == "" || hpl18RevNOC.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload FTL NOC for Change of Land use (Revenue)\\n";
+            }
+            if (divGrndWtrNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl19GrndWtrNOC.Text) || hpl19GrndWtrNOC.Text == "" || hpl19GrndWtrNOC.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload NoC for Ground Water Abstraction for Commercial Connection \\n";
+            }
+            if (divNoWtrSplyCertfct.Visible == true && (string.IsNullOrWhiteSpace(hpl20NoWtrSply.Text) || hpl20NoWtrSply.Text == "" || hpl20NoWtrSply.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Certificate for non-availability of water supply from water supply agency\\n";
+            }
+            if (divPrmsntoDrawWtr.Visible == true && (string.IsNullOrWhiteSpace(hpl21ToDrawWtr.Text) || hpl21ToDrawWtr.Text == "" || hpl21ToDrawWtr.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Permission to Draw Water from River/Public Tanks \\n";
+            }
+            if (divMunicipalWatr.Visible == true && (string.IsNullOrWhiteSpace(hpl22MunicipalWatr.Text) || hpl22MunicipalWatr.Text == "" || hpl22MunicipalWatr.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Water Connection for the Municipal Area  \\n";
+            }
+            if (divUrbanWatr.Visible == true && (string.IsNullOrWhiteSpace(hpl23UrbanWatr.Text) || hpl23UrbanWatr.Text == "" || hpl23UrbanWatr.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Grant of Water Connection to Non Municipal urban areas  \\n";
+            }
+            if (divLbrAct1970.Visible == true && (string.IsNullOrWhiteSpace(hpl25LbrAct1970.Text) || hpl25LbrAct1970.Text == "" || hpl25LbrAct1970.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Registration of Establishments/Principal Employer Employing Contract Labour Act 1970 \\n";
+            }
+            if (divLbrAct1979.Visible == true && (string.IsNullOrWhiteSpace(hpl26LbrAct1979.Text) || hpl26LbrAct1979.Text == "" || hpl26LbrAct1979.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Registration of establishment under the Interstate Migrant Workmen Act 1979 \\n";
+            }
+            if (divLbrAct1996.Visible == true && (string.IsNullOrWhiteSpace(hpl27LbrAct1996.Text) || hpl27LbrAct1996.Text == "" || hpl27LbrAct1996.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Registration of Establishments employing Building Workers under the Building and Other Construction Work Act 1996  \\n";
+            }
+            if (divContrLbrAct.Visible == true && (string.IsNullOrWhiteSpace(hpl28ContrLbrAct.Text) || hpl28ContrLbrAct.Text == "" || hpl28ContrLbrAct.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload License under Contract Labour Act (Contractor) \\n";
+            }
+            if (divContrLbrAct1979.Visible == true && (string.IsNullOrWhiteSpace(hpl29ContrLbrAct1979.Text) || hpl29ContrLbrAct1979.Text == "" || hpl29ContrLbrAct1979.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Registration under Inter State Migrant Workman Act 1979 (For Contractor)  \\n";
+            }
+            if (divConstrPermit.Visible == true && (string.IsNullOrWhiteSpace(hpl30ConstrPermit.Text) || hpl30ConstrPermit.Text == "" || hpl30ConstrPermit.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Construction Permit Approval \\n";
+            }
+            if (divBldngPlan.Visible == true && (string.IsNullOrWhiteSpace(hpl31BldngPlan.Text) || hpl31BldngPlan.Text == "" || hpl31BldngPlan.Text == null))
+            {
+                errormsg = errormsg + SlNo + "Please Upload Industrial Building Plan Approval \\n";
+            }
+
+            return errormsg;
         }
 
         public static bool ValidateFileExtension(FileUpload Attachment)
@@ -2518,6 +2679,7 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
+
 
     }
 }
