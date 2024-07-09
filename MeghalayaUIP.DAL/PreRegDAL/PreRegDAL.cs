@@ -320,15 +320,16 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             try
             {
                 SqlParameter[] p = new SqlParameter[] {
-         new SqlParameter("@UNITID",SqlDbType.Structured),
-         new SqlParameter("@INVESTORID",SqlDbType.Structured),
-        new SqlParameter("@FILETYPE",SqlDbType.Structured),
-        new SqlParameter("@FILEPATH",SqlDbType.Structured),
-        new SqlParameter("@FILENAME",SqlDbType.Structured),
-        new SqlParameter("@FILEDESCRIPTION",SqlDbType.Structured),
-        new SqlParameter("@DEPTID",SqlDbType.Structured),
-        new SqlParameter("@APPROVALID",SqlDbType.Structured),
-        };
+                new SqlParameter("@UNITID",SqlDbType.Structured),
+                new SqlParameter("@INVESTORID",SqlDbType.Structured),
+                new SqlParameter("@FILETYPE",SqlDbType.Structured),
+                new SqlParameter("@FILEPATH",SqlDbType.Structured),
+                new SqlParameter("@FILENAME",SqlDbType.Structured),
+                new SqlParameter("@FILEDESCRIPTION",SqlDbType.Structured),
+                new SqlParameter("@DEPTID",SqlDbType.Structured),
+                new SqlParameter("@APPROVALID",SqlDbType.Structured),
+                new SqlParameter("@QUERYID",SqlDbType.Structured),
+                };
 
                 p[0].Value = objattachments.UnitID;
                 p[1].Value = objattachments.UserID;
@@ -339,6 +340,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 p[5].Value = objattachments.FileDescription;
                 p[6].Value = objattachments.Deptid;
                 p[7].Value = objattachments.ApprovalId;
+                p[8].Value = objattachments.QueryID;
                 string A = "";
                 A = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertAttachmentDetails, p));
                 valid = Convert.ToInt16(A);
