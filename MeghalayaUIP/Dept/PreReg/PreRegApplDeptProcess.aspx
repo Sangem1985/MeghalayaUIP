@@ -1189,7 +1189,10 @@
                                                     <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server"></asp:TextBox>
                                                     <br />
                                                     <br />
-                                                    <asp:FileUpload ID="FileUploadquery" runat="server" />
+                                                    <asp:FileUpload ID="FileUploadquery" runat="server" /> <br />
+                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click"  class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                                    <br />
+                                                    <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Send Response to IMA">
