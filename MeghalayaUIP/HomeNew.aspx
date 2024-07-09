@@ -155,21 +155,21 @@
                         <div class="bold-text" style="font-size: 26px; text-transform: capitalize; font-weight: 700;">Invest, Innovate and Create in Meghalaya</div>
                         <div class="counter-outer">
                             <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                                <div class="text">Opportunities</div>
+                                <div class="text">Investments Opportunity</div>
                                 <div class="count-outer count-box counted">
-                                    <span class="count-text" data-speed="1500" data-stop="20">$ 27.13</span><span>bn</span>
+                                    <span class="count-text" data-speed="1500" data-stop="20">$1</span><span class="symble">bn</span>
                                 </div>
                             </div>
                             <div class="counter-block-one wow zoomIn animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: zoomIn;">
-                                <div class="text">Power Distribution Projects</div>
+                                <div class="text">Economy</div>
                                 <div class="count-outer count-box counted">
-                                    <span class="count-text" data-speed="1500" data-stop="10">$ 7.43</span><span>bn</span>
+                                    <span class="count-text" data-speed="1500" data-stop="10">$10</span><span class="symble">bn</span>
                                 </div>
                             </div>
                             <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                                <div class="text">North East Gas Grid</div>
+                                <div class="text">Employment Opportunities</div>
                                 <div class="count-outer count-box counted">
-                                    <span class="count-text" data-speed="1500" data-stop="99">$ 1.16</span><span class="symble">bn</span>
+                                    <span class="count-text" data-speed="1500" data-stop="99">5</span><span class="symble">Lc</span>
                                 </div>
                             </div>
                         </div>
