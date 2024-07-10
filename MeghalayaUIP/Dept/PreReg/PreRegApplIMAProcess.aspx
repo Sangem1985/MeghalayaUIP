@@ -979,12 +979,17 @@
                                 </div>
                                 <table id="tblcomqury" runat="server" visible="false" style="width: 70%; align-items: center; text-align: center;">
                                     <tr></tr>
+
                                     <tr id="trIMAResponse" runat="server" visible="false">
                                         <td>Enter Response
                                         </td>
                                         <td>
-                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Height="50px" Width="350px"></asp:TextBox>
+                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" style="height:50px;width:350px;margin-top: 10px;"></asp:TextBox><br />
+                                            <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                            <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" />
+                                            <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                         </td>
+                                       
 
                                     </tr>
                                     <tr id="trComQrytoAppl" runat="server" visible="false">

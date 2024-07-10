@@ -15,6 +15,7 @@ namespace MeghalayaUIP.Common
         public static string InsertIndRegRevenueDetails = "USP_INS_INVESTER_BASICREVENUE_PROJECTIONS";
         public static string InsertIndRegPromotersDetails = "USP_INS_INSVESTER_DIRECTOR_DETAILS";
         public static string InsertAttachmentDetails = "SP_INSERT_PREREGATTACHMENTS";
+        public static string InsertAttachmentDetails_Reponse = "SP_INSERT_RESPONSE_PREREGATTACHMENTS";
         //public static string InsertIndustryRegistration = "USP_INS_INDUSTRY_REG_APPLICATION"; COMMENTED ON 05/06/2024 TO START NEW DEPARTMENT WORK FLOW
         public static string InsertIndustryRegistration = "USP_SUBMITINDUSTRYREGAPPLICATION"; 
         public static string GetIndustryRegUserDashboard = "USP_GETPREREGUSERDASHBOARD";
@@ -129,6 +130,7 @@ namespace MeghalayaUIP.Common
         public string QueryID { get; set; }
         public string QueryResponse { get; set; }
         public string EligibleFlag { get; set; }
+        public string InvestorId { get; set; }
     }
     public class PromoterDetails
     {

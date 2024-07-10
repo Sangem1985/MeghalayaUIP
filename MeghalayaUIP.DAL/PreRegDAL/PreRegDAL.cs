@@ -328,7 +328,6 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 new SqlParameter("@FILEDESCRIPTION",SqlDbType.Structured),
                 new SqlParameter("@DEPTID",SqlDbType.Structured),
                 new SqlParameter("@APPROVALID",SqlDbType.Structured),
-                new SqlParameter("@QUERYID",SqlDbType.Structured),
                 };
 
                 p[0].Value = objattachments.UnitID;
@@ -340,7 +339,6 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 p[5].Value = objattachments.FileDescription;
                 p[6].Value = objattachments.Deptid;
                 p[7].Value = objattachments.ApprovalId;
-                p[8].Value = objattachments.QueryID;
                 string A = "";
                 A = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertAttachmentDetails, p));
                 valid = Convert.ToInt16(A);
@@ -360,7 +358,56 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
+        public int InsertAttachments_PREREG_RESPONSE(IndustryDetails objattachments)
+        {
+            int valid = 0;
 
+            SqlConnection connection = new SqlConnection(connstr);
+            connection.Open();
+            try
+            {
+                SqlParameter[] p = new SqlParameter[] {
+                new SqlParameter("@UNITID",SqlDbType.Structured),
+                new SqlParameter("@INVESTORID",SqlDbType.Structured),
+                new SqlParameter("@FILETYPE",SqlDbType.Structured),
+                new SqlParameter("@FILEPATH",SqlDbType.Structured),
+                new SqlParameter("@FILENAME",SqlDbType.Structured),
+                new SqlParameter("@FILEDESCRIPTION",SqlDbType.Structured),
+                new SqlParameter("@DEPTID",SqlDbType.Structured),
+                new SqlParameter("@APPROVALID",SqlDbType.Structured),
+                new SqlParameter("@QUERYID",SqlDbType.Structured),
+                new SqlParameter("@CREATEBY",SqlDbType.Structured),
+                };
+
+                p[0].Value = objattachments.UnitID;
+                p[1].Value = objattachments.InvestorId;
+                p[2].Value = objattachments.FileType;
+                p[3].Value = objattachments.Filepath;
+                p[4].Value = objattachments.FileName;
+                p[5].Value = objattachments.FileDescription;
+                p[6].Value = objattachments.Deptid;
+                p[7].Value = objattachments.ApprovalId;
+                p[8].Value = objattachments.QueryID;
+                p[9].Value = objattachments.UserID;
+                string A = "";
+                A = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertAttachmentDetails_Reponse, p));
+                valid = Convert.ToInt16(A);
+                //transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                // transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
         public DataSet GetIndustryRegData(string userid)
         {
 
