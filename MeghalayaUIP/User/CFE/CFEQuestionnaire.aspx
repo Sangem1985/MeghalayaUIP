@@ -82,23 +82,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        3. Proposal For</label>
-                                                                    <div class="col-lg-6">
-                                                                        <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
-                                                                            <asp:ListItem Text="New" Value="New" style="padding-right: 10px"></asp:ListItem>
-                                                                            <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
-                                                                            <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
-                                                                        </asp:RadioButtonList>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">
-                                                                        4. Nature of
+                                                                        3. Nature of
 																		Industry</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:DropDownList ID="ddlIndustryType" runat="server" class="form-control">
@@ -107,6 +91,24 @@
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-4 col-form-label">
+                                                                        4. Proposal For</label>
+                                                                    <div class="col-lg-8">
+                                                                        <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Text="New" Value="New" style="padding-right: 10px"></asp:ListItem>
+                                                                            <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
+                                                                            <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
+                                                                        </asp:RadioButtonList>
+
+                                                                    </div>
+                                                                </div>
+
+
                                                             </div>
                                                         </div>
                                                         <h6 class="fs-20">Unit Location</h6>

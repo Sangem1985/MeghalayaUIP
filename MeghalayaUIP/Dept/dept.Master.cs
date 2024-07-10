@@ -77,7 +77,14 @@ namespace MeghalayaUIP.Dept
             }
 
             lblUser.InnerText = ObjUserInfo.UserName;
-            lblrole.InnerText = ObjUserInfo.Roleid;
+            if(ObjUserInfo.Roleid=="1")
+            lblrole.InnerText = "Invest Meghalaya Authority";
+            if (ObjUserInfo.Roleid == "4"|| ObjUserInfo.Roleid == "8")
+                lblrole.InnerText = "Department";
+            if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
+                lblrole.InnerText = "Committee Officer";
+
+
 
         }
 

@@ -3,29 +3,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-       <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         .page-wrapper.tabs {
-    a#ContentPlaceHolder1_Link1 {
-        background: #dce775 !important;
-        padding: 10px 7px !important;
-        margin: 0px 6px !important;
-        color: #000 !important;
-        border-radius: 22px 0px !important;
-        font-weight: 500;
-    }
-}
+            a #ContentPlaceHolder1_Link1
+
+        {
+            background: #dce775 !important;
+            padding: 10px 7px !important;
+            margin: 0px 6px !important;
+            color: #000 !important;
+            border-radius: 22px 0px !important;
+            font-weight: 500;
+        }
+
+        }
     </style>
-       <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
-											
-											<li class="breadcrumb-item active" aria-current="page">Questionnaire</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Questionnaire</li>
+        </ol>
+    </nav>
     <div class="page-wrapper tabs cfequestionnaire cfo">
-      
+
         <div class="content container-fluid">
             <section class="comp-section">
                 <div class="row">
@@ -39,7 +42,7 @@
                                 </p>
                             </div>
                             <div class="card-body">
-                                
+
                                 <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                 <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -48,18 +51,18 @@
                                     <li class="nav-item">--%>
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
-                                        <asp:LinkButton ID="Link1" class="nav-link" runat="server" OnClick="Link1_Click" Style="padding-right: 20px !important; font-size: 18px !important;margin-top: -8px !important;"> 
-                                    1. Project Details</asp:LinkButton></li>
+                                        <asp:LinkButton ID="Link1" class="nav-link" runat="server" OnClick="Link1_Click" Style="padding-right: 20px !important; font-size: 18px !important; margin-top: -8px !important;">
+                                            1. Project Details</asp:LinkButton></li>
                                     <%-- </li>
                                     <li class="nav-item">--%>
                                     <li class="nav-item">
                                         <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
-                                    2. Project Financials</asp:LinkButton></li>
+                                            2. Project Financials</asp:LinkButton></li>
                                     <%-- </li>
                                     <li class="nav-item">--%>
                                     <li class="nav-item">
                                         <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
-                                    3. Project Requirements</asp:LinkButton></li>
+                                            3. Project Requirements</asp:LinkButton></li>
                                 </ul>
                                 <%--</li>
                                 </ul>--%>
@@ -109,8 +112,8 @@
                                                                         3. Proposal For</label>
                                                                     <div class="col-lg-6">
                                                                         <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
-                                                                            <asp:ListItem Text="New" Value="New" style="padding-right: 10px" ></asp:ListItem>
-                                                                             <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
+                                                                            <asp:ListItem Text="New" Value="New" style="padding-right: 10px"></asp:ListItem>
+                                                                            <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
                                                                             <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
                                                                         </asp:RadioButtonList>
 
@@ -141,7 +144,7 @@
                                                                         1.District
                                                                     </label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlDistrict" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
                                                                             <asp:ListItem Text="Select District" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -151,7 +154,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">2. Mandal</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlMandal" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                                             <asp:ListItem Text="Select Mandal" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -455,7 +458,8 @@
 
                                                                     <div class="col-lg-4">
                                                                         <h6 class="fs-20">
-                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label></h6>
+                                                                            <asp:Label ID="lblEntCategory" Text="Category" runat="server"></asp:Label>
+                                                                        </h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -484,17 +488,17 @@
                                         </asp:View>
                                         <asp:View ID="viewProjReq" runat="server">
                                             <div class="tab-pane active" id="basictab3">
-                                                  <div class="col-md-12 d-flex">
-                                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
-                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
-                                        <strong>Warning!</strong>
-                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                    </div>
-                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                                        <strong>Warning!</strong>
+                                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                                    </div>
+                                                </div>
                                                 <div class="card-body">
                                                     <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
                                                     <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
