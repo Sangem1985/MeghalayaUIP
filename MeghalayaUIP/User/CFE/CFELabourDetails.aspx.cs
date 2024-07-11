@@ -21,51 +21,45 @@ namespace MeghalayaUIP.User.CFE
         string UnitID, result, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (Session["UserInfo"] != null)
             {
-                if (Session["UserInfo"] != null)
+                var ObjUserInfo = new UserInfo();
+                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                 {
-                    var ObjUserInfo = new UserInfo();
-                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (UserInfo)Session["UserInfo"];
-                    }
-                    if (hdnUserID.Value == "")
-                    {
-                        hdnUserID.Value = ObjUserInfo.Userid;
-
-                    }
-                    if (Convert.ToString(Session["CFEUNITID"]) != "")
-                    {
-                        UnitID = Convert.ToString(Session["CFEUNITID"]);
-                    }
-                    else
-                    {
-                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
-                        Response.Redirect(newurl);
-                    }
-
-                    Page.MaintainScrollPositionOnPostBack = true;
-
-                    Failure.Visible = false;
-                    success.Visible = false;
-                    if (!IsPostBack)
-                    {
-                        BindDistricts();
-                        BindCategoryEST();
-                        BindDatas();
-                        BindDataMigrant();
-                        GetAppliedorNot();
-                        BindData();
-                        BindingData();
-                    }
+                    ObjUserInfo = (UserInfo)Session["UserInfo"];
                 }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                if (hdnUserID.Value == "")
+                {
+                    hdnUserID.Value = ObjUserInfo.Userid;
+
+                }
+                if (Convert.ToString(Session["CFEUNITID"]) != "")
+                {
+                    UnitID = Convert.ToString(Session["CFEUNITID"]);
+                }
+                else
+                {
+                    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
+
+                Page.MaintainScrollPositionOnPostBack = true;
+
+                Failure.Visible = false;
+                success.Visible = false;
+                if (!IsPostBack)
+                {
+                    BindDistricts();
+                    //BindConstitutionType();
+                    BindCategoryEST();
+                    //BindDistric();
+                    //BindDatas();
+                    //BindDataMigrant();
+                    GetAppliedorNot();
+                    BindData();
+                    BindingData();
+
+                }
             }
         }
         protected void GetAppliedorNot()
@@ -74,6 +68,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 DataSet ds = new DataSet();
                 ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "10", "");
+
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -106,6 +101,7 @@ namespace MeghalayaUIP.User.CFE
                             divContractorDtls.Visible = true;
                         }
                     }
+
                 }
                 else
                 {
@@ -120,15 +116,14 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindDistricts()
         {
             try
             {
+
                 ddlDistric.Items.Clear();
                 ddlMandals.Items.Clear();
                 ddlvillages.Items.Clear();
@@ -138,12 +133,22 @@ namespace MeghalayaUIP.User.CFE
                 ddldist.Items.Clear();
                 ddlmand.Items.Clear();
                 ddlvilla.Items.Clear();
+                //ddlDistdrop.Items.Clear();
+                //ddlAuthReprTaluka.Items.Clear();
+                //ddlAuthReprVillage.Items.Clear();
                 ddlPropLocDist.Items.Clear();
                 ddlPropLocTaluka.Items.Clear();
                 ddlPropLocVillage.Items.Clear();
 
+
+
+
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
                 string strmode = string.Empty;
+                //if (ObjUserInformation.User_Level == "2")
+                //{
+                strmode = "";
+                //}
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -157,15 +162,25 @@ namespace MeghalayaUIP.User.CFE
                     ddlDistricts.DataTextField = "DistrictName";
                     ddlDistricts.DataBind();
 
+
                     ddldist.DataSource = objDistrictModel;
                     ddldist.DataValueField = "DistrictId";
                     ddldist.DataTextField = "DistrictName";
                     ddldist.DataBind();
 
+                    //ddlDistdrop.DataSource = objDistrictModel;
+                    //ddlDistdrop.DataValueField = "DistrictId";
+                    //ddlDistdrop.DataTextField = "DistrictName";
+                    //ddlDistdrop.DataBind();
+
                     ddlPropLocDist.DataSource = objDistrictModel;
                     ddlPropLocDist.DataValueField = "DistrictId";
                     ddlPropLocDist.DataTextField = "DistrictName";
                     ddlPropLocDist.DataBind();
+
+
+
+
                 }
                 else
                 {
@@ -180,6 +195,8 @@ namespace MeghalayaUIP.User.CFE
 
                     ddlPropLocDist.DataSource = null;
                     ddlPropLocDist.DataBind();
+
+
                 }
                 AddSelect(ddlDistric);
                 AddSelect(ddlMandals);
@@ -193,16 +210,21 @@ namespace MeghalayaUIP.User.CFE
                 AddSelect(ddlmand);
                 AddSelect(ddlvilla);
 
+                //AddSelect(ddlDistdrop);
+                //AddSelect(ddlAuthReprTaluka);
+                //AddSelect(ddlAuthReprVillage);
+
                 AddSelect(ddlPropLocDist);
                 AddSelect(ddlPropLocTaluka);
                 AddSelect(ddlPropLocVillage);
+
+
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
+
         }
         protected void BindDistric()
         {
@@ -265,6 +287,9 @@ namespace MeghalayaUIP.User.CFE
                     ddldist.DataSource = null;
                     ddldist.DataBind();
 
+                    //ddlDistdrop.DataSource = null;
+                    //ddlDistdrop.DataBind();
+
                     ddlPropLocDist.DataSource = null;
                     ddlPropLocDist.DataBind();
                 }
@@ -283,13 +308,15 @@ namespace MeghalayaUIP.User.CFE
                 AddSelect(ddlPropLocDist);
                 AddSelect(ddlPropLocTaluka);
                 AddSelect(ddlPropLocVillage);
+
+
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
+
         }
         protected void BindCategoryEST()
         {
@@ -316,9 +343,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -332,74 +358,73 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
-        public void BindDatas()
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetRetriveCFELabourContractorDet(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+        //public void BindDatas()
+        //{
+        //    try
+        //    {
+        //        DataSet ds = new DataSet();
+        //        ds = objcfebal.GetRetriveCFELabourContractorDet(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
 
-                if (ds != null)
-                {
-                    if (ds.Tables.Count > 0)
-                    {
-                        if (ds.Tables[0].Rows.Count > 0)
-                        {
-                            txtNameAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_CONTRACTORNAMEADDRESS"]);
-                            txtLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_WORKNAMENATURELOCATION"]);
-                            ddlMaximumNo.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_MAXCONTRACTLABOUR"]);
-                            txtContactWork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_CONTRACTDURATION"]);
-                            txtEstimated.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_COMMENCEMENTDATEOFWORK"]);
-                            txtDateWork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_COMPLETIONDATEOFWORK"]);
-                            txtEmployeeLabour.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_TERMINATIONDATEOFEMP"]);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        public void BindDataMigrant()
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetRetriveCFEMigrantDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+        //        if (ds != null)
+        //        {
+        //            if (ds.Tables.Count > 0)
+        //            {
+        //                //if (ds.Tables[0].Rows.Count > 0)
+        //                //{
+        //                //    //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_UNITID"]);
+        //                //    txtNameAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_CONTRACTORNAMEADDRESS"]);
+        //                //    txtLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_WORKNAMENATURELOCATION"]);
+        //                //    ddlMaximumNo.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_MAXCONTRACTLABOUR"]);
+        //                //    txtContactWork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_CONTRACTDURATION"]);
+        //                //    txtEstimated.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_COMMENCEMENTDATEOFWORK"]);
+        //                //    txtDateWork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_COMPLETIONDATEOFWORK"]);
+        //                //    txtEmployeeLabour.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFECL_TERMINATIONDATEOFEMP"]);
+        //                //}
 
-                if (ds != null)
-                {
-                    if (ds.Tables.Count > 0)
-                    {
-                        if (ds.Tables[0].Rows.Count > 0)
-                        {
-                            txtAddressName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_CONTRACTORNAMEADDRESS"]);
-                            txtEmployedName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_MIGRANTNAMENATURELOCATION"]);
-                            txtMaxmigrant.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_MAXCONTRACTMIGRANT"]);
-                            txtContractwork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_CONTRACTDURATION"]);
-                            txtEstwork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_COMMENCEMENTDATE"]);
-                            txtEstDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_COMPLETIONDATEOFWORK"]);
-                            txtEstDateWork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_TERMINATIONDATEOFEMPMigrant"]);
-                        }
-                    }
-                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+        //public void BindDataMigrant()
+        //{
+        //    try
+        //    {
+        //        DataSet ds = new DataSet();
+        //        ds = objcfebal.GetRetriveCFEMigrantDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
 
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+        //        if (ds != null)
+        //        {
+        //            if (ds.Tables.Count > 0)
+        //            {
+        //                //if (ds.Tables[0].Rows.Count > 0)
+        //                //{
+        //                //    //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_UNITID"]);
+        //                //    txtAddressName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_CONTRACTORNAMEADDRESS"]);
+        //                //    txtEmployedName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_MIGRANTNAMENATURELOCATION"]);
+        //                //    txtMaxmigrant.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_MAXCONTRACTMIGRANT"]);
+        //                //    txtContractwork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_CONTRACTDURATION"]);
+        //                //    txtEstwork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_COMMENCEMENTDATE"]);
+        //                //    txtEstDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_COMPLETIONDATEOFWORK"]);
+        //                //    txtEstDateWork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEMW_TERMINATIONDATEOFEMPMigrant"]);
+        //                //}
+
+        //            }
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         public void BindData()
         {
             try
@@ -411,6 +436,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+
                         ddlCategory.SelectedValue = ds.Tables[0].Rows[0]["CFELD_CATEGORY_ESTABLISHMENT"].ToString();
                         txtname1.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_NAME"]);
                         txtfather.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_FATHERNAME"]);
@@ -426,27 +452,111 @@ namespace MeghalayaUIP.User.CFE
                         txtdoor3.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_DOOR"]);
                         txtlocality3.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_LOCALITY"]);
                         TXTPIN.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_PINCODE"]);
-                        txtcontractor.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_NAMECONTRACTOR"]);
-                        txtfathername.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_FATHER"]);
-                        txtAges.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGES"]);
-                        txtmobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MOBILE"]);
-                        txtemailid.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_EMAIL"]);
-                        ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_DISTID"]);
-                        ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandals.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANDALID"]);
-                        ddlMandals_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlvillages.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_VILLAGEID"]);
-                        txtdoorno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_DOORNO"]);
-                        txtlocal.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_LOCALITYNAME"]);
-                        txtpinnumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_PIN"]);
+                        if (divsupervision.Visible == true)
+                        {
+                            txtnames.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERNAME"]);
+                            txtMobilenumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERMOBILENO"]);
+                            txtEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGEREMAILID"]);
+                            txtFathersname.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERFATHERNAME"]);
+                            txtDoor1.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERDOOR"]);
+                            txtLocality1.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERLOCALITY"]);
+                            ddlDistricts.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERDISTRICSID"]);
+                            ddlDistricts_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERMANDALSID"]);
+                            ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERVILLAGESID"]);
+                            txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERPINCODE"]);
+                            txtDesignations.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MANAGERDESIGNATION"]);
+                        }
+                        else { divsupervision.Visible = false; }
+
+                        if (div4questions.Visible == true)
+                        {
+                            txtLabourEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_NATUREOFWORKLABOUREMP"]);
+                            txtconstructionwork.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_ESTDATEBUILDING"]);
+                            txtContractEmployees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MAXNUMBEROFCONTRACTEMP"]);
+                            txtbuilding.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_ESTDATEOFCONSTRUCTIONWORK"]);
+                        }
+                        else { div4questions.Visible = false; }
+
+                        if (div5questions.Visible == true)
+                        {
+                            txtMaximum.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_MAXNUMBERMIGRANTESTDATE"]);
+                            rblconvicted.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORCONVICTED5YEARS"]);
+                            rblrevoking.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_REVOKINGSUSPENDINGLIC"]);
+                            rblcontractor.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_ESTPAST5YEARSNATUREOFWORK"]);
+                            ddlbusiness.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_INDUSTRYMANUOCCUPATIONEST"]);
+                        }
+                        else { div5questions.Visible = false; }
+
+                        if (divContractorDtls.Visible == true)
+                        {
+                            txtcontractor.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORNAMECONTRACTOR"]);
+                            txtfathername.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORFATHER"]);
+                            txtAges.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORAGES"]);
+                            txtmobileno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORMOBILE"]);
+                            txtemailid.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTOREMAIL"]);
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORDISTID"]);
+                            ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandals.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORMANDALID"]);
+                            ddlMandals_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlvillages.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORVILLAGEID"]);
+                            txtdoorno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORDOORNO"]);
+                            txtlocal.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORLOCALITYNAME"]);
+                            txtpinnumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_CONTRACTORPIN"]);
+                        }
+                        else { divContractorDtls.Visible = false; }
+
+                        if (divAgentDtls.Visible == true)
+                        {
+                            txtname.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGENTNAME"]);
+                            txtDoor.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGENTDOORNO"]);
+                            txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGENTLOCALITY"]);
+                            ddldist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGENTDISTRICT"]);
+                            ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlmand.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGENTMANDAL"]);
+                            ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlvilla.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGENTVILLAGE"]);
+                            txtAgentPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFELD_AGENTPINCODE"]);
+                        }
+                        else { divAgentDtls.Visible = false; }
+
                     }
+                    if (divContrLabr.Visible == true)
+                    {
+                        if (ds.Tables[1].Rows.Count > 0)
+                        {
+                            ViewState["LabourDetails"] = ds.Tables[1];
+                            GVLabour.DataSource = ds.Tables[1];
+                            GVLabour.DataBind();
+                            GVLabour.Visible = true;
+                        }
+                    }
+                    else { divContrLabr.Visible = false; }
+
+                    if (divMigrLabr.Visible == true)
+                    {
+                        if (ds.Tables[2].Rows.Count > 0)
+                        {
+                            ViewState["MIGRANTDETAILS"] = ds.Tables[2];
+                            GVMigrant.DataSource = ds.Tables[2];
+                            GVMigrant.DataBind();
+                            GVMigrant.Visible = true;
+                        }
+                    }
+                    else { divMigrLabr.Visible = false; }
+
+
+                }
+                else
+                {
+
                 }
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void BindingData()
@@ -501,7 +611,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindMandal(DropDownList ddlmndl, string DistrictID)
@@ -528,10 +637,11 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
+
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
+
         }
         protected void BindVillages(DropDownList ddlvlg, string MandalID)
         {
@@ -558,9 +668,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void ddlDistric_SelectedIndexChanged(object sender, EventArgs e)
@@ -576,9 +685,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void ddlMandals_SelectedIndexChanged(object sender, EventArgs e)
@@ -588,14 +696,15 @@ namespace MeghalayaUIP.User.CFE
                 ddlvillages.ClearSelection();
                 if (ddlMandals.SelectedItem.Text != "--Select--")
                 {
+
                     BindVillages(ddlvillages, ddlMandals.SelectedValue);
                 }
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
+
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void ddlDistricts_SelectedIndexChanged(object sender, EventArgs e)
@@ -611,10 +720,10 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
+
         }
         protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -628,9 +737,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void ddldist_SelectedIndexChanged(object sender, EventArgs e)
@@ -646,9 +754,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void ddlmand_SelectedIndexChanged(object sender, EventArgs e)
@@ -663,9 +770,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
         protected void ddlAuthReprDist_SelectedIndexChanged(object sender, EventArgs e)
@@ -685,9 +790,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
         protected void ddlPropLocTaluka_SelectedIndexChanged(object sender, EventArgs e)
@@ -702,9 +805,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
 
@@ -721,9 +823,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
         protected void ddlMandalmand_SelectedIndexChanged(object sender, EventArgs e)
@@ -738,9 +838,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
 
@@ -794,13 +892,12 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
         protected void GVLabour_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+
             try
             {
                 if (GVLabour.Rows.Count > 0)
@@ -820,9 +917,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void btnAddMigrant_Click(object sender, EventArgs e)
@@ -874,9 +970,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
         protected void GVMigrant_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -900,9 +994,8 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         protected void btnUpldLICgrant_Click(object sender, EventArgs e)
@@ -959,9 +1052,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                throw ex;
             }
         }
         public string validations(FileUpload Attachment)
@@ -1007,10 +1098,7 @@ namespace MeghalayaUIP.User.CFE
                 return true;
             }
             catch (Exception ex)
-            {
-                throw ex;
-
-            }
+            { throw ex; }
         }
         protected void btnUpldForm5_Click(object sender, EventArgs e)
         {
@@ -1067,7 +1155,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnUpldForm8_Click(object sender, EventArgs e)
@@ -1126,7 +1213,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnUplForm10_Click(object sender, EventArgs e)
@@ -1185,7 +1271,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnUpldCrimeForm10_Click(object sender, EventArgs e)
@@ -1244,7 +1329,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnUplEmployer_Click(object sender, EventArgs e)
@@ -1303,7 +1387,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public static bool ValidateFileExtension(FileUpload Attachment)
@@ -1324,9 +1407,12 @@ namespace MeghalayaUIP.User.CFE
         }
         protected void Btnsave_Click(object sender, EventArgs e)
         {
+            //String Quesstionriids = "1001";
+            //string UnitId = "1";
+
             try
             {
-                string result = "";
+                //  string result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -1389,36 +1475,66 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFELabourDet.IPAddress = getclientIP();
                     ObjCFELabourDet.Questionnariid = Convert.ToString(Session["CFEQID"]);
                     ObjCFELabourDet.UnitId = Convert.ToString(Session["CFEUNITID"]);
+
                     ObjCFELabourDet.Category_Estab = ddlCategory.SelectedValue;
                     ObjCFELabourDet.Name_Contractor = txtname1.Text;
                     ObjCFELabourDet.Father_Name = txtfather.Text;
-                    ObjCFELabourDet.Date_birth = txtage.Text;
+                    ObjCFELabourDet.Age = txtage.Text;
                     ObjCFELabourDet.Designation = txtdesignation.Text;
-                    ObjCFELabourDet.Mobile = txtmobile.Text;
-                    ObjCFELabourDet.Email = txtEmail1.Text;
-                    ObjCFELabourDet.Distric = ddlPropLocDist.SelectedValue;
+                    ObjCFELabourDet.MobileNo = txtmobile.Text;
+                    ObjCFELabourDet.EmailId = txtEmail1.Text;
+                    ObjCFELabourDet.District = ddlPropLocDist.SelectedValue;
                     ObjCFELabourDet.DistrictName = ddlPropLocDist.SelectedItem.Text;
                     ObjCFELabourDet.Mandal = ddlPropLocTaluka.SelectedValue;
                     ObjCFELabourDet.MandalName = ddlPropLocTaluka.SelectedItem.Text;
                     ObjCFELabourDet.Village = ddlPropLocVillage.SelectedValue;
                     ObjCFELabourDet.VillageName = ddlPropLocVillage.SelectedItem.Text;
-                    ObjCFELabourDet.DoorNo = txtdoor3.Text;
+                    ObjCFELabourDet.Door_No = txtdoor3.Text;
                     ObjCFELabourDet.Locality = txtlocality3.Text;
                     ObjCFELabourDet.Pincode = TXTPIN.Text;
-                    ObjCFELabourDet.Name = txtcontractor.Text;
-                    ObjCFELabourDet.Fathers_Name = txtfathername.Text;
-                    ObjCFELabourDet.Age = txtAges.Text;
-                    ObjCFELabourDet.MobileNo = txtmobileno.Text;
-                    ObjCFELabourDet.EmailId = txtemailid.Text;
-                    ObjCFELabourDet.District = ddlDistric.SelectedValue;
-                    ObjCFELabourDet.DistrictsName = ddlDistric.SelectedItem.Text;
-                    ObjCFELabourDet.Mandals = ddlMandals.SelectedValue;
-                    ObjCFELabourDet.MandalsName = ddlMandals.SelectedItem.Text;
-                    ObjCFELabourDet.Villages = ddlvillages.SelectedValue;
-                    ObjCFELabourDet.VillagesName = ddlvillages.SelectedItem.Text;
-                    ObjCFELabourDet.Door_No = txtdoorno.Text;
-                    ObjCFELabourDet.Localitys = txtlocal.Text;
-                    ObjCFELabourDet.Pincodes = txtpinnumber.Text;
+
+                    ObjCFELabourDet.ManagerName = txtnames.Text;
+                    ObjCFELabourDet.ManagerMobile = txtMobilenumber.Text;
+                    ObjCFELabourDet.ManagerEmail = txtEmail.Text;
+                    ObjCFELabourDet.ManagerFather = txtFathersname.Text;
+                    ObjCFELabourDet.ManagerDoor = txtDoor1.Text;
+                    ObjCFELabourDet.ManagerLocality = txtLocality1.Text;
+                    ObjCFELabourDet.ManagerDistrict = ddlDistricts.SelectedValue;
+                    ObjCFELabourDet.ManagerMandal = ddlMandal.SelectedValue;
+                    ObjCFELabourDet.ManagerVillage = ddlVillage.SelectedValue;
+                    ObjCFELabourDet.ManagerPincode = txtpincode.Text;
+                    ObjCFELabourDet.ManagerDesignation = txtDesignations.Text;
+
+                    ObjCFELabourDet.NatureOflabourCont = txtLabourEmp.Text;
+                    ObjCFELabourDet.BuildingContractWork = txtconstructionwork.Text;
+                    ObjCFELabourDet.BuildingEmpDay = txtContractEmployees.Text;
+                    ObjCFELabourDet.EstDateBuilding = txtbuilding.Text;
+                    ObjCFELabourDet.MigrantWork = txtMaximum.Text;
+                    ObjCFELabourDet.ContractFiveYears = rblconvicted.SelectedValue;
+                    ObjCFELabourDet.Revoking = rblrevoking.SelectedValue;
+                    ObjCFELabourDet.PrincipleEmpWork = rblcontractor.SelectedValue;
+                    ObjCFELabourDet.ManuooCupation = ddlbusiness.SelectedValue;
+
+                    ObjCFELabourDet.ContarctorName = txtcontractor.Text;
+                    ObjCFELabourDet.ContarctorFather = txtfathername.Text;
+                    ObjCFELabourDet.ContarctorAge = txtAges.Text;
+                    ObjCFELabourDet.ContarctorMobile = txtmobileno.Text;
+                    ObjCFELabourDet.ContarctorEmailId = txtemailid.Text;
+                    ObjCFELabourDet.ContarctorDistrict = ddlDistric.SelectedValue;
+                    ObjCFELabourDet.ContarctorMandals = ddlMandals.SelectedValue;
+                    ObjCFELabourDet.ContarctorVillages = ddlvillages.SelectedValue;
+                    ObjCFELabourDet.ContarctorDoor = txtdoorno.Text;
+                    ObjCFELabourDet.ContarctorLocality = txtlocal.Text;
+                    ObjCFELabourDet.ContarctorPincode = txtpinnumber.Text;
+                    ObjCFELabourDet.AgentName = txtname.Text;
+                    ObjCFELabourDet.AgentDoorNo = txtDoor.Text;
+                    ObjCFELabourDet.AgentLocality = txtLocality.Text;
+                    ObjCFELabourDet.AgentDistric = ddldist.SelectedValue;
+                    ObjCFELabourDet.AgentMandal = ddlmand.SelectedValue;
+                    ObjCFELabourDet.AgentVillage = ddlvilla.SelectedValue;
+                    ObjCFELabourDet.AgentPinCode = txtAgentPincode.Text;
+
+
 
                     result = objcfebal.InsertCFELabourDetails(ObjCFELabourDet);
                     //ViewState["UnitID"] = result;
@@ -1436,14 +1552,12 @@ namespace MeghalayaUIP.User.CFE
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
                 }
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                lblmsg0.Text = ex.Message;
             }
         }
         public string Validations()
@@ -1452,6 +1566,11 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
+                if (ddlCategory.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Category of Establishment \\n";
+                    slno = slno + 1;
+                }
                 if (string.IsNullOrEmpty(txtname1.Text) || txtname1.Text == "" || txtname1.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter NAME \\n";
@@ -1482,17 +1601,17 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter EmailId \\n";
                     slno = slno + 1;
                 }
-                if (ddlPropLocDist.SelectedIndex == -1 || ddlPropLocDist.SelectedItem.Text == "--Select--")
+                if (ddlPropLocDist.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Distric \\n";
                     slno = slno + 1;
                 }
-                if (ddlPropLocTaluka.SelectedIndex == -1 || ddlPropLocTaluka.SelectedItem.Text == "--Select--")
+                if (ddlPropLocTaluka.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Mandal \\n";
                     slno = slno + 1;
                 }
-                if (ddlPropLocVillage.SelectedIndex == -1 || ddlPropLocVillage.SelectedItem.Text == "--Select--")
+                if (ddlPropLocVillage.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Village \\n";
                     slno = slno + 1;
@@ -1512,56 +1631,234 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Pincode \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtcontractor.Text) || txtcontractor.Text == "" || txtcontractor.Text == null)
+                if (divsupervision.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Name \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtnames.Text) || txtnames.Text == "" || txtnames.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Name \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtMobilenumber.Text) || txtMobilenumber.Text == "" || txtMobilenumber.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Mobile Number \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == "" || txtEmail.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter EmailId \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtFathersname.Text) || txtFathersname.Text == "" || txtFathersname.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter FatherName \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtDoor1.Text) || txtDoor1.Text == "" || txtDoor1.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter DoorNo \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLocality1.Text) || txtLocality1.Text == "" || txtLocality1.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Locality \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlDistricts.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter District \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlMandal.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Mandal \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlVillage.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Village \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter PinCode \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtDesignations.Text) || txtDesignations.Text == "" || txtDesignations.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Designation \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (string.IsNullOrEmpty(txtfathername.Text) || txtfathername.Text == "" || txtfathername.Text == null)
+                else { divsupervision.Visible = false; }
+
+                if (div4questions.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter AGE \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtLabourEmp.Text) || txtLabourEmp.Text == "" || txtLabourEmp.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Nature of work in which contract labour is employed \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtconstructionwork.Text) || txtconstructionwork.Text == "" || txtconstructionwork.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter  Estimated date of commencement of building or other construction work \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtContractEmployees.Text) || txtContractEmployees.Text == "" || txtContractEmployees.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Maximum number of Contract Employees \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtbuilding.Text) || txtbuilding.Text == "" || txtbuilding.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter  Estimated date of completion of building \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (string.IsNullOrEmpty(txtmobileno.Text) || txtmobileno.Text == "" || txtmobileno.Text == null)
+                else { div4questions.Visible = false; }
+
+                if (div5questions.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter MOBILE NO \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtMaximum.Text) || txtMaximum.Text == "" || txtMaximum.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Maximum Number of migrant workmen proposed to be employed \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblconvicted.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter the contractor was convicted of any offence within the preceding five years...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblrevoking.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter there was any order against the contractor revoking or suspending license...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblcontractor.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter the contractor has worked in any other establishment within the past five years...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlbusiness.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Type of business, trade, industry, manufacture or occupation...! \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (string.IsNullOrEmpty(txtemailid.Text) || txtemailid.Text == "" || txtemailid.Text == null)
+                else { div5questions.Visible = false; }
+
+                if (divContractorDtls.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter EMAILID \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtcontractor.Text) || txtcontractor.Text == "" || txtcontractor.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Name \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtfathername.Text) || txtfathername.Text == "" || txtfathername.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter AGE \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtmobileno.Text) || txtmobileno.Text == "" || txtmobileno.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter MOBILE NO \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtemailid.Text) || txtemailid.Text == "" || txtemailid.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter EMAILID \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlDistric.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Distric \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlMandals.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlvillages.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Village \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtdoorno.Text) || txtdoorno.Text == "" || txtdoorno.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter DOOR NO \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtlocal.Text) || txtlocal.Text == "" || txtlocal.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter LOCALITY \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtpinnumber.Text) || txtpinnumber.Text == "" || txtpinnumber.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter PINNUMBER \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                else { divContractorDtls.Visible = false; }
+
+                if (divAgentDtls.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtname.Text) || txtname.Text == "" || txtname.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Name \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtDoor.Text) || txtDoor.Text == "" || txtDoor.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter DOOR NO \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter LOCALITY \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddldist.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Distric \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlmand.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlvilla.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Village \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtAgentPincode.Text) || txtAgentPincode.Text == "" || txtAgentPincode.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter PINNUMBER \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (ddlMandals.SelectedIndex == -1 || ddlMandals.SelectedItem.Text == "--Select--")
+                else { divAgentDtls.Visible = false; }
+
+                if (divContrLabr.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                    slno = slno + 1;
+                    if (GVLabour.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Particulars of Contract Labour\\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (ddlvillages.SelectedIndex == -1 || ddlvillages.SelectedItem.Text == "--Select--")
+                else { divContrLabr.Visible = false; }
+                if (divMigrLabr.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Select Village \\n";
-                    slno = slno + 1;
+                    if (GVMigrant.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Particulars of Migrant Workmen\\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (string.IsNullOrEmpty(txtdoorno.Text) || txtdoorno.Text == "" || txtdoorno.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter DOOR NO \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtlocal.Text) || txtlocal.Text == "" || txtlocal.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter LOCALITY \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtpinnumber.Text) || txtpinnumber.Text == "" || txtpinnumber.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter PINNUMBER \\n";
-                    slno = slno + 1;
-                }
+                else { divMigrLabr.Visible = false; }
 
                 return errormsg;
             }
@@ -1587,6 +1884,7 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
+
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
             try
@@ -1614,5 +1912,7 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
         }
+
+
     }
 }

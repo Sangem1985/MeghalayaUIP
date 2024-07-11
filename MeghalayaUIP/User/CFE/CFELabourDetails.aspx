@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-    <div class="page-wrapper">
+     <div class="page-wrapper">
 
         <div class="content container-fluid">
 
@@ -32,10 +32,10 @@
                             <div class="row">
 
                                 <div class="col-md-12 d-flex">
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label fw-bold"><span style="font-weight: 900;">1. Category of Establishment</span></label>
-                                            <div class="col-lg-4">
+                                            <label class="col-lg-6 col-form-label fw-bold"><span style="font-weight: 900;">1. Category of Establishment</span></label>
+                                            <div class="col-lg-6">
                                                 <asp:DropDownList ID="ddlCategory" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select--" Value="0" />
                                                 </asp:DropDownList>
@@ -72,7 +72,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
@@ -100,7 +99,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
@@ -162,15 +160,15 @@
                                 </div>
 
                                 <%--------------------starting of Supervision Div for approval id 25, 26,27, 28 ----------------------------------%>
-                                <div class="row" style="padding-left:20px"  id="divsupervision" runat="server" visible="false">
+                                    <div class="row" style="padding-left:20px" id="divsupervision" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Full name and Address of the Manager or person responsible for the Supervision and control of the Establishment</span></label>
-                                    </div>
+                                    </div>                                       
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Name*</label>
-                                                <div class="col-lg-6 ">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtnames" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -179,7 +177,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Mobile No.*</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtMobilenumber" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -197,7 +195,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Father's Name</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtFathersname" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -264,53 +262,42 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Designation *</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDesignations" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Address *</label>
-                                                <div class="col-lg-6 d-flex">
-                                                    <textarea cols="1" rows="1" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div>                                       
                                     </div>
                                 </div>
                                 <%--------------------closing of Supervision Div for approval id 25, 26,27, 28 ----------------------------------%>
 
 
                                 <%--------------------starting of Perticulars of contractor Div for approval id 25 ----------------------------------%>
-                                <div id="divContrLabr" runat="server" visible="false">
+                                <div class="row" style="padding-left:20px" id="divContrLabr" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Particulars of Contract Labour</span></label>
 
                                     </div>
                                     <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Name and Address of the Contractor*</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtNameAddress" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Name, nature and location of work for which Contract Labour are to be recruited or employed*</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtLocation" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
+                                          <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Maximum No. of Contract Labour proposed to be employed in the establishment on any date *</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:DropDownList ID="ddlMaximumNo" runat="server" class="form-control">
                                                         <asp:ListItem Text="--Select--" Value="0" />
                                                         <asp:ListItem Text="50 and above but does not exceed 100" Value="1"></asp:ListItem>
@@ -321,48 +308,48 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-12 d-flex">                                      
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Duration of proposed contract work in a number of days(Min 1 and Max 179)*</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtContactWork" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
+                                          <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Estimated date of commencement of work *</label>
-                                                <div class="col-lg-4 d-flex">
-                                                    <asp:TextBox ID="txtEstimated" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="txtEstimated" runat="server" class="date form-control"></asp:TextBox>
+                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Estimated date of completion of work*</label>
-                                                <div class="col-lg-4 d-flex">
-                                                    <asp:TextBox ID="txtDateWork" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="txtDateWork" runat="server" class="date form-control"></asp:TextBox>
+                                                     <i class="fi fi-rr-calendar-lines"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 
+                                    <div class="col-md-12 d-flex">
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Estimated date of termination of the employment of Contract Labour *</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="txtEmployeeLabour" runat="server" class="date form-control"></asp:TextBox>
+                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Estimated date of termination of the employment of Contract Labour *</label>
-                                                <div class="col-lg-4 d-flex">
-                                                    <asp:TextBox ID="txtEmployeeLabour" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex justify-content-center">
-                                        <div class="col-md-4">
+                                          <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label"></label>
                                                 <div class="col-lg-6 d-flex">
@@ -370,6 +357,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                      
                                     </div>
                                     <div class="col-md-12 d-flex justify-content-center">
                                         <asp:GridView ID="GVLabour" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -398,80 +388,76 @@
                                 <%--------------------closing of Perticulars of contractor Div for approval id 25 ----------------------------------%>
 
                                 <%--------------------starting of Perticulars of Migrant Workmen Div for approval id 26 ----------------------------------%>
-                                <div id="divMigrLabr" runat="server" visible="false">
+                                <div class="row" style="padding-left:20px" id="divMigrLabr" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Particulars of Migrant Workmen</span></label>
 
                                     </div>
                                     <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Name and Address of the Contractor*</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtAddressName" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Name, nature and location of work for which migrant workmen are to be employed or are employed*</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtEmployedName" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
+                                          <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Max No of migrant workmen to be employed on any day through each contractor*</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtMaxmigrant" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-12 d-flex">                                      
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Duration of proposed contract work in a number of days(Min 1 and Max 179)*</label>
-                                                <div class="col-lg-4 d-flex">
+                                                <div class="col-lg-6 d-flex">
                                                     <asp:TextBox ID="txtContractwork" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
+                                          <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Estimated date of commencement of work*</label>
-                                                <div class="col-lg-4 d-flex">
-                                                    <asp:TextBox ID="txtEstwork" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="txtEstwork" runat="server" class="date form-control"></asp:TextBox>
+                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">  
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Estimated date of completion of work *</label>
-                                                <div class="col-lg-4 d-flex">
-                                                    <asp:TextBox ID="txtEstDate" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="txtEstDate" runat="server" class="date form-control"></asp:TextBox>                                                     
+                                                <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
+                                    </div>                                  
                                     <div class="col-md-12 d-flex">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Estimated date of commencement of work*</label>
-                                                <div class="col-lg-4 d-flex">
-                                                    <asp:TextBox ID="txtEstDateWork" runat="server" class="date form-control" type="text"></asp:TextBox>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:TextBox ID="txtEstDateWork" runat="server" class="date form-control"></asp:TextBox>
+                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex justify-content-center">
-                                        <div class="col-md-4">
+                                          <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label"></label>
                                                 <div class="col-lg-6 d-flex">
@@ -479,6 +465,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                      
                                     </div>
                                     <div class="col-md-12 d-flex justify-content-center">
                                         <asp:GridView ID="GVMigrant" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -505,16 +494,16 @@
                                 </div>
                                 <%--------------------closing of Perticulars of Migrant Workmen Div for approval id 26 ----------------------------------%>
 
-
+                              
                                 <%--------------------starting of div for approval id 27  (16q, 17q, 18q, 19q) and
                                     fro approval id 28 (16q, 17q, 18q, 19q, 20q, 21q, 22q, 23q)----------------------------------%>
-                                <div id="div4questions" runat="server" visible="false">
+                                <div class="row" style="padding-left:20px" id="div4questions" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-8 col-form-label ">16. Nature of work in which contract labour is employed or is to be employed in the establishment *</label>
-                                                <div class="col-lg-4">
-                                                    <input name="ctl00$ContentPlaceHolder1$txtNatureofBusinessAct1" type="text" value="Parboiled Rice Mills" maxlength="50" id="ctl00_ContentPlaceHolder1_txtNatureofBusinessAct1" disabled="disabled" title="text" class="form-control">
+                                                <label class="col-lg-6 col-form-label ">16. Nature of work in which contract labour is employed or is to be employed in the establishment *</label>
+                                                <div class="col-lg-5">
+                                                   <asp:TextBox ID="txtLabourEmp" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -524,8 +513,8 @@
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-8 col-form-label ">17. Estimated date of commencement of building or other construction work *</label>
-                                                <div class="col-lg-4">
+                                                <label class="col-lg-6 col-form-label ">17. Estimated date of commencement of building or other construction work *</label>
+                                                <div class="col-lg-5">
                                                     <asp:TextBox ID="txtconstructionwork" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -536,8 +525,8 @@
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-8 col-form-label ">18. Maximum number of Contract Employees / building workers to be employed on any day *</label>
-                                                <div class="col-lg-4">
+                                                <label class="col-lg-6 col-form-label ">18. Maximum number of Contract Employees / building workers to be employed on any day *</label>
+                                                <div class="col-lg-5">
                                                     <asp:TextBox ID="txtContractEmployees" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -548,8 +537,8 @@
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-8 col-form-label ">19. Estimated date of completion of building or other construction work *</label>
-                                                <div class="col-lg-4">
+                                                <label class="col-lg-6 col-form-label ">19. Estimated date of completion of building or other construction work *</label>
+                                                <div class="col-lg-5">
                                                     <asp:TextBox ID="txtbuilding" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -557,12 +546,12 @@
 
                                     </div>
                                 </div>
-                                <div id="div5questions" runat="server" visible="false">
+                                <div class="row" style="padding-left:20px" id="div5questions" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-8 col-form-label ">20. Maximum Number of migrant workmen proposed to be employed in the establishment on any date *</label>
-                                                <div class="col-lg-4">
+                                                <label class="col-lg-6 col-form-label ">20. Maximum Number of migrant workmen proposed to be employed in the establishment on any date *</label>
+                                                <div class="col-lg-5">
                                                     <asp:TextBox ID="txtMaximum" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -576,8 +565,8 @@
                                                 <label class="col-lg-10 col-form-label ">21. Whether the contractor was convicted of any offence within the preceding five years. If so give details *</label>
                                                 <div class="col-lg-2">
                                                     <asp:RadioButtonList ID="rblconvicted" runat="server" RepeatDirection="Horizontal">
-                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                        <asp:ListItem Text="No" Value="2" />
+                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                        <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -591,8 +580,8 @@
                                                 <label class="col-lg-10 col-form-label ">22. Whether there was any order against the contractor revoking or suspending license or forefeiting security deposits in respect of an earlier contract . If so the date of such order. *</label>
                                                 <div class="col-lg-2">
                                                     <asp:RadioButtonList ID="rblrevoking" runat="server" RepeatDirection="Horizontal">
-                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                        <asp:ListItem Text="No" Value="2" />
+                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                        <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -606,14 +595,14 @@
                                                 <label class="col-lg-10 col-form-label ">23. Whether the contractor has worked in any other establishment within the past five years, If so, give details of the Principal Emplyer,Establishments and nature of work *</label>
                                                 <div class="col-lg-2">
                                                     <asp:RadioButtonList ID="rblcontractor" runat="server" RepeatDirection="Horizontal">
-                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                        <asp:ListItem Text="No" Value="2" />
+                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                        <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 d-flex">
+                                    <div class="col-md-12 d-flex row" style="padding-left:20px">
                                         <div class="col-md-12">
                                             <div class="form-group row">
                                                 <label class="col-lg-8 col-form-label ">24. Type of business, trade, industry, manufacture or occupation, which is carried on in the establishment</label>
@@ -646,7 +635,7 @@
 
 
                             <%--------------------starting of Perticulars  Div for approval id 28 ----------------------------------%>
-                            <div id="divContractorDtls" runat="server" visible="false">
+                            <div class="row" style="padding-left:20px" id="divContractorDtls" runat="server" visible="false">
                                 <div class="col-md-12 d-flex">
                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Name and address of the contractor(including his father's/ husband's name in case of individuals)</span></label>
                                 </div>
@@ -758,7 +747,7 @@
                                 </div>
 
                             </div>
-                            <div id="divAgentDtls" runat="server" visible="false">
+                            <div class="row" style="padding-left:20px" id="divAgentDtls" runat="server" visible="false">
 
                                 <div class="col-md-12 d-flex">
                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Name and address of the agent or manager of the contractor at the work-site</span></label>
@@ -826,18 +815,10 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Pincode *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox7" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtAgentPincode" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Address *</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtaddres" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </div>                               
                                 </div>
 
                                 <%--<div class="col-md-12 mt-2 d-flex">
@@ -981,8 +962,8 @@
 
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>

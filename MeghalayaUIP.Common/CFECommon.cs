@@ -682,110 +682,59 @@ namespace MeghalayaUIP.Common
         public string UNITID { get; set; }
         public string Category_Estab { get; set; }
         public string Name_Contractor { get; set; }
+        public string Father_Name { get; set; }
+        public string Age { get; set; }
+        public string Designation { get; set; }
         public string MobileNo { get; set; }
         public string EmailId { get; set; }
-        public string Father_Name { get; set; }
-        public string Door_No { get; set; }
-        public string Locality { get; set; }
         public string District { get; set; }
         public string DistrictName { get; set; }
         public string MandalName { get; set; }
         public string Mandal { get; set; }
         public string VillageName { get; set; }
         public string Village { get; set; }
+        public string Door_No { get; set; }
+        public string Locality { get; set; }
         public string Pincode { get; set; }
-        public string Other_State_Address { get; set; }
-        public string EASTERN_WEST { get; set; }
-        public string NORTH_GARO { get; set; }
-        public string SOUTH_GARO { get; set; }
-        public string WEST_GARO { get; set; }
-        public string Date_birth { get; set; }
-        public string Age { get; set; }
-        public string Number { get; set; }
-        public string Date { get; set; }
-        public string DoorNo { get; set; }
-        public string Localitys { get; set; }
-        public string Districts { get; set; }
-        public string DistrictsName { get; set; }
-        public string MandalsName { get; set; }
-        public string Mandals { get; set; }
-        public string VillagesName { get; set; }
-        public string Villages { get; set; }
-        public string Pincodes { get; set; }
-        public string Name { get; set; }
-        public string Fathers_Name { get; set; }
-        public string Ages { get; set; }
-        public string Designation { get; set; }
-        public string Mobile { get; set; }
-        public string Email { get; set; }
-        public string DoorNos { get; set; }
-        public string Localit { get; set; }
-        public string Distric { get; set; }
-        public string Manda { get; set; }
-        public string Villag { get; set; }
-        public string Name_Employer { get; set; }
-        public string Door_Locality { get; set; }
-        public string Dist { get; set; }
-        public string Mand { get; set; }
-        public string Vill { get; set; }
-        public string Pin { get; set; }
-        public string State_Address { get; set; }
-        public string FullName { get; set; }
-        public string District1 { get; set; }
-        public string Mandal1 { get; set; }
-        public string Village1 { get; set; }
-        public string Door { get; set; }
-        public string Pincode1 { get; set; }
-        public string FullName1 { get; set; }
-        public string District2 { get; set; }
-        public string Mandal2 { get; set; }
-        public string Village2 { get; set; }
-        public string Door1 { get; set; }
-        public string Name1 { get; set; }
-        public string Mobile_No { get; set; }
-        public string EmailId1 { get; set; }
-        public string Father_Name1 { get; set; }
-        public string DoorNo3 { get; set; }
-        public string Locality1 { get; set; }
-        public string District3 { get; set; }
-        public string Mandal3 { get; set; }
-        public string Village3 { get; set; }
-        public string Pincode3 { get; set; }
-        public string Designation1 { get; set; }
-        public string Address { get; set; }
-        public string Commence_Date { get; set; }
-        public string End_Date { get; set; }
-        public string Name2 { get; set; }
-        public string DoorNo4 { get; set; }
-        public string Locality2 { get; set; }
-        public string District4 { get; set; }
-        public string Mandal4 { get; set; }
-        public string Village4 { get; set; }
-        public string Pincode4 { get; set; }
-        public string business_Estab { get; set; }
-        public string Regitration_PE { get; set; }
-        public string Nature_LAB_emp { get; set; }
-        public string est_constraction { get; set; }
-        public string max_emp_worker { get; set; }
-        public string est_building_con { get; set; }
-        public string max_migrant_work { get; set; }
-        public string convicted_preceding { get; set; }
-        public string revoking_Lic { get; set; }
-        public string Principal_Emplyer_est { get; set; }
-        public string Principal_Employer_cet { get; set; }
-        public string Amount_paid { get; set; }
-        public string Amount_payable { get; set; }
-        public string Challan_No { get; set; }
-        public string Challan_Date { get; set; }
-        public string Attach_Challan { get; set; }
-        public string Name_Contractors { get; set; }
-        public string Addre { get; set; }
-        public string Mobile1 { get; set; }
-        public string Nature_work { get; set; }
-        public string Max_Migrant_Workmen { get; set; }
-        public string Est_Date { get; set; }
-        public string Date_est_Completion { get; set; }
-        public string Manufacture_Details { get; set; }
+
+        public string ManagerName { get; set; }
+        public string ManagerMobile { get; set; }
+        public string ManagerEmail { get; set; }
+        public string ManagerFather { get; set; }
+        public string ManagerDoor { get; set; }
+        public string ManagerLocality { get; set; }
+        public string ManagerDistrict { get; set; }
+        public string ManagerMandal { get; set; }
+        public string ManagerVillage { get; set; }
+        public string ManagerPincode { get; set; }
+        public string ManagerDesignation { get; set; }
+        public string NatureOflabourCont { get; set; }
+        public string BuildingContractWork { get; set; }
+        public string BuildingEmpDay { get; set; }
+        public string EstDateBuilding { get; set; }
+        public string MigrantWork { get; set; }
+        public string ContractFiveYears { get; set; }
+        public string Revoking { get; set; }
+        public string PrincipleEmpWork { get; set; }
+        public string ManuooCupation { get; set; }
+        public string ContarctorName { get; set; }
+        public string ContarctorFather { get; set; }
+        public string ContarctorAge { get; set; }
+        public string ContarctorMobile { get; set; }
+        public string ContarctorEmailId { get; set; }
+        public string ContarctorDistrict { get; set; }
+        public string ContarctorMandals { get; set; }
+        public string ContarctorVillages { get; set; }
+        public string ContarctorDoor { get; set; }
+        public string ContarctorLocality { get; set; }
+        public string ContarctorPincode { get; set; }
+        public string AgentName { get; set; }
+        public string AgentDoorNo { get; set; }
+        public string AgentLocality { get; set; }
+        public string AgentDistric { get; set; }
+        public string AgentMandal { get; set; }
+        public string AgentVillage { get; set; }
+        public string AgentPinCode { get; set; }
         public string CFECL_CONTRACTORNAMEADDRESS { get; set; }
         public string CFECL_WORKNAMENATURELOCATION { get; set; }
         public string CFECL_MAXCONTRACTLABOUR { get; set; }
