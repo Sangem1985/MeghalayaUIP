@@ -44,6 +44,7 @@ namespace MeghalayaUIP.Common
         public static string InsertRENFactoryLicDetails = "USP_INSRENFACTORYLIC";
         public static string GetRenFactoriesLicenseDetails = "USP_GETRENFACTORYLIC";
         public static string GetRenApprovals = "USP_GETRENAPPROVALS";
+        public static string GetRENapplications = "USP_GETRENEWALSUSERDASHBOARD";
 
     }
 
