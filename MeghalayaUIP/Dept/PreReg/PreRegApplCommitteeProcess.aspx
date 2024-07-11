@@ -693,6 +693,8 @@
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
                                 aria-labelledby="headingTwo" style="" aria-expanded="false">
+
+
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>Check Lists</h3>
@@ -707,7 +709,7 @@
                                                                 <tr>
                                                                     <th style="text-align: center;">Sl.No</th>
                                                                     <th>Attachment Name</th>
-                                                                    <th>Status</th>
+                                                                    <th>View</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -776,8 +778,6 @@
                                         </div>
                                     </section>
                                 </div>
-
-
                             </div>
                         </div>
                         <div class="panel panel-default">

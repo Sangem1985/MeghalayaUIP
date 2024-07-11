@@ -742,7 +742,7 @@
                                                                 <tr>
                                                                     <th style="text-align: center; ">Sl.No</th>
                                                                     <th>Attachment Name</th>
-                                                                    <th>Status</th> 
+                                                                    <th>View</th> 
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
