@@ -353,16 +353,6 @@ namespace MeghalayaUIP.User.CFO
             MVQues.ActiveViewIndex = 0;
             var cls = Link1.Attributes["class"];
             Link1.Attributes.Add("class", cls + " nav-tab");
-            //Link1.CssClass = "nav-tab";
-            //Link1.Attributes.Add("data-toggle","tab");
-            // Link2.CssClass = "nav-tab";
-            //Link3.CssClass = "nav-tab";
-
-            //Link1.Font.Underline = true;
-            //Link2.Font.Underline = false;
-            //Link3.Font.Underline = false;
-
-
         }
 
         protected void Link2_Click(object sender, EventArgs e)
@@ -395,7 +385,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                string  result = "";
+                string result = "";
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -468,7 +458,7 @@ namespace MeghalayaUIP.User.CFO
                     result = objcfobal.InsertQuestionnaireCFO(objCFOQsnaire);
                     if (result != "100")
                     {
-                       // Session["CFOIUNITID"] = hdnPreRegUNITID.Value;
+                        // Session["CFOIUNITID"] = hdnPreRegUNITID.Value;
                         Session["CFOQID"] = result;
                         for (int i = 0; i < grdApprovals.Rows.Count; i++)
                         {
@@ -819,7 +809,7 @@ namespace MeghalayaUIP.User.CFO
                     ds = objcfobal.GetIndustryRegDetails(hdnUserID.Value, UnitID);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                       // hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
+                        // hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
                         hdnPreRegUID.Value = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
                         //Session["UNITID"] = hdnPreRegUNITID.Value;
                         txtUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"]);

@@ -135,8 +135,8 @@ namespace MeghalayaUIP.User.CFE
                     rblfrstDistncLtr.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_FORSTDISTLTRREQ"]);
                     rblNonForstLandCert.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NONFORSTLANDCERTREQ"]);
                     rblFelltrees.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TREESFELLING"]);
-                    rblFelltrees_SelectedIndexChanged(null, EventArgs.Empty);
                     txtNoofTrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFTREES"]);
+                    rblFelltrees_SelectedIndexChanged(null, EventArgs.Empty);
                     rblwaterbody.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERBODYVICINITY"]);
                     rblborewell.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BOREWELLEXISTS"]);
 
@@ -651,6 +651,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         divHTMeter.Visible = false;
                         ddlRegulation.ClearSelection();
+                        ddlRegulation_SelectedIndexChanged(sender, e);
                     }
                 }
             }
@@ -700,7 +701,11 @@ namespace MeghalayaUIP.User.CFE
                 {
                     trworkers1970.Visible = true;
                 }
-                else trworkers1970.Visible = false;
+                else
+                {
+                    trworkers1970.Visible = false;
+                    txt1970Workers.Text = "";
+                }
             }
             catch (Exception ex)
             {
@@ -716,7 +721,11 @@ namespace MeghalayaUIP.User.CFE
                 {
                     trworkers1979.Visible = true;
                 }
-                else trworkers1979.Visible = false;
+                else
+                {
+                    trworkers1979.Visible = false;
+                    txt1979Workers.Text = "";
+                }
             }
             catch (Exception ex)
             {
@@ -733,7 +742,12 @@ namespace MeghalayaUIP.User.CFE
                 {
                     tr1workers1996.Visible = true;
                 }
-                else tr1workers1996.Visible = false;
+                else
+                {
+                    tr1workers1996.Visible = false;
+                    rblbuildingwork.ClearSelection();
+                    rblbuildingwork_SelectedIndexChanged(sender, e);
+                }
             }
             catch (Exception ex)
             {
@@ -750,7 +764,11 @@ namespace MeghalayaUIP.User.CFE
                 {
                     tr2workers1996.Visible = true;
                 }
-                else tr2workers1996.Visible = false;
+                else
+                {
+                    tr2workers1996.Visible = false;
+                    txt1996Workers.Text = "";
+                }
             }
             catch (Exception ex)
             {
@@ -768,7 +786,11 @@ namespace MeghalayaUIP.User.CFE
                 {
                     trContrctworkers.Visible = true;
                 }
-                else trContrctworkers.Visible = false;
+                else
+                {
+                    trContrctworkers.Visible = false;
+                    txtContractWorkers.Text = "";
+                }
             }
             catch (Exception ex)
             {
@@ -784,7 +806,11 @@ namespace MeghalayaUIP.User.CFE
                 {
                     trcontrworkers1970.Visible = true;
                 }
-                else trcontrworkers1970.Visible = false;
+                else
+                {
+                    trcontrworkers1970.Visible = false;
+                    txtContr1970wrkrs.Text = "";
+                }
             }
             catch (Exception ex)
             {

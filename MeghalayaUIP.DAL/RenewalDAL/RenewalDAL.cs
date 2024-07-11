@@ -1326,38 +1326,39 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
 
 
-                com.Parameters.AddWithValue("@RENLC_CREATEDBY", Convert.ToInt32(ObjApplicationDetails.CreatedBy));
-                com.Parameters.AddWithValue("@RENLC_CREATEDBYIP", ObjApplicationDetails.IPAddress);
-                com.Parameters.AddWithValue("@RENID_RENQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
+                com.Parameters.AddWithValue("@RENID_CREATEDBY", Convert.ToInt32(ObjApplicationDetails.CreatedBy));
+                com.Parameters.AddWithValue("@RENID_CREATEDBYIP", ObjApplicationDetails.IPAddress);
+                //  com.Parameters.AddWithValue("@RENID_RENQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
                 com.Parameters.AddWithValue("@RENID_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
 
                 com.Parameters.AddWithValue("@RENID_NAMEOFUNIT", ObjApplicationDetails.Nameofunit);
                 com.Parameters.AddWithValue("@RENID_COMPANYTYPE", ObjApplicationDetails.companyType);
+                com.Parameters.AddWithValue("@RENID_SECTORENTERPRISE", ObjApplicationDetails.INDUSTRY);
+                com.Parameters.AddWithValue("@RENID_CATEGORYREG", ObjApplicationDetails.CATEGORYREG);
                 com.Parameters.AddWithValue("@RENID_REGNUMBER", Convert.ToInt32(ObjApplicationDetails.RegNumber));
                 com.Parameters.AddWithValue("@RENID_REGDATE", ObjApplicationDetails.RegDate);
-                com.Parameters.AddWithValue("@RENID_SECTORENTERPRISE", ObjApplicationDetails.SectorEntrprise);
+                //com.Parameters.AddWithValue("@RENID_SECTORENTERPRISE", ObjApplicationDetails.SectorEntrprise);
                 com.Parameters.AddWithValue("@RENID_SECTOR", ObjApplicationDetails.Sector);
                 com.Parameters.AddWithValue("@RENID_LINEOFACTIVITY", ObjApplicationDetails.LineofActivity);
                 com.Parameters.AddWithValue("@RENID_POLLUTIONCATG", ObjApplicationDetails.PCB);
-                com.Parameters.AddWithValue("@RENID_PROPOSEDEMP", Convert.ToInt32(ObjApplicationDetails.ProposedEmp));
-                com.Parameters.AddWithValue("@RENID_LANDSALEDEED", Convert.ToInt32(ObjApplicationDetails.LandSaleDeed));
-                com.Parameters.AddWithValue("@RENID_BUILDING", Convert.ToInt32(ObjApplicationDetails.Building));
-                com.Parameters.AddWithValue("@RENID_PLANTMACHINERY", Convert.ToInt32(ObjApplicationDetails.PlantMachinary));
-                com.Parameters.AddWithValue("@RENID_ANNUALTURNOVER", Convert.ToInt32(ObjApplicationDetails.AnnualTurnOver));
-                com.Parameters.AddWithValue("@RENID_PROJECTCOST", Convert.ToInt32(ObjApplicationDetails.TotalProjectCost));
-                com.Parameters.AddWithValue("@RENID_ENTERPRISECATEG", ObjApplicationDetails.EnterpriseCategory);
-                com.Parameters.AddWithValue("@RENID_DISTRIC", Convert.ToInt32(ObjApplicationDetails.District));
-                com.Parameters.AddWithValue("@RENID_MANDAL ", Convert.ToInt32(ObjApplicationDetails.Mandal));
-                com.Parameters.AddWithValue("@RENID_VILLAGE", Convert.ToInt32(ObjApplicationDetails.Village));
-                com.Parameters.AddWithValue("@RENID_EMAILID", ObjApplicationDetails.EmailId);
-                com.Parameters.AddWithValue("@RENID_MOBILENO", Convert.ToInt64(ObjApplicationDetails.MobileNo));
-                com.Parameters.AddWithValue("@RENID_DOORNO", ObjApplicationDetails.Door);
-                com.Parameters.AddWithValue("@RENID_LOCALITY", ObjApplicationDetails.Locality);
-                com.Parameters.AddWithValue("@RENID_LANDMARK", ObjApplicationDetails.Landmark);
-                com.Parameters.AddWithValue("@RENID_PINCODE", Convert.ToInt32(ObjApplicationDetails.Pincode));
-                com.Parameters.AddWithValue("@RENID_NAMEOFPROMOTER", ObjApplicationDetails.NamePromoter);
+                com.Parameters.AddWithValue("@RENID_SURVEYDOOR", ObjApplicationDetails.SURVEY);
+                com.Parameters.AddWithValue("@RENID_LOCALITY", ObjApplicationDetails.LOCALITY);
+                com.Parameters.AddWithValue("@RENID_LANDMARK", ObjApplicationDetails.LANMARK);
+                com.Parameters.AddWithValue("@RENID_DISTRIC", Convert.ToInt32(ObjApplicationDetails.DISTRICT));
+                com.Parameters.AddWithValue("@RENID_MANDAL ", Convert.ToInt32(ObjApplicationDetails.MANDAL));
+                com.Parameters.AddWithValue("@RENID_VILLAGE", Convert.ToInt32(ObjApplicationDetails.VILLAGE));
+                com.Parameters.AddWithValue("@RENID_EMAILID", ObjApplicationDetails.EMAILID);
+                com.Parameters.AddWithValue("@RENID_MOBILENO", Convert.ToInt64(ObjApplicationDetails.MOBILENO));
+                com.Parameters.AddWithValue("@RENID_PINCODE", Convert.ToInt32(ObjApplicationDetails.PINCODE));
+                com.Parameters.AddWithValue("@RENID_TOTALEXTENTLAND", Convert.ToDecimal(ObjApplicationDetails.TOTALEXTENT));
+                com.Parameters.AddWithValue("@RENID_BUILTUPAREA", Convert.ToDecimal(ObjApplicationDetails.BUILDUPAREA));
+
+                com.Parameters.AddWithValue("@RENID_NAME", ObjApplicationDetails.NamePromoter);
+                com.Parameters.AddWithValue("@RENID_SONOF", ObjApplicationDetails.SONOF);
                 com.Parameters.AddWithValue("@RENID_EMAIL", ObjApplicationDetails.Email);
                 com.Parameters.AddWithValue("@RENID_MOBILENUMBER", Convert.ToInt64(ObjApplicationDetails.MobileNumber));
+                com.Parameters.AddWithValue("@RENID_ALTERNUMBER", Convert.ToInt64(ObjApplicationDetails.ALTERNATIVAENO));
+                com.Parameters.AddWithValue("@RENID_LANDLINENUMBER", Convert.ToInt64(ObjApplicationDetails.LANDLINENO));
                 com.Parameters.AddWithValue("@RENID_DOOR", ObjApplicationDetails.DoorNo);
                 com.Parameters.AddWithValue("@RENID_LOCALITYADD", ObjApplicationDetails.Local);
                 com.Parameters.AddWithValue("@RENID_STATE", ObjApplicationDetails.State);
@@ -1370,6 +1371,22 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENID_PIN", Convert.ToInt32(ObjApplicationDetails.Pin));
                 com.Parameters.AddWithValue("@RENID_AGE", Convert.ToInt32(ObjApplicationDetails.Age));
                 com.Parameters.AddWithValue("@RENID_DESIGNATION", ObjApplicationDetails.Designation);
+                com.Parameters.AddWithValue("@RENID_WOMENENTREPRENEUR", ObjApplicationDetails.WOMEN);
+                com.Parameters.AddWithValue("@RENID_ABLED", ObjApplicationDetails.ABLED);
+                com.Parameters.AddWithValue("@RENID_DIRECTMALE", Convert.ToInt32(ObjApplicationDetails.DIRECTFEMALE));
+                com.Parameters.AddWithValue("@RENID_DIRECTFEMALE", Convert.ToInt32(ObjApplicationDetails.DIRECTFEMALE));
+                com.Parameters.AddWithValue("@RENID_DIRECTEMP", ObjApplicationDetails.DIRECTEMP);
+                com.Parameters.AddWithValue("@RENID_INDIRECTMALE", Convert.ToInt32(ObjApplicationDetails.INDIRECTFEMALE));
+                com.Parameters.AddWithValue("@RENID_INDIRECTFEMALE", Convert.ToInt32(ObjApplicationDetails.INDIRECTFEMALE));
+                com.Parameters.AddWithValue("@RENID_INDIRECTEMP", ObjApplicationDetails.INDIRECTEMP);
+                com.Parameters.AddWithValue("@RENID_TOTALEMP", Convert.ToInt32(ObjApplicationDetails.TOTALEMP));
+
+                com.Parameters.AddWithValue("@RENID_LANDSALEDEED", Convert.ToDecimal(ObjApplicationDetails.LandSaleDeed));
+                com.Parameters.AddWithValue("@RENID_BUILDING", Convert.ToDecimal(ObjApplicationDetails.Building));
+                com.Parameters.AddWithValue("@RENID_PLANTMACHINERY", Convert.ToDecimal(ObjApplicationDetails.PlantMachinary));
+                com.Parameters.AddWithValue("@RENID_PROJECTCOST", Convert.ToDecimal(ObjApplicationDetails.TotalProjectCost));
+                com.Parameters.AddWithValue("@RENID_ANNUALTURNOVER", Convert.ToDecimal(ObjApplicationDetails.AnnualTurnOver));
+                com.Parameters.AddWithValue("@RENID_ENTERPRISECATEG", ObjApplicationDetails.EnterpriseCategory);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);

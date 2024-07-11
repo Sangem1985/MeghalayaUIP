@@ -162,7 +162,7 @@
                                 </div>
 
                                 <%--------------------starting of Supervision Div for approval id 25, 26,27, 28 ----------------------------------%>
-                                <div id="divsupervision" runat="server" visible="false">
+                                <div class="row" style="padding-left:20px"  id="divsupervision" runat="server" visible="false">
                                     <div class="col-md-12 d-flex">
                                         <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Full name and Address of the Manager or person responsible for the Supervision and control of the Establishment</span></label>
                                     </div>
@@ -170,7 +170,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Name*</label>
-                                                <div class="col-lg-6 d-flex">
+                                                <div class="col-lg-6 ">
                                                     <asp:TextBox ID="txtnames" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -983,9 +983,6 @@
                         </div>
 
                     </div>
-
-
-
                 </div>
             </div>
         </div>

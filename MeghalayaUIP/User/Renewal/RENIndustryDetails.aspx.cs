@@ -13,16 +13,15 @@ namespace MeghalayaUIP.User.Renewal
 {
     public partial class RENIndustryDetails : System.Web.UI.Page
     {
-        decimal PropEmp;
         decimal LandValue;
         decimal Building;
         decimal PMCost;
-        decimal AnnualCost;
+
 
         decimal sum;
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -48,6 +47,7 @@ namespace MeghalayaUIP.User.Renewal
                     BindDistricts();
                     BindSectors();
                     BindConstitutionType();
+                    BindRegistrationType();
                     TotalAmount();
                     BindData();
 
@@ -433,49 +433,47 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            string Quesstionriids = "1001";
+            //   string Quesstionriids = "1001";
             try
             {
-                string ErrorMsg = "", result = "";
+
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
                     RenApplicationDetails ObjApplicationDetails = new RenApplicationDetails();
 
 
-                    ObjApplicationDetails.Questionnariid = Quesstionriids;
+                    //  ObjApplicationDetails.Questionnariid = Quesstionriids;
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
                     ObjApplicationDetails.UnitId = Convert.ToString(Session["UnitID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
 
                     ObjApplicationDetails.Nameofunit = txtUnitName.Text;
                     ObjApplicationDetails.companyType = ddlCompanyType.SelectedValue;
+                    ObjApplicationDetails.INDUSTRY = ddlSectorEnter.SelectedValue;
+                    ObjApplicationDetails.CATEGORYREG = ddlRegType.SelectedValue;
                     ObjApplicationDetails.RegNumber = txtRegNo.Text;
                     ObjApplicationDetails.RegDate = txtRegDate.Text;
-                    ObjApplicationDetails.SectorEntrprise = ddlSectorEnter.SelectedItem.Text;
                     ObjApplicationDetails.Sector = ddlsector.SelectedValue;
                     ObjApplicationDetails.LineofActivity = ddlLineActivity.SelectedValue;
                     ObjApplicationDetails.PCB = lblPCBCategory.Text;
-                    ObjApplicationDetails.ProposedEmp = txtPropEmp.Text;
-                    ObjApplicationDetails.LandSaleDeed = txtLandValue.Text;
-                    ObjApplicationDetails.Building = txtBuildingValue.Text;
-                    ObjApplicationDetails.PlantMachinary = txtPMCost.Text;
-                    ObjApplicationDetails.AnnualTurnOver = txtAnnualTurnOver.Text;
-                    //ObjApplicationDetails.ProjectCost = lblTotProjCost.Text;
-                    ObjApplicationDetails.TotalProjectCost = lblTotProjCost.Text;
-                    ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text;
-                    ObjApplicationDetails.District = ddlDistrict.SelectedValue;
-                    ObjApplicationDetails.Mandal = ddlMandal.SelectedValue;
-                    ObjApplicationDetails.Village = ddlVillage.SelectedValue;
-                    ObjApplicationDetails.EmailId = txtEmailId.Text;
-                    ObjApplicationDetails.MobileNo = txtMobileNo.Text;
-                    ObjApplicationDetails.Door = txtDoors.Text;
-                    ObjApplicationDetails.Locality = txtLocality.Text;
-                    ObjApplicationDetails.Landmark = txtLANDMARK.Text;
-                    ObjApplicationDetails.Pincode = txtpincode.Text;
+                    ObjApplicationDetails.SURVEY = txtDoors.Text;
+                    ObjApplicationDetails.LOCALITY = txtLocality.Text;
+                    ObjApplicationDetails.LANMARK = txtLANDMARK.Text;
+                    ObjApplicationDetails.DISTRICT = ddlDistrict.SelectedValue;
+                    ObjApplicationDetails.MANDAL = ddlMandal.SelectedValue;
+                    ObjApplicationDetails.VILLAGE = ddlVillage.SelectedValue;
+                    ObjApplicationDetails.EMAILID = txtEmailId.Text;
+                    ObjApplicationDetails.MOBILENO = txtMobileNo.Text;
+                    ObjApplicationDetails.PINCODE = txtpincode.Text;
+                    ObjApplicationDetails.TOTALEXTENT = txtLandArea.Text;
+                    ObjApplicationDetails.BUILDUPAREA = txtBuiltArea.Text;
                     ObjApplicationDetails.NamePromoter = txtName.Text;
+                    ObjApplicationDetails.SONOF = txtSoWoDo.Text;
                     ObjApplicationDetails.Email = txtEmail.Text;
                     ObjApplicationDetails.MobileNumber = txtphoneno.Text;
+                    ObjApplicationDetails.ALTERNATIVAENO = txtAltMobile.Text;
+                    ObjApplicationDetails.LANDLINENO = txtLandlineno.Text;
                     ObjApplicationDetails.DoorNo = txtDoorNo.Text;
                     ObjApplicationDetails.Local = txtLocal.Text;
                     ObjApplicationDetails.State = ddlstate.SelectedValue;
@@ -488,6 +486,23 @@ namespace MeghalayaUIP.User.Renewal
                     ObjApplicationDetails.Pin = txtPin.Text;
                     ObjApplicationDetails.Age = txtAge.Text;
                     ObjApplicationDetails.Designation = txtDesignation.Text;
+                    ObjApplicationDetails.WOMEN = rblWomen.SelectedValue;
+                    ObjApplicationDetails.ABLED = rblAbled.SelectedValue;
+                    ObjApplicationDetails.DIRECTFEMALE = txtMale.Text;
+                    ObjApplicationDetails.DIRECTFEMALE = txtFemale.Text;
+                    ObjApplicationDetails.DIRECTEMP = txtDirectOthers.Text;
+                    ObjApplicationDetails.INDIRECTMALE = txtIndirectMale.Text;
+                    ObjApplicationDetails.INDIRECTFEMALE = txtIndirectFemale.Text;
+                    ObjApplicationDetails.INDIRECTEMP = txtInDirectOthers.Text;
+                    ObjApplicationDetails.TOTALEMP = txtPropEmp.Text;
+                    ObjApplicationDetails.LandSaleDeed = txtLandValue.Text;
+                    ObjApplicationDetails.Building = txtBuildingValue.Text;
+                    ObjApplicationDetails.PlantMachinary = txtPMCost.Text;
+                    ObjApplicationDetails.TotalProjectCost = lblTotProjCost.Text;
+                    ObjApplicationDetails.AnnualTurnOver = txtAnnualTurnOver.Text;
+                    ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text;
+
+
 
                     result = objRenbal.InsertRenApplicationDetails(ObjApplicationDetails);
 
@@ -498,6 +513,11 @@ namespace MeghalayaUIP.User.Renewal
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)
@@ -523,35 +543,228 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Select Company Type\\n";
                     slno = slno + 1;
                 }
+                if (ddlSectorEnter.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Select Nature of Industry\\n";
+                    slno = slno + 1;
+                }
+                if (ddlRegType.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Select Category of Registration\\n";
+                    slno = slno + 1;
+                }
+
                 if (string.IsNullOrEmpty(txtRegNo.Text) || txtRegNo.Text == "" || txtRegNo.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Registration Number \\n";
                     slno = slno + 1;
 
                 }
-                if (string.IsNullOrEmpty(txtUnitName.Text) || txtUnitName.Text == "" || txtUnitName.Text == null)
+                if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Registration Date \\n";
                     slno = slno + 1;
+
                 }
-                if (ddlSectorEnter.SelectedValue == "0" || ddlSectorEnter.SelectedValue == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select sector Enterprise\\n";
-                    slno = slno + 1;
-                }
-                if (ddlsector.SelectedValue == "0" || ddlsector.SelectedValue == "--Select--")
+                if (ddlsector.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select sector \\n";
                     slno = slno + 1;
                 }
-                if (ddlLineActivity.SelectedValue == "0" || ddlLineActivity.SelectedValue == "--Select--")
+                if (ddlLineActivity.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Line Of Activity \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(txtDoors.Text) || txtDoors.Text == "" || txtDoors.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Survey/Door \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter LOCALITY \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLANDMARK.Text) || txtLANDMARK.Text == "" || txtLANDMARK.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter LANDMARK \\n";
+                    slno = slno + 1;
+                }
+                if (ddlDistrict.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter DISTRICT\\n";
+                    slno = slno + 1;
+                }
+                if (ddlMandal.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter MANDAL \\n";
+                    slno = slno + 1;
+                }
+                if (ddlVillage.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter VILLAGE \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtEmailId.Text) || txtEmailId.Text == "" || txtEmailId.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter EMAILID \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtMobileNo.Text) || txtMobileNo.Text == "" || txtMobileNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter MOBILENO \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter PINCODE \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter TOTAL EXTENT LAND \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtBuiltArea.Text) || txtBuiltArea.Text == "" || txtBuiltArea.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter BUILTUPAREA \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter NAME \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtSoWoDo.Text) || txtSoWoDo.Text == "" || txtSoWoDo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter S/O.D/O.W/O \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == "" || txtEmail.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter EmailId \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtphoneno.Text) || txtphoneno.Text == "" || txtphoneno.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter MobileNo....! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtAltMobile.Text) || txtAltMobile.Text == "" || txtAltMobile.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter ALTERNATIVE MOBILE NUMBER....! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Doors....! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLocal.Text) || txtLocal.Text == "" || txtLocal.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Locality....! \\n";
+                    slno = slno + 1;
+                }
+                if (ddlstate.SelectedIndex == 0)
+                {
+                    if (ddlstate.SelectedItem.Text == "Meghalaya")
+                    {
+                        if (ddldist.SelectedIndex == 0)
+                        {
+                            errormsg = errormsg + slno + ". Please Select distric....! \\n";
+                            slno = slno + 1;
+                        }
+                        if (ddlmand.SelectedIndex == 0)
+                        {
+                            errormsg = errormsg + slno + ". Please Select Mandal....! \\n";
+                            slno = slno + 1;
+                        }
+                        if (ddlvilla.SelectedIndex == 0)
+                        {
+                            errormsg = errormsg + slno + ". Please Select village....! \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(txtApplDist.Text) || txtApplDist.Text == "" || txtApplDist.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Distric....! \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtApplTaluka.Text) || txtApplTaluka.Text == "" || txtApplTaluka.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Mandal....! \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtApplVillage.Text) || txtApplVillage.Text == "" || txtApplVillage.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Village....! \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                }
+
+                if (string.IsNullOrEmpty(txtPin.Text) || txtPin.Text == "" || txtPin.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Pincode....! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtAge.Text) || txtAge.Text == "" || txtAge.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Age....! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDesignation.Text) || txtDesignation.Text == "" || txtDesignation.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Designation....! \\n";
+                    slno = slno + 1;
+                }
+                if (rblWomen.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Women Entrepreneur....! \\n";
+                    slno = slno + 1;
+                }
+                if (rblAbled.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Enter DIFFERENTLY ABLED....! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtMale.Text) || txtMale.Text == "" || txtMale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter DIRECT MALE \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtFemale.Text) || txtFemale.Text == "" || txtFemale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter DIRECT FEMALE \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDirectOthers.Text) || txtDirectOthers.Text == "" || txtDirectOthers.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter DIRECT OTHER EMPLOYEE  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtIndirectMale.Text) || txtIndirectMale.Text == "" || txtIndirectMale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter INDIRECTMALE \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtIndirectFemale.Text) || txtIndirectFemale.Text == "" || txtIndirectFemale.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter INDIRECTFEMALE \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtInDirectOthers.Text) || txtInDirectOthers.Text == "" || txtInDirectOthers.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter INDIRECTOTHEREMPLOYEE \\n";
+                    slno = slno + 1;
+                }
+
                 if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Proposed Employment \\n";
+                    errormsg = errormsg + slno + ". Please Enter TOTAL EMPLOYEE \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null)
@@ -574,132 +787,7 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Expected Annual TurnOver \\n";
                     slno = slno + 1;
                 }
-                if (ddlDistrict.SelectedValue == "0" || ddlDistrict.SelectedValue == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Distric....! \\n";
-                    slno = slno + 1;
-                }
-                if (ddlMandal.SelectedValue == "0" || ddlMandal.SelectedValue == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Mandal.....! \\n";
-                    slno = slno + 1;
-                }
-                if (ddlVillage.SelectedValue == "0" || ddlVillage.SelectedValue == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Village....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEmailId.Text) || txtEmailId.Text == "" || txtEmailId.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter EmailId \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtMobileNo.Text) || txtMobileNo.Text == "" || txtMobileNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter MobileNo....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDoors.Text) || txtDoors.Text == "" || txtDoors.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Doors....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Locality....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLANDMARK.Text) || txtLANDMARK.Text == "" || txtLANDMARK.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter landmark....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter NameofPromoter....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == "" || txtEmail.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Email....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtphoneno.Text) || txtphoneno.Text == "" || txtphoneno.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Mobile Number....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Door....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLocal.Text) || txtLocal.Text == "" || txtLocal.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Locality....! \\n";
-                    slno = slno + 1;
-                }
-                if (ddlstate.SelectedValue == "0" || ddlstate.SelectedValue == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select State....! \\n";
-                    slno = slno + 1;
-                }
-                if (ddlstate.SelectedItem.Text == "Meghalaya")
-                {
-                    if (ddldist.SelectedIndex == 0)
-                    {
-                        errormsg = errormsg + slno + ". Please Select distric....! \\n";
-                        slno = slno + 1;
-                    }
-                    if (ddlmand.SelectedIndex == 0)
-                    {
-                        errormsg = errormsg + slno + ". Please Select Mandal....! \\n";
-                        slno = slno + 1;
-                    }
-                    if (ddlvilla.SelectedIndex == 0)
-                    {
-                        errormsg = errormsg + slno + ". Please Select village....! \\n";
-                        slno = slno + 1;
-                    }
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(txtApplDist.Text) || txtApplDist.Text == "" || txtApplDist.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Distric....! \\n";
-                        slno = slno + 1;
-                    }
-                    if (string.IsNullOrEmpty(txtApplTaluka.Text) || txtApplTaluka.Text == "" || txtApplTaluka.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Mandal....! \\n";
-                        slno = slno + 1;
-                    }
-                    if (string.IsNullOrEmpty(txtApplVillage.Text) || txtApplVillage.Text == "" || txtApplVillage.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Village....! \\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (string.IsNullOrEmpty(txtPin.Text) || txtPin.Text == "" || txtPin.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtAge.Text) || txtAge.Text == "" || txtAge.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Age....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDesignation.Text) || txtDesignation.Text == "" || txtDesignation.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Designation....! \\n";
-                    slno = slno + 1;
-                }
+
 
                 return errormsg;
             }
@@ -728,17 +816,7 @@ namespace MeghalayaUIP.User.Renewal
         public void TotalAmount()
         {
 
-            if (txtPropEmp.Text == "0" || string.IsNullOrEmpty(txtPropEmp.Text))
-            {
 
-                PropEmp = 0;
-
-            }
-            else
-            {
-                PropEmp = Convert.ToDecimal(txtPropEmp.Text);
-
-            }
             if (txtLandValue.Text == "0" || string.IsNullOrEmpty(txtLandValue.Text))
             {
 
@@ -772,26 +850,13 @@ namespace MeghalayaUIP.User.Renewal
                 PMCost = Convert.ToDecimal(txtPMCost.Text);
 
             }
-            if (txtAnnualTurnOver.Text == "0" || string.IsNullOrEmpty(txtAnnualTurnOver.Text))
-            {
 
-                AnnualCost = 0;
-
-            }
-            else
-            {
-                AnnualCost = Convert.ToDecimal(txtAnnualTurnOver.Text);
-
-            }
-            sum = PropEmp + LandValue + Building + PMCost + AnnualCost;
+            sum = LandValue + Building + PMCost;
             lblTotProjCost.Text = sum.ToString();
 
         }
 
-        protected void txtPropEmp_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
+
 
         protected void txtLandValue_TextChanged(object sender, EventArgs e)
         {
@@ -808,38 +873,33 @@ namespace MeghalayaUIP.User.Renewal
             TotalAmount();
         }
 
-        protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
+
         public void BindData()
         {
             try
             {
                 DataSet ds = new DataSet();
                 ds = objRenbal.GetRenApplicantDetails(hdnUserID.Value, UnitID);
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENID_UNITID"]);
                         txtUnitName.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
-                        ddlCompanyType.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_COMPANYTYPE"].ToString();
+                        ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["RENID_COMPANYTYPE"].ToString();
+                        ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["RENID_SECTORENTERPRISE"].ToString();
+                        ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["RENID_CATEGORYREG"].ToString();
+                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
                         txtRegNo.Text = ds.Tables[0].Rows[0]["RENID_REGNUMBER"].ToString();
                         txtRegDate.Text = ds.Tables[0].Rows[0]["RENID_REGDATE"].ToString();
-                        ddlSectorEnter.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_SECTORENTERPRISE"].ToString();
                         ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
                         ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlLineActivity.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_LINEOFACTIVITY"].ToString();
+                        ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["RENID_LINEOFACTIVITY"].ToString();
                         ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
                         lblPCBCategory.Text = ds.Tables[0].Rows[0]["RENID_POLLUTIONCATG"].ToString();
-                        txtPropEmp.Text = ds.Tables[0].Rows[0]["RENID_PROPOSEDEMP"].ToString();
-                        txtLandValue.Text = ds.Tables[0].Rows[0]["RENID_LANDSALEDEED"].ToString();
-                        txtBuildingValue.Text = ds.Tables[0].Rows[0]["RENID_BUILDING"].ToString();
-                        txtPMCost.Text = ds.Tables[0].Rows[0]["RENID_PLANTMACHINERY"].ToString();
-                        txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
-                        lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
-                        lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
+                        txtDoors.Text = ds.Tables[0].Rows[0]["RENID_SURVEYDOOR"].ToString();
+                        txtLocality.Text = ds.Tables[0].Rows[0]["RENID_LOCALITY"].ToString();
+                        txtLANDMARK.Text = ds.Tables[0].Rows[0]["RENID_LANDMARK"].ToString();
                         ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRIC"].ToString();
                         ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDAL"].ToString();
@@ -847,31 +907,65 @@ namespace MeghalayaUIP.User.Renewal
                         ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGE"].ToString();
                         txtEmailId.Text = ds.Tables[0].Rows[0]["RENID_EMAILID"].ToString();
                         txtMobileNo.Text = ds.Tables[0].Rows[0]["RENID_MOBILENO"].ToString();
-                        txtDoors.Text = ds.Tables[0].Rows[0]["RENID_DOORNO"].ToString();
-                        txtLocality.Text = ds.Tables[0].Rows[0]["RENID_LOCALITY"].ToString();
-                        txtLANDMARK.Text = ds.Tables[0].Rows[0]["RENID_LANDMARK"].ToString();
                         txtpincode.Text = ds.Tables[0].Rows[0]["RENID_PINCODE"].ToString();
-                        txtName.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFPROMOTER"].ToString();
+                        txtLandArea.Text = ds.Tables[0].Rows[0]["RENID_TOTALEXTENTLAND"].ToString();
+                        txtBuiltArea.Text = ds.Tables[0].Rows[0]["RENID_BUILTUPAREA"].ToString();
+
+                        txtName.Text = ds.Tables[0].Rows[0]["RENID_NAME"].ToString();
+                        txtSoWoDo.Text = ds.Tables[0].Rows[0]["RENID_SONOF"].ToString();
                         txtEmail.Text = ds.Tables[0].Rows[0]["RENID_EMAIL"].ToString();
                         txtphoneno.Text = ds.Tables[0].Rows[0]["RENID_MOBILENUMBER"].ToString();
+                        txtAltMobile.Text = ds.Tables[0].Rows[0]["RENID_ALTERNUMBER"].ToString();
+                        txtLandlineno.Text = ds.Tables[0].Rows[0]["RENID_LANDLINENUMBER"].ToString();
                         txtDoorNo.Text = ds.Tables[0].Rows[0]["RENID_DOOR"].ToString();
                         txtLocal.Text = ds.Tables[0].Rows[0]["RENID_LOCALITYADD"].ToString();
                         ddlstate.SelectedValue = ds.Tables[0].Rows[0]["RENID_STATE"].ToString();
                         ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddldist.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRICS"].ToString();
-                        ddldist_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlmand.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDALS"].ToString();
-                        ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlvilla.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGES"].ToString();
-                        txtApplDist.Text = ds.Tables[0].Rows[0]["RENID_DIST"].ToString();
-                        txtApplTaluka.Text = ds.Tables[0].Rows[0]["RENID_MANDA"].ToString();
-                        txtApplVillage.Text = ds.Tables[0].Rows[0]["RENID_VILLA"].ToString();
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            otherDistric.Visible = true;
+                            trotherstate.Visible = false;
+                            ddldist.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRICS"].ToString();
+                            ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlmand.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDALS"].ToString();
+                            ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlvilla.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGES"].ToString();
+
+                        }
+                        else
+                        {
+                            trotherstate.Visible = true;
+                            otherDistric.Visible = false;
+                            txtApplDist.Text = ds.Tables[0].Rows[0]["RENID_DIST"].ToString();
+                            txtApplTaluka.Text = ds.Tables[0].Rows[0]["RENID_MANDA"].ToString();
+                            txtApplVillage.Text = ds.Tables[0].Rows[0]["RENID_VILLA"].ToString();
+                        }
+
                         txtPin.Text = ds.Tables[0].Rows[0]["RENID_PIN"].ToString();
                         txtAge.Text = ds.Tables[0].Rows[0]["RENID_AGE"].ToString();
                         txtDesignation.Text = ds.Tables[0].Rows[0]["RENID_DESIGNATION"].ToString();
+                        rblWomen.SelectedValue = ds.Tables[0].Rows[0]["RENID_WOMENENTREPRENEUR"].ToString();
+                        rblAbled.SelectedValue = ds.Tables[0].Rows[0]["RENID_ABLED"].ToString();
+
+                        txtMale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTMALE"].ToString();
+                        txtFemale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTFEMALE"].ToString();
+                        txtDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_DIRECTEMP"].ToString();
+                        txtIndirectMale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTMALE"].ToString();
+                        txtIndirectFemale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTFEMALE"].ToString();
+                        txtInDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTEMP"].ToString();
+
+                        txtPropEmp.Text = ds.Tables[0].Rows[0]["RENID_TOTALEMP"].ToString();
+                        txtLandValue.Text = ds.Tables[0].Rows[0]["RENID_LANDSALEDEED"].ToString();
+                        txtBuildingValue.Text = ds.Tables[0].Rows[0]["RENID_BUILDING"].ToString();
+                        txtPMCost.Text = ds.Tables[0].Rows[0]["RENID_PLANTMACHINERY"].ToString();
+                        lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
+                        txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
+                        lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
 
 
                     }
+
                 }
             }
             catch (Exception ex)
@@ -879,6 +973,24 @@ namespace MeghalayaUIP.User.Renewal
                 throw ex;
             }
         }
+
+        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                {
+                    txtRegNo.Enabled = true;
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
+
         protected void GetApprovals()
         {
             try
@@ -901,6 +1013,35 @@ namespace MeghalayaUIP.User.Renewal
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
+        }
+        public void BindRegistrationType()
+        {
+            try
+            {
+                ddlRegType.Items.Clear();
+                List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
+                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
+                if (objRegistrationTypeModel != null)
+                {
+
+                    ddlRegType.DataSource = objRegistrationTypeModel;
+                    ddlRegType.DataValueField = "REGISTRATIONTYPEID";
+                    ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
+                    ddlRegType.DataBind();
+                }
+                else
+                {
+                    ddlRegType.DataSource = null;
+                    ddlRegType.DataBind();
+                }
+                AddSelect(ddlRegType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
         }
     }
 }

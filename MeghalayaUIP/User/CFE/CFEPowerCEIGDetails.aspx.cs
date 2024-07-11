@@ -1156,11 +1156,7 @@ namespace MeghalayaUIP.User.CFE
                         slno = slno + 1;
                     }
                 }
-                if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Capacity \\n";
-                    slno = slno + 1;
-                }
+              
                 if (ddlLocFactory.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Location of Factory \\n";

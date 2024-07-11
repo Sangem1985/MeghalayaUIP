@@ -467,7 +467,8 @@ namespace MeghalayaUIP.User.CFE
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
-                    {                       
+                    {
+                        ViewState["PROFESSIONALTAX"] = ds.Tables[1];
                         GVState.DataSource = ds.Tables[1];
                         GVState.DataBind();
                         GVState.Visible = true;

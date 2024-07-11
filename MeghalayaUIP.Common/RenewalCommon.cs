@@ -342,32 +342,30 @@ namespace MeghalayaUIP.Common
         public string ApprovalID { get; set; }
         public string Nameofunit { get; set; }
         public string companyType { get; set; }
+        public string INDUSTRY { get; set; }
+        public string CATEGORYREG { get; set; }
         public string RegNumber { get; set; }
         public string RegDate { get; set; }
-        public string SectorEntrprise { get; set; }
         public string Sector { get; set; }
         public string LineofActivity { get; set; }
         public string PCB { get; set; }
-        public string ProposedEmp { get; set; }
-        public string LandSaleDeed { get; set; }
-        public string Building { get; set; }
-        public string PlantMachinary { get; set; }
-        public string AnnualTurnOver { get; set; }
-        public string ProjectCost { get; set; }
-        public string TotalProjectCost { get; set; }
-        public string EnterpriseCategory { get; set; }
-        public string District { get; set; }
-        public string Mandal { get; set; }
-        public string Village { get; set; }
-        public string EmailId { get; set; }
-        public string MobileNo { get; set; }
-        public string Door { get; set; }
-        public string Locality { get; set; }
-        public string Landmark { get; set; }
-        public string Pincode { get; set; }
+        public string SURVEY { get; set; }
+        public string LOCALITY { get; set; }
+        public string LANMARK { get; set; }
+        public string DISTRICT { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string EMAILID { get; set; }
+        public string MOBILENO { get; set; }
+        public string PINCODE { get; set; }
+        public string TOTALEXTENT { get; set; }
+        public string BUILDUPAREA { get; set; }
         public string NamePromoter { get; set; }
+        public string SONOF { get; set; }
         public string Email { get; set; }
         public string MobileNumber { get; set; }
+        public string ALTERNATIVAENO { get; set; }
+        public string LANDLINENO { get; set; }
         public string DoorNo { get; set; }
         public string Local { get; set; }
         public string State { get; set; }
@@ -380,6 +378,22 @@ namespace MeghalayaUIP.Common
         public string Pin { get; set; }
         public string Age { get; set; }
         public string Designation { get; set; }
+        public string WOMEN { get; set; }
+        public string ABLED { get; set; }
+        public string DIRECTMALE { get; set; }
+        public string DIRECTFEMALE { get; set; }
+        public string DIRECTEMP { get; set; }
+        public string INDIRECTMALE { get; set; }
+        public string INDIRECTFEMALE { get; set; }
+        public string INDIRECTEMP { get; set; }
+        public string TOTALEMP { get; set; }
+        public string LandSaleDeed { get; set; }
+        public string Building { get; set; }
+        public string PlantMachinary { get; set; }
+        public string TotalProjectCost { get; set; }
+        public string AnnualTurnOver { get; set; }
+        public string ProjectCost { get; set; }
+        public string EnterpriseCategory { get; set; }
 
     }
     public class RenSafteySecurity
