@@ -668,13 +668,14 @@
                                     <section id="dashboardAttachmnt">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-12">
+                                                <div class="col-md-8">
                                                     <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0">
+                                                        <table class="table table-bordered mb-0" style="text-align: center;">
                                                             <thead>
                                                                 <tr>
+                                                                    <th style="text-align: center;">Sl.No</th>
                                                                     <th>Attachment Name</th>
-                                                                    <th></th>
+                                                                    <th>View</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -743,10 +744,9 @@
                                         </div>
                                     </section>
                                 </div>
-
-
                             </div>
                         </div>
+
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
@@ -984,12 +984,12 @@
                                         <td>Enter Response
                                         </td>
                                         <td>
-                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" style="height:50px;width:350px;margin-top: 10px;"></asp:TextBox><br />
+                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 350px; margin-top: 10px;"></asp:TextBox><br />
                                             <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
                                             <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" />
                                             <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                         </td>
-                                       
+
 
                                     </tr>
                                     <tr id="trComQrytoAppl" runat="server" visible="false">

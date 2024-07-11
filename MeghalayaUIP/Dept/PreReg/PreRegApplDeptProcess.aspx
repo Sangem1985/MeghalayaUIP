@@ -46,9 +46,9 @@
     </style>
 
     <!-- Page Wrapper -->
-     <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>             
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">Industry Registration Details</li>
         </ol>
     </nav>
@@ -699,13 +699,14 @@
                                     <section id="dashboardAttachmnt">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-12">
+                                                <div class="col-md-8">
                                                     <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0">
+                                                        <table class="table table-bordered mb-0" style="text-align: center;">
                                                             <thead>
                                                                 <tr>
+                                                                    <th style="text-align: center;">Sl.No</th>
                                                                     <th>Attachment Name</th>
-                                                                    <th></th>
+                                                                    <th>View</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -774,8 +775,6 @@
                                         </div>
                                     </section>
                                 </div>
-
-
                             </div>
                         </div>
                         <div class="panel panel-default">
@@ -1189,8 +1188,9 @@
                                                     <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server"></asp:TextBox>
                                                     <br />
                                                     <br />
-                                                    <asp:FileUpload ID="FileUploadquery" runat="server" /> <br />
-                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click"  class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                                    <asp:FileUpload ID="FileUploadquery" runat="server" />
+                                                    <br />
+                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
                                                     <br />
                                                     <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                 </ItemTemplate>
