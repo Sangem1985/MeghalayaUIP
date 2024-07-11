@@ -585,7 +585,7 @@
 
 
                     <img src="assets/assetsbeta/images/growrth.png" alt="Growth pic" />
-                    <h3>The State of Meghalaya has several GI tags:</h3>
+                    <h3 class="mt-3">The State of Meghalaya has several GI tags:</h3>
                      <section class="">
         <div class="container">
                     <div class="four-item-carousel owl-carousel owl-theme">

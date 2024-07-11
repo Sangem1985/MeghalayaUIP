@@ -480,6 +480,7 @@
     <Content Include="assets\assetsnew\images\easy\icon1.png" />
     <Content Include="assets\assetsnew\images\easy\icon2.png" />
     <Content Include="assets\assetsnew\images\easy\icon3.png" />
+    <Content Include="assets\assetsnew\images\easy\icon3_old.png" />
     <Content Include="assets\assetsnew\images\easy\icon4.png" />
     <Content Include="assets\assetsnew\images\easy\icon5.png" />
     <Content Include="assets\assetsnew\images\favicon.png" />
