@@ -725,7 +725,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             int i = fileType.Length;
                             if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
                             {
-                                newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, lblUNITID.Text + "\\RESPONSEATTACHMENTS");
+                                newPath = System.IO.Path.Combine(sFileDir, Session["INVESTERID"].ToString(), lblUNITID.Text + "\\RESPONSEATTACHMENTS");
 
                                 if (!Directory.Exists(newPath))
                                     System.IO.Directory.CreateDirectory(newPath);
@@ -751,7 +751,8 @@ namespace MeghalayaUIP.Dept.PreReg
 
                                 objattachments.QueryID = lblDQID.Text;
                                 objattachments.UnitID = lblUNITID.Text;
-                                objattachments.UserID = Session["INVESTERID"].ToString();
+                                objattachments.InvestorId = Session["INVESTERID"].ToString();
+                                objattachments.UserID = hdnUserID.Value.ToString();
                                 objattachments.FileType = fileType[i - 1].ToUpper().ToString();
                                 objattachments.FileName = sFileName.ToString();
                                 objattachments.Filepath = newPath.ToString();
@@ -760,13 +761,13 @@ namespace MeghalayaUIP.Dept.PreReg
                                 objattachments.ApprovalId = "0";
 
                                 int result = 0;
-                                result = PreBAL.InsertAttachments_PREREG(objattachments);
+                                result = PreBAL.InsertAttachments_PREREG_RESPONSE(objattachments);
 
                                 if (result > 0)
                                 {
                                     lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
                                     hplAttachment.Text = FileUploadquery.FileName;
-                                    hplAttachment.NavigateUrl = shortFileDir + "/" + hdnUserID.Value + "/" + lblUNITID.Text + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                                    hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + lblUNITID.Text + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
                                     hplAttachment.Visible = true;
                                     success.Visible = true;
                                     Failure.Visible = false;

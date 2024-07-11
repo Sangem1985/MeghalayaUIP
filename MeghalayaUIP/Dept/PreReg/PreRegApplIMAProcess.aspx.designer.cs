@@ -906,6 +906,33 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtIMAResponse;
 
         /// <summary>
+        /// FileUploadqueryIMA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadqueryIMA;
+
+        /// <summary>
+        /// btnUpldAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpldAttachment;
+
+        /// <summary>
+        /// hplAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplAttachment;
+
+        /// <summary>
         /// trComQrytoAppl control.
         /// </summary>
         /// <remarks>

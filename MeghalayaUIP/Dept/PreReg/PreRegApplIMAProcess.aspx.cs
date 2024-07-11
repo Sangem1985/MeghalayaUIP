@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MeghalayaUIP.CommonClass;
 using System.Collections;
+using System.IO;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
@@ -580,7 +581,11 @@ namespace MeghalayaUIP.Dept.PreReg
                 DropDownList ddlqryaction = (DropDownList)sender;
                 GridViewRow row = (GridViewRow)ddlqryaction.NamingContainer;
                 Label lblCommQID = (Label)row.FindControl("lblDQID");
+                Label lblDeptID = (Label)row.FindControl("lblDeptID");
+                Label lblUNITID = (Label)row.FindControl("lblUNITID");
                 ViewState["COMMQID"] = lblCommQID.Text;
+                ViewState["DEPTID"] = lblDeptID.Text;
+                ViewState["UNITID"] = lblUNITID.Text;
                 if (ddlqryaction.SelectedValue != "0")
                 {
                     ViewState["ACTIONID"] = ddlqryaction.SelectedValue;
@@ -801,6 +806,121 @@ namespace MeghalayaUIP.Dept.PreReg
             catch (Exception ex)
             {
 
+            }
+        }
+
+        protected void btnUpldAttachment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string newPath = "";
+                string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                string shortFileDir = "~\\PreRegAttachments";
+                if (FileUploadqueryIMA.HasFile)
+                {
+                    if ((FileUploadqueryIMA.PostedFile != null) && (FileUploadqueryIMA.PostedFile.ContentLength > 0))
+                    {
+                        string sFileName = System.IO.Path.GetFileName(FileUploadqueryIMA.PostedFile.FileName);
+                        try
+                        {
+
+                            string[] fileType = FileUploadqueryIMA.PostedFile.FileName.Split('.');
+                            int i = fileType.Length;
+                            if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
+                            {
+                                newPath = System.IO.Path.Combine(sFileDir, Session["INVESTERID"].ToString(), ViewState["UNITID"].ToString() + "\\RESPONSEATTACHMENTS");
+
+                                if (!Directory.Exists(newPath))
+                                    System.IO.Directory.CreateDirectory(newPath);
+
+                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                int count = dir.GetFiles().Length;
+                                if (count == 0)
+                                    FileUploadqueryIMA.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                else
+                                {
+                                    if (count == 1)
+                                    {
+                                        string[] Files = Directory.GetFiles(newPath);
+
+                                        foreach (string file in Files)
+                                        {
+                                            File.Delete(file);
+                                        }
+                                        FileUploadqueryIMA.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                    }
+                                }
+                                IndustryDetails objattachments = new IndustryDetails();
+
+                                objattachments.QueryID = ViewState["COMMQID"].ToString();
+                                objattachments.UnitID = ViewState["UNITID"].ToString();
+                                objattachments.InvestorId= Session["INVESTERID"].ToString();
+                                objattachments.UserID = hdnUserID.Value.ToString();
+                                objattachments.FileType = fileType[i - 1].ToUpper().ToString();
+                                objattachments.FileName = sFileName.ToString();
+                                objattachments.Filepath = newPath.ToString();
+                                objattachments.FileDescription = "RESPONSE ATTACHMENT";
+                                objattachments.Deptid = ViewState["DEPTID"].ToString();
+                                objattachments.ApprovalId = "0";
+
+                                int result = 0;
+                                result = PreBAL.InsertAttachments_PREREG_RESPONSE(objattachments);
+
+                                if (result > 0)
+                                {
+                                    lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
+                                    hplAttachment.Text = FileUploadqueryIMA.FileName;
+                                    hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                                    hplAttachment.Visible = true;
+                                    success.Visible = true;
+                                    Failure.Visible = false;
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "<font color='red'>Attachment Upload Failed..!</font>";
+                                    success.Visible = false;
+                                    Failure.Visible = true;
+                                }
+                            }
+                            else
+                            {
+                                lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
+                                success.Visible = false;
+                                Failure.Visible = true;
+                            }
+                        }
+                        catch (Exception)//in case of an error
+                        {
+
+                            DeleteFile(newPath + "\\" + sFileName);
+                        }
+                    }
+                }
+                else
+                {
+                    lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                    success.Visible = false;
+                    Failure.Visible = true;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
             }
         }
     }
