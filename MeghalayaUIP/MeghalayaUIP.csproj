@@ -890,6 +890,7 @@
     <Content Include="User\Renewal\RENQuestionnaire.aspx" />
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
+    <Content Include="User\Renewal\RENUserDashboard.aspx" />
     <Content Include="User\UserDashboard.aspx" />
     <Content Include="ViewCertifcateDetails.aspx" />
     <Content Include="Web.config" />
@@ -1830,6 +1831,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENShopsEstablishment.aspx.designer.cs">
       <DependentUpon>RENShopsEstablishment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENUserDashboard.aspx.cs">
+      <DependentUpon>RENUserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENUserDashboard.aspx.designer.cs">
+      <DependentUpon>RENUserDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>

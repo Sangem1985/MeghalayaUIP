@@ -151,5 +151,10 @@ namespace MeghalayaUIP.User
         {
             Response.Redirect("~/User/Dashboard/CentralRepository.aspx");
         }
+
+        protected void LinkRENDashBoard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Renewal/RENUserDashboard.aspx");
+        }
     }
 }
