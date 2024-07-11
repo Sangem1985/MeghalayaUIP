@@ -3,6 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css'>
     <style>
+        .team-block-two .inner-box {
+    border-radius: 10px;
+}
+        .owl-dots {
+    display: none;
+}
+        .owl-nav {
+    display: none;
+}
+        .team-block-two:hover .inner-box .image-box img {
+    opacity: 0.8 !important;
+    transform: scale(1.05);
+}
         .hero-slider .slide-inner {
             width: 100%;
             height: 70% !important;
@@ -573,9 +586,59 @@
 
                     <img src="assets/assetsbeta/images/growrth.png" alt="Growth pic" />
                     <h3>The State of Meghalaya has several GI tags:</h3>
-
-
-                    <div class="col-md-12 d-flex msgi">
+                     <section class="">
+        <div class="container">
+                    <div class="four-item-carousel owl-carousel owl-theme">
+                <div class="team-block-two">
+                    <div class="inner-box">
+                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/1.png" alt=""></a></figure>
+                        
+                        <%--<div class="lower-content">
+                            <h4><a href="#">Park bo young</a></h4>
+                            <span class="designation">Senior Enginer</span>
+                        </div>--%>
+                    </div>
+                </div>
+                <div class="team-block-two">
+                    <div class="inner-box">
+                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/2.png" alt=""></a></figure>
+                       <%-- <div class="lower-content">
+                            <h4><a href="#">Chan wook</a></h4>
+                            <span class="designation">Senior Factory Manager</span>
+                        </div>--%>
+                    </div>
+                </div>
+                <div class="team-block-two">
+                    <div class="inner-box">
+                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/3.png" alt=""></a></figure>
+                        <%--<div class="lower-content">
+                            <h4><a href="#">Mahfuz Riad</a></h4>
+                            <span class="designation">Senior LOTT</span>
+                        </div>--%>
+                    </div>
+                </div>
+                <div class="team-block-two">
+                    <div class="inner-box">
+                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/4.png" alt=""></a></figure>
+                        <%--<div class="lower-content">
+                            <h4><a href="#">Jhon Rook</a></h4>
+                            <span class="designation">Junior Enginer</span>
+                        </div>--%>
+                    </div>
+                </div>
+                        <div class="team-block-two">
+                    <div class="inner-box">
+                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/5.png" alt=""></a></figure>
+                       <%-- <div class="lower-content">
+                            <h4><a href="#">Jhon Rook</a></h4>
+                            <span class="designation">Junior Enginer</span>
+                        </div>--%>
+                    </div>
+                </div>
+            </div>
+            </div>
+                         </section>
+                    <%--<div class="col-md-12 d-flex msgi">
                         <div class="col-md-2 wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms"
                             style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInDown;">
                             <p>Khasi Lakadong Turmeric</p>
@@ -596,7 +659,7 @@
                             style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInDown;">
                             <p>Meghalaya Lyrnai Pottery and Meghalaya Chubitchi (alcoholic beverage)</p>
                         </div>
-                    </div>
+                    </div>--%>
 
 
                 </div>

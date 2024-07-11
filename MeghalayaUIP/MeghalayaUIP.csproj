@@ -600,10 +600,14 @@
     <Content Include="assets\assetsnew\images\resource\testimonial-6.png" />
     <Content Include="assets\assetsnew\images\resource\wehelp-1.jpg" />
     <Content Include="assets\assetsnew\images\sectors.png" />
+    <Content Include="assets\assetsnew\images\sp\1.png" />
+    <Content Include="assets\assetsnew\images\sp\2.png" />
+    <Content Include="assets\assetsnew\images\sp\3.png" />
+    <Content Include="assets\assetsnew\images\sp\4.png" />
+    <Content Include="assets\assetsnew\images\sp\5.png" />
     <Content Include="assets\assetsnew\images\trackbg.jpg" />
     <Content Include="assets\assetsnew\images\turndown.gif" />
     <Content Include="assets\assetsnew\images\UNNATI.gif" />
-    <Content Include="assets\assetsnew\images\UNNATI_2.gif" />
     <Content Include="assets\assetsnew\images\uso.gif" />
     <Content Include="assets\assetsnew\js\aos.js" />
     <Content Include="assets\assetsnew\js\appear.js" />
