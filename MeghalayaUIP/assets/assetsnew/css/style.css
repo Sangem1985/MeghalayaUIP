@@ -20402,67 +20402,128 @@ section.project-section.case-page-3.eodb4.p-0.pt-2.mb-5 .col-lg-3.col-md-6.col-s
     transition: transform .6s;
     transform: scale(0.9);
 }
-p.road1 {
+/*p.road1 {
     position: absolute;
     top: 60px;
     text-align: center;
     left: 41%;
     color:#fff;
+}*/
+p.road1 {
+    position: absolute;
+    top: 12px;
+    text-align: center;
+    left: 29%;
+    color: #fff;
 }
-p.road2 {
+/*p.road2 {
     position: absolute;
     top: 86px;
     text-align: center;
     right: 33.5%;
     color: #fff;
+}*/
+p.road2 {
+    position: absolute;
+    top: 32px;
+    text-align: center;
+    right: 6.5%;
+    color: #fff;
 }
-p.road3 {
+/*p.road3 {
     position: absolute;
     bottom: 76px;
     text-align: center;
     left: 27.5%;
     color: #fff;
     background: #36dcb4;
+}*/
+p.road3 {
+    position: absolute;
+    bottom: 85px;
+    text-align: center;
+    left: -6.5%;
+    color: #fff;
+    background: #36dcb4;
+    height: 105px;
 }
 p.road1112 {
     position: absolute;
     left: 27%;
     color: #000;
-    bottom: 45.5%;
+    bottom: 27%;
 }
 p.road2112 {
     position: absolute;
-    left: 41%;
+    left: 46%;
     color: #000;
-    bottom: 17%;
+    bottom: 0%;
 }
 p.road3112 {
     position: absolute;
-    left: 39%;
-    color: #000;
-    bottom: 67%;
-}
-p.road4114 {
-    position: absolute;
-    left: 57%;
+    left: 36%;
     color: #000;
     bottom: 51%;
 }
-p.road1234 {
+p.road4114 {
+    position: absolute;
+    left: 58%;
+    color: #000;
+    bottom: 41%;
+}
+/*p.road1234 {
     position: absolute;
     top: 27%;
     left: 27%;
     color: #000;
+}*/
+p.road1234 {
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    color: #fff;
+    background: #0097cb;
+    padding: 4px !important;
+    border-radius: 8px;
 }
-p.road2235 {
+/*p.road2235 {
     position: absolute;
     top: 8%;
     left: 32%;
     color: #000;
+}*/
+p.road2235 {
+    position: absolute;
+    top: 5%;
+    left: 13%;
+    color: #fff !important;
+    line-height: 21px;
+    background: #de9a2f;
+    border-radius: 8px;
+    padding: 4px 6px !important;
 }
-p.road3236 {
+/*p.road3236 {
     position: absolute;
     right: 20%;
     bottom: 21%;
     color: #000;
+}*/
+p.road3236 {
+    position: absolute;
+    right: 3%;
+    bottom: 7%;
+    color: #fff !important;
+    background: #29bf99;
+    border-radius: 8px;
+    padding: 4px 6px !important;
+}
+.boxfight {
+    border: 1px solid #0072bd;
+    height: 330px;
+    position: absolute;
+    width: 56%;
+    left: 25%;
+    top: 0;
+    border-radius: 8px;
+    box-shadow: 1px 4px 8px;
 }
