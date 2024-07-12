@@ -35,8 +35,17 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UnitID = Convert.ToString(Session["UNITID"]);
+                if (Convert.ToString(Session["RENUNITID"]) != "")
+                {
+                    UnitID = Convert.ToString(Session["RENUNITID"]);
+                }
+                else
+                {
+                    string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
+
+                Page.MaintainScrollPositionOnPostBack = true;
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
@@ -508,6 +517,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     if (result != "")
                     {
+                        Session["RENQID"] = result;
                         success.Visible = true;
                         lblmsg.Text = "Renewal Application Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
@@ -962,8 +972,6 @@ namespace MeghalayaUIP.User.Renewal
                         lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
                         txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
                         lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
-
-
                     }
 
                 }
