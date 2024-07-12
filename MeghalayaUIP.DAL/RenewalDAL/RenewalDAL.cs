@@ -1904,7 +1904,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetRenApprovals(string userid)
+        public DataSet GetRenApprovals(string userid,string UnitId)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1922,6 +1922,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitId));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -1970,6 +1971,47 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+        public string InsertRenDeptApprovals(RenApplicationDetails ObjApplicationDetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenDeptApprovals;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@RENAPPROVALSXML", ObjApplicationDetails.RenApprovalsXml);
+                com.Parameters.AddWithValue("@APPROVALS", ObjApplicationDetails.ApprovalID);
+                com.Parameters.AddWithValue("@UNITID", ObjApplicationDetails.UnitId);
+                com.Parameters.AddWithValue("@RENQDID", ObjApplicationDetails.Questionnariid);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
     }
 }

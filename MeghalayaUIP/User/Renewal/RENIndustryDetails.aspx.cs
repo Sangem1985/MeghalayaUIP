@@ -454,7 +454,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     //  ObjApplicationDetails.Questionnariid = Quesstionriids;
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
-                    ObjApplicationDetails.UnitId = Convert.ToString(Session["UnitID"]);
+                    ObjApplicationDetails.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
 
                     ObjApplicationDetails.Nameofunit = txtUnitName.Text;
@@ -576,11 +576,11 @@ namespace MeghalayaUIP.User.Renewal
                     slno = slno + 1;
 
                 }
-                if (ddlsector.SelectedIndex == 0)
+                /*if (ddlsector.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select sector \\n";
                     slno = slno + 1;
-                }
+                }*/
                 if (ddlLineActivity.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Line Of Activity \\n";
@@ -997,6 +997,11 @@ namespace MeghalayaUIP.User.Renewal
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RenewalServices.aspx");
         }
 
         protected void GetApprovals()
