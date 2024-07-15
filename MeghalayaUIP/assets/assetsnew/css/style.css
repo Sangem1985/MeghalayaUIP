@@ -19864,16 +19864,20 @@ section.testimonial-style-five.centred.overall1 .inner-box:hover {
 .icontext h4 {
   font-weight: 600 !important;
 }
-.iconimage .icontext{
+p.textboxyk{
 
 transition: transform .9s;
 backface-visibility: hidden;
 }
-.iconimage .icontext:hover{
+p.textboxyk:hover{
 
-transform: scale(0.9);
+transform: scale(0.91);
 color: #fff070;
 
+}
+.iconimage .fi {
+    font-size: 36px;
+    color: #edf1f7 !important;
 }
 section.about-section-two1.easy {
     background: url(../images/easybg.png) 100%;
@@ -19895,19 +19899,20 @@ p.pftext {
     color: #fff;
 }
 p.numb {
-  position: absolute;
-  font-size: 20px;
-  top: -39px;
-  left: 58px;
-  background: #0b6b8a;
-  border-radius: 104%;
-  color: #fffffffc;
-  padding: 10px !important;
-  box-shadow: 1px 2px 9px #585858;
-  
+    position: absolute;
+    font-size: 20px;
+    top: -39px;
+    left: 58px;
+    background: #0b6b8a;
+    border-radius: 104%;
+    color: #fffffffc;
+    padding: 10px !important;
+    box-shadow: 1px 2px 9px #585858;
+    width: 45px;
+    height: 45px;
 }
 .col-md-12.d-flex.mb-3.mt-5.text-center.easyprocess {
-    margin-top: 75px !important;
+    margin-top: 90px !important;
     margin-left: -80px;
 }
 
@@ -20526,4 +20531,151 @@ p.road3236 {
     top: 0;
     border-radius: 8px;
     box-shadow: 1px 4px 8px;
+}
+
+section.about-section-two1.\32 .easy.active {
+    background: #EDF1F7;
+    height: 350px;
+}
+
+    section.about-section-two1.\32 .easy.active p.pftext {
+        color: #35398f;
+    }
+
+.iconimage .fi {
+    font-size: 36px;
+    color: #edf1f7;
+}
+
+p.textboxyk {
+    margin-top: 0px !important;
+    background-image: linear-gradient(45deg, #9C27B0 0%, #673AB7 100%);
+    background-color: #FA8BFF;
+    color: #fff !important;
+    box-shadow: 1px 4px 9px #ccc;
+    border-radius: 4px;
+    height: 190px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px dotted #ccc;
+}
+
+section.about-section-two1.\32 .easy.active .icontext {
+    top: 50px !important;
+}
+
+section.about-section-two1.\32 .easy.active .col-md-2 {
+    border-top: 2px dotted #000;
+    height: 39px !important;
+}
+
+.iconimage {
+    background: url(assets/assetsnew/images/easyicon.png);
+    background-size: cover;
+    background-position: center;
+    z-index: 9999;
+    top: 30px;
+    margin-top: -58px !important;
+}
+
+.arrowpng img {
+    position: absolute;
+    z-index: 99999;
+    width: 5%;
+    top: -59px;
+    right: -26px;
+}
+
+img.imgleft {
+    position: absolute;
+    left: -14px;
+    z-index: 9;
+    top: -23px;
+}
+
+img.imgright {
+    position: absolute;
+    right: -292px;
+    z-index: 9999999;
+    top: -10px;
+    width: 18%;
+    height: 57%;
+}
+
+p.numb {
+    z-index: 10000000;
+}
+
+.servicedesk button.btn.btn-primary {
+    position: fixed;
+    bottom: 35px;
+    right: 25px;
+    z-index: 999;
+    overflow: hidden;
+    user-select: none;
+    border: initial !important;
+    border-style: none !important;
+    border-width: 2px !important;
+    border-left-width: 2px !important;
+    border-right-width: 2px !important;
+    border-top-width: 2px !important;
+    border-bottom-width: 2px !important;
+    border-color: #000 !important;
+    border-radius: 4px !important;
+    box-shadow: 2px 6px 9px #a79090;
+    background: linear-gradient(to right, #9C27B0 0%, #311EFF 50%, #1d275e 100%);
+    font-weight: 500;
+}
+
+button.scroll-top.scroll-to-target.open {
+    display: none;
+}
+
+.modal-content.custom {
+    position: fixed;
+    left: 436px !important;
+    float: right !important;
+    display: flex;
+    z-index: 10000;
+    top: 250px;
+}
+
+p.smallinv {
+    position: absolute;
+    width: 70%;
+    text-align: left;
+    top: 9px;
+    font-weight: 600;
+    font-family: sans-serif;
+    left: 4%;
+}
+
+.invticon {
+    position: absolute;
+    right: 24px;
+    top: 16px;
+    font-size: 39px;
+    opacity: 0.5;
+}
+
+div#invstpopup img {
+    box-shadow: 2px 4px 9px #4e4141;
+    border-radius: 14px;
+}
+
+div#invstpopup .col-md-6.p-0:hover {
+    p .smallinv
+
+{
+    color: #3F51B5;
+}
+
+.invticon {
+    opacity: 1;
+    color: blue;
+}
+
+img {
+    box-shadow: none !important;
+}
 }

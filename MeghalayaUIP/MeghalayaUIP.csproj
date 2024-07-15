@@ -477,12 +477,14 @@
     <Content Include="assets\assetsnew\images\cm2.png" />
     <Content Include="assets\assetsnew\images\collagebg.png" />
     <Content Include="assets\assetsnew\images\easybg.png" />
+    <Content Include="assets\assetsnew\images\easy\arrowicon.png" />
     <Content Include="assets\assetsnew\images\easy\icon1.png" />
     <Content Include="assets\assetsnew\images\easy\icon2.png" />
     <Content Include="assets\assetsnew\images\easy\icon3.png" />
     <Content Include="assets\assetsnew\images\easy\icon3_old.png" />
     <Content Include="assets\assetsnew\images\easy\icon4.png" />
     <Content Include="assets\assetsnew\images\easy\icon5.png" />
+    <Content Include="assets\assetsnew\images\easy\rightleft.jpg" />
     <Content Include="assets\assetsnew\images\favicon.png" />
     <Content Include="assets\assetsnew\images\gallery\gallery-6.jpg" />
     <Content Include="assets\assetsnew\images\gallery\gallery-8.jpg" />

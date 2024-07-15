@@ -3,74 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .servicedesk button.btn.btn-primary {
-            position: fixed;
-            bottom: 35px;
-            right: 25px;
-            z-index: 999;
-            overflow: hidden;
-            user-select: none;
-            border: initial !important;
-            border-style: none !important;
-            border-width: 2px !important;
-            border-left-width: 2px !important;
-            border-right-width: 2px !important;
-            border-top-width: 2px !important;
-            border-bottom-width: 2px !important;
-            border-color: #000 !important;
-            border-radius: 4px !important;
-            box-shadow: 2px 6px 9px #a79090;
-            background: linear-gradient(to right, #9C27B0 0%, #311EFF 50%, #1d275e 100%);
-            font-weight: 500;
-        }
-
-        button.scroll-top.scroll-to-target.open {
-            display: none;
-        }
-
-        .modal-content.custom {
-            position: fixed;
-            left: 436px !important;
-            float: right !important;
-            display: flex;
-            z-index: 10000;
-            top: 250px;
-        }
-        p.smallinv {
-    position: absolute;
-    width: 70%;
-    text-align: left;
-    top: 9px;
-    font-weight: 600;
-    font-family: sans-serif;
-    left: 4%;
-}
-        .invticon {
-    position: absolute;
-    right: 24px;
-    top: 16px;
-    font-size: 39px;
-    opacity: 0.5;
-}
-        div#invstpopup img {
-    box-shadow: 2px 4px 9px #4e4141;
-    border-radius: 14px;
-}
-        div#invstpopup .col-md-6.p-0:hover{
-             p.smallinv {
-    color: #3F51B5;
-}
-                        .invticon {
-    opacity: 1;
-    color: blue;
-}
-                        img {
-    box-shadow: none !important;
-}
-        }
-       
-    </style>
   <%--  <p style="background: #a8cfe5; display: flex; flex-direction: row; flex-wrap: nowrap; align-content: center; justify-content: center; align-items: center; color: #000; padding: 2px 2px;">
         &nbsp;<i class="fi fi-br-bell-notification-social-media" style="line-height: 10px;"></i> &nbsp; Did you Know :
         <marquee style="width: 86%; font-weight: 300;">
@@ -258,7 +190,7 @@
 
 
 
-    <section class="about-section-two1 easy active">
+    <%--<section class="about-section-two1 easy active">
         <div class="container">
             <div class="row">
                 <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
@@ -375,8 +307,136 @@
             </div>
         </div>
 
+    </section>--%>
+     <section class="about-section-two1 2 easy active">
+        <div class="container">
+            <div class="row">
+                <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
+                <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
+                    <!-- <img src="assets/assetsnew/images/easyicon.png" alt="image" style="width: 65%"/> -->
+                    <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgleft" />
+                    <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgright" />
+                    <div class="col-md-2 mt-3">
+
+                        <div class="iconimage">
+                            <div class="icontext">
+                                <div class="arrowpng"><img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                <p class="numb">01</p>
+                                <!-- <i class="fi fi-rr-file-user"></i> -->
+                                <!-- <h4>Register</h4> -->
+                                <p class="textboxyk"><i class="fi fi-tr-chart-user"></i><br />
+                                    Have a<br />
+                                    business Idea or want to expand your Business?
+                                </p>
+                            </div>
+                            <%--<img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />--%>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="iconimage">
+                            <div class="icontext">
+                                 <div class="arrowpng"><img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                <p class="numb">02</p>
+                                <!-- <i class="fi fi-br-form"></i>
+						<h4>Indent</h4> -->
+                                <p class="textboxyk"><i class="fi fi-tr-reservation-table"></i><br />
+                                    Fill <span style="color: #FFEB3B;">
+                                        <br />
+                                        Intent to Invest form</span> and our team will reach out
+                                </p>
+                            </div>
+                            <%--<img src="assets/assetsnew/images/easy/icon2.png" alt="icon" />--%>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="iconimage">
+                            <div class="icontext">
+                                 <div class="arrowpng"><img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                <p class="numb">03</p>
+                                <!-- <i class="fi fi-br-supplier-alt"></i>
+						<h4>Stock</h4> -->
+                                <p class="textboxyk"><i class="fi fi-tr-clip-file"></i><br />
+                                    Prepare your<br />
+                                    Documents (Project DPR, loan sanctions, etc.) 
+                                </p>
+                            </div>
+                            <%--<img src="assets/assetsnew/images/easy/icon3.png" alt="icon" />--%>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="iconimage">
+                            <div class="icontext">
+                                 <div class="arrowpng"><img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                <p class="numb">04</p>
+                                <!-- <i class="fi fi-br-tags"></i>
+						<h4>Price List</h4> -->
+                                <p class="textboxyk"><i class="fi fi-tr-challenge-alt"></i><br />
+                                    <span style="color: #FFEB3B;">Register on<br />
+                                        UNNATI Portal</span>
+
+                                    Fill <span style="color: #FFEB3B;">Registration form</span> on Invest Meghalaya Poral
+                            
+                            
+                                </p>
+                            </div>
+                            <%--<img src="assets/assetsnew/images/easy/icon4.png" alt="icon" />--%>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="iconimage">
+                            <div class="icontext">
+                                 <div class="arrowpng"><img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                <p class="numb">05</p>
+                                <!-- <i class="fi fi-br-feedback"></i>
+						<h4>Feedback</h4> -->
+                                <p class="textboxyk"><i class="fi fi-tr-trust-alt"></i><br />
+                                    Get <span style="color: #FFEB3B;">Clearance<br />
+                                        for Pre-establishment & Pre-operations</span> for your business
+                                </p>
+                            </div>
+                            <%--<img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />--%>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="iconimage">
+                            <div class="icontext">
+                                 <div class="arrowpng"><img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                <p class="numb">06</p>
+                                <!-- <i class="fi fi-br-feedback"></i>
+						<h4>Feedback</h4> -->
+                                <p class="textboxyk"><i class="fi fi-tr-operation"></i><br />
+                                    Commence<br />
+                                    your
+                                <br />
+                                    Commercial Operations
+                                </p>
+                            </div>
+                            <%--<img src="assets/assetsnew/images/easy/icon2.png" alt="icon" />--%>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="iconimage">
+                            <div class="icontext">
+                                 <div class="arrowpng"><img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                <p class="numb">07</p>
+                                <!-- <i class="fi fi-br-feedback"></i>
+						<h4>Feedback</h4> -->
+                               <p class="textboxyk"><i class="fi fi-tr-book-user"></i><br />
+                                    <span style="color:#FFEB3B;">Eligible Unit</span><br />
+                                    can avail Incentives under <span style="color: #FFEB3B;">MIIPP 2024 & UNNATI 2024</span>
+
+                                </p>
+                            </div>
+                            <%--<img src="assets/assetsnew/images/easy/icon5.png" alt="icon" />--%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
     <!-- ourmission-style-three end -->
+    
 
 
     <!-- team-section -->
@@ -893,6 +953,8 @@
     <div class="servicedesk">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   <i class="fi fi-tr-admin-alt"></i> Investors Desk
-</button>
-</div>
+</button></div>
+
+    
+  
 </asp:Content>
