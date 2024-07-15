@@ -19892,11 +19892,10 @@ section.about-section-two1.easy {
   padding: 10px;
 }
 p.pftext {
-    position: absolute;
     font-size: 26px;
-    left: 24.5%;
     margin-top: 20px;
-    color: #fff;
+    text-align: center;
+    width: 100%;
 }
 p.numb {
     position: absolute;
@@ -19912,7 +19911,7 @@ p.numb {
     height: 45px;
 }
 .col-md-12.d-flex.mb-3.mt-5.text-center.easyprocess {
-    margin-top: 90px !important;
+    margin-top: 45px !important;
     margin-left: -80px;
 }
 
