@@ -33,6 +33,8 @@
                         <asp:ListItem Value="ApprovalIssued" Text="Approval Issued"></asp:ListItem>
                         <asp:ListItem Value="ApprovalPending" Text="Approval Pending"></asp:ListItem>
                         <asp:ListItem Value="ApprovalRejected" Text="Approval Rejected"></asp:ListItem>
+                        <asp:ListItem Value="OfflinePending" Text="Offline Approval Pending"></asp:ListItem>
+                        <asp:ListItem Value="OfflineApproved" Text="Offline Approval Issued"></asp:ListItem>
                     </asp:DropDownList>
 
                 </div>
@@ -379,6 +381,110 @@
                     </div>
                 </section>
             </div>
+             <div class="card" id="OfflineApprovalPending" runat="server" visible="false">
+     <div class="card-header">
+         <h3>Offiline Approvals Pending</h3>
+     </div>
+     <section id="dashboardcount4" class="mt-3 mb-3">
+         <div class="container-fluid">
+             <div class="row">
+                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                     <a href="CFEApplDeptView.aspx?status=OFFLINEPENDING">
+                         <div class="card 1">
+                             <div class="card-headr">
+                                 <div class="text">Total</div>
+                                 <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
+                                 <div class="count">
+                                     <asp:Label ID="lblOFFLINEPENDING" runat="server"></asp:Label>
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                     <a href="CFEApplDeptView.aspx?status=OFFLINEPENDINGWITHIN">
+                         <div class="card 2">
+                             <div class="card-headr">
+                                 <div class="text">Within Time Limits</div>
+                                 <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
+                                 <div class="count">
+                                     <asp:Label ID="lblOFFLINEPENDINGWITHIN" runat="server"></asp:Label>
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                     <a href="CFEApplDeptView.aspx?status=OFFLINEPENDINGBEYOND">
+                         <div class="card 4">
+                             <div class="card-headr">
+                                 <div class="text">Beyond in Time Limits</div>
+                                 <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                 <div class="count">
+                                     <asp:Label ID="lblOFFLINEPENDINGBEYOND" runat="server"></asp:Label>
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+             </div>
+         </div>
+     </section>
+ </div>
+                        <div class="card" id="OfflineApproved" runat="server" visible="false">
+    <div class="card-header">
+        <h3>Offiline Issued Approvals</h3>
+    </div>
+    <section id="dashboardcount4" class="mt-3 mb-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <a href="CFEApplDeptView.aspx?status=OFFLINEAPPROVED">
+                        <div class="card 1">
+                            <div class="card-headr">
+                                <div class="text">Total</div>
+                                <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
+                                <div class="count">
+                                    <asp:Label ID="lblTOTALOFFLINEAPPROVED" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <a href="CFEApplDeptView.aspx?status=OFFLINEAPPROVEDWITHIN">
+                        <div class="card 2">
+                            <div class="card-headr">
+                                <div class="text">Within Time Limits</div>
+                                <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
+                                <div class="count">
+                                    <asp:Label ID="lblOFFLINEWITHINAPPROVED" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <a href="CFEApplDeptView.aspx?status=OFFLINEAPPROVEDBEYOND">
+                        <div class="card 4">
+                            <div class="card-headr">
+                                <div class="text">Beyond in Time Limits</div>
+                                <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                <div class="count">
+                                    <asp:Label ID="lblOFFLINEBEYONDAPPROVED" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+
         </div>
     </div>
 

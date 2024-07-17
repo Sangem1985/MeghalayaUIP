@@ -265,5 +265,77 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblREJECTEDBEYOND;
+
+        /// <summary>
+        /// OfflineApprovalPending control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl OfflineApprovalPending;
+
+        /// <summary>
+        /// lblOFFLINEPENDING control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOFFLINEPENDING;
+
+        /// <summary>
+        /// lblOFFLINEPENDINGWITHIN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOFFLINEPENDINGWITHIN;
+
+        /// <summary>
+        /// lblOFFLINEPENDINGBEYOND control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOFFLINEPENDINGBEYOND;
+
+        /// <summary>
+        /// OfflineApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl OfflineApproved;
+
+        /// <summary>
+        /// lblTOTALOFFLINEAPPROVED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTOTALOFFLINEAPPROVED;
+
+        /// <summary>
+        /// lblOFFLINEWITHINAPPROVED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOFFLINEWITHINAPPROVED;
+
+        /// <summary>
+        /// lblOFFLINEBEYONDAPPROVED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOFFLINEBEYONDAPPROVED;
     }
 }

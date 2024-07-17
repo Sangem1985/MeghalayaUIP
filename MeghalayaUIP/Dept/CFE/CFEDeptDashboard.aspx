@@ -150,7 +150,8 @@
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Query Response<br />Pending
+                                                Query Response<br />
+                                                Pending
                                             </p>
                                         </div>
                                     </a>
@@ -224,6 +225,106 @@
                                                 <h4 class="mb-0">
                                                     <asp:Label ID="lblREJECTED" runat="server"></asp:Label></h4>
                                                 <p class="text-sm mb-0 text-capitalize">Approval Rejected</p>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">Applications Rejected</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </section>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Offline Approvals</h3>
+                </div>
+                <section id="dashboardcount2" class="dashboardcount2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?Status=TOTALOFFLINEAPPLICATIONS" style="text-decoration: none;" id="anchrOffilineTotal" runat="server">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="lblOFFLINETOTAL" runat="server">0</asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Offline Approvals </p>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">
+                                                Total Applications 
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptdrill.aspx?Status=OfflineApproved" style="text-decoration: none;" id="anchrOfflineApproved" runat="server">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="lblOFFLINEAPPROVED" runat="server">0</asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Approvals Approved</p>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">
+                                                Approved Applications 
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptdrill.aspx?Status=OfflinePending" style="text-decoration: none;" id="anchrOfflinePending" runat="server">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-search-alt"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="lblOFFLINEPENDING" runat="server">0</asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Approvals Under Process</p>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">
+                                                Pending Applications 
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-sm-6">
+                                <div class="card">
+                                    <a href="CFEApplDeptView.aspx?Status=OFFLINEREJECTED" style="text-decoration: none;" id="ancheOfflineRejcted" runat="server">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-vote-nay"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="lblOFFLINEREJECTED" runat="server">0</asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Approvals Rejected</p>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
