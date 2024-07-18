@@ -83,16 +83,15 @@ namespace MeghalayaUIP.Dept.CFE
                     {
                         verifypanel.Visible = false;
                     }
-                    if (Request.QueryString["status"].ToString() == "TOTALOFFLINEAPPLICATIONS") 
+                    if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
                     {
                         headingThree.Visible = false;
                         headingFour.Visible = false;
-                    }
-                    if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
-                    {
-                        headingThree.Visible = false;
-                        headingFour.Visible = false;
-                        Offlineverifypanel.Visible = true;
+                        if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
+                        {
+
+                            Offlineverifypanel.Visible = true;
+                        }
                     }
                 }
                 else
@@ -289,7 +288,7 @@ namespace MeghalayaUIP.Dept.CFE
                         lblDivision.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_FORESTDIVISION"]);
                         lblinformation.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_INFORMATION"]);
                     }
-                    if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
+                    if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
                     {
                         divChecklistAttachment.Visible = false;
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[19].Rows.Count > 0)
