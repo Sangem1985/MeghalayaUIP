@@ -258,13 +258,13 @@
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
                                                     <asp:Label ID="lblOFFLINETOTAL" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Offline Approvals </p>
+                                                <p class="text-sm mb-0 text-capitalize">Total Approvals </p>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Total Applications 
+                                                Applications Received 
                                             </p>
                                         </div>
                                     </a>
@@ -286,7 +286,7 @@
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Approved Applications 
+                                                Applications Approved  
                                             </p>
                                         </div>
                                     </a>
@@ -302,7 +302,7 @@
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
                                                     <asp:Label ID="lblOFFLINEPENDING" runat="server">0</asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Approvals Under Process</p>
+                                                <p class="text-sm mb-0 text-capitalize">Approvals Pending</p>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
@@ -329,7 +329,7 @@
                                         </div>
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
-                                            <p class="mb-0">Applications Rejected</p>
+                                            <p class="mb-0">Rejected Applications </p>
                                         </div>
                                     </a>
                                 </div>

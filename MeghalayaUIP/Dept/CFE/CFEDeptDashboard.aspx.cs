@@ -76,14 +76,14 @@ namespace MeghalayaUIP.Dept.CFE
                     if (lblREJECTED.Text == "0")
                         anchrAprvlRjctd.HRef = "#";
 
-                   /* if (lblOFFLINETOTAL.Text == "0")
+                    if (lblOFFLINETOTAL.Text == "0")
                         anchrOffilineTotal.HRef = "#";
                     if (lblOFFLINEAPPROVED.Text == "0")
                         anchrOfflineApproved.HRef = "#";
                     if (lblOFFLINEREJECTED.Text == "0")
                         ancheOfflineRejcted.HRef = "#";
                     if (lblOFFLINEPENDING.Text == "0")
-                        anchrOfflinePending.HRef = "#";*/
+                        anchrOfflinePending.HRef = "#";
 
                 }
             }
