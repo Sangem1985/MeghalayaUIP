@@ -34,13 +34,20 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Select" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="chkApproval" runat="server" />
+                                    <asp:CheckBox ID="chkApproval"  Checked='<%# Eval("IsApplied").ToString() == "1" ? true : false %>' runat="server" />
                                 </ItemTemplate>
                                 <ItemStyle Width="5%" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Approval / Service Name">
                                 <ItemTemplate>
                                     <asp:Label runat="server" Text='<%# Eval("ApprovalName")%>'></asp:Label>
+                                </ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Center" />
+                                <ItemStyle Width="90%" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Fee">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" ID="lblApprovalFee" Text='<%# Eval("FEE")%>'></asp:Label>
                                 </ItemTemplate>
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <ItemStyle Width="90%" />

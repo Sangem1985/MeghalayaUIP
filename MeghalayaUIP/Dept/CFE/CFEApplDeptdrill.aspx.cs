@@ -91,6 +91,13 @@ namespace MeghalayaUIP.Dept.CFE
                 lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
                 lblREJECTEDWITHIN.Text = dt.Rows[0]["REJECTEDWITHIN"].ToString();
                 lblREJECTEDBEYOND.Text = dt.Rows[0]["REJECTEDBEYOND"].ToString();
+
+                lblTOTALOFFLINEAPPROVED.Text = dt.Rows[0]["OFFLINEAPPROVED"].ToString();
+                lblOFFLINEWITHINAPPROVED.Text = dt.Rows[0]["OFFLINEAPPROVEDWITHIN"].ToString();
+                lblOFFLINEBEYONDAPPROVED.Text = dt.Rows[0]["OFFLINEAPPROVEDBEYOND"].ToString();
+                lblOFFLINEPENDING.Text = dt.Rows[0]["OFFLINEPENDING"].ToString();
+                lblOFFLINEPENDINGWITHIN.Text = dt.Rows[0]["OFFLINEPENDINGWITHIN"].ToString();
+                lblOFFLINEPENDINGBEYOND.Text = dt.Rows[0]["OFFLINEPENDINGBEYOND"].ToString();
             }
             catch (Exception ex)
             { }
@@ -153,6 +160,27 @@ namespace MeghalayaUIP.Dept.CFE
                     ApprovalIssued.Visible = false;
                     ApprovalRejected.Visible = true;
                 }
+                else if (ddlStatus.SelectedValue == "OfflinePending")
+                {
+                    PrescrutinyPending.Visible = false;
+                    Prescrutinycompleted.Visible = false;
+                    PreScrutinyRejected.Visible = false;
+                    Approvalunderprocess.Visible = false;
+                    ApprovalIssued.Visible = false;
+                    ApprovalRejected.Visible = false;
+                    OfflineApprovalPending.Visible = true;
+                }
+                else if (ddlStatus.SelectedValue == "OfflineApproved")
+                {
+                    PrescrutinyPending.Visible = false;
+                    Prescrutinycompleted.Visible = false;
+                    PreScrutinyRejected.Visible = false;
+                    Approvalunderprocess.Visible = false;
+                    ApprovalIssued.Visible = false;
+                    ApprovalRejected.Visible = false;
+                    OfflineApprovalPending.Visible = false;
+                    OfflineApproved.Visible = true;
+                }
                 else if (ddlStatus.SelectedValue == "0")
                 {
                     PrescrutinyPending.Visible = true;
@@ -161,6 +189,7 @@ namespace MeghalayaUIP.Dept.CFE
                     Approvalunderprocess.Visible = true;
                     ApprovalIssued.Visible = true;
                     ApprovalRejected.Visible = true;
+                    OfflineApprovalPending.Visible = true;
                 }
             }
             catch (Exception ex)

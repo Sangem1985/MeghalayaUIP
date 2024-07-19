@@ -722,7 +722,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     //  ObjApplicationDetails.Questionnariid = Quesstionriids;
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
-                    ObjApplicationDetails.UnitId = Convert.ToString(Session["UnitID"]);
+                    ObjApplicationDetails.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
 
                     ObjApplicationDetails.Nameofunit = txtUnitName.Text;
@@ -844,11 +844,11 @@ namespace MeghalayaUIP.User.Renewal
                     slno = slno + 1;
 
                 }
-                if (ddlsector.SelectedIndex == 0)
+                /*if (ddlsector.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select sector \\n";
                     slno = slno + 1;
-                }
+                }*/
                 if (ddlLineActivity.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Line Of Activity \\n";
@@ -1098,6 +1098,121 @@ namespace MeghalayaUIP.User.Renewal
 
 
         protected void GetCategory()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objRenbal.GetRenApplicantDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENID_UNITID"]);
+                        txtUnitName.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
+                        ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["RENID_COMPANYTYPE"].ToString();
+                        ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["RENID_SECTORENTERPRISE"].ToString();
+                        ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["RENID_CATEGORYREG"].ToString();
+                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                        txtRegNo.Text = ds.Tables[0].Rows[0]["RENID_REGNUMBER"].ToString();
+                        txtRegDate.Text = ds.Tables[0].Rows[0]["RENID_REGDATE"].ToString();
+                        ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
+                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["RENID_LINEOFACTIVITY"].ToString();
+                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
+                        lblPCBCategory.Text = ds.Tables[0].Rows[0]["RENID_POLLUTIONCATG"].ToString();
+                        txtDoors.Text = ds.Tables[0].Rows[0]["RENID_SURVEYDOOR"].ToString();
+                        txtLocality.Text = ds.Tables[0].Rows[0]["RENID_LOCALITY"].ToString();
+                        txtLANDMARK.Text = ds.Tables[0].Rows[0]["RENID_LANDMARK"].ToString();
+                        ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRIC"].ToString();
+                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDAL"].ToString();
+                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGE"].ToString();
+                        txtEmailId.Text = ds.Tables[0].Rows[0]["RENID_EMAILID"].ToString();
+                        txtMobileNo.Text = ds.Tables[0].Rows[0]["RENID_MOBILENO"].ToString();
+                        txtpincode.Text = ds.Tables[0].Rows[0]["RENID_PINCODE"].ToString();
+                        txtLandArea.Text = ds.Tables[0].Rows[0]["RENID_TOTALEXTENTLAND"].ToString();
+                        txtBuiltArea.Text = ds.Tables[0].Rows[0]["RENID_BUILTUPAREA"].ToString();
+
+                        txtName.Text = ds.Tables[0].Rows[0]["RENID_NAME"].ToString();
+                        txtSoWoDo.Text = ds.Tables[0].Rows[0]["RENID_SONOF"].ToString();
+                        txtEmail.Text = ds.Tables[0].Rows[0]["RENID_EMAIL"].ToString();
+                        txtphoneno.Text = ds.Tables[0].Rows[0]["RENID_MOBILENUMBER"].ToString();
+                        txtAltMobile.Text = ds.Tables[0].Rows[0]["RENID_ALTERNUMBER"].ToString();
+                        txtLandlineno.Text = ds.Tables[0].Rows[0]["RENID_LANDLINENUMBER"].ToString();
+                        txtDoorNo.Text = ds.Tables[0].Rows[0]["RENID_DOOR"].ToString();
+                        txtLocal.Text = ds.Tables[0].Rows[0]["RENID_LOCALITYADD"].ToString();
+                        ddlstate.SelectedValue = ds.Tables[0].Rows[0]["RENID_STATE"].ToString();
+                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            otherDistric.Visible = true;
+                            trotherstate.Visible = false;
+                            ddldist.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRICS"].ToString();
+                            ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlmand.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDALS"].ToString();
+                            ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlvilla.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGES"].ToString();
+
+                        }
+                        else
+                        {
+                            trotherstate.Visible = true;
+                            otherDistric.Visible = false;
+                            txtApplDist.Text = ds.Tables[0].Rows[0]["RENID_DIST"].ToString();
+                            txtApplTaluka.Text = ds.Tables[0].Rows[0]["RENID_MANDA"].ToString();
+                            txtApplVillage.Text = ds.Tables[0].Rows[0]["RENID_VILLA"].ToString();
+                        }
+
+                        txtPin.Text = ds.Tables[0].Rows[0]["RENID_PIN"].ToString();
+                        txtAge.Text = ds.Tables[0].Rows[0]["RENID_AGE"].ToString();
+                        txtDesignation.Text = ds.Tables[0].Rows[0]["RENID_DESIGNATION"].ToString();
+                        rblWomen.SelectedValue = ds.Tables[0].Rows[0]["RENID_WOMENENTREPRENEUR"].ToString();
+                        rblAbled.SelectedValue = ds.Tables[0].Rows[0]["RENID_ABLED"].ToString();
+
+                        txtMale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTMALE"].ToString();
+                        txtFemale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTFEMALE"].ToString();
+                        txtDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_DIRECTEMP"].ToString();
+                        txtIndirectMale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTMALE"].ToString();
+                        txtIndirectFemale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTFEMALE"].ToString();
+                        txtInDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTEMP"].ToString();
+
+                        txtPropEmp.Text = ds.Tables[0].Rows[0]["RENID_TOTALEMP"].ToString();
+                        txtLandValue.Text = ds.Tables[0].Rows[0]["RENID_LANDSALEDEED"].ToString();
+                        txtBuildingValue.Text = ds.Tables[0].Rows[0]["RENID_BUILDING"].ToString();
+                        txtPMCost.Text = ds.Tables[0].Rows[0]["RENID_PLANTMACHINERY"].ToString();
+                        lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
+                        txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
+                        lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                {
+                    txtRegNo.Enabled = true;
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
+
+        protected void GetApprovals()
         {
             try
             {

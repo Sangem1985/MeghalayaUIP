@@ -297,6 +297,29 @@ section#dashboardcount2 {
 }
 
 
+    section#dashboardcount3 .card:hover {
+        i .fi
+
+{
+    transform: rotateY(360deg);
+}
+
+.icon {
+    border: 1.5px dotted #093a4c;
+}
+
+}
+
+section#dashboardcount3 .card {
+    border: none !important;
+    padding-bottom: 2px !important;
+    *height: 170px;
+    background: #fff !important;
+}
+
+section#dashboardcount3 {
+    padding: 32px 0px 0px;
+}
 
 .page-wrapper.cfeuserapplstatus .card h3 {
     font-size: 20px;

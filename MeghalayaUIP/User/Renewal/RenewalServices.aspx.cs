@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace MeghalayaUIP.User.Renewal
 {
@@ -56,7 +57,8 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet dsnew = new DataSet();
                 string UserId = "1";
-                dsnew = objRenbal.GetRenApprovals(UserId);
+                string UnitId = Session["RENUNITID"].ToString();
+                dsnew = objRenbal.GetRenApprovals(UserId,UnitId);
                 if (dsnew.Tables.Count > 0)
                 {
                     if (dsnew.Tables[0].Rows.Count > 0)
@@ -82,29 +84,102 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 string ApprovalIds = "";
+
                 foreach (GridViewRow row in gvRenewals.Rows)
                 {
-                    //CheckBox chk = row.Cells[1].Controls[1] as CheckBox;
                     CheckBox chkApproval = (CheckBox)row.FindControl("chkApproval");
                     if (chkApproval != null && chkApproval.Checked)
                     {
                         Label lblApprovalId = (Label)row.FindControl("lblApprovalId");
+                        Label lblDeptId = (Label)row.FindControl("lblDeptId");
+                        Label lblApprovalFee = (Label)row.FindControl("lblApprovalFee");
                         ApprovalIds = ApprovalIds + "," + lblApprovalId.Text.ToString();
+                        ApprovalIds = ApprovalIds.Trim().TrimStart(',');
                     }
                 }
-                if (ApprovalIds == "") 
+                if (ApprovalIds == "")
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Select atleast one Approval')", true);
                     return;
                 }
-                ApprovalIds = ApprovalIds.Trim().TrimStart(',');
-                string newurl = "RENQuestionnaire.aspx?ApprId=" + ApprovalIds;
-                Response.Redirect(newurl);
+                else
+                {
+
+                    RenApplicationDetails ObjApplicationDetails = new RenApplicationDetails();
+                    List<RenApprovals> lstRenApprovals = new List<RenApprovals>();
+                    foreach (GridViewRow row in gvRenewals.Rows)
+                    {
+                        //CheckBox chk = row.Cells[1].Controls[1] as CheckBox;
+                        CheckBox chkApproval = (CheckBox)row.FindControl("chkApproval");
+                        if (chkApproval != null && chkApproval.Checked)
+                        {
+                            Label lblApprovalId = (Label)row.FindControl("lblApprovalId");
+                            Label lblDeptId = (Label)row.FindControl("lblDeptId");
+                            Label lblApprovalFee = (Label)row.FindControl("lblApprovalFee");
+
+                            lstRenApprovals.Add(new RenApprovals
+                            {
+                                RENQDID = Session["RENQID"].ToString(),
+                                UnitId = Session["RENUNITID"].ToString(),
+                                ApprovalId = lblApprovalId.Text.ToString(),
+                                DeptId = lblDeptId.Text.ToString(),
+                                ApprovalFee = lblApprovalFee.Text.ToString(),
+                                UidNo = "",
+                                CreatedBy = hdnUserID.Value,
+                                IPAddress = getclientIP()
+                            });
+                        }
+                    }
+                    XElement xmlRenApproval = new XElement("xmlRenApproval_xml",
+                          from Approval in lstRenApprovals
+                          select new XElement("RenApprovalTable",
+                          new XElement("RENQDID", Approval.RENQDID),
+                          new XElement("UnitId", Approval.UnitId),
+                          new XElement("ApprovalId", Approval.ApprovalId),
+                          new XElement("DeptId", Approval.DeptId),
+                          new XElement("ApprovalFee", Approval.ApprovalFee),
+                          new XElement("UidNo", Approval.UidNo),
+                          new XElement("CreatedBy", Approval.CreatedBy),
+                          new XElement("IPAddress", Approval.IPAddress)
+                          ));
+                    ObjApplicationDetails.RenApprovalsXml = xmlRenApproval.ToString();
+                    ObjApplicationDetails.ApprovalID = ApprovalIds;
+                    ObjApplicationDetails.UnitId = Session["RENUNITID"].ToString();
+                    ObjApplicationDetails.Questionnariid = Session["RENQID"].ToString();
+                    int result = Convert.ToInt32(objRenbal.InsertRenDeptApprovals(ObjApplicationDetails));
+                    if (result > 0)
+                    {
+                        string newurl = "RENQuestionnaire.aspx?ApprId=" + ApprovalIds;
+                        Response.Redirect(newurl);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Failed to Apply Renewal Approvals')", true);
+                        return;
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
         }
 
         protected void gvRenewals_RowDataBound(object sender, GridViewRowEventArgs e)

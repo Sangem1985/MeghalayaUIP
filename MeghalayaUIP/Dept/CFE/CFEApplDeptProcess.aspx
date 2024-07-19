@@ -1417,7 +1417,7 @@
 
 
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header" runat="server" id="divChecklistAttachment">
                                         <h3>Check Lists</h3>
                                     </div>
                                     <section id="dashboardAttachmnt">
@@ -1467,7 +1467,7 @@
                             </div>
                         </div>
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree">
+                            <div class="panel-heading" role="tab" runat="server" id="headingThree">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseThree" aria-expanded="false"
@@ -1518,7 +1518,7 @@
                             </div>
                         </div>
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingFour">
+                            <div class="panel-heading" role="tab" runat="server" id="headingFour">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseFour" aria-expanded="false"
@@ -1622,7 +1622,8 @@
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix"><asp:Label runat="server" ID="lblVerf"></asp:Label>
+                                        aria-controls="collapseSix">
+                                        <asp:Label runat="server" ID="lblVerf"></asp:Label>
                                     </a>
                                 </h4>
                             </div>
@@ -1759,6 +1760,67 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="panel panel-default" id="Offlineverifypanel" runat="server" visible="false">
+                            <div class="panel-heading" role="tab" id="headingSeven">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">
+                                        <asp:Label runat="server" ID="lblOfflineVerify">Verification of Application</asp:Label>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSeven" class="panel-collapse show" role="tabpanel"
+                                aria-labelledby="headingSeven" aria-expanded="false">
+
+                                <div class="card" id="offlinescrutiny" runat="server" visible="true">
+                                    <div class="table-responsive">
+                                        <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
+                                            <tr style="border-color: brown; background-color: midnightblue; color: azure">
+                                                <td><b>Name</b></td>
+                                                <td><b>Unit Name</b></td>
+                                                <td><b>Application No</b></td>
+                                                <td style="width: 150px"><b>Application Date</b></td>
+                                                <td style="width: 200px"><b>Select Action</b></td>
+                                                <td id="td4" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter RejectionReason" ID="Label8"></asp:Label></b>
+                                                </td>
+                                                <td id="td5" runat="server" visible="true">
+                                                    <b>Submit Action</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lblNameOffline"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblUnitNameOffline" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblAppNoOffline" runat="server"></asp:Label></td>
+                                                <td tyle="width: 50px">
+                                                    <asp:Label ID="lblAppDateOffline" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="width: 200px">
+                                                    <asp:DropDownList ID="ddlActionOffline" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlapproval_SelectedIndexChanged">
+                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Approve" Value="13"></asp:ListItem>
+                                                        <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td style="vertical-align: central" id="tdOfflineReason" runat="server" visible="false">
+                                                    <asp:TextBox ID="txtRejectReasonOffline" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
+                                                </td>
+                                                <td id="td7" runat="server" visible="true">
+                                                    <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                                                </td>
+                                            </tr>
+                                           
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

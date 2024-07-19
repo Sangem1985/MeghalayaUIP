@@ -45,6 +45,7 @@ namespace MeghalayaUIP.Common
         public static string GetRenFactoriesLicenseDetails = "USP_GETRENFACTORYLIC";
         public static string GetRenApprovals = "USP_GETRENAPPROVALS";
         public static string GetRENapplications = "USP_GETRENEWALSUSERDASHBOARD";
+        public static string InsertRenDeptApprovals = "USP_INS_RENDPETAPPROVALS";
 
         public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
         public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
@@ -397,6 +398,7 @@ namespace MeghalayaUIP.Common
         public string AnnualTurnOver { get; set; }
         public string ProjectCost { get; set; }
         public string EnterpriseCategory { get; set; }
+        public string RenApprovalsXml { get; set; }
 
     }
     public class RenSafteySecurity
@@ -560,5 +562,16 @@ namespace MeghalayaUIP.Common
         public string TOTALAMOUNTPAID { get; set; }
 
 
+    }
+    public class RenApprovals
+    {
+        public string RENQDID { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string ApprovalId { get; set; }
+        public string DeptId { get; set; }
+        public string ApprovalFee { get; set; }
+        public string UidNo { get; set; }
     }
 }

@@ -648,7 +648,7 @@
 
                                 <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                 <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                <asp:Button ID="btnNext" Text="Next" OnClick="btnNext_Click" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                             </div>
                         </div>

@@ -52,6 +52,11 @@ namespace MeghalayaUIP.Dept.CFE
                     lblAPPROVALPENDING.Text = dt.Rows[0]["APPROVALPENDING"].ToString();
                     lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
 
+                    lblOFFLINETOTAL.Text = dt.Rows[0]["TOTALOFFILINEAPPLICATIONS"].ToString();
+                    lblOFFLINEAPPROVED.Text = dt.Rows[0]["OFFLINEAPPROVED"].ToString();
+                    lblOFFLINEPENDING.Text = dt.Rows[0]["OFFLINEPENDING"].ToString();
+                    lblOFFLINEREJECTED.Text = dt.Rows[0]["OFFLINEREJECTED"].ToString();
+
                     if (lblTOTALAPPLICATIONS.Text == "0")
                         anchrTotal.HRef = "#";
                     if (lblPRESCRUTINYCOMPLETED.Text == "0")
@@ -70,6 +75,15 @@ namespace MeghalayaUIP.Dept.CFE
                         anchrAprvlPndng.HRef = "#";
                     if (lblREJECTED.Text == "0")
                         anchrAprvlRjctd.HRef = "#";
+
+                    if (lblOFFLINETOTAL.Text == "0")
+                        anchrOffilineTotal.HRef = "#";
+                    if (lblOFFLINEAPPROVED.Text == "0")
+                        anchrOfflineApproved.HRef = "#";
+                    if (lblOFFLINEREJECTED.Text == "0")
+                        ancheOfflineRejcted.HRef = "#";
+                    if (lblOFFLINEPENDING.Text == "0")
+                        anchrOfflinePending.HRef = "#";
 
                 }
             }

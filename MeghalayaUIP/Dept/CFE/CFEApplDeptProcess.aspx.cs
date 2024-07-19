@@ -39,7 +39,6 @@ namespace MeghalayaUIP.Dept.CFE
                         }
                         // username = ObjUserInfo.UserName;
                     }
-
                     BindCFEApplicatinDetails();
                 }
             }
@@ -84,6 +83,16 @@ namespace MeghalayaUIP.Dept.CFE
                     {
                         verifypanel.Visible = false;
                     }
+                    if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
+                    {
+                        headingThree.Visible = false;
+                        headingFour.Visible = false;
+                        if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
+                        {
+
+                            Offlineverifypanel.Visible = true;
+                        }
+                    }
                 }
                 else
                 {
@@ -106,6 +115,11 @@ namespace MeghalayaUIP.Dept.CFE
                     lblapplDate.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
                     lbl_Name1.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
                     lbl_Name1Approval.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+
+                    lblNameOffline.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+                    lblUnitNameOffline.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+                    lblAppNoOffline.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
+                    lblAppDateOffline.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
 
                     lblunitname1Approval.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
                     lblApplNoApproval.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
@@ -223,61 +237,76 @@ namespace MeghalayaUIP.Dept.CFE
                         lblQuantum.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_REQLOAD"]);
                         lblEngeryLaod.Text = Convert.ToString(ds.Tables[4].Rows[0]["ENERGYLOAD_NAME"]);
                     }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
                     {
-                        lblDistrics.Text = Convert.ToString(ds.Tables[5].Rows[0]["DistrictName"]);
-                        lblMan.Text = Convert.ToString(ds.Tables[5].Rows[0]["Mandalname"]);
-                        lblVill.Text = Convert.ToString(ds.Tables[5].Rows[0]["VillageName"]);
-                        lbllocal.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_Locality"]);
-                        lbNear.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_Landmark"]);
-                        lblPincodes.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_Pincode"]);
-                        lblheight.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_BUILDINGHT"]);
-                        lblEachfloor.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_FLOORHT"]);
-                        lblArea.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_PLOTAREA"]);
-                        lblbuild.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_BUILDINGAREA"]);
-                        lbldriveway.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_DRIVEPROPSED"]);
-                        lblcategoryBuild.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_CATEGORYBUILD"]);
-                        feeamount.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_FEEAMOUNT"]);
-                        lblEast.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_East"]);
-                        lblDistanceprop.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_DISTANCEEAST"]);
-                        lblwest.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_West"]);
-                        lblbUILDDIST.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_DISTANCEWEST"]);
-                        lblNorth.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_North"]);
-                        lblDistBuild.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_DISTANCENORTH"]);
-                        lblSouth.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_South"]);
-                        lblbuildProp.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_DISTANCESOUTH"]);
-                        lblFireStation.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFEFD_FIRESTATION"]);
+                        lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
+                        lblMan.Text = Convert.ToString(ds.Tables[8].Rows[0]["Mandalname"]);
+                        lblVill.Text = Convert.ToString(ds.Tables[8].Rows[0]["VillageName"]);
+                        lbllocal.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Locality"]);
+                        lbNear.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Landmark"]);
+                        lblPincodes.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Pincode"]);
+                        lblheight.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGHT"]);
+                        lblEachfloor.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FLOORHT"]);
+                        lblArea.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_PLOTAREA"]);
+                        lblbuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGAREA"]);
+                        lbldriveway.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DRIVEPROPSED"]);
+                        lblcategoryBuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_CATEGORYBUILD"]);
+                        feeamount.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FEEAMOUNT"]);
+                        lblEast.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_East"]);
+                        lblDistanceprop.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCEEAST"]);
+                        lblwest.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_West"]);
+                        lblbUILDDIST.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCEWEST"]);
+                        lblNorth.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_North"]);
+                        lblDistBuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCENORTH"]);
+                        lblSouth.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_South"]);
+                        lblbuildProp.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCESOUTH"]);
+                        lblFireStation.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FIRESTATION"]);
                     }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[9].Rows.Count > 0)
                     {
-                        lblspice.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_SPECIES"]);
-                        lblLength.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_TIMBERLENGTH"]);
-                        lblvolume.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_TIMBERVOLUME"]);
-                        lblGirth.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_GIRTH"]);
-                        lblFirewood.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_ESTIMATED"]);
-                        lblpole.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_POLES"]);
-                        lblNorths.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_NORTH"]);
-                        lblEasts.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_EAST"]);
-                        lblWests.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_WEST"]);
-                        lblSouths.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_SOUTH"]);
-                        lblAddress.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_ADDRESS"]);
-                        lbllatitude.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_LATTITUDE"]);
-                        lblDegreess.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_DEGREES"]);
-                        lblMinte.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_MINUTES"]);
-                        lblseconds.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_SECONDS"]);
-                        lbllongitude.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_LONGITUDE"]);
-                        lblDegrees.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_DEGREE"]);
-                        lblMinutes.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_MINUTE"]);
-                        lblsecond.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_SECOND"]);
-                        lblCoordinates.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_GPSCOORDINATES"]);
-                        lblApplication.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
-                        lblDivision.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_FORESTDIVISION"]);
-                        lblinformation.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFEFD_INFORMATION"]);
+                        lblspice.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SPECIES"]);
+                        lblLength.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_TIMBERLENGTH"]);
+                        lblvolume.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_TIMBERVOLUME"]);
+                        lblGirth.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_GIRTH"]);
+                        lblFirewood.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_ESTIMATED"]);
+                        lblpole.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_POLES"]);
+                        lblNorths.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_NORTH"]);
+                        lblEasts.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_EAST"]);
+                        lblWests.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_WEST"]);
+                        lblSouths.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SOUTH"]);
+                        lblAddress.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_ADDRESS"]);
+                        lbllatitude.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_LATTITUDE"]);
+                        lblDegreess.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_DEGREES"]);
+                        lblMinte.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_MINUTES"]);
+                        lblseconds.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SECONDS"]);
+                        lbllongitude.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_LONGITUDE"]);
+                        lblDegrees.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_DEGREE"]);
+                        lblMinutes.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_MINUTE"]);
+                        lblsecond.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SECOND"]);
+                        lblCoordinates.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_GPSCOORDINATES"]);
+                        lblApplication.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
+                        lblDivision.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_FORESTDIVISION"]);
+                        lblinformation.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_INFORMATION"]);
                     }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
+                    if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
                     {
-                        grdcfeattachment.DataSource = ds.Tables[7];
-                        grdcfeattachment.DataBind();
+                        divChecklistAttachment.Visible = false;
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[19].Rows.Count > 0)
+                        {
+                            grdcfeattachment.DataSource = ds.Tables[19];
+                            grdcfeattachment.DataBind();
+                           
+                        }
+                    }
+                    else 
+                    {
+
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[18].Rows.Count > 0)
+                        {
+                            grdcfeattachment.DataSource = ds.Tables[18];
+                            grdcfeattachment.DataBind();
+                        }
+
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
                     {

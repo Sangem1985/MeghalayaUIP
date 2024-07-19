@@ -4,18 +4,22 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css'>
     <style>
         .team-block-two .inner-box {
-    border-radius: 10px;
-}
+            border-radius: 10px;
+        }
+
         .owl-dots {
-    display: none;
-}
+            display: none;
+        }
+
         .owl-nav {
-    display: none;
-}
+            display: none;
+        }
+
         .team-block-two:hover .inner-box .image-box img {
-    opacity: 0.8 !important;
-    transform: scale(1.05);
-}
+            opacity: 0.8 !important;
+            transform: scale(1.05);
+        }
+
         .hero-slider .slide-inner {
             width: 100%;
             height: 70% !important;
@@ -204,8 +208,10 @@
                                                 <div class="count-outer count-box">
                                                     <span class="count-text" data-speed="1500" data-stop="22429">0</span> <span>Sq. km</span>
                                                 </div>
-                                                <div class="text">Area<br />
-                                                    &nbsp;</div>
+                                                <div class="text">
+                                                    Area<br />
+                                                    &nbsp;
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -272,9 +278,11 @@
                                                 <div class="count-outer count-box">
                                                     <span class="count-text" data-speed="1500" data-stop="11.11">0</span> <span>L</span>
                                                 </div>
-                                                <div class="text">Youth
+                                                <div class="text">
+                                                    Youth
                                                     <br />
-                                                    Population</div>
+                                                    Population
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -285,8 +293,10 @@
                                                 <div class="count-outer count-box">
                                                     <span class="count-text" data-speed="1500" data-stop="23.7">0</span> <span>L</span>
                                                 </div>
-                                                <div class="text">Urban<br />
-                                                    Population</div>
+                                                <div class="text">
+                                                    Urban<br />
+                                                    Population
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -297,9 +307,11 @@
                                                 <div class="count-outer count-box">
                                                     <span class="count-text" data-speed="1500" data-stop="6">0</span> <span>L</span>
                                                 </div>
-                                                <div class="text">Rural
+                                                <div class="text">
+                                                    Rural
                                                     <br />
-                                                    Population</div>
+                                                    Population
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -444,11 +456,108 @@
                         Meghalaya's connectivity is key to its development. With extensive road, rail, and air networks, the state ensures
                         seamless transportation for growth and accessibility.
                     </p>
-                    <h4 style="margin-bottom: -71px;">Road Connectivity
-                        <br>
-                        <br>
-                        <br>
-                        :</h4>
+                    <section id="Connectivity">
+                        <div class="row">
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-6">
+                                    <h5 class="ml-3 mb-3 mt-4 text-center">Road Connectivity</h5>
+                                    <section class="service-style-four service-page-3 centred p-0 m-0" style="border: 1px solid #000; padding-top: 28px !important; padding-left: 30px !important; border-radius: 8px; box-shadow: 1px 4px 8px;">
+                                        <div class="container">
+                                            <div class="inner-container" style="margin: 0px; padding: 0px;">
+                                                <img src="assets/assetsnew/images/info/road.png" style="width: 100%;">
+                                                <p class="road1 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    Road Network:<br />
+                                                    13,000 km
+                                                </p>
+                                                <p class="road2 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    Road Density:<br />
+                                                    0.48 km/sq. km<br />
+                                                    density
+                                                </p>
+                                                <p class="road3 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                                    style="padding: 2px 8px;visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    Ongoing developments:<br />
+                                                    SARDP, PMGSY, and<br /> Shillong
+                                                    Smart-city<br /> programs
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="ml-3 mb-3 mt-4 text-center">Rail Connectivity</h5>
+                                    <section class="service-style-four" style="border: 1px solid #000; border-radius: 8px; box-shadow: 1px 4px 8px; padding-top: 25px;padding-bottom: 0;">
+                                        <div class="container">
+                                            <div class="inner-container" style="text-align: center;">
+                                                <img src="assets/assetsnew/images/info/train.jpg" style="width: 115%;">
+                                                <div class="train1">
+                                                    <p class="road1234 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                        Railhead at<br>
+                                                        Mendipathar
+                                                    </p>
+                                                </div>
+                                                <div class="train2">
+                                                    <p class="road2235 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                        Regular service connecting<br>
+                                                        Mendipathar and Guwahati<br>
+                                                        density
+                                                    </p>
+                                                </div>
+                                                <div class="train3">
+                                                    <p class="road3236 wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                        Ongoing projects linking Meghalaya<br>
+                                                        with Manipur, Mizoram, Nagaland<br>
+                                                        , and Sikkim
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <div class="col-md-12">
+                                     <h5 class="ml-3 mb-1 mt-3 text-center">Aviation Connectivity</h5>
+                                    
+                                    <section class="service-style-four" style="margin-top: 10px;padding-top: 20px !important;padding-bottom: 0px;">
+                                        <div class="container">
+                                            <div class="inner-container" style="text-align: center;">
+                                                <div class="boxfight"></div>
+                                                <img src="assets/assetsnew/images/info/flight.png" style="width: 40%;">
+                                                <p class="road1112 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    Airport at Umroi<br />
+                                                    (30 km from Shillong)
+                                                </p>
+                                                <p class="road2112 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    Helicopter service connecting<br />
+                                                    Shillong to Guwahati and Tura<br />
+                                                    density
+                                                </p>
+                                                <p class="road3112 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    Guwahati airport<br />
+                                                    (118 km from Shillong)
+                                                </p>
+                                                <p class="road4114  wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
+                                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    Additional helipads and heliports<br />
+                                                    planned across the state
+                                                </p>
+                                                </div>
+                                                
+                                            </div>
+                                        
+                                    </section>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <%-- <h4 style="margin-bottom: -71px;">Road Connectivity :</h4>
 
                     <section class="service-style-four service-page-3 centred p-0 m-0">
                         <div class="container">
@@ -468,11 +577,7 @@
                             </div>
                         </div>
                     </section>
-                    <%--<ul>
-                        <li>1.	Road Network: 13,000 km</li>
-                        <li>2.	Road Density: 0.48 km/sq. km density</li>
-                        <li>3.	Ongoing developments: SARDP, PMGSY, and Shillong Smart-city program</li>
-                    </ul>--%>
+                    
                     <h4>Rail Connectivity :</h4>
                     <section class="service-style-four">
                         <div class="container">
@@ -520,8 +625,9 @@
                                     planned across the state</p>
                             </div>
                         </div>
-                    </section>
-                    <h3>Unique Strengths and Opportunities</h3>
+                    </section>--%>
+
+                    <h3 class="mt-4">Unique Strengths and Opportunities</h3>
                     <p>Meghalaya presents abundant opportunities for growth and development across various sectors. From its natural resources to emerging industries, the state offers a fertile ground for investment and progress. </p>
                     <%--<img src="assets/assetsnew/images/uso.gif" alt="SPDP" style="margin-left: 0px;" />--%>
 
@@ -529,7 +635,7 @@
                         <div class="large-container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" 
+                                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
                                         style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                         <div class="inner-box">
 
@@ -585,59 +691,64 @@
 
 
                     <img src="assets/assetsbeta/images/growrth.png" alt="Growth pic" />
-                    <h3 class="mt-3">The State of Meghalaya has several GI tags:</h3>
-                     <section class="">
-        <div class="container">
-                    <div class="four-item-carousel owl-carousel owl-theme">
-                <div class="team-block-two">
-                    <div class="inner-box">
-                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/1.png" alt=""></a></figure>
-                        
-                        <%--<div class="lower-content">
+                    <h3 class="mt-4">The State of Meghalaya has several GI tags:</h3>
+                    <section class="">
+                        <div class="container">
+                            <div class="four-item-carousel owl-carousel owl-theme">
+                                <div class="team-block-two">
+                                    <div class="inner-box">
+                                        <figure class="image-box"><a href="#">
+                                            <img src="assets/assetsnew/images/sp/1.png" alt=""></a></figure>
+
+                                        <%--<div class="lower-content">
                             <h4><a href="#">Park bo young</a></h4>
                             <span class="designation">Senior Enginer</span>
                         </div>--%>
-                    </div>
-                </div>
-                <div class="team-block-two">
-                    <div class="inner-box">
-                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/2.png" alt=""></a></figure>
-                       <%-- <div class="lower-content">
+                                    </div>
+                                </div>
+                                <div class="team-block-two">
+                                    <div class="inner-box">
+                                        <figure class="image-box"><a href="#">
+                                            <img src="assets/assetsnew/images/sp/2.png" alt=""></a></figure>
+                                        <%-- <div class="lower-content">
                             <h4><a href="#">Chan wook</a></h4>
                             <span class="designation">Senior Factory Manager</span>
                         </div>--%>
-                    </div>
-                </div>
-                <div class="team-block-two">
-                    <div class="inner-box">
-                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/3.png" alt=""></a></figure>
-                        <%--<div class="lower-content">
+                                    </div>
+                                </div>
+                                <div class="team-block-two">
+                                    <div class="inner-box">
+                                        <figure class="image-box"><a href="#">
+                                            <img src="assets/assetsnew/images/sp/3.png" alt=""></a></figure>
+                                        <%--<div class="lower-content">
                             <h4><a href="#">Mahfuz Riad</a></h4>
                             <span class="designation">Senior LOTT</span>
                         </div>--%>
-                    </div>
-                </div>
-                <div class="team-block-two">
-                    <div class="inner-box">
-                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/4.png" alt=""></a></figure>
-                        <%--<div class="lower-content">
+                                    </div>
+                                </div>
+                                <div class="team-block-two">
+                                    <div class="inner-box">
+                                        <figure class="image-box"><a href="#">
+                                            <img src="assets/assetsnew/images/sp/4.png" alt=""></a></figure>
+                                        <%--<div class="lower-content">
                             <h4><a href="#">Jhon Rook</a></h4>
                             <span class="designation">Junior Enginer</span>
                         </div>--%>
-                    </div>
-                </div>
-                        <div class="team-block-two">
-                    <div class="inner-box">
-                        <figure class="image-box"><a href="#"><img src="assets/assetsnew/images/sp/5.png" alt=""></a></figure>
-                       <%-- <div class="lower-content">
+                                    </div>
+                                </div>
+                                <div class="team-block-two">
+                                    <div class="inner-box">
+                                        <figure class="image-box"><a href="#">
+                                            <img src="assets/assetsnew/images/sp/5.png" alt=""></a></figure>
+                                        <%-- <div class="lower-content">
                             <h4><a href="#">Jhon Rook</a></h4>
                             <span class="designation">Junior Enginer</span>
                         </div>--%>
-                    </div>
-                </div>
-            </div>
-            </div>
-                         </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <%--<div class="col-md-12 d-flex msgi">
                         <div class="col-md-2 wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms"
                             style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInDown;">
@@ -660,8 +771,6 @@
                             <p>Meghalaya Lyrnai Pottery and Meghalaya Chubitchi (alcoholic beverage)</p>
                         </div>
                     </div>--%>
-
-
                 </div>
             </div>
 
