@@ -54,37 +54,44 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     BindStates();
                     BindDistricts();
-                    BindSectors();
                     BindConstitutionType();
                     BindRegistrationType();
-                    TotalAmount();
+                    BindSectors();
                     BindData();
-
+                    TotalAmount();
+                    //GetCategory();
                 }
             }
             //lblTotProjCost.Text = Convert.ToString(Convert.ToString(string.IsNullOrEmpty(txtPropEmp.Text)) + Convert.ToDecimal(string.IsNullOrEmpty(txtLandValue.Text)) + Convert.ToDecimal(string.IsNullOrEmpty(txtBuildingValue.Text)) + Convert.ToDecimal(string.IsNullOrEmpty(txtPMCost.Text)) + Convert.ToString(string.IsNullOrEmpty(txtAnnualTurnOver.Text)));
 
         }
-        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        protected void BindStates()
         {
             try
             {
-                if (ddlstate.SelectedItem.Text == "Meghalaya")
+                ddlstate.Items.Clear();
+
+                List<MasterStates> objStatesModel = new List<MasterStates>();
+
+                objStatesModel = mstrBAL.GetStates();
+                if (objStatesModel != null)
                 {
-                    otherDistric.Visible = true;
-                    trotherstate.Visible = false;
+                    ddlstate.DataSource = objStatesModel;
+                    ddlstate.DataValueField = "StateId";
+                    ddlstate.DataTextField = "StateName";
+                    ddlstate.DataBind();
                 }
                 else
                 {
-                    trotherstate.Visible = true;
-                    otherDistric.Visible = false;
+                    ddlstate.DataSource = null;
+                    ddlstate.DataBind();
                 }
+                AddSelect(ddlstate);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
         }
         protected void BindDistricts()
         {
@@ -144,6 +151,63 @@ namespace MeghalayaUIP.User.Renewal
                 lblmsg0.Text = ex.Message;
             }
         }
+        protected void BindConstitutionType()
+        {
+            try
+            {
+                ddlCompanyType.Items.Clear();
+
+                List<MasterConstType> objConsttype = new List<MasterConstType>();
+
+                objConsttype = mstrBAL.GetConstitutionType();
+                if (objConsttype != null)
+                {
+                    ddlCompanyType.DataSource = objConsttype;
+                    ddlCompanyType.DataValueField = "ConstId";
+                    ddlCompanyType.DataTextField = "ConstName";
+                    ddlCompanyType.DataBind();
+                }
+                else
+                {
+                    ddlCompanyType.DataSource = null;
+                    ddlCompanyType.DataBind();
+                }
+                AddSelect(ddlCompanyType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void BindRegistrationType()
+        {
+            try
+            {
+                ddlRegType.Items.Clear();
+                List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
+                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
+                if (objRegistrationTypeModel != null)
+                {
+
+                    ddlRegType.DataSource = objRegistrationTypeModel;
+                    ddlRegType.DataValueField = "REGISTRATIONTYPEID";
+                    ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
+                    ddlRegType.DataBind();
+                }
+                else
+                {
+                    ddlRegType.DataSource = null;
+                    ddlRegType.DataBind();
+                }
+                AddSelect(ddlRegType);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
         protected void BindMandal(DropDownList ddlmndl, string DistrictID)
         {
             try
@@ -196,96 +260,6 @@ namespace MeghalayaUIP.User.Renewal
                     ddlvlg.DataBind();
                 }
                 AddSelect(ddlvlg);
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-        }
-        public void AddSelect(DropDownList ddl)
-        {
-            try
-            {
-                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
-                li.Text = "--Select--";
-                li.Value = "0";
-                ddl.Items.Insert(0, li);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlMandal.ClearSelection();
-                ddlVillage.ClearSelection();
-                if (ddlDistrict.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlMandal, ddlDistrict.SelectedValue);
-                }
-                else return;
-            }
-            catch (Exception ex)
-            {
-                //Failure.Visible = true;
-                //lblmsg0.Text = ex.Message;
-                throw ex;
-            }
-        }
-
-        protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlVillage.ClearSelection();
-                if (ddlMandal.SelectedItem.Text != "--Select--")
-                {
-
-                    BindVillages(ddlVillage, ddlMandal.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-        }
-
-        protected void ddldist_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlmand.ClearSelection();
-                ddlvilla.ClearSelection();
-                if (ddldist.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlmand, ddldist.SelectedValue);
-                }
-                else return;
-            }
-            catch (Exception ex)
-            {
-                //Failure.Visible = true;
-                //lblmsg0.Text = ex.Message;
-                throw ex;
-            }
-        }
-
-        protected void ddlmand_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlvilla.ClearSelection();
-                if (ddlmand.SelectedItem.Text != "--Select--")
-                {
-
-                    BindVillages(ddlvilla, ddlmand.SelectedValue);
-                }
             }
             catch (Exception ex)
             {
@@ -349,7 +323,286 @@ namespace MeghalayaUIP.User.Renewal
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void BindData()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objRenbal.GetRenApplicantDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENID_UNITID"]);
+                        txtUnitName.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
+                        ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["RENID_COMPANYTYPE"].ToString();
+                        ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["RENID_SECTORENTERPRISE"].ToString();
+                        ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["RENID_CATEGORYREG"].ToString();
+                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                        txtRegNo.Text = ds.Tables[0].Rows[0]["RENID_REGNUMBER"].ToString();
+                        txtRegDate.Text = ds.Tables[0].Rows[0]["RENID_REGDATE"].ToString();
+                        ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
+                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["RENID_LINEOFACTIVITY"].ToString();
+                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
+                        lblPCBCategory.Text = ds.Tables[0].Rows[0]["RENID_POLLUTIONCATG"].ToString();
 
+                        txtDoors.Text = ds.Tables[0].Rows[0]["RENID_SURVEYDOOR"].ToString();
+                        txtLocality.Text = ds.Tables[0].Rows[0]["RENID_LOCALITY"].ToString();
+                        txtLANDMARK.Text = ds.Tables[0].Rows[0]["RENID_LANDMARK"].ToString();
+                        ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRIC"].ToString();
+                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDAL"].ToString();
+                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGE"].ToString();
+                        txtEmailId.Text = ds.Tables[0].Rows[0]["RENID_EMAILID"].ToString();
+                        txtMobileNo.Text = ds.Tables[0].Rows[0]["RENID_MOBILENO"].ToString();
+                        txtpincode.Text = ds.Tables[0].Rows[0]["RENID_PINCODE"].ToString();
+                        txtLandArea.Text = ds.Tables[0].Rows[0]["RENID_TOTALEXTENTLAND"].ToString();
+                        txtBuiltArea.Text = ds.Tables[0].Rows[0]["RENID_BUILTUPAREA"].ToString();
+
+                        txtName.Text = ds.Tables[0].Rows[0]["RENID_NAME"].ToString();
+                        txtSoWoDo.Text = ds.Tables[0].Rows[0]["RENID_SONOF"].ToString();
+                        txtEmail.Text = ds.Tables[0].Rows[0]["RENID_EMAIL"].ToString();
+                        txtphoneno.Text = ds.Tables[0].Rows[0]["RENID_MOBILENUMBER"].ToString();
+                        txtAltMobile.Text = ds.Tables[0].Rows[0]["RENID_ALTERNUMBER"].ToString();
+                        txtLandlineno.Text = ds.Tables[0].Rows[0]["RENID_LANDLINENUMBER"].ToString();
+                        txtDoorNo.Text = ds.Tables[0].Rows[0]["RENID_DOOR"].ToString();
+                        txtLocal.Text = ds.Tables[0].Rows[0]["RENID_LOCALITYADD"].ToString();
+                        ddlstate.SelectedValue = ds.Tables[0].Rows[0]["RENID_STATE"].ToString();
+                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            otherDistric.Visible = true;
+                            trotherstate.Visible = false;
+                            ddldist.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRICS"].ToString();
+                            ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlmand.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDALS"].ToString();
+                            ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlvilla.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGES"].ToString();
+
+                        }
+                        else
+                        {
+                            trotherstate.Visible = true;
+                            otherDistric.Visible = false;
+                            txtApplDist.Text = ds.Tables[0].Rows[0]["RENID_DIST"].ToString();
+                            txtApplTaluka.Text = ds.Tables[0].Rows[0]["RENID_MANDA"].ToString();
+                            txtApplVillage.Text = ds.Tables[0].Rows[0]["RENID_VILLA"].ToString();
+                        }
+
+                        txtPin.Text = ds.Tables[0].Rows[0]["RENID_PIN"].ToString();
+                        txtAge.Text = ds.Tables[0].Rows[0]["RENID_AGE"].ToString();
+                        txtDesignation.Text = ds.Tables[0].Rows[0]["RENID_DESIGNATION"].ToString();
+                        rblWomen.SelectedValue = ds.Tables[0].Rows[0]["RENID_WOMENENTREPRENEUR"].ToString();
+                        rblAbled.SelectedValue = ds.Tables[0].Rows[0]["RENID_ABLED"].ToString();
+
+                        txtMale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTMALE"].ToString();
+                        txtFemale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTFEMALE"].ToString();
+                        txtDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_DIRECTEMP"].ToString();
+                        txtIndirectMale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTMALE"].ToString();
+                        txtIndirectFemale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTFEMALE"].ToString();
+                        txtInDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTEMP"].ToString();
+
+                        txtPropEmp.Text = ds.Tables[0].Rows[0]["RENID_TOTALEMP"].ToString();
+                        txtLandValue.Text = ds.Tables[0].Rows[0]["RENID_LANDSALEDEED"].ToString();
+                        txtBuildingValue.Text = ds.Tables[0].Rows[0]["RENID_BUILDING"].ToString();
+                        txtPMCost.Text = ds.Tables[0].Rows[0]["RENID_PLANTMACHINERY"].ToString();
+                        lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
+                        txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
+                        txtAnnualTurnOver_TextChanged(null, EventArgs.Empty);
+                        //lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
+                    }
+                    else if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["UNITID"]);
+                        txtUnitName.Text = ds.Tables[1].Rows[0]["COMPANYNAME"].ToString();
+                        ddlCompanyType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYTYPE"].ToString();
+                        ddlSectorEnter.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_NOA"].ToString();
+                        ddlRegType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYREGTYPE"].ToString();
+                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                        txtRegNo.Text = ds.Tables[1].Rows[0]["COMPANYREGNO"].ToString();
+                        txtRegDate.Text = ds.Tables[1].Rows[0]["REGISTRATIONDATE"].ToString();
+                        ddlsector.SelectedItem.Text = ds.Tables[1].Rows[0]["PROJECT_SECTORNAME"].ToString();
+                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlLineActivity.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_LOAID"].ToString();
+                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
+                        lblPCBCategory.Text = ds.Tables[1].Rows[0]["PROJECT_PCBCATEGORY"].ToString();
+
+
+                        txtDoors.Text = ds.Tables[1].Rows[0]["UNIT_DOORNO"].ToString();
+                        txtLocality.Text = ds.Tables[1].Rows[0]["UNIT_LOCALITY"].ToString();
+                        // txtLANDMARK.Text = ds.Tables[1].Rows[0]["RENID_LANDMARK"].ToString();
+                        if (Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]) != "0" ||
+                            Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]) != "")
+                        {
+                            ddlstate.SelectedValue = "23";
+                            ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+                        }
+                        ddlDistrict.SelectedValue = ds.Tables[1].Rows[0]["UNIT_DISTRICTID"].ToString();
+                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlMandal.SelectedValue = ds.Tables[1].Rows[0]["UNIT_MANDALID"].ToString();
+                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlVillage.SelectedValue = ds.Tables[1].Rows[0]["UNIT_VILLAGEID"].ToString();
+                        txtpincode.Text = ds.Tables[1].Rows[0]["UNIT_PINCODE"].ToString();
+                        txtLandArea.Text = ds.Tables[1].Rows[0]["PROJECT_LANDAREA"].ToString();
+                        txtBuiltArea.Text = ds.Tables[1].Rows[0]["PROJECT_BUILDINGAREA"].ToString();
+
+
+                        txtName.Text = ds.Tables[1].Rows[0]["REP_NAME"].ToString();
+                        txtphoneno.Text = ds.Tables[1].Rows[0]["REP_MOBILE"].ToString();
+                        txtEmail.Text = ds.Tables[1].Rows[0]["REP_EMAIL"].ToString();
+                        txtDoorNo.Text = ds.Tables[1].Rows[0]["REP_DOORNO"].ToString();
+                        txtLocal.Text = ds.Tables[1].Rows[0]["REP_LOCALITY"].ToString();
+                        ddldist.SelectedValue = ds.Tables[1].Rows[0]["REP_DISTRICTID"].ToString();
+                        ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlmand.SelectedValue = ds.Tables[1].Rows[0]["REP_MANDALID"].ToString();
+                        ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlvilla.SelectedValue = ds.Tables[1].Rows[0]["REP_VILLAGEID"].ToString();
+                        txtPin.Text = ds.Tables[1].Rows[0]["REP_PINCODE"].ToString();
+
+                        txtLandValue.Text = ds.Tables[1].Rows[0]["PROJECT_LANDVALUE"].ToString();
+                        txtBuildingValue.Text = ds.Tables[1].Rows[0]["PROJECT_BUILDINGVALUE"].ToString();
+                        txtPMCost.Text = ds.Tables[1].Rows[0]["PROJECT_PMCOST"].ToString();
+                        //lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
+                        //txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
+                        //lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
+
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                {
+                    txtRegNo.Enabled = true;
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlstate.SelectedItem.Text == "Meghalaya")
+                {
+                    otherDistric.Visible = true;
+                    trotherstate.Visible = false;
+                }
+                else
+                {
+                    trotherstate.Visible = true;
+                    otherDistric.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlMandal.ClearSelection();
+                ddlVillage.ClearSelection();
+                if (ddlDistrict.SelectedItem.Text != "--Select--")
+                {
+                    BindMandal(ddlMandal, ddlDistrict.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                //Failure.Visible = true;
+                //lblmsg0.Text = ex.Message;
+                throw ex;
+            }
+        }
+        protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlVillage.ClearSelection();
+                if (ddlMandal.SelectedItem.Text != "--Select--")
+                {
+
+                    BindVillages(ddlVillage, ddlMandal.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+        protected void ddldist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlmand.ClearSelection();
+                ddlvilla.ClearSelection();
+                if (ddldist.SelectedItem.Text != "--Select--")
+                {
+                    BindMandal(ddlmand, ddldist.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                //Failure.Visible = true;
+                //lblmsg0.Text = ex.Message;
+                throw ex;
+            }
+        }
+        protected void ddlmand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlvilla.ClearSelection();
+                if (ddlmand.SelectedItem.Text != "--Select--")
+                {
+
+                    BindVillages(ddlvilla, ddlmand.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
         protected void ddlsector_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -366,7 +619,6 @@ namespace MeghalayaUIP.User.Renewal
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
         protected void ddlLineActivity_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -383,63 +635,79 @@ namespace MeghalayaUIP.User.Renewal
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-        protected void BindStates()
+        protected void txtLandValue_TextChanged(object sender, EventArgs e)
+        {
+            TotalAmount();
+        }
+        protected void txtBuildingValue_TextChanged(object sender, EventArgs e)
+        {
+            TotalAmount();
+        }
+        protected void txtPMCost_TextChanged(object sender, EventArgs e)
+        {
+            TotalAmount();
+        }
+        public void TotalAmount()
+        {
+            if (txtLandValue.Text == "0" || string.IsNullOrEmpty(txtLandValue.Text))
+            {
+                LandValue = 0;
+            }
+            else
+            {
+                LandValue = Convert.ToDecimal(txtLandValue.Text);
+
+            }
+            if (txtBuildingValue.Text == "0" || string.IsNullOrEmpty(txtBuildingValue.Text))
+            {
+                Building = 0;
+            }
+            else
+            {
+                Building = Convert.ToDecimal(txtBuildingValue.Text);
+            }
+            if (txtPMCost.Text == "0" || string.IsNullOrEmpty(txtPMCost.Text))
+            {
+                PMCost = 0;
+            }
+            else
+            {
+                PMCost = Convert.ToDecimal(txtPMCost.Text);
+            }
+            sum = LandValue + Building + PMCost;
+            lblTotProjCost.Text = sum.ToString();
+        }
+        protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                ddlstate.Items.Clear();
-
-                List<MasterStates> objStatesModel = new List<MasterStates>();
-
-                objStatesModel = mstrBAL.GetStates();
-                if (objStatesModel != null)
+                if (txtAnnualTurnOver.Text != "")
                 {
-                    ddlstate.DataSource = objStatesModel;
-                    ddlstate.DataValueField = "StateId";
-                    ddlstate.DataTextField = "StateName";
-                    ddlstate.DataBind();
+                    string Res = objRenbal.GETANNUALTURNOVER(txtPMCost.Text.ToString(), txtAnnualTurnOver.Text.ToString());
+                    if (Res != "")
+                    {
+                        txtAnnualTurnOver.Text = "";
+                        string message = "alert('" + Res + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+
+                    }
+                    else
+                    {
+                        string Result = objRenbal.CFEENTERPRISETYPE(txtAnnualTurnOver.Text.ToString());
+                        if (Result != "")
+                        {
+                            lblEntCategory.Text = Result;
+
+                        }
+                    }
                 }
-                else
-                {
-                    ddlstate.DataSource = null;
-                    ddlstate.DataBind();
-                }
-                AddSelect(ddlstate);
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-        protected void BindConstitutionType()
-        {
-            try
-            {
-                ddlCompanyType.Items.Clear();
-
-                List<MasterConstType> objConsttype = new List<MasterConstType>();
-
-                objConsttype = mstrBAL.GetConstitutionType();
-                if (objConsttype != null)
-                {
-                    ddlCompanyType.DataSource = objConsttype;
-                    ddlCompanyType.DataValueField = "ConstId";
-                    ddlCompanyType.DataTextField = "ConstName";
-                    ddlCompanyType.DataBind();
-                }
-                else
-                {
-                    ddlCompanyType.DataSource = null;
-                    ddlCompanyType.DataBind();
-                }
-                AddSelect(ddlCompanyType);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         protected void btnsave_Click(object sender, EventArgs e)
         {
             //   string Quesstionriids = "1001";
@@ -823,183 +1091,13 @@ namespace MeghalayaUIP.User.Renewal
 
             return result;
         }
-        public void TotalAmount()
-        {
 
 
-            if (txtLandValue.Text == "0" || string.IsNullOrEmpty(txtLandValue.Text))
-            {
-
-                LandValue = 0;
-
-            }
-            else
-            {
-                LandValue = Convert.ToDecimal(txtLandValue.Text);
-
-            }
-            if (txtBuildingValue.Text == "0" || string.IsNullOrEmpty(txtBuildingValue.Text))
-            {
-
-                Building = 0;
-
-            }
-            else
-            {
-                Building = Convert.ToDecimal(txtBuildingValue.Text);
-
-            }
-            if (txtPMCost.Text == "0" || string.IsNullOrEmpty(txtPMCost.Text))
-            {
-
-                PMCost = 0;
-
-            }
-            else
-            {
-                PMCost = Convert.ToDecimal(txtPMCost.Text);
-
-            }
-
-            sum = LandValue + Building + PMCost;
-            lblTotProjCost.Text = sum.ToString();
-
-        }
+       
 
 
 
-        protected void txtLandValue_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
-
-        protected void txtBuildingValue_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
-
-        protected void txtPMCost_TextChanged(object sender, EventArgs e)
-        {
-            TotalAmount();
-        }
-
-
-        public void BindData()
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                ds = objRenbal.GetRenApplicantDetails(hdnUserID.Value, UnitID);
-                if (ds.Tables.Count > 0)
-                {
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENID_UNITID"]);
-                        txtUnitName.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
-                        ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["RENID_COMPANYTYPE"].ToString();
-                        ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["RENID_SECTORENTERPRISE"].ToString();
-                        ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["RENID_CATEGORYREG"].ToString();
-                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
-                        txtRegNo.Text = ds.Tables[0].Rows[0]["RENID_REGNUMBER"].ToString();
-                        txtRegDate.Text = ds.Tables[0].Rows[0]["RENID_REGDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
-                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["RENID_LINEOFACTIVITY"].ToString();
-                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
-                        lblPCBCategory.Text = ds.Tables[0].Rows[0]["RENID_POLLUTIONCATG"].ToString();
-                        txtDoors.Text = ds.Tables[0].Rows[0]["RENID_SURVEYDOOR"].ToString();
-                        txtLocality.Text = ds.Tables[0].Rows[0]["RENID_LOCALITY"].ToString();
-                        txtLANDMARK.Text = ds.Tables[0].Rows[0]["RENID_LANDMARK"].ToString();
-                        ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRIC"].ToString();
-                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDAL"].ToString();
-                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGE"].ToString();
-                        txtEmailId.Text = ds.Tables[0].Rows[0]["RENID_EMAILID"].ToString();
-                        txtMobileNo.Text = ds.Tables[0].Rows[0]["RENID_MOBILENO"].ToString();
-                        txtpincode.Text = ds.Tables[0].Rows[0]["RENID_PINCODE"].ToString();
-                        txtLandArea.Text = ds.Tables[0].Rows[0]["RENID_TOTALEXTENTLAND"].ToString();
-                        txtBuiltArea.Text = ds.Tables[0].Rows[0]["RENID_BUILTUPAREA"].ToString();
-
-                        txtName.Text = ds.Tables[0].Rows[0]["RENID_NAME"].ToString();
-                        txtSoWoDo.Text = ds.Tables[0].Rows[0]["RENID_SONOF"].ToString();
-                        txtEmail.Text = ds.Tables[0].Rows[0]["RENID_EMAIL"].ToString();
-                        txtphoneno.Text = ds.Tables[0].Rows[0]["RENID_MOBILENUMBER"].ToString();
-                        txtAltMobile.Text = ds.Tables[0].Rows[0]["RENID_ALTERNUMBER"].ToString();
-                        txtLandlineno.Text = ds.Tables[0].Rows[0]["RENID_LANDLINENUMBER"].ToString();
-                        txtDoorNo.Text = ds.Tables[0].Rows[0]["RENID_DOOR"].ToString();
-                        txtLocal.Text = ds.Tables[0].Rows[0]["RENID_LOCALITYADD"].ToString();
-                        ddlstate.SelectedValue = ds.Tables[0].Rows[0]["RENID_STATE"].ToString();
-                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
-
-                        if (ddlstate.SelectedItem.Text == "Meghalaya")
-                        {
-                            otherDistric.Visible = true;
-                            trotherstate.Visible = false;
-                            ddldist.SelectedValue = ds.Tables[0].Rows[0]["RENID_DISTRICS"].ToString();
-                            ddldist_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlmand.SelectedValue = ds.Tables[0].Rows[0]["RENID_MANDALS"].ToString();
-                            ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlvilla.SelectedValue = ds.Tables[0].Rows[0]["RENID_VILLAGES"].ToString();
-
-                        }
-                        else
-                        {
-                            trotherstate.Visible = true;
-                            otherDistric.Visible = false;
-                            txtApplDist.Text = ds.Tables[0].Rows[0]["RENID_DIST"].ToString();
-                            txtApplTaluka.Text = ds.Tables[0].Rows[0]["RENID_MANDA"].ToString();
-                            txtApplVillage.Text = ds.Tables[0].Rows[0]["RENID_VILLA"].ToString();
-                        }
-
-                        txtPin.Text = ds.Tables[0].Rows[0]["RENID_PIN"].ToString();
-                        txtAge.Text = ds.Tables[0].Rows[0]["RENID_AGE"].ToString();
-                        txtDesignation.Text = ds.Tables[0].Rows[0]["RENID_DESIGNATION"].ToString();
-                        rblWomen.SelectedValue = ds.Tables[0].Rows[0]["RENID_WOMENENTREPRENEUR"].ToString();
-                        rblAbled.SelectedValue = ds.Tables[0].Rows[0]["RENID_ABLED"].ToString();
-
-                        txtMale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTMALE"].ToString();
-                        txtFemale.Text = ds.Tables[0].Rows[0]["RENID_DIRECTFEMALE"].ToString();
-                        txtDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_DIRECTEMP"].ToString();
-                        txtIndirectMale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTMALE"].ToString();
-                        txtIndirectFemale.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTFEMALE"].ToString();
-                        txtInDirectOthers.Text = ds.Tables[0].Rows[0]["RENID_INDIRECTEMP"].ToString();
-
-                        txtPropEmp.Text = ds.Tables[0].Rows[0]["RENID_TOTALEMP"].ToString();
-                        txtLandValue.Text = ds.Tables[0].Rows[0]["RENID_LANDSALEDEED"].ToString();
-                        txtBuildingValue.Text = ds.Tables[0].Rows[0]["RENID_BUILDING"].ToString();
-                        txtPMCost.Text = ds.Tables[0].Rows[0]["RENID_PLANTMACHINERY"].ToString();
-                        lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
-                        txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
-                        lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
-                {
-                    txtRegNo.Enabled = true;
-                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
-                }
-
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-            }
-        }
-
-        protected void GetApprovals()
+        protected void GetCategory()
         {
             try
             {
@@ -1008,12 +1106,11 @@ namespace MeghalayaUIP.User.Renewal
                 DataTable dtPCB = new DataTable();
 
                 ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text;
-
                 if (lblPCBCategory.Text.Trim() != "White")
                 {
                     ObjApplicationDetails.PCB = lblPCBCategory.Text;
                     ObjApplicationDetails.ApprovalID = "1";
-                    //dtPCB = ObjApplicationDetails.GetApprovalsReqWithFee(ObjApplicationDetails);
+                    dtPCB = objRenbal.GetApprovalsReqWithFee(ObjApplicationDetails);
                     dtApprReq.Merge(dtPCB);
                 }
             }
@@ -1021,35 +1118,6 @@ namespace MeghalayaUIP.User.Renewal
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-        }
-        public void BindRegistrationType()
-        {
-            try
-            {
-                ddlRegType.Items.Clear();
-                List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
-                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
-                if (objRegistrationTypeModel != null)
-                {
-
-                    ddlRegType.DataSource = objRegistrationTypeModel;
-                    ddlRegType.DataValueField = "REGISTRATIONTYPEID";
-                    ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
-                    ddlRegType.DataBind();
-                }
-                else
-                {
-                    ddlRegType.DataSource = null;
-                    ddlRegType.DataBind();
-                }
-                AddSelect(ddlRegType);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-
         }
     }
 }

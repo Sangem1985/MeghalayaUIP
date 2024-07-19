@@ -604,7 +604,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
         public DataTable GetPreRegDashBoard(PreRegDtls PRD)
         {
             DataTable dt = new DataTable();
-            string valid = "";
+            //string valid = "";
             //  IDno = "";
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;

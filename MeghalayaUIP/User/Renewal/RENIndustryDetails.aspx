@@ -72,8 +72,8 @@
                                             <div class="col-lg-6">
                                                 <asp:DropDownList ID="ddlSectorEnter" runat="server" class="form-control">
                                                     <asp:ListItem Text="--Select-- " Value="0" />
-                                                     <asp:ListItem Text="Manufacturing" Value="Y"></asp:ListItem>
-                                                    <asp:ListItem Text="Service" Value="N"></asp:ListItem>
+                                                     <asp:ListItem Text="Manufacturing" Value="Manufacturing"></asp:ListItem>
+                                                    <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
@@ -621,7 +621,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
                                             <div class="col-lg-6">
-                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

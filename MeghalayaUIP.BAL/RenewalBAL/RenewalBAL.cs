@@ -160,6 +160,13 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRENapplications(USERID, UnitID);
         }
-
+        public string GETANNUALTURNOVER(string PMAMOUNT, string ANNUALTURNOVER)
+        {
+            return objRENDAL.GETANNUALTURNOVER(PMAMOUNT, ANNUALTURNOVER);
+        }
+        public string CFEENTERPRISETYPE(string ANNUALTURNOVER)
+        {
+            return objRENDAL.CFEENTERPRISETYPE(ANNUALTURNOVER);
+        }
     }
 }

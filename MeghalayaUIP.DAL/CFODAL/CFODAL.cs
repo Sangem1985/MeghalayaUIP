@@ -2096,7 +2096,7 @@ namespace MeghalayaUIP.DAL.CFODAL
         public DataTable GetCFODashBoard(CFODtls objCFO)
         {
             DataTable dt = new DataTable();
-            string valid = "";
+            //string valid = "";
             //  IDno = "";
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;

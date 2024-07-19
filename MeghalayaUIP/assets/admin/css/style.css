@@ -5906,7 +5906,7 @@ input[type=submit]:disabled {
 .col-md-2,
 .col-md-3 {
 	border: 1px solid #ccc;
-	padding: 3px 15px;
+	/*padding: 0px 0px;*/
 	margin: 0px 0px;
 }
 

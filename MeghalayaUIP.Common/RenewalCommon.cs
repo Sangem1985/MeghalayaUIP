@@ -46,6 +46,8 @@ namespace MeghalayaUIP.Common
         public static string GetRenApprovals = "USP_GETRENAPPROVALS";
         public static string GetRENapplications = "USP_GETRENEWALSUSERDASHBOARD";
 
+        public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
+        public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
     }
 
     public class RenPublicWorK

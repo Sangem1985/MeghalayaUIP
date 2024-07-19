@@ -45,7 +45,7 @@
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3> Questionnaire Details</h3>
+                                        <h3>Questionnaire Details</h3>
                                     </div>
                                     <div class="alldetails" id="bodypart">
                                         <div class="row mt-4">
@@ -53,42 +53,41 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="col-md-12 d-flex tablepadding">
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Name of Unit</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblnameUnit" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Constitution of the unit</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblconstitution" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-
-                                                        <div class="col-md-12 d-flex tablepadding">
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Proposal For</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblProposal" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 d-flex">
+
+                                                        </div>
+
+                                                        <div class="col-md-12 d-flex tablepadding">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Proposed Location</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblLocation" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex tablepadding">
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Mandalr</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblMandal" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Village</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblVillage" runat="server"></asp:Label>
@@ -96,27 +95,27 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Total Extent of Land (in sq.m)</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblExtentland" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Built up Area (Including Parking Cellars)</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblBuilt" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex tablepadding">
-                                                            <div class="col-md-6 d-flex">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Sector</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblSectors" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 d-flex">
+                                                        </div>
+                                                        <div class="col-md-12 d-flex tablepadding">
+                                                            <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Line of Activity</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblActivity" runat="server"></asp:Label>
@@ -593,7 +592,7 @@
                                                                                             <HeaderStyle HorizontalAlign="Center" />
                                                                                             <ItemStyle Width="20px" />
                                                                                         </asp:TemplateField>
-                                                                                      <%--  <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="left">
+                                                                                        <%--  <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="left">
                                                                                             <ItemTemplate>
                                                                                                 <itemstyle horizontalalign="Center" />
                                                                                                 <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("ITEMS") %>'></asp:Label>
@@ -628,7 +627,7 @@
                                                                                         <HeaderStyle HorizontalAlign="Center" />
                                                                                         <ItemStyle Width="20px" />
                                                                                     </asp:TemplateField>
-                                                                                  <%--  <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="left">
+                                                                                    <%--  <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="left">
                                                                                         <ItemTemplate>
                                                                                             <itemstyle horizontalalign="Center" />
                                                                                             <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("CFELM_ITEMNAME") %>'></asp:Label>
@@ -2069,7 +2068,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div  id="FuelDet" runat="server" visible="false">
+                                            <div id="FuelDet" runat="server" visible="false">
                                                 <div class="col-xl-4 col-sm-12 col-12">
                                                     <div class="card">
                                                         <div class="card-body">

@@ -59,7 +59,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
         public DataSet GetMainApplicantDashBoard(string Investerid)
         {
             DataSet ds = new DataSet();
-            string valid = "";
+            //string valid = "";
             //  IDno = "";
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
