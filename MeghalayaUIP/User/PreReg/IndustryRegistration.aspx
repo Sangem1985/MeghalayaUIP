@@ -177,7 +177,6 @@
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Basic Details</span></label>
                                                 </div>--%>
                                                     <div class="col-md-12 d-flex">
-
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company PAN card No *</label>
@@ -190,7 +189,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Name as per PAN *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtUnitName" class="form-control" />
+                                                                    <asp:TextBox runat="server" ID="txtUnitName" class="form-control" TabIndex="1" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -198,7 +197,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Type *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control" TabIndex="1">
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -211,7 +210,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">GSTIN Number * </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtGSTNo" class="form-control" onblur="validateGST(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtGSTNo" class="form-control" onblur="validateGST(event)" TabIndex="1" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -219,12 +218,10 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-4 col-form-label">Company Proposal *</label>
                                                                 <div class="col-lg-8 d-flex">
-                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal">
+                                                                    <asp:RadioButtonList ID="rblproposal" runat="server" RepeatDirection="Horizontal" TabIndex="1">
                                                                         <asp:ListItem Value="New" Text="New" style="padding-right: 10px"></asp:ListItem>
                                                                         <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
                                                                         <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
-
-
                                                                     </asp:RadioButtonList>
                                                                 </div>
                                                             </div>
@@ -239,7 +236,7 @@
                                                                 <label class="col-lg-6 col-form-label">
                                                                     Category of Registration*</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlRegType" runat="server" class="form-control" OnSelectedIndexChanged="ddlRegType_SelectedIndexChanged" AutoPostBack="true">
+                                                                    <asp:DropDownList ID="ddlRegType" runat="server" class="form-control" TabIndex="1" OnSelectedIndexChanged="ddlRegType_SelectedIndexChanged" AutoPostBack="true">
                                                                         <asp:ListItem Text="Select Category" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -249,7 +246,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">Registraion No *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" TabIndex="1" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -257,7 +254,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox type="text" runat="server" ID="txtCompnyRegDt" class="date form-control" />
+                                                                    <asp:TextBox type="text" runat="server" ID="txtCompnyRegDt" class="date form-control" TabIndex="1" />
                                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
@@ -273,7 +270,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Name *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAuthReprName" class="form-control" onkeypress="return Names(this)" />
+                                                                    <asp:TextBox runat="server" ID="txtAuthReprName" class="form-control" onkeypress="return Names(this)" TabIndex="1" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -281,7 +278,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mobile *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAuthReprMobile" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" />
+                                                                    <asp:TextBox runat="server" ID="txtAuthReprMobile" class="form-control" TabIndex="1" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" MinLength="10"  />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -289,7 +286,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">E-mail *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAuthReprEmail" class="form-control" onblur="validateEmail(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtAuthReprEmail" class="form-control" onblur="validateEmail(event)" TabIndex="1" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -299,7 +296,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Locality *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAuthReprLocality" class="form-control" onkeypress="return Names(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtAuthReprLocality" class="form-control" onkeypress="return Names(event)" TabIndex="1" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -307,7 +304,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">District *</label>
                                                                 <div class="col-lg-6">
-                                                                    <asp:DropDownList runat="server" ID="ddlAuthReprDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAuthReprDist_SelectedIndexChanged">
+                                                                    <asp:DropDownList runat="server" ID="ddlAuthReprDist" class="form-control" AutoPostBack="true" TabIndex="1" OnSelectedIndexChanged="ddlAuthReprDist_SelectedIndexChanged">
                                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -331,7 +328,7 @@
                                                                 <label class="col-lg-6 col-form-label">Village *</label>
                                                                 <div class="col-lg-6 d-flex">
 
-                                                                    <asp:DropDownList runat="server" ID="ddlAuthReprVillage" class="form-control">
+                                                                    <asp:DropDownList runat="server" ID="ddlAuthReprVillage" class="form-control" >
                                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -349,7 +346,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Pincode *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtAuthReprPincode" class="form-control" onkeypress="return validatePincode(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtAuthReprPincode" class="form-control" MaxLength="6" MinLength="6" onkeypress="return validatePincode(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -426,7 +423,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Pin Code *</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox runat="server" ID="txtPropLocPincode" class="form-control" onkeypress="return validatePincode(event)" />
+                                                                    <asp:TextBox runat="server" ID="txtPropLocPincode" class="form-control" MaxLength="6" MinLength="6" onkeypress="return validatePincode(event)" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1093,7 +1090,7 @@
                                                                 <label class="col-lg-6 col-form-label">District *</label>
                                                                 <div class="col-lg-6 d-flex">
 
-                                                                    <asp:TextBox runat="server" ID="txtApplDist" class="form-control"></asp:TextBox>
+                                                                    <asp:TextBox runat="server" ID="txtApplDist" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1102,7 +1099,7 @@
                                                                 <label class="col-lg-6 col-form-label">Taluka *</label>
                                                                 <div class="col-lg-6 d-flex">
 
-                                                                    <asp:TextBox runat="server" ID="txtApplTaluka" class="form-control"></asp:TextBox>
+                                                                    <asp:TextBox runat="server" ID="txtApplTaluka" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
 
                                                                 </div>
                                                             </div>
@@ -1112,7 +1109,7 @@
                                                                 <label class="col-lg-6 col-form-label">City / Town / Village *</label>
                                                                 <div class="col-lg-6 d-flex">
 
-                                                                    <asp:TextBox runat="server" ID="txtApplVillage" class="form-control"></asp:TextBox>
+                                                                    <asp:TextBox runat="server" ID="txtApplVillage" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1404,6 +1401,7 @@
 
             if (!isValidEmail) {
                 event.target.value = "";
+                event.target.focus();
                 alert("Enter a valid email address");
             }
         }

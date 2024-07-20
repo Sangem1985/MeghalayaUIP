@@ -51,6 +51,7 @@ namespace MeghalayaUIP
             {
                 txtName.Text = "";
                 txtPAN.Text = "";
+                txtcompanyname.Text = "";
                 txtEmail.Text = "";
                 txtPswd.Text = "";
                 txtMobileNo.Text = "";
@@ -76,13 +77,13 @@ namespace MeghalayaUIP
                 string valid = "0";
                 Errormsg = validations();
 
-                if (string.IsNullOrEmpty( Errormsg))
+                if (string.IsNullOrEmpty(Errormsg))
                 {
                     UserRegDetails Userregdtls = new UserRegDetails();
                     Userregdtls.Fullname = txtName.Text.Trim(); ;
                     Userregdtls.CompanyName = txtcompanyname.Text.Trim();
-                    Userregdtls.PANno = txtPAN.Text.Trim(); 
-                    Userregdtls.Email = txtEmail.Text.Trim(); 
+                    Userregdtls.PANno = txtPAN.Text.Trim();
+                    Userregdtls.Email = txtEmail.Text.Trim();
                     Userregdtls.Password = txtPswd.Text.Trim();
                     Userregdtls.MobileNo = txtMobileNo.Text.Trim();
                     Userregdtls.State = "STATE";
@@ -123,6 +124,12 @@ namespace MeghalayaUIP
                 if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Fullname \\n";
+                    slno = slno + 1;
+                }
+
+                if (string.IsNullOrEmpty(txtcompanyname.Text) || txtcompanyname.Text == "" || txtcompanyname.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter PAN number \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtPAN.Text) || txtPAN.Text == "" || txtPAN.Text == null)

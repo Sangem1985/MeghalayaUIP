@@ -3,20 +3,38 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="assets/admin/js/form-validation.js" type="text/javascript"></script>
+     <script type="text/javascript">
+        function ValidatePAN() {
+            var Obj = document.getElementById("txtPAN");
+            if (Obj.value != "") {
+                ObjVal = Obj.value;
+                var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+                if (ObjVal.search(panPat) == -1) {
+                    alert("Invalid Pan No");
+                    Obj.focus();
+                    return false;
+                }
+            }
+        }
+    </script>
     <style>
         .main-wrapper.login-body {
-    width: 100%;
-}
+            width: 100%;
+        }
+
         section.about-us-section.section-padding {
-    padding: 0px 0px 0px !important;
-}
+            padding: 0px 0px 0px !important;
+        }
+
         .login-wrapper_reg {
-    max-width: 950px !important;
-}
-        h1{
-            font-weight:600;
-            font-family:"Poppins", sans-serif !important;
-            font-size:26px !important;
+            max-width: 950px !important;
+        }
+
+        h1 {
+            font-weight: 600;
+            font-family: "Poppins", sans-serif !important;
+            font-size: 26px !important;
         }
     </style>
     <link href="assets/css/login.css" rel="stylesheet" />
@@ -52,7 +70,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtPAN" onblur="fnValidatePAN(this)"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control" ID="txtPAN" MaxLength="10" onblur="fnValidatePAN(this);"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -62,12 +80,9 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtcompanyname"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control" ID="txtcompanyname" onkeypress="return Names(this)"></asp:TextBox>
                                         </div>
                                     </div>
-
-                                    
-
                                 </div>
                             </div>
                             <div class="row">
@@ -76,13 +91,10 @@
                                         <div class="form-group">
                                             Email Id
                                         </div>
-
                                     </div>
-
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtEmail" TextMode="Email" onblur="echeck(yhis)"></asp:TextBox>
-
+                                            <asp:TextBox runat="server" class="form-control" ID="txtEmail" TextMode="Email" ></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -92,7 +104,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" ID="txtMobileNo" class="form-control" onKeypress="NumberOnly()" MaxLength="10"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtMobileNo" class="form-control"  onkeypress="return PhoneNumberOnly(event)" MaxLength="10" MinLength="10"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +118,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtName" Onkeypress="Names()"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control" ID="txtName" onkeypress="return Names(this)"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-2">

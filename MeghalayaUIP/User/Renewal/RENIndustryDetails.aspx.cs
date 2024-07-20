@@ -1195,22 +1195,22 @@ namespace MeghalayaUIP.User.Renewal
             }
         }
 
-        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
-                {
-                    txtRegNo.Enabled = true;
-                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
-                }
+        //protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+        //        {
+        //            txtRegNo.Enabled = true;
+        //            lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+        //        }
 
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblmsg0.Text = ex.Message; Failure.Visible = true;
+        //    }
+        //}
 
         protected void GetApprovals()
         {

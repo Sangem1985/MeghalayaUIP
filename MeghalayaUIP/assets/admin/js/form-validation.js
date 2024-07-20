@@ -38,7 +38,7 @@ function NumberOnly() {
     else {
         event.returnValue = false;
 
-        alert("Enter NumericValues Only");
+        alert("Enter Numbers Only");
     }
 }
 
@@ -159,7 +159,7 @@ function DecimalOnly() {
     else {
         event.returnValue = false;
 
-        alert("Enter DecimalValues Only");
+        alert("Enter Decimal Values Only");
     }
 }
 
@@ -235,7 +235,7 @@ function PhoneNumberOnly(event) {
         }
     } else {
         event.preventDefault();
-        alert("Enter Numeric Values Only");
+        alert("Enter Numbers Only");
         return false;
     }
 }
@@ -380,9 +380,9 @@ function validateNames(input) {
         return false;
     }
 }
-debugger;
+
 function fnValidatePAN(Obj) {
-    debugger;
+    
     if (Obj == null) Obj = window.event.srcElement;
     if (Obj.value != "") {
         ObjVal = Obj.value;
@@ -755,3 +755,19 @@ function validateNumberAndHyphen(event) {
     }
 }
 
+function ValidatePANS(evt) {
+
+    var key = (evt.which) ? evt.which : event.keyCode;
+    var char = String.fromCharCode(key);
+
+    var Obj = document.getElementById("txtPAN");
+    if (Obj.value != "") {
+        ObjVal = Obj.value;
+        var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+        if (ObjVal.search(panPat) == -1) {
+            alert("Invalid Pan No");
+            Obj.focus();
+            return false;
+        }
+    }
+}

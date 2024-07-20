@@ -95,10 +95,10 @@ namespace MeghalayaUIP.User.PreReg
                             ddlcompanytype.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
                             rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
                             txtCompnyRegDt.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]).ToString("dd-MM-yyyy");
-                            txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UDYAMNO"]);
                             txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
                             ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYREGTYPE"]);
                             ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                            txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["UDYAMNO"]);
                             //txtCompnyRegDt.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]).ToString("dd-MM-yyyy");
                             txtAuthReprName.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_NAME"]);
                             txtAuthReprMobile.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_MOBILE"]);
@@ -636,6 +636,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     txtUdyamorIEMNo.Enabled = true;
                     lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+                    txtUdyamorIEMNo.Text = "";
                 }
 
             }
@@ -687,7 +688,11 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlAuthReprTaluka.ClearSelection();
+                ddlAuthReprTaluka.Items.Clear();
+                AddSelect(ddlAuthReprTaluka);
                 ddlAuthReprVillage.ClearSelection();
+                ddlAuthReprVillage.Items.Clear();
+                AddSelect(ddlAuthReprVillage);
                 if (ddlAuthReprDist.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlAuthReprTaluka, ddlAuthReprDist.SelectedValue);
@@ -705,9 +710,11 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlAuthReprVillage.ClearSelection();
+                ddlAuthReprVillage.Items.Clear();
+                AddSelect(ddlAuthReprVillage);
+
                 if (ddlAuthReprTaluka.SelectedItem.Text != "--Select--")
                 {
-
                     BindVillages(ddlAuthReprVillage, ddlAuthReprTaluka.SelectedValue);
                 }
             }
@@ -723,7 +730,13 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlPropLocTaluka.ClearSelection();
+                ddlPropLocTaluka.Items.Clear();
+                AddSelect(ddlPropLocTaluka);
+
                 ddlPropLocVillage.ClearSelection();
+                ddlPropLocVillage.Items.Clear();
+                AddSelect(ddlPropLocVillage);
+
                 if (ddlPropLocDist.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlPropLocTaluka, ddlPropLocDist.SelectedValue);
@@ -741,9 +754,11 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlPropLocVillage.ClearSelection();
+                ddlPropLocVillage.Items.Clear();
+                AddSelect(ddlPropLocVillage);
+
                 if (ddlPropLocTaluka.SelectedItem.Text != "--Select--")
                 {
-
                     BindVillages(ddlPropLocVillage, ddlPropLocTaluka.SelectedValue);
                 }
             }
@@ -764,6 +779,7 @@ namespace MeghalayaUIP.User.PreReg
                     divservc.Visible = false;
                     txtServcActvty.Text = "";
                     txtServctobeprovded.Text = "";
+                    txtSrviceno.Text = "";
                 }
                 else if (rblNatureofActvty.SelectedItem.Text == "Service")
                 {
@@ -775,6 +791,7 @@ namespace MeghalayaUIP.User.PreReg
                     txtRawmaterial.Text = "";
                     txtAnnualCapacity.Text = "";
                     txtMeasurementUnits.Text = "";
+                    txtProductionNo.Text = "";
                 }
 
 
@@ -958,8 +975,6 @@ namespace MeghalayaUIP.User.PreReg
                     slno = slno + 1;
                 }
 
-
-
                 if (ddlRegType.SelectedValue == "0" || ddlRegType.SelectedValue == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Category of Registration\\n";
@@ -1057,7 +1072,7 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Select Land Required Type \\n";
                     slno = slno + 1;
                 }
-                if (rblLandType.SelectedValue == "Required")
+                if (rblLandType.SelectedValue == "Own")
                 {
                     if (string.IsNullOrEmpty(txtPropLocDoorno.Text) || txtPropLocDoorno.Text == "" || txtPropLocDoorno.Text == null)
                     {
@@ -1328,132 +1343,6 @@ namespace MeghalayaUIP.User.PreReg
         }
 
 
-        protected void btndpr_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Convert.ToString(ViewState["UnitID"]) != "")
-                {
-                    string Error = ""; string message = "";
-                    string newPath = "";
-                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
-                    if (fupDPR.HasFile)
-                    {
-                        Error = validations(fupDPR);
-                        if (Error == "")
-                        {
-                            if ((fupDPR.PostedFile != null) && (fupDPR.PostedFile.ContentLength > 0))
-                            {
-
-                                //try
-                                //{
-
-                                //string[] fileType = fupDPR.PostedFile.FileName.Split('.');
-                                //int i = fileType.Length;
-                                //if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
-                                //{
-                                newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, ViewState["UnitID"].ToString() + "\\DPR\\");
-
-                                if (!Directory.Exists(newPath))
-                                    System.IO.Directory.CreateDirectory(newPath);
-
-                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
-                                int count = dir.GetFiles().Length;
-                                if (count == 0)
-                                {
-                                    fupDPR.PostedFile.SaveAs(newPath + "\\" + fupDPR.PostedFile.FileName);
-                                }
-                                else
-                                {
-                                    if (count == 1)
-                                    {
-                                        string[] Files = Directory.GetFiles(newPath);
-
-                                        foreach (string file in Files)
-                                        {
-                                            File.Delete(file);
-                                        }
-                                        fupDPR.PostedFile.SaveAs(newPath + "\\" + fupDPR.PostedFile.FileName);
-                                    }
-                                }
-                                IndustryDetails objattachments = new IndustryDetails();
-
-                                objattachments.UnitID = ViewState["UnitID"].ToString();
-                                objattachments.UserID = hdnUserID.Value;
-                                objattachments.FileType = fupDPR.PostedFile.ContentType; ;
-                                objattachments.FileName = fupDPR.PostedFile.FileName;
-                                objattachments.Filepath = newPath.ToString() + fupDPR.PostedFile.FileName; ;
-                                objattachments.FileDescription = "DPR";
-                                objattachments.Deptid = "0";
-                                objattachments.ApprovalId = "0";
-
-                                int result = 0;
-                                result = indstregBAL.InsertAttachments_PREREG(objattachments);
-
-                                if (result > 0)
-                                {
-                                    lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
-                                    lbldpr.Text = fupDPR.FileName;
-                                    hypdpr.Text = fupDPR.FileName;
-                                    hypdpr.NavigateUrl = newPath + '/' + fupDPR.PostedFile.FileName;
-                                    success.Visible = true;
-                                    Failure.Visible = false;
-                                }
-                                else
-                                {
-                                    lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
-                                    success.Visible = false;
-                                    Failure.Visible = true;
-                                }
-                                //}
-                                //else
-                                //{
-                                //    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
-                                //    success.Visible = false;
-                                //    Failure.Visible = true;
-                                //}
-                                //}
-                                //catch (Exception)//in case of an error
-                                //{
-
-                                //    DeleteFile(newPath + "\\" + sFileName);
-                                //}
-                            }
-                        }
-                        else
-                        {
-                            lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
-                            success.Visible = false;
-                            Failure.Visible = true;
-                        }
-                    }
-                }
-                else
-                {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "Please Fill Basic Details";
-                    string message = "alert('" + "Please Fill Basic Details First and then Upload DPR " + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
-        public void DeleteFile(string strFileName)
-        {
-            if (strFileName.Trim().Length > 0)
-            {
-                FileInfo fi = new FileInfo(strFileName);
-                if (fi.Exists)//if file exists delete it
-                {
-                    fi.Delete();
-                }
-            }
-        }
         protected void btnsave2_Click(object sender, EventArgs e)
         {
             try
@@ -1588,7 +1477,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                if (ddlApplCountry.SelectedValue != "78")
+                if (ddlApplCountry.SelectedValue != "78") // --india
                 {
 
                     trothercountry.Visible = true;
@@ -1648,8 +1537,14 @@ namespace MeghalayaUIP.User.PreReg
                     traddredddropdowns.Visible = true;
                     ddlApplDist.Enabled = true;
                     ddlApplDist.ClearSelection();
+                    ddlApplDist.Items.Clear();
+                    AddSelect(ddlApplDist);
                     ddlApplTaluka.ClearSelection();
+                    ddlApplTaluka.Items.Clear();
+                    AddSelect(ddlApplTaluka);
                     ddlApplVillage.ClearSelection();
+                    ddlApplVillage.Items.Clear();
+                    AddSelect(ddlApplVillage);
 
                 }
             }
@@ -1664,11 +1559,15 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlApplTaluka.ClearSelection();
+                ddlApplTaluka.Items.Clear();
+                AddSelect(ddlApplTaluka);
                 ddlApplVillage.ClearSelection();
+                ddlApplVillage.Items.Clear();
+                AddSelect(ddlApplVillage);
+
                 if (ddlApplDist.SelectedItem.Text != "--Select--")
                 {
                     ddlApplTaluka.Enabled = true;
-
                     BindMandal(ddlApplTaluka, ddlApplDist.SelectedValue);
                 }
                 else return;
@@ -1684,6 +1583,9 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlApplVillage.ClearSelection();
+                ddlApplVillage.Items.Clear();
+                AddSelect(ddlApplVillage);
+
                 if (ddlApplTaluka.SelectedItem.Text != "--Select--")
                 {
                     ddlApplVillage.Enabled = true;
@@ -2493,6 +2395,133 @@ namespace MeghalayaUIP.User.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void btndpr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    string Error = ""; string message = "";
+                    string newPath = "";
+                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                    if (fupDPR.HasFile)
+                    {
+                        Error = validations(fupDPR);
+                        if (Error == "")
+                        {
+                            if ((fupDPR.PostedFile != null) && (fupDPR.PostedFile.ContentLength > 0))
+                            {
+
+                                //try
+                                //{
+
+                                //string[] fileType = fupDPR.PostedFile.FileName.Split('.');
+                                //int i = fileType.Length;
+                                //if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
+                                //{
+                                newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, ViewState["UnitID"].ToString() + "\\DPR\\");
+
+                                if (!Directory.Exists(newPath))
+                                    System.IO.Directory.CreateDirectory(newPath);
+
+                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                int count = dir.GetFiles().Length;
+                                if (count == 0)
+                                {
+                                    fupDPR.PostedFile.SaveAs(newPath + "\\" + fupDPR.PostedFile.FileName);
+                                }
+                                else
+                                {
+                                    if (count == 1)
+                                    {
+                                        string[] Files = Directory.GetFiles(newPath);
+
+                                        foreach (string file in Files)
+                                        {
+                                            File.Delete(file);
+                                        }
+                                        fupDPR.PostedFile.SaveAs(newPath + "\\" + fupDPR.PostedFile.FileName);
+                                    }
+                                }
+                                IndustryDetails objattachments = new IndustryDetails();
+
+                                objattachments.UnitID = ViewState["UnitID"].ToString();
+                                objattachments.UserID = hdnUserID.Value;
+                                objattachments.FileType = fupDPR.PostedFile.ContentType; ;
+                                objattachments.FileName = fupDPR.PostedFile.FileName;
+                                objattachments.Filepath = newPath.ToString() + fupDPR.PostedFile.FileName; ;
+                                objattachments.FileDescription = "DPR";
+                                objattachments.Deptid = "0";
+                                objattachments.ApprovalId = "0";
+
+                                int result = 0;
+                                result = indstregBAL.InsertAttachments_PREREG(objattachments);
+
+                                if (result > 0)
+                                {
+                                    lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
+                                    lbldpr.Text = fupDPR.FileName;
+                                    hypdpr.Text = fupDPR.FileName;
+                                    hypdpr.NavigateUrl = newPath + '/' + fupDPR.PostedFile.FileName;
+                                    success.Visible = true;
+                                    Failure.Visible = false;
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
+                                    success.Visible = false;
+                                    Failure.Visible = true;
+                                }
+                                //}
+                                //else
+                                //{
+                                //    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
+                                //    success.Visible = false;
+                                //    Failure.Visible = true;
+                                //}
+                                //}
+                                //catch (Exception)//in case of an error
+                                //{
+
+                                //    DeleteFile(newPath + "\\" + sFileName);
+                                //}
+                            }
+                        }
+                        else
+                        {
+                            lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                            success.Visible = false;
+                            Failure.Visible = true;
+                        }
+                    }
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Fill Basic Details";
+                    string message = "alert('" + "Please Fill Basic Details First and then Upload DPR " + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
+            }
+        }
+
         protected void btnBankAppraisal_Click(object sender, EventArgs e)
         {
             try
@@ -2649,7 +2678,7 @@ namespace MeghalayaUIP.User.PreReg
                 string result = "", errormsg = "";
                 errormsg = Step4validations();
 
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && errormsg == "")
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != ""  && errormsg == "")
                 {
 
                     Response.Redirect("IndustryPrintPage.aspx?UnitID=" + Convert.ToString(ViewState["UnitID"]));
@@ -2669,12 +2698,12 @@ namespace MeghalayaUIP.User.PreReg
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
                         return;
                     }
-                    if (lbldpr.Text == "")
-                    {
-                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
-                        return;
-                    }
+                    //if (lbldpr.Text == "")
+                    //{
+                    //    message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
+                    //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    //    return;
+                    //}
                     if (hdnResultTab2.Value == "")
                     {
                         message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
@@ -2729,15 +2758,21 @@ namespace MeghalayaUIP.User.PreReg
                         message1 = "alert('" + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
                     }
-                    if (lbldpr.Text == "")
-                    {
-                        message1 = "alert('" + "Please Upload Detailed Project Report and click on Upload Button" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
-                    }
+                    //if (lbldpr.Text == "")
+                    //{
+                    //    message1 = "alert('" + ErrorMsg4 + "')";
+                    //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    //}
                     if (hdnResultTab2.Value == "")
                     {
                         message1 = "alert('" + "Please Enter Details of Revenue Projections and click on Save button" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                    }
+                    if (ErrorMsg4 != "")
+                    {
+                        message1 = "alert('" + ErrorMsg4 + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message1, true);
+                        return;
                     }
 
                 }
