@@ -340,7 +340,7 @@
                                 <!-- <i class="fi fi-br-form"></i>
 						<h4>Indent</h4> -->
                                 <p class="textboxyk"><i class="fi fi-tr-reservation-table"></i><br />
-                                    Fill <span style="color: #FFEB3B;">
+                                    Fill <span style="color: #b6fff8;" class="colorchangerd">
                                         <br />
                                         Intent to Invest form</span> and our team will reach out
                                 </p>
@@ -371,10 +371,10 @@
                                 <!-- <i class="fi fi-br-tags"></i>
 						<h4>Price List</h4> -->
                                 <p class="textboxyk"><i class="fi fi-tr-challenge-alt"></i><br />
-                                    <span style="color: #FFEB3B;">Register on<br />
+                                    <span style="color: #b6fff8;" class="colorchangerd">Register on<br />
                                         UNNATI Portal</span>
 
-                                    Fill <span style="color: #FFEB3B;">Registration form</span> on Invest Meghalaya Poral
+                                    Fill <span style="color: #b6fff8;" class="colorchangerd">Registration form</span> on Invest Meghalaya Poral
                             
                             
                                 </p>
@@ -390,7 +390,7 @@
                                 <!-- <i class="fi fi-br-feedback"></i>
 						<h4>Feedback</h4> -->
                                 <p class="textboxyk"><i class="fi fi-tr-trust-alt"></i><br />
-                                    Get <span style="color: #FFEB3B;">Clearance<br />
+                                    Get <span style="color: #b6fff8;" class="colorchangerd">Clearance<br />
                                         for Pre-establishment & Pre-operations</span> for your business
                                 </p>
                             </div>
@@ -422,8 +422,8 @@
                                 <!-- <i class="fi fi-br-feedback"></i>
 						<h4>Feedback</h4> -->
                                <p class="textboxyk"><i class="fi fi-tr-book-user"></i><br />
-                                    <span style="color:#FFEB3B;">Eligible Unit</span><br />
-                                    can avail Incentives under <span style="color: #FFEB3B;">MIIPP 2024 & UNNATI 2024</span>
+                                    <span style="color:#b6fff8;" class="colorchangerd">Eligible Unit</span><br />
+                                    can avail Incentives under <span style="color: #b6fff8;" class="colorchangerd">MIIPP 2024 & UNNATI 2024</span>
 
                                 </p>
                             </div>
