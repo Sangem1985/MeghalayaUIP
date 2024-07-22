@@ -573,11 +573,11 @@
 
                             <h2 class="head2">The only interface with Investors</h2>
                             <div class="middle-content">
-                                <div class="text"><i class="fi fi-sr-thumbtack"></i>End to end online and transparent systems for granting clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Participating 20+ departments provide 100+ regulatory clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Information repository for your business realted queires.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Address your grievances.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-thumbtack"></i>Easy tracking of applications status.</div>
+                                <div class="text"><i class="fi fi-sr-check-double"></i> End to end online and transparent systems for granting clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i> Participating 20+ departments provide 100+ regulatory clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i> Information repository for your business realted queires.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i> Address your grievances.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i> Easy tracking of applications status.</div>
                             </div>
 
                         </div>
