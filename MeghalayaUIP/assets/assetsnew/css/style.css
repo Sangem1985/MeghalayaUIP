@@ -13491,7 +13491,7 @@ section.counter-style-two:hover{
 /** statistics-section **/
 
 section.counter-style-two {
-    background: url(../../../assets/assetsnew/images/invotebg.gif);
+    *background: url(../../../assets/assetsnew/images/invotebg.gif);
     background-size: cover;
     background-position: top;
     padding: 40px 0px !important;
@@ -19869,12 +19869,7 @@ p.textboxyk{
 transition: transform .9s;
 backface-visibility: hidden;
 }
-p.textboxyk:hover{
-
-transform: scale(0.91);
-color: #fff070;
-
-}
+   
 .iconimage .fi {
     font-size: 36px;
     color: #edf1f7 !important;
@@ -20676,5 +20671,15 @@ div#invstpopup .col-md-6.p-0:hover {
 
 img {
     box-shadow: none !important;
+}
+}
+
+p.textboxyk:hover {
+    background-image: linear-gradient(45deg, #15105a 10%, #229dc5 90%);
+}
+
+p.textboxyk:hover {
+    span .colorchangerd {
+    color: #efa1ff !important;
 }
 }

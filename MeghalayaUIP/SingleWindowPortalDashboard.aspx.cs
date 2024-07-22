@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Mail;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,14 +14,18 @@ namespace MeghalayaUIP
     public partial class SingleWindowPortalDashboard : System.Web.UI.Page
     {
         MasterBAL masterBAL = new MasterBAL();
+        SMSandMail smsMail = new SMSandMail();
         int total = 0;
         int TOTALAPPLICATIONSRCVD = 0;
         int TOTALAPPROVRED = 0;
         int TOTALREJECTED = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string fullUrl = Request.Url.AbsoluteUri;
+            string[] segments = Request.Url.Segments;
             BindDepartments();
             Binddata();
+            /*smsMail.SendEmail("1001", "1002", "Dash", "Board");*/
         }
         public void Binddata()
         {
