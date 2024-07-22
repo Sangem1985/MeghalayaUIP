@@ -19,28 +19,7 @@
 })();
 
 
-function Names() {
-    var AsciiValue = event.keyCode
-    if ((AsciiValue >= 65 && AsciiValue <= 90) || (AsciiValue >= 97 && AsciiValue <= 122) || (AsciiValue == 46) || (AsciiValue == 32))
-        event.returnValue = true;
-    else {
-        event.returnValue = false;
-        event.focus()
-        event.value = ""
-        alert("Enter Alphabets and Space Only");
-    }
-}
 
-function NumberOnly() {
-    var AsciiValue = event.keyCode
-    if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue == 8 || AsciiValue == 127))
-        event.returnValue = true;
-    else {
-        event.returnValue = false;
-
-        alert("Enter Numbers Only");
-    }
-}
 
 //email validation
 function echeck(email) {
@@ -139,16 +118,6 @@ function ContactNoOnly() {
         event.returnValue = false;
 
         alert("Enter Numerics and + and - Only");
-    }
-}
-function PhoneNumberOnly() {
-    var AsciiValue = event.keyCode
-    if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue == 8 || AsciiValue == 127) || (AsciiValue == 45))
-        event.returnValue = true;
-    else {
-        event.returnValue = false;
-
-        alert("Enter NumericValues Only");
     }
 }
 
@@ -367,42 +336,8 @@ function restrictNumberonly(evt, obj) {
         return true;
     }
 }
-function validateNames(input) {
-    var name = input.value;
-    var charCode = event.charCode || event.keyCode;
 
 
-    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
-        return true;
-    } else {
-        alert("Enter only alphabets (A-Z, a-z)");
-        input.value = "";
-        return false;
-    }
-}
-
-function fnValidatePAN(Obj) {
-    
-    if (Obj == null) Obj = window.event.srcElement;
-    if (Obj.value != "") {
-        ObjVal = Obj.value;
-        var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
-        var code = /([C,P,H,F,A,T,B,L,J,G,c,p,h,f,a,t,b,l,j,g])/;
-        var code_chk = ObjVal.substring(3, 4);
-        if (ObjVal.search(panPat) == -1) {
-            Obj.focus();
-            Obj.value = "";
-            alert("Invalid Pan No");
-
-            return false;
-        }
-        if (code.test(code_chk) == false) {
-            Obj.value = "";
-            alert("Invaild PAN Card No.");
-            return false;
-        }
-    }
-}
 
 //function validateGST(Obj) {
 //    debugger;
@@ -440,18 +375,6 @@ function fnValidatePAN(Obj) {
 //    }
 //
 
-//function validateGST(event) {
-//    var gstNumber = event.target.value.trim();
-//    var regex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}$/;
-//    if (gstNumber != "") {
-//        if (!regex.test(gstNumber)) {
-//            alert("Enter a valid GST number");
-//            event.target.value = "";
-//            event.target.focus();
-//            return false;
-//        }
-//    }
-//}
 
 
 function Adharcontrol(evt, obj, dd, mm, yyyy) {
@@ -545,14 +468,7 @@ function ValidateDecimal(field, ff) {
     }
 
 }
-function validateInput(input) {
-    var regex = /^[a-zA-Z0-9@#$.]+$/;
-    if (!regex.test(input)) {
-        alert("Invalid input. Only alphabets, numbers, and special characters @, #, $, and . are allowed.");
-        return false;
-    }
-    return true;
-}
+
 
 
 //function validateEmail(email) {
@@ -603,8 +519,6 @@ function validateAmount(event) {
 
 function validateNumbersOnly(event) {
     var charCode = event.charCode || event.keyCode;
-
-
     if ((charCode >= 48 && charCode <= 57) ||
         charCode == 8 ||
         charCode == 127) {
@@ -624,7 +538,7 @@ function validatePincode(event) {
     if ((charCode >= 48 && charCode <= 57) ||
         charCode == 8 ||
         charCode == 127) {
-        if (inputElement.value.length <= 5) {
+        if (inputElement.value.length <= 6) {
             return true;
         } else {
             event.preventDefault();
@@ -706,8 +620,6 @@ function validateAadhar(event) {
 
 function validateAadharOnBlur(event) {
     var aadharNumber = event.target.value.trim();
-
-
     if (aadharNumber.length !== 12) {
         alert("Aadhar number should have exactly 12 digits.");
         event.target.focus();
@@ -728,32 +640,7 @@ function validateNames(event) {
     }
 }
 
-function validateNameAndNumbers(event) {
-    var charCode = event.charCode || event.keyCode;
-    var inputElement = event.target;
 
-    if ((charCode >= 48 && charCode <= 57) ||
-        (charCode >= 65 && charCode <= 90) ||
-        (charCode >= 97 && charCode <= 122) ||
-        charCode === 45) { // hyphen (-)
-        return true;
-    } else {
-        alert("Please enter only alphabets, numbers, or hyphen.");
-        event.preventDefault();
-        return false;
-    }
-}
-
-function validateNumberAndHyphen(event) {
-    var charCode = event.charCode || event.keyCode;
-
-    if ((charCode >= 48 && charCode <= 57) || charCode === 45) {
-        return true;
-    } else {
-        event.preventDefault();
-        return false;
-    }
-}
 
 function ValidatePANS(evt) {
 
@@ -771,3 +658,185 @@ function ValidatePANS(evt) {
         }
     }
 }
+//sowjanya 20-07-2024
+function validateCharandNumberinput() {
+    var AsciiValue = event.keyCode
+    if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue >= 65 && AsciiValue <= 90) ||
+        (AsciiValue >= 97 && AsciiValue <= 122))
+        event.returnValue = true;
+    //allowing 0-9 A-Z a-z   8=backspace 127=delete
+
+    else {
+        event.returnValue = false;
+        //alert("Enter Numeric Values Only");
+    }
+}
+function fnValidatePAN(Obj) {
+
+    if (Obj == null) Obj = window.event.srcElement;
+    if (Obj.value != "") {
+        ObjVal = Obj.value;
+        var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+        var code = /([C,P,H,F,A,T,B,L,J,G,c,p,h,f,a,t,b,l,j,g])/;
+        var code_chk = ObjVal.substring(3, 4);
+        if (ObjVal.search(panPat) == -1) {
+            Obj.focus();
+            Obj.value = "";
+            alert("Invalid Pan No");
+
+            return false;
+        }
+        if (code.test(code_chk) == false) {
+            Obj.value = "";
+            alert("Invaild PAN Card No.");
+            return false;
+        }
+    }
+}
+// Function to validate Indian mobile number using ASCII values
+function validateIndianMobileNumber(mobileNumber) {
+    var value = mobileNumber.value;
+    if (value != "") {
+        if (value.length != 10) {
+            mobileNumber.focus();
+            mobileNumber.value = "";
+            return alert('Mobile number should be 10 digits');
+        }
+        else {
+            var firstChar = value.charCodeAt(0)
+            if (firstChar < 54 || firstChar > 57) {
+                mobileNumber.value = "";
+                alert("Please enter valid Mobile number");
+                return false;
+            }
+        }
+    }
+}
+function validateEmailInput() {
+    var AsciiValue = event.keyCode
+    if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue >= 65 && AsciiValue <= 90) ||
+        (AsciiValue >= 97 && AsciiValue <= 122) || (AsciiValue == 95) || (AsciiValue == 64) ||
+        (AsciiValue == 46) || (AsciiValue == 42) ||
+        (AsciiValue == 8 || AsciiValue == 127))
+        event.returnValue = true;
+    //allowing 0-9 A-Z a-z  specl 95=_ 64=@  46=. 8=backspace 127=delete
+
+    else {
+        event.returnValue = false;
+        //alert("Enter Numeric Values Only");
+    }
+}
+function validatePasswordInput() {
+    var AsciiValue = event.keyCode
+    if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue >= 65 && AsciiValue <= 90) ||
+        (AsciiValue >= 97 && AsciiValue <= 122) || (AsciiValue == 95) || (AsciiValue == 64) ||
+        (AsciiValue == 46) || (AsciiValue == 42) || (AsciiValue == 35) || (AsciiValue == 36) ||
+        (AsciiValue == 8 || AsciiValue == 127))
+        event.returnValue = true;
+    //allowing 0-9 A-Z a-z  specl 95=_ 64=@  46=.  35=# 36=$ -  8=backspace 127=delete
+
+    else {
+        event.returnValue = false;
+        //alert("Enter Numeric Values Only");
+    }
+}
+
+function validateEmail(email) {
+    var email = event.target.value;
+    if (email != "") {
+        var isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!isValidEmail) {
+            event.target.value = "";
+            event.target.focus();
+            alert("Enter a valid email address");
+        }
+    }
+}
+function PhoneNumberOnly() {
+    var AsciiValue = event.keyCode
+    if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue == 8 || AsciiValue == 127))
+        event.returnValue = true;
+    else {
+        event.returnValue = false;
+
+        alert("Enter Numeric Values Only");
+    }
+}
+function NumberOnly() {
+    var AsciiValue = event.keyCode
+    if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue == 8 || AsciiValue == 127))
+        event.returnValue = true;
+    else {
+        event.returnValue = false;
+
+        alert("Enter Numbers Only");
+    }
+}
+
+function validateNameAndNumbers(event) {
+    var charCode = event.charCode || event.keyCode;
+    var inputElement = event.target;
+
+    if ((charCode >= 48 && charCode <= 57) ||
+        (charCode >= 65 && charCode <= 90) ||
+        (charCode >= 97 && charCode <= 122) ||
+        charCode === 45) { // hyphen (-)
+        return true;
+    } else {
+        alert("Please enter only alphabets, numbers, or hyphen.");
+        event.preventDefault();
+        return false;
+    }
+}
+function validateNumberAndHyphen(event) {
+    var charCode = event.charCode || event.keyCode;
+
+    if ((charCode >= 48 && charCode <= 57) || charCode === 45) {
+        return true;
+    } else {
+        event.preventDefault();
+        return false;
+    }
+}
+function validateNames(input) {
+    var name = input.value;
+    var charCode = event.charCode || event.keyCode;
+    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+        return true;
+    } else {
+        alert("Enter only alphabets (A-Z, a-z)");
+        input.value = "";
+        return false;
+    }
+}
+function Names() {
+    var AsciiValue = event.keyCode
+    if ((AsciiValue >= 65 && AsciiValue <= 90) || (AsciiValue >= 97 && AsciiValue <= 122)
+        || (AsciiValue == 46) || (AsciiValue == 32))
+        event.returnValue = true;
+    else {
+        event.returnValue = false;
+        event.focus()
+        event.value = ""
+        alert("Enter Alphabets and Space Only");
+    }
+}
+function validateGST(event) {
+    var gstNumber = event.target.value.trim();
+    var regex = /^[0-9]{2}[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1}[0-9]{1}$/;
+    if (gstNumber != "") {
+        if (!regex.test(gstNumber)) {
+            event.target.value = "";
+            event.target.focus();
+            alert("Enter a valid GST number");
+            return false;
+        }
+    }
+}
+
+
+
+
+
+

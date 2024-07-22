@@ -7,340 +7,394 @@
     <title>Invest Meghalaya</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    
-        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png"/>
-<!-- Stylesheets -->
-<link href="assets/assetsnew/css/style.css" rel="stylesheet"/>
 
-<link href="assets/assetsnew/css/responsive.css" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
+                input.addEventListener('keypress', preventInvalidChars)
+                input.addEventListener('paste', function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[type="text"]').forEach(function (input) {
+                input.addEventListener('keypress', preventInvalidChars)
+                input.addEventListener('paste', function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+        function preventInvalidChars(event) {
+            var charCode = event.charCode || event.keyCode;
+            var charStr = String.fromCharCode(charCode);
 
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-straight/css/uicons-regular-straight.css/'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-rounded/css/uicons-regular-rounded.css'/>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-solid-rounded/css/uicons-solid-rounded.css'/>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css'/>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css'/>
-<style>
-    i.fi.fi-br-chevron-double-down {
-    font-size: 11px;
-}
-    .right-content.pull-right {
-    visibility: hidden;
-}
-.nav-outer.clearfix {
-    height: 46px;
-}
-li.button-box {
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 0;
-   
-    padding: 6px 17px !important;
-    background: #164976;
-    margin-top: 3px !important;
-    margin-left: 142px !important;
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-}
-li.button-box:hover{
-  
-    box-shadow: none;
-}
-.owl-nav.disabled {
-    display: none;
-}
-section.about-style-three {
-    background: url(assets/assetsnew/images/trackbg.jpg);
-    padding: 30px 0px;
-background-size: contain;
-    background-position: left;
-}
-h1.head1 {
-    background: #A7CFDF;
-    background: linear-gradient(to right, #192d66 10%, #E91E63 50%, #23538A 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-h2.head2 {
-    background: #A7CFDF;
-    background: linear-gradient(to right, #9C27B0 0%, #311EFF 50%, #23538A 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 32px !important;
-}
-.title-text.aos-init {
-    font-size: 67px;
-    font-weight: 700;
-    color: #d81212;
-    background: #55DAFF;
-background:linear-gradient(to right, #9C27B0 0%, #23538A 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+            // Check if the character is < or >
+            if (charStr === '<' || charStr === '>') {
+                event.preventDefault();
+            }
+        }
+    </script>
 
-}
-section.about-style-four {
-    background: url(assets/assetsnew/images/background/bg1.jpg);
-    background-size: cover;
-    background-position: center;
-}
-section.about-style-four .single-item.wow.fadeInLeft.animated, section.about-style-four .single-item.wow.fadeInRight.animated {
-    padding: 10px;
-    border: 1px solid #2196F3;
-    box-shadow: 5px 7px 7px -7px;
-    border-radius: 26px 0px;
-}
+    <!-- Stylesheets -->
+    <link href="assets/assetsnew/css/style.css" rel="stylesheet" />
 
-    span.colorblue {
-    color: #62028b;
-    font-weight: 500;
-}
-.blink {
-    animation: blinker 1.2s linear infinite;
-    color: orange;
-    font-family: 'Ubuntu';
-    font-weight: 600;
-    font-size: 18px;
-    z-index: 9999;
-}
+    <link href="assets/assetsnew/css/responsive.css" rel="stylesheet" />
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-straight/css/uicons-regular-straight.css/'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-rounded/css/uicons-regular-rounded.css' />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-solid-rounded/css/uicons-solid-rounded.css' />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css' />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css' />
+    <style>
+        i.fi.fi-br-chevron-double-down {
+            font-size: 11px;
+        }
+
+        .right-content.pull-right {
+            visibility: hidden;
+        }
+
+        .nav-outer.clearfix {
+            height: 46px;
+        }
+
+        li.button-box {
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 0;
+            padding: 6px 17px !important;
+            background: #164976;
+            margin-top: 3px !important;
+            margin-left: 142px !important;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+        }
+
+            li.button-box:hover {
+                box-shadow: none;
+            }
+
+        .owl-nav.disabled {
+            display: none;
+        }
+
+        section.about-style-three {
+            background: url(assets/assetsnew/images/trackbg.jpg);
+            padding: 30px 0px;
+            background-size: contain;
+            background-position: left;
+        }
+
+        h1.head1 {
+            background: #A7CFDF;
+            background: linear-gradient(to right, #192d66 10%, #E91E63 50%, #23538A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2.head2 {
+            background: #A7CFDF;
+            background: linear-gradient(to right, #9C27B0 0%, #311EFF 50%, #23538A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 32px !important;
+        }
+
+        .title-text.aos-init {
+            font-size: 67px;
+            font-weight: 700;
+            color: #d81212;
+            background: #55DAFF;
+            background: linear-gradient(to right, #9C27B0 0%, #23538A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        section.about-style-four {
+            background: url(assets/assetsnew/images/background/bg1.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+            section.about-style-four .single-item.wow.fadeInLeft.animated, section.about-style-four .single-item.wow.fadeInRight.animated {
+                padding: 10px;
+                border: 1px solid #2196F3;
+                box-shadow: 5px 7px 7px -7px;
+                border-radius: 26px 0px;
+            }
+
+        span.colorblue {
+            color: #62028b;
+            font-weight: 500;
+        }
+
+        .blink {
+            animation: blinker 1.2s linear infinite;
+            color: orange;
+            font-family: 'Ubuntu';
+            font-weight: 600;
+            font-size: 18px;
+            z-index: 9999;
+        }
+
         @keyframes blinker {
             20% {
                 opacity: 0;
             }
+
             60% {
                 opacity: 0.8;
-                color:#fff;
+                color: #fff;
             }
-			90% {
+
+            90% {
                 opacity: 1;
-				color:yellow;
+                color: yellow;
             }
         }
+
         p.numbertop {
-    font-size: 21px;
-    font-weight: 500;
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    background: #ccc;
-    padding: 6px 13px;
-    color: #9a28af;
-    border-radius: 4px;
-}
-.intro-style-two .inner-box .single-item {
-    border-radius: 4px;
-}
-.main-footer .footer-top .links-widget .widget-content ul li a {
-    color: #051e72 !important;
-}
-section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
-    overflow: unset !important;
-}
-section.innerpages h3 {
-    font-family: "Roboto", sans-serif !important;
-    border-bottom: 1px dotted #ccc;
-    margin-bottom: 15px;
-    color: #192d66;
-    font-weight: 550;
-    padding-top: 15px;
-}
-section.innerpages h4 {
-    font-family: "Roboto", sans-serif !important;
-    color: #6e88ae;
-    padding-top: 15px;
-    font-size: 1.3rem !important;
-    font-weight: 500;
-}
-.main-header.style-six {
-    border-bottom: 1px solid #708ab0;
-}
-section.innerpages {
-    margin-bottom: 30px;
-}
-.main-footer.style-two .footer-top {
-    padding: 20px 0px;
-}
+            font-size: 21px;
+            font-weight: 500;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: #ccc;
+            padding: 6px 13px;
+            color: #9a28af;
+            border-radius: 4px;
+        }
+
+        .intro-style-two .inner-box .single-item {
+            border-radius: 4px;
+        }
+
+        .main-footer .footer-top .links-widget .widget-content ul li a {
+            color: #051e72 !important;
+        }
+
+        section.testimonial-style-five.centred.overall1 .owl-carousel .owl-stage-outer {
+            overflow: unset !important;
+        }
+
+        section.innerpages h3 {
+            font-family: "Roboto", sans-serif !important;
+            border-bottom: 1px dotted #ccc;
+            margin-bottom: 15px;
+            color: #192d66;
+            font-weight: 550;
+            padding-top: 15px;
+        }
+
+        section.innerpages h4 {
+            font-family: "Roboto", sans-serif !important;
+            color: #6e88ae;
+            padding-top: 15px;
+            font-size: 1.3rem !important;
+            font-weight: 500;
+        }
+
+        .main-header.style-six {
+            border-bottom: 1px solid #708ab0;
+        }
+
+        section.innerpages {
+            margin-bottom: 30px;
+        }
+
+        .main-footer.style-two .footer-top {
+            padding: 20px 0px;
+        }
     </style>
-   
+
 </head>
 <body class="boxed_wrapper">
     <form id="form1" runat="server">
         <div>
-            
 
 
-    <!-- preloader -->
-    <div class="preloader"></div>
-    <!-- preloader -->
+
+            <!-- preloader -->
+            <div class="preloader"></div>
+            <!-- preloader -->
 
 
-    <!-- main header -->
- <!-- main header -->
- <header class="main-header style-four style-six">
-    <!-- header-top -->
-    <div class="header-top">
-        <div class="container">
-            <div class="inner-container clearfix">
-                <ul class="header-info pull-left" style="width: 30%;">
-                    <li><a href="tel:+91 7085741695" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
-                    <!-- <li><a href="beta2/index.html" target="_blank"><i class="fi fi-rr-chevron-double-down"></i> Click here for Second Design</a></li> -->
-                    
-                </ul>
-                <ul class="header-nav pull-right">
-                    <li>
-                       <div class="blink"> *MIIPP 2024 Registrations open till 31st&nbsp;March 2026</div></li>
-                    <li class="phone"><a href="tel:(+88)01912704287">A+</a></li>
-                    <li class="phone"><a href="tel:(+88)01912704287">A</a></li>
-                    <li class="phone"><a href="tel:(+88)01912704287">A-</a></li>
-                    <li>
-                        <div class="language dropdownn">
-                            <a class="dropdown-toggle" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">Login</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                                <li><a href="login.aspx">User Login</a></li>
-                                <li><a href="Deptlogin.aspx">Department Login</a></li>
-                                <!-- <li><a href="#">Ger</a></li>
+            <!-- main header -->
+            <!-- main header -->
+            <header class="main-header style-four style-six">
+                <!-- header-top -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="inner-container clearfix">
+                            <ul class="header-info pull-left" style="width: 30%;">
+                                <li><a href="tel:+91 7085741695" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
+                                <!-- <li><a href="beta2/index.html" target="_blank"><i class="fi fi-rr-chevron-double-down"></i> Click here for Second Design</a></li> -->
+
+                            </ul>
+                            <ul class="header-nav pull-right">
+                                <li>
+                                    <div class="blink">*MIIPP 2024 Registrations open till 31st&nbsp;March 2026</div>
+                                </li>
+                                <li class="phone"><a href="tel:(+88)01912704287">A+</a></li>
+                                <li class="phone"><a href="tel:(+88)01912704287">A</a></li>
+                                <li class="phone"><a href="tel:(+88)01912704287">A-</a></li>
+                                <li>
+                                    <div class="language dropdownn">
+                                        <a class="dropdown-toggle" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">Login</a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                            <li><a href="login.aspx">User Login</a></li>
+                                            <li><a href="Deptlogin.aspx">Department Login</a></li>
+                                            <!-- <li><a href="#">Ger</a></li>
                                 <li><a href="#">Fre</a></li> -->
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div><!-- header-top end -->
-
-    <!-- header-upper -->
-    <div class="header-upper">
-        <div class="container">
-            <div class="inner-container clearfix">
-                <div class="left-content pull-left">
-                    <figure class="logo-box"><a href="HomeNew.aspx"><img src="assets/assetsnew/images/Logo_dark.png" alt="" style="width: 70%;margin-top: 16px;"></a></figure>
-                </div>
-                <div class="right-content pull-right">
-                    <div class="info-box">
-                        <div class="icon-box"><i class="flaticon-telephone"></i></div>
-                        <h3><a href="tel:0029191762">002 9191762</a></h3>
-                        <div class="text">Call for any Support</div>
-                    </div>
-                    <div class="btn-box">
-                        <a href="contact.html">Contact us Now</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div><!-- header-upper end -->
+                <!-- header-top end -->
 
-    <!-- header-bottom -->
-    <div class="header-bottom">
-        <div class="container">
-            <div class="outer-container">
-                <div class="nav-outer clearfix">
-                    <div class="menu-area clearfix">
-                        
-                        <nav class="main-menu navbar-expand-lg">
-                            <div class="navbar-header">
-                                <!-- Toggle Button -->      
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                </button>
+                <!-- header-upper -->
+                <div class="header-upper">
+                    <div class="container">
+                        <div class="inner-container clearfix">
+                            <div class="left-content pull-left">
+                                <figure class="logo-box"><a href="HomeNew.aspx">
+                                    <img src="assets/assetsnew/images/Logo_dark.png" alt="" style="width: 70%; margin-top: 16px;"></a></figure>
                             </div>
-                            <div class="navbar-collapse collapse clearfix">
-                                <ul class="navigation clearfix">
-                                    <li><a href="HomeNew.aspx">Home</a></li>
-                                    <li class="dropdown"><a href="#">Why Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
-                                        <ul>
-                                            <li><a href="stateprofile.aspx">State Profile</a></li>
-                                        <li><a href="EODB.aspx">Ease of Doing Business</a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    <li class="dropdown"><a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
-                                        <ul>
-                                            <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf" target="_blank">Meghalaya Next Vision
-                                                2028</a></li>
-                                            
-                                            
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
-                                        <ul>
-                                            <li><a href="Documents/MIIPP%202024.pdf" class="text-black"  target="_blank">MIIPP, 2024</a></li>
-                                            <li><a href="Documents/Meghalaya Tourism.pdf" class="text-black" target="_blank">Meghalaya Tourism Policy</a></li>
-    
-                                            <li><a href="Documents/IT Policy 2024.pdf" class="text-black" target="_blank">IT/ITES Policy 2024</a></li>
-                                            <li><a href="Documents/Meghalaya Power Policy.pdf" class="text-black"  target="_blank">Meghalaya
-                                                Power Policy, 2024</a></li>
-                                            <li class="dropdown"><a href="#">Others</a>
+                            <div class="right-content pull-right">
+                                <div class="info-box">
+                                    <div class="icon-box"><i class="flaticon-telephone"></i></div>
+                                    <h3><a href="tel:0029191762">002 9191762</a></h3>
+                                    <div class="text">Call for any Support</div>
+                                </div>
+                                <div class="btn-box">
+                                    <a href="contact.html">Contact us Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- header-upper end -->
+
+                <!-- header-bottom -->
+                <div class="header-bottom">
+                    <div class="container">
+                        <div class="outer-container">
+                            <div class="nav-outer clearfix">
+                                <div class="menu-area clearfix">
+
+                                    <nav class="main-menu navbar-expand-lg">
+                                        <div class="navbar-header">
+                                            <!-- Toggle Button -->
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+                                        </div>
+                                        <div class="navbar-collapse collapse clearfix">
+                                            <ul class="navigation clearfix">
+                                                <li><a href="HomeNew.aspx">Home</a></li>
+                                                <li class="dropdown"><a href="#">Why Meghalaya <i class="fi fi-br-chevron-double-down"></i></a>
                                                     <ul>
-                                                <li><a href="Documents/Procure MSME.pdf" class="text-black">Meghalaya
+                                                        <li><a href="stateprofile.aspx">State Profile</a></li>
+                                                        <li><a href="EODB.aspx">Ease of Doing Business</a></li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"><a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
+                                                    <ul>
+                                                        <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf" target="_blank">Meghalaya Next Vision
+                                                2028</a></li>
+
+
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"><a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
+                                                    <ul>
+                                                        <li><a href="Documents/MIIPP%202024.pdf" class="text-black" target="_blank">MIIPP, 2024</a></li>
+                                                        <li><a href="Documents/Meghalaya Tourism.pdf" class="text-black" target="_blank">Meghalaya Tourism Policy</a></li>
+
+                                                        <li><a href="Documents/IT Policy 2024.pdf" class="text-black" target="_blank">IT/ITES Policy 2024</a></li>
+                                                        <li><a href="Documents/Meghalaya Power Policy.pdf" class="text-black" target="_blank">Meghalaya
+                                                Power Policy, 2024</a></li>
+                                                        <li class="dropdown"><a href="#">Others</a>
+                                                            <ul>
+                                                                <li><a href="Documents/Procure MSME.pdf" class="text-black">Meghalaya
                                                     Procurement Preference Policy for Micro and small Enterprises,
                                                     2020</a></li>
-                                                <li><a href="Documents/Meghalaya Startup Policy.pdf" class="text-black" target="_blank">Meghalaya Start up Policy,2018</a></li>
-                                                <li><a href="Documents/Mines and Minerals Policy.pdf" class="text-black" target="_blank">Meghalaya Mines and Minerals Policy, 2012</a></li>
-                                                <li><a href="Documents/Education Policy.pdf" class="text-black" target="_blank">Meghalaya State Education Policy, 2018</a></li>
-                                                <li><a href="Documents/Health Policy.pdf" class="text-black" target="_blank">Meghalaya Health Policy, 2021</a></li>
-                                                <li><a href="Documents/Telecom infrastructure Policy.pdf" class="text-black" target="_blank">Meghalaya Telecom Infrastructure Policy, 2018</a>
-                                                </li>
-                                                <li><a href="Documents/Organic Farming policy.pdf" class="text-black" target="_blank">Meghalaya State Organic Farming Policy,2023</a></li>
-                                                <li><a href="Documents/Sports Policy.pdf" class="text-black" target="_blank">Meghalaya State Sports Policy, 2019</a></li>
-                                                <li><a href="Documents/PPP Policy.pdf" class="text-black" target="_blank">Meghalaya Public Private Partnership Policy (PPP),
+                                                                <li><a href="Documents/Meghalaya Startup Policy.pdf" class="text-black" target="_blank">Meghalaya Start up Policy,2018</a></li>
+                                                                <li><a href="Documents/Mines and Minerals Policy.pdf" class="text-black" target="_blank">Meghalaya Mines and Minerals Policy, 2012</a></li>
+                                                                <li><a href="Documents/Education Policy.pdf" class="text-black" target="_blank">Meghalaya State Education Policy, 2018</a></li>
+                                                                <li><a href="Documents/Health Policy.pdf" class="text-black" target="_blank">Meghalaya Health Policy, 2021</a></li>
+                                                                <li><a href="Documents/Telecom infrastructure Policy.pdf" class="text-black" target="_blank">Meghalaya Telecom Infrastructure Policy, 2018</a>
+                                                                </li>
+                                                                <li><a href="Documents/Organic Farming policy.pdf" class="text-black" target="_blank">Meghalaya State Organic Farming Policy,2023</a></li>
+                                                                <li><a href="Documents/Sports Policy.pdf" class="text-black" target="_blank">Meghalaya State Sports Policy, 2019</a></li>
+                                                                <li><a href="Documents/PPP Policy.pdf" class="text-black" target="_blank">Meghalaya Public Private Partnership Policy (PPP),
                                                     2021</a></li>
-                                                <li><a href="Documents/EV Policy.pdf" class="text-black" target="_blank">Meghalaya Electronic Vehicle Policy, 2021</a></li>
-                                                <li><a href="Documents/" class="text-black" target="_blank">Industrial and
+                                                                <li><a href="Documents/EV Policy.pdf" class="text-black" target="_blank">Meghalaya Electronic Vehicle Policy, 2021</a></li>
+                                                                <li><a href="Documents/" class="text-black" target="_blank">Industrial and
                                                     Investment Promotion Policy,2024</a></li>
-                                            </ul>
+                                                            </ul>
 
 
+                                                        </li>
+
+                                                    </ul>
                                                 </li>
-                                            
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
-                                        <ul>
-                                            <li><a href="IntentInvest.aspx">Intent to Invest</a></li>
-                                        <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
-                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
-                                        <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
-                                        <li><a href="OtherService.aspx">Other Services</a></li>
-                                            
-                                        </ul>
-                                    </li>    
-                                    
-                                    <li class="dropdown"><a href="#">Resources <i class="fi fi-br-chevron-double-down"></i></a>
-                                        <ul>
-                                            <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
-                                            <li><a href="Notifications.aspx">Notifications</a></li>
-                                            <li><a href="Faq.aspx">FAQs</a></li>
-                                            <li><a href="Contact.aspx">Contact</a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    <!-- <li class="dropdown"><a href="#">Dashboard</a></li>
+                                                <li class="dropdown"><a href="#">Services <i class="fi fi-br-chevron-double-down"></i></a>
+                                                    <ul>
+                                                        <li><a href="IntentInvest.aspx">Intent to Invest</a></li>
+                                                        <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
+                                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
+                                                        <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
+                                                        <li><a href="OtherService.aspx">Other Services</a></li>
+
+                                                    </ul>
+                                                </li>
+
+                                                <li class="dropdown"><a href="#">Resources <i class="fi fi-br-chevron-double-down"></i></a>
+                                                    <ul>
+                                                        <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
+                                                        <li><a href="Notifications.aspx">Notifications</a></li>
+                                                        <li><a href="Faq.aspx">FAQs</a></li>
+                                                        <li><a href="Contact.aspx">Contact</a></li>
+
+                                                    </ul>
+                                                </li>
+                                                <!-- <li class="dropdown"><a href="#">Dashboard</a></li>
                                     <li class="dropdown"><a href="#">Notification</a></li>
                                     <li class="dropdown"><a href="#">FAQ's</a></li>                         
                                     <li class="dropdown"><a href="#">Contact</a>
                                         
                                     </li>  -->
-                                    <!-- <a href="login.html"><li class="button-box"><i class="fas fa-arrow-right"></i> Login </li></a>  -->
+                                                <!-- <a href="login.html"><li class="button-box"><i class="fas fa-arrow-right"></i> Login </li></a>  -->
 
-                                        <!-- <li>
+                                                <!-- <li>
                                         <a href="login.html" class="button-box"><i class="fas fa-arrow-right"></i> Login</a>
                                     </li> -->
-                                </ul>
-                               
-                            </div>
-                            
-                        </nav>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div><!-- header-bottom end -->
+                                            </ul>
 
-    <!--sticky Header-->
-    <!-- <div class="sticky-header">
+                                        </div>
+
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- header-bottom end -->
+
+                <!--sticky Header-->
+                <!-- <div class="sticky-header">
         <div class="container clearfix">
             <figure class="logo-box"><a href="index-2.html"><img src="images/small-logo.png" alt=""></a></figure>
             <div class="menu-area">
@@ -384,59 +438,62 @@ section.innerpages {
             </div>
         </div>
     </div> -->
-</header>
+            </header>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-                <footer class="main-footer style-two style-four home-5">
-        <div class="container">
-            <div class="footer-top">
-                <div class="widget-section">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-                            <div class="logo-widget footer-widget">
-                                <figure class="footer-logo"><a href="index.html"><img src="assets/assetsnew/images/logo.png" alt="" style="width:80%;"></a></figure>
-                                <ul>
-                                    <li>Invest Meghalaya Authority,<br> Secretariat Main Building, M.G Road,<br>
-                                        Shillong - 793 001, East Khasi Hills District, Meghalaya.<br/></li>
+            <footer class="main-footer style-two style-four home-5">
+                <div class="container">
+                    <div class="footer-top">
+                        <div class="widget-section">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                                    <div class="logo-widget footer-widget">
+                                        <figure class="footer-logo"><a href="index.html">
+                                            <img src="assets/assetsnew/images/logo.png" alt="" style="width: 80%;"></a></figure>
+                                        <ul>
+                                            <li>Invest Meghalaya Authority,<br>
+                                                Secretariat Main Building, M.G Road,<br>
+                                                Shillong - 793 001, East Khasi Hills District, Meghalaya.<br />
+                                            </li>
 
-                                    <li><i class="fi fi-br-envelope"></i> <span>Email:</span>
-                                        <a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority@gmail.com</a></li>
-                                        <li><i class="fi fi-br-phone-call"></i> <span>Call Us:</span>
-                                        <a href="tel:+91 7085741695">+91 7085741695</a></li>
+                                            <li><i class="fi fi-br-envelope"></i><span>Email:</span>
+                                                <a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority@gmail.com</a></li>
+                                            <li><i class="fi fi-br-phone-call"></i><span>Call Us:</span>
+                                                <a href="tel:+91 7085741695">+91 7085741695</a></li>
 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-                            <div class="links-widget company-widget footer-widget">
-                                <h4 class="widget-title">Quick Links</h4>
-                                <div class="widget-content">
-                                    <ul>
-                                        <li><a href="stateprofile.aspx">Why invest in Meghalaya</a></li>
-                                        <li><a href="EODB.aspx">EODB</a></li>
-                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
-                                        <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
-                                         <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
-                                        
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-                            <div class="links-widget footer-widget">
-                                <h4 class="widget-title">For Investors</h4>
-                                <div class="widget-content">
-                                    <ul>
-                                        <li><a href="login.aspx">Central Inspection System</a></li>
-                                        <li><a href="login.aspx">Service Dashboard</a></li>
-                                        <li><a href="login.aspx">Know Your Approvals</a></li>
-                                        <li><a href="login.aspx">Know Your Incentives</a></li>
-                                         <li><a href="login.aspx">Land Availability</a></li> 
-                                    </ul>
+                                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                                    <div class="links-widget company-widget footer-widget">
+                                        <h4 class="widget-title">Quick Links</h4>
+                                        <div class="widget-content">
+                                            <ul>
+                                                <li><a href="stateprofile.aspx">Why invest in Meghalaya</a></li>
+                                                <li><a href="EODB.aspx">EODB</a></li>
+                                                <li><a href="InformationWizard.aspx">Information Wizard</a></li>
+                                                <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
+                                                <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                                    <div class="links-widget footer-widget">
+                                        <h4 class="widget-title">For Investors</h4>
+                                        <div class="widget-content">
+                                            <ul>
+                                                <li><a href="login.aspx">Central Inspection System</a></li>
+                                                <li><a href="login.aspx">Service Dashboard</a></li>
+                                                <li><a href="login.aspx">Know Your Approvals</a></li>
+                                                <li><a href="login.aspx">Know Your Incentives</a></li>
+                                                <li><a href="login.aspx">Land Availability</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="links-widget footer-widget">
                                 <h4 class="widget-title">THINK INVEST MEGHALAYA</h4>
                                 <div class="widget-content">
@@ -450,54 +507,53 @@ section.innerpages {
                                 </div>
                             </div>
                         </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom clearfix">
+                        <div class="copyright pull-left">
+                            <a href="#" style="color: #145180; font-weight: 600;">© 2024 Copyright Invest Meghalaya Authority, All Rights Reserved.</a>
+                        </div>
+                        <ul class="footer-social pull-right">
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google"></i></a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="footer-bottom clearfix">
-                <div class="copyright pull-left"><a href="#" style="
-                    color: #145180;
-                    font-weight: 600;
-                ">© 2024 Copyright Invest Meghalaya Authority, All Rights Reserved.</a></div>
-                <ul class="footer-social pull-right">
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                    <li><a href="#"><i class="fab fa-google"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    <!-- main-footer end -->
+            </footer>
+            <!-- main-footer end -->
 
             <!-- Button trigger modal -->
-            
-
-<!-- Modal -->
 
 
-<!--Scroll to top-->
-<button class="scroll-top scroll-to-target" data-target="html">
-    <span class="fa fa-arrow-up"></span>
-</button>
+            <!-- Modal -->
+
+
+            <!--Scroll to top-->
+            <button class="scroll-top scroll-to-target" data-target="html">
+                <span class="fa fa-arrow-up"></span>
+            </button>
 
 
 
-<!-- jequery plugins -->
-<script src="assets/assetsnew/js/jquery.js"></script>
-<script src="assets/assetsnew/js/popper.min.js"></script>
-<script src="assets/assetsnew/js/bootstrap.min.js"></script>
+            <!-- jequery plugins -->
+            <script src="assets/assetsnew/js/jquery.js"></script>
+            <script src="assets/assetsnew/js/popper.min.js"></script>
+            <script src="assets/assetsnew/js/bootstrap.min.js"></script>
 
-<script src="assets/assetsnew/js/owl.js"></script>
-<script src="assets/assetsnew/js/wow.js"></script>
-<script src="assets/assetsnew/js/validation.js"></script>
-<script src="assets/assetsnew/js/jquery.fancybox.js"></script>
-<script src="assets/assetsnew/js/appear.js"></script>
-<script src="assets/assetsnew/js/aos.js"></script>
-<script src="assets/assetsnew/js/jquery.countTo.js"></script>
+            <script src="assets/assetsnew/js/owl.js"></script>
+            <script src="assets/assetsnew/js/wow.js"></script>
+            <script src="assets/assetsnew/js/validation.js"></script>
+            <script src="assets/assetsnew/js/jquery.fancybox.js"></script>
+            <script src="assets/assetsnew/js/appear.js"></script>
+            <script src="assets/assetsnew/js/aos.js"></script>
+            <script src="assets/assetsnew/js/jquery.countTo.js"></script>
 
-<!-- main-js -->
-<script src="assets/assetsnew/js/script.js"></script>
+            <!-- main-js -->
+            <script src="assets/assetsnew/js/script.js"></script>
         </div>
     </form>
 </body>

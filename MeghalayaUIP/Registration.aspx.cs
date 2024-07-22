@@ -121,20 +121,24 @@ namespace MeghalayaUIP
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                if (string.IsNullOrEmpty(txtPAN.Text) || txtPAN.Text == "" || txtPAN.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter PAN number \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtcompanyname.Text.Trim()) || txtcompanyname.Text.Trim() == "" || txtcompanyname.Text.Trim() == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Company Name as per PAN number \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtName.Text.Trim()) || txtName.Text.Trim() == "" || txtName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Fullname \\n";
                     slno = slno + 1;
                 }
-
-                if (string.IsNullOrEmpty(txtcompanyname.Text) || txtcompanyname.Text == "" || txtcompanyname.Text == null)
+                if (string.IsNullOrEmpty(txtMobileNo.Text) || txtMobileNo.Text == "" || txtMobileNo.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter PAN number \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPAN.Text) || txtPAN.Text == "" || txtPAN.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter PAN number \\n";
+                    errormsg = errormsg + slno + ". Please Enter Mobile Number \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == "" || txtEmail.Text == null)
@@ -147,11 +151,7 @@ namespace MeghalayaUIP
                     errormsg = errormsg + slno + ". Please Enter Password \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtMobileNo.Text) || txtMobileNo.Text == "" || txtMobileNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Mobile Number \\n";
-                    slno = slno + 1;
-                }
+                
                 //if (string.IsNullOrEmpty(txtCaptcha.Text) || txtCaptcha.Text == "" || txtCaptcha.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Cpatcha \\n";
