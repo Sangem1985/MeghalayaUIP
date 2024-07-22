@@ -453,9 +453,10 @@ section.innerpages {
                     </div>
                 </div>
             </div>
+            <%--#145180;--%>
             <div class="footer-bottom clearfix">
                 <div class="copyright pull-left"><a href="#" style="
-                    color: #145180;
+                    color: #192d66;
                     font-weight: 600;
                 ">© 2024 Copyright Invest Meghalaya Authority, All Rights Reserved.</a></div>
                 <ul class="footer-social pull-right">
