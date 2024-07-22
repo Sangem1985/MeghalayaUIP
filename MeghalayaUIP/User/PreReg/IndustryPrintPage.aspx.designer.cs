@@ -60,31 +60,40 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// lblPANNo control.
+        /// lblCompanyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPANNo;
+        protected global::System.Web.UI.WebControls.Label lblCompanyName;
 
         /// <summary>
-        /// lblproposal control.
+        /// lblCompanyPAN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblproposal;
+        protected global::System.Web.UI.WebControls.Label lblCompanyPAN;
 
         /// <summary>
-        /// lblRegistration control.
+        /// lblCompanyProposal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRegistration;
+        protected global::System.Web.UI.WebControls.Label lblCompanyProposal;
+
+        /// <summary>
+        /// lblregdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblregdate;
 
         /// <summary>
         /// lblUdyam control.
@@ -96,13 +105,31 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblUdyam;
 
         /// <summary>
-        /// lblGSTNumber control.
+        /// lblGSTIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGSTNumber;
+        protected global::System.Web.UI.WebControls.Label lblGSTIN;
+
+        /// <summary>
+        /// lblcomptype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcomptype;
+
+        /// <summary>
+        /// lblcatreg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcatreg;
 
         /// <summary>
         /// lblName control.
@@ -114,6 +141,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblName;
 
         /// <summary>
+        /// lblMobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMobile;
+
+        /// <summary>
         /// lblEmail control.
         /// </summary>
         /// <remarks>
@@ -123,22 +159,22 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// lbllocality control.
+        /// lblLocality control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbllocality;
+        protected global::System.Web.UI.WebControls.Label lblLocality;
 
         /// <summary>
-        /// lbldistic control.
+        /// lblDistict control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldistic;
+        protected global::System.Web.UI.WebControls.Label lblDistict;
 
         /// <summary>
         /// lblMandal control.
@@ -168,130 +204,220 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblPincode;
 
         /// <summary>
-        /// lblLand control.
+        /// lbldoorno_authrep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLand;
+        protected global::System.Web.UI.WebControls.Label lbldoorno_authrep;
 
         /// <summary>
-        /// lblDoor control.
+        /// lblisland control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDoor;
+        protected global::System.Web.UI.WebControls.Label lblisland;
 
         /// <summary>
-        /// lblLocal control.
+        /// divDrNo1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDrNo1;
 
         /// <summary>
-        /// lbldist control.
+        /// divDrNo2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldist;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDrNo2;
 
         /// <summary>
-        /// lbltaluka control.
+        /// lbldrno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltaluka;
+        protected global::System.Web.UI.WebControls.Label lbldrno;
 
         /// <summary>
-        /// lblvilla control.
+        /// lblPro_loc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblvilla;
+        protected global::System.Web.UI.WebControls.Label lblPro_loc;
 
         /// <summary>
-        /// lblPIN control.
+        /// lblpro_dis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPIN;
+        protected global::System.Web.UI.WebControls.Label lblpro_dis;
 
         /// <summary>
-        /// lblDate control.
+        /// lblPro_Man control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
+        protected global::System.Web.UI.WebControls.Label lblPro_Man;
 
         /// <summary>
-        /// lblActivity control.
+        /// lblPro_vill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActivity;
+        protected global::System.Web.UI.WebControls.Label lblPro_vill;
 
         /// <summary>
-        /// lblManufacture control.
+        /// lblPro_Pin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblManufacture;
+        protected global::System.Web.UI.WebControls.Label lblPro_Pin;
 
         /// <summary>
-        /// lbProductManf control.
+        /// lblDateofcomm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductManf;
+        protected global::System.Web.UI.WebControls.Label lblDateofcomm;
 
         /// <summary>
-        /// lblMainActivity control.
+        /// lblNatureofAct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMainActivity;
+        protected global::System.Web.UI.WebControls.Label lblNatureofAct;
 
         /// <summary>
-        /// lblProvided control.
+        /// divManf1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProvided;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divManf1;
 
         /// <summary>
-        /// lblExisting control.
+        /// lblMainmanuf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblExisting;
+        protected global::System.Web.UI.WebControls.Label lblMainmanuf;
+
+        /// <summary>
+        /// lblmainRM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmainRM;
+
+        /// <summary>
+        /// lblProdNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProdNo;
+
+        /// <summary>
+        /// divManf2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divManf2;
+
+        /// <summary>
+        /// lblmanufProdct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmanufProdct;
+
+        /// <summary>
+        /// lblAnnualCap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnnualCap;
+
+        /// <summary>
+        /// lblunitofmeasure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblunitofmeasure;
+
+        /// <summary>
+        /// divService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divService;
+
+        /// <summary>
+        /// lblMainSrvc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMainSrvc;
+
+        /// <summary>
+        /// lblSrvcProvdng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSrvcProvdng;
+
+        /// <summary>
+        /// lblSrvcNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSrvcNo;
 
         /// <summary>
         /// lblSector control.
@@ -303,256 +429,274 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblSector;
 
         /// <summary>
-        /// lblLineActivity control.
+        /// lblLOA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLineActivity;
+        protected global::System.Web.UI.WebControls.Label lblLOA;
 
         /// <summary>
-        /// lblPCB control.
+        /// lblPCBcatogry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPCB;
+        protected global::System.Web.UI.WebControls.Label lblPCBcatogry;
 
         /// <summary>
-        /// lblRawMaterial control.
+        /// lblwastedtls control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRawMaterial;
+        protected global::System.Web.UI.WebControls.Label lblwastedtls;
 
         /// <summary>
-        /// lblgenerated control.
+        /// lblhazdtls control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblgenerated;
+        protected global::System.Web.UI.WebControls.Label lblhazdtls;
 
         /// <summary>
-        /// Label1 control.
+        /// lblEstProjcost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblEstProjcost;
 
         /// <summary>
-        /// lblHazardous control.
+        /// lblPMCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHazardous;
+        protected global::System.Web.UI.WebControls.Label lblPMCost;
 
         /// <summary>
-        /// lblCivil control.
+        /// lblIFC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCivil;
+        protected global::System.Web.UI.WebControls.Label lblIFC;
 
         /// <summary>
-        /// lblLandarea control.
+        /// lblDFA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLandarea;
+        protected global::System.Web.UI.WebControls.Label lblDFA;
 
         /// <summary>
-        /// lblBuilding control.
+        /// lblWorkingCapital control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuilding;
+        protected global::System.Web.UI.WebControls.Label lblWorkingCapital;
 
         /// <summary>
-        /// lblWater control.
+        /// lbllandArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWater;
+        protected global::System.Web.UI.WebControls.Label lbllandArea;
 
         /// <summary>
-        /// lblPower control.
+        /// lblLandValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPower;
+        protected global::System.Web.UI.WebControls.Label lblLandValue;
 
         /// <summary>
-        /// lblMeasurement control.
+        /// lblBuildingArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMeasurement;
+        protected global::System.Web.UI.WebControls.Label lblBuildingArea;
 
         /// <summary>
-        /// lblCapacity control.
+        /// lblBuldingValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCapacity;
+        protected global::System.Web.UI.WebControls.Label lblBuldingValue;
 
         /// <summary>
-        /// lblProjectCost control.
+        /// lblcivilConstr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProjectCost;
+        protected global::System.Web.UI.WebControls.Label lblcivilConstr;
 
         /// <summary>
-        /// lblPlantMach control.
+        /// lblPowerReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlantMach;
+        protected global::System.Web.UI.WebControls.Label lblPowerReq;
 
         /// <summary>
-        /// lblInvestment control.
+        /// lblElectricityValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInvestment;
+        protected global::System.Web.UI.WebControls.Label lblElectricityValue;
 
         /// <summary>
-        /// lblFixedassets control.
+        /// lblWaterReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFixedassets;
+        protected global::System.Web.UI.WebControls.Label lblWaterReq;
 
         /// <summary>
-        /// lblValueLand control.
+        /// lblWaterValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValueLand;
+        protected global::System.Web.UI.WebControls.Label lblWaterValue;
 
         /// <summary>
-        /// lblBuildingshed control.
+        /// lblequityamount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuildingshed;
+        protected global::System.Web.UI.WebControls.Label lblequityamount;
 
         /// <summary>
-        /// lblvaluewater control.
+        /// lbltermloanworking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblvaluewater;
+        protected global::System.Web.UI.WebControls.Label lbltermloanworking;
 
         /// <summary>
-        /// lblElectricity control.
+        /// lblunsecuredloan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblElectricity;
+        protected global::System.Web.UI.WebControls.Label lblunsecuredloan;
 
         /// <summary>
-        /// lblworkingCapital control.
+        /// lblinternalresources control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblworkingCapital;
+        protected global::System.Web.UI.WebControls.Label lblinternalresources;
 
         /// <summary>
-        /// lblCapitalsub control.
+        /// lblstatescheme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCapitalsub;
+        protected global::System.Web.UI.WebControls.Label lblstatescheme;
 
         /// <summary>
-        /// lblExpectation control.
+        /// lblcentralscheme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblExpectation;
+        protected global::System.Web.UI.WebControls.Label lblcentralscheme;
 
         /// <summary>
-        /// lblPromoters control.
+        /// lblunnati control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPromoters;
+        protected global::System.Web.UI.WebControls.Label lblunnati;
 
         /// <summary>
-        /// lblLoanAmount control.
+        /// lblcapitalsubsidy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoanAmount;
+        protected global::System.Web.UI.WebControls.Label lblcapitalsubsidy;
 
         /// <summary>
-        /// GrdYear control.
+        /// lblpromotndcont control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdYear;
+        protected global::System.Web.UI.WebControls.Label lblpromotndcont;
 
         /// <summary>
-        /// Gridviewname control.
+        /// lblnote control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gridviewname;
+        protected global::System.Web.UI.WebControls.Label lblnote;
+
+        /// <summary>
+        /// grdRevenueProj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdRevenueProj;
+
+        /// <summary>
+        /// grdDirectors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdDirectors;
 
         /// <summary>
         /// HyperLink1 control.

@@ -2458,12 +2458,16 @@ namespace MeghalayaUIP.User.PreReg
 
                                 if (result > 0)
                                 {
-                                    lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
+
+                                    // lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
                                     lbldpr.Text = fupDPR.FileName;
                                     hypdpr.Text = fupDPR.FileName;
                                     hypdpr.NavigateUrl = newPath + '/' + fupDPR.PostedFile.FileName;
-                                    success.Visible = true;
-                                    Failure.Visible = false;
+                                    //success.Visible = true;
+                                    //Failure.Visible = false;
+                                    message = "alert('" + "DPR Document Uploaded successfully" + "')";
+                                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
                                 }
                                 else
                                 {
@@ -2673,7 +2677,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                Response.Redirect("~/IndustryPrintPage.aspx");
+                //Response.Redirect("IndustryPrintPage.aspx?UnitID="+ Convert.ToString(ViewState["UnitID"]));
 
                 string result = "", errormsg = "";
                 errormsg = Step4validations();
@@ -2716,8 +2720,9 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                //Response.Redirect("/User/PreReg/IndustryAckSlip.aspx");
                 string result = "";
+
+
                 ErrorMsg4 = Step4validations();
 
                 if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && ErrorMsg4 == "")
@@ -2727,11 +2732,15 @@ namespace MeghalayaUIP.User.PreReg
                     result = indstregBAL.InsertIndustryRegDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
                     if (result != "")
                     {
+                        string unitid = Convert.ToString(ViewState["UnitID"]);
+
                         success.Visible = true;
                         btnSave3.Enabled = false;
                         lblmsg.Text = "Application Submitted Successfully";
-                        string message = "alert('" + "Application Submitted Successfully" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Application Submitted Successfully!');  window.location.href='IndustryAckSlip.aspx?UnitID=unitid '", true);
+
+                       // string message = "alert('" + "Application Submitted Successfully" + "')";
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
                 else

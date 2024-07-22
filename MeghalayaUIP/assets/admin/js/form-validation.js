@@ -533,8 +533,6 @@ function validateNumbersOnly(event) {
 function validatePincode(event) {
     var charCode = event.charCode || event.keyCode;
     var inputElement = event.target;
-
-
     if ((charCode >= 48 && charCode <= 57) ||
         charCode == 8 ||
         charCode == 127) {

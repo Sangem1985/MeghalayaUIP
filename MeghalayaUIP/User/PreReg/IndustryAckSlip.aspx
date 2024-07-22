@@ -30,10 +30,11 @@
 
                     <!-- Invoice Container -->
                     <div class="invoice-container">
+                        <asp:HiddenField ID="hdnUserID" runat="server" />
 
                         <div class="row">
                             <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
-                                <img alt="Logo" class="img-fluid" src="assets/admin/img/acklogo.jpg" />
+                                <img alt="Logo" class="img-fluid" src="../../assets/admin/img/acklogo.jpg" />
                             </div>
 
                             <div class="col-sm-6 m-b-20 text-center" style="display: flex; justify-content: center;">
@@ -56,7 +57,8 @@
                                     <li>Your intent to invest in Meghalaya has been successfully submitted to Planning, Investment Promotion and<br />
                                         Sustainable Development Department, Meghalaya.</li>
                                     <li>Your Application reference number is :
-                                        <label runat="server" id="lblUIDNo"><b>IMA/2024/00004</b></label></li>
+                                        <b>
+                                            <asp:Label runat="server" ID="lblUIDNo"></asp:Label></b></li>
                                 </ul>
                             </div>
                         </div>

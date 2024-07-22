@@ -328,7 +328,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Pincode *</label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtAuthReprPincode" class="form-control" TabIndex="1" MaxLength="6" onkeypress="return validatePincode(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtAuthReprPincode" class="form-control" TabIndex="1" MaxLength="6" onkeypress="return NumberOnly()" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -405,7 +405,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Pin Code *</label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtPropLocPincode" class="form-control" TabIndex="1" MaxLength="6" onkeypress="return validatePincode(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtPropLocPincode" class="form-control" TabIndex="1" MaxLength="6" onkeypress="return NumberOnly()" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -997,7 +997,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Pin Code *</label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplPincode" MaxLength="6" class="form-control" TabIndex="1" onkeypress="return validatePincode(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtApplPincode" MaxLength="6" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
