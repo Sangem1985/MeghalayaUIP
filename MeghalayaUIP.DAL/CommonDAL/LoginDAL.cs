@@ -39,6 +39,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                         ObjUserInf.Email = objSqlDataReader["emailid"] == null ? "" : Convert.ToString(objSqlDataReader["emailid"]);
                         ObjUserInf.EntityName = objSqlDataReader["EntityName"] == null ? "" : Convert.ToString(objSqlDataReader["EntityName"]);
                         ObjUserInf.PANno = objSqlDataReader["PanNo"] == null ? "" : Convert.ToString(objSqlDataReader["PanNo"]);
+                        ObjUserInf.RoleId = objSqlDataReader["ROLEID"] == null ? "" : Convert.ToString(objSqlDataReader["ROLEID"]);
                     }
                 }
             }

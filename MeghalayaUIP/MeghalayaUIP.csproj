@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
@@ -880,6 +883,7 @@
     <Content Include="User\LA\LAUserDashBoard.aspx" />
     <Content Include="User\MainDashboard.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
+    <Content Include="User\PreReg\IndustryAckSlip.aspx" />
     <Content Include="User\PreReg\IndustryPrintPage.aspx" />
     <Content Include="User\PreReg\IndustryRegistration.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationQueryDashboard.aspx" />
@@ -1720,6 +1724,13 @@
     </Compile>
     <Compile Include="User\PreReg\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryAckSlip.aspx.cs">
+      <DependentUpon>IndustryAckSlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PreReg\IndustryAckSlip.aspx.designer.cs">
+      <DependentUpon>IndustryAckSlip.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\PreReg\IndustryPrintPage.aspx.cs">
       <DependentUpon>IndustryPrintPage.aspx</DependentUpon>

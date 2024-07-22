@@ -39,7 +39,7 @@ namespace MeghalayaUIP.User.Dashboard
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblunitname;
+        protected global::System.Web.UI.WebControls.Label lblunitname;
 
         /// <summary>
         /// lblinterest control.
@@ -48,7 +48,7 @@ namespace MeghalayaUIP.User.Dashboard
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblinterest;
+        protected global::System.Web.UI.WebControls.Label lblinterest;
 
         /// <summary>
         /// divfuture control.

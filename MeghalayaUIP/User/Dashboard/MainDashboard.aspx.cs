@@ -32,8 +32,6 @@ namespace MeghalayaUIP.User.Dashboard
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
-                        // txtPANno.Text = ObjUserInfo.PANno;
-                        //unitname.InnerText = ObjUserInfo.EntityName;
                         hdnUserID.Value = ObjUserInfo.Userid;
                         BindData(ObjUserInfo.Userid);
 
@@ -99,7 +97,7 @@ namespace MeghalayaUIP.User.Dashboard
                         lblinterest.Visible= false;
                         lbunitid.InnerText= ds.Tables[1].Rows[0]["UNITID"].ToString();
                        
-                        lblunitname.InnerText = greeting + " " + ObjUserInfo.EntityName;
+                        lblunitname.Text = greeting + " " + ObjUserInfo.EntityName+",  ";
                         lbltime.InnerText = timestamp;
                         //Failure.Visible = true;
                         //hplIndReg.Visible = true;
@@ -117,7 +115,7 @@ namespace MeghalayaUIP.User.Dashboard
                         divfuture.Visible = false;
                         Applications.Visible = false;
                         lblinterest.Visible = true;                        
-                        lblunitname.InnerText = greeting + " " + ObjUserInfo.EntityName;
+                        lblunitname.Text = greeting + " " + ObjUserInfo.EntityName+",  ";
                     }
                 }
             }

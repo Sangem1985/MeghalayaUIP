@@ -1234,5 +1234,9 @@ namespace MeghalayaUIP.User.Renewal
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RenewalServices.aspx");
+        }
     }
 }

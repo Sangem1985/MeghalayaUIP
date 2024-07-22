@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENCinemaLicenseDetails.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENCinemaLicenseDetails" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
     <style>
         i.fi.fi-br-circle-camera {
@@ -160,7 +162,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">GSTIN number of the Business/ Establishment  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtGstinno" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                <asp:TextBox ID="txtGstinno" runat="server" class="form-control" onblur="validateGST(event)"></asp:TextBox>
 
                                             </div>
                                         </div>

@@ -175,5 +175,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetCentralRepository(moduleid, deptid, fdate, tdate, userid);
         }
+        public string GetPageAuthorization (string PageName,string RoleCode)
+        {
+            return objMasterDAL.GetPageAuthorization(PageName, RoleCode);
+        }
+
     }
 }

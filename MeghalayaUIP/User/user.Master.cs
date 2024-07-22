@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using System.Text;
 using MeghalayaUIP.Common;
 using System.Globalization;
+using System.IO;
+using MeghalayaUIP.BAL.CommonBAL;
+using System.Security.Policy;
 
 namespace MeghalayaUIP.User
 {
@@ -16,10 +19,15 @@ namespace MeghalayaUIP.User
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         //private string _antiXsrfTokenValue;
         protected string strSessionexp = string.Empty;
+
+        MasterBAL masterball = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             aLogout.ServerClick += new EventHandler(fnSetNewControls_Click);
             aLogout.HRef = "";
+            string fullUrl = Request.Url.AbsoluteUri;
+            string pageName = Path.GetFileName(fullUrl);
+           
 
             if (Session["UserInfo"] == null)
             {
@@ -31,7 +39,13 @@ namespace MeghalayaUIP.User
                 if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                 {
                     ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    string Access = masterball.GetPageAuthorization(pageName, ObjUserInfo.RoleId);
+                    /*if (Access == "N") 
+                    {
+                        fnSetNewControls_Click(sender, e);
+                    }*/
                 }
+
             }
             if (!IsPostBack)
             {

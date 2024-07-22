@@ -69,13 +69,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.TextBox txtcompanyname;
 
         /// <summary>
-        /// txtEmail control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
         /// txtMobileNo control.
@@ -87,13 +87,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.TextBox txtMobileNo;
 
         /// <summary>
-        /// txtName control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// txtPswd control.

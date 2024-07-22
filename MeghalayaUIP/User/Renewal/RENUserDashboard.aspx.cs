@@ -102,8 +102,7 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnApplyRenewal_Click(object sender, EventArgs e)
         {
-            try
-            {
+           
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
                 Label lblunitId = (Label)row.FindControl("lblUNITID");
@@ -112,13 +111,7 @@ namespace MeghalayaUIP.User.Renewal
                 Session["RENQID"] = lblRENQDID.Text;
                 string newurl = "RENIndustryDetails.aspx";
                 Response.Redirect(newurl);
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
+            
         }
 
         protected void btnCombndAppl_Click(object sender, EventArgs e)

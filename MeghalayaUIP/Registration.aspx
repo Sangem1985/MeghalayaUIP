@@ -4,20 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="assets/admin/js/form-validation.js" type="text/javascript"></script>
-     <script type="text/javascript">
-        function ValidatePAN() {
-            var Obj = document.getElementById("txtPAN");
-            if (Obj.value != "") {
-                ObjVal = Obj.value;
-                var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
-                if (ObjVal.search(panPat) == -1) {
-                    alert("Invalid Pan No");
-                    Obj.focus();
-                    return false;
-                }
-            }
-        }
-    </script>
     <style>
         .main-wrapper.login-body {
             width: 100%;
@@ -70,7 +56,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtPAN" MaxLength="10" onblur="fnValidatePAN(this);"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control" ID="txtPAN" MaxLength="10" onkeypress="validateCharandNumberinput();" onblur="fnValidatePAN(this);"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -89,30 +75,6 @@
                                 <div class="col-md-12" style="display: flex;">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            Email Id
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtEmail" TextMode="Email" ></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            Mobile No
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <asp:TextBox runat="server" ID="txtMobileNo" class="form-control"  onkeypress="return PhoneNumberOnly(event)" MaxLength="10" MinLength="10"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12" style="display: flex;">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
                                             Full Name
                                         </div>
                                     </div>
@@ -121,6 +83,32 @@
                                             <asp:TextBox runat="server" class="form-control" ID="txtName" onkeypress="return Names(this)"></asp:TextBox>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            Mobile No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <asp:TextBox runat="server" ID="txtMobileNo" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="display: flex;">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            Email Id
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <asp:TextBox runat="server" class="form-control" ID="txtEmail" TextMode="Email" AutoCompleteType="Disabled" AutoComplete="Off" onkeypress="return validateEmailInput(event)" Onblur="validateEmail(this);"></asp:TextBox>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             Password
@@ -128,7 +116,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" AutoCompleteType="Disabled"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" AutoComplete="Disabled"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -188,4 +176,8 @@
         </div>
         <!-- end container -->
     </section>
+    <script>
+
+</script>
+
 </asp:Content>

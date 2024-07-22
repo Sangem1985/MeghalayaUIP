@@ -82,7 +82,7 @@ namespace MeghalayaUIP.Common
             SqlDataAdapter da;
             try
             {
-                da = new SqlDataAdapter("SP_GET_SMS_DATA", Scon);
+                da = new SqlDataAdapter("USP_GET_SMS_DATA", Scon);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.Add("@UNITID", SqlDbType.VarChar).Value = UnitId.ToString();
                 da.SelectCommand.Parameters.Add("@INVESTORID", SqlDbType.VarChar).Value = InvestorId.ToString();

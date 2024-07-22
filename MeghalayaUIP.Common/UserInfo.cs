@@ -36,6 +36,7 @@ namespace MeghalayaUIP.Common
         public string Password { get; set; }
         public string MobileNo { get; set; }
         public string EntityName { get; set; }
+        public string RoleId { get; set; }
 
     }
     public class UserOptions
