@@ -583,7 +583,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-12 d-flex tracking">
+                    <%--<div class="col-md-12 d-flex tracking">
                         <div class="col-md-8">
 
                             <div class="btn-box pull-right wow fadeInUp animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInUp;">
@@ -597,8 +597,27 @@
                                 <a href="login.aspx" style="width: 151%;"><i class="fi fi-br-search"></i>Track Application Status</a>
                             </div>
                         </div>
+                    </div>--%>
+                    <div class="row">
+                        <div class="col-md-12 d-flex" id="bottomvibebox">
+                            <div class="col-md-6 glow-on-hover" id="bottombox">
+                                <a href="login.aspx" class=""><i class="fi fi-br-form"></i> 
+                                    Apply for Clearance/<br /> approvals
+                                    for your business</a>
+                            </div>
+                            <div class="col-md-6 glow-on-hover" id="bottombox1">
+                                 <a href="login.aspx" class=""><i class="fi fi-br-search"></i> Track Application Status</a>
+                            </div>
+                        </div>
                     </div>
+
+
+
+
                 </div>
+
+
+
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
 
                     <video autoplay="" muted="" loop="" id="myVideo" style="width: 100%;">
@@ -609,6 +628,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Start the model box -->
+
     <div class="modal fade exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -750,7 +772,7 @@
     </div>
 
 
-    <!-- second model box -->
+    
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">

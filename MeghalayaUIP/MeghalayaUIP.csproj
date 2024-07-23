@@ -590,6 +590,7 @@
     <Content Include="assets\assetsnew\images\popupcircle.gif" />
     <Content Include="assets\assetsnew\images\popupimg.png" />
     <Content Include="assets\assetsnew\images\resource\about-3.jpg" />
+    <Content Include="assets\assetsnew\images\resource\crop.gif" />
     <Content Include="assets\assetsnew\images\resource\single-service-1.jpg" />
     <Content Include="assets\assetsnew\images\resource\single-service-5.jpg" />
     <Content Include="assets\assetsnew\images\resource\team-1.jpg" />
