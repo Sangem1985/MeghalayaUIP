@@ -492,6 +492,7 @@
     <Content Include="assets\assetsnew\images\easy\icon5.png" />
     <Content Include="assets\assetsnew\images\easy\rightleft.jpg" />
     <Content Include="assets\assetsnew\images\favicon.png" />
+    <Content Include="assets\assetsnew\images\form.gif" />
     <Content Include="assets\assetsnew\images\gallery\gallery-6.jpg" />
     <Content Include="assets\assetsnew\images\gallery\gallery-8.jpg" />
     <Content Include="assets\assetsnew\images\headerbg.gif" />
@@ -590,6 +591,7 @@
     <Content Include="assets\assetsnew\images\popupcircle.gif" />
     <Content Include="assets\assetsnew\images\popupimg.png" />
     <Content Include="assets\assetsnew\images\resource\about-3.jpg" />
+    <Content Include="assets\assetsnew\images\resource\crop.gif" />
     <Content Include="assets\assetsnew\images\resource\single-service-1.jpg" />
     <Content Include="assets\assetsnew\images\resource\single-service-5.jpg" />
     <Content Include="assets\assetsnew\images\resource\team-1.jpg" />
@@ -608,6 +610,7 @@
     <Content Include="assets\assetsnew\images\resource\testimonial-5.png" />
     <Content Include="assets\assetsnew\images\resource\testimonial-6.png" />
     <Content Include="assets\assetsnew\images\resource\wehelp-1.jpg" />
+    <Content Include="assets\assetsnew\images\search.gif" />
     <Content Include="assets\assetsnew\images\sectors.png" />
     <Content Include="assets\assetsnew\images\sp\1.png" />
     <Content Include="assets\assetsnew\images\sp\2.png" />
