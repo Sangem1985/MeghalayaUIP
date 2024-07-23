@@ -51,7 +51,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                //string UnitID = "1004";
+
 
                 string UnitID = Request.QueryString[0].ToString();
                 string InvesterID = hdnUserID.Value;
@@ -64,10 +64,15 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         if (ds.Tables[0].Rows.Count > 0)
                         {
-                            DataRow row = ds.Tables[0].Rows[0];
-                            lblUIDNo.Text = Convert.ToString(row["PREREGUIDNO"]);
+                            lblUIDNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
 
                         }
+                        if (ds.Tables[3].Rows.Count > 0)
+                        {
+                            lblApplDate.Text = Convert.ToString(ds.Tables[3].Rows[0]["APPLICATIONDATE"]);
+
+                        }
+
                     }
 
                 }
@@ -77,6 +82,20 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                Response.Redirect("~/User/Dashboard/MainDashboard.aspx");
+
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
+
 
     }
 }
