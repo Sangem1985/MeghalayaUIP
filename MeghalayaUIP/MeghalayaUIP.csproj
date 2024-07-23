@@ -575,7 +575,6 @@
     <Content Include="assets\assetsnew\images\Logo_dark.png" />
     <Content Include="assets\assetsnew\images\logo_old.png" />
     <Content Include="assets\assetsnew\images\main-slider\IM_bgm1.mp4" />
-    <Content Include="assets\assetsnew\images\main-slider\IM_bgm1_old.mp4" />
     <Content Include="assets\assetsnew\images\main-slider\slider-1.jpg" />
     <Content Include="assets\assetsnew\images\main-slider\slider-10.jpg" />
     <Content Include="assets\assetsnew\images\main-slider\slider-2.jpg" />

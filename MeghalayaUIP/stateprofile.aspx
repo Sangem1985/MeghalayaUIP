@@ -52,6 +52,7 @@
             margin-top: -260px !important;
             margin-left: 102px;
             text-align: left;
+            font-size: 30px;
         }
 
         .carousel-caption.d-none.d-md-block p {
@@ -83,7 +84,6 @@
         }
 
         section.innerpages h4 {
-            font-family: "Roboto", sans-serif !important;
             color: #4577c1 !important;
             padding-top: 15px;
             font-size: 1.3rem !important;
@@ -151,7 +151,7 @@
             <div class="carousel-item active">
                 <img class="d-block w-100" src="assets/assetsbeta/images/slider/sp/slide-2.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Welcome to <b>Meghalaya : </b></h5>
+                    <h5>Welcome to Meghalaya :</h5>
                     <p>India’s Emerging Business Ecosystem.</p>
                 </div>
             </div>
@@ -185,7 +185,7 @@
                         </ol>
                     </nav>
 
-                    <h3>Meghalaya’s strengths</h3>
+                    <h3>Meghalaya’s strengths :</h3>
                     <p>Located in India's North-Eastern Region (NER), Meghalaya, fondly referred to as the "Abode of Clouds," holds significant strategic importance that offers unique economic opportunities to drive regional growth.</p>
                     <p>Bordered by Assam to the North and Northeast and Bangladesh to the South and Southwest, Meghalaya's advantageous position is further strengthened by the upcoming BBIN2 Corridor. This corridor will transform Meghalaya into a crucial connecting node for Bangladesh, Bhutan, and Nepal.</p>
                     <p>Additionally, its proximity to the Bay of Bengal underscores its potential to become a major trade hub for the NER.</p>
@@ -201,7 +201,7 @@
                                 <h4>Key Demographic:</h4>
                                 <div class="row mt-3">
 
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-land-location"></i></div>
@@ -209,13 +209,12 @@
                                                     <span class="count-text" data-speed="1500" data-stop="22429">0</span> <span>Sq. km</span>
                                                 </div>
                                                 <div class="text">
-                                                    Area<br />
-                                                    &nbsp;
+                                                    Area
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-land-layer-location"></i></div>
@@ -226,7 +225,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-trees"></i></div>
@@ -237,7 +236,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-smoke"></i></div>
@@ -248,7 +247,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-department"></i></div>
@@ -259,7 +258,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-venus-mars"></i></div>
@@ -271,7 +270,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-users"></i></div>
@@ -279,14 +278,12 @@
                                                     <span class="count-text" data-speed="1500" data-stop="11.11">0</span> <span>L</span>
                                                 </div>
                                                 <div class="text">
-                                                    Youth
-                                                    <br />
-                                                    Population
+                                                    Youth Population
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-house-building"></i></div>
@@ -294,13 +291,12 @@
                                                     <span class="count-text" data-speed="1500" data-stop="23.7">0</span> <span>L</span>
                                                 </div>
                                                 <div class="text">
-                                                    Urban<br />
-                                                    Population
+                                                    Urban Population
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-6 col-sm-12 counter-block mt-4">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 counter-block mt-4">
                                         <div class="counter-block-two wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
                                             <div class="inner-box">
                                                 <div class="icon-box"><i class="fi fi-tr-house-chimney"></i></div>
@@ -451,7 +447,7 @@
                     </section>
 
 
-                    <h3>Connectivity:</h3>
+                    <h3>Connectivity :</h3>
                     <p>
                         Meghalaya's connectivity is key to its development. With extensive road, rail, and air networks, the state ensures
                         seamless transportation for growth and accessibility.
@@ -477,10 +473,12 @@
                                                     density
                                                 </p>
                                                 <p class="road3 wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms"
-                                                    style="padding: 2px 8px;visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                    style="padding: 2px 8px; visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                                     Ongoing developments:<br />
-                                                    SARDP, PMGSY, and<br /> Shillong
-                                                    Smart-city<br /> programs
+                                                    SARDP, PMGSY, and<br />
+                                                    Shillong
+                                                    Smart-city<br />
+                                                    programs
                                                 </p>
                                             </div>
                                         </div>
@@ -488,7 +486,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <h5 class="ml-3 mb-3 mt-4 text-center">Rail Connectivity</h5>
-                                    <section class="service-style-four" style="border: 1px solid #000; border-radius: 8px; box-shadow: 1px 4px 8px; padding-top: 25px;padding-bottom: 0;">
+                                    <section class="service-style-four" style="border: 1px solid #000; border-radius: 8px; box-shadow: 1px 4px 8px; padding-top: 25px; padding-bottom: 0;">
                                         <div class="container">
                                             <div class="inner-container" style="text-align: center;">
                                                 <img src="assets/assetsnew/images/info/train.jpg" style="width: 115%;">
@@ -519,9 +517,9 @@
                             </div>
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-12">
-                                     <h5 class="ml-3 mb-1 mt-3 text-center">Aviation Connectivity</h5>
-                                    
-                                    <section class="service-style-four" style="margin-top: 10px;padding-top: 20px !important;padding-bottom: 0px;">
+                                    <h5 class="ml-3 mb-1 mt-3 text-center">Air Connectivity</h5>
+
+                                    <section class="service-style-four" style="margin-top: 10px; padding-top: 20px !important; padding-bottom: 0px;">
                                         <div class="container">
                                             <div class="inner-container" style="text-align: center;">
                                                 <div class="boxfight"></div>
@@ -547,12 +545,12 @@
                                                     Additional helipads and heliports<br />
                                                     planned across the state
                                                 </p>
-                                                </div>
-                                                
                                             </div>
-                                        
+
+                                        </div>
+
                                     </section>
-                                        
+
                                 </div>
                             </div>
                         </div>
@@ -627,7 +625,7 @@
                         </div>
                     </section>--%>
 
-                    <h3 class="mt-4">Unique Strengths and Opportunities</h3>
+                    <h3 class="mt-4">Unique Strengths and Opportunities :</h3>
                     <p>Meghalaya presents abundant opportunities for growth and development across various sectors. From its natural resources to emerging industries, the state offers a fertile ground for investment and progress. </p>
                     <%--<img src="assets/assetsnew/images/uso.gif" alt="SPDP" style="margin-left: 0px;" />--%>
 
@@ -665,7 +663,7 @@
 
                                             <div class="lower-content">
                                                 <%--<div class="count-number">03</div>--%>
-                                                <h3><a href="case-single.html">Organic Produce</a></h3>
+                                                <h3><a href="case-single.html">Organic <br />Produce</a></h3>
                                                 <div class="text">Most state produce is naturally organic</div>
                                             </div>
                                         </div>
@@ -687,18 +685,20 @@
                             </div>
                         </div>
                     </section>
-                    <h3>Meghalaya Growth Path:</h3>
+                    <h3>Meghalaya Growth Path :</h3>
 
 
-                    <img src="assets/assetsbeta/images/growrth.png" alt="Growth pic" />
-                    <h3 class="mt-4">The State of Meghalaya has several GI tags:</h3>
+                    <img src="assets/assetsbeta/images/growrth.png" alt="Growth pic" style="margin-left: 75px !important;">
+                    <h3 class="mt-4">GI Tags of Meghalaya :</h3>
                     <section class="">
                         <div class="container">
                             <div class="four-item-carousel owl-carousel owl-theme">
                                 <div class="team-block-two">
                                     <div class="inner-box">
-                                        <figure class="image-box"><a href="#">
-                                            <img src="assets/assetsnew/images/sp/1.png" alt=""></a></figure>
+                                        <figure class="image-box">
+                                            <a href="#">
+                                                <img src="assets/assetsnew/images/sp/1.png" alt=""></a>
+                                        </figure>
 
                                         <%--<div class="lower-content">
                             <h4><a href="#">Park bo young</a></h4>
@@ -708,8 +708,10 @@
                                 </div>
                                 <div class="team-block-two">
                                     <div class="inner-box">
-                                        <figure class="image-box"><a href="#">
-                                            <img src="assets/assetsnew/images/sp/2.png" alt=""></a></figure>
+                                        <figure class="image-box">
+                                            <a href="#">
+                                                <img src="assets/assetsnew/images/sp/2.png" alt=""></a>
+                                        </figure>
                                         <%-- <div class="lower-content">
                             <h4><a href="#">Chan wook</a></h4>
                             <span class="designation">Senior Factory Manager</span>
@@ -718,8 +720,10 @@
                                 </div>
                                 <div class="team-block-two">
                                     <div class="inner-box">
-                                        <figure class="image-box"><a href="#">
-                                            <img src="assets/assetsnew/images/sp/3.png" alt=""></a></figure>
+                                        <figure class="image-box">
+                                            <a href="#">
+                                                <img src="assets/assetsnew/images/sp/3.png" alt=""></a>
+                                        </figure>
                                         <%--<div class="lower-content">
                             <h4><a href="#">Mahfuz Riad</a></h4>
                             <span class="designation">Senior LOTT</span>
@@ -728,8 +732,10 @@
                                 </div>
                                 <div class="team-block-two">
                                     <div class="inner-box">
-                                        <figure class="image-box"><a href="#">
-                                            <img src="assets/assetsnew/images/sp/4.png" alt=""></a></figure>
+                                        <figure class="image-box">
+                                            <a href="#">
+                                                <img src="assets/assetsnew/images/sp/4.png" alt=""></a>
+                                        </figure>
                                         <%--<div class="lower-content">
                             <h4><a href="#">Jhon Rook</a></h4>
                             <span class="designation">Junior Enginer</span>
@@ -738,8 +744,10 @@
                                 </div>
                                 <div class="team-block-two">
                                     <div class="inner-box">
-                                        <figure class="image-box"><a href="#">
-                                            <img src="assets/assetsnew/images/sp/5.png" alt=""></a></figure>
+                                        <figure class="image-box">
+                                            <a href="#">
+                                                <img src="assets/assetsnew/images/sp/5.png" alt=""></a>
+                                        </figure>
                                         <%-- <div class="lower-content">
                             <h4><a href="#">Jhon Rook</a></h4>
                             <span class="designation">Junior Enginer</span>
