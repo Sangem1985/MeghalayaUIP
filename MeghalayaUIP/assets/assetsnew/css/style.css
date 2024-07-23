@@ -13460,7 +13460,7 @@ section.counter-style-two:hover{
 }
 
     .counter-style-two .inner-box .counter-block-one {
-        background: #ffd9cc;
+        background: #9575cd4d;
         box-shadow: 1px 4px 9px #6d88af;
     }
 
@@ -13472,20 +13472,20 @@ section.counter-style-two:hover{
   z-index: 1;
 }
 
-.counter-style-two .inner-box .counter-block-one:last-child {
-  background: #ffeaef;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
+        .counter-style-two .inner-box .counter-block-one:last-child {
+            background: #cce8ff;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
 
 .counter-style-two .inner-box .counter-block-one:nth-child(2) .count-outer span{
   color: #2d54c9;
 }
 
-.counter-style-two .inner-box .counter-block-one:last-child .count-outer span{
-  color: #fb4c76;
-}
+        .counter-style-two .inner-box .counter-block-one:last-child .count-outer span {
+            color: #8028b7;
+        }
 
 
 /** statistics-section **/
@@ -20714,7 +20714,7 @@ i.fi.fi-sr-check-double {
         color: #363991;
     }
 div#bottomvibebox {
-    margin-top: -32px;
+    margin-top: -37px;
 }
 .glow-on-hover {
     width: 100% !important;
@@ -20742,7 +20742,7 @@ div#bottombox a, div#bottombox1 a {
     justify-content: center;
     align-items: center;
     margin-left: 40px;
-    color: #363a93;
+    color: #2196F3;
 }
 
 .glow-on-hover:before {
@@ -20781,7 +20781,7 @@ div#bottombox a, div#bottombox1 a {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #eef6fd;
+    background: #fff;
     left: 0;
     top: 0;
     border-radius: 10px;
