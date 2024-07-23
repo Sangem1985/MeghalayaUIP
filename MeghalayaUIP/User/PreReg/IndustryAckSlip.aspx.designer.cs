@@ -24,6 +24,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// lbtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
+
+        /// <summary>
         /// hdnUserID control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// lblDate control.
+        /// lblApplDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDate;
+        protected global::System.Web.UI.WebControls.Label lblApplDate;
 
         /// <summary>
         /// lblEnterPrise control.

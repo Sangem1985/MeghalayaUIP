@@ -814,124 +814,21 @@ namespace MeghalayaUIP.User.PreReg
                 ErrorMsg1 = Step1validations();
                 if (ErrorMsg1 == "")
                 {
-                    IndustryDetails ID = new IndustryDetails();
-                    if (Convert.ToString(ViewState["UnitID"]) != "")
-                    { ID.UnitID = Convert.ToString(ViewState["UnitID"]); }
-                    ID.UserID = hdnUserID.Value;
-                    ID.IPAddress = getclientIP();
-
-                    ID.CompanyName = txtUnitName.Text.Trim();
-                    ID.CompanyPAN = txtPANno.Text.Trim();
-                    ID.CompnyRegDt = txtCompnyRegDt.Text.Trim();
-                    ID.CompnyType = ddlcompanytype.SelectedValue;
-                    ID.CompnyProposal = ddlproposal.SelectedItem.Text.Trim();
-                    ID.UdyamorIEMNo = txtUdyamorIEMNo.Text.Trim();
-                    ID.GSTNo = txtGSTNo.Text.Trim();
-
-                    ID.AuthReprName = txtAuthReprName.Text.Trim();
-                    ID.AuthReprMobile = txtAuthReprMobile.Text.Trim();
-                    ID.AuthReprEmail = txtAuthReprEmail.Text.Trim();
-                    ID.AuthReprLocality = txtAuthReprLocality.Text.Trim();
-                    ID.AuthReprDistID = ddlAuthReprDist.SelectedValue.Trim();
-                    ID.AuthReprTalukaID = ddlAuthReprTaluka.SelectedValue;
-                    ID.AuthReprVillageID = ddlAuthReprVillage.SelectedValue;
-                    ID.AuthReprPincode = txtAuthReprPincode.Text.Trim();
-
-                    ID.LandType = rblLandType.SelectedValue;
-                    ID.PropLocDoorno = txtPropLocDoorno.Text.Trim();
-                    ID.PropLocLocality = txtPropLocLocality.Text.Trim();
-                    ID.PropLocDistID = ddlPropLocDist.SelectedValue;
-                    ID.PropLocTalukaID = ddlPropLocTaluka.SelectedValue;
-                    ID.PropLocVillageID = ddlPropLocVillage.SelectedValue;
-                    ID.PropLocPincode = txtPropLocPincode.Text.Trim();
-
-                    ID.DCPorOperation = txtDCPorOperation.Text.Trim();
-                    ID.SectorName = ddlSector.SelectedItem.Text;
-                    ID.Lineofacitivityid = ddlLineOfActivity.SelectedValue;
-                    ID.Category = lblPCBCategory.Text.Trim();
-                    ID.NatureofActivity = rblNatureofActvty.SelectedValue;
-
-                    ID.ManfActivity = txtMainManf.Text.Trim();
-                    ID.Manfproduct = txtManfprodct.Text.Trim();
-                    ID.ProductionNO = txtProductionNo.Text.Trim();
-                    ID.ServiceActivity = txtServcActvty.Text.Trim();
-                    ID.ServiceTobeProviding = txtServctobeprovded.Text.Trim();
-                    ID.ServiceNo = txtSrviceno.Text.Trim();
-
-                    ID.Rawmaterial = txtRawmaterial.Text.Trim();
-                    ID.WasteDetails = txtWasteDetails.Text.Trim();
-                    ID.HazWasteDetails = txtHazWasteDetails.Text.Trim();
-                    ID.CivilConstr = txtCivilConstr.Text.Trim();
-                    ID.LandAreainSqft = txtLandAreainSqft.Text.Trim();
-                    ID.BuildingAreaSqm = txtBuildingAreaSqm.Text.Trim();
-                    ID.WaterReqKLD = txtWaterReqKLD.Text.Trim();
-                    ID.PowerReqKV = txtPowerReqKV.Text.Trim();
-                    ID.MeasurementUnits = txtMeasurementUnits.Text.Trim();
-
-                    ID.AnnualCapacity = txtAnnualCapacity.Text.Trim();
-                    ID.EstimatedProjCost = txtEstimatedProjCost.Text.Trim();
-                    ID.PlantnMachineryCost = txtPlantnMachineryCost.Text.Trim();
-                    ID.CapitalInvestment = txtCapitalInvestment.Text.Trim();
-                    ID.FixedAssets = txtFixedAssets.Text.Trim();
-
-                    ID.LandValue = txtLandValue.Text.Trim();
-                    ID.BuildingValue = txtBuildingValue.Text.Trim();
-                    ID.WaterValue = txtWaterValue.Text.Trim();
-                    ID.ElectricityValue = txtElectricityValue.Text.Trim();
-                    ID.WorkingCapital = txtWorkingCapital.Text.Trim();
-
-                    ID.CapitalSubsidy = txtCapitalSubsidy.Text.Trim();
-                    ID.PromoterEquity = txtPromoterEquity.Text.Trim();
-                    ID.LoanAmount = txtLoanAmount.Text.Trim();
-                    ID.EquityAmount = txtEquityAmount.Text.Trim();
-                    ID.UnsecuredLoan = txtUnsecuredLoan.Text.Trim();
-                    ID.InternalResources = txtInternalResources.Text.Trim();
-                    ID.CetralSchemeAmount = txtcentral.Text.Trim();
-                    ID.UnnatiSchemeAmount = txtUNNATI.Text.Trim();
-                    ID.StateSchemeAmount = txtstatescheme.Text.Trim();
-                    ID.DoorNo = txtAuthReprDoorNo.Text.Trim();
-                    ID.RegistrationNo = txtUdyamorIEMNo.Text.Trim();
-                    ID.RegistrationType = ddlRegType.SelectedValue;
-                    if (eligible.Visible == false)
-                    {
-                        ID.EligibleFlag = "Y";
-                    }
-                    else
-                    {
-                        ID.EligibleFlag = "N";
-                    }
-                    try
-                    {
-                        DataTable dt = new DataTable();
-
-                        dt = indstregBAL.GetSectorDepartments(ddlSector.SelectedValue);
-                        if (dt.Rows.Count > 0)
-                        {
-                            ID.Deptid = dt.Rows[0].Table.Columns["MD_DEPTID"].ToString();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
-                    result = indstregBAL.InsertIndRegBasicDetails(ID);
-
+                    result = SaveBasicDetails();
                     if (result != 100)
                     {
                         ViewState["UnitID"] = result;
-                        //success.Visible = true;
                         lblmsg.Text = "Basic Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                     else
                     {
-                        {
-                            success.Visible = true;
-                            lblmsg.Text = "Error Occured while saving please try again";
-                            string message = "alert('" + lblmsg.Text + "')";
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        }
+                        success.Visible = true;
+                        lblmsg.Text = "Error Occured while saving please try again";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
                     }
                 }
                 else
@@ -1308,6 +1205,116 @@ namespace MeghalayaUIP.User.PreReg
             }
         }
 
+        public int SaveBasicDetails()
+        {
+
+
+
+            IndustryDetails ID = new IndustryDetails();
+            if (Convert.ToString(ViewState["UnitID"]) != "")
+            { ID.UnitID = Convert.ToString(ViewState["UnitID"]); }
+            ID.UserID = hdnUserID.Value;
+            ID.IPAddress = getclientIP();
+
+            ID.CompanyName = txtUnitName.Text.Trim();
+            ID.CompanyPAN = txtPANno.Text.Trim();
+            ID.CompnyRegDt = txtCompnyRegDt.Text.Trim();
+            ID.CompnyType = ddlcompanytype.SelectedValue;
+            ID.CompnyProposal = ddlproposal.SelectedItem.Text.Trim();
+            ID.UdyamorIEMNo = txtUdyamorIEMNo.Text.Trim();
+            ID.GSTNo = txtGSTNo.Text.Trim();
+
+            ID.AuthReprName = txtAuthReprName.Text.Trim();
+            ID.AuthReprMobile = txtAuthReprMobile.Text.Trim();
+            ID.AuthReprEmail = txtAuthReprEmail.Text.Trim();
+            ID.AuthReprLocality = txtAuthReprLocality.Text.Trim();
+            ID.AuthReprDistID = ddlAuthReprDist.SelectedValue.Trim();
+            ID.AuthReprTalukaID = ddlAuthReprTaluka.SelectedValue;
+            ID.AuthReprVillageID = ddlAuthReprVillage.SelectedValue;
+            ID.AuthReprPincode = txtAuthReprPincode.Text.Trim();
+
+            ID.LandType = rblLandType.SelectedValue;
+            ID.PropLocDoorno = txtPropLocDoorno.Text.Trim();
+            ID.PropLocLocality = txtPropLocLocality.Text.Trim();
+            ID.PropLocDistID = ddlPropLocDist.SelectedValue;
+            ID.PropLocTalukaID = ddlPropLocTaluka.SelectedValue;
+            ID.PropLocVillageID = ddlPropLocVillage.SelectedValue;
+            ID.PropLocPincode = txtPropLocPincode.Text.Trim();
+
+            ID.DCPorOperation = txtDCPorOperation.Text.Trim();
+            ID.SectorName = ddlSector.SelectedItem.Text;
+            ID.Lineofacitivityid = ddlLineOfActivity.SelectedValue;
+            ID.Category = lblPCBCategory.Text.Trim();
+            ID.NatureofActivity = rblNatureofActvty.SelectedValue;
+
+            ID.ManfActivity = txtMainManf.Text.Trim();
+            ID.Manfproduct = txtManfprodct.Text.Trim();
+            ID.ProductionNO = txtProductionNo.Text.Trim();
+            ID.ServiceActivity = txtServcActvty.Text.Trim();
+            ID.ServiceTobeProviding = txtServctobeprovded.Text.Trim();
+            ID.ServiceNo = txtSrviceno.Text.Trim();
+
+            ID.Rawmaterial = txtRawmaterial.Text.Trim();
+            ID.WasteDetails = txtWasteDetails.Text.Trim();
+            ID.HazWasteDetails = txtHazWasteDetails.Text.Trim();
+            ID.CivilConstr = txtCivilConstr.Text.Trim();
+            ID.LandAreainSqft = txtLandAreainSqft.Text.Trim();
+            ID.BuildingAreaSqm = txtBuildingAreaSqm.Text.Trim();
+            ID.WaterReqKLD = txtWaterReqKLD.Text.Trim();
+            ID.PowerReqKV = txtPowerReqKV.Text.Trim();
+            ID.MeasurementUnits = txtMeasurementUnits.Text.Trim();
+
+            ID.AnnualCapacity = txtAnnualCapacity.Text.Trim();
+            ID.EstimatedProjCost = txtEstimatedProjCost.Text.Trim();
+            ID.PlantnMachineryCost = txtPlantnMachineryCost.Text.Trim();
+            ID.CapitalInvestment = txtCapitalInvestment.Text.Trim();
+            ID.FixedAssets = txtFixedAssets.Text.Trim();
+
+            ID.LandValue = txtLandValue.Text.Trim();
+            ID.BuildingValue = txtBuildingValue.Text.Trim();
+            ID.WaterValue = txtWaterValue.Text.Trim();
+            ID.ElectricityValue = txtElectricityValue.Text.Trim();
+            ID.WorkingCapital = txtWorkingCapital.Text.Trim();
+
+            ID.CapitalSubsidy = txtCapitalSubsidy.Text.Trim();
+            ID.PromoterEquity = txtPromoterEquity.Text.Trim();
+            ID.LoanAmount = txtLoanAmount.Text.Trim();
+            ID.EquityAmount = txtEquityAmount.Text.Trim();
+            ID.UnsecuredLoan = txtUnsecuredLoan.Text.Trim();
+            ID.InternalResources = txtInternalResources.Text.Trim();
+            ID.CetralSchemeAmount = txtcentral.Text.Trim();
+            ID.UnnatiSchemeAmount = txtUNNATI.Text.Trim();
+            ID.StateSchemeAmount = txtstatescheme.Text.Trim();
+            ID.DoorNo = txtAuthReprDoorNo.Text.Trim();
+            ID.RegistrationNo = txtUdyamorIEMNo.Text.Trim();
+            ID.RegistrationType = ddlRegType.SelectedValue;
+            if (eligible.Visible == false)
+            {
+                ID.EligibleFlag = "Y";
+            }
+            else
+            {
+                ID.EligibleFlag = "N";
+            }
+            try
+            {
+                DataTable dt = new DataTable();
+
+                dt = indstregBAL.GetSectorDepartments(ddlSector.SelectedValue);
+                if (dt.Rows.Count > 0)
+                {
+                    ID.Deptid = dt.Rows[0].Table.Columns["MD_DEPTID"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            int result = indstregBAL.InsertIndRegBasicDetails(ID);
+            return result;
+
+        }
+
         //---------------------------------Step 2 Code ---------------------------//
         protected void grdRevenueProj_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -1349,65 +1356,19 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                string /*ErrorMsg = "",*/ result = "";
+                string result = "";
 
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
                     ErrorMsg2 = Step2validations();
                     if (ErrorMsg2 == "")
                     {
-                        DataTable dt = new DataTable();
-                        DataRow dr;
-                        dt.Columns.Add("IBP_UNITID");
-                        dt.Columns.Add("IBP_INVESTERID");
-                        dt.Columns.Add("YEAR1");
-                        dt.Columns.Add("YEAR2");
-                        dt.Columns.Add("YEAR3");
-                        dt.Columns.Add("YEAR4");
-                        dt.Columns.Add("YEAR5");
-                        dt.Columns.Add("MRPID");
-                        if (grdRevenueProj.Rows.Count > 0)
+                        result = SaveRevenueProjections();
+                        if (result != "")
                         {
-                            for (int j = 0; j < grdRevenueProj.Rows.Count; j++)
-                            {
-                                Label lblIBPID = grdRevenueProj.Rows[j].FindControl("lblMRPID") as Label;
-                                TextBox txtYear1 = grdRevenueProj.Rows[j].FindControl("txtYear1") as TextBox;
-                                TextBox txtYear2 = grdRevenueProj.Rows[j].FindControl("txtYear2") as TextBox;
-                                TextBox txtYear3 = grdRevenueProj.Rows[j].FindControl("txtYear3") as TextBox;
-                                TextBox txtYear4 = grdRevenueProj.Rows[j].FindControl("txtYear4") as TextBox;
-                                TextBox txtYear5 = grdRevenueProj.Rows[j].FindControl("txtYear5") as TextBox;
-
-                                try
-                                {
-                                    dr = dt.NewRow();
-                                    dr["IBP_UNITID"] = Convert.ToString(ViewState["UnitID"]);
-                                    dr["IBP_INVESTERID"] = hdnUserID.Value;
-                                    dr["YEAR1"] = txtYear1.Text;
-                                    dr["YEAR2"] = txtYear2.Text;
-                                    dr["YEAR3"] = txtYear3.Text;
-                                    dr["YEAR4"] = txtYear4.Text;
-                                    dr["YEAR5"] = txtYear5.Text;
-                                    dr["MRPID"] = lblIBPID.Text;
-                                    dt.Rows.Add(dr);
-                                }
-                                catch (Exception ex)
-                                {
-                                    throw ex;
-                                }
-                            }
-                            DataTable dt1 = dt;
-                            result = indstregBAL.InsertIndRegRevenueDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
-                            if (result != "")
-                            {
-                                hdnResultTab2.Value = result;
-                                string message = "alert('" + "Basic Revenue Projections saved Successfully" + "')";
-                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                            }
-                        }
-
-                        else
-                        {
-                            return;
+                            hdnResultTab2.Value = result;
+                            string message = "alert('" + "Basic Revenue Projections saved Successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
                     else
@@ -1473,6 +1434,54 @@ namespace MeghalayaUIP.User.PreReg
             {
                 throw ex;
             }
+        }
+        public string SaveRevenueProjections()
+        {
+            string result = "";
+
+            DataTable dt = new DataTable();
+            DataRow dr;
+            dt.Columns.Add("IBP_UNITID");
+            dt.Columns.Add("IBP_INVESTERID");
+            dt.Columns.Add("YEAR1");
+            dt.Columns.Add("YEAR2");
+            dt.Columns.Add("YEAR3");
+            dt.Columns.Add("YEAR4");
+            dt.Columns.Add("YEAR5");
+            dt.Columns.Add("MRPID");
+            if (grdRevenueProj.Rows.Count > 0)
+            {
+                for (int j = 0; j < grdRevenueProj.Rows.Count; j++)
+                {
+                    Label lblIBPID = grdRevenueProj.Rows[j].FindControl("lblMRPID") as Label;
+                    TextBox txtYear1 = grdRevenueProj.Rows[j].FindControl("txtYear1") as TextBox;
+                    TextBox txtYear2 = grdRevenueProj.Rows[j].FindControl("txtYear2") as TextBox;
+                    TextBox txtYear3 = grdRevenueProj.Rows[j].FindControl("txtYear3") as TextBox;
+                    TextBox txtYear4 = grdRevenueProj.Rows[j].FindControl("txtYear4") as TextBox;
+                    TextBox txtYear5 = grdRevenueProj.Rows[j].FindControl("txtYear5") as TextBox;
+
+                    try
+                    {
+                        dr = dt.NewRow();
+                        dr["IBP_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                        dr["IBP_INVESTERID"] = hdnUserID.Value;
+                        dr["YEAR1"] = txtYear1.Text;
+                        dr["YEAR2"] = txtYear2.Text;
+                        dr["YEAR3"] = txtYear3.Text;
+                        dr["YEAR4"] = txtYear4.Text;
+                        dr["YEAR5"] = txtYear5.Text;
+                        dr["MRPID"] = lblIBPID.Text;
+                        dt.Rows.Add(dr);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+                DataTable dt1 = dt;
+                result = indstregBAL.InsertIndRegRevenueDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
+            }
+            return result;
         }
         //---------------------------------Step 3 Code ---------------------------//
         protected void ddlApplCountry_SelectedIndexChanged(object sender, EventArgs e)
@@ -1790,13 +1799,9 @@ namespace MeghalayaUIP.User.PreReg
                 if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "")
                 {
                     DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
-                    //dtnew.Columns.Remove("IDD_COUNTRYName");
                     result = indstregBAL.InsertIndPromotersDetails(dtnew, ViewState["UnitID"].ToString(), hdnUserID.Value);
                     if (result != "")
                     {
-                        //success.Visible = true;
-                        //btnPreview.Enabled = false;
-                        //lblmsg.Text = "Application Submitted Successfully";
                         string message = "alert('" + "Promoter/Director Details Submitted Successfully" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -2737,9 +2742,9 @@ namespace MeghalayaUIP.User.PreReg
                         success.Visible = true;
                         btnSave3.Enabled = false;
                         lblmsg.Text = "Application Submitted Successfully";
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Application Submitted Successfully!');  window.location.href='IndustryAckSlip.aspx?UnitID=unitid '", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", $"alert('Application Submitted Successfully!');  window.location.href='IndustryAckSlip.aspx?UnitID={unitid} '", true);
 
-                       // string message = "alert('" + "Application Submitted Successfully" + "')";
+                        // string message = "alert('" + "Application Submitted Successfully" + "')";
                         //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
@@ -2824,18 +2829,77 @@ namespace MeghalayaUIP.User.PreReg
         }
         protected void btnNext1_Click(object sender, EventArgs e)
         {
-            btnsave1_Click(sender, e);
-            if (ErrorMsg1 == "")
-                MVprereg.ActiveViewIndex = 1;
-            else return;
+            try
+            {
+
+                int result = 0;
+                ErrorMsg1 = Step1validations();
+                if (ErrorMsg1 == "")
+                {
+                    result = SaveBasicDetails();
+                    if (result != 100)
+                    {
+                        ViewState["UnitID"] = result;
+                        MVprereg.ActiveViewIndex = 1;
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg1 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
         protected void btnNext2_Click(object sender, EventArgs e)
         {
-            btnsave2_Click(sender, e);
-            if (ErrorMsg2 == "")
-                MVprereg.ActiveViewIndex = 2;
-            else return;
+            try
+            {
+                string result = "";
 
+                if (Convert.ToString(ViewState["UnitID"]) != "")
+                {
+                    ErrorMsg2 = Step2validations();
+                    if (ErrorMsg2 == "")
+                    {
+                        result = SaveRevenueProjections();
+                        if (result != "")
+                        {
+                            hdnResultTab2.Value = result;
+                            MVprereg.ActiveViewIndex = 2;
+                        }
+                    }
+                    else
+                    {
+                        string message = "alert('" + ErrorMsg2 + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+                    }
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Fill Basic Details";
+                    string message = "alert('" + "Please Fill Basic Details and then Fill Basic Revenue Projections" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
         protected void btnNext3_Click(object sender, EventArgs e)
         {

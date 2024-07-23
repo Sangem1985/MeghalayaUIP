@@ -85,7 +85,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
         }
         public int InsertIndRegBasicDetails(IndustryDetails ID)
         {
-            int valid = 0;           
+            int valid = 0;
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
             connection.Open();
@@ -103,7 +103,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.UserID));
                 da.SelectCommand.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
-                da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", DateTime.ParseExact(ID.CompnyRegDt, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd") );
+                da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", DateTime.ParseExact(ID.CompnyRegDt, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYNAME", ID.CompanyName);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYPANNO", ID.CompanyPAN);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYTYPE", ID.CompnyType);
@@ -120,22 +120,33 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@REP_VILLAGEID", Convert.ToInt32(ID.AuthReprVillageID));
                 da.SelectCommand.Parameters.AddWithValue("@REP_PINCODE", ID.AuthReprPincode);
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_LANDTYPE", ID.LandType);
+                if (ID.PropLocDoorno != "")
+                    da.SelectCommand.Parameters.AddWithValue("@UNIT_DOORNO", ID.PropLocDoorno);
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@UNIT_DOORNO", null);
 
-                da.SelectCommand.Parameters.AddWithValue("@UNIT_DOORNO", ID.PropLocDoorno);
+
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_LOCALITY", ID.PropLocLocality);
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_DISTRICTID", Convert.ToInt32(ID.PropLocDistID));
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_MANDALID", Convert.ToInt32(ID.PropLocTalukaID));
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_VILLAGEID", Convert.ToInt32(ID.PropLocVillageID));
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_PINCODE", ID.PropLocPincode);
 
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", DateTime.ParseExact(ID.DCPorOperation, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")  );
+                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", DateTime.ParseExact(ID.DCPorOperation, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_NOA", ID.NatureofActivity);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFACTIVITY", ID.ManfActivity);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFPRODUCT", ID.Manfproduct);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFPRODNO", ID.ProductionNO);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_SRVCNAME", ID.ServiceTobeProviding);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_SRVCACTIVITY", ID.ServiceActivity);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_SRVCNO", ID.ServiceNo);
+
+                if (ID.ManfActivity != "")
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFACTIVITY", ID.ManfActivity);
+                if (ID.Manfproduct != "")
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFPRODUCT", ID.Manfproduct);
+                if (ID.ProductionNO != "")
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_MANFPRODNO", ID.ProductionNO);
+                if (ID.ServiceTobeProviding != "")
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_SRVCNAME", ID.ServiceTobeProviding);
+                if (ID.ServiceActivity != "")
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_SRVCACTIVITY", ID.ServiceActivity);
+                if (ID.ServiceNo != "")
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_SRVCNO", ID.ServiceNo);
 
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_SECTORNAME", ID.SectorName);
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_LOAID", Convert.ToInt32(ID.Lineofacitivityid));
@@ -206,23 +217,19 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             string valid = "";
 
             SqlConnection connection = new SqlConnection(connstr);
-            //SqlTransaction transaction = null;
             connection.Open();
-            // transaction = connection.BeginTransaction();
             try
             {
                 SqlParameter[] p = new SqlParameter[] {
-         new SqlParameter("@TVP",SqlDbType.Structured),
-         new SqlParameter("@UNITID",SqlDbType.Structured),
-        new SqlParameter("@INVESTERID",SqlDbType.Structured) };
+                new SqlParameter("@TVP",SqlDbType.Structured),
+                new SqlParameter("@UNITID",SqlDbType.Structured),
+                new SqlParameter("@INVESTERID",SqlDbType.Structured) };
                 p[0].Value = dt;
                 p[1].Value = UNITID;
                 p[2].Value = USERID;
                 p[0].TypeName = "dbo.REVENUE_PROJEECTIONS";
                 valid = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertIndRegRevenueDetails, p));
 
-                //transaction.Commit();
-                //connection.Close();
             }
 
             catch (Exception ex)
@@ -443,7 +450,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
         }
 
-        public DataSet GetIndustryRegUserDashboard(string userid, string UnitID,string Status)
+        public DataSet GetIndustryRegUserDashboard(string userid, string UnitID, string Status)
         {
 
             DataSet ds = new DataSet();
@@ -528,15 +535,15 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
                 com.CommandText = PreRegConstants.UpdateIndRegApplQueryRespose;
-               
+
                 com.Transaction = transaction;
                 com.Connection = connection;
-                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(ID.Unitid ));
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(ID.Unitid));
                 com.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.Investerid));
                 com.Parameters.AddWithValue("@IRQID", Convert.ToInt32(ID.QueryID));
                 com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(ID.QuerytoDeptID));
                 com.Parameters.AddWithValue("@RESPONSE", ID.QueryResponse);
-                com.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress); 
+                com.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -576,8 +583,8 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Unitid)); 
-                if(Queryid!="" && Queryid !=null)
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Unitid));
+                if (Queryid != "" && Queryid != null)
                 {
                     da.SelectCommand.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(Queryid));
                 }
@@ -599,7 +606,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return ds;
         }
-         
+
         //-------------------END OF USER METHODS-------------------------------------//
         public DataTable GetPreRegDashBoard(PreRegDtls PRD)
         {
@@ -959,7 +966,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
         //    }
         //    return valid;
         //}
-        public DataSet GetDeptMst(string Unitid,string Userid)
+        public DataSet GetDeptMst(string Unitid, string Userid)
         {
 
             DataSet ds = new DataSet();
