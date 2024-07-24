@@ -60,6 +60,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// lbtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
+
+        /// <summary>
         /// lblCompanyName control.
         /// </summary>
         /// <remarks>
@@ -697,6 +706,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdDirectors;
+
+        /// <summary>
+        /// grdAttachments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdAttachments;
 
         /// <summary>
         /// HyperLink1 control.

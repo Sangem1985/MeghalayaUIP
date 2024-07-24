@@ -24,12 +24,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="col-md-1 pb-2 pt-2">
+            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+        </div>
+
         <div>
             <div class="page-wrapper" style="min-height: 293px;">
                 <div class="content container-fluid">
-                    <div class="col-md-1 pb-2 pt-2" >
-                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
-                    </div>
                     <!-- Invoice Container -->
                     <div class="invoice-container">
                         <asp:HiddenField ID="hdnUserID" runat="server" />

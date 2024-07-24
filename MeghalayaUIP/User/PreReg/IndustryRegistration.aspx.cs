@@ -184,6 +184,7 @@ namespace MeghalayaUIP.User.PreReg
                         {
                             DataTable dt = ds.Tables[2];
                             ViewState["PromtrsTable"] = dt;
+                            hdnResultTab3.Value = "1";
 
                             gvPromoters.Visible = true;
                             gvPromoters.DataSource = dt;
@@ -214,29 +215,28 @@ namespace MeghalayaUIP.User.PreReg
                                 if (sen.Contains("DPR"))
                                 {
                                     hypdpr.Visible = true;
-                                    hypdpr.NavigateUrl = sen;
                                     hypdpr.Text = ds.Tables[3].Rows[i][1].ToString();
                                     lbldpr.Text = ds.Tables[3].Rows[i][1].ToString();
-
+                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
                                 }
                                 if (sen.Contains("CompanyRegistration"))
                                 {
                                     hplcompanyregistration.Visible = true;
-                                    hplcompanyregistration.NavigateUrl = sen;
+                                    hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
                                     hplcompanyregistration.Text = ds.Tables[3].Rows[i][1].ToString();
 
                                 }
                                 if (sen.Contains("UdyamRegistration"))
                                 {
                                     hplUdyam.Visible = true;
-                                    hplUdyam.NavigateUrl = sen;
+                                    hplUdyam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
                                     hplUdyam.Text = ds.Tables[3].Rows[i][1].ToString();
 
                                 }
                                 if (sen.Contains("PAN"))
                                 {
                                     hplPAN.Visible = true;
-                                    hplPAN.NavigateUrl = sen;
+                                    hplPAN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
                                     hplPAN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplPAN.Text = ds.Tables[3].Rows[i][1].ToString();
 
@@ -244,7 +244,7 @@ namespace MeghalayaUIP.User.PreReg
                                 if (sen.Contains("GSTIN"))
                                 {
                                     hplGSTIN.Visible = true;
-                                    hplGSTIN.NavigateUrl = sen;
+                                    hplGSTIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
                                     hplGSTIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplGSTIN.Text = ds.Tables[3].Rows[i][1].ToString();
 
@@ -252,14 +252,14 @@ namespace MeghalayaUIP.User.PreReg
                                 if (sen.Contains("CIN"))
                                 {
                                     hplCIN.Visible = true;
-                                    hplCIN.NavigateUrl = sen;
+                                    hplCIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                 }
                                 if (sen.Contains("BankAppraisal"))
                                 {
                                     hplBankAppraisal.Visible = true;
-                                    hplBankAppraisal.NavigateUrl = sen;
+                                    hplBankAppraisal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
                                     hplBankAppraisal.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplBankAppraisal.Text = ds.Tables[3].Rows[i][1].ToString();
                                 }
@@ -630,7 +630,7 @@ namespace MeghalayaUIP.User.PreReg
                 if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
                 {
                     txtUdyamorIEMNo.Enabled = true;
-                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No ";
                     txtUdyamorIEMNo.Text = "";
                 }
                 else
@@ -1778,7 +1778,6 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else
                 {
-                    //tab1.Focus();
                     Failure.Visible = true;
                     lblmsg0.Text = "Please Fill Basic Details";
                 }
@@ -1802,6 +1801,7 @@ namespace MeghalayaUIP.User.PreReg
                     result = indstregBAL.InsertIndPromotersDetails(dtnew, ViewState["UnitID"].ToString(), hdnUserID.Value);
                     if (result != "")
                     {
+                        hdnResultTab3.Value = result;
                         string message = "alert('" + "Promoter/Director Details Submitted Successfully" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -1815,14 +1815,14 @@ namespace MeghalayaUIP.User.PreReg
                         ErrorMsg3 = ErrorMsg3 + "Please Fill Basic Details & Basic Revenue Projections \\n";
 
                     }
-                    if (gvPromoters.Rows.Count <= 0)
-                    {
-                        ErrorMsg3 = ErrorMsg3 + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button \\n";
-
-                    }
                     if (hdnResultTab2.Value == "")
                     {
                         ErrorMsg3 = ErrorMsg3 + "Please Enter Details of Revenue Projections and click on Save button \\n";
+
+                    }
+                    if (gvPromoters.Rows.Count <= 0)
+                    {
+                        ErrorMsg3 = ErrorMsg3 + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on Add Details button \\n";
 
                     }
                     if (ErrorMsg3 != "")
@@ -2017,7 +2017,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplcompanyregistration.Text = fupcompanyregistration.PostedFile.FileName;
-                                hplcompanyregistration.NavigateUrl = serverpath + fupcompanyregistration.PostedFile.FileName;
+                                hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupcompanyregistration.PostedFile.FileName;
                                 hplcompanyregistration.Target = "blank";
                                 message = "alert('" + "Company Registration Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2106,7 +2106,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplUdyam.Text = fupUdyam.PostedFile.FileName;
-                                hplUdyam.NavigateUrl = serverpath + fupUdyam.PostedFile.FileName;
+                                hplUdyam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupUdyam.PostedFile.FileName;
                                 hplUdyam.Target = "blank";
                                 message = "alert('" + "Udyam Registration Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2193,7 +2193,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplCIN.Text = fupCIN.PostedFile.FileName;
-                                hplCIN.NavigateUrl = serverpath + fupCIN.PostedFile.FileName;
+                                hplCIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupCIN.PostedFile.FileName;
                                 hplCIN.Target = "blank";
                                 message = "alert('" + "CIN Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2280,7 +2280,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplGSTIN.Text = fupGSTIN.PostedFile.FileName;
-                                hplGSTIN.NavigateUrl = serverpath + fupGSTIN.PostedFile.FileName;
+                                hplGSTIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupGSTIN.PostedFile.FileName;
                                 hplGSTIN.Target = "blank";
                                 message = "alert('" + "GSTIN Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2367,7 +2367,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplPAN.Text = fupPAN.PostedFile.FileName;
-                                hplPAN.NavigateUrl = serverpath;
+                                hplPAN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupPAN.PostedFile.FileName;
                                 hplPAN.Target = "blank";
                                 message = "alert('" + "PAN Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2467,7 +2467,7 @@ namespace MeghalayaUIP.User.PreReg
                                     // lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
                                     lbldpr.Text = fupDPR.FileName;
                                     hypdpr.Text = fupDPR.FileName;
-                                    hypdpr.NavigateUrl = newPath + '/' + fupDPR.PostedFile.FileName;
+                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + newPath +  fupDPR.PostedFile.FileName;
                                     //success.Visible = true;
                                     //Failure.Visible = false;
                                     message = "alert('" + "DPR Document Uploaded successfully" + "')";
@@ -2573,7 +2573,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplBankAppraisal.Text = fupBankAppraisal.PostedFile.FileName;
-                                hplBankAppraisal.NavigateUrl = serverpath;
+                                hplBankAppraisal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath;
                                 hplBankAppraisal.Target = "blank";
                                 message = "alert('" + "Bank Appraisal Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2687,7 +2687,7 @@ namespace MeghalayaUIP.User.PreReg
                 string result = "", errormsg = "";
                 errormsg = Step4validations();
 
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && errormsg == "")
+                if (Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && hdnResultTab3.Value != "" && errormsg == "")
                 {
 
                     Response.Redirect("IndustryPrintPage.aspx?UnitID=" + Convert.ToString(ViewState["UnitID"]));
@@ -2730,7 +2730,7 @@ namespace MeghalayaUIP.User.PreReg
 
                 ErrorMsg4 = Step4validations();
 
-                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && lbldpr.Text != "" && ErrorMsg4 == "")
+                if (Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && hdnResultTab3.Value != "" && ErrorMsg4 == "")
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
                     // dt.Columns.Remove("IDD_COUNTRYName");
@@ -2903,10 +2903,50 @@ namespace MeghalayaUIP.User.PreReg
         }
         protected void btnNext3_Click(object sender, EventArgs e)
         {
-            btnSave3_Click(sender, e);
-            if (ErrorMsg3 == "")
-                MVprereg.ActiveViewIndex = 3;
-            else return;
+            try
+            {
+
+                string result = "";
+                if (gvPromoters.Rows.Count > 0 && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "")
+                {
+                    DataTable dtnew = (DataTable)ViewState["PromtrsTable"];
+                    result = indstregBAL.InsertIndPromotersDetails(dtnew, ViewState["UnitID"].ToString(), hdnUserID.Value);
+                    if (result != "")
+                    {
+                        hdnResultTab3.Value = result;
+                        MVprereg.ActiveViewIndex = 3;
+                    }
+
+                }
+                else
+                {
+
+                    if (Convert.ToString(ViewState["UnitID"]) == "")
+                    {
+                        ErrorMsg3 = ErrorMsg3 + "Please Fill Basic Details & Basic Revenue Projections \\n";
+
+                    }
+                    if (hdnResultTab2.Value == "")
+                    {
+                        ErrorMsg3 = ErrorMsg3 + "Please Enter Details of Revenue Projections and click on Save button \\n";
+
+                    }
+                    if (gvPromoters.Rows.Count <= 0 || hdnResultTab3.Value == "")
+                    {
+                        ErrorMsg3 = ErrorMsg3 + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on Add Details button and Save \\n";
+
+                    }
+                    if (ErrorMsg3 != "")
+                    {
+                        string msg = "alert('" + ErrorMsg3 + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", ErrorMsg3, true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {

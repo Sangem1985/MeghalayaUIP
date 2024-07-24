@@ -5,6 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <!-- Page Wrapper -->
+      <style>
+        .col-md-10 {
+    border: 1px solid #ccc;
+    padding: 3px 15px;
+    margin: 0px 0px;
+}
+    </style>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <%--<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx"></a></li>--%>

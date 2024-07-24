@@ -99,7 +99,9 @@
             </div>
             <div class="col-md-12">
 
-
+                <div class="col-md-1 pb-2 pt-2">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <h3>Applicant and Unit Details</h3>
@@ -694,6 +696,58 @@
 
                     </section>
                 </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Check Lists</h3>
+                    </div>
+                    <section id="dashboardAttachmnt">
+                        <div class="container-fluid">
+                            <div class="row clearfix">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="table-responsive">
+                                        <asp:GridView ID="grdAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                            GridLines="Both" HeaderStyle-BackColor="Red"
+                                            Width="100%" EnableModelValidation="True">
+                                            <RowStyle />
+                                            <AlternatingRowStyle BackColor="LightGray" />
+                                            <HeaderStyle BackColor="Red" />
+                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                            <AlternatingRowStyle BackColor="White" />
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    <ItemTemplate>
+                                                        <%# Container.DataItemIndex + 1%>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
+                                                <asp:TemplateField HeaderText="View">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server" OnClick="linkAttachment_Click"></asp:LinkButton>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="View" Visible="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                            </Columns>
+
+                                        </asp:GridView>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
             </div>
 
         </div>
