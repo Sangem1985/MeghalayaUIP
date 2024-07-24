@@ -100,5 +100,12 @@
         </div>
         <!-- end container -->
     </section>
-    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type="password"]').on('copy paste cut', function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+
 </asp:Content>
