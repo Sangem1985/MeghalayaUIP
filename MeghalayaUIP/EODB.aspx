@@ -5,79 +5,86 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         p.texttop111.wow.fadeInUp.animated.animated {
-    width: 24%;
-    position: absolute;
-    top: 73px;
-    color: #000;
-    left: 32px;
-    text-align: left;
-}
+            width: 24%;
+            position: absolute;
+            top: 73px;
+            color: #000;
+            left: 32px;
+            text-align: left;
+        }
+
         p.texttop211.wow.fadeInUp.animated.animated {
-    width: 24%;
-    position: absolute;
-    top: 31px;
-    color: #000;
-    left: 31.5%;
-    text-align: left;
-}
+            width: 24%;
+            position: absolute;
+            top: 31px;
+            color: #000;
+            left: 31.5%;
+            text-align: left;
+        }
+
         p.texttop311.wow.fadeInUp.animated.animated {
-   width: 24%;
-    position: absolute;
-    top: -14px;
-    color: #000;
-    right: 17.5%;
-    text-align: left;
-}
+            width: 24%;
+            position: absolute;
+            top: -14px;
+            color: #000;
+            right: 17.5%;
+            text-align: left;
+        }
+
         p.texttop {
             position: absolute;
-    top: 10px;
-    left: 90px;
-    color: #fff;
+            top: 10px;
+            left: 90px;
+            color: #fff;
         }
-        h5, .h5, p {
-    font-size: 18px;
-}
-        section.innerpages h4 {
-    font-family: 'Ubuntu', sans-serif !important;
-    color: #4577c1 !important;
-    padding-top: 15px;
-    font-size: 1.3rem !important;
-    font-weight: 500;
-}
-        p.texttop114.wow.fadeInUp.animated.animated {
-    text-align: left;
-    position: absolute;
-    top: 58%;
-    left: 13%;
-    font-size: 33px;
-    color: #fff;
-    font-weight: 900;
-}
-        
-        p.texttop214.wow.fadeInUp.animated.animated {
-    text-align: center;
-    position: absolute;
-    top: 48%;
-    left: 40%;
-    font-size: 33px;
-    color: #fff;
-    font-weight: 900;
-}
-        p.texttop314.wow.fadeInUp.animated.animated {
-    text-align: right;
-    position: absolute;
-    top: 36%;
-    right: 21%;
-    font-size: 33px;
-    color: #fff;
-    font-weight: 900;
-}
-       p.texttop114.wow.fadeInUp.animated.animated:hover,p.texttop214.wow.fadeInUp.animated.animated:hover,p.texttop314.wow.fadeInUp.animated.animated:hover, p.texttop111.wow.fadeInUp.animated.animated:hover, p.texttop211.wow.fadeInUp.animated.animated:hover, p.texttop311.wow.fadeInUp.animated.animated:hover{
-            transition: transform .6s;
-    transform: scale(1.2);
-    font-weight:600;
 
+        h5, .h5, p {
+            font-size: 18px;
         }
+
+        section.innerpages h4 {
+            font-family: 'Ubuntu', sans-serif !important;
+            color: #4577c1 !important;
+            padding-top: 15px;
+            font-size: 1.3rem !important;
+            font-weight: 500;
+        }
+
+        p.texttop114.wow.fadeInUp.animated.animated {
+            text-align: left;
+            position: absolute;
+            top: 58%;
+            left: 13%;
+            font-size: 33px;
+            color: #fff;
+            font-weight: 900;
+        }
+
+        p.texttop214.wow.fadeInUp.animated.animated {
+            text-align: center;
+            position: absolute;
+            top: 48%;
+            left: 40%;
+            font-size: 33px;
+            color: #fff;
+            font-weight: 900;
+        }
+
+        p.texttop314.wow.fadeInUp.animated.animated {
+            text-align: right;
+            position: absolute;
+            top: 36%;
+            right: 21%;
+            font-size: 33px;
+            color: #fff;
+            font-weight: 900;
+        }
+
+            p.texttop114.wow.fadeInUp.animated.animated:hover, p.texttop214.wow.fadeInUp.animated.animated:hover, p.texttop314.wow.fadeInUp.animated.animated:hover, p.texttop111.wow.fadeInUp.animated.animated:hover, p.texttop211.wow.fadeInUp.animated.animated:hover, p.texttop311.wow.fadeInUp.animated.animated:hover {
+                transition: transform .6s;
+                transform: scale(1.2);
+                font-weight: 600;
+            }
     </style>
     <section class="innerpages">
         <div class="container">
@@ -312,7 +319,39 @@ animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                         <li>3.	Enhance the ease of living through timely, digitalized services.</li>
                     </ul>--%>
                     <h4>Services Offered</h4>
-                    <section class="project-section case-page-3 eodb1 p-0 pt-2 mb-5">
+                    <section class="intro-style-five centred">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 single-column">
+                    <div class="single-item wow fadeInUp animated animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="icon-box"><i class="fi fi-tr-discover"></i></div>
+                        <%--<h3><a href="#">Invasive treatments</a></h3>--%>
+                        <div class="text">132 End-to-end online services</div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 single-column">
+                    <div class="single-item wow fadeInUp animated animated animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                        <div class="icon-box"><i class="fi fi-tr-leader-speech"></i></div>
+                        <%--<h3><a href="#">Microfluidic technologies</a></h3>--%>
+                        <div class="text">158 Services under the Meghalaya Right to Public Services Act, 2020.</div>
+                       <%-- <div class="btn-box"><a href="#">Explore</a></div>--%>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 single-column">
+                    <div class="single-item wow fadeInUp animated animated animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                        <div class="icon-box"><i class="fi fi-tr-customer-service"></i></div>
+                       <%-- <h3><a href="#">Bioscience</a></h3>--%>
+                        <div class="text">9 Auto-renewal services.</div>
+                        <%--<div class="btn-box"><a href="#">Explore</a></div>--%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                    <%--<section class="project-section case-page-3 eodb1 p-0 pt-2 mb-5">
                         <div class="large-container">
                             
                             <div class="row d-block">
@@ -351,7 +390,7 @@ animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section>--%>
 
                     <h4>Meghalaya-Centralized Inspection System Goals</h4>
 

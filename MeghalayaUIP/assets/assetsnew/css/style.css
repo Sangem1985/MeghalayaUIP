@@ -222,6 +222,9 @@ h1,h2,h3,h4,h5,h6 {
 h3{
     font-size:30px !important;
 }
+h3 a{
+    font-size:26px !important;
+}
 .centred{
   text-align: center;
 }
@@ -3760,19 +3763,20 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 .service-style-two{
   position: relative;
   display: block;
-  padding: 72px 0px 85px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .service-style-two .sec-title{
   margin-bottom: 35px;
 }
 
-.service-block-two .inner-box{
-  position: relative;
-  display: block;
-  background: #fff;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-  transition: all 500ms ease;
+.service-block-two .inner-box {
+    position: relative;
+    display: block;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 500ms ease;
+    border-radius: 20px;
 }
 
 .service-block-two:hover .inner-box{
@@ -3797,11 +3801,12 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   transform: scale(1.05);
 }
 
-.service-block-two .inner-box .lower-content{
-  position: relative;
-  display: block;
-  overflow: hidden;
-  padding: 41px 15px 42px 35px;
+.service-block-two .inner-box .lower-content {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px 15px 34px 19px;
+    height: 330px;
 }
 
 .service-block-two .inner-box .lower-content:before{
@@ -3811,6 +3816,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   width: 254px;
   height: 254px;
   right: 35px;
+  opacity:0.5;
   top: 25px;
   background-repeat: no-repeat;
 }
@@ -3818,10 +3824,10 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 .service-block-two .inner-box .lower-content .icon-box{
   position: relative;
   display: inline-block;
-  font-size: 55px;
-  line-height: 55px;
+  font-size: 30px;
+  line-height: 0px;
   color: #272727;
-  margin-bottom: 24px;
+  margin-bottom: 0px;
   z-index: 1;
 }
 
@@ -3830,6 +3836,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   content: '';
   background: url(../images/icons/shap-1.png);
   width: 71px;
+  opacity:0.1;
   height: 55px;
   left: -15px;
   top: 5px;
@@ -3862,6 +3869,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   content: '';
   background: url(../images/icons/shap-2.png);
   width: 63px;
+  opacity:0.1;
   height: 68px;
   left: -15px;
   top: 5px;
@@ -3893,6 +3901,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   background: url(../images/icons/shap-3.png);
   width: 76px;
   height: 44px;
+  opacity:0.1;
 }
 
 .service-block-two .inner-box .lower-content h3{
@@ -3906,13 +3915,13 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   z-index: 1;
 }
 
-.service-block-two .inner-box .lower-content h3 a{
-  color: #272727;
-}
+    .service-block-two .inner-box .lower-content h3 a {
+        color: #3F51B5;
+    }
 
-.service-block-two .inner-box .lower-content h3 a:hover{
-  color: #fd571c;
-}
+        .service-block-two .inner-box .lower-content h3 a:hover {
+            color: #9c27b0;
+        }
 
 .service-block-two .inner-box .lower-content .text{
   position: relative;
@@ -10261,7 +10270,7 @@ section.counter-style-two:hover{
 .counter-block-two .inner-box .count-outer span{
   position: relative;
   display: inline-block;
-  font-size: 30px;
+  font-size: 26px;
   line-height: 45px;
   font-weight: 700;
   color: #0c0d24;
@@ -12373,10 +12382,10 @@ section.counter-style-two:hover{
 
 /** intro-style-five **/
 
-.intro-style-five{
-  position: relative;
-  padding: 65px 0px 75px 0px;
-  background: #f9f7ff;
+.intro-style-five {
+    position: relative;
+    padding: 18px 0px 20px 0px;
+    *background: #f9f7ff;
 }
 
 .intro-style-five .title-box{
@@ -12404,15 +12413,17 @@ section.counter-style-two:hover{
   color: #666568;
 }
 
-.intro-style-five .single-item{
-  position: relative;
-  display: block;
-  background: transparent;
-  padding: 43px 35px 49px 35px;
-  text-align: center;
-  border-radius: 10px;
-  transition: all 500ms ease;
-}
+    .intro-style-five .single-item {
+        position: relative;
+        display: block;
+        padding: 15px 15px 6px 15px;
+        text-align: center;
+        border-radius: 10px;
+        transition: all 500ms ease;
+        height: 176px;
+        background: #fff;
+        border: 1px dotted #673AB7;
+    }
 
 .intro-style-five .single-item:hover{
   background: #fff;
