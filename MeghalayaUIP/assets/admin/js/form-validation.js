@@ -832,6 +832,26 @@ function validateGST(event) {
         }
     }
 }
+function Address(event) {
+    var charCode = event.charCode || event.keyCode;
+
+
+    if ((charCode >= 48 && charCode <= 57) ||
+        (charCode >= 65 && charCode <= 90) ||
+        (charCode >= 97 && charCode <= 122) ||
+        charCode === 45 || // Hyphen (-)
+        charCode === 47 || // Slash (/)
+        charCode === 44 || // Comma (,)
+        charCode === 46 || // Dot (.)
+        charCode === 32) { // Space
+        return true;
+    } else {
+        event.preventDefault();
+        dot.value == "";
+        alert("Please enter only alphabets, numbers, hyphen, dot, slash, or comma.");
+        return false;
+    }
+}
 //function pageLoad() {
 //    var date = new Date();
 //    var currentMonth = date.getMonth();

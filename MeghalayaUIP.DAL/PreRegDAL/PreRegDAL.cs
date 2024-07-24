@@ -174,8 +174,10 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_WATERVALUE", Convert.ToDecimal(ID.WaterValue));
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_ELECTRICITYVALUE", Convert.ToDecimal(ID.ElectricityValue));
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_WORKINGCAPITAL", Convert.ToDecimal(ID.WorkingCapital));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_CAPITALSUBSIDY", Convert.ToDecimal(ID.CapitalSubsidy));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_PROMOTEREQUITY", Convert.ToDecimal(ID.PromoterEquity));
+                if (ID.CapitalSubsidy != "")
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_CAPITALSUBSIDY", Convert.ToDecimal(ID.CapitalSubsidy));
+                if (ID.PromoterEquity != "")
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_PROMOTEREQUITY", Convert.ToDecimal(ID.PromoterEquity));
                 da.SelectCommand.Parameters.AddWithValue("@FRD_LOAN", Convert.ToDecimal(ID.LoanAmount));
                 da.SelectCommand.Parameters.AddWithValue("@STAGEID", 1);
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", ID.UnitID);
