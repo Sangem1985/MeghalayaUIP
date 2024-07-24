@@ -12,13 +12,13 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #fff;
-  font-size: 16px;
-  font-size: 1rem;
-  color: #777777;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #fff;
+    font-size: 16px;
+    font-size: 1rem;
+    color: #777777;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 @media (max-width: 767px) {
@@ -2568,7 +2568,7 @@ section#destin {
 
 .site-footer .link-widget ul a {
   font-weight: 100;
-  font-family: 'Roboto';
+  
 }
 
 .site-footer .link-widget ul a:hover,
@@ -7263,7 +7263,7 @@ section.about-us-section1 {
 section.service-section.section-padding p, marquee {
   color: #777777;
     font-weight: 500;
-    font-family: 'Roboto';
+   
 }
 span.colorblue {
   color: #62028b;
@@ -7305,12 +7305,12 @@ section.about-us-section2 p {
 }
 section.about-us-section3 {
   background: #F2F2F2;
-  font-family:'Roboto';
+  
   margin-bottom: 30px;
 }
 section.about-us-section3.\31{
   background: #F2F2F2;
-  font-family:'Roboto';
+ 
   margin-bottom: 0px;
 }
 section.about-us-section3 p {
@@ -7319,7 +7319,7 @@ section.about-us-section3 p {
 section.about-us-section3 h3 {
   color: #7b0ecb;
   text-decoration: auto;
-  font-family: 'Roboto';
+  
 }
     section.about-us-section3 .col-md-1.sidebar {
         border-right: 2px dotted #2e2d2d;
@@ -7360,7 +7360,7 @@ section.service-section5 p {
 .widget.contact-widget.service-link-widget h3, .site-footer .contact-widget ul li, .site-footer .contact-widget li span, 
 .site-footer .widget-title h3, .site-footer .link-widget ul a {
   color: #fff;
-  font-family: 'Roboto';
+  
 }
 .widget.contact-widget.service-link-widget h3, .site-footer .widget-title h3 {
   font-size: 24px;
@@ -7428,7 +7428,7 @@ section.service-section5 .box:hover {
 }
 .modal-dialog.modal-dialog-centered h5 {
   font-size: 1.2rem;
-  font-family: 'Roboto';
+  
   text-transform: capitalize;
   font-weight: 600;
   color: #0070c0;
@@ -7456,7 +7456,7 @@ h5#exampleModalLongTitle1 {
     font-size: 24px;
     display: flex;
     color: #0077D3;
-    font-family: 'Roboto';
+    
     text-transform: capitalize;
     align-items: baseline;
     flex-direction: row;
@@ -7471,7 +7471,7 @@ h5#exampleModalLongTitle {
     font-size: 24px;
     display: flex;
     color: #4f2c69;
-    font-family: 'Roboto';
+    
     text-transform: capitalize;
     margin-left: 115px;
     margin-top: 12px;
@@ -7581,7 +7581,7 @@ h5#exampleModalLongTitle span a {
 }
 p.head1 {
     font-size: 20px !important;
-    font-family: 'Roboto' !important;
+   
     font-weight: 600 !important;
     color: #3f51b5 !important;
 }
@@ -7600,7 +7600,7 @@ i.fi.fi-br-form {
 section.about-us-section3 h3 {
     color: #7b0ecb;
     text-decoration: auto;
-    font-family: 'Roboto';
+    
     text-align: left;
     /* margin-left: 39px; */
     text-indent: 2px;

@@ -135,7 +135,7 @@
         .blink {
             animation: blinker 1.2s linear infinite;
             color: orange;
-            font-family: 'Ubuntu';
+            font-family: 'Ubuntu', sans-serif;
             font-weight: 600;
             font-size: 18px;
             z-index: 9999;
@@ -182,7 +182,7 @@
         }
 
         section.innerpages h3 {
-            font-family: "Roboto", sans-serif !important;
+            font-family: 'Ubuntu', sans-serif !important;
             border-bottom: 1px dotted #ccc;
             margin-bottom: 15px;
             color: #192d66;
@@ -191,7 +191,7 @@
         }
 
         section.innerpages h4 {
-            font-family: "Roboto", sans-serif !important;
+            font-family: 'Ubuntu', sans-serif !important;
             color: #6e88ae;
             padding-top: 15px;
             font-size: 1.3rem !important;

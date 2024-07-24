@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInLeft;">
-                        <div class="top-text" style="font-size: 26px; text-transform: capitalize; font-weight: 700; color: #4577c1 !important;">Empowering Businesses, Empowering you..</div>
+                        <div class="top-text" style="font-size: 26px; text-transform: capitalize; font-weight: 600; color: #4577c1 !important;">Empowering Businesses, Empowering you..</div>
                         <%-- <h1>UNNATI 2024</h1>
                         <h1>MIIPP 2024</h1>--%>
                         <%--<img src="assets/assetsnew/images/boult.gif" style="margin-left: -60px;">--%>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box">
-                        <div class="bold-text" style="font-size: 26px; text-transform: capitalize; font-weight: 700;">Invest, Innovate and Create in Meghalaya</div>
+                        <div class="bold-text" style="font-size: 26px; text-transform: capitalize; font-weight: 600;">Invest, Innovate and Create in Meghalaya</div>
                         <div class="counter-outer">
                             <div class="counter-block-one wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
                                 <div class="text">Investments Opportunity</div>
@@ -149,8 +149,8 @@
                                 <figure class="author-thumb"><i class="fi fi-tr-coin-up-arrow"></i></figure>
                                 <h5>INTENT TO INVEST</h5>
                                 <span class="designation">Want to Invest? Fill a simple
-                                 <span class="heihet">Intent to
-                                Invest Form</span> and we
+                                 <b>Intent to
+                                Invest Form</b> and we
                               will get in touch.</span>
                             </div>
                             <div class="text">
@@ -166,7 +166,7 @@
                                 <figure class="author-thumb"><i class="fi fi-tr-clipboard-list"></i></figure>
                                 <h5>REGISTER</h5>
                                 <span class="designation">Register your business to claim Incentives.<br>
-                                    Fill a simple <span class="heihet">Registration Form.</span></span>
+                                    Fill a simple <b>Registration Form</b>.</span>
                             </div>
 
                             <div class="text">
@@ -464,7 +464,7 @@
     <section class="team-section" style="background: url(assets/assetsnew/images/sectors.png); background-size: auto;">
         <div class="container">
             <div class="sec-title">
-                <h1 style="font-size: 36px; text-transform: capitalize;">Key Sectors</h1>
+                <h1 style="font-size: 30px; text-transform: capitalize;">Key Sectors</h1>
                 <p>Our experienced staff, combined with our global network, allow us to provide the support you need.</p>
             </div>
             <div class="three-column-carousel owl-carousel owl-theme">
@@ -592,7 +592,7 @@
                         <div class="top-content">
                             <!-- <div class="top-text">About Acto</div> -->
 
-                            <h2 class="head2">The only interface with Investors</h2>
+                            <h2 class="head2" style="font-size:30px !important;">The only interface with Investors</h2>
                             <div class="middle-content">
                                 <div class="text"><i class="fi fi-sr-check-double"></i>End to end online and transparent systems for granting clearance.</div>
                                 <div class="text mt-2"><i class="fi fi-sr-check-double"></i>Participating 20+ departments provide 100+ regulatory clearance.</div>
@@ -1002,7 +1002,7 @@
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i>Investors Desk
+            <i class="fi fi-tr-admin-alt"></i> Investors Desk
         </button>
     </div>
 
