@@ -239,7 +239,7 @@
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:TextBox type="text" runat="server" ID="txtCompnyRegDt" class="datepicker form-control" onkeypress="validateNumberAndHyphen();" TabIndex="1" />
 
-                                                                            <%--<i class="fi fi-rr-calendar-lines"></i>--%>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1374,6 +1374,7 @@
         $(document).ready(function () {
             pageLoad();
         });
+        window.onload = datepicker;
     </script>
 
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
