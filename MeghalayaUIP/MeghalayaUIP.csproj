@@ -420,6 +420,7 @@
     <Content Include="assets\assetsnew\fonts\fa-regular-400.svg" />
     <Content Include="assets\assetsnew\fonts\fa-solid-900.svg" />
     <Content Include="assets\assetsnew\fonts\Flaticon.svg" />
+    <Content Include="assets\assetsnew\images\airplane.png" />
     <Content Include="assets\assetsnew\images\background\about-banner.jpg" />
     <Content Include="assets\assetsnew\images\background\about-bg.jpg" />
     <Content Include="assets\assetsnew\images\background\bg1.jpg" />
@@ -609,6 +610,7 @@
     <Content Include="assets\assetsnew\images\resource\testimonial-5.png" />
     <Content Include="assets\assetsnew\images\resource\testimonial-6.png" />
     <Content Include="assets\assetsnew\images\resource\wehelp-1.jpg" />
+    <Content Include="assets\assetsnew\images\road.png" />
     <Content Include="assets\assetsnew\images\search.gif" />
     <Content Include="assets\assetsnew\images\sectors.png" />
     <Content Include="assets\assetsnew\images\sp\1.png" />
@@ -617,6 +619,7 @@
     <Content Include="assets\assetsnew\images\sp\4.png" />
     <Content Include="assets\assetsnew\images\sp\5.png" />
     <Content Include="assets\assetsnew\images\trackbg.jpg" />
+    <Content Include="assets\assetsnew\images\train.png" />
     <Content Include="assets\assetsnew\images\turndown.gif" />
     <Content Include="assets\assetsnew\images\UNNATI.gif" />
     <Content Include="assets\assetsnew\images\uso.gif" />

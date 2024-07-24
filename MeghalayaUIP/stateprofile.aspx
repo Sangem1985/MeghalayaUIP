@@ -351,9 +351,9 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="fi fi-tr-chart-arrow-grow"></i></div>
-                                                <h3><a href="service-single.html">6.8%</a></h3>
+                                                <h3><a href="#">6.8%</a></h3>
                                                 <div class="text">Export Growth (2017 to 2022)</div>
-                                                <%-- <div class="btn-box"><a href="service-single.html">Explore</a></div>--%>
+                                                <%-- <div class="btn-box"><a href="#">Explore</a></div>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -363,7 +363,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="fi fi-tr-tax-alt"></i></div>
-                                                <h3><a href="service-single.html">$5.9Bn</a></h3>
+                                                <h3><a href="#">$5.9Bn</a></h3>
                                                 <div class="text">GSDP (2024)</div>
 
                                             </div>
@@ -375,7 +375,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="fi fi-tr-challenge-alt"></i></div>
-                                                <h3><a href="service-single.html">52,9773 crore</a></h3>
+                                                <h3><a href="#">52,9773 crore</a></h3>
                                                 <div class="text">GSDP (2024-2025-Projected)</div>
 
                                             </div>
@@ -387,7 +387,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="fi fi-tr-career-growth"></i></div>
-                                                <h3><a href="service-single.html">11.4%</a></h3>
+                                                <h3><a href="#">11.4%</a></h3>
                                                 <div class="text">GSDP Growth (2023 to 2025)</div>
 
                                             </div>
@@ -399,7 +399,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="flaticon-support"></i></div>
-                                                <h3><a href="service-single.html">1.39602 L</a></h3>
+                                                <h3><a href="#">1.39602 L</a></h3>
                                                 <div class="text">Per Capita GSDP</div>
 
                                             </div>
@@ -411,7 +411,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="fi fi-tr-tools"></i></div>
-                                                <h3><a href="service-single.html">60%</a></h3>
+                                                <h3><a href="#">60%</a></h3>
                                                 <div class="text">Labour force participation rate</div>
 
                                             </div>
@@ -423,7 +423,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="fi fi-tr-corporate-alt"></i></div>
-                                                <h3><a href="service-single.html">34%</a></h3>
+                                                <h3><a href="#">34%</a></h3>
                                                 <div class="text">Women’s participation in the workforce (Rural)</div>
 
                                             </div>
@@ -435,7 +435,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="fi fi-tr-house-tree"></i></div>
-                                                <h3><a href="service-single.html">24%</a></h3>
+                                                <h3><a href="#">24%</a></h3>
                                                 <div class="text">Women’s participation in the workforce (Urban)</div>
 
                                             </div>
@@ -452,7 +452,74 @@
                         Meghalaya's connectivity is key to its development. With extensive road, rail, and air networks, the state ensures
                         seamless transportation for growth and accessibility.
                     </p>
-                    <section id="Connectivity">
+                    <section class="service-style-two">
+                        <div class="container">
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                                    <div class="service-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                        <div class="inner-box">
+
+                                            <div class="lower-content">
+                                                <div class="icon-box"><img src="assets/assetsnew/images/road.png" style="width:50%;"/></div>
+                                                <h3><a href="#">Road Connectivity</a></h3>
+                                                <div class="text">
+                                                    <ul>
+                                                        
+                                                        <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Road Network : 13,000 km</li>
+                                                        <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Road Density : 0.48 km/sq. km density</li>
+                                                        <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Ongoing developments : SARDP, PMGSY, and Shillong Smart-city programs</li>
+                                                    </ul>
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                                    <div class="service-block-two wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                                        <div class="inner-box">
+
+                                            <div class="lower-content">
+                                                <div class="icon-box"><img src="assets/assetsnew/images/train.png" style="width:50%;"/></div>
+                                                <h3><a href="#">Rail Connectivity</a></h3>
+                                                <div class="text">
+                                                    <ul>
+                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Ongoing projects linking Meghalaya with Manipur, Mizoram, Nagaland, and Sikkim</li>
+                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Regular service connecting Mendipathar and Guwahati density</li>
+                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Railhead at Mendipathar</li>
+                                                                  </ul>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                                    <div class="service-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                                        <div class="inner-box">
+
+                                            <div class="lower-content">
+                                                <div class="icon-box"><img src="assets/assetsnew/images/airplane.png" style="width:50%;"/></div>
+                                                <h3><a href="#">Air Connectivity</a></h3>
+                                                <div class="text">
+                                                    <ul>
+                                                    <li><i class="fas fa-arrow-right"></i>&nbsp; Airport at Umroi (30 km from Shillong)</li>
+                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Helicopter service connecting Shillong to Guwahati and Tura density</li>
+                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Guwahati airport (118 km from Shillong)</li>
+                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Additional helipads and heliports planned across the state</li>
+                                                                  </ul>
+
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <%--<section id="Connectivity">
                         <div class="row">
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-6">
@@ -554,7 +621,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section>--%>
                     <%-- <h4 style="margin-bottom: -71px;">Road Connectivity :</h4>
 
                     <section class="service-style-four service-page-3 centred p-0 m-0">
@@ -639,7 +706,7 @@
 
                                             <div class="lower-content">
                                                 <%--<div class="count-number">01</div>--%>
-                                                <h3><a href="case-single.html">Natural Resources</a></h3>
+                                                <h3><a href="#">Natural Resources</a></h3>
                                                 <div class="text">Abundant flora, fauna, forests, medicinal plants, minerals (coal, limestone, quartz, feldspar, granite, industrial clay, sillimanite, uranium)</div>
                                             </div>
                                         </div>
@@ -651,7 +718,7 @@
 
                                             <div class="lower-content">
                                                 <%--<div class="count-number">02</div>--%>
-                                                <h3><a href="case-single.html">Agriculture and Horticulture</a></h3>
+                                                <h3><a href="#">Agriculture and Horticulture</a></h3>
                                                 <div class="text">High-value crops like Strawberry, Ginger, Lakadong turmeric, Honey, black pepper, Potato, Jackfruit, Pineapple, Areca Nut, and exotic flowers</div>
                                             </div>
                                         </div>
@@ -663,7 +730,7 @@
 
                                             <div class="lower-content">
                                                 <%--<div class="count-number">03</div>--%>
-                                                <h3><a href="case-single.html">Organic <br />Produce</a></h3>
+                                                <h3><a href="#">Organic Produce</a></h3>
                                                 <div class="text">Most state produce is naturally organic</div>
                                             </div>
                                         </div>
@@ -675,7 +742,7 @@
 
                                             <div class="lower-content">
                                                 <%-- <div class="count-number">04</div>--%>
-                                                <h3><a href="case-single.html">Industrial Potential</a></h3>
+                                                <h3><a href="#">Industrial Potential</a></h3>
                                                 <div class="text">Mineral-based industry, horticulture and agro-based industry, electronics and IT, export-oriented units, tourism, and emerging service sectors</div>
                                             </div>
                                         </div>
