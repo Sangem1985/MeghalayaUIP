@@ -195,52 +195,9 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
                         {
-                            int c = ds.Tables[3].Rows.Count;
-                            string Filedesc = "";
-                            int i = 0;
-
-                            while (i < c)
-                            {
-                                Filedesc = ds.Tables[3].Rows[i]["FILEDESCRIPTION"].ToString();
-                                if (Filedesc.Contains("CompanyRegistration"))
-                                {
-                                    lnkCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
-                                    HyCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
-                                }
-                                if (Filedesc.Contains("UdyamRegistration"))
-                                {
-                                    lnkUdyam.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
-                                    HyUdyam.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
-                                }
-                                if (Filedesc.Contains("PAN"))
-                                {
-                                    lnkPAN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
-                                    HyPAN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
-                                }
-                                if (Filedesc.Contains("GSTIN"))
-                                {
-                                    lnkGST.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
-                                    HyGST.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
-                                }
-                                if (Filedesc.Contains("CIN"))
-                                {
-                                    lnkCIN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
-                                    HyCIN.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
-                                }
-                                if (Filedesc.Contains("DPR"))
-                                {
-                                    linkViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
-                                    hplViewDPR.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
-                                }
-                                if (Filedesc.Contains("BankAppraisal"))
-                                {
-                                    lnkBankAppraisal.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILENAME"]);
-                                    HyBankAppraisal.Text = Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]);
-                                }
-                                i++;
-                            }
+                            grdAttachments.DataSource = ds.Tables[3];
+                            grdAttachments.DataBind();
                         }
-
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                         {
                             grdQueries.DataSource = ds.Tables[4];
@@ -288,10 +245,17 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void linkViewDPR_Click(object sender, EventArgs e)
+        protected void linkAttachment_Click(object sender, EventArgs e)
         {
-            Response.Redirect(hplViewDPR.Text);
-
+            try
+            {
+                LinkButton link = (LinkButton)sender;
+                GridViewRow row = (GridViewRow)link.NamingContainer;
+                Label lblfilepath = (Label)row.FindControl("lblFilePath");
+                if (lblfilepath != null || lblfilepath.Text != "")
+                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + lblfilepath.Text);
+            }
+            catch (Exception ex) { }
         }
         protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
         {
@@ -624,80 +588,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void lnkCmpnyRegcertificate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect(HyCmpnyRegcertificate.Text);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
-        protected void lnkUdyam_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect(HyUdyam.Text);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
-        protected void lnkPAN_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect(HyPAN.Text);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-
-        }
-        protected void lnkGST_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect(HyGST.Text);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-
-        }
-        protected void lnkCIN_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect(HyCIN.Text);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
-        protected void lnkBankAppraisal_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect(HyBankAppraisal.Text);
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
 
         protected void btnUpldAttachment_Click(object sender, EventArgs e)
         {
@@ -800,7 +690,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     Failure.Visible = true;
                 }
 
-               
+
             }
             catch (Exception ex)
             {

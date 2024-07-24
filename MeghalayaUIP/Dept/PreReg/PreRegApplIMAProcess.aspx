@@ -668,77 +668,44 @@
                                     <section id="dashboardAttachmnt">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-8">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-6">
                                                     <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0" style="text-align: center;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="text-align: center;">Sl.No</th>
-                                                                    <th>Attachment Name</th>
-                                                                    <th>View</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>1.</td>
-                                                                    <td class="fw-bold">Company Registration Certificate</td>
-                                                                    <td style="text-align: center;">
-                                                                        <asp:LinkButton ID="lnkCmpnyRegcertificate" runat="server" OnClick="lnkCmpnyRegcertificate_Click" Target="_blank"></asp:LinkButton>
-                                                                        <asp:HyperLink ID="HyCmpnyRegcertificate" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2.</td>
-                                                                    <td class="fw-bold">Udyam/IEM</td>
-                                                                    <td style="text-align: center;">
-                                                                        <asp:LinkButton ID="lnkUdyam" runat="server" OnClick="lnkUdyam_Click" Target="_blank"></asp:LinkButton>
-                                                                        <asp:HyperLink ID="HyUdyam" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3.</td>
-                                                                    <td class="fw-bold">PAN</td>
-                                                                    <td style="text-align: center;">
-                                                                        <asp:LinkButton ID="lnkPAN" runat="server" OnClick="lnkPAN_Click" Target="_blank"></asp:LinkButton>
-                                                                        <asp:HyperLink ID="HyPAN" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>4.</td>
-                                                                    <td class="fw-bold">GST</td>
-                                                                    <td style="text-align: center;">
-                                                                        <asp:LinkButton ID="lnkGST" runat="server" OnClick="lnkGST_Click" Target="_blank"></asp:LinkButton>
-                                                                        <asp:HyperLink ID="HyGST" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>5.</td>
-                                                                    <td class="fw-bold">CIN</td>
-                                                                    <td style="text-align: center;">
-                                                                        <asp:LinkButton ID="lnkCIN" runat="server" OnClick="lnkCIN_Click" Target="_blank"></asp:LinkButton>
-                                                                        <asp:HyperLink ID="HyCIN" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>6.</td>
-                                                                    <td class="fw-bold">DPR</td>
-                                                                    <td style="text-align: center;">
-                                                                        <asp:LinkButton ID="linkViewDPR" runat="server" OnClick="linkViewDPR_Click" Target="_blank"></asp:LinkButton>
-                                                                        <asp:HyperLink ID="hplViewDPR" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>7.</td>
-                                                                    <td class="fw-bold">Bank Appraisal</td>
-                                                                    <td style="text-align: center;">
-                                                                        <asp:LinkButton ID="lnkBankAppraisal" runat="server" OnClick="lnkBankAppraisal_Click" Target="_blank"></asp:LinkButton>
-                                                                        <asp:HyperLink ID="HyBankAppraisal" runat="server" Visible="false" Target="_blank"></asp:HyperLink>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                                        <asp:GridView ID="grdAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                            GridLines="Both" HeaderStyle-BackColor="Red"
+                                                            Width="100%" EnableModelValidation="True">
+                                                            <RowStyle />
+                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                            <HeaderStyle BackColor="Red" />
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                            <AlternatingRowStyle BackColor="White" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
+                                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                    <ItemTemplate>
+                                                                        <%# Container.DataItemIndex + 1%>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
+                                                                <asp:TemplateField HeaderText="View">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server" OnClick="linkAttachment_Click"></asp:LinkButton>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="View" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+
+                                                            </Columns>
+
+                                                        </asp:GridView>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-3"></div>
 
                                             </div>
                                         </div>

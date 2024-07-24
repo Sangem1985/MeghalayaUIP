@@ -34,7 +34,9 @@ public class QueryStringModule : IHttpModule
     void context_BeginRequest(object sender, EventArgs e)
     {
         HttpContext context = HttpContext.Current;
-        if (!context.Request.Url.OriginalString.ToLower().Contains("CFEAttachments".ToLower()) && !context.Request.Url.OriginalString.ToLower().Contains("GrievanceAttachments".ToLower()) && !context.Request.Url.OriginalString.ToLower().Contains("PreRegAttachments".ToLower()) && context.Request.Url.OriginalString.Contains("aspx") && context.Request.RawUrl.Contains("?"))
+        //if (!context.Request.Url.OriginalString.ToLower().Contains("CFEAttachments".ToLower()) && !context.Request.Url.OriginalString.ToLower().Contains("GrievanceAttachments".ToLower()) && !context.Request.Url.OriginalString.ToLower().Contains("PreRegAttachments".ToLower()) && ( context.Request.Url.OriginalString.Contains("aspx") || context.Request.Url.OriginalString.Contains("ashx")) && context.Request.RawUrl.Contains("?"))
+        if ((context.Request.Url.OriginalString.Contains("aspx") || context.Request.Url.OriginalString.Contains("ashx")) && context.Request.RawUrl.Contains("?"))
+
         {
             string query = ExtractQuery(context.Request.RawUrl);
             string path = GetVirtualPath();

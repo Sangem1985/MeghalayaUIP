@@ -87,6 +87,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.HiddenField hdnResultTab2;
 
         /// <summary>
+        /// hdnResultTab3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnResultTab3;
+
+        /// <summary>
         /// Link1 control.
         /// </summary>
         /// <remarks>

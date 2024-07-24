@@ -476,21 +476,21 @@ function ValidateDecimal(field, ff) {
 //    return emailPattern.test(email);
 //}
 
-function validateEmail(mail) {
-    var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+//function validateEmail(mail) {
+//    var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    if (pattern.test(mail)) {
+//    if (pattern.test(mail)) {
 
-    } else {
-        mail.focus();
-        mail.value = "";
-        alert("Invalid mail id");
+//    } else {
+//        mail.focus();
+//        mail.value = "";
+//        alert("Invalid mail id");
 
-        return false;
-    }
+//        return false;
+//    }
 
 
-}
+//}
 
 function validateAmount(event) {
     var charCode = event.charCode || event.keyCode;
@@ -832,8 +832,35 @@ function validateGST(event) {
         }
     }
 }
+function Address(event) {
+    var charCode = event.charCode || event.keyCode;
 
 
+    if ((charCode >= 48 && charCode <= 57) ||
+        (charCode >= 65 && charCode <= 90) ||
+        (charCode >= 97 && charCode <= 122) ||
+        charCode === 45 || // Hyphen (-)
+        charCode === 47 || // Slash (/)
+        charCode === 44 || // Comma (,)
+        charCode === 46 || // Dot (.)
+        charCode === 32) { // Space
+        return true;
+    } else {
+        event.preventDefault();
+        dot.value == "";
+        alert("Please enter only alphabets, numbers, hyphen, dot, slash, or comma.");
+        return false;
+    }
+}
+//function pageLoad() {
+//    var date = new Date();
+//    var currentMonth = date.getMonth();
+//    var currentDate = date.getDate();
+//    var currentYear = date.getFullYear();
+//    $(".datepicker").datepicker({
+//        dateFormat: 'dd-mm-yy' // Customize the date format as needed
+//    });
+//}
 
 
 

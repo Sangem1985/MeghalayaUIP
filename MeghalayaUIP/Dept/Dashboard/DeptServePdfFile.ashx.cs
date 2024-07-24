@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
-using System.Web.SessionState;
 
-namespace MeghalayaUIP.User.Dashboard
+namespace MeghalayaUIP.Dept.Dashboard
 {
-
-    public class ServePdfFile : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+    /// <summary>
+    /// Summary description for DeptServePdfFile
+    /// </summary>
+    public class DeptServePdfFile : IHttpHandler, System.Web.SessionState.IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
         {
-            var session = context.Session["UserInfo"];
+            var session = context.Session["DeptUserInfo"];
             if (session != null && context.Request.QueryString.Count > 0)
             {
 
@@ -41,7 +42,7 @@ namespace MeghalayaUIP.User.Dashboard
             }
             else
             {
-                context.Response.Redirect("~/Login.aspx");
+                context.Response.Redirect("~/DeptLogin.aspx");
             }
 
         }

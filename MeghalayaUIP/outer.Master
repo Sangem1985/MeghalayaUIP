@@ -13,6 +13,7 @@
                 });
             });
         });
+
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('input[type="text"]').forEach(function (input) {
                 input.addEventListener('keypress', preventInvalidChars)
@@ -21,6 +22,15 @@
                 });
             });
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[type="password"]').forEach(function (input) {
+                input.addEventListener('keypress', preventInvalidChars)
+                input.addEventListener('paste', function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+
         function preventInvalidChars(event) {
             var charCode = event.charCode || event.keyCode;
             var charStr = String.fromCharCode(charCode);

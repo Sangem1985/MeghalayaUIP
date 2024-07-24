@@ -1026,6 +1026,10 @@
     <Compile Include="Dept\Dashboard\DeptDashboard.aspx.designer.cs">
       <DependentUpon>DeptDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dept\Dashboard\DeptServePdfFile.ashx.cs">
+      <DependentUpon>DeptServePdfFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Dashboard\IISHandler1.cs" />
     <Compile Include="Dept\Demo.aspx.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2321,6 +2325,7 @@
     <Content Include="assets\assetsnew\fonts\Flaticon.woff" />
     <Content Include="assets\assetsnew\fonts\Flaticon.woff2" />
     <Content Include="assets\assetsnew\fonts\Flaticond41d.eot" />
+    <Content Include="Dept\Dashboard\DeptServePdfFile.ashx" />
     <None Include="packages.config" />
     <Content Include="User\user.Master" />
     <Content Include="User\Dashboard\ServePdfFile.ashx" />

@@ -183,61 +183,13 @@ namespace MeghalayaUIP.User.PreReg
                             grdDirectors.DataSource = ds.Tables[2];
                             grdDirectors.DataBind();
                         }
-
-                        //if (ds.Tables[5].Rows.Count > 0)
-                        //{
-                        //    int c = ds.Tables[5].Rows.Count;
-                        //    string Filedesc = "";
-                        //    int i = 0;
-
-                        //    while (i < c)
-                        //    {
-                        //        Filedesc = ds.Tables[5].Rows[i]["FILEDESCRIPTION"].ToString();
-                        //        if (Filedesc.Contains("CompanyRegistration"))
-                        //        {
-                        //            lnkCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
-                        //            HyCmpnyRegcertificate.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
-                        //        }
-                        //        if (Filedesc.Contains("UdyamRegistration"))
-                        //        {
-                        //            lnkUdyam.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
-                        //            HyUdyam.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
-                        //        }
-                        //        if (Filedesc.Contains("PAN"))
-                        //        {
-                        //            lnkPAN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
-                        //            HyPAN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
-                        //        }
-                        //        if (Filedesc.Contains("GSTIN"))
-                        //        {
-                        //            lnkGST.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
-                        //            HyGST.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
-                        //        }
-                        //        if (Filedesc.Contains("CIN"))
-                        //        {
-                        //            lnkCIN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
-                        //            HyCIN.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
-                        //        }
-                        //        if (Filedesc.Contains("DPR"))
-                        //        {
-                        //            linkViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
-                        //            hplViewDPR.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
-                        //        }
-                        //        if (Filedesc.Contains("BankAppraisal"))
-                        //        {
-                        //            lnkBankAppraisal.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILENAME"]);
-                        //            HyBankAppraisal.Text = Convert.ToString(ds.Tables[5].Rows[i]["FILELOCATION"]);
-                        //        }
-                        //        i++;
-                        //    }
-                        //}
+                        if (ds.Tables[5].Rows.Count > 0)
+                        {
+                            grdAttachments.DataSource = ds.Tables[5];
+                            grdAttachments.DataBind();
+                        }
 
                     }
-
-
-
-
-
                 }
 
             }
@@ -245,6 +197,34 @@ namespace MeghalayaUIP.User.PreReg
             {
                 throw ex;
             }
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                Response.Redirect("~/User/PreReg/IndustryRegistration.aspx");
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+
+            }
+        }
+
+        protected void linkAttachment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton link = (LinkButton)sender;
+                GridViewRow row = (GridViewRow)link.NamingContainer;
+                Label lblfilepath = (Label)row.FindControl("lblFilePath");
+                if (lblfilepath != null || lblfilepath.Text != "")
+                    Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + lblfilepath.Text);
+            }
+            catch (Exception ex) { }
         }
     }
 }

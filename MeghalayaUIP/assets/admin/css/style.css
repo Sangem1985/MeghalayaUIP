@@ -44,6 +44,10 @@ Version      : 1.3
 
 @import url('https://fonts.googleapis.com/css?family=Mada:400,500,600,700&display=swap');
 
+span.star {
+	color: red;
+}
+
 @font-face {
 	font-family: 'Material Icons';
 	font-style: normal;
@@ -6103,3 +6107,7 @@ table#ContentPlaceHolder1_gvPreRegApproved input[type=submit]:disabled, table#Co
 	::-webkit-scrollbar-thumb:hover {
 		background: #0b3654;
 	}
+
+
+
+
