@@ -52,24 +52,27 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
 
-
-                string UnitID = Request.QueryString[0].ToString();
-                string InvesterID = hdnUserID.Value;
-                if (UnitID != null && InvesterID != null)
+                if (Request.QueryString.Count > 0)
                 {
-                    DataSet ds = new DataSet();
-                    ds = preBAL.GetIndRegUserApplDetails(UnitID, InvesterID);
-
-                    if (ds.Tables.Count > 0)
+                    string UnitID = Request.QueryString[0].ToString();
+                    string InvesterID = hdnUserID.Value;
+                    if (UnitID != null && InvesterID != null)
                     {
-                        if (ds.Tables[0].Rows.Count > 0)
-                        {
-                            lblUIDNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
+                        DataSet ds = new DataSet();
+                        ds = preBAL.GetIndRegUserApplDetails(UnitID, InvesterID);
 
-                        }
-                        if (ds.Tables[3].Rows.Count > 0)
+                        if (ds.Tables.Count > 0)
                         {
-                            lblApplDate.Text = Convert.ToString(ds.Tables[3].Rows[0]["APPLICATIONDATE"]);
+                            if (ds.Tables[0].Rows.Count > 0)
+                            {
+                                lblUIDNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
+
+                            }
+                            if (ds.Tables[3].Rows.Count > 0)
+                            {
+                                lblApplDate.Text = Convert.ToString(ds.Tables[3].Rows[0]["APPLICATIONDATE"]);
+
+                            }
 
                         }
 
@@ -86,13 +89,13 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                
+
                 Response.Redirect("~/User/Dashboard/MainDashboard.aspx");
 
             }
             catch (Exception ex)
             {
-               
+
             }
         }
 

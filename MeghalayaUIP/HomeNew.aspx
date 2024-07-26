@@ -489,8 +489,21 @@
                                 <img src="assets/assetsnew/images/resource/team-4.jpg" alt="">
                             </figure>
                             <div class="lower-content">
-                                <h4>Tourism and Hospitality</h4>
+                                <h4>Tourism</h4>
                                 <span class="designation">Mawmluh Cave in Sohra, Meghalaya, was selected by the International Union of Geological Sciences – IUGS (UNESCO).</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="team-block-one">
+                    <div class="inner-box">
+                        <a href="Agri-Horti.aspx">
+                            <figure class="image-box">
+                                <img src="assets/assetsnew/images/resource/team-2.jpg" alt="">
+                            </figure>
+                            <div class="lower-content">
+                                <h4>Food Processing</h4>
+                                <span class="designation">Meghalaya has 76% forest land, certainly above the Indian average of only 25%, whereas the net sown area is 9%</span>
                             </div>
                         </a>
                     </div>
@@ -499,25 +512,11 @@
                     <div class="inner-box">
                         <a href="#">
                             <figure class="image-box">
-                                <img src="assets/assetsnew/images/resource/team-7.jpg" alt="">
+                                <img src="assets/assetsnew/images/resource/team-8.jpg" alt="">
                             </figure>
                             <div class="lower-content">
-                                <h4>Healthcare</h4>
-                                <span class="designation">The total tele-density of Meghalaya is 74 Mn</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="team-block-one">
-                    <div class="inner-box">
-                        <a href="IT_ITES.aspx">
-                            <figure class="image-box">
-                                <img src="assets/assetsnew/images/resource/team-6.jpg" alt="">
-                            </figure>
-                            <div class="lower-content">
-                                <h4>IT & ITes</h4>
-                                <span class="designation">Meghalaya's Information Technology (IT) and Information Technology Enabled Services (ITES) sectors...</span>
+                                <h4>Education</h4>
+                                <span class="designation">Nipun Bharat Mission: 50 schools are part of the 208 schools taken up in Phase 1 for the upgradation works.</span>
                             </div>
                         </a>
                     </div>
@@ -537,32 +536,32 @@
                 </div>
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <a href="#">
+                        <a href="IT_ITES.aspx">
                             <figure class="image-box">
-                                <img src="assets/assetsnew/images/resource/team-8.jpg" alt="">
+                                <img src="assets/assetsnew/images/resource/team-6.jpg" alt="">
                             </figure>
                             <div class="lower-content">
-                                <h4>Education</h4>
-                                <span class="designation">Nipun Bharat Mission: 50 schools are part of the 208 schools taken up in Phase 1 for the upgradation works.</span>
+                                <h4>IT & ITes</h4>
+                                <span class="designation">Meghalaya's Information Technology (IT) and Information Technology Enabled Services (ITES) sectors...</span>
                             </div>
                         </a>
                     </div>
                 </div>
-
 
                 <div class="team-block-one">
                     <div class="inner-box">
-                        <a href="Agri-Horti.aspx">
+                        <a href="#">
                             <figure class="image-box">
-                                <img src="assets/assetsnew/images/resource/team-2.jpg" alt="">
+                                <img src="assets/assetsnew/images/resource/team-7.jpg" alt="">
                             </figure>
                             <div class="lower-content">
-                                <h4>Food Processing</h4>
-                                <span class="designation">Meghalaya has 76% forest land, certainly above the Indian average of only 25%, whereas the net sown area is 9%</span>
+                                <h4>Healthcare</h4>
+                                <span class="designation">The total tele-density of Meghalaya is 74 Mn</span>
                             </div>
                         </a>
                     </div>
                 </div>
+
                 <div class="team-block-one">
                     <div class="inner-box">
                         <figure class="image-box">
@@ -594,11 +593,11 @@
 
                             <h2 class="head2" style="font-size:30px !important;">The only interface with Investors</h2>
                             <div class="middle-content">
-                                <div class="text"><i class="fi fi-sr-check-double"></i>End to end online and transparent systems for granting clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>Participating 20+ departments provide 100+ regulatory clearance.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>Information repository for your business realted queires.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>Address your grievances.</div>
-                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>Easy tracking of applications status.</div>
+                                <div class="text"><i class="fi fi-sr-check-double"></i>&nbsp; End to end online and transparent systems for granting clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>&nbsp; Participating 20+ departments provide 100+ regulatory clearance.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>&nbsp; Information repository for your business realted queires.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>&nbsp; Address your grievances.</div>
+                                <div class="text mt-2"><i class="fi fi-sr-check-double"></i>&nbsp; Easy tracking of applications status.</div>
                             </div>
 
                         </div>

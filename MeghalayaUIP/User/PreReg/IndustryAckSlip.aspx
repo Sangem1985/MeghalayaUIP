@@ -7,6 +7,22 @@
     <title>ACKNOWLEDGEMENT SLIP</title>
     <link href="assets/admin/css/style.css" rel="stylesheet" />
     <style>
+        a#lbtnBack {
+    float: right;
+    background: #607D8B;
+    width: 59px;
+    height: 24px;
+    border-radius: 4px;
+    transition: all 0.4s;
+    text-align: center !important;
+    color: #fff;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 6px 4px 1px;
+    position: absolute;
+    top: 39px;
+    right: 210px;
+}
         ul.list-unstyled.mb-0.list-item li {
             list-style: none;
         }
@@ -18,14 +34,21 @@
             max-width: 900px;
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 1px 3px 7px 1px #ccc;
+            box-shadow: 1px 4px 8px 2px #919191;
+            margin-top: 75px;
+        }
+
+        body {
+            background: url(../../assets/admin/img/bgo.jpg);
+            background-size: contain;
+            background-position: inherit;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="col-md-1 pb-2 pt-2">
-            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back </asp:LinkButton>
         </div>
 
         <div>
@@ -66,13 +89,20 @@
                             </div>
                         </div>
 
-
-
+                        <div class="col-md-12 d-flex" style="display: flex;width: 100%;flex-direction: row;flex-wrap: nowrap;justify-content: center;">
+                            <div class="col-md-6" style="width: 10%;">
+                                <button id="btndownload" class="btn btn-sm btn-info">Download</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="btnprint" class="btn btn-sm btn-info">Print</button>
+                            </div>
+                        </div>
 
                     </div>
                     <!-- /Invoice Container -->
 
                 </div>
+
             </div>
         </div>
     </form>
