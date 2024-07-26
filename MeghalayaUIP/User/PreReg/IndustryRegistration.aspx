@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="IndustryRegistration.aspx.cs" Inherits="MeghalayaUIP.User.PreReg.IndustryRegistration" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -123,9 +123,9 @@
                                     <div class="col-md-12 ">
                                         <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                             <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server"></asp:Label>
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">×</span>
+                                                <span aria-hidden="true">×</span></button>
                                         </div>
                                     </div>
                                     <div class="col-md-12 ">
@@ -133,8 +133,8 @@
                                             <strong>Warning!</strong>
                                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">×</span>
-										</button>
+                                                <span aria-hidden="true">×</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -243,9 +243,9 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox type="text" runat="server" ID="txtCompnyRegDt" class="datepicker form-control" onkeypress="validateNumberAndHyphen();" TabIndex="1" />
-
-                                                                            <i class="fi fi-rr-calendar-lines"></i>
+                                                                            <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                                            <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtCompnyRegDt"></cc1:CalendarExtender>
+                                                                            <i class="fi fi-rr-ckalendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -428,8 +428,9 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="datepicker form-control" TabIndex="1" />
-                                                                            <%--<i class="fi fi-rr-calendar-lines"></i>--%>
+                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" />
+                                                                            <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDCPorOperation"></cc1:CalendarExtender>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -533,7 +534,7 @@
                                                                         <label class="col-lg-6 col-form-label">Sector<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:DropDownList runat="server" ID="ddlSector" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged">
-                                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                                <%--<asp:ListItem Text="--Select--" Value="0"></asp:ListItem>--%>
                                                                             </asp:DropDownList>
                                                                         </div>
                                                                     </div>
@@ -1319,8 +1320,8 @@
             </asp:UpdateProgress>
         </ContentTemplate>
         <Triggers>
-          
-             <asp:PostBackTrigger ControlID="txtCompnyRegDt" />
+
+            <asp:PostBackTrigger ControlID="txtCompnyRegDt" />
             <asp:PostBackTrigger ControlID="txtDCPorOperation" />
 
             <asp:PostBackTrigger ControlID="btnregistration" />

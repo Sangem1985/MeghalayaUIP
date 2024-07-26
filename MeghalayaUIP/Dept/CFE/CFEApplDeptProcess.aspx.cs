@@ -108,44 +108,99 @@ namespace MeghalayaUIP.Dept.CFE
                     DataSet ds = new DataSet();
                     ds = objcfebal.GetCFEApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString());
 
-                    DataRow row = ds.Tables[0].Rows[0];
-                    lblnameUnit.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
-                    lblunitname1.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
-                    lblApplNo.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
-                    lblapplDate.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
-                    lbl_Name1.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
-                    lbl_Name1Approval.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
+                    if (ObjUserInfo.Deptid == "10") //Labour Details
+                    {
+                        LabourDet.Visible = true;
+                    }
+                    else { LabourDet.Visible = false; }
 
-                    lblNameOffline.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
-                    lblUnitNameOffline.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
-                    lblAppNoOffline.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
-                    lblAppDateOffline.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
+                    if (ObjUserInfo.Deptid == "14") //POWER DETAILS
+                    {
+                        PowerDetails.Visible = true;
+                    }
+                    else { PowerDetails.Visible = false; }
 
-                    lblunitname1Approval.Text = Convert.ToString(row["CFEQD_COMPANYNAME"]);
-                    lblApplNoApproval.Text = Convert.ToString(row["CFEQD_CFEUIDNO"]);
-                    lblapplDateApproval.Text = Convert.ToString(row["CFEQD_CREATEDDATE"]);
-                    lblconstitution.Text = Convert.ToString(row["CONST_TYPE"]);
-                    lblProposal.Text = Convert.ToString(row["CFEQD_PROPOSALFOR"]);
-                    lblLocation.Text = Convert.ToString(row["DistrictName"]);
-                    lblMandal.Text = Convert.ToString(row["Mandalname"]);
-                    lblVillage.Text = Convert.ToString(row["VillageName"]);
-                    lblExtentland.Text = Convert.ToString(row["CFEQD_TOTALEXTENTLAND"]);
-                    lblBuilt.Text = Convert.ToString(row["CFEQD_BUILTUPAREA"]);
-                    lblSectors.Text = Convert.ToString(row["CFEQD_SECTOR"]);
-                    lblActivity.Text = Convert.ToString(row["LineofActivity_Name"]);
-                    lblPollution.Text = Convert.ToString(row["CFEQD_PCBCATEGORY"]);
-                    lblIndustry.Text = Convert.ToString(row["INDUSTRYTYPE"]);
+                    if (ObjUserInfo.Deptid == "9") //FIRE DETAILS
+                    {
+                        Fires.Visible = true;
+                    }
+                    else { Fires.Visible = false; }
 
-                    lblUnitLocation.Text = Convert.ToString(row["CFEQD_UNTLOCATION"]);
-                    lblMIDCL.Text = Convert.ToString(row["CFEQD_MIDCLLAND"]);
-                    lblproposeEMP.Text = Convert.ToString(row["CFEQD_PROPEMP"]);
-                    lblLANDINR.Text = Convert.ToString(row["CFEQD_LANDVALUE"]);
-                    lblBuildingINR.Text = Convert.ToString(row["CFEQD_BUILDINGVALUE"]);
-                    lblMachineryINR.Text = Convert.ToString(row["CFEQD_PMCOST"]);
-                    lblExpectTurnINR.Text = Convert.ToString(row["CFEQD_EXPECTEDTURNOVER"]);
-                    lblTPCost.Text = Convert.ToString(row["CFEQD_TOTALPROJCOST"]);
-                    lblEnterpriseCat.Text = Convert.ToString(row["CFEQD_ENTERPRISETYPE"]);
+                    if (ObjUserInfo.Deptid == "4") //FOREST DETAILS
+                    {
+                        ForestDet.Visible = true;
+                    }
+                    else { ForestDet.Visible = false; }
 
+                    if (ObjUserInfo.Deptid == "12") //HAZARADOUS DETAILS
+                    {
+                        HazradousWaterDetails.Visible = true;
+                    }
+                    else { HazradousWaterDetails.Visible = false; }
+
+                    if (ObjUserInfo.Deptid == "13") //EXPLOSIVE DETAILS
+                    {
+                        Explosive.Visible = true;
+                    }
+                    else { Explosive.Visible = false; }
+
+                    if (ObjUserInfo.Deptid == "13") //FUEL DETAILS
+                    {
+                        FuelDet.Visible = true;
+                    }
+                    else { FuelDet.Visible = false; }
+
+                    if (ObjUserInfo.Deptid == "14") //DGSET DETAILS
+                    {
+                        DGSETDET.Visible = true;
+                    }
+                    else { DGSETDET.Visible = false; }
+
+                    if (ObjUserInfo.Deptid == "18") //CEIG DETAILS
+                    {
+                        CEIGDET.Visible = true;
+                    }
+                    else { CEIGDET.Visible = false; }
+
+                    if (ObjUserInfo.Deptid == "6") //TAX PROFESSIONAL DETAILS
+                    {
+                        TaxDet.Visible = true;
+                    }
+                    else { TaxDet.Visible = false; }
+
+                    if (ObjUserInfo.Deptid == "5") //WATER DETAILS
+                    {
+                        waterConn.Visible = true;
+                    }
+                    else { waterConn.Visible = false; }
+
+
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        lblnameUnit.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYNAME"]);
+
+                        lblconstitution.Text = Convert.ToString(ds.Tables[0].Rows[0]["CONST_TYPE"]);
+                        lblProposal.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPOSALFOR"]);
+                        lblLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["DistrictName"]);
+                        lblMandal.Text = Convert.ToString(ds.Tables[0].Rows[0]["Mandalname"]);
+                        lblVillage.Text = Convert.ToString(ds.Tables[0].Rows[0]["VillageName"]);
+                        lblExtentland.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
+                        lblBuilt.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILTUPAREA"]);
+                        lblSectors.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_SECTOR"]);
+                        lblActivity.Text = Convert.ToString(ds.Tables[0].Rows[0]["LineofActivity_Name"]);
+                        lblPollution.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PCBCATEGORY"]);
+                        lblIndustry.Text = Convert.ToString(ds.Tables[0].Rows[0]["INDUSTRYTYPE"]);
+
+                        lblUnitLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNTLOCATION"]);
+                        lblMIDCL.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MIDCLLAND"]);
+                        lblproposeEMP.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPEMP"]);
+                        lblLANDINR.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LANDVALUE"]);
+                        lblBuildingINR.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILDINGVALUE"]);
+                        lblMachineryINR.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PMCOST"]);
+                        lblExpectTurnINR.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_EXPECTEDTURNOVER"]);
+                        lblTPCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALPROJCOST"]);
+                        lblEnterpriseCat.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_ENTERPRISETYPE"]);
+                    }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                     {
                         lblBNameCompany.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_COMPANYNAME"]);
@@ -167,10 +222,8 @@ namespace MeghalayaUIP.Dept.CFE
                         lblMandals.Text = Convert.ToString(ds.Tables[1].Rows[0]["Mandalname"]);
                         lblVillages.Text = Convert.ToString(ds.Tables[1].Rows[0]["VillageName"]);
                         lblPincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_REPPINCODE"]);
-
                         lblAbled.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_REPISDIFFABLED"]);
                         lblWomen.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_REPISWOMANENTR"]);
-
                         lblDevelopment.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_DEVELOPAREA"]);
                         lblARCLIC.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_ARCHTCTLICNO"]);
                         lblARCNAME.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_ARCHTCTNAME"]);
@@ -181,7 +234,15 @@ namespace MeghalayaUIP.Dept.CFE
                         lblApproacheRoad.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_APPROACHROADTYPE"]);
 
                         lblWidening.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_AFFECTEDRDWDNG"]);
-                        lblAffectedArea.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_AFFECTEDRDAREA"]);
+                        if (lblWidening.Text == "Yes")
+                        {
+                            Extend.Visible = true;
+                            lblAffectedArea.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_AFFECTEDRDAREA"]);
+                        }
+                        else
+                        {
+                            Extend.Visible = false;
+                        }
                         lblDirectMale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_DIRECTMALE"]);
                         lblDirectFemale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_DIRECTFEMALE"]);
                         lblEmployees.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_TOTALEMP"]);
@@ -194,123 +255,546 @@ namespace MeghalayaUIP.Dept.CFE
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[2].Rows.Count > 0)
                     {
                         lbllineActivity.Text = Convert.ToString(ds.Tables[2].Rows[0]["LineofActivity_Name"]);
-                        lblitem.Text = Convert.ToString(ds.Tables[2].Rows[0]["CFELM_ITEMNAME"]);
-                        lblQuantityper.Text = Convert.ToString(ds.Tables[2].Rows[0]["CFELM_ITEMANNUALCAPACITY"]);
-                        lblQuantity.Text = Convert.ToString(ds.Tables[2].Rows[0]["CFELM_ITEMVALUE"]);
+
+                        divManf.Visible = true;
+                        if (divManf.Visible == true)
+                        {
+                            gvManufacture.DataSource = ds.Tables[2];
+                            gvManufacture.DataBind();
+                        }
+                        else { divManf.Visible = false; }
+
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
                     {
-                        lblEstablish.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_CATEGORY_ESTABLISHMENT"]);
-                        lblNames.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_NAME"]);
-                        lblFather.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_FATHERNAME"]);
-                        lblAge.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_AGE"]);
-                        lblDesignation.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_DESIGNATION"]);
-                        lblMobiles.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_MOBILENO"]);
-                        lblMail.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_EMAILID"]);
-                        lbldist.Text = Convert.ToString(ds.Tables[3].Rows[0]["DISTRIC"]);
-                        lblMandalsmandal.Text = Convert.ToString(ds.Tables[3].Rows[0]["MANDAL"]);
-                        lblVILLAS.Text = Convert.ToString(ds.Tables[3].Rows[0]["VILLAGE"]);
-                        lblDoors.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_DOOR"]);
-                        lblLocalitys.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_LOCALITY"]);
-                        lblPins.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_PINCODE"]);
-                        lblcontractor.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_NAMECONTRACTOR"]);
-                        lblfafname.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_FATHER"]);
-                        lblages.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_AGES"]);
-                        lblMobileno.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_MOBILE"]);
-                        lblEmailId.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_EMAIL"]);
-                        lblDistr.Text = Convert.ToString(ds.Tables[3].Rows[0]["DISTRIC"]);
-                        lbltaluka.Text = Convert.ToString(ds.Tables[3].Rows[0]["MANDAL"]);
-                        lblVillvillage.Text = Convert.ToString(ds.Tables[3].Rows[0]["VILLAGE"]);
-                        lblDoorno.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_DOORNO"]);
-                        lbllocals.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_LOCALITYNAME"]);
-                        lblPincodeno.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFELD_PIN"]);
+                        lbllineActivity.Text = Convert.ToString(ds.Tables[3].Rows[0]["LineofActivity_Name"]);
+                        gvRwaMaterial.DataSource = ds.Tables[3];
+                        gvRwaMaterial.DataBind();
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                     {
-                        lblHP.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_CONNECTEDLOAD"]);
-                        lblMaxDemand.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_MAXIMUMDEMAND"]);
-                        lblVoltageLevel.Text = Convert.ToString(ds.Tables[4].Rows[0]["VOLTAGERANGE"]);
-                        lblPermise.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_WRKNGHRSPERDAY"]);
-                        lblMonth.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_WRKNGHRSPERMONTH"]);
-                        lblYear.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_PRODUCTIONDTAE"]);
-                        lblPowersupply.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_POWERDATE"]);
-                        lblQuantum.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFEPD_REQLOAD"]);
-                        lblEngeryLaod.Text = Convert.ToString(ds.Tables[4].Rows[0]["ENERGYLOAD_NAME"]);
+                        // LabourDet.Visible = true;
+                        if (LabourDet.Visible == true)
+                        {
+                            lblEstablish.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CATEGORY_ESTABLISHMENT"]);
+                            lblNames.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_NAME"]);
+                            lblFather.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_FATHERNAME"]);
+                            lblAge.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGE"]);
+                            lblDesignation.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_DESIGNATION"]);
+                            lblMobiles.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MOBILENO"]);
+                            lblMail.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_EMAILID"]);
+                            lbldist.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_DISTRICSID"]);
+                            lblMandalsmandal.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANDALSID"]);
+                            lblVILLAS.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_VILLAGESID"]);
+                            lblDoors.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_DOOR"]);
+                            lblLocalitys.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_LOCALITY"]);
+                            lblPins.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_PINCODE"]);
+
+                            divsupervision.Visible = true;
+                            if (divsupervision.Visible == true)
+                            {
+                                lblMangerName.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERNAME"]);
+                                lblManagerMobile.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERMOBILENO"]);
+                                //  ManagerAge.Text = Convert.ToString(ds.Tables[4].Rows[0][""]);
+                                ManagerDesignation.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGEREMAILID"]);
+                                ManagerFather.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERFATHERNAME"]);
+                                lblManagerEmail.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERDOOR"]);
+                                lblManagerDistrict.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERLOCALITY"]);
+                                lblManagerMandal.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERDISTRICSID"]);
+                                lblManagerVillage.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERMANDALSID"]);
+                                lblManagerDoor.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERVILLAGESID"]);
+                                lblManagerLocality.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERPINCODE"]);
+                                lblManagerPincode.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MANAGERDESIGNATION"]);
+
+                            }
+                            else { divsupervision.Visible = false; }
+
+
+                            div4questions.Visible = true;
+                            if (div4questions.Visible == true)
+                            {
+                                lblNatureOfEmp.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_NATUREOFWORKLABOUREMP"]);
+                                lblEstDateBuild.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_ESTDATEBUILDING"]);
+                                lblContractEmp.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MAXNUMBEROFCONTRACTEMP"]);
+                                lblBuildingWork.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_ESTDATEOFCONSTRUCTIONWORK"]);
+                            }
+                            else { div4questions.Visible = false; }
+
+                            div5questions.Visible = true;
+                            if (div5questions.Visible == true)
+                            {
+                                lblMigrantWorkmen.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_MAXNUMBERMIGRANTESTDATE"]);
+                                lblPreceding5Years.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORCONVICTED5YEARS"]);
+                                lblRevokingLic.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_REVOKINGSUSPENDINGLIC"]);
+                                lblEstPast5Years.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_ESTPAST5YEARSNATUREOFWORK"]);
+                                lblBusiness.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_INDUSTRYMANUOCCUPATIONEST"]);
+
+                            }
+                            else { div5questions.Visible = false; }
+
+                            divContractorDtls.Visible = true;
+                            if (divContractorDtls.Visible == true)
+                            {
+                                lblcontractor.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORNAMECONTRACTOR"]);
+                                lblfafname.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORFATHER"]);
+                                lblages.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORAGES"]);
+                                lblMobileno.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORMOBILE"]);
+                                lblEmailId.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTOREMAIL"]);
+                                lblDistr.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORDISTID"]);
+                                lbltaluka.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORMANDALID"]);
+                                lblVillvillage.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORVILLAGEID"]);
+                                lblDoorno.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORDOORNO"]);
+                                lbllocals.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORLOCALITYNAME"]);
+                                lblPincodeno.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CONTRACTORPIN"]);
+
+                            }
+                            else { divContractorDtls.Visible = false; }
+
+                            divAgentDtls.Visible = true;
+                            if (divAgentDtls.Visible == true)
+                            {
+
+                                lblAgentName.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGENTNAME"]);
+                                lblAgentDoor.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGENTDOORNO"]);
+                                lblAgentLocality.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGENTLOCALITY"]);
+                                lblAgentDistrict.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGENTDISTRICT"]);
+                                lblAgentMandal.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGENTMANDAL"]);
+                                AgetVillage.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGENTVILLAGE"]);
+                                lblAgentPincode.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_AGENTPINCODE"]);
+                            }
+                            else { divAgentDtls.Visible = false; }
+
+                        }
+                        else { LabourDet.Visible = false; }
+
+                    }
+
+                    if (LabourDet.Visible == true)
+                    {
+                        divContrLabr.Visible = true;
+                        if (divContrLabr.Visible == true)
+                        {
+                            if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
+                            {
+                                GVLabour.DataSource = ds.Tables[5];
+                                GVLabour.DataBind();
+                            }
+                        }
+                        else { divContrLabr.Visible = false; }
+
+                        divMigrLabr.Visible = true;
+                        if (divMigrLabr.Visible == true)
+                        {
+                            if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
+                            {
+                                GVMigrant.DataSource = ds.Tables[6];
+                                GVMigrant.DataBind();
+                            }
+                        }
+                        else { divMigrLabr.Visible = false; }
+                    }
+                    else { LabourDet.Visible = false; }
+
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
+                    {
+                        // PowerDetails.Visible = true;
+                        if (PowerDetails.Visible == true)
+                        {
+                            lblHP.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_CONNECTEDLOAD"]);
+                            lblMaxDemand.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_MAXIMUMDEMAND"]);
+                            lblVoltageLevel.Text = Convert.ToString(ds.Tables[7].Rows[0]["VOLTAGERANGE"]);
+                            if (lblPermise.Text != "")
+                            {
+                                services.Visible = false;
+                                lblPermise.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_WRKNGHRSPERDAY"]);
+                            }
+                            else { services.Visible = false; }
+
+                            //lblDay.Text= Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_WRKNGHRSPERDAY"]);
+                            lblMonth.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_WRKNGHRSPERMONTH"]);
+                            lblYear.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_PRODUCTIONDTAE"]);
+                            lblPowersupply.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_POWERDATE"]);
+                            lblQuantum.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_REQLOAD"]);
+                            //   lblEngeryLaod.Text = Convert.ToString(ds.Tables[7].Rows[0]["ENERGYLOAD_NAME"]);
+                        }
+                        else { PowerDetails.Visible = false; }
+
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
                     {
-                        lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
-                        lblMan.Text = Convert.ToString(ds.Tables[8].Rows[0]["Mandalname"]);
-                        lblVill.Text = Convert.ToString(ds.Tables[8].Rows[0]["VillageName"]);
-                        lbllocal.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Locality"]);
-                        lbNear.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Landmark"]);
-                        lblPincodes.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Pincode"]);
-                        lblheight.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGHT"]);
-                        lblEachfloor.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FLOORHT"]);
-                        lblArea.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_PLOTAREA"]);
-                        lblbuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGAREA"]);
-                        lbldriveway.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DRIVEPROPSED"]);
-                        lblcategoryBuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_CATEGORYBUILD"]);
-                        feeamount.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FEEAMOUNT"]);
-                        lblEast.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_East"]);
-                        lblDistanceprop.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCEEAST"]);
-                        lblwest.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_West"]);
-                        lblbUILDDIST.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCEWEST"]);
-                        lblNorth.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_North"]);
-                        lblDistBuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCENORTH"]);
-                        lblSouth.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_South"]);
-                        lblbuildProp.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCESOUTH"]);
-                        lblFireStation.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FIRESTATION"]);
+                        //  Fires.Visible = true;
+                        if (Fires.Visible == true)
+                        {
+                            lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
+                            lblMan.Text = Convert.ToString(ds.Tables[8].Rows[0]["Mandalname"]);
+                            lblVill.Text = Convert.ToString(ds.Tables[8].Rows[0]["VillageName"]);
+                            lbllocal.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Locality"]);
+                            lbNear.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Landmark"]);
+                            lblPincodes.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Pincode"]);
+                            lblheight.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGHT"]);
+                            lblEachfloor.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FLOORHT"]);
+                            lblArea.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_PLOTAREA"]);
+                            lblbuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGAREA"]);
+                            lbldriveway.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DRIVEPROPSED"]);
+                            lblcategoryBuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_CATEGORYBUILD"]);
+                            feeamount.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FEEAMOUNT"]);
+                            lblEast.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_East"]);
+                            lblDistanceprop.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCEEAST"]);
+                            lblwest.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_West"]);
+                            lblbUILDDIST.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCEWEST"]);
+                            lblNorth.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_North"]);
+                            lblDistBuild.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCENORTH"]);
+                            lblSouth.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_South"]);
+                            lblbuildProp.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCESOUTH"]);
+                            lblFireStation.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FIRESTATION"]);
+
+                        }
+                        else { Fires.Visible = false; }
+
+
+
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[9].Rows.Count > 0)
                     {
-                        lblspice.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SPECIES"]);
-                        lblLength.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_TIMBERLENGTH"]);
-                        lblvolume.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_TIMBERVOLUME"]);
-                        lblGirth.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_GIRTH"]);
-                        lblFirewood.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_ESTIMATED"]);
-                        lblpole.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_POLES"]);
-                        lblNorths.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_NORTH"]);
-                        lblEasts.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_EAST"]);
-                        lblWests.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_WEST"]);
-                        lblSouths.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SOUTH"]);
-                        lblAddress.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_ADDRESS"]);
-                        lbllatitude.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_LATTITUDE"]);
-                        lblDegreess.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_DEGREES"]);
-                        lblMinte.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_MINUTES"]);
-                        lblseconds.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SECONDS"]);
-                        lbllongitude.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_LONGITUDE"]);
-                        lblDegrees.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_DEGREE"]);
-                        lblMinutes.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_MINUTE"]);
-                        lblsecond.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SECOND"]);
-                        lblCoordinates.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_GPSCOORDINATES"]);
-                        lblApplication.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
-                        lblDivision.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_FORESTDIVISION"]);
-                        lblinformation.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_INFORMATION"]);
+                        // ForestDet.Visible = true;
+                        if (ForestDet.Visible == true)
+                        {
+                            lblspice.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SPECIES"]);
+                            lblLength.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_TIMBERLENGTH"]);
+                            lblvolume.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_TIMBERVOLUME"]);
+                            lblGirth.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_GIRTH"]);
+                            lblFirewood.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_ESTIMATED"]);
+                            lblpole.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_POLES"]);
+                            lblNorths.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_NORTH"]);
+                            lblEasts.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_EAST"]);
+                            lblWests.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_WEST"]);
+                            lblSouths.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SOUTH"]);
+                            lblAddress.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_ADDRESS"]);
+                            lbllatitude.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_LATTITUDE"]);
+                            lblDegreess.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_DEGREES"]);
+                            lblMinte.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_MINUTES"]);
+                            lblseconds.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SECONDS"]);
+                            lbllongitude.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_LONGITUDE"]);
+                            lblDegrees.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_DEGREE"]);
+                            lblMinutes.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_MINUTE"]);
+                            lblsecond.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SECOND"]);
+                            lblCoordinates.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_GPSCOORDINATES"]);
+                            lblApplication.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
+                            lblDivision.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_FORESTDIVISION"]);
+                            lblinformation.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_INFORMATION"]);
+                        }
+                        else { ForestDet.Visible = false; }
+
+
+
+                        // 
+
                     }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[10].Rows.Count > 0)
+                    {
+                        //  HazradousWaterDetails.Visible = true;
+                        if (HazradousWaterDetails.Visible == true)
+                        {
+                            lblReqtrick.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_AUTHORIZATIONREQ"]);
+                            lblQuantitywaste.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_WASTEHANDLEANNUM"]);
+                            lblMetrictons.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_WASTESTOREDTIME"]);
+                            lblhandleannum.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_QUANTITYWASTEANNUM"]);
+                            lblWastestored.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_QUANTITYSTOREDTIME"]);
+                            lblYearProduct.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_YEAROFPRODUCTION"]);
+                            lblindustrywork.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_INDUSTRYWORK"]);
+
+                        }
+                        else { HazradousWaterDetails.Visible = false; }
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[11].Rows.Count > 0)
+                    {
+                        // Explosive.Visible = true;
+                        if (Explosive.Visible == true)
+                        {
+                            lblExplosive.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_EXPLOSIVESITE"]);
+                            lblRoadvan.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_EXPLOSIVEROADVAN"]);
+                            lblCriminal.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_CRIMINAL1973"]);
+                            if (lblCriminal.Text == "Yes")
+                            {
+                                Details.Visible = true;
+                                lblChapterDetails.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_DETAIL"]);
+                            }
+                            lblLicPossess.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_EXPLOSIVE1884"]);
+                            if (lblLicPossess.Text == "Yes")
+                            {
+                                LicDetails.Visible = true;
+                                lblDetails.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_DETAILS"]);
+                            }
+                            lblApprovals.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_APPROVAL101"]);
+
+                            if (lblApprovals.Text == "Yes")
+                            {
+                                approvaldet.Visible = true;
+                                lblapprovalDet.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_APPROVALDETAILS"]);
+                            }
+                            lblRelevant.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_ANYINFORMATION"]);
+                        }
+                        else { Explosive.Visible = false; }
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[12].Rows.Count > 0)
+                    {
+                        //  Explosive.Visible = true;
+                        if (Explosive.Visible == true)
+                        {
+                            GVEXPLOSIVE.DataSource = ds.Tables[12];
+                            GVEXPLOSIVE.DataBind();
+                        }
+                        else { Explosive.Visible = false; }
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[13].Rows.Count > 0)
+                    {
+                        // FuelDet.Visible = true;
+
+                        if (FuelDet.Visible == true)
+                        {
+                            lblPetrolNoc.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_NOCPETROLPUMP"]);
+                            lblFuelNoc.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_NOCREQ"]);
+                            lblFuelDistrict.Text = Convert.ToString(ds.Tables[13].Rows[0]["DistrictName"]);
+                            lblFuelMandal.Text = Convert.ToString(ds.Tables[13].Rows[0]["Mandalname"]);
+                            lblFuelVillage.Text = Convert.ToString(ds.Tables[13].Rows[0]["VillageName"]);
+                            lblRoad.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_LOCATEDROAD"]);
+                            lblNameESt.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_NAMEEST"]);
+                            lblHoldingCert.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_LANDHOLDINGNO"]);
+                            lblUnderLease.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_LANDLEASER"]);
+                            lblDeedRegNo.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_REGNO"]);
+                            lblLandHolding.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_AREALANDHOLDINGNO"]);
+                            lblFuelNorth.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_NORTH"]);
+                            lblFuelEast.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_EAST"]);
+                            lblFuelSouth.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_SOUTH"]);
+                            lblFuelwest.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_WEST"]);
+                            lblFrontage.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_FRONTAGE"]);
+                            lblDepth.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_DEPTH"]);
+                        }
+                        else { FuelDet.Visible = false; }
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[14].Rows.Count > 0)
+                    {
+                        // DGSETDET.Visible = true;
+                        if (DGSETDET.Visible == true)
+                        {
+                            lblDGSurveyNo.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_LOCDOORNO"]);
+                            lblDGLocality.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_LOCALITY"]);
+                            lblDGLandmark.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_LANDMARK"]);
+                            lblDGDistrict.Text = Convert.ToString(ds.Tables[14].Rows[0]["DistrictName"]);
+                            lblDGMandal.Text = Convert.ToString(ds.Tables[14].Rows[0]["Mandalname"]);
+                            lblDGVillage.Text = Convert.ToString(ds.Tables[14].Rows[0]["VillageName"]);
+                            lblDGPincode.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_LOCPINCODE"]);
+                            lblDGNameSupply.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_SUPPLIERNAME"]);
+                            lblLoadConnect.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_TOTLCONNECTEDLOAD"]);
+                            lblTotalLoad.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_TOTLPROPDGSETLOAD"]);
+                            lblInterlock.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_INTERLOCKPROVIDED"]);
+                            LBLdgMotor.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MOTORLOAD"]);
+                            lblDGLight.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_LIGHTSFANSLOAD"]);
+                            lblDGOther.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_OTHERLOAD"]);
+                            lblGenRunMode.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_GENRUNNINGMODE"]);
+                            lblExpectedCompletion.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_WRKCOMPLETIONDATE"]);
+                            lblDateInstall.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_INSTLATIONSTARTDATE"]);
+                            lblExpectedDate.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_COMMISSIONINGDATE"]);
+                            lblDGNameSup.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_SUPERVISORNAME"]);
+                            lblSupLicNo.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_SUPERVISORLICNO"]);
+                            lblinternalName.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_CONTRACTORNAME"]);
+                            lblConLicNo.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_CONTRACTORLICNO"]);
+                            lblDGSETName.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_DGSETOPERATORNAME"]);
+                            lblDGCapacity.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_DGSETCAPACITY"]);
+                            lblCapcity.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_DGSETCAPACITYIN"]);
+                            lblPowerFactor.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_DGSETPOWERFACTOR"]);
+                            lblRatedvtg.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_DGSETRATEDVOLTAGE"]);
+                            lblEngineSerial.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_DGSETENGINEDTLS"]);
+                            lblMakeserial.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_DGSETALTERNATORDTLS"]);
+                            lblEquipment.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_EQUIPMENTTYPE"]);
+                            lblEarthing.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_EARTHCONDCTRDTLS"]);
+                            lblIndependent.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_CONDUCTORPATHS"]);
+                            lblelectrode.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_ELECTRODEDTLS"]);
+                            lblSystemohm.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_IMPEDANCE"]);
+                            lblImpedance.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_TOTALIMPEDANCE"]);
+                            lblLighting.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_LIGHTINGTYPE"]);
+                            lblAlternator.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_ALTERNATORTESTDTLS"]);
+                            lblEarhtTester.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_EARTHTESTERNO"]);
+                            lblMakeEarth.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_EARTHTESTERMAKE"]);
+                            lblRangeEarth.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_EARTHTESTERRANGE"]);
+                            lblMeggerNo.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERNO"]);
+                            lblMake.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERMAKE"]);
+                            lblRange.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERRANGE"]);
+                        }
+                        else { DGSETDET.Visible = false; }
+
+
+
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[15].Rows.Count > 0)
+                    {
+                        //  CEIGDET.Visible = true;
+                        if (CEIGDET.Visible == true)
+                        {
+                            lblAlreadyInstall.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_ALREADYINSTALLED"]);
+                            lblCEIGProposed.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_PROPOSED"]);
+                            lblCEIGTotal.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_TOTAL"]);
+                            lblTypeLoad.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_CONNECTEDLOAD"]);
+                            lblAlredy.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_ALREADTINSTALL"]);
+                            lblProposed.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_PROPSE"]);
+                            lblTotal.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_TOTALS"]);
+                            lblRegulation.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_REGULATION"]);
+                            if (lblTypeLoad.Text == "Yes")
+                            {
+                                divvoltages.Visible = true;
+                                lblCEIGVoltage.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_VOLTAGE"]);
+                                divpowerplants1.Visible = true;
+                                lblPlant.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_PLANT"]);
+                            }
+                            else
+                            {
+                                divpowerplants2.Visible = true;
+                                lblATC.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_CAPACITY"]);
+                            }
+
+
+                            lblLocatFactory.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_FACTORYLOCATION"]);
+                            lblSurveyNo.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_SURVEYNO"]);
+                            lblExtent.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_EXTENT"]);
+                            lblCEIGDistrict.Text = Convert.ToString(ds.Tables[15].Rows[0]["DistrictName"]);
+                            lblCEIGMandal.Text = Convert.ToString(ds.Tables[15].Rows[0]["Mandalname"]);
+                            lblCEIGVillage.Text = Convert.ToString(ds.Tables[15].Rows[0]["VillageName"]);
+                            lblStreetName.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_STREETNAME"]);
+                            lblCEIGPin.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_PINCODE"]);
+                            lblTelephone.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_TELEPHONE"]);
+                            lblNaerest.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_NEARTELEPHONENO"]);
+                            lblDateCommence.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_DATE"]);
+
+                        }
+                        else { CEIGDET.Visible = false; }
+
+
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[16].Rows.Count > 0)
+                    {
+                        //  TaxDet.Visible = true;
+                        if (TaxDet.Visible == true)
+                        {
+                            lblTaxApplyAs.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_APPLYAS"]);
+                            lblTaxNameEst.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_NAMEEST"]);
+                            lblTaxAddress.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_ADDRESSEST"]);
+                            lblTaxDistrict.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_DISTRICEST"]);
+                            lblTaxPincode.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_PINCODEEST"]);
+                            lblTaxTotalEst.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_TOTALNOEMPEST"]);
+                            lblTaxDateCommence.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_DATE"]);
+                            lblTaxEst.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_CONSTITUTIONEST"]);
+                            lblTaxGoodsService.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_GOODSSUPPLIESEST"]);
+                            lblTaxPlace.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_ADDITIONPLACEBUSINESS"]);
+                            lblTaxDesignation.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_DESIGNATION"]);
+                            lblTaxRegAct.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_REGUNDERACT"]);
+                            if (lblTaxRegAct.Text == "Yes")
+                            {
+                                RegistrationType.Visible = true;
+                                lbltaxRegType.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_REGTYPE"]);
+                                RegNo.Visible = true;
+                                lblTaxReNo.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_REGNO"]);
+                            }
+                        }
+                        else { TaxDet.Visible = false; }
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[17].Rows.Count > 0)
+                    {
+                        //  TaxDet.Visible = true;
+
+                        if (TaxDet.Visible == true)
+                        {
+                            GVState.DataSource = ds.Tables[17];
+                            GVState.DataBind();
+                        }
+                        else { TaxDet.Visible = false; }
+
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[18].Rows.Count > 0)
+                    {
+                        // waterConn.Visible = true;
+                        if (waterConn.Visible == true)
+                        {
+                            lblDrink.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WATERDRINK"]);
+                            lblWaterIndu.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WATERPROCESS"]);
+                            lblReqWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_CONSUMPTIVEWATER"]);
+                            lblNonConsumptive.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_NONCONSUMPTIVEWATER"]);
+                            lblConnection.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WATERCONN"]);
+
+                            if (lblConnection.Text == "3")
+                            {
+                                holdno.Visible = false;
+                            }
+                            else
+                            {
+                                holdno.Visible = true;
+                                lblHold.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_HOLDINGNO"]);
+                            }
+
+                            lblWardNo.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WARDNO"]);
+
+                            CommercialWater.Visible = true;
+                            if (CommercialWater.Visible == true)
+                            {
+                                lblSubDivision.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_DIVISIONAL"]);
+                                lblPremise.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_NOOFPREMISE"]);
+                                lblReqDemand.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_DEMANDPERDAY"]);
+                                lblInformations.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_INFORMATION"]);
+                                lblDistrictWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["DistrictName"]);
+                                MandalWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["Mandalname"]);
+                                lblVillageWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["VillageName"]);
+                                lblLocalitywater.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_LOCALITY"]);
+                                lblNear.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_LANDMARK"]);
+                                lblPinNumber.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_PINCODE"]);
+                                lblReqConn.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_PURPOSECON"]);
+                                lblTypeCon.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_TYPECONN"]);
+                                if (lblTypeCon.Text == "Yes")
+                                {
+                                    NominalDN.Visible = true;
+                                    lbldomestic.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_DOMESTIC"]);
+                                    DiameterDN.Visible = false;
+                                }
+                                else
+                                {
+                                    DiameterDN.Visible = true;
+                                    lblDiameter.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_BULK"]);
+                                    NominalDN.Visible = false;
+                                }
+
+
+                            }
+                            else { CommercialWater.Visible = false; }
+
+                        }
+                    }
+
                     if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
                     {
                         divChecklistAttachment.Visible = false;
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[20].Rows.Count > 0)
+                        {
+                            grdcfeattachment.DataSource = ds.Tables[20];
+                            grdcfeattachment.DataBind();
+
+                        }
+                    }
+                    else
+                    {
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[19].Rows.Count > 0)
                         {
                             grdcfeattachment.DataSource = ds.Tables[19];
                             grdcfeattachment.DataBind();
-                           
                         }
                     }
-                    else 
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[21].Rows.Count > 0)
                     {
-
-                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[18].Rows.Count > 0)
-                        {
-                            grdcfeattachment.DataSource = ds.Tables[18];
-                            grdcfeattachment.DataBind();
-                        }
-
-                    }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
-                    {
-                        grdApplStatus.DataSource = ds.Tables[8];
+                        grdApplStatus.DataSource = ds.Tables[21];
                         grdApplStatus.DataBind();
                     }
 

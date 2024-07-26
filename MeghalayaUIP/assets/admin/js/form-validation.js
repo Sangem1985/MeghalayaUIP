@@ -789,7 +789,6 @@ function validateNameAndNumbers(event) {
 }
 function validateNumberAndHyphen(event) {
     var charCode = event.charCode || event.keyCode;
-
     if ((charCode >= 48 && charCode <= 57) || charCode === 45) {
         return true;
     } else {
@@ -852,16 +851,19 @@ function Address(event) {
         return false;
     }
 }
-//function pageLoad() {
-//    var date = new Date();
-//    var currentMonth = date.getMonth();
-//    var currentDate = date.getDate();
-//    var currentYear = date.getFullYear();
-//    $(".datepicker").datepicker({
-//        dateFormat: 'dd-mm-yy' // Customize the date format as needed
-//    });
-//}
+function validateDateFormat(input) {
+    var datePattern = /^\d{2}-\d{2}-\d{4}$/;
+    if (input.value != "") {
+        if (!datePattern.test(input.value)) {
+            alert("Please enter the date in dd-mm-yyyy format.");
+            input.value = "";
+            input.target.focus();
+            return false;
+        }
+        return true;
+    }
 
+}
 
 
 
