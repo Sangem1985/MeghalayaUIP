@@ -2331,7 +2331,8 @@ readers do not read off random characters that represent icons */
 .fa-korvue:before {
   content: "\f42f"; }
 
-.fa-landmark:before {
+.fa-
+mark:before {
   content: "\f66f"; }
 
 .fa-language:before {

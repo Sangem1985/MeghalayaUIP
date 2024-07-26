@@ -90,8 +90,10 @@ a:active,
 a:focus {
 	outline: none;
 	text-decoration: none;
-	color: #00d0f1;
+	color: #013161;
+	
 }
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -6080,9 +6082,7 @@ div#accordion .table-responsive a {
 }
 
 
-table#ContentPlaceHolder1_gvPreRegApproved input[type=submit]:disabled, table#ContentPlaceHolder1_gvCFOApproved input[type=submit]:disabled {
-	height: 35px !important;
-}
+
 
 
 /* width */
@@ -6108,6 +6108,18 @@ table#ContentPlaceHolder1_gvPreRegApproved input[type=submit]:disabled, table#Co
 		background: #0b3654;
 	}
 
-
+table#ContentPlaceHolder1_gvRenewals input[type=submit]:disabled {
+	display: inline;
+	height: 34px !important;
+	border-radius: 50px;
+	background: #ccc !important;
+	font-weight: 600;
+	color: #000;
+	border: none;
+}
+table#ContentPlaceHolder1_gvPreRegApproved input[type=submit]:disabled, table#ContentPlaceHolder1_gvCFOApproved input[type=submit]:disabled {
+	height: 35px !important;
+	border: none;
+}
 
 
