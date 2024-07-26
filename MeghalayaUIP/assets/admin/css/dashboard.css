@@ -362,7 +362,24 @@ section#dashboardcount\ ima i.fi ::before {
 
 a#ContentPlaceHolder1_Link1 {
     background: #dce775 !important;
-    padding: 10px 7px;
+    padding: 10px 7px !important;
+    margin: 0px 6px;
+    color: #000 !important;
+    border-radius: 22px 0px !important;
+    font-weight: 500;
+}
+a#ContentPlaceHolder1_Link2 {
+    background: #aed581 !important;
+    padding: 10px 7px !important;
+    margin: 0px 6px;
+    color: #000 !important;
+    border-radius: 22px 0px !important;
+    font-weight: 500;
+}
+
+a#ContentPlaceHolder1_Link3 {
+    background: #4db6ac !important;
+    padding: 10px 7px !important;
     margin: 0px 6px;
     color: #000 !important;
     border-radius: 22px 0px !important;
@@ -370,7 +387,7 @@ a#ContentPlaceHolder1_Link1 {
 }
 a#ContentPlaceHolder1_Link4 {
     background: #81baf7 !important;
-    padding: 10px 7px;
+    padding: 10px 7px !important;
     margin: 0px 6px;
     color: #000 !important;
     border-radius: 22px 0px !important;
@@ -382,24 +399,10 @@ a#ContentPlaceHolder1_Link1:active {
     padding: 10px 8px;
 }
 
-a#ContentPlaceHolder1_Link2 {
-    background: #aed581 !important;
-    padding: 10px 7px;
-    margin: 0px 6px;
-    color: #000 !important;
-    border-radius: 22px 0px !important;
-    font-weight: 500;
+a#ContentPlaceHolder1_Link2:active {
+    background: #e8ebff;
+    padding: 10px 8px;
 }
-
-a#ContentPlaceHolder1_Link3 {
-    background: #4db6ac !important;
-    padding: 10px 7px;
-    margin: 0px 6px;
-    color: #000 !important;
-    border-radius: 22px 0px !important;
-    font-weight: 500;
-}
-
 div#basictab1 {
     border: 1px solid #004c6d;
 }
@@ -439,7 +442,7 @@ span.icon4 {
     position: absolute;
     top: 70px;
     color: #81baf7;
-    left: 76% !important;
+    right: 11% !important;
 }
 
 i.fi {

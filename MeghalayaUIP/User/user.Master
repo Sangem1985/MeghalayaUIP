@@ -130,7 +130,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                         </body>
                     </li>
 
-                    <li class="ml-4 mt-3 mr-2"><i class="fi fi-br-headset"></i>Help Line No : <b>+91 7085741695</b></li>
+                    <li class="ml-4 mt-3 mr-2"><i class="fi fi-br-headset"></i> Help Line No : <b>+91 7085741695</b></li>
                     <!-- /Notifications -->
 
                     <!-- User Menu -->
@@ -214,49 +214,9 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                     <%-- <a class="nav-link" href="#"><i class="fi fi-br-function-process"></i>Renewals</a>--%>
                                     <asp:LinkButton ID="LinkRENDashBoard" runat="server" OnClick="LinkRENDashBoard_Click" class="nav-link"><i class="fi fi-br-function-process"></i> Renewals </asp:LinkButton>
                                 </li>
-                                <%--<li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CFE
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="../CFE/CFEQuestionnaire.aspx">Questionnaire</a>
-                                        <a class="dropdown-item" href="DepartmentApprovalDetails.html">Combined Application Form</a>
-                                        <a class="dropdown-item" href="#">Respond To Query </a>
-
-                                        <a class="dropdown-item" href="#">Payment </a>
-                                        <a class="dropdown-item" href="#">Payment History </a>
-                                        <a class="dropdown-item" href="#">Print Acknowledgment </a>
-                                        <a class="dropdown-item" href="#">Track Your Application </a>
-                                        <a class="dropdown-item" href="CAF.html">Print CFE </a>
-                                        <a class="dropdown-item" href="#">Duplicate Receipt </a>
-                                    </div>
-                                </li>--%>
-                                <%-- <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Post Establishment
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="Quesstionniare_cfo.html">Questionnaire</a>
-                                        <a class="dropdown-item" href="DepartmentApprovalDetails.html">Combined Application Form</a>
-                                        <a class="dropdown-item" href="#">Respond To Query </a>
-
-                                        <a class="dropdown-item" href="#">Payment </a>
-                                        <a class="dropdown-item" href="#">Payment History </a>
-                                        <a class="dropdown-item" href="#">Print Acknowledgment </a>
-                                        <a class="dropdown-item" href="#">Track Your Application </a>
-                                        <a class="dropdown-item" href="#">Print CFE </a>
-                                        <a class="dropdown-item" href="#">Duplicate Receipt </a>
-                                    </div>
-                                </li>--%>
-                                <%--<li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Renewals
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Renewals</a>
-                                        <a class="dropdown-item" href="#">Renewals DashBoard</a>
-                                        <a class="dropdown-item" href="#">Print Acknowledgment</a>
-
-
-                                    </div>
-                                </li>--%>
+                               
+                                
+                               
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fi fi-br-person-circle-question"></i>Grievance
                                     </a>
@@ -275,13 +235,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                 </li>
 
                             </ul>
-                            <ul style="list-style: none; margin-bottom: -3px !important; width: 8%; text-align: right; justify-content: right;" class="d-flex">
-                                <li class="nav-item">
-
-                                    <asp:LinkButton ID="lnkCentralrepository" runat="server" Visible="false" OnClick="lnkCentralrepository_Click" class="nav-link" Style="margin-bottom: -3px !important;"><i class="fi fi-br-source-document" Title="Central Repository"></i> </asp:LinkButton>
-                                    <%--<a class="nav-link" href="#"></a>--%>
-                                </li>
-                            </ul>
+                            
                             <ul style="list-style: none; margin-bottom: -3px !important; width: 8%; text-align: right; justify-content: right;" class="d-flex">
                                 <li class="nav-item">
 

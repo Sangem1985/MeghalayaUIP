@@ -165,13 +165,13 @@ namespace MeghalayaUIP.User.LA
                     HeaderCell.Text = "Land Approvals";
                     HeaderGridRow.Cells.Add(HeaderCell);
 
-                    HeaderCell = new TableHeaderCell();
-                    HeaderCell.ColumnSpan = 3;
-                    HeaderCell.RowSpan = 1;
-                    HeaderCell.Font.Bold = true;
-                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                    HeaderCell.Text = "";
-                    HeaderGridRow.Cells.Add(HeaderCell);
+                    //HeaderCell = new TableHeaderCell();
+                    //HeaderCell.ColumnSpan = 3;
+                    //HeaderCell.RowSpan = 1;
+                    //HeaderCell.Font.Bold = true;
+                    //HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    //HeaderCell.Text = "";
+                    //HeaderGridRow.Cells.Add(HeaderCell);
 
                     gvPreRegApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);
                 }

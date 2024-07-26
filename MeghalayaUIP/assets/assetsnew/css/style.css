@@ -3777,6 +3777,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
     transition: all 500ms ease;
     border-radius: 20px;
+    border: 1px solid #e5e5e5;
 }
 
 .service-block-two:hover .inner-box{
@@ -17637,9 +17638,14 @@ section.counter-style-two {
 
 .project-section.case-page-3{
   position: relative;
-  padding: 100px 0px 130px 0px;
+  padding: 19px 0px 2px 0px;
 }
-
+section.project-section.case-page-3 i.fi {
+    font-size: 65px;
+}
+section.project-section.case-page-3 .inner-box {
+    height: 165px;
+}
 .project-section.case-page-3:before{
   display: none;
 }

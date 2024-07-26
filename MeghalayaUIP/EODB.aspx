@@ -237,7 +237,62 @@
                         <li>4.	Reduced 167 compliances (143 for businesses, 24 for citizens).</li>
                     </ul>--%>
                     <h4>Proactive Steps in Meghalaya</h4>
-                     <section class="project-section case-page-3 eodb41 p-0 pt-2 mb-5">
+                    <section class="project-section case-page-3">
+        <div class="large-container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                           
+                            <div class="lower-content">
+                                <div class="count-number">01</div>
+                                <h3><i class="fi fi-tr-digital-tachograph"></i></h3>
+                                <div class="text">Digitization of records</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="200ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            
+                            <div class="lower-content">
+                                <div class="count-number">02</div>
+                                <h3><i class="fi fi-tr-compliance-document"></i></h3>
+                                <div class="text">Minimizing compliance burdens</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="400ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 400ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                           
+                            <div class="lower-content">
+                                <div class="count-number">03</div>
+                                <h3><i class="fi fi-tr-chart-user"></i></h3>
+                                <div class="text">Identified 304 compliances (280 Businesses, 24 Citizens)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                    <div class="project-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            
+                            <div class="lower-content">
+                                <div class="count-number">04</div>
+                               <h3><i class="fi fi-tr-network-analytic"></i></h3>
+                                <div class="text">Reduced 167 compliances (143 Businesses, 24 Citizens)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+                     <%--<section class="project-section case-page-3 eodb41 p-0 pt-2 mb-5">
                         <div class="large-container">
                             
                             <div class="row">
@@ -269,7 +324,7 @@ animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
 
                                 </div>
                             </div>
-                        </section>
+                        </section>--%>
                    <%-- <section class="project-section case-page-3 eodb4 p-0 pt-2 mb-5">
                         <div class="large-container">
                             

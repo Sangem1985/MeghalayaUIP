@@ -138,16 +138,16 @@
                                     <ul class="nav nav-tabs">
                                         <li class="nav-item">
                                             <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 18px; margin-top: -8px !important; padding: 10px 10px 12px !important;"> 
-                                    1. Basic Details</asp:LinkButton></li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;1. Basic Details&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton></li>
                                         <li class="nav-item">
                                             <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
-                                    2. Revenue Projections</asp:LinkButton></li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;2. Revenue Projections&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton></li>
                                         <li class="nav-item">
                                             <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                     3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
                                         <li class="nav-item">
                                             <asp:LinkButton ID="Link4" class="nav-link" runat="server" OnClick="Link4_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 6px !important;"> 
-                                    4. Enclosures </asp:LinkButton></li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Enclosures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton></li>
                                     </ul>
                                     <div class="tab-content">
                                         <asp:MultiView ID="MVprereg" runat="server" OnActiveViewChanged="MVprereg_ActiveViewChanged">
@@ -235,7 +235,7 @@
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date <span class="star">*</span></label>
+                                                                        <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:TextBox type="text" runat="server" ID="txtCompnyRegDt" class="datepicker form-control" onkeypress="validateNumberAndHyphen();" TabIndex="1" />
 
@@ -1313,7 +1313,8 @@
             </asp:UpdateProgress>
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="txtCompnyRegDt" />
+          
+             <asp:PostBackTrigger ControlID="txtCompnyRegDt" />
             <asp:PostBackTrigger ControlID="txtDCPorOperation" />
 
             <asp:PostBackTrigger ControlID="btnregistration" />

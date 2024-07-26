@@ -169,20 +169,19 @@ span.status4 a, span.status1 a, span.status2 a, span.status3 a, span.status a {
     }
 
 span.status {
-    background: #00a152;
-
+    background: #0d47a1;
 }
 
 span.status1 {
-    background: #b26500;
+    background: #1565c0;
 }
 
 span.status2 {
-    background-color: #b2102f;
+    background: #1976d2;
 }
 
 span.status3 {
-    background-color: #9500ae;
+    background: #1e88e5;
 }
 
 tr.head {
@@ -195,9 +194,8 @@ tr.head {
 
 span.status4 {
     border-radius: .75rem;
-    background-image: linear-gradient(195deg, #49a3f1, #1a73e8);
+    background: #0b4b7e;
     color: #fff;
-   
 }
 
 
