@@ -226,10 +226,9 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    verifypanel.Visible = true;
                         //    QueryResondpanel.Visible = false;
                         //}
-                        if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY" && Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6")
+                        if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY" && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6" || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13"))
                         {
                             QueryResondpanel.Visible = true;
-
                         }
                         else
                         {
