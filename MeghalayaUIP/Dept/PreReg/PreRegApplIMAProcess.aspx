@@ -989,7 +989,7 @@
 
                                 <div class="card">
                                     <div class="table-responsive">
-                                        <table align="Center" style="width: 100%; align-content: center" class="table-hover table-bordered mb-10">
+                                        <table align="Center" style="width: 100%; align-content: center" class="table-bordered mb-10">
                                             <tr id="trVrfyhdng" runat="server">
                                                 <td><b>Name</b></td>
                                                 <td><b>Unit Name</b></td>

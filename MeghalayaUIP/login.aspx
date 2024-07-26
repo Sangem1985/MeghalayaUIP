@@ -41,6 +41,7 @@
                             <div id="success" runat="server" visible="false" class="alert alert-success m-0" align="Center">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong>
                                 <asp:Label ID="lblmsg" runat="server"></asp:Label>
+
                             </div>
                             <div id="Failure" runat="server" visible="false" class="alert alert-danger m-0" align="Center">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
