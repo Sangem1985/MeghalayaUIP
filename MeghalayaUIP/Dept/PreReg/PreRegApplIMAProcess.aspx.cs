@@ -221,6 +221,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "3" ||
                             Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "5" ||
                             Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "7" ||
+                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "14"||
                             Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "16")
                         {
                             verifypanel.Visible = true;
