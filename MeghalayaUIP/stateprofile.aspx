@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css'>
     <style>
+        section.project-section.case-page-3 .inner-box {
+    height: 235px !important;
+}
         .team-block-two .inner-box {
             border-radius: 10px;
         }
