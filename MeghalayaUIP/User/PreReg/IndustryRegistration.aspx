@@ -150,7 +150,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;2. Revenue Projections&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton></li>
                                         <li class="nav-item">
                                             <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
-                                    3. Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members</asp:LinkButton></li>
+                                    3. Details of the Applicant / Promoter(s) / Partner(s) / Director(s) / Members</asp:LinkButton></li>
                                         <li class="nav-item">
                                             <asp:LinkButton ID="Link4" class="nav-link" runat="server" OnClick="Link4_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 6px !important;"> 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Enclosures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton></li>
@@ -245,7 +245,7 @@
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                             <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtCompnyRegDt"></cc1:CalendarExtender>
-                                                                            <i class="fi fi-rr-ckalendar-lines"></i>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>

@@ -54,9 +54,9 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.ViewStatus = Request.QueryString["status"].ToString();
 
                     if (Request.QueryString["status"].ToString() == "IMATOTAL")
-                    { lblHdng.Text = "Industry Registration Total Applications"; }
+                    { lblHdng.Text = "Industry Registration - Total Applications"; }
                     else if (Request.QueryString["status"].ToString() == "IMATOBEPROCESSED")
-                    { lblHdng.Text = "Industry Registration Applications - to be Processed"; }
+                    { lblHdng.Text = "Industry Registration Applications - To be Processed"; }
                     else if (Request.QueryString["status"].ToString() == "IMAPPROVED")
                     { lblHdng.Text = "Industry Registration Applications - Forwarded to Committee"; }
                     else if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY")
@@ -68,7 +68,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     else if (Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA")
                     { lblHdng.Text = "Industry Registration Applications - Queries Redressed by Investor"; }
                     else if (Request.QueryString["status"].ToString() == "COMMQUERYTOIMA")
-                    { lblHdng.Text = "Industry Registration Applications Query Raised by Committee"; }
+                    { lblHdng.Text = "Industry Registration Applications - Query Raised by Committee"; }
                     else if (Request.QueryString["status"].ToString() == "IMAREPLIEDTOCOMM")
                     { lblHdng.Text = "Industry Registration Applications - Committee Queries Redressed by IMA"; }
                     else if (Request.QueryString["status"].ToString() == "IMAFWDCOMMQRYTOAPPLCNT")
@@ -107,6 +107,7 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
+
                 if (e.CommandName == "VIEW")
                 {
                     string[] Arguents = e.CommandArgument.ToString().Split('$');
@@ -143,5 +144,26 @@ namespace MeghalayaUIP.Dept.PreReg
             }
         }
 
+        protected void gvPreRegDtls_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+
+                Button button = e.Row.FindControl("ciw_id") as Button;
+                if (button != null)
+                {
+                    if (Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" ||
+                        Request.QueryString["status"].ToString() == "DEPTREPLIEDTOIMA"||
+                        Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA"||
+                        Request.QueryString["status"].ToString() == "COMMQUERYTOIMA"||
+                        Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY"||
+                        Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
+                        button.Text = "Process";
+                    else
+                        button.Text = "View";
+
+                }
+            }
+        }
     }
 }

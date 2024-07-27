@@ -178,7 +178,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
 
                         lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
-                        lblunitname1.Text = Convert.ToString(row["REP_NAME"]);
+                        lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
                         lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);

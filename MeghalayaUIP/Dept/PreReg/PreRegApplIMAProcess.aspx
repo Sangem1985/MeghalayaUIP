@@ -993,11 +993,11 @@
                                             <tr id="trVrfyhdng" runat="server">
                                                 <td><b>Name</b></td>
                                                 <td><b>Unit Name</b></td>
-                                                <td><b>Mobile No</b></td>
+                                                <td><b>Application ID</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Application Action</b></td>
                                                 <td id="tdRemarks" runat="server" visible="false"><b>
-                                                    <asp:Label runat="server" Text="Please Enter Reamrks if any"></asp:Label></b>
+                                                    <asp:Label runat="server" Text="Please Enter Remarks if any"></asp:Label></b>
                                                 </td>
                                                 <td id="tdApplQuery" runat="server" visible="false"><b>
                                                     <asp:Label runat="server" Text="Please Enter Query Description"></asp:Label></b>
@@ -1021,7 +1021,7 @@
                                                 <td style="width: 200px">
                                                     <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="Approve & Forwrd to Committe" Value="8"></asp:ListItem>
+                                                        <asp:ListItem Text="Approve & Forward to Committee" Value="8"></asp:ListItem>
                                                         <asp:ListItem Text="Raise Query to Applicant" Value="4"></asp:ListItem>
                                                         <asp:ListItem Text="Raise Query to Departments" Value="6"></asp:ListItem>
                                                     </asp:DropDownList>

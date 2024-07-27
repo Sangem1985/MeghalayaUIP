@@ -36,7 +36,7 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <asp:GridView ID="gvPreRegDtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                        GridLines="None" OnRowCommand="gvPreRegDtls_RowCommand"
+                        GridLines="None" OnRowCommand="gvPreRegDtls_RowCommand" OnRowDataBound="gvPreRegDtls_RowDataBound"
                         Width="100%" EnableModelValidation="True">
                         <RowStyle />
                         <Columns>
