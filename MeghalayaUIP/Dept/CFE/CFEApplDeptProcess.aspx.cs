@@ -241,7 +241,7 @@ namespace MeghalayaUIP.Dept.CFE
                         }
                         else
                         {
-                            Extend.Visible = false;
+                            Extend.Visible = true;
                         }
                         lblDirectMale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_DIRECTMALE"]);
                         lblDirectFemale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEID_DIRECTFEMALE"]);
@@ -254,7 +254,7 @@ namespace MeghalayaUIP.Dept.CFE
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[2].Rows.Count > 0)
                     {
-                        lbllineActivity.Text = Convert.ToString(ds.Tables[2].Rows[0]["LineofActivity_Name"]);
+                        //lbllineActivity.Text = Convert.ToString(ds.Tables[2].Rows[0]["LineofActivity_Name"]);
 
                         divManf.Visible = true;
                         if (divManf.Visible == true)
@@ -262,18 +262,18 @@ namespace MeghalayaUIP.Dept.CFE
                             gvManufacture.DataSource = ds.Tables[2];
                             gvManufacture.DataBind();
                         }
-                        else { divManf.Visible = false; }
+                        else { divManf.Visible = true; }
 
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
                     {
-                        lbllineActivity.Text = Convert.ToString(ds.Tables[3].Rows[0]["LineofActivity_Name"]);
+                       // lbllineActivity.Text = Convert.ToString(ds.Tables[3].Rows[0]["LineofActivity_Name"]);
                         gvRwaMaterial.DataSource = ds.Tables[3];
                         gvRwaMaterial.DataBind();
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                     {
-                        // LabourDet.Visible = true;
+                        LabourDet.Visible = true;
                         if (LabourDet.Visible == true)
                         {
                             lblEstablish.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFELD_CATEGORY_ESTABLISHMENT"]);

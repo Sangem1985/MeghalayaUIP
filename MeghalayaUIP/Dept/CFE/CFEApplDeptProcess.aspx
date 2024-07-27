@@ -54,14 +54,18 @@
                             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h3>Questionnaire Details</h3>
-                                    </div>
+                                   <br />
+                                    <br />
                                     <div class="alldetails" id="bodypart">
-                                        <div class="row mt-4">
+
+                                            <div class="row">
                                             <div class="col-xl-12 col-sm-12 col-12">
                                                 <div class="card">
                                                     <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Questionnaire Details</h5>
+                                                            <hr />
+                                                        </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
                                                                 <div class="col-md-6">Name of Unit</div>
@@ -228,12 +232,18 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                        <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Entreprenur and Land Details</h5>
+                                                            <hr />
+                                                        </div>
 
-
-
-                                        <h4 class="card-title1 col-lg-12">ENTREPRENUER&LAND</h4>
+                                        <%--<h4 class="card-title1 col-lg-12">ENTREPRENUER&LAND</h4>--%>
                                         <div class="col-md-12 tablepadding4">
-                                            <b>Organization Details</b>
+                                            <b>Organization Details :</b>
                                         </div>
                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                             <div class="col-md-2">
@@ -291,8 +301,8 @@
                                                 <asp:Label ID="lblFactory" runat="server"></asp:Label>
                                             </div>
                                         </div>
-
-                                        <h4 class="card-title1 col-lg-12">Authorised Representative Details</h4>
+                                           
+                                        <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Authorised Representative Details :</b></p>
                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                             <div class="col-md-2">
                                                 <label>1. Name</label>
@@ -401,7 +411,8 @@
                                                 <spna class="dots">:</spna><asp:Label ID="lblAbled" runat="server"></asp:Label>
                                             </div>
                                         </div>
-                                        <h4 class="card-title1 col-lg-12">Location Details</h4>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Location Details :</b></p>
+                                        
                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                             <div class="col-md-2">
                                                 <label>1.Architect Name</label>
@@ -479,7 +490,7 @@
                                             <div class="col-md-2">
                                                 <spna class="dots">:</spna><asp:Label ID="lblNumber" runat="server"></asp:Label>
                                             </div>
-                                            <div id="Extend" runat="server" visible="false">
+                                            <div id="Extend" runat="server" visible="false" style="width: 100%;display: contents;">
                                                 <div class="col-md-2">
                                                     <label>13. Extend of affected area in sq.mts</label>
                                                 </div>
@@ -490,7 +501,8 @@
                                             </div>
                                         </div>
 
-                                        <h4 class="card-title1 col-lg-12">PROBABLE EMPLOYMENT POTENTIAL(In NO. of persons to be employed)</h4>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Probable Employment Potential (In NO. of persons to be employed) :</b></p>
+                                        
                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                             <div class="col-md-2">
                                                 <label>DIRECTMALE</label>
@@ -534,24 +546,38 @@
                                                 <spna class="dots">:</spna><asp:Label ID="lblother" runat="server"></asp:Label>
                                             </div>
                                         </div>
+                                             </div>
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
 
-                                        <h4 class="card-title1 col-lg-12">LINE OF ACTIVITY</h4>
-                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                         <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                        <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Manufacturing Items and Raw Materials Used</h5>
+                                                            <hr />
+                                                        </div>
+                                        
+
+                                        <%--<div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                             <div class="col-md-2">
                                                 <label>Line of Activity</label>
                                             </div>
                                             <div class="col-md-2">
                                                 <spna class="dots">:</spna><asp:Label ID="lbllineActivity" runat="server"></asp:Label>
                                             </div>
-                                        </div>
+                                        </div>--%>
+                                           
+                                                
                                         <div id="divManf" runat="server" visible="false">
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold">
-                                                    <span style="font-weight: 900; font-size: 20px;">Details Of Manufacture Items</span></label>
-                                            </div>
+                                           
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Details Of Manufacture Items :</b></p>
                                             <div class="table-responsive">
                                                 <asp:GridView ID="gvManufacture" runat="server" AutoGenerateColumns="False" Font-Names="Verdana"
-                                                    Font-Size="12px" SkinID="gridviewSkin" Width="800px">
+                                                    Font-Size="12px" SkinID="gridviewSkin" Width="100%">
                                                     <Columns>
                                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
                                                             <ItemTemplate>
@@ -568,14 +594,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
-                                            <label class="col-lg-12 col-form-label fw-bold">
-                                                <span style="font-weight: 900; font-size: 20px;">Details Of Raw Materials Used in Process</span></label>
-                                        </div>
-
+                                        
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Details Of Raw Materials Used in Process :</b></p>
                                         <div class="table-responsive">
                                             <asp:GridView ID="gvRwaMaterial" runat="server" AutoGenerateColumns="False" Font-Names="Verdana"
-                                                Font-Size="12px" SkinID="gridviewSkin" Width="800px">
+                                                Font-Size="12px" SkinID="gridviewSkin" Width="100%">
                                                 <Columns>
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
                                                         <ItemTemplate>
@@ -591,10 +614,24 @@
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
+                                             </div>
+                                                    </div>
+                                                </div>
+                                             </div>
 
+
+
+                                         
                                         <div id="PowerDetails" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">POWER Details</h4>
-
+                                            
+                                            <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                        <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>POWER Details</h5>
+                                                            <hr />
+                                                        </div>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Connected Load in HP</label>
@@ -630,7 +667,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <b>Proposed maximum working hours</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Proposed maximum working hours :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
 
                                                 <div class="col-md-2">
@@ -676,10 +713,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
 
                                         <div id="waterConn" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">Water Details</h4>
-                                            <b>Water Consumption</b>
+                                            <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                        <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Water Details</h5>
+                                                            <hr />
+                                                        </div>
+                                            
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Water Consumption :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Drinking Water ( in KL/Day )</label>
@@ -704,7 +753,7 @@
                                             </div>
 
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div class="col-md-2">
+                                                <div class="col-md-6" style="border:1px solid #ccc;">
                                                     <label>Quantity of Water Required for Non-Consumptive Use (in KL/Day)</label>
                                                 </div>
                                                 <div class="col-md-2">
@@ -713,7 +762,7 @@
                                                 </div>
 
                                             </div>
-                                            <b>Distance of the Water tank from the road (approx)</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Distance of the Water tank from the road (approx)</b></p>
                                             <%--     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                     <div id="tanker" runat="server" visible="false">
                                                         <div class="col-md-2">
@@ -890,20 +939,33 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                </div>
                                         </div>
 
                                         <div id="HazradousWaterDetails" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">HAZARDOUSWASTEDETAILS</h4>
-                                            <b>Authorization Required</b>
+                                               <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                        <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Hazardous Waste Details</h5>
+                                                            <hr />
+                                                        </div>
+
+                                         
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Authorization Required :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div class="col-md-2">
+                                                <div class="col-md-8" style="border:1px solid #ccc;">
                                                     <label>Authorization required for (Please tick appropriate activity or activities</label>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-4" style="border:1px solid #ccc;">
                                                     <spna class="dots">:</spna><asp:Label ID="lblReqtrick" runat="server"></asp:Label>
                                                 </div>
                                             </div>
-                                            <b>Nature and Quantity</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Nature and Quantity :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Nature and Quantity to waste handled per annum (in Metric Tons) </label>
@@ -951,10 +1013,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                                    </div>
+                                                </div>
+                                                   </div>
+                                            </div>
 
                                         <div id="Fires" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">Fire Details</h4>
-                                            <b>Location and address of the proposed building</b>
+                                              <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                        <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Fire Details</h5>
+                                                            <hr />
+                                                        </div>
+                                           
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Location and address of the proposed building :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
 
                                                 <div class="col-md-2">
@@ -1009,7 +1083,7 @@
                                                 </div>
                                             </div>
 
-                                            <b>Other Details</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Other Details :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Height of the building (in mtrs.)</label>
@@ -1057,7 +1131,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div class="col-md-2">
+                                                <div class="col-md-6" style="border:1px solid #ccc;">
                                                     <label>Fee Amount in Rs (Note: This is an aprrox. value. The amount may change tentatively) </label>
                                                 </div>
                                                 <div class="col-md-2">
@@ -1065,7 +1139,8 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title1 col-lg-12">Details of surrounding occupancies and their probable distance from the proposed building</h4>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Details of surrounding occupancies and their probable distance from the proposed building :</b>
+                                                </p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>1 (a). East  </label>
@@ -1137,11 +1212,24 @@
                                                     <spna class="dots">:</spna><asp:Label ID="lblFireStation" runat="server"></asp:Label>
                                                 </div>
                                             </div>
+
                                         </div>
+                                                    </div>
+                                                </div>
+                                                  </div>
+                                            </div>
 
                                         <div id="ForestDet" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">Forest Details</h4>
-                                            <b>A. Forest</b>
+                                             <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                                      <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Forest Details</h5>
+                                                            <hr />
+                                                        </div>
+                                            
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>A. Forest</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Species </label>
@@ -1183,7 +1271,7 @@
                                                 </div>
                                             </div>
 
-                                            <b>B. Boundary Description</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>B. Boundary Description</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
 
                                                 <div class="col-md-2">
@@ -1218,7 +1306,7 @@
                                                     <spna class="dots">:</spna><asp:Label ID="lblSouths" runat="server"></asp:Label>
                                                 </div>
                                             </div>
-                                            <b>C. GPS Coordinates Details</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>C. GPS Coordinates Details</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Establishment Location Address(For which application is being Done)</label>
@@ -1311,9 +1399,21 @@
                                                 </div>
                                             </div>
                                         </div>
+                                                    </div>
+                                                </div>
+                                                 </div>
+                                                    </div>
 
                                         <div id="LabourDet" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">Labour Details</h4>
+                                            <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                                      <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Labour Details</h5>
+                                                            <hr />
+                                                        </div>
+                                            
 
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
@@ -1323,7 +1423,8 @@
                                                     <spna class="dots">:</spna><asp:Label ID="lblEstablish" runat="server"></asp:Label>
                                                 </div>
                                             </div>
-                                            <b>Full name and address of the Principal Employer(furnish father's name in the case of individuals) with Phone No</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Full name and address of the Principal Employer(furnish
+                                                father's name in the case of individuals) with Phone No :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Name</label>
@@ -1413,7 +1514,8 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title1 col-lg-12">Boiler Technical Details</h4>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Boiler Technical Details :</b>
+                                                </p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Name of the Manufacturer </label>
@@ -1635,10 +1737,8 @@
                                             </div>
 
                                             <div id="divContrLabr" runat="server" visible="false">
-                                                <div class="col-md-12 d-flex">
-                                                    <label class="col-lg-12 col-form-label fw-bold">
-                                                        <span style="font-weight: 900; font-size: 20px;">Particulars of Contract Labour</span></label>
-                                                </div>
+                                                
+                                                 <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Particulars of Contract Labour :</b></p>
                                                 <div class="table-responsive">
                                                     <asp:GridView ID="GVLabour" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
@@ -1671,10 +1771,8 @@
                                             </div>
 
                                             <div id="divMigrLabr" runat="server" visible="false">
-                                                <div class="col-md-12 d-flex">
-                                                    <label class="col-lg-12 col-form-label fw-bold">
-                                                        <span style="font-weight: 900; font-size: 20px;">Particulars of Migrant Workmen</span></label>
-                                                </div>
+                                                
+                                                <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Particulars of Migrant Workmen :</b></p>
                                                 <div class="table-responsive">
                                                     <asp:GridView ID="GVMigrant" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
@@ -1923,14 +2021,29 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                         </div>
+                                                    </div>
+                                                </div>
+                                                 </div>
+                                                    </div>
 
                                         <div id="Explosive" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">EXPLOSIVE DETAILS</h4>
+                                             <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                                      <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Explosive Details</h5>
+                                                            <hr />
+                                                        </div>
+                                            
 
                                             <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold">
-                                                    <span style="font-weight: 900; font-size: 20px;">Quantity of Explosives proposed to be manufactured/possessed for the purpose stated at serial No. 1 above</span></label>
+                                                
+                                                 <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Quantity of Explosives proposed to be manufactured/possessed 
+                                                        for the purpose stated at serial No. 1 above :</b></p>
 
                                                 <div class="table-responsive">
                                                     <asp:GridView ID="GVEXPLOSIVE" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -1962,15 +2075,16 @@
                                             </div>
 
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div class="col-md-2">
-                                                    <label>Details of site where explosives will be used and distance of site of use from the storage premises (in case of licence for use) </label>
+                                                <div class="col-md-4"  style="border:1px solid #ccc;">
+                                                    <label>Details of site where explosives will be used and distance of site of use from the 
+                                                        storage premises (in case of licence for use) </label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <spna class="dots">:</spna><asp:Label ID="lblExplosive" runat="server"></asp:Label>
                                                 </div>
 
 
-                                                <div class="col-md-2">
+                                                <div class="col-md-4" style="border:1px solid #ccc;">
                                                     <label>Details of explosives road van which will be used for transportation of explosives (in case of no objection certificate for road van) </label>
                                                 </div>
                                                 <div class="col-md-2">
@@ -1978,7 +2092,7 @@
                                                 </div>
 
                                             </div>
-                                            <b>Additional information</b>
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Additional information :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
 
                                                 <div class="col-md-2">
@@ -1987,7 +2101,7 @@
                                                 <div class="col-md-2">
                                                     <spna class="dots">:</spna><asp:Label ID="lblCriminal" runat="server"></asp:Label>
                                                 </div>
-                                                <div id="Details" runat="server" visible="false">
+                                                <div id="Details" runat="server" visible="false" style="width:100%;display:contents;">
                                                     <div class="col-md-2">
                                                         <label>Details </label>
                                                     </div>
@@ -2003,7 +2117,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div id="LicDetails" runat="server" visible="false">
+                                                <div id="LicDetails" runat="server" visible="false" style="width:100%;display:contents;">
                                                     <div class="col-md-2">
                                                         <label>Details </label>
                                                     </div>
@@ -2018,7 +2132,7 @@
                                                 <div class="col-md-2">
                                                     <spna class="dots">:</spna><asp:Label ID="lblApprovals" runat="server"></asp:Label>
                                                 </div>
-                                                <div id="approvaldet" runat="server" visible="false">
+                                                <div id="approvaldet" runat="server" visible="false" style="width:100%;display:contents;">
                                                     <div class="col-md-2">
                                                         <label>Details</label>
                                                     </div>
@@ -2036,33 +2150,43 @@
                                                 </div>
                                             </div>
                                         </div>
+                                                      </div>
+                                                </div>
+                                                 </div>
+                                                    </div>
 
                                         <div id="FuelDet" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">Fuel Details</h4>
+                                            <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                                      <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Fuel Details</h5>
+                                                            <hr />
+                                                        </div>
+                                            
 
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold">
-                                                    <span style="font-weight: 900; font-size: 20px;">Applicant Detail's</span></label>
-                                            </div>
+                                            
+                                                           <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Applicant Detail's :</b></p>
 
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div class="col-md-2">
+                                                <div class="col-md-8" style="border:1px solid #ccc;">
                                                     <label>Whether No Objection Certificate (NOC) is required for setting up of Petrol Pump? </label>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-4" style="border:1px solid #ccc;">
                                                     <spna class="dots">:</spna><asp:Label ID="lblPetrolNoc" runat="server"></asp:Label>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div class="col-md-2">
+                                                <div class="col-md-8" style="border:1px solid #ccc;">
                                                     <label>No Objection Certificate (NOC) required for (mention the purpose clearly) </label>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-4" style="border:1px solid #ccc;">
                                                     <spna class="dots">:</spna><asp:Label ID="lblFuelNoc" runat="server"></asp:Label>
                                                 </div>
 
                                             </div>
-                                            <b>Details of the location</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Details of the location :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>District</label>
@@ -2127,7 +2251,7 @@
                                                     <spna class="dots">:</spna><asp:Label ID="lblLandHolding" runat="server"></asp:Label>
                                                 </div>
                                             </div>
-                                            <b>6.Description of Land with Boundaries</b>
+                                           <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Description of Land with Boundaries :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>(i) North</label>
@@ -2158,7 +2282,7 @@
                                                 </div>
                                             </div>
 
-                                            <b>7.Area for construction of Retail Outlet measuring (in meters)</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Area for construction of Retail Outlet measuring (in meters) :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>(i) Frontage</label>
@@ -2175,10 +2299,24 @@
 
                                             </div>
                                         </div>
+                                                    </div>
+                                                </div>
+                                                 </div>
+                                                    </div>
 
                                         <div id="DGSETDET" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">DGSETDETAILS</h4>
-                                            <b>Location of D.G. Set with Full Postal Address</b>
+
+                                            <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                        <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>GDSET Details</h5>
+                                                            <hr />
+                                                        </div>
+
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Location of D.G. Set with Full Postal Address :</b></p>
+                                            
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Door No/Survey No</label>
@@ -2230,7 +2368,8 @@
                                                 </div>
                                             </div>
 
-                                            <b>Whether Supply from the Supplier Licensee is Available</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Whether Supply from the Supplier Licensee is Available :</b></p>
+                                            
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Name of Supplier</label>
@@ -2254,7 +2393,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                <div class="col-md-2">
+                                                <div class="col-md-10" style="border: 1px solid #ccc;">
                                                     <label>Details of Interlock/Change over arrangement provided to prevent accidental paralleling of D.G. Sets to the Supply System</label>
                                                 </div>
                                                 <div class="col-md-2">
@@ -2262,7 +2401,8 @@
                                                 </div>
                                             </div>
 
-                                            <b>Detail of Load proposed to be supplied from D.G Sets</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Detail of Load proposed to be supplied from D.G Sets :</b></p>
+                                           
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Motor (AC)</label>
@@ -2286,7 +2426,8 @@
                                                 </div>
                                             </div>
 
-                                            <b>Running Mode and Expected Date of Installation/Completion/Commissioning</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Running Mode and Expected Date of Installation/Completion/Commissioning :</b></p>
+                                            
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Generators Running Mode  (in case more than one will be installed)</label>
@@ -2316,7 +2457,9 @@
                                                     <spna class="dots">:</spna><asp:Label ID="lblExpectedDate" runat="server"></asp:Label>
                                                 </div>
                                             </div>
-                                            <b>Supervisor/Contractor/Operator Details</b>
+
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Supervisor/Contractor/Operator Details :</b></p>
+                                            
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Name of the Supervisor  </label>
@@ -2354,7 +2497,8 @@
                                                 </div>
                                             </div>
 
-                                            <b>DG Set Details</b>
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>DG Set Details :</b></p>
+                                           
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Capacity </label>
@@ -2399,7 +2543,9 @@
                                                     <spna class="dots">:</spna><asp:Label ID="lblMakeserial" runat="server"></asp:Label>
                                                 </div>
                                             </div>
-                                            <b>Details of earthing (Rule 41) the particulars are required in respect of item 12 of the main proforma</b>
+
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Details of earthing (Rule 41) the particulars are required in respect of item 12 of the main proforma :</b></p>
+                                            
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Type of Equipment </label>
@@ -2459,7 +2605,9 @@
                                                     <spna class="dots">:</spna><asp:Label ID="lblAlternator" runat="server"></asp:Label>
                                                 </div>
                                             </div>
-                                            <b>Earth Tester and Megger Details</b>
+
+                                            <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Earth Tester and Megger Details :</b></p>
+                                            
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Earth Tester No </label>
@@ -2503,11 +2651,26 @@
                                                 </div>
                                             </div>
 
+
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+
+
                                         </div>
 
                                         <div id="CEIGDET" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">POWERCEIG DETAILS</h4>
-                                            <b>Contracted Maximum Demand in KVA</b>
+                                            <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                                      <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Power CEIG Details</h5>
+                                                            <hr />
+                                                        </div>
+                                            
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Contracted Maximum Demand in KVA :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Already installed</label>
@@ -2530,7 +2693,7 @@
                                                 </div>
                                             </div>
 
-                                            <b>Connected Load in KW/HP</b>
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Connected Load in KW/HP :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Type of Connected Load</label>
@@ -2666,10 +2829,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                                     </div>
+                                                </div>
+                                                 </div>
+                                                    </div>
 
                                         <div id="TaxDet" runat="server" visible="false">
-                                            <h4 class="card-title1 col-lg-12">Proffessional Tax Details</h4>
-                                            <b>Application Type</b>
+                                              <div class="row">
+                                            <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="card">
+                                                      <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5>Proffessional Tax Details</h5>
+                                                            <hr />
+                                                        </div>
+                                          
+                                           <p class="card-title1 col-lg-12 mt-4 mb-0">  <b>Application Type :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Apply As</label>
@@ -2679,7 +2854,7 @@
                                                 </div>
                                             </div>
 
-                                            <b>Establishment Details </b>
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Establishment Details :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Name of Establishment</label>
@@ -2774,7 +2949,7 @@
                                             </div>
 
 
-                                            <b>Applicant's Designation</b>
+                                             <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Applicant's Designation :</b></p>
                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                 <div class="col-md-2">
                                                     <label>Please Select Designation</label>
@@ -2810,7 +2985,10 @@
                                                 </div>
                                             </div>
                                         </div>
-
+ </div>
+                                                </div>
+                                                 </div>
+                                                    </div>
                                     </div>
                                 </div>
                             </div>
