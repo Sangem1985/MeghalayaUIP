@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -38,7 +39,7 @@ namespace MeghalayaUIP.User.PreReg
                         string InvesterID = Request.QueryString[1].ToString();
                         //string Dept = Request.QueryString[2].ToString();
                         string QueryID = Request.QueryString[2].ToString();
-                        BindData(UnitID,ObjUserInfo.Userid,QueryID);
+                        BindData(UnitID, ObjUserInfo.Userid, QueryID);
                     }
                 }
                 else
@@ -57,15 +58,15 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-                DataSet ds = new DataSet();                 
+                DataSet ds = new DataSet();
                 string Dept = Request.QueryString[2].ToString();
                 ds = indstregBAL.GetIndustryRegistrationQueryDetails(Unitid, InvesterID, Queryid);
                 if (ds.Tables.Count > 0)
                 {
                     lblUnitId.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNITID"]);
-                    lblRid.Text = Convert.ToString(ds.Tables[0].Rows[0]["IMAQID"]);
-                    lblinsert.Text = Convert.ToString(ds.Tables[0].Rows[0]["INVESTERID"]);
-                    lbldept.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYBY"]);
+                    lblQueryID.Text = Convert.ToString(ds.Tables[0].Rows[0]["IMAQID"]);
+                    lblinvesterID.Text = Convert.ToString(ds.Tables[0].Rows[0]["INVESTERID"]);
+                    lbldeptID.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYBY"]);
                     lblUnitName.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYNAME"]);
                     lblRmId.Text = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
                     lblQueryRaised.Text = Convert.ToString(ds.Tables[0].Rows[0]["QUERYBY"]);
@@ -85,47 +86,117 @@ namespace MeghalayaUIP.User.PreReg
 
         }
 
-        protected void btnAttach_Click(object sender, EventArgs e)
+        protected void btnUpldAttachment_Click(object sender, EventArgs e)
         {
-            //string newPath = "";
+            try
+            {
+                if (lblUnitId.Text != "")
+                {
+                    string Error = ""; string message = "";
+                    string newPath = "";
+                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                    if (fupAttachment.HasFile)
+                    {
+                        Error = validations(fupAttachment);
+                        if (Error == "")
+                        {
+                            if ((fupAttachment.PostedFile != null) && (fupAttachment.PostedFile.ContentLength > 0))
+                            {
+                                string sFileName = System.IO.Path.GetFileName(fupAttachment.PostedFile.FileName);
+                                try
+                                {
+                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, lblUnitId.Text + "\\RESPONSEATTACHMENTS");
 
-            //if (fupResAttachment.HasFile)
-            //{
-            //   if ((fupResAttachment.PostedFile != null) && (fupResAttachment.PostedFile.ContentLength > 0))
-            //    {
-            //        string sFileName = System.IO.Path.GetFileName(fupResAttachment.PostedFile.FileName);
-            //        try
-            //        {
-            //            string[] fileType = fupResAttachment.PostedFile.FileName.Split('.');
-            //            int i = fileType.Length;
-            //            if (i == 2)
-            //            {
-            //                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
-            //                {
-            //                    string serverpath = Server.MapPath("~\\ResponseAttachmentforRawmaterials\\" + lblUnitId.ToString() /*+ "\\" + lblRmId.Value.ToString()*/);  // incentiveid2
-            //                    if (!Directory.Exists(serverpath))
-            //                        Directory.CreateDirectory(serverpath);
+                                    if (!Directory.Exists(newPath))
+                                        System.IO.Directory.CreateDirectory(newPath);
 
-            //                    fupResAttachment.PostedFile.SaveAs(serverpath + "\\" + sFileName);
-            //                    string CrtdUser = Session["uid"].ToString();
+                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                    fupAttachment.PostedFile.SaveAs(newPath + "\\" + sFileName);
 
-            //                    string Path = serverpath;
-            //                    string FileName = sFileName;
-            //                    ViewState["AttachmentName"] = sFileName;
-            //                    ViewState["pathAttachment"] = serverpath;
+                                    //int count = dir.GetFiles().Length;
+                                    //if (count == 0)
+                                    //    fupAttachment.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                    //else
+                                    //{
+                                    //    if (count == 1)
+                                    //    {
+                                    //        string[] Files = Directory.GetFiles(newPath);
 
-            //                }
+                                    //        foreach (string file in Files)
+                                    //        {
+                                    //            File.Delete(file);
+                                    //        }
+                                    //        fupAttachment.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                    //    }
+                                    //}
 
-            //            }
-            //        }
-            //        catch(Exception ex)
-            //        {
-            //            throw ex;
-            //        }
-            //    }
+                                    IndustryDetails objattachments = new IndustryDetails();
 
+                                    objattachments.UnitID = lblUnitId.Text;
+                                    objattachments.UserID = hdnUserID.Value;
+                                    objattachments.InvestorId = hdnUserID.Value;
+                                    objattachments.FileType = fupAttachment.PostedFile.ContentType;
+                                    objattachments.FileName = sFileName.ToString();
+                                    objattachments.Filepath = newPath.ToString() + "\\" + sFileName;
+                                    objattachments.FileDescription = "RESPONSE ATTACHMENT";
+                                    objattachments.Deptid = "0";
+                                    objattachments.ApprovalId = "0";
+                                    objattachments.QueryID = lblQueryID.Text;
+                                    objattachments.ResponseFileBy = "APPLICANT";
 
-            //}
+                                    int result = 0;
+                                    result = indstregBAL.InsertAttachments_PREREG_RESPONSE(objattachments);
+
+                                    if (result > 0)
+                                    {
+                                        lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
+                                        hplAttachment.Text = fupAttachment.FileName;
+                                        hplAttachment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objattachments.Filepath;
+                                        success.Visible = true;
+                                        Failure.Visible = false;
+                                    }
+                                    else
+                                    {
+                                        lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
+                                        success.Visible = false;
+                                        Failure.Visible = true;
+                                    }
+
+                                }
+                                catch (Exception)//in case of an error
+                                {
+
+                                    DeleteFile(newPath + "\\" + sFileName);
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                        success.Visible = false;
+                        Failure.Visible = true;
+                    }
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Some Internal Error Occured";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", lblmsg0.Text, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -133,25 +204,37 @@ namespace MeghalayaUIP.User.PreReg
 
             try
             {
-                DataSet ds = new DataSet();
 
-                PreRegDtls PRE = new PreRegDtls();
-                if (Convert.ToString(ViewState["UnitID"]) != "")
-                { PRE.Unitid = Convert.ToString(ViewState["UnitID"]); }
-                PRE.Investerid = hdnUserID.Value;
-                PRE.IPAddress = getclientIP();
-                PRE.Unitid = lblUnitId.Text;
-                PRE.UserName = lblUnitName.Text;
-                PRE.QueryResponse = txtQueryResponse.Text;
-                //PRE.deptid = lbldept.Text;
-                PRE.QuerytoDeptID = lbldept.Text;
-                PRE.QuerytoDept = lblQueryDescription.Text;
-                PRE.QueryID = lblRid.Text;
-                string indus = indstregBAL.UpdateIndRegApplQueryRespose(PRE);
+                if (string.IsNullOrEmpty(txtQueryResponse.Text.Trim()) || txtQueryResponse.Text.Trim() == "" && txtQueryResponse.Text.Trim() == null)
+                {
+                    string message = "alert('" + "Please Enter Query Response" + "')";
+                    txtQueryResponse.Focus();
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+                else
+                {
+                    DataSet ds = new DataSet();
 
-                btnSubmit.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Replied Successfully!');  window.location.href='IndustryRegistrationUserDashboard.aspx'", true);
-                return;
+                    PreRegDtls PRE = new PreRegDtls();
+                    if (Convert.ToString(ViewState["UnitID"]) != "")
+                    { PRE.Unitid = Convert.ToString(ViewState["UnitID"]); }
+                    PRE.Investerid = hdnUserID.Value;
+                    PRE.IPAddress = getclientIP();
+                    PRE.Unitid = lblUnitId.Text;
+                    PRE.UserName = lblUnitName.Text;
+                    PRE.QueryResponse = txtQueryResponse.Text;
+                    //PRE.deptid = lbldept.Text;
+                    PRE.QuerytoDeptID = lbldeptID.Text;
+                    PRE.QuerytoDept = lblQueryDescription.Text;
+                    PRE.QueryID = lblQueryID.Text;
+                    string indus = indstregBAL.UpdateIndRegApplQueryRespose(PRE);
+
+                    btnSubmit.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", $"alert('Query Replied Successfully!');  window.location.href='IndustryRegistrationUserDashboard.aspx?UnitID={lblUnitId.Text}'", true);
+
+                    return;
+                }
             }
             catch (Exception ex)
             {
@@ -177,112 +260,68 @@ namespace MeghalayaUIP.User.PreReg
 
             return result;
         }
-        protected void btnUpldAttachment_Click(object sender, EventArgs e)
+
+        public string validations(FileUpload Attachment)
         {
             try
             {
-                if (lblUnitId.Text != "")
+
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 {
-                    string newPath = "";
-                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
-                    if (fupAttachment.HasFile)
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
-                        if ((fupAttachment.PostedFile != null) && (fupAttachment.PostedFile.ContentLength > 0))
-                        {
-                            string sFileName = System.IO.Path.GetFileName(fupAttachment.PostedFile.FileName);
-                            try
-                            {
-
-                                string[] fileType = fupAttachment.PostedFile.FileName.Split('.');
-                                int i = fileType.Length;
-                                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
-                                {
-                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, lblUnitId.Text + "\\RESPONSEATTACHMENTS");
-
-                                    if (!Directory.Exists(newPath))
-                                        System.IO.Directory.CreateDirectory(newPath);
-
-                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
-                                    int count = dir.GetFiles().Length;
-                                    if (count == 0)
-                                        fupAttachment.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                    else
-                                    {
-                                        if (count == 1)
-                                        {
-                                            string[] Files = Directory.GetFiles(newPath);
-
-                                            foreach (string file in Files)
-                                            {
-                                                File.Delete(file);
-                                            }
-                                            fupAttachment.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                        }
-                                    }
-                                    IndustryDetails objattachments = new IndustryDetails();
-
-                                    objattachments.UnitID = lblUnitId.Text;
-                                    objattachments.UserID = hdnUserID.Value;
-                                    objattachments.FileType = fileType[i - 1].ToUpper().ToString();
-                                    objattachments.FileName = sFileName.ToString();
-                                    objattachments.Filepath = newPath.ToString();
-                                    objattachments.FileDescription = "RESPONSE ATTACHMENT";
-                                    objattachments.Deptid = "0";
-                                    objattachments.ApprovalId = "0";
-
-                                    int result = 0;
-                                    result = indstregBAL.InsertAttachments_PREREG(objattachments);
-
-                                    if (result > 0)
-                                    {
-                                        lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
-                                        hplAttachment.Text = fupAttachment.FileName;
-                                        lbldept.Text = fupAttachment.FileName;
-                                        success.Visible = true;
-                                        Failure.Visible = false;
-                                    }
-                                    else
-                                    {
-                                        lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
-                                        success.Visible = false;
-                                        Failure.Visible = true;
-                                    }
-                                }
-                                else
-                                {
-                                    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
-                                    success.Visible = false;
-                                    Failure.Visible = true;
-                                }
-                            }
-                            catch (Exception)//in case of an error
-                            {
-
-                                DeleteFile(newPath + "\\" + sFileName);
-                            }
-                        }
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
                     }
-                    else
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
                     {
-                        lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
-                        success.Visible = false;
-                        Failure.Visible = true;
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
                     }
                 }
-                else
-                {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "Please Fill Basic Details";
-                    string message = "alert('" + "Please Fill Basic Details First and then Upload DPR " + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
-                }
+                return Error;
             }
             catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
             {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
             }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
         }
         public void DeleteFile(string strFileName)
         {

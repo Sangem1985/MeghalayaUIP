@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MeghalayaUIP.CommonClass;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
@@ -219,8 +220,6 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
                         }
-
-
                         //if (Request.QueryString["status"].ToString() == "C" || Request.QueryString["status"].ToString() == "F")
                         //{
                         //    verifypanel.Visible = true;
@@ -260,9 +259,11 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             LinkButton lnkview = (LinkButton)sender;
             GridViewRow row = (GridViewRow)lnkview.NamingContainer;
-            HyperLink hplview = (HyperLink)row.FindControl("hplViewQueryAttachment");
 
-            Response.Redirect(hplview.Text);
+            Label lblfilepath = (Label)row.FindControl("lblFilePath");
+            if (lblfilepath != null || lblfilepath.Text != "")
+                Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + lblfilepath.Text);
+
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -475,8 +476,10 @@ namespace MeghalayaUIP.Dept.PreReg
                 if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
                 {
                     Failure.Visible = true;
-                    lblmsg0.Text = "Please Enter Query Response";
-                    return;
+                    lblmsg0.Text = "Please Enter Query Response";                   
+                    txtReply.Focus();
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", lblmsg0.Text, true);
+                    return;                    
                 }
                 else
                 {
@@ -592,7 +595,7 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                string newPath = "";
+                string newPath = "", Error = "", message = "";
                 string sFileDir = Server.MapPath("~\\PreRegAttachments");
                 string shortFileDir = "~\\PreRegAttachments";
                 Button btn = (Button)sender;
@@ -604,50 +607,52 @@ namespace MeghalayaUIP.Dept.PreReg
                 HyperLink hplAttachment = (HyperLink)row.FindControl("hplAttachment");
                 if (FileUploadquery.HasFile)
                 {
-                    if ((FileUploadquery.PostedFile != null) && (FileUploadquery.PostedFile.ContentLength > 0))
+                    Error = validations(FileUploadquery);
+                    if (Error == "")
                     {
-                        string sFileName = System.IO.Path.GetFileName(FileUploadquery.PostedFile.FileName);
-                        try
+                        if ((FileUploadquery.PostedFile != null) && (FileUploadquery.PostedFile.ContentLength > 0))
                         {
-
-                            string[] fileType = FileUploadquery.PostedFile.FileName.Split('.');
-                            int i = fileType.Length;
-                            if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
+                            string sFileName = System.IO.Path.GetFileName(FileUploadquery.PostedFile.FileName);
+                            try
                             {
+
                                 newPath = System.IO.Path.Combine(sFileDir, Session["INVESTERID"].ToString(), lblUNITID.Text + "\\RESPONSEATTACHMENTS");
 
                                 if (!Directory.Exists(newPath))
                                     System.IO.Directory.CreateDirectory(newPath);
 
                                 System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
-                                int count = dir.GetFiles().Length;
-                                if (count == 0)
-                                    FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                else
-                                {
-                                    if (count == 1)
-                                    {
-                                        string[] Files = Directory.GetFiles(newPath);
+                                FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
 
-                                        foreach (string file in Files)
-                                        {
-                                            File.Delete(file);
-                                        }
-                                        FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                    }
-                                }
+                                //int count = dir.GetFiles().Length;
+                                //if (count == 0)
+                                //    FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //else
+                                //{
+                                //    if (count == 1)
+                                //    {
+                                //        string[] Files = Directory.GetFiles(newPath);
+
+                                //        foreach (string file in Files)
+                                //        {
+                                //            File.Delete(file);
+                                //        }
+                                //        FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //    }
+                                //}
                                 IndustryDetails objattachments = new IndustryDetails();
 
                                 objattachments.QueryID = lblDQID.Text;
                                 objattachments.UnitID = lblUNITID.Text;
                                 objattachments.InvestorId = Session["INVESTERID"].ToString();
                                 objattachments.UserID = hdnUserID.Value.ToString();
-                                objattachments.FileType = fileType[i - 1].ToUpper().ToString();
+                                objattachments.FileType = FileUploadquery.PostedFile.ContentType;
                                 objattachments.FileName = sFileName.ToString();
-                                objattachments.Filepath = newPath.ToString();
+                                objattachments.Filepath = newPath.ToString() + "\\" + sFileName.ToString();
                                 objattachments.FileDescription = "RESPONSE ATTACHMENT";
                                 objattachments.Deptid = lblDeptID.Text;
                                 objattachments.ApprovalId = "0";
+                                objattachments.ResponseFileBy = "DEPARTMENT";
 
                                 int result = 0;
                                 result = PreBAL.InsertAttachments_PREREG_RESPONSE(objattachments);
@@ -656,7 +661,8 @@ namespace MeghalayaUIP.Dept.PreReg
                                 {
                                     lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
                                     hplAttachment.Text = FileUploadquery.FileName;
-                                    hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + lblUNITID.Text + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objattachments.Filepath;
+                                    //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + lblUNITID.Text + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
                                     hplAttachment.Visible = true;
                                     success.Visible = true;
                                     Failure.Visible = false;
@@ -667,19 +673,21 @@ namespace MeghalayaUIP.Dept.PreReg
                                     success.Visible = false;
                                     Failure.Visible = true;
                                 }
-                            }
-                            else
-                            {
-                                lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
-                                success.Visible = false;
-                                Failure.Visible = true;
-                            }
-                        }
-                        catch (Exception)//in case of an error
-                        {
 
-                            DeleteFile(newPath + "\\" + sFileName);
+
+                            }
+                            catch (Exception)//in case of an error
+                            {
+
+                                DeleteFile(newPath + "\\" + sFileName);
+                            }
                         }
+                    }
+
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
                 else
@@ -697,6 +705,69 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
             }
         }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
         public void DeleteFile(string strFileName)
         {
             if (strFileName.Trim().Length > 0)

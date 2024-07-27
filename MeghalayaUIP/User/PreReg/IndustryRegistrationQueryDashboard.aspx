@@ -41,17 +41,17 @@
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle Width="70px" />
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="IMAQID" Visible="true">
+                                                                <asp:TemplateField HeaderText="IMAQID" Visible="false">
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblirqid" Text='<%#Eval("IMAQID") %>' runat="server" />
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="UNITID" Visible="true">
+                                                                <asp:TemplateField HeaderText="UNITID" Visible="false">
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblunit" Text='<%#Eval("UNITID") %>' runat="server" />
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="INVESTERID" Visible="true">
+                                                                <asp:TemplateField HeaderText="INVESTERID" Visible="false">
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblinvest" Text='<%#Eval("INVESTERID") %>' runat="server" />
                                                                     </ItemTemplate>
@@ -65,7 +65,10 @@
                                                                 <asp:BoundField DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" HeaderText="Query RaisedDate">
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:BoundField>
-                                                                <asp:BoundField DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" HeaderText="Query Raised By">
+                                                                <asp:BoundField DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" HeaderText="Query Raised By" Visible="false">
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                </asp:BoundField>
+                                                                <asp:BoundField DataField="QUERYBYDEPT" ItemStyle-HorizontalAlign="Center" HeaderText="Query Raised By">
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:BoundField>
 
@@ -81,7 +84,7 @@
                                                                 <%--ApplicantQueryResponse.aspx--%>
                                                                 <asp:TemplateField HeaderText="Query Respond" ItemStyle-HorizontalAlign="Center">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton ID="lnkQueryCount" CssClass="btn btn-info" runat="server" Text="Respond to Query" PostBackUrl='<%#Eval("UNITID","~/User/PreReg/IRQueryReason.aspx?UNITID={0}")%>'></asp:LinkButton>
+                                                                        <asp:LinkButton ID="lnkQueryCount" Width="200px"  CssClass="btn btn-info" runat="server" Text="Respond to Query" ></asp:LinkButton>
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>

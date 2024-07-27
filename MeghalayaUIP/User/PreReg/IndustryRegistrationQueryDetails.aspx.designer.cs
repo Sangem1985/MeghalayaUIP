@@ -177,58 +177,31 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblUnitId;
 
         /// <summary>
-        /// ddrmid control.
+        /// lblQueryID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddrmid;
+        protected global::System.Web.UI.WebControls.Label lblQueryID;
 
         /// <summary>
-        /// lblRid control.
+        /// lblinvesterID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRid;
+        protected global::System.Web.UI.WebControls.Label lblinvesterID;
 
         /// <summary>
-        /// ddinsertid control.
+        /// lbldeptID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddinsertid;
-
-        /// <summary>
-        /// lblinsert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblinsert;
-
-        /// <summary>
-        /// ddlDEPt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddlDEPt;
-
-        /// <summary>
-        /// lbldept control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldept;
+        protected global::System.Web.UI.WebControls.Label lbldeptID;
 
         /// <summary>
         /// gvCertificate control.

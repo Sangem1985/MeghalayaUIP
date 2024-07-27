@@ -879,15 +879,11 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Left" />
                                                                 <ItemTemplate>
-                                                                    <asp:HyperLink ID="hplViewQueryAttachment" Text='<%#Eval("FILELOCATION") %>' runat="server"></asp:HyperLink>
+                                                                    <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION") %>' runat="server"></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-
-                                                            <%--<asp '<%#EVAL("':BoundField HeaderText="View" DataField="FILELOCATION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
                                                         </Columns>
                                                     </asp:GridView>
-                                                    <%--<div class="table-responsive">                                                      
-                                                       </div>--%>
                                                 </div>
 
                                             </div>

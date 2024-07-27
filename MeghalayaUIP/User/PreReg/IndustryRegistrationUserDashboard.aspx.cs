@@ -61,7 +61,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     Status = Request.QueryString[1];
                 }
-                else Status = "%";
+                else Status = "TOTAL";
 
                 DataSet ds = new DataSet();
                 ds = indstregBAL.GetIndustryRegUserDashboard(userid, UnitID, Status);

@@ -836,11 +836,9 @@
                                                                     <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="VIEW" Visible="false">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Left" />
+                                                             <asp:TemplateField HeaderText="View" Visible="false">
                                                                 <ItemTemplate>
-                                                                    <asp:HyperLink ID="hplViewQueryAttachment" Text='<%#Eval("FILELOCATION") %>' runat="server"></asp:HyperLink>
+                                                                    <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                         </Columns>

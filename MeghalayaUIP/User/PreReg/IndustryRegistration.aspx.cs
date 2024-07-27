@@ -14,6 +14,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using MeghalayaUIP.CommonClass;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Web.Services.Description;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -803,6 +804,16 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex) { }
         }
+        protected void rblLandType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblLandType.SelectedValue == "Own")
+            { txtPropLocDoorno.Enabled = true; }
+            else if (rblLandType.SelectedValue == "Required")
+            {
+                txtPropLocDoorno.Enabled = false;
+                txtPropLocDoorno.Text = "";
+            }
+        }
 
         //---------------------------------Step 1 Code ---------------------------//
         protected void btnsave1_Click(object sender, EventArgs e)
@@ -1204,7 +1215,6 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
-
         public int SaveBasicDetails()
         {
 
@@ -1350,8 +1360,6 @@ namespace MeghalayaUIP.User.PreReg
 
             }
         }
-
-
         protected void btnsave2_Click(object sender, EventArgs e)
         {
             try
@@ -1952,8 +1960,6 @@ namespace MeghalayaUIP.User.PreReg
                         slno = slno + 1;
                     }
                 }
-
-
                 return errormsg;
             }
             catch (Exception ex)
@@ -2049,7 +2055,6 @@ namespace MeghalayaUIP.User.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnUdyam_Click(object sender, EventArgs e)
         {
             try
@@ -2416,13 +2421,6 @@ namespace MeghalayaUIP.User.PreReg
                             if ((fupDPR.PostedFile != null) && (fupDPR.PostedFile.ContentLength > 0))
                             {
 
-                                //try
-                                //{
-
-                                //string[] fileType = fupDPR.PostedFile.FileName.Split('.');
-                                //int i = fileType.Length;
-                                //if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" || fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
-                                //{
                                 newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, ViewState["UnitID"].ToString() + "\\DPR\\");
 
                                 if (!Directory.Exists(newPath))
@@ -2463,16 +2461,11 @@ namespace MeghalayaUIP.User.PreReg
 
                                 if (result > 0)
                                 {
-
-                                    // lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
                                     lbldpr.Text = fupDPR.FileName;
                                     hypdpr.Text = fupDPR.FileName;
-                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + newPath +  fupDPR.PostedFile.FileName;
-                                    //success.Visible = true;
-                                    //Failure.Visible = false;
+                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + newPath + fupDPR.PostedFile.FileName;
                                     message = "alert('" + "DPR Document Uploaded successfully" + "')";
                                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
                                 }
                                 else
                                 {
@@ -2480,26 +2473,13 @@ namespace MeghalayaUIP.User.PreReg
                                     success.Visible = false;
                                     Failure.Visible = true;
                                 }
-                                //}
-                                //else
-                                //{
-                                //    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
-                                //    success.Visible = false;
-                                //    Failure.Visible = true;
-                                //}
-                                //}
-                                //catch (Exception)//in case of an error
-                                //{
-
-                                //    DeleteFile(newPath + "\\" + sFileName);
-                                //}
                             }
                         }
                         else
                         {
-                            lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
-                            success.Visible = false;
-                            Failure.Visible = true;
+                            message = "alert('" + Error + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
                         }
                     }
                 }
@@ -2782,7 +2762,6 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-
                 int slno = 1;
                 string errormsg = "";
                 if (string.IsNullOrEmpty(hplcompanyregistration.Text) || hplcompanyregistration.Text == "" || hplcompanyregistration.Text == null)
@@ -2827,6 +2806,8 @@ namespace MeghalayaUIP.User.PreReg
                 throw ex;
             }
         }
+
+        //-------------------------Next, Previous and Tab buttons -------------------------------//
         protected void btnNext1_Click(object sender, EventArgs e)
         {
             try
@@ -2979,6 +2960,8 @@ namespace MeghalayaUIP.User.PreReg
 
             return result;
         }
+
+
         protected void MVprereg_ActiveViewChanged(object sender, EventArgs e)
         {
             index = MVprereg.ActiveViewIndex;
@@ -2993,32 +2976,68 @@ namespace MeghalayaUIP.User.PreReg
         protected void Link1_Click(object sender, EventArgs e)
         {
             MVprereg.ActiveViewIndex = 0;
-            var cls = Link1.Attributes["class"];
-            Link1.Attributes.Add("class", cls + " nav-tab");
-
-        }
-        protected void rblLandType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (rblLandType.SelectedValue == "Own")
-            { txtPropLocDoorno.Enabled = true; }
-            else if (rblLandType.SelectedValue == "Required")
-            {
-                txtPropLocDoorno.Enabled = false;
-                txtPropLocDoorno.Text = "";
-            }
         }
         protected void Link2_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 1;
+            ErrorMsg1 = Step1validations();
+            if (Convert.ToString(ViewState["UnitID"]) != "" && ErrorMsg1 == "")
+                MVprereg.ActiveViewIndex = 1;
+            else
+            {
+                string message = "alert('" + "Please Fill all Basic Details and click on Save As Draft" + "')";
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                return;
+            }
 
         }
         protected void Link3_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 2;
+            ErrorMsg1 = Step1validations();
+            ErrorMsg2 = Step2validations();
+            if (hdnResultTab2.Value != "" && ErrorMsg1 == "" && ErrorMsg2 == "")
+                MVprereg.ActiveViewIndex = 2;
+            else
+            {
+                string message = "";
+                if (Convert.ToString(ViewState["UnitID"]) == "" || ErrorMsg1 != "")
+                {
+                    message = "Please Fill all Basic Details and click on Save As Draft \\n";
+                }
+                if (hdnResultTab2.Value == "" || ErrorMsg2 != "")
+                {
+                    message = message + "Please Fill all Revenue Projections Details and click on Save As Draft";
+                }
+                string msg = "alert('" + message + "')";
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", msg, true);
+                return;
+            }
         }
         protected void Link4_Click(object sender, EventArgs e)
         {
-            MVprereg.ActiveViewIndex = 3;
+            ErrorMsg1 = Step1validations();
+            ErrorMsg2 = Step2validations();
+
+            if (hdnResultTab3.Value != "" && ErrorMsg1 == "" && ErrorMsg2 == "" && gvPromoters.Rows.Count > 0)
+                MVprereg.ActiveViewIndex = 3;
+            else
+            {
+                string message = "";
+                if (Convert.ToString(ViewState["UnitID"]) == "" || ErrorMsg1 != "")
+                {
+                    message = "Please Fill all Basic Details and click on Save As Draft \\n";
+                }
+                if (hdnResultTab2.Value == "" || ErrorMsg2 != "")
+                {
+                    message = message + "Please Fill all Revenue Projections Details and click on Save As Draft \\n ";
+                }
+                if (hdnResultTab3.Value == "" || gvPromoters.Rows.Count <= 0)
+                {
+                    message = message + "Please Add Promoter(s) Details and click on Save As Draft  ";
+                }
+                string msg = "alert('" + message + "')";
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", msg, true);
+                return;
+            }
         }
     }
 }

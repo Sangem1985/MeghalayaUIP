@@ -274,9 +274,9 @@ namespace MeghalayaUIP.User.PreReg
         {
             LinkButton lnkview = (LinkButton)sender;
             GridViewRow row = (GridViewRow)lnkview.NamingContainer;
-            HyperLink hplview = (HyperLink)row.FindControl("hplViewQueryAttachment");
-
-            Response.Redirect(hplview.Text);
+            Label lblfilepath = (Label)row.FindControl("lblFilePath");
+            if (lblfilepath != null || lblfilepath.Text != "")
+                Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + lblfilepath.Text);
         }
 
     }

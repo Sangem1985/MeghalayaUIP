@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <div class="page-wrapper">
         <div class="content container-fluid">
             <%--  <section class="comp-section">--%>
@@ -63,7 +63,7 @@
                                                         <label class="col-lg-6 col-form-label">Query raised by</label>
                                                         <div class="col-lg-6 d-flex">
                                                             <spna class="dots">:</spna>
-                                                             <asp:Label runat="server" ID="lblQueryBy" ></asp:Label>
+                                                            <asp:Label runat="server" ID="lblQueryBy"></asp:Label>
                                                             <asp:Label runat="server" ID="lblQueryRaised" Visible="false"></asp:Label>
                                                         </div>
                                                     </div>
@@ -96,7 +96,7 @@
                                             </div>
 
                                             <div class="col-md-12 ">
-                                             
+
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label">Response Attachment</label>
                                                     <div class="col-lg-2 d-flex">
@@ -107,48 +107,23 @@
                                                         <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hplAttachment" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
+                                                        <asp:HyperLink ID="hplAttachment" runat="server" Target="_blank" ></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>
-
-
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-md-12 d-flex justify-content-center">
-
                                                         <div class="col-md-4" id="ddunit" runat="server" visible="false">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">UNIDID:</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:Label runat="server" ID="lblUnitId"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblQueryID"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblinvesterID"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lbldeptID"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-4" id="ddrmid" runat="server" visible="false">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Rmid:</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:Label runat="server" ID="lblRid"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4" id="ddinsertid" runat="server" visible="false">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">insert:</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:Label runat="server" ID="lblinsert"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4" id="ddlDEPt" runat="server" visible="false">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">QUERYRAISEDBYDEPTID:</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:Label runat="server" ID="lbldept"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </div>                                                        
                                                     </div>
                                                 </div>
                                             </div>

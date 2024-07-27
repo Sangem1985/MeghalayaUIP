@@ -22,6 +22,8 @@ namespace MeghalayaUIP
                 Failure.Visible = false;
                 if (!IsPostBack)
                 {
+                    txtEmail.Text = "";
+                    txtPswd.Text = "";
                 }
             }
             catch (Exception ex)
@@ -104,7 +106,6 @@ namespace MeghalayaUIP
             }
             catch (SqlException ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
@@ -151,7 +152,26 @@ namespace MeghalayaUIP
                     errormsg = errormsg + slno + ". Please Enter Password \\n";
                     slno = slno + 1;
                 }
-                
+                if (!string.IsNullOrEmpty(txtPswd.Text) || txtPswd.Text != "")
+                {
+                    if (txtPswd.Text.Trim() == txtEmail.Text.Trim())
+                    {
+                        errormsg = errormsg + slno + ". User Email and Password should not be same \\n";
+                        slno = slno + 1;
+                    }
+                    if (txtPswd.Text.Trim().Length < 8)
+                    {
+                        errormsg = errormsg + slno + ". Password must have 8 characters Minimum \\n";
+                        slno = slno + 1;
+                    }
+                    if (!(txtPswd.Text.Any(char.IsLower) && txtPswd.Text.Any(char.IsUpper) &&
+                               txtPswd.Text.Any(char.IsDigit) && ValidatePassword(txtPswd.Text.Trim())))
+                    {
+                        errormsg = errormsg + slno + ". Password must have atleast one upper case letter, one lower case letter, one numer and one special character \\n";
+                        slno = slno + 1;
+                    }
+                }
+
                 //if (string.IsNullOrEmpty(txtCaptcha.Text) || txtCaptcha.Text == "" || txtCaptcha.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Cpatcha \\n";
@@ -180,5 +200,89 @@ namespace MeghalayaUIP
 
             return visitorsIpAddr;
         }
+
+        protected void txtPswd_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPswd.Text.Trim() == txtEmail.Text.Trim())
+            {
+                lblmsg0.Text = "User Email and Password should not be same";
+                success.Visible = false;
+                Failure.Visible = true;
+                txtPswd.Text = "";
+                txtCaptcha.Text = "";
+                // FillCapctha();
+                return;
+            }
+            if (txtPswd.Text.Trim().Length < 8)
+            {
+                lblmsg0.Text = "Password must have 8 characters Minimum";
+                success.Visible = false;
+                Failure.Visible = true;
+                txtPswd.Text = "";
+                txtCaptcha.Text = "";
+                //  FillCapctha();
+                return;
+            }
+            if (!(txtPswd.Text.Any(char.IsLower) && txtPswd.Text.Any(char.IsUpper) &&
+                       txtPswd.Text.Any(char.IsDigit) && ValidatePassword(txtPswd.Text.Trim())))
+            {
+
+                lblmsg0.Text = "Password must have atleast one upper case letter, one lower case letter, one numer and one special character";
+                success.Visible = false;
+                Failure.Visible = true;
+                txtPswd.Text = "";
+                txtCaptcha.Text = "";
+                //  FillCapctha();
+                return;
+            }
+        }
+        public bool ValidatePassword(string strpass)
+        {
+            bool bValid = false;
+            // string strnumeric = "0123456789";
+            //string strchar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string strSpl = "!@$*#&";
+            int i;
+            //for (i = 0; i < strpass.Length; i++)
+            //{
+            //    if (strchar.IndexOf((strpass.Substring(i, 1))) > -1)
+            //    {
+            //        bValid = true;
+            //        break;
+            //    }
+            //}
+            //if (bValid == false)
+            //{
+            //    return bValid;
+            //}
+            //bValid = false;
+            //for (i = 0; i < strpass.Length; i++)
+            //{
+            //    if (strnumeric.IndexOf((strpass.Substring(i, 1))) > -1)
+            //    {
+            //        bValid = true;
+            //        break;
+            //    }
+            //}
+            //if (bValid == false)
+            //{
+            //    return bValid;
+            //}
+            //bValid = false;
+            for (i = 0; i < strpass.Length; i++)
+            {
+                if (strSpl.IndexOf((strpass.Substring(i, 1))) > -1)
+                {
+                    bValid = true;
+                    break;
+                }
+            }
+            if (bValid == false)
+            {
+                return bValid;
+            }
+            return bValid;
+        }
+
     }
 }

@@ -386,6 +386,8 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 new SqlParameter("@APPROVALID",SqlDbType.Structured),
                 new SqlParameter("@QUERYID",SqlDbType.Structured),
                 new SqlParameter("@CREATEBY",SqlDbType.Structured),
+                new SqlParameter("@RESPONSEFILEBY",SqlDbType.Structured),
+
                 };
 
                 p[0].Value = objattachments.UnitID;
@@ -398,6 +400,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 p[7].Value = objattachments.ApprovalId;
                 p[8].Value = objattachments.QueryID;
                 p[9].Value = objattachments.UserID;
+                p[10].Value = objattachments.ResponseFileBy;
                 string A = "";
                 A = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, PreRegConstants.InsertAttachmentDetails_Reponse, p));
                 valid = Convert.ToInt16(A);
