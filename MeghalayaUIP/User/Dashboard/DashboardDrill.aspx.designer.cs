@@ -15,6 +15,24 @@ namespace MeghalayaUIP.User.Dashboard
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// lbtnBack control.
         /// </summary>
         /// <remarks>
@@ -96,6 +114,15 @@ namespace MeghalayaUIP.User.Dashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUnit;
 
         /// <summary>
+        /// lblPreRegUID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPreRegUID;
+
+        /// <summary>
         /// lblUnitID control.
         /// </summary>
         /// <remarks>
@@ -114,6 +141,15 @@ namespace MeghalayaUIP.User.Dashboard
         protected global::System.Web.UI.WebControls.Label lblUnitName;
 
         /// <summary>
+        /// divUnit1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUnit1;
+
+        /// <summary>
         /// lblUnitAdress control.
         /// </summary>
         /// <remarks>
@@ -121,15 +157,6 @@ namespace MeghalayaUIP.User.Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUnitAdress;
-
-        /// <summary>
-        /// div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
 
         /// <summary>
         /// trPreReg control.
@@ -400,5 +427,14 @@ namespace MeghalayaUIP.User.Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnINCQuery;
+
+        /// <summary>
+        /// UpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress UpdateProgress;
     }
 }

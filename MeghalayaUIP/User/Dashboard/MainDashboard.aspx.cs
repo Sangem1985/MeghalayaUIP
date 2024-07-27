@@ -94,10 +94,10 @@ namespace MeghalayaUIP.User.Dashboard
                         NoApplications.Visible = true;
                         divfuture.Visible = true;
                         Applications.Visible = false;
-                        lblinterest.Visible= false;
-                        lbunitid.InnerText= ds.Tables[1].Rows[0]["UNITID"].ToString();
-                       
-                        lblunitname.Text = greeting + " " + ObjUserInfo.EntityName+",  ";
+                        lblinterest.Visible = false;
+                        lbunitid.InnerText = ds.Tables[1].Rows[0]["UNITID"].ToString();
+
+                        lblunitname.Text = greeting + " " + ObjUserInfo.EntityName + ",  ";
                         lbltime.InnerText = timestamp;
                         //Failure.Visible = true;
                         //hplIndReg.Visible = true;
@@ -114,8 +114,8 @@ namespace MeghalayaUIP.User.Dashboard
                         NoApplications.Visible = true;
                         divfuture.Visible = false;
                         Applications.Visible = false;
-                        lblinterest.Visible = true;                        
-                        lblunitname.Text = greeting + " " + ObjUserInfo.EntityName+",  ";
+                        lblinterest.Visible = true;
+                        lblunitname.Text = greeting + " " + ObjUserInfo.EntityName + ",  ";
                     }
                 }
             }
@@ -129,10 +129,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                Label lblUNITD = (Label)e.Row.FindControl("lblUnitID");
 
                 HyperLink h1 = (HyperLink)e.Row.Cells[4].Controls[0];
                 if (h1.Text != "0")
-                    h1.NavigateUrl = "DashboardDrill.aspx?Unit=" + DataBinder.Eval(e.Row.DataItem, "UNITID") + "&Module=%";
+                    h1.NavigateUrl = "DashboardDrill.aspx?Unit=" + lblUNITD.Text + "&Module=%";
 
             }
 

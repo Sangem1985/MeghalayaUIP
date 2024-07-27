@@ -1323,7 +1323,6 @@
 
             <asp:PostBackTrigger ControlID="txtCompnyRegDt" />
             <asp:PostBackTrigger ControlID="txtDCPorOperation" />
-
             <asp:PostBackTrigger ControlID="btnregistration" />
             <asp:PostBackTrigger ControlID="btnUdyam" />
             <asp:PostBackTrigger ControlID="btnPAN" />

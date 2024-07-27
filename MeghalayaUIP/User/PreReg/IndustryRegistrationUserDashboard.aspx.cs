@@ -87,8 +87,8 @@ namespace MeghalayaUIP.User.PreReg
         protected void btnView_Click(object sender, EventArgs e)
         {
             try
-            { 
-                string Viewstatus="";
+            {
+                string Viewstatus = "";
                 if (Request.QueryString.Count > 0)
                 {
                     if (Convert.ToString(Request.QueryString[0]) == "%")
@@ -99,8 +99,10 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
-                string UNITID = row.Cells[1].Text;
-                string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID+"&ViewStatus="+ Viewstatus;
+
+                Label lblUNITD = (Label)row.FindControl("lblUnitID");
+                string UNITID = lblUNITD.Text;
+                string newurl = "IndustryRegistrationViewDetails.aspx?AppId=" + UNITID + "&ViewStatus=" + Viewstatus;
 
                 Response.Redirect(newurl);
             }
@@ -116,9 +118,10 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 LinkButton lnkbtn = (LinkButton)sender;
-
                 GridViewRow row = (GridViewRow)lnkbtn.NamingContainer;
-                string UNITID = row.Cells[1].Text;
+                Label lblUNITD = (Label)row.FindControl("lblUnitID");
+
+                string UNITID = lblUNITD.Text;
                 if (lnkbtn.Text != "0")
                 {
                     string newurl = "IndustryRegistrationQueryDashboard.aspx?UNITID=" + UNITID;

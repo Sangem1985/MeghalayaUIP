@@ -84,6 +84,8 @@ namespace MeghalayaUIP.User.Dashboard
                     {
                         if (dsStatus.Tables[0].Rows.Count > 0)
                         {
+                            lblPreRegUID.Text = Convert.ToString(dsStatus.Tables[0].Rows[0]["PREREGUIDNO"]);
+                            lblUnitName.Text = Convert.ToString(dsStatus.Tables[0].Rows[0]["COMPANYNAME"]);
                             lblUnitAdress.Text = Convert.ToString(dsStatus.Tables[0].Rows[0]["UNITADDRESS"]);
                         }
                     }
@@ -145,12 +147,14 @@ namespace MeghalayaUIP.User.Dashboard
                 {
                     lblHdng.Text = "Status Of Applications";
                     divUnit.Visible = true;
+                    divUnit1.Visible = true;
                     lblUnitID.Text = ddlUnitNames.SelectedValue;
                     lblUnitName.Text = Convert.ToString(ddlUnitNames.SelectedItem.Text);
                 }
                 else
                 {
                     divUnit.Visible = false;
+                    divUnit1.Visible = false;
                     lblHdng.Text = "Status of Application for All Units";
                 }
                 BindApplStatus(ddlUnitNames.SelectedValue);
@@ -167,7 +171,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 if (btnPreRegTotal.Text != "0")
                 {
-                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue+"&Status=TOTAL";
+                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=TOTAL";
                     Response.Redirect(url);
                 }
                 else
@@ -202,8 +206,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=UNDERPROCESS";
-                Response.Redirect(url);
+                if (btnPreRegUnderProcess.Text != "0")
+                {
+                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=UNDERPROCESS";
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -216,8 +223,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=REJECTED";
-                Response.Redirect(url);
+                if (btnPreRegRejected.Text != "0")
+                {
+                    url = "~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue + "&Status=REJECTED";
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -271,8 +281,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFETotal.Text != "0")
+                {
+                    url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -285,8 +298,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFEApproved.Text != "0")
+                {
+                    url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -299,8 +315,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFEUnderProcess.Text != "0")
+                {
+                    url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -313,8 +332,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFERejected.Text != "0")
+                {
+                    url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -327,8 +349,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFEQuery.Text != "0")
+                {
+                    url = "~/User/CFE/CFEUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -342,8 +367,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFOTotal.Text != "0")
+                {
+                    url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -356,8 +384,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFOApproved.Text != "0")
+                {
+                    url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -370,8 +401,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFOUnderProcess.Text != "0")
+                {
+                    url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -385,8 +419,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFORejected.Text != "0")
+                {
+                    url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {
@@ -399,8 +436,11 @@ namespace MeghalayaUIP.User.Dashboard
         {
             try
             {
-                url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
-                Response.Redirect(url);
+                if (btnCFOQuery.Text != "0")
+                {
+                    url = "~/User/CFO/CFOUserDashboard.aspx?UnitID=" + ddlUnitNames.SelectedValue;
+                    Response.Redirect(url);
+                }
             }
             catch (Exception ex)
             {

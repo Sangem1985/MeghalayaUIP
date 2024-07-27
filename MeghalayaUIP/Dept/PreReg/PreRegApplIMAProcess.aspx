@@ -635,7 +635,7 @@
                                                                 <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%" />
                                                             </Columns>
 
                                                         </asp:GridView>
@@ -747,7 +747,7 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Acknowledgement ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <%--<asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
                                                             <asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -858,7 +858,7 @@
                                                             </asp:TemplateField>
 
                                                             <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                            <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Acknowledgement ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -942,16 +942,17 @@
                                         </Columns>
                                     </asp:GridView>
                                 </div>
-                                <table id="tblcomqury" runat="server" visible="false" style="width: 90%; align-items: center; text-align: center;">
+                                <table class="table-responsive" id="tblcomqury" runat="server" visible="false" style="width: 100%; align-items: center; text-align: center;">
                                     <tr id="trIMAResponse" runat="server" visible="false">
-                                        <td>Enter Response
+                                        <td style="width: 150px">Enter Response
                                         </td>
                                         <td>
                                             <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 350px; margin-top: 10px;"></asp:TextBox>
                                         </td>
                                         <td>Upload File if any:</td>
                                         <td>
-                                            <asp:FileUpload runat="server" ID="FileUploadqueryIMA"  Font-Italic="true" BorderColor="Tomato"  Style="margin-top: 10px;"  padding-right="10px" /> <br />
+                                            <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
+                                            <br />
                                             <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                         </td>
                                         <td>
@@ -959,17 +960,24 @@
                                         </td>
                                     </tr>
                                     <tr id="trComQrytoAppl" runat="server" visible="false">
-                                        <td>Enter Response
+                                        <td style="width: 200px">Enter Additional Query
                                         </td>
-                                        <td>
+                                        <td style="width: 370px">
                                             <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="350px"></asp:TextBox>
                                         </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+
                                     </tr>
                                     <tr>
-                                        <td colspan="5" style="text-align: center">
+                                        <td></td>
+                                        <td style="text-align: center">
                                             <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
-
                                         </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                 </table>
                             </div>
@@ -992,7 +1000,7 @@
                                             <tr id="trVrfyhdng" runat="server">
                                                 <td><b>Name</b></td>
                                                 <td><b>Unit Name</b></td>
-                                                <td><b>Application ID</b></td>
+                                                <td><b>Acknowledgement ID</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Application Action</b></td>
                                                 <td id="tdRemarks" runat="server" visible="false"><b>

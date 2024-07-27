@@ -92,14 +92,19 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
-                                    <asp:BoundField HeaderText="Unit ID" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" ItemStyle-Width="10%" />
+                                    <asp:BoundField HeaderText="Acknowledgement ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" ItemStyle-Width="10%" />
                                     <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
-                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="35%" />
+                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%" />
                                     <asp:HyperLinkField ControlStyle-Font-Underline="false" ControlStyle-ForeColor="Black"
                                         FooterStyle-CssClass="text-center" Text="Click Here" HeaderText="Status" ControlStyle-CssClass="btn btn-info btn-sm text-white" ItemStyle-Width="6%" ItemStyle-ForeColor="White" ItemStyle-CssClass="text-white">
                                         <FooterStyle HorizontalAlign="Center" Font-Underline="false" Font-Bold="true" CssClass="text-center" />
                                         <ItemStyle Font-Underline="false" HorizontalAlign="Center" CssClass="text-center" />
                                     </asp:HyperLinkField>
+                                    <asp:TemplateField Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblUnitID" Text='<%#Eval("UNITID")%>' runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
 
                                 </Columns>
                             </asp:GridView>

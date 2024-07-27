@@ -10,11 +10,19 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Industry Registration: Query DashBoard</h4>
-                                <p style="position: absolute; right: 10px; top: 6px; color: red;">
+
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-11">
+                                        <h4 class="card-title">Industry Registration: Query DashBoard</h4>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click"  CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                                    </div>
+                                </div>
+                                <%-- <p style="position: absolute; right: 10px; top: 6px; color: red;">
                                     *All Fields Are
 										Mandatory
-                                </p>
+                                </p>--%>
                             </div>
                             <div class="card-body">
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -36,7 +44,7 @@
                                                             <Columns>
                                                                 <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
                                                                     <ItemTemplate>
-                                                                        <%# Container.DataItemIndex + 1%>                                                                       
+                                                                        <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle Width="70px" />
@@ -56,7 +64,7 @@
                                                                         <asp:Label ID="lblinvest" Text='<%#Eval("INVESTERID") %>' runat="server" />
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="PREREGUIDNO" ItemStyle-HorizontalAlign="Center" HeaderText="Application No">
+                                                                <asp:BoundField DataField="PREREGUIDNO" ItemStyle-HorizontalAlign="Center" HeaderText="Acknowledgement ID">
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:BoundField>
                                                                 <asp:BoundField DataField="COMPANYNAME" ItemStyle-HorizontalAlign="Center" HeaderText="Unit Name">
@@ -84,7 +92,7 @@
                                                                 <%--ApplicantQueryResponse.aspx--%>
                                                                 <asp:TemplateField HeaderText="Query Respond" ItemStyle-HorizontalAlign="Center">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton ID="lnkQueryCount" Width="200px"  CssClass="btn btn-info" runat="server" Text="Respond to Query" ></asp:LinkButton>
+                                                                        <asp:LinkButton ID="lnkQueryCount" Width="200px" CssClass="btn btn-info" runat="server" Text="Respond to Query"></asp:LinkButton>
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>

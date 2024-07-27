@@ -53,7 +53,7 @@ namespace MeghalayaUIP.User.PreReg
             }
 
 
-        } 
+        }
         protected void gvAttachmentsQuery_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
@@ -78,7 +78,7 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 DataSet ds = new DataSet();
-                ds = indstregBAL.GetIndustryRegistrationQueryDetails(Unitid,InvesterID,Queryid);
+                ds = indstregBAL.GetIndustryRegistrationQueryDetails(Unitid, InvesterID, Queryid);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     gvAttachmentsQuery.DataSource = ds;
@@ -92,5 +92,26 @@ namespace MeghalayaUIP.User.PreReg
 
         }
 
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string UnitID = "";
+                if (Request.QueryString.Count > 0)
+                {
+                    if (Convert.ToString(Request.QueryString["ViewStatus"]) == "Total")
+                        UnitID = "%";
+                    else
+                        UnitID = Convert.ToString(Request.QueryString["UNITID"].ToString());
+                }
+
+                Response.Redirect("~/User/PreReg/IndustryRegistrationUserDashboard.aspx?UnitID=" + UnitID);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }
