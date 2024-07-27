@@ -942,20 +942,21 @@
                                         </Columns>
                                     </asp:GridView>
                                 </div>
-                                <table id="tblcomqury" runat="server" visible="false" style="width: 70%; align-items: center; text-align: center;">
-                                    <tr></tr>
-
+                                <table id="tblcomqury" runat="server" visible="false" style="width: 90%; align-items: center; text-align: center;">
                                     <tr id="trIMAResponse" runat="server" visible="false">
                                         <td>Enter Response
                                         </td>
                                         <td>
-                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 350px; margin-top: 10px;"></asp:TextBox><br />
-                                            <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
-                                            <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" />
+                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 350px; margin-top: 10px;"></asp:TextBox>
+                                        </td>
+                                        <td>Upload File if any:</td>
+                                        <td>
+                                            <asp:FileUpload runat="server" ID="FileUploadqueryIMA"  Font-Italic="true" BorderColor="Tomato"  Style="margin-top: 10px;"  padding-right="10px" /> <br />
                                             <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                         </td>
-
-
+                                        <td>
+                                            <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                        </td>
                                     </tr>
                                     <tr id="trComQrytoAppl" runat="server" visible="false">
                                         <td>Enter Response
@@ -965,7 +966,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="text-align: center">
+                                        <td colspan="5" style="text-align: center">
                                             <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
 
                                         </td>
