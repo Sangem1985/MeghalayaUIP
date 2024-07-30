@@ -557,6 +557,9 @@ namespace MeghalayaUIP.User.CFE
             {
                 if (ddlSector.SelectedValue.ToString() != "--Select--")
                 {
+                    ddlLine_Activity.Items.Clear();
+                    AddSelect(ddlLine_Activity);
+                    lblPCBCategory.Text = "";
                     BindLineOfActivity(ddlSector.SelectedItem.Text);
 
                 }
@@ -588,7 +591,11 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlMandal.ClearSelection();
+                ddlMandal.Items.Clear();
+                AddSelect(ddlMandal);
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlDistrict.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlMandal, ddlDistrict.SelectedValue);
@@ -607,6 +614,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlMandal.SelectedItem.Text != "--Select--")
                 {
 

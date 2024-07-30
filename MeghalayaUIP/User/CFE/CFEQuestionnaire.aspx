@@ -5,6 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
+     <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -89,27 +93,24 @@
                                                                             <%-- <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
                                                                     <asp:ListItem Text="Service" Value="Service"></asp:ListItem>--%>
                                                                         </asp:DropDownList>
-                                                                    </div>
+                                                                    </div> <%-- rblProposal--%>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-4 col-form-label">
-                                                                        4. Proposal For</label>
-                                                                    <div class="col-lg-8">
-                                                                        <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
-                                                                            <asp:ListItem Text="New" Value="New" style="padding-right: 10px"></asp:ListItem>
-                                                                            <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
-                                                                            <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
-                                                                        </asp:RadioButtonList>
-
+                                                               <div class="col-md-4">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">Company Proposal <span class="star">*</span></label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control">
+                                                                                <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
+                                                                                <asp:ListItem Value="New" Text="New"></asp:ListItem>
+                                                                                <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
+                                                                                <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
+                                                                            </asp:DropDownList>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-
-
-                                                            </div>
                                                         </div>
                                                         <h6 class="fs-20">Unit Location</h6>
                                                         <div class="col-md-12 d-flex">
@@ -119,7 +120,7 @@
                                                                         1.District
                                                                     </label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
                                                                             <asp:ListItem Text="Select District" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -129,7 +130,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">2. Mandal</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                                             <asp:ListItem Text="Select Mandal" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -990,5 +991,14 @@
             </section>
         </div>
     </div>
+
+                <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+        </asp:UpdatePanel>
 </asp:Content>
 
