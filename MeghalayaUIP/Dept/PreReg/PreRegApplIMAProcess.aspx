@@ -5,7 +5,80 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+      <style>
+        .card {
+            border: 1px solid #fff;
+            margin-bottom: 12px;
+            box-shadow: 0px 0px 1px 1px #ededed;
+            background: #fff;
+            min-height: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            border-radius: 2px;
+            padding-bottom: 10px;
+        }
 
+        h3 {
+            font-size: 20px;
+            margin-top: 3px;
+            margin-bottom: 0px;
+            font-weight: 600;
+            color: #0b3654;
+        }
+
+        .card-body {
+            border: 1px dotted #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .card-header {
+            border: none !important;
+        }
+
+        spna.dots {
+            margin-right: 24px;
+            color: #000;
+            font-weight: 100;
+            visibility: hidden;
+        }
+
+
+
+        div#collapseOne h4 {
+            margin-bottom: 5px;
+            margin-top: 20px;
+            padding-left: 0px;
+        }
+
+        .col-md-2 {
+            border: 1px solid #ccc;
+            padding: 0px 10px;
+            margin: -2px 0px;
+        }
+
+        h4.card-title1 {
+            color: #fff;
+            width: 98.7%;
+            padding: 1px 0px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 0px !important;
+            padding-bottom: 0px !important;
+            text-transform: capitalize;
+            background: #2b6698;
+            text-shadow: 1px 2px 3px #000;
+            border: 1px solid #066f22;
+            font-size: 20px;
+        }
+
+        div#ContentPlaceHolder1_divServc, div#ContentPlaceHolder1_divManf {
+            display: contents;
+        }
+    </style>
     <!-- Page Wrapper -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -63,72 +136,71 @@
                                                     <div class="col-md-12 d-flex" style="width: 99%;">
                                                         <h4 class="card-title1 col-lg-12">Company/Unit Details</h4>
                                                     </div>
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>1. Company Name :</label>
-                                                        </div>
+                                                   <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                        <div class="col-md-2">
+                                            <label>1. Company Name :</label>
+                                        </div>
 
-                                                        <div class="col-md-2 fw-bold text-info">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblCompanyName" runat="server"></asp:Label>
-                                                        </div>
+                                        <div class="col-md-2 fw-bold text-info">
+                                            <spna class="dots">:</spna><asp:Label ID="lblCompanyName" runat="server"></asp:Label>
+                                        </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>2. Company PAN No</label>
-                                                        </div>
+                                        <div class="col-md-2">
+                                            <label>2. Company PAN No</label>
+                                        </div>
 
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblCompanyPAN" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>3. Company Proposal For</label>
-                                                        </div>
+                                        <div class="col-md-2">
+                                            <spna class="dots">:</spna><asp:Label ID="lblCompanyPAN" runat="server"></asp:Label>
+                                        </div>
 
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
+                                          <div class="col-md-2">
+                                            <label>3. Company Type</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <spna class="dots">:</spna><asp:Label ID="lblcomptype" runat="server"></asp:Label>
+                                        </div>                                      
+                                    </div>
 
+                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                           <div class="col-md-2">
+                                            <label>4. GSTIN Number</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <spna class="dots">:</spna><asp:Label ID="lblGSTIN" runat="server"></asp:Label>
+                                        </div>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>4. Company Registration /Incorporation Date</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>
-                                                        </div>
+                                          <div class="col-md-2">
+                                            <label>5. Company Proposal For</label>
+                                        </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>5. Udyam/IEM No </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblUdyam" runat="server"></asp:Label>
-                                                        </div>
+                                        <div class="col-md-2">
+                                            <spna class="dots">:</spna><asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
+                                        </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>6. GSTIN Number</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblGSTIN" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
+                                         <div class="col-md-2">
+                                            <label>6. Category of Registration</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <spna class="dots">:</spna><asp:Label ID="lblcatreg" runat="server"></asp:Label>
+                                        </div>                                     
+                                    </div>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>7. Company Type</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblcomptype" runat="server"></asp:Label>
-                                                        </div>
+                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                       <div class="col-md-2">
+                                            <label>7. Registration No </label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <spna class="dots">:</spna><asp:Label ID="lblUdyam" runat="server"></asp:Label>
+                                        </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>8. Category of Registration</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblcatreg" runat="server"></asp:Label>
-                                                        </div>
+                                        <div class="col-md-2">
+                                            <label>8. Company Registration /Incorporation Date</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>
+                                        </div>
 
-
-                                                    </div>
+                                    </div>
 
 
                                                     <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
