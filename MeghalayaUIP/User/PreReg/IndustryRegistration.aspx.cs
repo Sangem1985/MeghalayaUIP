@@ -1557,7 +1557,7 @@ namespace MeghalayaUIP.User.PreReg
                     ddlApplDist.Enabled = true;
                     ddlApplDist.ClearSelection();
                     //ddlApplDist.Items.Clear();
-                    AddSelect(ddlApplDist);
+                    //AddSelect(ddlApplDist);
                     ddlApplTaluka.ClearSelection();
                     ddlApplTaluka.Items.Clear();
                     AddSelect(ddlApplTaluka);
@@ -1836,7 +1836,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (ErrorMsg3 != "")
                     {
                         string msg = "alert('" + ErrorMsg3 + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", ErrorMsg3, true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", msg, true);
                     }
                 }
             }
@@ -2788,15 +2788,21 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
                     {
-                        errormsg = errormsg + slno + "Please Upload Detailed Project Report (DPR) " + "\\n";
+                        errormsg = errormsg + slno + ". Please Upload Detailed Project Report (DPR) " + "\\n";
                         slno = slno + 1;
                     }
                 }
                 if (string.IsNullOrEmpty(hplBankAppraisal.Text) || hplBankAppraisal.Text == "" || hplBankAppraisal.Text == null)
                 {
-                    errormsg = errormsg + slno + "Please Upload Bank Appraisal " + "\\n";
+                    errormsg = errormsg + slno + ". Please Upload Bank Appraisal " + "\\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hplCIN.Text) || hplCIN.Text == "" || hplCIN.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload CIN Document " + "\\n";
+                    slno = slno + 1;
+                }
+
 
 
                 return errormsg;
