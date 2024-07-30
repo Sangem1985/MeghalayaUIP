@@ -110,54 +110,53 @@
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblCompanyPAN" runat="server"></asp:Label>
                                                         </div>
+
                                                         <div class="col-md-2">
-                                                            <label>3. Company Proposal For</label>
+                                                            <label>3. Company Type</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblcomptype" runat="server"></asp:Label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                        <div class="col-md-2">
+                                                            <label>4. GSTIN Number</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblGSTIN" runat="server"></asp:Label>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label>5. Company Proposal For</label>
                                                         </div>
 
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
                                                         </div>
-                                                    </div>
 
+                                                        <div class="col-md-2">
+                                                            <label>6. Category of Registration</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblcatreg" runat="server"></asp:Label>
+                                                        </div>
+                                                    </div>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label>4. Company Registration /Incorporation Date</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>
-                                                        </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>5. Udyam/IEM No </label>
+                                                            <label>7. Registration No </label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblUdyam" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label>6. GSTIN Number</label>
+                                                            <label>8. Company Registration /Incorporation Date</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblGSTIN" runat="server"></asp:Label>
+                                                            <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>7. Company Type</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblcomptype" runat="server"></asp:Label>
-                                                        </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>8. Category of Registration</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblcatreg" runat="server"></asp:Label>
-                                                        </div>
-
 
                                                     </div>
 
@@ -836,7 +835,7 @@
                                                                     <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                             <asp:TemplateField HeaderText="View" Visible="false">
+                                                            <asp:TemplateField HeaderText="View" Visible="false">
                                                                 <ItemTemplate>
                                                                     <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                                 </ItemTemplate>

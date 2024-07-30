@@ -78,31 +78,13 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblCompanyPAN;
 
         /// <summary>
-        /// lblCompanyProposal control.
+        /// lblcomptype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompanyProposal;
-
-        /// <summary>
-        /// lblregdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblregdate;
-
-        /// <summary>
-        /// lblUdyam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUdyam;
+        protected global::System.Web.UI.WebControls.Label lblcomptype;
 
         /// <summary>
         /// lblGSTIN control.
@@ -114,13 +96,13 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblGSTIN;
 
         /// <summary>
-        /// lblcomptype control.
+        /// lblCompanyProposal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcomptype;
+        protected global::System.Web.UI.WebControls.Label lblCompanyProposal;
 
         /// <summary>
         /// lblcatreg control.
@@ -130,6 +112,24 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcatreg;
+
+        /// <summary>
+        /// lblUdyam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUdyam;
+
+        /// <summary>
+        /// lblregdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblregdate;
 
         /// <summary>
         /// lblName control.
