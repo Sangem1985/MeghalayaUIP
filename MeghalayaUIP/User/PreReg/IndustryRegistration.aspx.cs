@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using MeghalayaUIP.CommonClass;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Web.Services.Description;
+using System.Configuration;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -116,6 +117,8 @@ namespace MeghalayaUIP.User.PreReg
                             txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_PINCODE"]);
 
                             rblLandType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_LANDTYPE"]);
+                            rblLandType_SelectedIndexChanged(null, EventArgs.Empty);
+
                             txtPropLocDoorno.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_DOORNO"]);
                             txtPropLocLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_LOCALITY"]);
                             ddlPropLocDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_DISTRICTID"]);
@@ -2031,6 +2034,7 @@ namespace MeghalayaUIP.User.PreReg
                         }
                         else
                         {
+                           
                             message = "alert('" + Error + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
 
@@ -2600,28 +2604,33 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
                         slno = slno + 1;
                     }
+                    if(Attachment.PostedFile.ContentLength>=Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than "+ Convert.ToInt32(filesize)/1000000+"MB \\n";
+                        slno = slno + 1;
+                    }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))
                     {
                         Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
                         slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
+                    }                    
+                    if (!ValidateFileExtension(Attachment))
                     {
                         Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
                         slno = slno + 1;
                     }
-                }
+               // }
                 return Error;
             }
             catch (Exception ex)
