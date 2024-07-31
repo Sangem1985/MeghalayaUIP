@@ -646,7 +646,7 @@ namespace MeghalayaUIP.User.PreReg
 
             }
             catch (Exception ex)
-            { }
+            { throw ex; }
         }
         protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
         {

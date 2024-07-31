@@ -245,7 +245,8 @@ namespace MeghalayaUIP.User.CFE
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYTYPE"]);
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGTYPE"]);
-                        txtRegistrationNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGNO"]);
+                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                        txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REGNO"]);
                         txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGDATE"]);
                         ddlFactories.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_FACTORYTYPE"]);
                         txtPromoterName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]);
@@ -300,7 +301,7 @@ namespace MeghalayaUIP.User.CFE
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGTYPE"]);
-                        txtRegistrationNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
+                        txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
                         txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGDATE"]);
 
                         txtPromoterName.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_NAME"]);
@@ -450,7 +451,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEComn.CompanyPraposal = rblproposal.SelectedValue;
 
                     objCFEComn.CompanyRegType = ddlRegType.SelectedValue;
-                    objCFEComn.CompanyRegNo = txtRegistrationNo.Text;
+                    objCFEComn.CompanyRegNo = txtUdyamorIEMNo.Text;
                     objCFEComn.CompanyRegDate = txtRegDate.Text;
                     objCFEComn.FactoryType = ddlFactories.SelectedItem.Text;
 
@@ -543,7 +544,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Category Registration  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtRegistrationNo.Text) || txtRegistrationNo.Text == "" || txtRegistrationNo.Text == null)
+                if (string.IsNullOrEmpty(txtUdyamorIEMNo.Text) || txtUdyamorIEMNo.Text == "" || txtUdyamorIEMNo.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Registration No\\n";
                     slno = slno + 1;
@@ -777,6 +778,30 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                {
+                    txtUdyamorIEMNo.Enabled = true;
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No ";
+                    txtUdyamorIEMNo.Text = "";
+                }
+                else
+                {
+                    txtUdyamorIEMNo.Enabled = false;
+                    lblregntype.InnerText = " Registration No *";
+                    txtUdyamorIEMNo.Text = "";
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
