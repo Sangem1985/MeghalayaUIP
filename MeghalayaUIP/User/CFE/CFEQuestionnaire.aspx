@@ -69,16 +69,16 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         1. Name of Unit</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" Enabled="false"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        2.Company Type</label>
+                                                                        2. Company Type</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onkeypress="return Names()">
+                                                                        <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onkeypress="return Names()" Enabled="false">
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
@@ -100,9 +100,9 @@
                                                         <div class="col-md-12 d-flex">
                                                                <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Company Proposal <span class="star">*</span></label>
+                                                                        <label class="col-lg-6 col-form-label">4. Company Proposal <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control">
+                                                                            <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control" Enabled="false">
                                                                                 <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                                                                                 <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                                 <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
@@ -174,7 +174,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">6. Sector</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged" Enabled="false">
                                                                             <asp:ListItem Text="Select" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -189,7 +189,7 @@
                                                                         7. Line of
 																		Activity</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged" Enabled="false">
                                                                             <asp:ListItem Text="Select" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -201,7 +201,7 @@
                                                                         8. Pollution
 																		Category of Enterprise</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"></asp:Label>
+                                                                        <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control" Enabled="false"></asp:Label>
                                                                     </div>
                                                                 </div>
                                                             </div>

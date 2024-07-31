@@ -345,7 +345,11 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlmandal.ClearSelection();
+                ddlmandal.Items.Clear();
+                AddSelect(ddlmandal);
                 ddlvillage.ClearSelection();
+                ddlvillage.Items.Clear();
+                AddSelect(ddlvillage);
                 if (ddldistric.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlmandal, ddldistric.SelectedValue);
@@ -364,6 +368,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlvillage.ClearSelection();
+                ddlvillage.Items.Clear();
+                AddSelect(ddlvillage);
                 if (ddlmandal.SelectedItem.Text != "--Select--")
                 {
 

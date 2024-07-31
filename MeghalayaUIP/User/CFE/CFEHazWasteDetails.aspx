@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
        <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -99,7 +103,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-8 col-form-label">Year of commissioning and commence of production *</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtYearpro" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtYearpro" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -134,4 +138,12 @@
             </div>
         </div>
     </div>
+               <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

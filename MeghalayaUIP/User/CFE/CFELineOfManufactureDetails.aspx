@@ -9,6 +9,10 @@
             width: 100%;
         }
     </style>
+      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -48,7 +52,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Line of Activity*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control">
+                                                <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control" Enabled="false">
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
@@ -74,12 +78,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div class="col-md-4">
+                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">3. Approx. Value in Lakhs</label>
                                                 <div class="col-lg-6 d-flex">
@@ -87,6 +86,10 @@
                                                 </div>
                                             </div>
                                         </div>
+                                       <%-- <div class="col-md-4">
+                                        </div>--%>
+                                    </div>
+                                    <div class="col-md-12 d-flex">                                       
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label"></label>
@@ -94,12 +97,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 text-center">
                                             <asp:Button ID="btnAddLOM" Text="Add Details" runat="server" OnClick="btnAddLOM_Click" class="btn btn-rounded btn-green" Width="110px" />
                                         </div>
                                     </div>
-
-                                    <div class="col-md-12 d-flex">
+                                    <br />
+                                    <div class="col-md-12 center-gridview">
 
                                         <div class="col-md-8">
                                             <asp:GridView ID="gvManufacture" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -197,4 +200,12 @@
 
         </div>
     </div>
+              <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

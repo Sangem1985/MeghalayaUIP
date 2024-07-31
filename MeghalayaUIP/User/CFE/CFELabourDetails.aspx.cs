@@ -712,7 +712,11 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlMandal.ClearSelection();
+                ddlMandal.Items.Clear();
+                AddSelect(ddlMandal);
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlDistricts.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlMandal, ddlDistricts.SelectedValue);
@@ -730,6 +734,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlMandal.SelectedItem.Text != "--Select--")
                 {
                     BindVillages(ddlVillage, ddlMandal.SelectedValue);
@@ -746,7 +752,11 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlmand.ClearSelection();
+                ddlmand.Items.Clear();
+                AddSelect(ddlmand);
                 ddlvilla.ClearSelection();
+                ddlvilla.Items.Clear();
+                AddSelect(ddlvilla);
                 if (ddldist.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlmand, ddldist.SelectedValue);
@@ -763,6 +773,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlvilla.ClearSelection();
+                ddlvilla.Items.Clear();
+                AddSelect(ddlvilla);
                 if (ddlmand.SelectedItem.Text != "--Select--")
                 {
                     BindVillages(ddlvilla, ddlmand.SelectedValue);
@@ -782,7 +794,11 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlPropLocTaluka.ClearSelection();
+                ddlPropLocTaluka.Items.Clear();
+                AddSelect(ddlPropLocTaluka);
                 ddlPropLocVillage.ClearSelection();
+                ddlPropLocVillage.Items.Clear();
+                AddSelect(ddlPropLocVillage);
                 if (ddlPropLocDist.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlPropLocTaluka, ddlPropLocDist.SelectedValue);
@@ -798,6 +814,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlPropLocVillage.ClearSelection();
+                ddlPropLocVillage.Items.Clear();
+                AddSelect(ddlPropLocVillage);
                 if (ddlPropLocTaluka.SelectedItem.Text != "--Select--")
                 {
                     BindVillages(ddlPropLocVillage, ddlPropLocTaluka.SelectedValue);
@@ -1738,11 +1756,11 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter the contractor has worked in any other establishment within the past five years...! \\n";
                         slno = slno + 1;
                     }
-                    if (ddlbusiness.SelectedIndex == 0)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Type of business, trade, industry, manufacture or occupation...! \\n";
-                        slno = slno + 1;
-                    }
+                    //if (ddlbusiness.SelectedIndex == 0)
+                    //{
+                    //    errormsg = errormsg + slno + ". Please Enter Type of business, trade, industry, manufacture or occupation...! \\n";
+                    //    slno = slno + 1;
+                    //}
                 }
                 else { div5questions.Visible = false; }
 

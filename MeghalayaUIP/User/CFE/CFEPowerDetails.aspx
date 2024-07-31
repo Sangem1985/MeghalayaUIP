@@ -1,9 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEPowerDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEPowerDetails" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -108,7 +114,10 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">3. Expected Month and Year of Trial Production</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txttrailProduct" runat="server" class="date form-control"></asp:TextBox>
+                                              <%--  <asp:TextBox ID="txttrailProduct" runat="server" class="date form-control"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>--%>
+                                                <asp:TextBox runat="server" ID="txttrailProduct" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                <cc1:calendarextender id="CalendarExtender2" runat="server" format="dd-MM-yyyy" targetcontrolid="txttrailProduct"></cc1:calendarextender>
                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
@@ -119,7 +128,10 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">4. Probable Date of Requirement of Power Supply*</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtPowersupply" runat="server" class="date form-control"></asp:TextBox>
+                                               <%-- <asp:TextBox ID="txtPowersupply" runat="server" class="date form-control"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>--%>
+                                                  <asp:TextBox runat="server" ID="txtPowersupply" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                <cc1:calendarextender id="CalendarExtender1" runat="server" format="dd-MM-yyyy" targetcontrolid="txtPowersupply"></cc1:calendarextender>
                                                 <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
@@ -159,4 +171,12 @@
 
         </div>
     </div>
+              <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

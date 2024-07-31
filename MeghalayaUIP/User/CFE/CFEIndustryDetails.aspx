@@ -260,7 +260,7 @@
                                                
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandlineno" runat="server" class="form-control" onblur="validatePhoneNumber(input_str)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandlineno" runat="server" class="form-control" onkeypress="validateNumberAndHyphen();" MaxLength="8"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

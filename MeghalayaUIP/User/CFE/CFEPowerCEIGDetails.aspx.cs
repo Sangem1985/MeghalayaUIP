@@ -372,49 +372,49 @@ namespace MeghalayaUIP.User.CFE
                         {
                             for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
                             {
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 1)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 22)
                                 {
                                     hypowner.Visible = true;
                                     hypowner.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypowner.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 2)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 23)
                                 {
                                     hypLic.Visible = true;
                                     hypLic.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypLic.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 3)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 24)
                                 {
                                     hypElectrical.Visible = true;
                                     hypElectrical.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypElectrical.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 4)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 25)
                                 {
                                     hypdiscoms.Visible = true;
                                     hypdiscoms.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypdiscoms.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 5)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 26)
                                 {
                                     hypenergy.Visible = true;
                                     hypenergy.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypenergy.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 6)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 27)
                                 {
                                     hypplan.Visible = true;
                                     hypplan.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypplan.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 7)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 28)
                                 {
                                     hypDraw.Visible = true;
                                     hypDraw.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypDraw.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
-                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 8)
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 29)
                                 {
                                     hypEarth.Visible = true;
                                     hypEarth.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
@@ -438,7 +438,11 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlMandal.ClearSelection();
+                ddlMandal.Items.Clear();
+                AddSelect(ddlMandal);
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlDistrict.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlMandal, ddlDistrict.SelectedValue);
@@ -456,6 +460,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlMandal.SelectedItem.Text != "--Select--")
                 {
 
@@ -519,7 +525,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objOwner = new CFEAttachments();
                         objOwner.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objOwner.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objOwner.MasterID = "1";
+                        objOwner.MasterID = "22";
                         objOwner.FilePath = serverpath + fupoWNER.PostedFile.FileName;
                         objOwner.FileName = fupoWNER.PostedFile.FileName;
                         objOwner.FileType = fupoWNER.PostedFile.ContentType;
@@ -576,7 +582,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "23";
                         objApplPhoto.FilePath = serverpath + fupLic.PostedFile.FileName;
                         objApplPhoto.FileName = fupLic.PostedFile.FileName;
                         objApplPhoto.FileType = fupLic.PostedFile.ContentType;
@@ -633,7 +639,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEQID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEUNITID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "24";
                         objApplPhoto.FilePath = serverpath + fupElectrical.PostedFile.FileName;
                         objApplPhoto.FileName = fupElectrical.PostedFile.FileName;
                         objApplPhoto.FileType = fupElectrical.PostedFile.ContentType;
@@ -690,7 +696,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "25";
                         objApplPhoto.FilePath = serverpath + fupdiscoms.PostedFile.FileName;
                         objApplPhoto.FileName = fupdiscoms.PostedFile.FileName;
                         objApplPhoto.FileType = fupdiscoms.PostedFile.ContentType;
@@ -747,7 +753,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "26";
                         objApplPhoto.FilePath = serverpath + fupenergy.PostedFile.FileName;
                         objApplPhoto.FileName = fupenergy.PostedFile.FileName;
                         objApplPhoto.FileType = fupenergy.PostedFile.ContentType;
@@ -804,7 +810,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "27";
                         objApplPhoto.FilePath = serverpath + fupPlan.PostedFile.FileName;
                         objApplPhoto.FileName = fupPlan.PostedFile.FileName;
                         objApplPhoto.FileType = fupPlan.PostedFile.ContentType;
@@ -861,7 +867,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "28";
                         objApplPhoto.FilePath = serverpath + fupDraw.PostedFile.FileName;
                         objApplPhoto.FileName = fupDraw.PostedFile.FileName;
                         objApplPhoto.FileType = fupDraw.PostedFile.ContentType;
@@ -918,7 +924,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "29";
                         objApplPhoto.FilePath = serverpath + fupEarth.PostedFile.FileName;
                         objApplPhoto.FileName = fupEarth.PostedFile.FileName;
                         objApplPhoto.FileType = fupEarth.PostedFile.ContentType;
