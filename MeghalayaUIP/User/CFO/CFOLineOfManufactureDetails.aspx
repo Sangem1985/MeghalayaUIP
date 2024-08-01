@@ -3,6 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
       <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -65,17 +68,16 @@
                                                     <asp:TextBox ID="txtManfValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                 </div>
                                             </div>
-                                        </div>   
-
+                                        </div> 
                                     </div>
-                                    <br />
-                                    <div class="col-md-12 d-flex">                                                                          
-                                        <div class="col-md-4">
+                                  
+                                    <div class="col-md-12 d-flex justify-content-center">                                                                          
+                                        <div class="col-md-4 d-flex justify-content-center">
                                             <asp:Button ID="btnAddLOM" Text="Add Details" runat="server" OnClick="btnAddLOM_Click" class="btn btn-rounded btn-green" Width="110px" />
                                         </div>
                                     </div>
-
-                                    <div class="col-md-12 d-flex">
+                                    <br />
+                                    <div class="col-md-12 d-flex justify-content-center ml-3 mb-3">
                                         <div class="col-md-8">
                                             <asp:GridView ID="gvManufacture" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
@@ -138,7 +140,7 @@
                                     </div>
                                 </div>
                                 <br />
-                                <div class="col-md-12 d-flex ml-3 mb-3">
+                                <div class="col-md-12 d-flex justify-content-center ml-3 mb-3">
                                     <asp:GridView ID="gvRwaMaterial" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                         GridLines="Both" OnRowDeleting="gvRwaMaterial_RowDeleting"
@@ -172,4 +174,12 @@
 
         </div>
     </div>
+              <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

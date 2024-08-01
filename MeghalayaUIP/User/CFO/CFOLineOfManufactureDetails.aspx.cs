@@ -81,13 +81,14 @@ namespace MeghalayaUIP.User.CFO
                     if (ds.Tables[0].Rows.Count > 0)
                     {
 
-                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOLA_LINEOFACTIVITY"]);
+                       // 
 
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
                     {
-
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFOLM_LOAID"]);
+                        ViewState["ManufactureTable"]= ds.Tables[1];
                         gvManufacture.DataSource = ds.Tables[1];
                         gvManufacture.DataBind();
                         gvManufacture.Visible = true;
@@ -96,6 +97,8 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[2].Rows[0]["CFORM_LOAID"]);
+                        ViewState["RawMaterialTable"]= ds.Tables[2];
                         gvRwaMaterial.DataSource = ds.Tables[2];
                         gvRwaMaterial.DataBind();
                         gvRwaMaterial.Visible = true;
@@ -345,6 +348,7 @@ namespace MeghalayaUIP.User.CFO
                         objCFOManufacture.ManfItemValue = gvManufacture.Rows[i].Cells[3].Text;
                         objCFOManufacture.CreatedBy = hdnUserID.Value;
                         objCFOManufacture.IPAddress = getclientIP();
+                        objCFOManufacture.LOAID = ddlLineOfActivity.SelectedValue;
 
                         string A = objcfobal.InsertCFOLineofManf(objCFOManufacture);
                         if (A != "")
@@ -361,6 +365,7 @@ namespace MeghalayaUIP.User.CFO
                         objCFOManufacture.CreatedBy = hdnUserID.Value;
                         objCFOManufacture.UnitID = Convert.ToString(Session["CFOUNITID"]);
                         objCFOManufacture.IPAddress = getclientIP();
+                        objCFOManufacture.LOAID = ddlLineOfActivity.SelectedValue;
 
                         string A = objcfobal.InsertCFORawMaterial(objCFOManufacture);
                         if (A != "")
@@ -375,22 +380,22 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-                    objCFOManufacture.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                    objCFOManufacture.CreatedBy = hdnUserID.Value;
-                    objCFOManufacture.UnitID = Convert.ToString(Session["CFOUNITID"]);
-                    objCFOManufacture.IPAddress = getclientIP();
-                    objCFOManufacture.LOAID = ddlLineOfActivity.SelectedValue;
+                    //objCFOManufacture.Questionnareid = Convert.ToString(Session["CFOQID"]);
+                    //objCFOManufacture.CreatedBy = hdnUserID.Value;
+                    //objCFOManufacture.UnitID = Convert.ToString(Session["CFOUNITID"]);
+                    //objCFOManufacture.IPAddress = getclientIP();
+                  
 
 
-                    string B = objcfobal.InsertCFOLineOfActivityDetails(objCFOManufacture);
+                    //string B = objcfobal.InsertCFOLineOfActivityDetails(objCFOManufacture);
 
-                    if (B != "")
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "Line Of Activity Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
+                    //if (B != "")
+                    //{
+                    //    success.Visible = true;
+                    //    lblmsg.Text = "Line Of Activity Details Submitted Successfully";
+                    //    string message = "alert('" + lblmsg.Text + "')";
+                    //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    //}
 
 
                 }

@@ -245,7 +245,7 @@ namespace MeghalayaUIP.User.CFO
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_COMPANYTYPE"]);
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REGTYPE"]);
-                        txtRegistrationNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REGNO"]);
+                        txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REGNO"]);
                         txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGDATE"]);
                         ddlFactories.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_FACTORYTYPE"]);
                         txtPromoterName.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPNAME"]);
@@ -300,7 +300,7 @@ namespace MeghalayaUIP.User.CFO
                         ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
                         rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGTYPE"]);
-                        txtRegistrationNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
+                        txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
                         txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGDATE"]);
 
                         txtPromoterName.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_NAME"]);
@@ -352,7 +352,11 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 ddlMandal.ClearSelection();
+                ddlMandal.Items.Clear();
+                AddSelect(ddlMandal);
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlDistric.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlMandal, ddlDistric.SelectedValue);
@@ -372,6 +376,8 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlMandal.SelectedItem.Text != "--Select--")
                 {
                     BindVillages(ddlVillage, ddlMandal.SelectedValue);
@@ -450,7 +456,7 @@ namespace MeghalayaUIP.User.CFO
                     objCFOComn.CompanyPraposal = rblproposal.SelectedValue;
 
                     objCFOComn.CompanyRegType = ddlRegType.SelectedValue;
-                    objCFOComn.CompanyRegNo = txtRegistrationNo.Text;
+                    objCFOComn.CompanyRegNo = txtUdyamorIEMNo.Text;
                     objCFOComn.CompanyRegDate = txtRegDate.Text;
                     objCFOComn.FactoryType = ddlFactories.SelectedItem.Text;
 
@@ -543,7 +549,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Select Category Registration  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtRegistrationNo.Text) || txtRegistrationNo.Text == "" || txtRegistrationNo.Text == null)
+                if (string.IsNullOrEmpty(txtUdyamorIEMNo.Text) || txtUdyamorIEMNo.Text == "" || txtUdyamorIEMNo.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Registration No\\n";
                     slno = slno + 1;
@@ -777,6 +783,30 @@ namespace MeghalayaUIP.User.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                {
+                    txtUdyamorIEMNo.Enabled = true;
+                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No ";
+                    txtUdyamorIEMNo.Text = "";
+                }
+                else
+                {
+                    txtUdyamorIEMNo.Enabled = false;
+                    lblregntype.InnerText = " Registration No *";
+                    txtUdyamorIEMNo.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try

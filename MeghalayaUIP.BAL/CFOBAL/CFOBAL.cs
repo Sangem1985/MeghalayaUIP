@@ -216,10 +216,10 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetCFOLineOfActivityDetails(userid, UnitID);
         }
-        public string InsertCFOLineOfActivityDetails(CFOLineOfManuf objCFOManufacture)
-        {
-            return objCFODAL.InsertCFOLineOfActivityDetails(objCFOManufacture);
-        }
+        //public string InsertCFOLineOfActivityDetails(CFOLineOfManuf objCFOManufacture)
+        //{
+        //    return objCFODAL.InsertCFOLineOfActivityDetails(objCFOManufacture);
+        //}
         public DataSet GetCFOQueryDashBoard(string Unitid, string Queryid)
         {
             return objCFODAL.GetCFOQueryDashBoard(Unitid, Queryid);

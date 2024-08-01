@@ -404,6 +404,16 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+          <Triggers>
+            <asp:PostBackTrigger ControlID="btnowner" />
+            <asp:PostBackTrigger ControlID="btnLic" />
+            <asp:PostBackTrigger ControlID="btnElectrical" />
+            <asp:PostBackTrigger ControlID="btnDiscoms" />
+            <asp:PostBackTrigger ControlID="btnEnergy" />
+            <asp:PostBackTrigger ControlID="btnPlan" />   
+            <asp:PostBackTrigger ControlID="btnDraw" />   
+            <asp:PostBackTrigger ControlID="btnEarth" />   
+        </Triggers>
     </asp:UpdatePanel>
 
 

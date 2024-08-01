@@ -4,11 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
        <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
-
             <li class="breadcrumb-item active" aria-current="page">Labour Details</li>
         </ol>
     </nav>
@@ -44,8 +46,8 @@
                                                 <label class="col-lg-8 col-form-label">Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate?*</label>
                                                 <div class="col-lg-4">
                                                     <asp:RadioButtonList ID="RBLAPPROVED" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="RBLAPPROVED_SelectedIndexChanged">
-                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                        <asp:ListItem Text="No" Value="2" />
+                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                        <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -193,8 +195,8 @@
                                                 <label class="col-lg-8 col-form-label">Upload document for List of welders employed with copies of current certificate issued by a Competent Authority under the Indian Boiler Regulations, 1950? *</label>
                                                 <div class="col-lg-4">
                                                     <asp:RadioButtonList ID="rbldocument" runat="server" RepeatDirection="Horizontal">
-                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                        <asp:ListItem Text="No" Value="2" />
+                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                        <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -368,8 +370,8 @@
                                                 <label class="col-lg-6 col-form-label">In case of Boiler ownership being transfer *</label>
                                                 <div class="col-lg-4">
                                                     <asp:RadioButtonList ID="rblBoilerTrans" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBoilerTrans_SelectedIndexChanged">
-                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                        <asp:ListItem Text="No" Value="2" />
+                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                        <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -499,8 +501,8 @@
                                             <label class="col-lg-8 col-form-label">Whether the contractor is convicted of any offence within the proceeding five years*</label>
                                             <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblConvicated" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblConvicated_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -521,8 +523,8 @@
                                             <label class="col-lg-8 col-form-label">Whether there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract. * *</label>
                                             <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblrevoking" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblrevoking_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -544,8 +546,8 @@
                                             <label class="col-lg-8 col-form-label">Whether the contractor has work in any other establishment within the past five years *</label>
                                             <div class="col-lg-2">
                                                 <asp:RadioButtonList ID="rblcontractor" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblcontractor_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -625,8 +627,8 @@
                                             <label class="col-lg-6 col-form-label">Do you have your family members employed in the establishment and residing with and wholly dependent upon you?  </label>
                                             <div class="col-lg-6" style="align-items: flex-start;">
                                                 <asp:RadioButtonList ID="rblresinding" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -636,8 +638,8 @@
                                             <label class="col-lg-6 col-form-label">Do you have employees working in the establishment? *</label>
                                             <div class="col-lg-6" style="align-items: flex-start;">
                                                 <asp:RadioButtonList ID="rblestemployee" runat="server" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -775,6 +777,12 @@
                 </div>
             </div>
         </div>
-    </div>
-
+      <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

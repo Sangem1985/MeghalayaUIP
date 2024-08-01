@@ -2533,50 +2533,50 @@ namespace MeghalayaUIP.DAL.CFODAL
                 throw ex;
             }
         }
-        public string InsertCFOLineOfActivityDetails(CFOLineOfManuf objCFOManufacture)
-        {
-            string Result = "";
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            try
-            {
-                connection.Open();
-                transaction = connection.BeginTransaction();
+        //public string InsertCFOLineOfActivityDetails(CFOLineOfManuf objCFOManufacture)
+        //{
+        //    string Result = "";
+        //    SqlConnection connection = new SqlConnection(connstr);
+        //    SqlTransaction transaction = null;
+        //    try
+        //    {
+        //        connection.Open();
+        //        transaction = connection.BeginTransaction();
 
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = CFOConstants.InsertCFOLineOfActivityDetails;
+        //        SqlCommand com = new SqlCommand();
+        //        com.CommandType = CommandType.StoredProcedure;
+        //        com.CommandText = CFOConstants.InsertCFOLineOfActivityDetails;
 
-                com.Transaction = transaction;
-                com.Connection = connection;
+        //        com.Transaction = transaction;
+        //        com.Connection = connection;
 
-                com.Parameters.AddWithValue("@CFOLA_CREATEDBY", Convert.ToInt32(objCFOManufacture.CreatedBy));
-                com.Parameters.AddWithValue("@CFOLA_CREATEDBYIP", objCFOManufacture.IPAddress);
-                com.Parameters.AddWithValue("@CFOLA_CFEQDID", Convert.ToInt32(objCFOManufacture.Questionnareid));
-                com.Parameters.AddWithValue("@CFOLA_UNITID", Convert.ToInt32(objCFOManufacture.UnitID));
-                com.Parameters.AddWithValue("@CFOLA_LINEOFACTIVITY", objCFOManufacture.LOAID);
+        //        com.Parameters.AddWithValue("@CFOLA_CREATEDBY", Convert.ToInt32(objCFOManufacture.CreatedBy));
+        //        com.Parameters.AddWithValue("@CFOLA_CREATEDBYIP", objCFOManufacture.IPAddress);
+        //        com.Parameters.AddWithValue("@CFOLA_CFEQDID", Convert.ToInt32(objCFOManufacture.Questionnareid));
+        //        com.Parameters.AddWithValue("@CFOLA_UNITID", Convert.ToInt32(objCFOManufacture.UnitID));
+        //        com.Parameters.AddWithValue("@CFOLA_LINEOFACTIVITY", objCFOManufacture.LOAID);
 
 
-                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
-                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
-                com.ExecuteNonQuery();
+        //        com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+        //        com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+        //        com.ExecuteNonQuery();
 
-                Result = com.Parameters["@RESULT"].Value.ToString();
-                transaction.Commit();
-                connection.Close();
+        //        Result = com.Parameters["@RESULT"].Value.ToString();
+        //        transaction.Commit();
+        //        connection.Close();
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return Result;
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //        connection.Dispose();
+        //    }
+        //    return Result;
+        //}
         public DataSet GetCFOQueryDashBoard(string Unitid, string Queryid)
         {
             DataSet ds = new DataSet();

@@ -53,8 +53,7 @@ namespace MeghalayaUIP.User.PreReg
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-
-                        // 
+                        
                         // CalendarExtender1.StartDate = DateTime.Now;
                         //  txtDCPorOperation.Text = DateTime.Now.AddDays(5).ToString("dd-MM-yyyy");
 
@@ -3054,21 +3053,7 @@ namespace MeghalayaUIP.User.PreReg
             {
                 lblmsg0.Text = "One or both of the dates are invalid.";
             }
-            //DateTime CompnyRegDt = Convert.ToDateTime(txtCompnyRegDt.Text);            
-            //DateTime txtDCPorOperation = Convert.ToDateTime( txtCompnyRegDt.Text);
-
-            //if (CompnyRegDt < txtDCPorOperation)
-            //{
-            //    Console.WriteLine("First Date is earlier than the second date");
-            //}
-            //else if (txtCompnyRegDt.Date > txtDCPorOperation.Date)
-            //{
-            //    Console.WriteLine("First Date is later than the second date");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("First Date is same as the second date");
-            //}
+           
         }
 
         protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)

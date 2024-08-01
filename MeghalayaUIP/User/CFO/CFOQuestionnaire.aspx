@@ -7,7 +7,6 @@
     <style>
         .page-wrapper.tabs {
             a #ContentPlaceHolder1_Link1
-
         {
             background: #dce775 !important;
             padding: 10px 7px !important;
@@ -19,6 +18,9 @@
 
         }
     </style>
+     <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -92,7 +94,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         1. Name of Unit</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names(event)" Enabled="false"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -101,7 +103,7 @@
                                                                     <label class="col-lg-6 col-form-label">
                                                                         2.Company Type</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control">
+                                                                        <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" Enabled="false">
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
@@ -109,15 +111,15 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        3. Proposal For</label>
-                                                                    <div class="col-lg-6">
-                                                                        <asp:RadioButtonList ID="rblProposal" runat="server" RepeatDirection="Horizontal">
-                                                                            <asp:ListItem Text="New" Value="New" style="padding-right: 10px"></asp:ListItem>
-                                                                            <asp:ListItem Value="Existing" Text="Existing" style="padding-right: 10px"></asp:ListItem>
-                                                                            <asp:ListItem Text="Expansion" Value="Expansion"></asp:ListItem>
-                                                                        </asp:RadioButtonList>
-
-                                                                    </div>
+                                                                        3. Proposal For</label>                                                                  
+                                                                       <div class="col-lg-6 d-flex">
+                                                                            <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control" Enabled="false">
+                                                                                <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
+                                                                                <asp:ListItem Value="New" Text="New"></asp:ListItem>
+                                                                                <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
+                                                                                <asp:ListItem Value="Expansion" Text="Expansion"></asp:ListItem>
+                                                                            </asp:DropDownList>
+                                                                        </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -198,7 +200,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">6. Sector</label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged" Enabled="false">
                                                                             <asp:ListItem Text="Select" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -213,7 +215,7 @@
                                                                         7. Line of
 																		Activity</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged">
+                                                                        <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged" Enabled="false">
                                                                             <asp:ListItem Text="Select" Value="0" />
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -225,7 +227,7 @@
                                                                         8. Pollution
 																		Category of Enterprise</label>
                                                                     <div class="col-lg-6">
-                                                                        <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"></asp:Label>
+                                                                        <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control" Enabled="false"></asp:Label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -511,7 +513,7 @@
                                                                         1. Do you require Registration of Migrant Workers under The Meghalaya Identification, Registration of
                                                                         Migrant Workers Act, 2020?
                                                                     </label>
-                                                                    <div class="col-lg-6 d-flex ">
+                                                                    <div class="col-lg-6 d-flex">
                                                                         <asp:RadioButtonList ID="rblRegMigrantWorkers" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                                             <asp:ListItem Text="No" Value="N" />
@@ -523,7 +525,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
                                                                         2. Do you require Registration of Manufacturers / Repairers/Erectors of Boilers?</label>
-                                                                    <div class="col-lg-6 d-flex ">
+                                                                    <div class="col-lg-6 d-flex">
                                                                         <asp:RadioButtonList ID="rblRegManfRepairs" runat="server" RepeatDirection="Horizontal">
                                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                                             <asp:ListItem Text="No" Value="N" />
@@ -997,4 +999,12 @@
             </section>
         </div>
     </div>
+             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>       
+    </asp:UpdatePanel>
 </asp:Content>

@@ -84,8 +84,13 @@ namespace MeghalayaUIP.User.CFO
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOLD_UNITID"]);
 
                         RBLAPPROVED.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_DIRECTINDIRECT"].ToString();
-                        ddlApplied.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();
-                        txtProvide.Text = ds.Tables[1].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
+                        if (RBLAPPROVED.Text == "Y")
+                        {
+                            Approved.Visible = true;
+                            txtProvide.Text = ds.Tables[1].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
+                        }
+                        else { Approved.Visible = false; }
+                        ddlApplied.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();                      
                         txtESTYear.Text = ds.Tables[1].Rows[0]["CFOLD_YEAR"].ToString();
                         rblmaximum.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TEMPMATERIAL"].ToString();
                         rblregulation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION1950"].ToString();
@@ -96,10 +101,7 @@ namespace MeghalayaUIP.User.CFO
                         rblfirm.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_CONTROVERSIAL"].ToString();
                         rblmaterial.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_MATERIAL"].ToString();
                         rblinternalcontrol.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_OWNSYSTEM"].ToString();
-                        rbldocument.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();
-                        if (rbldocument.Text == "Y")
-                            Approved.Visible = true;
-                        else Approved.Visible = false;
+                        rbldocument.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();                       
                         txtname1.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTURENAME"].ToString();
                         txtfather.Text = ds.Tables[1].Rows[0]["CFOLD_MANUYEAR"].ToString();
                         txtage.Text = ds.Tables[1].Rows[0]["CFOLD_MANUPLACE"].ToString();
@@ -118,9 +120,12 @@ namespace MeghalayaUIP.User.CFO
                         txtBoilerRating.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERRATING"].ToString();
                         rblBoilerTrans.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_BOILEROWNERTRANSF"].ToString();
                         if (rblBoilerTrans.Text == "Y")
+                        {
                             txtBoiler.Visible = true;
-                        else txtBoiler.Visible = false;
-                        txtRemark.Text = ds.Tables[1].Rows[0]["CFOLD_REMARK"].ToString();
+                            txtRemark.Text = ds.Tables[1].Rows[0]["CFOLD_REMARK"].ToString();
+                        }
+                        else { txtBoiler.Visible = false; }
+                        
                         txtNameManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUNAME"].ToString();
                         txtYearManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREYEAR"].ToString();
                         txtPlaceManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTPLACE"].ToString();
@@ -133,24 +138,34 @@ namespace MeghalayaUIP.User.CFO
                         txtMaximumnumber.Text = ds.Tables[1].Rows[0]["CFOLD_CONTRACTEMP"].ToString();
                         rblConvicated.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_FIVEYEARCONVICTED"].ToString();
                         if (rblConvicated.Text == "Y")
+                        {
                             txtcontractor.Visible = true;
-                        else txtcontractor.Visible = false;
-                        txtDetails.Text = ds.Tables[1].Rows[0]["CFOLD_DETAILS"].ToString();
+                            txtDetails.Text = ds.Tables[1].Rows[0]["CFOLD_DETAILS"].ToString();
+                        }
+                        else { txtcontractor.Visible = false; }
+                        
                         rblrevoking.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REVORKING"].ToString();
                         if (rblrevoking.Text == "Y")
+                        {
                             suspend.Visible = true;
-                        else suspend.Visible = false;
-                        txtOrderDate.Text = ds.Tables[1].Rows[0]["CFOLD_ORDERDAET"].ToString();
+                            txtOrderDate.Text = ds.Tables[1].Rows[0]["CFOLD_ORDERDAET"].ToString();
+                        }                            
+                        else { suspend.Visible = false; }                        
                         rblcontractor.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_ESTCONTRACTOR"].ToString();
                         if (rblcontractor.Text == "Y")
+                        {
                             fiveyear.Visible = true;
-                        else fiveyear.Visible = false;
-                        txtprinciple.Text = ds.Tables[1].Rows[0]["CFOLD_PRINCIPLEEMP"].ToString();
+                            txtprinciple.Text = ds.Tables[1].Rows[0]["CFOLD_PRINCIPLEEMP"].ToString();
+                        }
+                        else { fiveyear.Visible = false; }
+                        
                         if (rblcontractor.Text == "Y")
+                        {
                             nature.Visible = true;
-                        else nature.Visible = false;
-                        txtEstablishment.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDETAILS"].ToString();
-                        txtNature.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREWORK"].ToString();
+                            txtEstablishment.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDETAILS"].ToString();
+                            txtNature.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREWORK"].ToString();
+                        }
+                        else { nature.Visible = false; }                        
                         txtAgent.Text = ds.Tables[1].Rows[0]["CFOLD_MANAGERNAME"].ToString();
                         txtfathername.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSMANAGER"].ToString();
                         ddlCategory.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_CATEGORYEST"].ToString();
@@ -162,6 +177,7 @@ namespace MeghalayaUIP.User.CFO
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLD_CFOQDID"]);
+                        ViewState["LabourDetails"] = ds.Tables[2];
                         GVCFOLabour.DataSource = ds.Tables[2];
                         GVCFOLabour.DataBind();
                         GVCFOLabour.Visible = true;
@@ -222,11 +238,22 @@ namespace MeghalayaUIP.User.CFO
                     GVCFOLabour.DataSource = dt;
                     GVCFOLabour.DataBind();
                     ViewState["LabourDetails"] = dt;
+
+                    txtName.Text = "";
+                    rblGender.SelectedValue = "";
+                    txtages.Text = "";
+                    txtCommunity.Text = "";
+                    txtFulladdress.Text = "";
+                    txtPermanent.Text = "";
+                    txtHalfDay.Text = "";
+                    txtFullDay.Text = "";
+                    txtTotalEMP.Text = "";
                 }
             }
             catch (Exception EX)
             {
-                throw EX;
+                lblmsg0.Text = EX.Message;
+                Failure.Visible = true;
             }
         }
 

@@ -395,7 +395,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSitePlan = new CFEAttachments();
                         objSitePlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objSitePlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objSitePlan.MasterID = "1";
+                        objSitePlan.MasterID = "5";
                         objSitePlan.FilePath = serverpath + fupSitePlan.PostedFile.FileName;
                         objSitePlan.FileName = fupSitePlan.PostedFile.FileName;
                         objSitePlan.FileType = fupSitePlan.PostedFile.ContentType;

@@ -156,15 +156,7 @@
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <%-- <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">6. Registration No*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRegistrationNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>--%>
+                                            </div>                                          
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">5. Registraion No <span class="star">*</span></label>
