@@ -53,7 +53,8 @@ namespace MeghalayaUIP.User.PreReg
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        
+
+                        // 
                         // CalendarExtender1.StartDate = DateTime.Now;
                         //  txtDCPorOperation.Text = DateTime.Now.AddDays(5).ToString("dd-MM-yyyy");
 
@@ -77,7 +78,6 @@ namespace MeghalayaUIP.User.PreReg
                         }
 
                         MVprereg.ActiveViewIndex = index;
-                        SetCalendarConstraints();
                         BindCountries();
                         BindStates();
                         BindDistricts();
@@ -1047,6 +1047,14 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     errormsg = errormsg + slno + ". Please Select Date of Commencement of Production /Operation \\n";
                     slno = slno + 1;
+                }
+                if (txtDCPorOperation.Text != "" && txtCompnyRegDt.Text != "")
+                {
+                    if (Convert.ToDateTime(txtCompnyRegDt.Text) > Convert.ToDateTime(txtDCPorOperation.Text))
+                    {
+                        errormsg = errormsg + slno + ". Company Registration Date should be before the Date of Commencement of Production /Operation \\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (rblNatureofActvty.SelectedIndex == -1)
                 {
@@ -2058,7 +2066,7 @@ namespace MeghalayaUIP.User.PreReg
                         }
                         else
                         {
-                           
+
                             message = "alert('" + Error + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
 
@@ -2634,27 +2642,27 @@ namespace MeghalayaUIP.User.PreReg
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if(Attachment.PostedFile.ContentLength>=Convert.ToInt32(filesize))
-                    {
-                        Error = Error + slno + ". Please Upload file size less than "+ Convert.ToInt32(filesize)/1000000+"MB \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }                    
-                    if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
-               // }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)
@@ -3019,9 +3027,10 @@ namespace MeghalayaUIP.User.PreReg
 
         protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)
         {
-            SetCalendarConstraints();           
+            CalendarExtender2.StartDate = Convert.ToDateTime(txtCompnyRegDt.Text);
+            CheckDates();
         }
-        private void SetCalendarConstraints()
+        protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)
         {
 
             string compnyRegDtText = txtCompnyRegDt.Text;
@@ -3053,23 +3062,23 @@ namespace MeghalayaUIP.User.PreReg
             {
                 lblmsg0.Text = "One or both of the dates are invalid.";
             }
-           
-        }
+            //DateTime CompnyRegDt = Convert.ToDateTime(txtCompnyRegDt.Text);            
+            //DateTime txtDCPorOperation = Convert.ToDateTime( txtCompnyRegDt.Text);
 
-        protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)
-        {
-            SetCalendarConstraints();
-            //DateTime regDate;
-            //if (DateTime.TryParse(txtCompnyRegDt.Text, out regDate))
+            //if (CompnyRegDt < txtDCPorOperation)
             //{
-            //    DateTime today = DateTime.Today;
-            //    txtDCPorOperation.Enabled = regDate >= today;
+            //    Console.WriteLine("First Date is earlier than the second date");
+            //}
+            //else if (txtCompnyRegDt.Date > txtDCPorOperation.Date)
+            //{
+            //    Console.WriteLine("First Date is later than the second date");
             //}
             //else
             //{
-            //    txtDCPorOperation.Enabled = false;
+            //    Console.WriteLine("First Date is same as the second date");
             //}
         }
+
 
         protected void Link2_Click(object sender, EventArgs e)
         {
