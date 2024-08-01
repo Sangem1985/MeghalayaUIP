@@ -16,6 +16,7 @@ using MeghalayaUIP.CommonClass;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Web.Services.Description;
 using System.Configuration;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -54,28 +55,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (!IsPostBack)
                     {
 
-                        // 
-                        // CalendarExtender1.StartDate = DateTime.Now;
-                        //  txtDCPorOperation.Text = DateTime.Now.AddDays(5).ToString("dd-MM-yyyy");
-
-                        //  DateTime current = DateTime.Now;
-                        // CalendarExtender2.EndDate = current;
-                        string compnyRegDtText = txtCompnyRegDt.Text;
-                        DateTime compnyRegDt;
-
                         CalendarExtender1.StartDate = DateTime.Now;
-                        CalendarExtender2.EndDate = DateTime.Now;
-                        bool isDateValid = DateTime.TryParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out compnyRegDt);
-                        if (isDateValid)
-                        {
-                         
-                            CalendarExtender2.EndDate = compnyRegDt.AddDays(1);
-                        }
-                        else
-                        {
-                          
-                            lblmsg0.Text = "Invalid date format. Please enter the date in 'dd-MM-yyyy' format.";
-                        }
 
                         MVprereg.ActiveViewIndex = index;
                         BindCountries();
@@ -3032,54 +3012,29 @@ namespace MeghalayaUIP.User.PreReg
         }
         protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)
         {
-
-            string compnyRegDtText = txtCompnyRegDt.Text;
-            string dcPorOperationText = txtDCPorOperation.Text;
-                     
-            string dateFormat = "dd-MM-yyyy";
-                       
-            DateTime compnyRegDt, dcPorOperation;
-                      
-            bool isCompnyRegDtValid = DateTime.TryParseExact(compnyRegDtText, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out compnyRegDt);
-            bool isDcPorOperationValid = DateTime.TryParseExact(dcPorOperationText, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out dcPorOperation);
-
-            if (isCompnyRegDtValid && isDcPorOperationValid)
-            {                
-                if (compnyRegDt < dcPorOperation)
-                {
-                    lblmsg0.Text = "Company Registration Date is earlier than Date of Operation.";
-                }
-                else if (compnyRegDt > dcPorOperation)
-                {
-                    lblmsg0.Text = "Company Registration Date is later than Date of Operation.";
-                }
-                else
-                {
-                    lblmsg0.Text = "Company Registration Date is the same as Date of Operation.";
-                }
-            }
-            else
-            {
-                lblmsg0.Text = "One or both of the dates are invalid.";
-            }
-            //DateTime CompnyRegDt = Convert.ToDateTime(txtCompnyRegDt.Text);            
-            //DateTime txtDCPorOperation = Convert.ToDateTime( txtCompnyRegDt.Text);
-
-            //if (CompnyRegDt < txtDCPorOperation)
-            //{
-            //    Console.WriteLine("First Date is earlier than the second date");
-            //}
-            //else if (txtCompnyRegDt.Date > txtDCPorOperation.Date)
-            //{
-            //    Console.WriteLine("First Date is later than the second date");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("First Date is same as the second date");
-            //}
+            CheckDates();
         }
 
+        public void CheckDates()
+        {
+            try
+            {
+                if (txtCompnyRegDt.Text != "" && txtDCPorOperation.Text != "")
+                {
+                    if (Convert.ToDateTime(txtCompnyRegDt.Text) > Convert.ToDateTime(txtDCPorOperation.Text))
+                    {
+                        string msg = "alert('" + "Company Registration Date should be before the Date of Commencement of Production /Operation" + "')";
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", msg, true);
 
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               
+            }
+
+        }
         protected void Link2_Click(object sender, EventArgs e)
         {
             ErrorMsg1 = Step1validations();
