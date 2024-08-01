@@ -53,7 +53,32 @@ namespace MeghalayaUIP.User.PreReg
                     success.Visible = false;
                     if (!IsPostBack)
                     {
+
+                        // 
+                        // CalendarExtender1.StartDate = DateTime.Now;
+                        //  txtDCPorOperation.Text = DateTime.Now.AddDays(5).ToString("dd-MM-yyyy");
+
+                        //  DateTime current = DateTime.Now;
+                        // CalendarExtender2.EndDate = current;
+                        string compnyRegDtText = txtCompnyRegDt.Text;
+                        DateTime compnyRegDt;
+
+                        CalendarExtender1.StartDate = DateTime.Now;
+                        CalendarExtender2.EndDate = DateTime.Now;
+                        bool isDateValid = DateTime.TryParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out compnyRegDt);
+                        if (isDateValid)
+                        {
+                         
+                            CalendarExtender2.EndDate = compnyRegDt.AddDays(1);
+                        }
+                        else
+                        {
+                          
+                            lblmsg0.Text = "Invalid date format. Please enter the date in 'dd-MM-yyyy' format.";
+                        }
+
                         MVprereg.ActiveViewIndex = index;
+                        SetCalendarConstraints();
                         BindCountries();
                         BindStates();
                         BindDistricts();
@@ -2992,6 +3017,75 @@ namespace MeghalayaUIP.User.PreReg
         {
             MVprereg.ActiveViewIndex = 0;
         }
+
+        protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)
+        {
+            SetCalendarConstraints();           
+        }
+        private void SetCalendarConstraints()
+        {
+
+            string compnyRegDtText = txtCompnyRegDt.Text;
+            string dcPorOperationText = txtDCPorOperation.Text;
+                     
+            string dateFormat = "dd-MM-yyyy";
+                       
+            DateTime compnyRegDt, dcPorOperation;
+                      
+            bool isCompnyRegDtValid = DateTime.TryParseExact(compnyRegDtText, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out compnyRegDt);
+            bool isDcPorOperationValid = DateTime.TryParseExact(dcPorOperationText, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out dcPorOperation);
+
+            if (isCompnyRegDtValid && isDcPorOperationValid)
+            {                
+                if (compnyRegDt < dcPorOperation)
+                {
+                    lblmsg0.Text = "Company Registration Date is earlier than Date of Operation.";
+                }
+                else if (compnyRegDt > dcPorOperation)
+                {
+                    lblmsg0.Text = "Company Registration Date is later than Date of Operation.";
+                }
+                else
+                {
+                    lblmsg0.Text = "Company Registration Date is the same as Date of Operation.";
+                }
+            }
+            else
+            {
+                lblmsg0.Text = "One or both of the dates are invalid.";
+            }
+            //DateTime CompnyRegDt = Convert.ToDateTime(txtCompnyRegDt.Text);            
+            //DateTime txtDCPorOperation = Convert.ToDateTime( txtCompnyRegDt.Text);
+
+            //if (CompnyRegDt < txtDCPorOperation)
+            //{
+            //    Console.WriteLine("First Date is earlier than the second date");
+            //}
+            //else if (txtCompnyRegDt.Date > txtDCPorOperation.Date)
+            //{
+            //    Console.WriteLine("First Date is later than the second date");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("First Date is same as the second date");
+            //}
+        }
+
+        protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)
+        {
+            SetCalendarConstraints();
+            //DateTime regDate;
+            //if (DateTime.TryParse(txtCompnyRegDt.Text, out regDate))
+            //{
+            //    DateTime today = DateTime.Today;
+            //    txtDCPorOperation.Enabled = regDate >= today;
+            //}
+            //else
+            //{
+            //    txtDCPorOperation.Enabled = false;
+            //}
+        }
+
         protected void Link2_Click(object sender, EventArgs e)
         {
             ErrorMsg1 = Step1validations();

@@ -238,11 +238,12 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            <%--    <link href="CSS.css" rel="stylesheet" type="text/css" />--%> <%--CssClass="disable_future_dates" --%>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                                            <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" />
                                                                             <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtCompnyRegDt"></cc1:CalendarExtender>
                                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
@@ -426,7 +427,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" OnTextChanged="txtDCPorOperation_TextChanged" />
                                                                             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDCPorOperation"></cc1:CalendarExtender>
                                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
@@ -1297,7 +1298,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </asp:View>
 
@@ -1382,6 +1382,7 @@
         window.onload = datepicker;
     </script>
 
+  
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
