@@ -53,32 +53,8 @@ namespace MeghalayaUIP.User.PreReg
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-
-                        // 
-                        // CalendarExtender1.StartDate = DateTime.Now;
-                        //  txtDCPorOperation.Text = DateTime.Now.AddDays(5).ToString("dd-MM-yyyy");
-
-                        //  DateTime current = DateTime.Now;
-                        // CalendarExtender2.EndDate = current;
-                        string compnyRegDtText = txtCompnyRegDt.Text;
-                        DateTime compnyRegDt;
-
-                        CalendarExtender1.StartDate = DateTime.Now;
-                        CalendarExtender2.EndDate = DateTime.Now;
-                        bool isDateValid = DateTime.TryParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out compnyRegDt);
-                        if (isDateValid)
-                        {
-                         
-                            CalendarExtender2.EndDate = compnyRegDt.AddDays(1);
-                        }
-                        else
-                        {
-                          
-                            lblmsg0.Text = "Invalid date format. Please enter the date in 'dd-MM-yyyy' format.";
-                        }
-
+                        CalendarExtender1.EndDate = DateTime.Now;
                         MVprereg.ActiveViewIndex = index;
-                        SetCalendarConstraints();
                         BindCountries();
                         BindStates();
                         BindDistricts();
@@ -1048,6 +1024,14 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     errormsg = errormsg + slno + ". Please Select Date of Commencement of Production /Operation \\n";
                     slno = slno + 1;
+                }
+                if (txtDCPorOperation.Text != "" && txtCompnyRegDt.Text != "")
+                {
+                    if (Convert.ToDateTime(txtCompnyRegDt.Text) > Convert.ToDateTime(txtDCPorOperation.Text))
+                    {
+                        errormsg = errormsg + slno + ". Company Registration Date should be before the Date of Commencement of Production /Operation \\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (rblNatureofActvty.SelectedIndex == -1)
                 {
@@ -2059,7 +2043,7 @@ namespace MeghalayaUIP.User.PreReg
                         }
                         else
                         {
-                           
+
                             message = "alert('" + Error + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
 
@@ -2635,27 +2619,27 @@ namespace MeghalayaUIP.User.PreReg
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if(Attachment.PostedFile.ContentLength>=Convert.ToInt32(filesize))
-                    {
-                        Error = Error + slno + ". Please Upload file size less than "+ Convert.ToInt32(filesize)/1000000+"MB \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }                    
-                    if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
-               // }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)
@@ -3020,71 +3004,32 @@ namespace MeghalayaUIP.User.PreReg
 
         protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)
         {
-            SetCalendarConstraints();           
+            CalendarExtender2.StartDate = Convert.ToDateTime(txtCompnyRegDt.Text);
+            CheckDates();
         }
-        private void SetCalendarConstraints()
-        {
-
-            string compnyRegDtText = txtCompnyRegDt.Text;
-            string dcPorOperationText = txtDCPorOperation.Text;
-                     
-            string dateFormat = "dd-MM-yyyy";
-                       
-            DateTime compnyRegDt, dcPorOperation;
-                      
-            bool isCompnyRegDtValid = DateTime.TryParseExact(compnyRegDtText, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out compnyRegDt);
-            bool isDcPorOperationValid = DateTime.TryParseExact(dcPorOperationText, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out dcPorOperation);
-
-            if (isCompnyRegDtValid && isDcPorOperationValid)
-            {                
-                if (compnyRegDt < dcPorOperation)
-                {
-                    lblmsg0.Text = "Company Registration Date is earlier than Date of Operation.";
-                }
-                else if (compnyRegDt > dcPorOperation)
-                {
-                    lblmsg0.Text = "Company Registration Date is later than Date of Operation.";
-                }
-                else
-                {
-                    lblmsg0.Text = "Company Registration Date is the same as Date of Operation.";
-                }
-            }
-            else
-            {
-                lblmsg0.Text = "One or both of the dates are invalid.";
-            }
-            //DateTime CompnyRegDt = Convert.ToDateTime(txtCompnyRegDt.Text);            
-            //DateTime txtDCPorOperation = Convert.ToDateTime( txtCompnyRegDt.Text);
-
-            //if (CompnyRegDt < txtDCPorOperation)
-            //{
-            //    Console.WriteLine("First Date is earlier than the second date");
-            //}
-            //else if (txtCompnyRegDt.Date > txtDCPorOperation.Date)
-            //{
-            //    Console.WriteLine("First Date is later than the second date");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("First Date is same as the second date");
-            //}
-        }
-
         protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)
         {
-            SetCalendarConstraints();
-            //DateTime regDate;
-            //if (DateTime.TryParse(txtCompnyRegDt.Text, out regDate))
-            //{
-            //    DateTime today = DateTime.Today;
-            //    txtDCPorOperation.Enabled = regDate >= today;
-            //}
-            //else
-            //{
-            //    txtDCPorOperation.Enabled = false;
-            //}
+            CheckDates();
         }
+        private void CheckDates()
+        {
+            if (txtCompnyRegDt.Text != "" && txtDCPorOperation.Text != "")
+            {
+                DateTime compnyRegDt, dcPorOperation;
+
+                compnyRegDt = Convert.ToDateTime(txtCompnyRegDt.Text);
+                dcPorOperation = Convert.ToDateTime(txtDCPorOperation.Text);
+                if (compnyRegDt > dcPorOperation)
+                {
+                    txtDCPorOperation.Text = ""; txtDCPorOperation.Focus();
+                    string msg = "alert('" + "Company Registration Date should be before the Date of Commencement of Production /Operation" + "')";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", msg, true);
+                    return;
+                }
+
+            }
+        }
+
 
         protected void Link2_Click(object sender, EventArgs e)
         {
