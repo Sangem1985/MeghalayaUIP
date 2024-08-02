@@ -55,7 +55,7 @@ namespace MeghalayaUIP.User.PreReg
                     if (!IsPostBack)
                     {
 
-                        CalendarExtender1.StartDate = DateTime.Now;
+                        CalendarExtender1.EndDate = DateTime.Now;
 
                         MVprereg.ActiveViewIndex = index;
                         BindCountries();
@@ -821,6 +821,40 @@ namespace MeghalayaUIP.User.PreReg
                 txtPropLocDoorno.Text = "";
             }
         }
+        protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)
+        {
+            CheckDates(txtCompnyRegDt);
+        }
+        protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)
+        {
+            CheckDates(txtDCPorOperation);
+        }
+        public void CheckDates(TextBox TextDate)
+        {
+            try
+            {
+                if (txtCompnyRegDt.Text != "" && txtDCPorOperation.Text != "")
+                {
+                    DateTime RegDate, DCPDate;
+                    //bool RegDate1 = DateTime.TryParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out RegDate);
+                    //bool DCPDate1 = DateTime.TryParseExact(txtDCPorOperation.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DCPDate);
+
+                    RegDate = DateTime.ParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    DCPDate = DateTime.ParseExact(txtDCPorOperation.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    if (RegDate > DCPDate)
+                    {
+                        TextDate.Text = "";
+                        string msg = "alert('" + "Company Registration Date should be before the Date of Commencement of Production /Operation" + "')";
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", msg, true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
 
         //---------------------------------Step 1 Code ---------------------------//
         protected void btnsave1_Click(object sender, EventArgs e)
@@ -1030,7 +1064,7 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 if (txtDCPorOperation.Text != "" && txtCompnyRegDt.Text != "")
                 {
-                    if (Convert.ToDateTime(txtCompnyRegDt.Text) > Convert.ToDateTime(txtDCPorOperation.Text))
+                    if (DateTime.ParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture) > DateTime.ParseExact(txtDCPorOperation.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture))
                     {
                         errormsg = errormsg + slno + ". Company Registration Date should be before the Date of Commencement of Production /Operation \\n";
                         slno = slno + 1;
@@ -2727,11 +2761,13 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 string result = "";
-
-
+                ErrorMsg1 = Step1validations();
+                ErrorMsg2 = Step2validations();
                 ErrorMsg4 = Step4validations();
 
-                if (Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && hdnResultTab3.Value != "" && ErrorMsg4 == "")
+                if ((Convert.ToString(ViewState["UnitID"]) != "" && ErrorMsg1 == "") &&
+                    (hdnResultTab2.Value != "" && ErrorMsg2 == "") &&
+                    (hdnResultTab3.Value != "" && gvPromoters.Rows.Count > 0) && ErrorMsg4 == "")
                 {
                     DataTable dt = (DataTable)ViewState["PromtrsTable"];
                     // dt.Columns.Remove("IDD_COUNTRYName");
@@ -2752,17 +2788,17 @@ namespace MeghalayaUIP.User.PreReg
                 else
                 {
                     string message1 = "";
-                    if (Convert.ToString(ViewState["UnitID"]) == "")
+                    if (Convert.ToString(ViewState["UnitID"]) == "" || ErrorMsg1 != "")
                     {
-                        message1 = message1 + "Please Fill Basic Details \\n";
+                        message1 = message1 + "Please Fill All Basic Details \\n";
                     }
-                    if (hdnResultTab2.Value == "")
+                    if (hdnResultTab2.Value == "" || ErrorMsg2 != "")
                     {
                         message1 = message1 + "Please Enter Details of Revenue Projections and click on Save button \\n";
                     }
-                    if (gvPromoters.Rows.Count <= 0)
+                    if (gvPromoters.Rows.Count <= 0 || hdnResultTab3.Value == "")
                     {
-                        message1 = message1 + "Please Enter Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on ADD button \\n";
+                        message1 = message1 + "Please Add Details of the Applicant / Promoter(s) / Partner(s) / Directors(s) / Members and click on Save as Draft button \\n";
                     }
                     if (ErrorMsg4 != "")
                     {
@@ -3004,37 +3040,6 @@ namespace MeghalayaUIP.User.PreReg
         {
             MVprereg.ActiveViewIndex = 0;
         }
-
-        protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)
-        {
-            CalendarExtender2.StartDate = Convert.ToDateTime(txtCompnyRegDt.Text);
-            CheckDates();
-        }
-        protected void txtDCPorOperation_TextChanged(object sender, EventArgs e)
-        {
-            CheckDates();
-        }
-
-        public void CheckDates()
-        {
-            try
-            {
-                if (txtCompnyRegDt.Text != "" && txtDCPorOperation.Text != "")
-                {
-                    if (Convert.ToDateTime(txtCompnyRegDt.Text) > Convert.ToDateTime(txtDCPorOperation.Text))
-                    {
-                        string msg = "alert('" + "Company Registration Date should be before the Date of Commencement of Production /Operation" + "')";
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", msg, true);
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-               
-            }
-
-        }
         protected void Link2_Click(object sender, EventArgs e)
         {
             ErrorMsg1 = Step1validations();
@@ -3052,7 +3057,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             ErrorMsg1 = Step1validations();
             ErrorMsg2 = Step2validations();
-            if (hdnResultTab2.Value != "" && ErrorMsg1 == "" && ErrorMsg2 == "")
+            if ( ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"])!="" && hdnResultTab2.Value != "" && ErrorMsg2 == "")
                 MVprereg.ActiveViewIndex = 2;
             else
             {
@@ -3075,7 +3080,7 @@ namespace MeghalayaUIP.User.PreReg
             ErrorMsg1 = Step1validations();
             ErrorMsg2 = Step2validations();
 
-            if (hdnResultTab3.Value != "" && ErrorMsg1 == "" && ErrorMsg2 == "" && gvPromoters.Rows.Count > 0)
+            if (ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"])!="" && ErrorMsg2 == "" && hdnResultTab3.Value != "" && gvPromoters.Rows.Count > 0)
                 MVprereg.ActiveViewIndex = 3;
             else
             {
