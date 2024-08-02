@@ -302,7 +302,7 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores." st
                                                 <div class="col-md-12 d-flex mt-4" style="margin-top: 17px !important;margin-bottom: 7px;">
                                                     
                                                     <div class="col-md-12 text-center">
-                                                        <asp:Button ID="BtnSave" runat="server" Text="Save" class="btn btn-info btn-lg" padding-right="10px" BackColor="Green" Width="150px" OnClick="BtnSave_Click"  />
+                                                        <asp:Button ID="BtnSave" runat="server" Text="Submit" class="btn btn-info btn-submit" padding-right="10px" Width="120px" OnClick="BtnSave_Click"  />
                                                     </div>
                                                     
                                                 </div>

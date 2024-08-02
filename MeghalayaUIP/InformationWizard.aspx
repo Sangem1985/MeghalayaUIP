@@ -28,6 +28,7 @@
                                     <table id="servicestable" class="table table-striped table-hover dataTable no-footer" style="width: 100%;" aria-describedby="servicestable_info">
                                         <thead style="background-color: #247BA0; color: white;">
                                             <tr>
+                                                <th style="width: 60px;">Sl. No.</th>
                                                 <th class="sorting" tabindex="0" aria-controls="servicestable" rowspan="1" colspan="1" aria-label="Service Name: activate to sort column ascending" style="width: 125px;">Service Name</th>
                                                 <th class="sorting sorting_asc" tabindex="0" aria-controls="servicestable" rowspan="1" colspan="1" aria-label="Department: activate to sort column descending" style="width: 98px;" aria-sort="ascending">Department</th>
                                                 <th class="sorting" tabindex="0" aria-controls="servicestable" rowspan="1" colspan="1" aria-label="Standard Operating Procedure: activate to sort column ascending" style="width: 83px;">Standard Operating Procedure</th>
@@ -39,6 +40,7 @@
                                         <tbody>
 
                                             <tr class="odd">
+                                                <td>1</td>
                                                 <td>License to work as a Factory/Factory license</td>
                                                 <td class="sorting_1">Chief Inspector of Boilers &amp; Factories</td>
                                                 <td class="">
@@ -53,6 +55,7 @@
                                                 <td><a href="forms/ApplicationFactory.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>2</td>
                                                 <td>Application for Permission to construct, extend or take into use any building as a factory
                                                 </td>
                                                 <td class="sorting_1">Chief Inspector of Boilers &amp; Factories</td>
@@ -68,7 +71,9 @@
                                                 </td>
                                                 <td><a href="forms/ApplicationFactory.pdf" target="blank">Download Form</a></td>
                                             </tr>
+
                                             <tr class="odd">
+                                                <td>3</td>
                                                 <td>Registration of Boilers under The Boilers Act, 1923</td>
                                                 <td class="sorting_1">Chief Inspector of Boilers &amp; Factories</td>
                                                 <td class=""><a href="Documents/SOP/sop_Registration_of_Boiler.pdf" target="blank">View SOP</a></td>
@@ -79,6 +84,7 @@
                                                 <td><a href="Documents/Application/form_Registration_of_Boiler.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>4</td>
                                                 <td>Renewal of Certificate for use of Boiler, under The Boilers Act, 1923</td>
                                                 <td class="sorting_1">Chief Inspector of Boilers &amp; Factories</td>
                                                 <td class=""><a href="Documents/SOP/sop_Renewal_of_Certificate.pdf" target="blank">View SOP</a></td>
@@ -89,6 +95,7 @@
                                                 <td><a href="Documents/Application/form_Renewal_of_Certificate.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>5</td>
                                                 <td>Auto Renewal Factories License</td>
                                                 <td class="sorting_1">Chief Inspector of Boilers &amp; Factories</td>
                                                 <td class=""><a href="Documents/SOP/sop_autorenewal.pdf" target="blank">View SoP</a></td>
@@ -99,6 +106,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>6</td>
                                                 <td>Registration of Boiler Manufacture under The Boilers Act, 1923</td>
                                                 <td class="sorting_1">Chief Inspector of Boilers &amp; Factories</td>
                                                 <td class=""><a href="Documents/SOP/Process_flow_Registration_Boilers.pdf" target="blank">View SoP</a></td>
@@ -111,6 +119,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>7</td>
                                                 <td>Apply for New/Renewal/Modification License/Registration (FSSAI)</td>
 
                                                 <td class="sorting_1">Commissionerate of Food Safety</td>
@@ -121,6 +130,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>8</td>
                                                 <td>Udyog Aadhaar Memorandum (UAM)</td>
                                                 <td class="sorting_1">Department of Industries &amp; Commerce Online Services</td>
                                                 <td class=""></td>
@@ -130,6 +140,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>9</td>
                                                 <td>Registration Under The Meghalaya Procurement Preference Policy For Micro And Small
                           Enterprises</td>
                                                 <td class="sorting_1">Department of Industries &amp; Commerce Online Services</td>
@@ -144,6 +155,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>10</td>
                                                 <td>Registration of Institutions for Persons with Disabilities under Section 50 and 51 of the
                           Right of Persons with Disabilities Act, 2016</td>
                                                 <td class="sorting_1">Department of Social Welfare</td>
@@ -155,6 +167,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>11</td>
                                                 <td>NOC required for setting up of Explosives manufacturing, storage, sale, transport</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""><a href="Documents/SOP/SoP-Explosives.pdf" target="blank">View SOP</a></td>
@@ -171,6 +184,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>12</td>
                                                 <td>NOC required for setting up of Petroleum, Diesel &amp; Naphtha manufacturing, storage, sale,
                           transport</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
@@ -187,6 +201,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1174"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>13</td>
                                                 <td>Change of Land Use</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""><a href="Documents/SOP/SoP_CLU.pdf" target="blank">View SOP</a></td>
@@ -197,6 +212,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1179"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>14</td>
                                                 <td>NOC required for setting up of Explosives manufacturing, storage, sale, transport</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""><a href="Documents/SOP/SoP-Explosives.pdf" target="blank">View SOP</a></td>
@@ -213,6 +229,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1175"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>15</td>
                                                 <td>NOC required for setting up of Petroleum, Diesel &amp; Naphtha manufacturing, storage, sale,
                           transport</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
@@ -230,6 +247,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1174"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>16</td>
                                                 <td>Cinematograph License &amp; License for Screening a Films as applicable</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""><a href="assets/SOP/SoP-Cinema.pdf" target="blank">View SOP</a></td>
@@ -242,6 +260,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1185"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>17</td>
                                                 <td>Non Encumbrance Certificate</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""><a href="Documents/SOP/Process_Flow_Non.pdf" target="blank">View SOP</a></td>
@@ -251,6 +270,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1187"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>18</td>
                                                 <td>Registration of Societies</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""><a href="Documents/SOP/ProcessFlowros.pdf" target="blank">View SoP</a></td>
@@ -260,6 +280,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>19</td>
                                                 <td>Measurement / Demarcation of Land</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -270,6 +291,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1189"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>20</td>
                                                 <td>Grant of Licence for Fair Price Shop</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -280,6 +302,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1173"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>21</td>
                                                 <td>License for Sale of Crackers</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -290,6 +313,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1181"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>22</td>
                                                 <td>Application for Booking an Appointment with SRO</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -300,6 +324,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1237"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>23</td>
                                                 <td>Measurement / Demarcation of Land</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -310,6 +335,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1189"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>24</td>
                                                 <td>Grant of Licence for Fair Price Shop</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -320,6 +346,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1173"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>25</td>
                                                 <td>License for Sale of Crackers</td>
 
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
@@ -331,6 +358,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1181"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>26</td>
                                                 <td>Application for Booking an Appointment with SRO</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -341,6 +369,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1237"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>27</td>
                                                 <td>Permission for movie shooting in the District – Issued by Deputy Commissioner</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
                                                 <td class=""></td>
@@ -350,6 +379,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>28</td>
                                                 <td>Application Form for Temporary License for Possession and Sale of Fire Crackers during
                           Festivals Rule No 84 of Explosives Rules 2008</td>
                                                 <td class="sorting_1">Deputy Commissioner Office</td>
@@ -360,6 +390,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>29</td>
                                                 <td>Application For Allotment Of Land/Industrial Shed</td>
                                                 <td class="sorting_1">Directorate of Commerce and Industries</td>
                                                 <td class=""><a href="assets/SOP/Process_flowallot.pdf" target="blank">View SoP</a></td>
@@ -369,6 +400,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>30</td>
                                                 <td>Registration of schools under Right to Education</td>
                                                 <td class="sorting_1">Education Department</td>
                                                 <td class=""><a href="assets/SOP/SoP-RTE.pdf" target="blank">View SOP</a></td>
@@ -387,6 +419,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1172"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>31</td>
                                                 <td>NOC for setting up CBSE School</td>
                                                 <td class="sorting_1">Education Department</td>
                                                 <td class=""><a href="Documents/SOP/SoP-CBSE.pdf" target="blank">View SOP</a></td>
@@ -403,6 +436,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1161"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>32</td>
                                                 <td>Grant of Excise License for Wholesale / Retail / Distillery / Bottling Plant</td>
                                                 <td class="sorting_1">Excise Registration Taxation Stamps Department</td>
                                                 <td class=""><a href="Documents/SOP/SoP_Bottling_Plant.pdf" target="blank">View SOP</a></td>
@@ -412,6 +446,7 @@
                                                 <td><a href="Documents/Application/form_grant_license.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>33</td>
                                                 <td>License for local sale, Import and export permit of Spirit and Indian-made foreign liquor
                           (IMFL)</td>
                                                 <td class="sorting_1">Excise Registration Taxation Stamps Department</td>
@@ -422,6 +457,7 @@
                                                 <td><a href="Documents/Application/form_permit_spiritIMFL.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>34</td>
                                                 <td>Brand and Label Registration</td>
                                                 <td class="sorting_1">Excise Registration Taxation Stamps Department</td>
                                                 <td class=""><a href="Documents/SOP/Process_flow.pdf" target="blank">View SOP</a> </td>
@@ -431,6 +467,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>35</td>
                                                 <td>Property Registration</td>
                                                 <td class="sorting_1">Excise Registration Taxation Stamps Department</td>
                                                 <td class=""><a href="Documents/SOP/sop_ngdrs.pdf" target="blank">View SoP</a></td>
@@ -440,6 +477,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>36</td>
                                                 <td>State Excise Dashboard</td>
                                                 <td class="sorting_1">Excise Registration Taxation Stamps Department</td>
                                                 <td class=""></td>
@@ -448,6 +486,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>37</td>
                                                 <td>Registration of societies having area of operation in more that one District or covering
                           whole of Meghalaya / North East</td>
                                                 <td class="sorting_1">Excise Registration Taxation Stamps Department</td>
@@ -465,6 +504,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="even">
+                                                <td>38</td>
                                                 <td>Property Registration Dashboard</td>
                                                 <td class="sorting_1">Excise Registration Taxation Stamps Department</td>
                                                 <td class=""></td>
@@ -474,6 +514,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>39</td>
                                                 <td>Grant of Fire Safety Certificate</td>
                                                 <td class="sorting_1">Fire and Emergency Service</td>
                                                 <td class=""><a href="assets/SOP/SoP_FireClearance.pdf" target="blank">View SOP</a></td>
@@ -483,6 +524,7 @@
                                                 <td><a href="Documents/Application/FireEmergencyServiceForm.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>40</td>
                                                 <td>Provisional Fire Safety Certificate</td>
                                                 <td class="sorting_1">Fire and Emergency Service</td>
                                                 <td class=""><a href="Documents/SOP/SoP_FireClearance.pdf" target="blank">View SOP</a></td>
@@ -493,6 +535,7 @@
                                                 <td><a href="Documents/Application/FireClearance_Form.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>41</td>
                                                 <td>Certificate of Non-Forest land</td>
                                                 <td class="sorting_1">Forest Department</td>
                                                 <td class=""><a href="Documents/SOP/SoP-NFL.pdf" target="blank">View SOP</a></td>
@@ -511,6 +554,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>42</td>
                                                 <td>Permission for felling of Isolated trees in Non-Forest areas like from Homestead/ Farm Etc,
                           as per the provisions of the Meghalaya Tree Felling (Non Forest Areas) Rules, 2006</td>
                                                 <td class="sorting_1">Forest Department</td>
@@ -528,6 +572,7 @@
                                                 <td><a href="forms/Application-form-felling-trees.pdf" target="_blank" title="Pdf that opens in a new window">Download Form</a></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>43</td>
                                                 <td>Letter of Intent For Mining Lease / Mining Lease</td>
                                                 <td class="sorting_1">Forest Department</td>
                                                 <td class=""></td>
@@ -539,6 +584,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>44</td>
                                                 <td>Letter of Intent For Quarry Permit / Quarry Permit</td>
                                                 <td class="sorting_1">Forest Department</td>
                                                 <td class=""></td>
@@ -549,6 +595,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>45</td>
                                                 <td>Tree felling in forest land (Government or private)</td>
                                                 <td class="sorting_1">Forest Department</td>
                                                 <td class=""></td>
@@ -558,6 +605,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>46</td>
                                                 <td>Wildlife clearance through the National Board for Wildlife </td>
                                                 <td class="sorting_1">Forest Department</td>
                                                 <td class=""></td>
@@ -567,6 +615,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>47</td>
                                                 <td>NOC for field survey and investigation work for Hydro project </td>
                                                 <td class="sorting_1">Forest Department</td>
                                                 <td class=""></td>
@@ -576,6 +625,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>48</td>
                                                 <td>Environmental clearance for cement plant of 1.00 million tonnes per annum production
                           capacity and above</td>
                                                 <td class="sorting_1">Forest Department</td>
@@ -586,6 +636,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>49</td>
                                                 <td>Environmental clearance for Thermal Power Plants of 500 MW or more (coal/lignite/naphta
                           &amp; gas based) and of 50 MW or more for Pet Coke Diesel and all other fuels</td>
                                                 <td class="sorting_1">Forest Department</td>
@@ -596,6 +647,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>50</td>
                                                 <td>Registration under PC&amp;PNDT Act, 1994 (Amended subsequently) (For 5 years) &amp; its Renewal</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
                                                 <td class=""><a href="Documents/SOP/SoP_PCPNDT.pdf" target="blank">View SOP</a></td>
@@ -606,6 +658,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>51</td>
                                                 <td>Registration of clinical establishments under the Meghalaya Nursing Homes (Licensing and
                           Registration) Act 1993</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
@@ -617,6 +670,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>52</td>
                                                 <td>Licence for Retail and Wholesale Drug licence</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
                                                 <td class=""><a href="Documents/SOP/sop_License_Retailer.pdf" target="blank">View SOP</a></td>
@@ -627,6 +681,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>53</td>
                                                 <td>Change of Constitution of Licence for Retail and Wholesale Drug Licence</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
                                                 <td class=""><a href="Documents/SOP/sop_License_Retailer.pdf" target="blank">View SoP</a></td>
@@ -636,6 +691,7 @@
                                                 <td><a href="forms/form_License_Retailer.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="even">
+                                                <td>54</td>
                                                 <td>Application For The Grant /Renewal Of License To Manufacture For Sale Or For Distribution Of
                           Large Volume Parenterals/Sera And Vaccines Excluding Those Specified In Schedule X</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
@@ -645,6 +701,7 @@
                                                 <td><a href="Documents/Application/form_license_parental27D.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>55</td>
                                                 <td>Application For The Grant /Renewal Of License To Repack For Sale Or For Distribution Of
                           Drugs Other Than That Specified In Schedule C, C(1) Excluding Those Specified In Schedule X
                                                 </td>
@@ -655,6 +712,7 @@
                                                 <td><a href="Documents/Application/form_Form24B.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="even">
+                                                <td>56</td>
                                                 <td>Application For The Grant Of Loan License To Manufacture For Sale Or For Distribution Of
                           Drugs Specified In Schedule C, C (1) Excluding Those Specified In Part Xb &amp; Schedule X</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
@@ -664,6 +722,7 @@
                                                 <td><a href="Documents/Application/form_license_drugs27A.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>57</td>
                                                 <td>Application For The Grant /Renewal Of License To Manufacture For Sale Or For Distribution Of
                           Drugs That Are Specified In Schedule C, C (1) Excluding Those Specified In (Part Xb And)
                           Schedule X</td>
@@ -674,6 +733,7 @@
                                                 <td><a href="Documents/Application/form_license_drugs27.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="even">
+                                                <td>58</td>
                                                 <td>Application For The Grant/Renewal Of License To Manufacture Drugs For Purpose Of
                           Examination, Test Or Analysis</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
@@ -683,6 +743,7 @@
                                                 <td><a href="Documents/Application/form_license_drugs30.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>59</td>
                                                 <td>Application For The Grant /Renewal Of License To Manufacture For Sale Or For Distribution Of
                           Drugs Other Than That Specified In Schedule C, C1, X</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
@@ -692,6 +753,7 @@
                                                 <td><a href="Documents/Application/form_license_drugs24.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="even">
+                                                <td>60</td>
                                                 <td>Auto rentention for Drugs</td>
                                                 <td class="sorting_1">Health &amp; Family Welfare Department</td>
                                                 <td class=""><a href="Documents/SOP/Process_Flowarod.pdf" target="blank">View SoP</a></td>
@@ -703,6 +765,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>61</td>
                                                 <td>NOC for installation of DG set</td>
                                                 <td class="sorting_1">Inspectorate of Electricity</td>
                                                 <td class=""><a href="Documents/SOP/process_flowdg.pdf" target="blank">View SOP</a></td>
@@ -713,6 +776,7 @@
                                                 <td><a href="Documents/Application/ApplicationForm_DG_Set.pdf" target="blank">Download Form</a></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>62</td>
                                                 <td>Registration of Employment Exchange</td>
                                                 <td class="sorting_1">Labour</td>
                                                 <td class=""></td>
@@ -722,6 +786,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>63</td>
                                                 <td>License for Contractors under the Contract Labour Act 1970</td>
                                                 <td class="sorting_1">Labour Department</td>
 
@@ -732,6 +797,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>64</td>
                                                 <td>Registration of Shops and Establishment - FORM - A</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""><a href="Documents/SOP/Process_Flowshops.pdf" target="blank">View SOP</a></td>
@@ -747,6 +813,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>65</td>
                                                 <td>Application for Registration of Establishments/Principal Employer Employing Contract Labour
                           Act 1970</td>
                                                 <td class="sorting_1">Labour Department</td>
@@ -759,6 +826,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>66</td>
                                                 <td>Registration of Establishments employing Building Workers under the Building and Other
                           Construction Work Act 1996</td>
                                                 <td class="sorting_1">Labour Department</td>
@@ -770,6 +838,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>67</td>
                                                 <td>Registration of Establishment under the Inter State Migrant Workmen (RE&amp;CS) Act,1979</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""><a href="Documents/SOP/sop_migrantworkmen1979.pdf" target="blank">View SOP</a></td>
@@ -784,6 +853,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>68</td>
                                                 <td>Registration of Migrant Workers Under the Meghalaya Identification, Registration(Safety &amp;
                           Security) of Migrant Workers Rules, 2020</td>
                                                 <td class="sorting_1">Labour Department</td>
@@ -802,6 +872,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>69</td>
                                                 <td>License For Contractors Under The Interstate Migrant Workmen Act 1979</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""><a href="Documents/SOP/WorkFlow_Interstate_Migrant_Workers.pdf" target="blank">View SoP</a></td>
@@ -811,6 +882,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>70</td>
                                                 <td>Migrant Worker 2020-Renewal</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""><a href="Documents/SOP/sop_renew_migrant_worker_rule2020.pdf" target="blank">View SoP</a></td>
@@ -820,6 +892,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>71</td>
                                                 <td>Shops and Establishment 2003 Auto Renewal</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""><a href="Documents/SOP/ProcessFlowsear.pdf" target="blank">View SoP</a></td>
@@ -829,6 +902,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>72</td>
                                                 <td>Certificate of Registration to work as Motor Transport Undertaking</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""></td>
@@ -839,6 +913,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>73</td>
                                                 <td>Annual Filing of single integrated return under all the labour laws</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""></td>
@@ -847,6 +922,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>74</td>
                                                 <td>Half Yearly Filing of single integrated return under all the labour laws</td>
                                                 <td class="sorting_1">Labour Department</td>
                                                 <td class=""></td>
@@ -855,6 +931,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>75</td>
                                                 <td>Licence as Dealers in Weights &amp; Measures under the Legal Metrology Act, 2009</td>
                                                 <td class="sorting_1">Legal Metrology Department</td>
                                                 <td class=""><a href="Documents/SOP/SOP_LegMet_Licence.pdf" target="blank">View SOP</a></td>
@@ -873,6 +950,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>76</td>
                                                 <td>Licence as Repairers of Weights &amp; Measures under the Legal Metrology Act, 2009</td>
                                                 <td class="sorting_1">Legal Metrology Department</td>
                                                 <td class=""><a href="Documents/SOP/SOP_LegMet_Licence.pdf" target="blank">View SOP</a></td>
@@ -891,6 +969,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>77</td>
                                                 <td>Licence as Manufacturer of weights &amp; measures under the Legal Metrology Act, 2009</td>
                                                 <td class="sorting_1">Legal Metrology Department</td>
                                                 <td class=""><a href="Documents/SOP/SOP_LegMet_Licence.pdf" target="blank">View SOP</a></td>
@@ -910,6 +989,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>78</td>
                                                 <td>Certificate for Verification and Stamping of Weights &amp; Measures</td>
                                                 <td class="sorting_1">Legal Metrology Department</td>
                                                 <td class=""><a href="Documents/SOP/SoP_Verification_Weights.pdf" target="blank">View SOP</a></td>
@@ -928,6 +1008,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>79</td>
                                                 <td>Licence as Dealers in Weights &amp; Measures-Auto Renewal</td>
                                                 <td class="sorting_1">Legal Metrology Department</td>
                                                 <td class=""><a href="Documents/SOP/Process_flow_legal_renewal_service.pdf" target="blank">View SoP</a></td>
@@ -939,6 +1020,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>80</td>
                                                 <td>Licence as Manufacturer of Weights &amp; Measures-Auto Renewal</td>
                                                 <td class="sorting_1">Legal Metrology Department</td>
                                                 <td class=""><a href="Documents/SOP/Process_flow_legal_renewal_service.pdf" target="blank">View SoP</a></td>
@@ -950,6 +1032,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>81</td>
                                                 <td>Licence as Repairers of Weights &amp; Measures-Auto Renewal</td>
                                                 <td class="sorting_1">Legal Metrology Department</td>
                                                 <td class=""><a href="Documents/SOP/Process_flow_legal_renewal_service.pdf" target="blank">View SoP</a></td>
@@ -961,6 +1044,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>82</td>
                                                 <td>Consent to Establish" under the Water (Prevention &amp; Control of Pollution) Act, 1974
                           and Air (Prevention &amp; Control of Pollution) Act, 1981/"NOC"</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
@@ -971,6 +1055,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>83</td>
                                                 <td>Consent to Operate" under the Water (Prevention &amp; Control of Pollution) Act, 1974
                           and Air (Prevention &amp; Control of Pollution) Act, 1981</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
@@ -981,6 +1066,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>84</td>
                                                 <td>Registration / Renewal under the E-waste (Management and Handling) Rules, 2011</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
                                                 <td class=""><a href="Documents/SOP/SoP_eWaste.pdf" target="_blank">View SOP</a></td>
@@ -990,6 +1076,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>85</td>
                                                 <td>Registration / Renewal under Plastic Waste (Management and Handling) Rules, 2011</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
                                                 <td class=""><a href="Documents/SOP/Processflow_Plastic.pdf" target="_blank">View SOP</a></td>
@@ -1000,6 +1087,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="even">
+                                                <td>86</td>
                                                 <td>Registration for dealers under the Batteries (Management &amp; Handling) Rules, 2001</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
                                                 <td class=""><a href="Documents/SOP/Process_flow_Batteries_waste_Mangement.pdf" target="blank">View SoP</a></td>
@@ -1009,6 +1097,7 @@
                                                 <td><a href="Documents/Application/Batteries_form_SPCB_EoDB.pdf" target="blank">Download Form</a> </td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>87</td>
                                                 <td>Authorization under the Hazardous and Other Waste (Management and Transboundary Movement)
                           Rules 2016</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
@@ -1018,6 +1107,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>88</td>
                                                 <td>Application for obtaining authorization for Construction and Demolition Waste Management
                                                 </td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
@@ -1029,6 +1119,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>89</td>
                                                 <td>Application for obtaining authorization under solid waste management rules for processing or
                           recycling or treatment and disposal of solid waste</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
@@ -1039,6 +1130,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="even">
+                                                <td>90</td>
                                                 <td>Authorization Under Bio-Medical Waste Management (Management &amp; Handling) Rules, 2016</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
                                                 <td class=""><a href="Documents/SOP/Process_flow_Bio_Medical_Waste_Management.pdf" target="_blank">Download
@@ -1048,6 +1140,7 @@
                                                 <td><a href="Documents/Application/Application_form_II_(BMW).pdf" target="_blank">Download Form</a></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>91</td>
                                                 <td>Authorization for management and handling of e-waste</td>
                                                 <td class="sorting_1">Meghalaya State Pollution Control Board</td>
                                                 <td class=""></td>
@@ -1056,6 +1149,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="even">
+                                                <td>92</td>
                                                 <td>Meghalaya Energy Corporation Limited (MeECL) Payment of bill</td>
                                                 <td class="sorting_1">Power</td>
                                                 <td class=""></td>
@@ -1065,6 +1159,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>93</td>
                                                 <td>Meghalaya Energy Corporation Limited (MeECL) New Connection</td>
                                                 <td class="sorting_1">Power</td>
                                                 <td class=""></td>
@@ -1074,6 +1169,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>94</td>
                                                 <td>Certificate for non-availability of Water Supply from Water Supply Agency</td>
                                                 <td class="sorting_1">Public Health Engineering Department</td>
                                                 <td class=""><a href="Documents/SOP/SoP-NAWS.pdf" target="blank">View SOP</a></td>
@@ -1089,6 +1185,7 @@
 
                                             </tr>
                                             <tr class="odd">
+                                                <td>95</td>
                                                 <td>Grant of Water Connection to Non Municipal Urban Areas</td>
                                                 <td class="sorting_1">Public Health Engineering Department</td>
                                                 <td class=""><a href="Documents/SOP/Process_flowgwc.pdf" target="blank">View SOP</a></td>
@@ -1098,6 +1195,7 @@
 
                                             </tr>
                                             <tr class="even">
+                                                <td>96</td>
                                                 <td>Registration of Contractors for Works and Services by Public Works Department</td>
 
                                                 <td class="sorting_1">Public Works Department</td>
@@ -1109,6 +1207,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1176"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="odd">
+                                                <td>97</td>
                                                 <td>Permission for Road Cutting</td>
 
                                                 <td class="sorting_1">Public Works Department</td>
@@ -1120,6 +1219,7 @@
                                                 <%--                        <td><a href="https://investmeghalaya.gov.in/directApply.do?serviceId=1184"><img src="images/apply-icon.png" width="100" height="34"></a></td>--%>
                                             </tr>
                                             <tr class="even">
+                                                <td>98</td>
                                                 <td>Certificate of Incorporation </td>
 
                                                 <td class="sorting_1">Registrar of Companies</td>
@@ -1130,6 +1230,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr class="odd">
+                                                <td>99</td>
                                                 <td>Registration of Cooperative Society</td>
                                                 <td class="sorting_1">Registrar of Cooperative Societies</td>
                                                 <td class=""></td>

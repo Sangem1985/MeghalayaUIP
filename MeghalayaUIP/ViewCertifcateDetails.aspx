@@ -1,64 +1,98 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outer.Master" AutoEventWireup="true" CodeBehind="ViewCertifcateDetails.aspx.cs" Inherits="MeghalayaUIP.ViewCertifcateDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outernew.Master" AutoEventWireup="true" CodeBehind="ViewCertifcateDetails.aspx.cs" Inherits="MeghalayaUIP.ViewCertifcateDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="innerpages">
+      <link rel="stylesheet" href="assets/admin/css/style.css">
+    <style>
+        th {
+    background: #728ab0;
+    color: #fff;
+    line-height: 35px;
+}
+        td {
+    background: #fff;
+    line-height: 35px;
+    font-weight: 500;
+}
+        table#ContentPlaceHolder1_gvDetails {
+    box-shadow: 1px 4px 4px #ccc;
+    margin-bottom: 20px;
+}
+        .table-responsive {
+    white-space: normal;
+    border-radius: 6px !important;
+}
+    </style>
+      <section class="innerpages IntentInvest mt-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">View Certifcate Details</li>
-                        </ol>
-                    </nav>
+                 
+                    <div class="">
+                        <div class="content container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">View Certifcate Details</h4>
+                                        </div>
+                   <div class="card-body">
 
-                    <h3>View Certifcate Details</h3>
-
-
-                    <div class="col-md-6">
-                        <div class="col-md-6 text-right">Type of Application</div>
-                        <div class="col-md-6">
-                            <asp:DropDownList ID="ddlTypeApplication" runat="server" aria-label="Default select example" Style="width: 100%; height: 32px;">
+                    <div class="col-md-12 d-flex">
+                         <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-6 col-form-label">Type of Application</label>
+                                                            <div class="col-lg-12 d-flex">
+                                                                <asp:DropDownList ID="ddlTypeApplication" runat="server" aria-label="Default select example" class="form-control" Style="width: 100%; height: 32px;">
                                 <asp:ListItem Value="0" Selected="True">Select Application</asp:ListItem>
                                 <asp:ListItem Value="1">CFE</asp:ListItem>
                                 <asp:ListItem Value="2">CFO</asp:ListItem>
                                 <asp:ListItem Value="3">Renewls</asp:ListItem>
                             </asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                        <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-12 col-form-label">Enter UID Number</label>
+                                                            <div class="col-lg-12 d-flex">
+                                                                <input type="text" id="txtUIDNo" runat="server" class="form-control" name="input" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                      <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-12 col-form-label">Enter Name of Unit</label>
+                                                            <div class="col-lg-12 d-flex">
+                                                                <input type="text" id="txtUnitName" runat="server" class="form-control" name="input" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                    
+                    
+                    
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-6 text-right">Enter UID Number</div>
-                        <div class="col-md-6">
-                            <input type="text" id="txtUIDNo" runat="server" class="form-control" name="input" />
-                        </div>
-                    </div>
-                    <div class="col-md-6" style="margin-top: 20px;">
-                        <div class="col-md-6 text-right">Enter Name of Unit</div>
-                        <div class="col-md-6">
-                            <input type="text" id="txtUnitName" runat="server" class="form-control" name="input" />
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center" style="margin-top: 20px;">
-                        <asp:Button ID="btnsubmit" runat="server" Text="Submit" CssClass="btn btn-info btn-submit" OnClick="btnsubmit_Click" />
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 d-flex" id="divGrid" runat="server" visible="false" style="margin-top: 25px;">
+                       <div class="col-md-12 mt-4" style="text-align:center;">
+                           <asp:Button ID="btnsubmit" runat="server" Text="Submit" CssClass="btn btn-info btn-submit" Width="120px" OnClick="btnsubmit_Click" />
+                       </div>
+
+                       <div class="col-md-12 d-flex" id="divGrid" runat="server" visible="false" style="margin-top: 25px;">
                 <div class="table-responsive">
                     <asp:GridView ID="gvDetails" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                        CssClass="table-hover" ForeColor="#333333" Width="100%" BorderColor="#003399" BorderStyle="Solid" BorderWidth="1px"
+                        CssClass="table table-dark table-striped table-bordered" ForeColor="#333333" Width="100%" BorderColor="#003399" BorderStyle="Solid" BorderWidth="1px"
                         EmptyDataText="No Data Available" OnRowDataBound="gvDetails_RowDataBound">
                         <RowStyle CssClass="GRDITEM" VerticalAlign="Middle" />
                         <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="Black" BackColor="blanchedalmond" />
                         <Columns>
                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+
                                 <ItemTemplate>
                                     <%# Container.DataItemIndex + 1%>
                                 </ItemTemplate>
                                 <HeaderStyle HorizontalAlign="Center" />
-                                <ItemStyle Width="50px" />
+                                <ItemStyle Width="100px" />
                             </asp:TemplateField>
                             <asp:BoundField DataField="NAMEOFUNIT" HeaderText="Unit Name">
                                 <ItemStyle Width="350px" />
@@ -74,7 +108,7 @@
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="Download">
                                 <ItemTemplate>
-                                    <asp:HyperLink Text="View" Target="_blank" runat="server" ID="hypView" />
+                                    <asp:HyperLink Text="View" Target="_blank" CssClass="btn btn-sm btn-info" runat="server" ID="hypView" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Unit Id" Visible="false">
@@ -91,6 +125,17 @@
                     </asp:GridView>
                 </div>
             </div>
+                       </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            
+            
         </div>
     </section>
 </asp:Content>

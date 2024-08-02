@@ -355,6 +355,9 @@
                                                         <li><a href="login.aspx">Registration Under MIIPP 2024</a></li>
                                                         <li><a href="InformationWizard.aspx">Information Wizard</a></li>
                                                         <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
+                                                        <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
+                                                        <li><a href="#" target="_blank">Grievance(Query) Dashboard</a></li>
+                                                        <li><a href="ViewCertifcateDetails.aspx">Third Party Verfification</a></li>
                                                         <li><a href="OtherService.aspx">Other Services</a></li>
 
                                                     </ul>
@@ -362,7 +365,7 @@
 
                                                 <li class="dropdown"><a href="#">Resources <i class="fi fi-br-chevron-double-down"></i></a>
                                                     <ul>
-                                                        <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
+                                                        
                                                         <li><a href="Notifications.aspx">Notifications</a></li>
                                                         <li><a href="Faq.aspx">FAQs</a></li>
                                                         <li><a href="Contact.aspx">Contact</a></li>
