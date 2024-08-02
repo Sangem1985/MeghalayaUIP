@@ -68,6 +68,8 @@ namespace MeghalayaUIP.Common
        // public static string InsertCFOLineOfActivityDetails = "USP_INSCFOLINEOFACTIVITYDETAILS";
         public static string GetCFOQueryDashBoard = "USP_GETCFOQUERYRAISEDDEPT";
         public static string InsertCFOQueryResponse = "USP_UPDATECFOAPPLQUERYRESPONSE";
+
+        public static string GetCFOAttachments = "USP_GETCFOATTACHMNETS";
     }
     public class CFOExciseDetails
     {

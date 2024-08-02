@@ -85,8 +85,8 @@
                                                         <label class="col-lg-8 col-form-label">Is any type of jobs executed by the firm earlier, with special reference to their maximum working pressure, temperature and the materials involved, with documentary evidence?*</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rblmaximum" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -101,8 +101,8 @@
                                                         <label class="col-lg-8 col-form-label">Has your request for recognition as a repairer under Indian Boiler Regulation, 1950 been rejected by any authority*</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rblregulation" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -112,8 +112,8 @@
                                                         <label class="col-lg-8 col-form-label">Whether having rectifier / generator, grinder, general tools and tackles, dye penetrant kit, expander and measuring instruments or any other tools and tackles under regulation 392 (5) (i)?*</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rblgenerator" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -126,8 +126,8 @@
                                                         <label class="col-lg-8 col-form-label">Detailed list of technical personnel with designation, educational qualifications and relevant experience (attach copies of documents) who are permanently employed with the firm ?*</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rbldesignation" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -148,8 +148,8 @@
                                                         <label class="col-lg-8 col-form-label">Whether the firm is prepared to execute the job strictly in 81 conformity with the regulations and maintain a high standard of work ? *</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rblstrictly" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -159,8 +159,8 @@
                                                         <label class="col-lg-8 col-form-label">Whether the firm is prepared to accept full responsibility for the work done and is prepared to clarify any controversial issue, if required?*</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rblfirm" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -173,8 +173,8 @@
                                                         <label class="col-lg-8 col-form-label">Whether the firm is in a position to supply materials to required specification with proper test certificates if asked for ?*</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rblmaterial" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -184,8 +184,8 @@
                                                         <label class="col-lg-8 col-form-label">Whether the firm has an internal quality control system of their own ??  *</label>
                                                         <div class="col-lg-4">
                                                             <asp:RadioButtonList ID="rblinternalcontrol" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Yes" Value="1" />
-                                                                <asp:ListItem Text="No" Value="2" />
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
@@ -472,7 +472,7 @@
                                                         <%--   <asp:TextBox ID="txtEStdate" runat="server" class="date form-control" type="text"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                        <asp:TextBox runat="server" ID="txtEStdate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
+                                                        <asp:TextBox runat="server" ID="txtEStdate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtEStdate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -485,7 +485,7 @@
                                                         <%--  <asp:TextBox ID="txtEndDate" runat="server" class="date form-control" type="text"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                        <asp:TextBox runat="server" ID="txtEndDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
+                                                        <asp:TextBox runat="server" ID="txtEndDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtEndDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -546,7 +546,7 @@
                                                       <%--  <asp:TextBox ID="txtOrderDate" runat="server" class="date form-control" type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                          <asp:TextBox runat="server" ID="txtOrderDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
+                                                          <asp:TextBox runat="server" ID="txtOrderDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                         <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtOrderDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>

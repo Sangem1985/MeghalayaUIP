@@ -228,5 +228,9 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.InsertCFOQueryResponse(CFOQuery);
         }
+
+        //---------------------CFO ATTACHMENT BINDING----------------//
+        public DataSet GetCFOAttachmentsData(string userid, string UNITID)
+        { return objCFODAL.GetCFOAttachmentsData(userid, UNITID); }
     }
 }

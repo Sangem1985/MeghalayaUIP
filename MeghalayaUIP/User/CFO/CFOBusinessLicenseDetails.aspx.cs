@@ -84,28 +84,38 @@ namespace MeghalayaUIP.User.CFO
                         txtaddress.Text = ds.Tables[1].Rows[0]["CFOB_ESTBDATE"].ToString();
                         rblBusiness.SelectedValue = ds.Tables[1].Rows[0]["CFOB_STALLLOCATION"].ToString();
                         rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
-                        if (rblBusiness.SelectedValue == "1")
+                        if (rblBusiness.SelectedValue == "Y")
+                        {
                             stall.Visible = true;
-                        else stall.Visible = false;
-                        txtHolding.Text = ds.Tables[1].Rows[0]["CFOB_HOLDINGNO"].ToString();
-                        ddlDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_MARKETNAME"].ToString();
-                        if (rblBusiness.SelectedValue == "2")
+                            txtHolding.Text = ds.Tables[1].Rows[0]["CFOB_HOLDINGNO"].ToString();
+                            ddlDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_MARKETNAME"].ToString();
+                            Districmaster.Visible = false;
+                        }
+                        else
+                        {
                             Districmaster.Visible = true;
-                        else Districmaster.Visible = false;
-                        ddlESTDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ESTBDISTRICT"].ToString();
-                        txtstall.Text = ds.Tables[1].Rows[0]["CFOB_STALLNO"].ToString();
+                            ddlESTDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ESTBDISTRICT"].ToString();
+                            txtstall.Text = ds.Tables[1].Rows[0]["CFOB_STALLNO"].ToString();
+                            stall.Visible = false;
+                        }                    
+                       
+                       
                         rblmunicipality.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANYBUSINESS"].ToString();
                         rblmunicipality_SelectedIndexChanged(null, EventArgs.Empty);
-                        if (rblmunicipality.Text == "Yes")
+                        if (rblmunicipality.Text == "Y")
+                        {
                             Municipality.Visible = true;
-                        else Municipality.Visible = false;
-                        txtDetails.Text = ds.Tables[1].Rows[0]["CFOB_BUSINESSDETAILS"].ToString();
+                            txtDetails.Text = ds.Tables[1].Rows[0]["CFOB_BUSINESSDETAILS"].ToString();
+                        }
+                        else { Municipality.Visible = false; }
+                     
                         ddlAnnual.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANNUALGROSSTURNOVER"].ToString();
                         txtAmount.Text = ds.Tables[1].Rows[0]["CFOB_TOTALFEE"].ToString();
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOBN_CFOQDID"]);
+                        ViewState["PollutionControlBOARD"]= ds.Tables[2];
                         GVPollution.DataSource = ds.Tables[2];
                         GVPollution.DataBind();
                         GVPollution.Visible = true;
@@ -121,19 +131,21 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblBusiness_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblBusiness.SelectedValue == "1")
+            if (rblBusiness.SelectedValue == "Y")
             {
                 stall.Visible = true;
+                Districmaster.Visible = false;
             }
-            else if (rblBusiness.SelectedValue == "2")
+            else if (rblBusiness.SelectedValue == "N")
             {
                 Districmaster.Visible = true;
+                stall.Visible = false;
             }
         }
 
         protected void rblmunicipality_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblmunicipality.SelectedItem.Text == "Yes")
+            if (rblmunicipality.SelectedValue == "Y")
             {
                 Municipality.Visible = true;
             }
@@ -182,6 +194,11 @@ namespace MeghalayaUIP.User.CFO
                     GVPollution.DataSource = dt;
                     GVPollution.DataBind();
                     ViewState["PollutionControlBOARD"] = dt;
+
+
+                    ddlNature.ClearSelection();
+                    ddlBusiness.ClearSelection();
+                    txtFees.Text = "";
                 }
             }
             catch (Exception ex)
@@ -199,6 +216,11 @@ namespace MeghalayaUIP.User.CFO
                 if (string.IsNullOrEmpty(txtaddress.Text) || txtaddress.Text == "" || txtaddress.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Date\\n";
+                    slno = slno + 1;
+                }
+                if (rblBusiness.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Select Location of Stall \\n";
                     slno = slno + 1;
                 }
                 if (rblBusiness.SelectedValue == "Y")
@@ -232,6 +254,11 @@ namespace MeghalayaUIP.User.CFO
                         slno = slno + 1;
                     }
 
+                }
+                if (rblmunicipality.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No any business in Shillong Municipality during the previous 5 (five) years?\\n";
+                    slno = slno + 1;
                 }
                 if (rblmunicipality.SelectedValue == "Y")
                 {
@@ -268,6 +295,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 string result = "";
                 ErrorMsg = Validations();
+                if(ErrorMsg == "")
                 {
                     PollutionControlBoard ObjCFOPollutionControl = new PollutionControlBoard();
 
@@ -323,6 +351,12 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
             }
             catch (Exception ex)
             {

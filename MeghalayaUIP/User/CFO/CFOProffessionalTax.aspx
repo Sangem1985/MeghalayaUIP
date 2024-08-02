@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOProffessionalTax.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOProffessionalTax" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+       <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -98,8 +102,12 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of commencement *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                 <i class="fi fi-rr-calendar-lines"></i>
+                                             <%--   <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
+
+                                                  <asp:TextBox runat="server" ID="txtDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -375,6 +383,7 @@
                                         <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </div>
+                                <br />
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-8">
                                         <div class="form-group row">
@@ -427,15 +436,19 @@
 
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+  <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 

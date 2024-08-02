@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
+using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
@@ -16,7 +17,7 @@ namespace MeghalayaUIP.User.CFO
     public partial class CFOUploadEnclosures : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-        CFEBAL objcfebal = new CFEBAL();
+        CFOBAL objcfobal = new CFOBAL();
 
         string UnitID, result;
         protected void Page_Load(object sender, EventArgs e)
@@ -49,7 +50,6 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-
                     BindData();
                 }
             }
@@ -60,7 +60,56 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 DataSet ds = new DataSet();
-               
+                ds = objcfobal.GetCFOAttachmentsData(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]));
+                if (ds != null)
+                {
+                    if (ds.Tables.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+
+
+                        }
+                        if (ds.Tables[1].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                            {
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFOA_MASTERAID"]) == 11)//Aadhar
+                                {
+                                    hplAadhar.Visible = true;
+                                    hplAadhar.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplAadhar.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFOA_MASTERAID"]) == 12)
+                                {
+                                    hplEPIC.Visible = true;
+                                    hplEPIC.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplEPIC.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFOA_MASTERAID"]) == 13)
+                                {
+                                    hplApplPhoto.Visible = true;
+                                    hplApplPhoto.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplApplPhoto.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFOA_MASTERAID"]) == 14)
+                                {
+                                    hplLandDoc.Visible = true;
+                                    hplLandDoc.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplLandDoc.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFOA_MASTERAID"]) == 15)
+                                {
+                                    hplLandDoc.Visible = true;
+                                    hplLandDoc.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplLandDoc.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                }
+                            }
+
+                        }
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -86,7 +135,45 @@ namespace MeghalayaUIP.User.CFO
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
-            { }
+            {
+                int slno = 1;
+                string errormsg = "";
+                if (string.IsNullOrEmpty(hplAadhar.Text) || hplAadhar.Text == "" || hplAadhar.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Aadhar Document \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplEPIC.Text) || hplEPIC.Text == "" || hplEPIC.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload EPIC Document \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplApplPhoto.Text) || hplApplPhoto.Text == "" || hplApplPhoto.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Photograpgh \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplLandDoc.Text) || hplLandDoc.Text == "" || hplLandDoc.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Land Document /Sale Deed  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplSitePlan.Text) || hplSitePlan.Text == "" || hplSitePlan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Site Plan \\n";
+                    slno = slno + 1;
+                }
+                if (errormsg == "")
+                {
+
+                }
+                else
+                {
+                    string message = "alert('" + errormsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+            }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
@@ -168,6 +255,300 @@ namespace MeghalayaUIP.User.CFO
             catch (Exception ex)
             { throw ex; }
         }
+
+        protected void btnUpldAadhar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupAadhar.HasFile)
+                {
+                    Error = validations(fupAadhar);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Aadhar" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupAadhar.PostedFile.SaveAs(serverpath + "\\" + fupAadhar.PostedFile.FileName);
+
+                        CFOAttachments objAadhar = new CFOAttachments();
+                        objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
+                        objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
+                        objAadhar.MasterID = "11";
+                        objAadhar.FilePath = serverpath + fupAadhar.PostedFile.FileName;
+                        objAadhar.FileName = fupAadhar.PostedFile.FileName;
+                        objAadhar.FileType = fupAadhar.PostedFile.ContentType;
+                        objAadhar.FileDescription = "Aadhar";
+                        objAadhar.CreatedBy = hdnUserID.Value;
+                        objAadhar.IPAddress = getclientIP();
+                        result = objcfobal.InsertCFOAttachments(objAadhar);
+                        if (result != "")
+                        {
+                            hplAadhar.Text = fupAadhar.PostedFile.FileName;
+                            hplAadhar.NavigateUrl = serverpath;
+                            hplAadhar.Target = "blank";
+                            message = "alert('" + "Aadhar Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnUpldEPIC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupEPIC.HasFile)
+                {
+                    Error = validations(fupEPIC);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "EPIC" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupEPIC.PostedFile.SaveAs(serverpath + "\\" + fupEPIC.PostedFile.FileName);
+
+                        CFOAttachments objEPIC = new CFOAttachments();
+                        objEPIC.UNITID = Convert.ToString(Session["CFOUNITID"]);
+                        objEPIC.Questionnareid = Convert.ToString(Session["CFOQID"]);
+                        objEPIC.MasterID = "12";
+                        objEPIC.FilePath = serverpath + fupEPIC.PostedFile.FileName;
+                        objEPIC.FileName = fupEPIC.PostedFile.FileName;
+                        objEPIC.FileType = fupEPIC.PostedFile.ContentType;
+                        objEPIC.FileDescription = "EPIC Document";
+                        objEPIC.CreatedBy = hdnUserID.Value;
+                        objEPIC.IPAddress = getclientIP();
+                        result = objcfobal.InsertCFOAttachments(objEPIC);
+                        if (result != "")
+                        {
+                            hplEPIC.Text = fupEPIC.PostedFile.FileName;
+                            hplEPIC.NavigateUrl = serverpath;
+                            hplEPIC.Target = "blank";
+                            message = "alert('" + "EPIC Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnUpldPhoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupApplPhoto.HasFile)
+                {
+                    Error = validations(fupApplPhoto);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Applicant Photo" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupApplPhoto.PostedFile.SaveAs(serverpath + "\\" + fupApplPhoto.PostedFile.FileName);
+
+                        CFOAttachments objApplPhoto = new CFOAttachments();
+                        objApplPhoto.UNITID = Convert.ToString(Session["CFOUNITID"]);
+                        objApplPhoto.Questionnareid = Convert.ToString(Session["CFOQID"]);
+                        objApplPhoto.MasterID = "13";
+                        objApplPhoto.FilePath = serverpath + fupApplPhoto.PostedFile.FileName;
+                        objApplPhoto.FileName = fupApplPhoto.PostedFile.FileName;
+                        objApplPhoto.FileType = fupApplPhoto.PostedFile.ContentType;
+                        objApplPhoto.FileDescription = "Applicant Photo";
+                        objApplPhoto.CreatedBy = hdnUserID.Value;
+                        objApplPhoto.IPAddress = getclientIP();
+                        result = objcfobal.InsertCFOAttachments(objApplPhoto);
+                        if (result != "")
+                        {
+                            hplApplPhoto.Text = fupApplPhoto.PostedFile.FileName;
+                            hplApplPhoto.NavigateUrl = serverpath;
+                            hplApplPhoto.Target = "blank";
+                            message = "alert('" + "Applicant Photo Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnUplLandDoc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupLandDoc.HasFile)
+                {
+                    Error = validations(fupLandDoc);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Land Document" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupLandDoc.PostedFile.SaveAs(serverpath + "\\" + fupLandDoc.PostedFile.FileName);
+
+                        CFOAttachments objLandDoc = new CFOAttachments();
+                        objLandDoc.UNITID = Convert.ToString(Session["CFOUNITID"]);
+                        objLandDoc.Questionnareid = Convert.ToString(Session["CFOQID"]);
+                        objLandDoc.MasterID = "14";
+                        objLandDoc.FilePath = serverpath + fupLandDoc.PostedFile.FileName;
+                        objLandDoc.FileName = fupLandDoc.PostedFile.FileName;
+                        objLandDoc.FileType = fupLandDoc.PostedFile.ContentType;
+                        objLandDoc.FileDescription = "Land Document";
+                        objLandDoc.CreatedBy = hdnUserID.Value;
+                        objLandDoc.IPAddress = getclientIP();
+                        result = objcfobal.InsertCFOAttachments(objLandDoc);
+                        if (result != "")
+                        {
+                            hplLandDoc.Text = fupLandDoc.PostedFile.FileName;
+                            hplLandDoc.NavigateUrl = serverpath;
+                            hplLandDoc.Target = "blank";
+                            message = "alert('" + "Land Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnUpldSitePlan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupSitePlan.HasFile)
+                {
+                    Error = validations(fupSitePlan);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["CFOQID"]) + "\\" + "Site Plan" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupSitePlan.PostedFile.SaveAs(serverpath + "\\" + fupSitePlan.PostedFile.FileName);
+
+                        CFOAttachments objSitePlan = new CFOAttachments();
+                        objSitePlan.UNITID = Convert.ToString(Session["CFOUNITID"]);
+                        objSitePlan.Questionnareid = Convert.ToString(Session["CFOQID"]);
+                        objSitePlan.MasterID = "15";
+                        objSitePlan.FilePath = serverpath + fupSitePlan.PostedFile.FileName;
+                        objSitePlan.FileName = fupSitePlan.PostedFile.FileName;
+                        objSitePlan.FileType = fupSitePlan.PostedFile.ContentType;
+                        objSitePlan.FileDescription = "SitePlan";
+                        objSitePlan.CreatedBy = hdnUserID.Value;
+                        objSitePlan.IPAddress = getclientIP();
+                        result = objcfobal.InsertCFOAttachments(objSitePlan);
+                        if (result != "")
+                        {
+                            hplSitePlan.Text = fupSitePlan.PostedFile.FileName;
+                            hplSitePlan.NavigateUrl = serverpath;
+                            hplSitePlan.Target = "blank";
+                            message = "alert('" + "Site Plan Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
         public static string getclientIP()
         {
             string result = string.Empty;
