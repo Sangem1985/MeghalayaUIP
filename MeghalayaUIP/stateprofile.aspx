@@ -152,14 +152,14 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="assets/assetsbeta/images/slider/sp/slide-2.jpg" alt="First slide">
+                <img class="d-block w-100" src="assets/assetsnew/images/Innerpageslides/slide-2.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Welcome to Meghalaya :</h5>
                     <p>India’s Emerging Business Ecosystem.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="assets/assetsbeta/images/slider/sp/slide-3.jpg" alt="Second slide">
+                <img class="d-block w-100" src="assets/assetsnew/images/Innerpageslides/slide-3.jpg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Mission 10:</h5>
                     <p>Meghalaya’s vision of a Viksit Bharat Viksit Meghalaya is strengthened by its commitment of increasing the State’s GDP to 10 billion US Dollar by 2028.</p>
@@ -758,7 +758,7 @@
                     <h3>Meghalaya Growth Path :</h3>
 
 
-                    <img src="assets/assetsbeta/images/growrth.png" alt="Growth pic" style="margin-left: 75px !important;">
+                    <img src="assets/assetsnew/images/growrth.png" alt="Growth pic" style="margin-left: 75px !important;">
                     <h3 class="mt-4">GI Tags of Meghalaya :</h3>
                     <section class="">
                         <div class="container">

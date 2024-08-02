@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="master-head-wappers master-head-wappers-inner d-flex align-items-center
-         justify-content-center innersliderbanner" style="background-image: url(assets/assetsbeta/images/Innerpageslides/hstpt.png);">
+         justify-content-center innersliderbanner" style="background-image: url(assets/assetsnew/images/Innerpageslides/hstpt.png);">
         <div class="pageheader-captionn2">
             <h1>Hotel</h1>
            
@@ -119,8 +119,60 @@
                     </ul>--%>
                     <p><b>Key projects</b></p>
                     <p>Here are some of the key Hospitality projects of the State of Meghalaya</p>
-                   
-                    <img src="assets/assetsbeta/images/Hospitality_image.png" />
+                    <img src="assets/assetsnew/images/Hospitality_image.png">
+                    <%--<h4>In 2023, an average luxury accommodation unit in the State had observe:-</h4>
+                    <div class="row mt-2">
+                       
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                            <div class="inner-box" style="text-align: center;">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-chart-arrow-grow"></i></div>
+                                                <h3><a href="#">9000+</a></h3>
+                                                <div class="text">Average Room Rate in INR</div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                                            <div class="inner-box" style="text-align: center;">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-tax-alt"></i></div>
+                                                <h3><a href="#">+ 50%</a></h3>
+                                                <div class="text">Occupancy rate 2023</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                                           <div class="inner-box" style="text-align: center;">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-challenge-alt"></i></div>
+                                                <h3><a href="#">4,700</a></h3>
+                                                <div class="text">RevPAR in INR</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                                        <div class="service-block-four wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                            <div class="inner-box" style="text-align: center;">
+                                                <div class="left-layer"></div>
+                                                <div class="right-layer"></div>
+                                                <div class="icon-box"><i class="fi fi-tr-career-growth"></i></div>
+                                                <h3><a href="#">~200</a></h3>
+                                                <div class="text">No of Events Hosted</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>--%>
                 </div>
                 </div>
             </div>

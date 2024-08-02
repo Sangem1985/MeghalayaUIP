@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="master-head-wappers master-head-wappers-inner d-flex align-items-center
-         justify-content-center innersliderbanner" style="background-image: url(assets/assetsbeta/images/Innerpageslides/power.png);">
+         justify-content-center innersliderbanner" style="background-image: url(assets/assetsnew/images/Innerpageslides/power.png);">
         <div class="pageheader-captionn2">
             <h1>Power</h1>
            

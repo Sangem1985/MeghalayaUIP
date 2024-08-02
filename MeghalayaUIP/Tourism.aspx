@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="master-head-wappers master-head-wappers-inner d-flex align-items-center justify-content-center innersliderbanner" style="background-image: url(assets/assetsbeta/images/Innerpageslides/tbg.png);">
+    <div class="master-head-wappers master-head-wappers-inner d-flex align-items-center justify-content-center innersliderbanner" style="background-image: url(assets/assetsnew/images/Innerpageslides/tbg.png);">
         <div class="pageheader-captionn2">
             <h1>Tourism</h1>
             <p>Meghalaya is ranked 3rd among the North-eastern states for Domestic and Foreign Tourist Visits in the year 2019 as per India Tourism Statistics, 2023</p>
@@ -126,7 +126,7 @@ The state has conducted 3 key festivals Cherry Blossom Festival in Shillong, the
 </li>
                     </ul>--%>
                     <br />
-                    <img src="assets/assetsbeta/images/2T.png" style="" />
+                    <img src="assets/assetsnew/images/2T.png" style="" />
                 </div>
             </div>
         </div>
