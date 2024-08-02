@@ -853,27 +853,27 @@
                                                                 </asp:BoundField>--%>
                                                                         <asp:TemplateField HeaderText="Year 1" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" ></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 2" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear2" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear2" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 3" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear3" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear3" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 4" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear4" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear4" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 5" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear5" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear5" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                     </Columns>
