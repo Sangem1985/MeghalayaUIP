@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOIndustryDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOIndustryDetails" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -147,11 +149,11 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                   <%-- <label class="col-lg-6 col-form-label">6. Registration No*</label>
+                                                    <%-- <label class="col-lg-6 col-form-label">6. Registration No*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtRegistrationNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>--%>
-                                                       <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">5. Registraion No <span class="star">*</span></label>
+                                                    <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">5. Registraion No <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" TabIndex="1" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
                                                     </div>
@@ -164,9 +166,12 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <%--<asp:TextBox ID="txtRegDate" runat="server" class="form-control" onkeypress="datefunction(date_input)"></asp:TextBox>--%>
 
-                                                        <asp:TextBox ID="txtRegDate" runat="server" TabIndex="1" ValidationGroup="group" class="date form-control"></asp:TextBox>
-                                                        <i class="fi fi-rr-calendar-lines"></i>
+                                                        <%--   <asp:TextBox ID="txtRegDate" runat="server" TabIndex="1" ValidationGroup="group" class="date form-control"></asp:TextBox>
+                                                        <i class="fi fi-rr-calendar-lines"></i>--%>
 
+                                                        <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegDate"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
 
                                                     </div>
                                                 </div>
@@ -257,7 +262,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">7. Door No</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDoorNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDoorNo" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,7 +270,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">8. Locality</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -309,7 +314,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">12. Pincode</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return validatePincode(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="6"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
