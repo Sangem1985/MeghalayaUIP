@@ -3,15 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
-											
-											<li class="breadcrumb-item active" aria-current="page">Fire Details</li>
-										</ol>
-									</nav>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Fire Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -108,7 +111,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Locality</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtLandline" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtLandline" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +119,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Nearest Landmark</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtSitArea" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtSitArea" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -246,7 +249,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Distance from the nearest Fire Station (in meters)*</label>
                                             <div class="col-lg-4 d-flex">
-                                                <asp:TextBox ID="txtFire" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtFire" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +257,7 @@
                                 <div class="col-md-12 text-right mt-2 mb-2">
 
                                     <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                    <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" OnClick="btnsave_Click"  Width="150px"/>
+                                    <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" OnClick="btnsave_Click" Width="150px" />
                                     <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                 </div>
@@ -266,6 +269,12 @@
             </div>
         </div>
     </div>
-    </div>
-
+   <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

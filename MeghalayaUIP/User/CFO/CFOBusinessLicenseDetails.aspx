@@ -1,17 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOBusinessLicenseDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOBusinessLicenseDetails" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb mb-0">
-											<li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
-											
-											<li class="breadcrumb-item active" aria-current="page">Pollution Control Board Details</li>
-										</ol>
-									</nav>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+       <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Pre-Operational</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Pollution Control Board Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
@@ -51,8 +55,12 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Date of Establishment  *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtaddress" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                 <i class="fi fi-rr-calendar-lines"></i>
+                                              <%--  <asp:TextBox ID="txtaddress" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                <i class="fi fi-rr-calendar-lines"></i>--%>
+
+                                                  <asp:TextBox runat="server" ID="txtaddress" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtaddress"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -63,8 +71,8 @@
                                             <label class="col-lg-3 col-form-label">Select Location of Stall*</label>
                                             <div class="col-lg-9">
                                                 <asp:RadioButtonList ID="rblBusiness" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBusiness_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Private owned establishment" Value="1" />
-                                                    <asp:ListItem Text="Municipal owned shop/establishment" Value="2" />
+                                                    <asp:ListItem Text="Private owned establishment" Value="Y" />
+                                                    <asp:ListItem Text="Municipal owned shop/establishment" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -116,8 +124,8 @@
                                             <label class="col-lg-8 col-form-label">Whether the applicant is doing any business in Shillong Municipality during the previous 5 (five) years?  *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblmunicipality" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblmunicipality_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -177,15 +185,14 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <asp:Button ID="btnAdd" Text="Add Details" class="btn btn-green btn-rounded" runat="server" OnClick="btnAdd_Click" width="110px" />
-                                        </div>
+                                        <asp:Button ID="btnAdd" Text="Add Details" class="btn btn-green btn-rounded" runat="server" OnClick="btnAdd_Click" Width="110px" />
+                                    </div>
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label"></label>
                                             <div class="col-lg-6 d-flex">
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -226,11 +233,18 @@
                                 </div>
                             </div>
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-   
+    </div>
+  <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

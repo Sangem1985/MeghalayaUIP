@@ -383,6 +383,7 @@
                                         <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </div>
+                                <br />
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-8">
                                         <div class="form-group row">
@@ -435,9 +436,6 @@
 
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>

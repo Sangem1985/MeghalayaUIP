@@ -118,6 +118,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 string result = "";
                 ErrorMsg = Validations();
+                if(ErrorMsg == "")
                 {
                     HOMEDEPARTMENT ObjCFOFireDepartment = new HOMEDEPARTMENT();
 
@@ -160,6 +161,12 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -428,7 +435,11 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 ddlMandal.ClearSelection();
+                ddlMandal.Items.Clear();
+                AddSelect(ddlMandal);
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlDistrict.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlMandal, ddlDistrict.SelectedValue);
@@ -446,6 +457,8 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 ddlVillage.ClearSelection();
+                ddlVillage.Items.Clear();
+                AddSelect(ddlVillage);
                 if (ddlMandal.SelectedItem.Text != "--Select--")
                 {
 

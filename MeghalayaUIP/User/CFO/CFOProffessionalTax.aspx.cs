@@ -199,6 +199,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 string result = "";
                 ErrorMsg = Validations();
+                if(ErrorMsg =="")
                 {
                     CFOPROFESSIONALTAX ObjCFOPROFESSIONALTAX = new CFOPROFESSIONALTAX();
 
@@ -280,11 +281,12 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                    
-                    ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["CFOUNITID"]); 
+                    ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["CFOUNITID"]);
+                    ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOPROFESSIONALTAX.CreatedBy = hdnUserID.Value;
                     ObjCFOPROFESSIONALTAX.IPAddress = getclientIP();
                     ObjCFOPROFESSIONALTAX.Questionnariid = Convert.ToString(Session["CFOQID"]);
-                  //  ObjCFOPROFESSIONALTAX.UnitId = UnitId;
+                   // ObjCFOPROFESSIONALTAX.UnitId = UnitId;
 
                     ObjCFOPROFESSIONALTAX.NameEst = txtEstDet.Text;
                     ObjCFOPROFESSIONALTAX.AddressEst = txtaddress.Text;
@@ -324,6 +326,12 @@ namespace MeghalayaUIP.User.CFO
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
 
             }
