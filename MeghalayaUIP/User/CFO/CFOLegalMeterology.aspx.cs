@@ -78,19 +78,27 @@ namespace MeghalayaUIP.User.CFO
                         txtESTDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHDATE"].ToString();
                         rblfactory.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADESTBLSHREG"].ToString();
                         if (rblfactory.SelectedValue == "Y")
+                        {
                             Registration.Visible = true;
-                        else Registration.Visible = false;
-                        txtRegDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGDATE"].ToString();
-                        txtRegNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGNO"].ToString();
+                            txtRegDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGDATE"].ToString();                           
+                            txtRegNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGNO"].ToString();
+                        }
+                        else { Registration.Visible = false; }
+
                         rblMunicipal.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADMTLREG"].ToString();
                         if (rblMunicipal.SelectedValue == "Y")
+                        {
                             ADCLicense.Visible = true;
-                        else ADCLicense.Visible = false;
-                        txtDate.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGDATE"].ToString();
-                        if (rblMunicipal.SelectedValue == "Y")
                             DateReg.Visible = true;
-                        else DateReg.Visible = false;
-                        txtcurrentReg.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGNO"].ToString();
+                            txtDate.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGDATE"].ToString();
+                            txtcurrentReg.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGNO"].ToString();
+                        }
+                        else
+                        {
+                            ADCLicense.Visible = false;
+                            DateReg.Visible = false;
+                        }
+
                         txtWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_WEIGHS"].ToString();
                         txtMeasure.Text = ds.Tables[1].Rows[0]["CFOLGM_MEASURES"].ToString();
                         txtInstruWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_WEIGHINGINSTR"].ToString();
@@ -99,19 +107,27 @@ namespace MeghalayaUIP.User.CFO
                         txtITNmumber.Text = ds.Tables[1].Rows[0]["CFOLGM_ITNO"].ToString();
                         rblState.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_ISIMPORTING"].ToString();
                         if (rblState.SelectedValue == "Y")
+                        {
                             State.Visible = true;
-                        else State.Visible = false;
-                        txtLICNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_IMPORTLICNO"].ToString();
-                        if (rblState.SelectedValue == "Y")
                             Country.Visible = true;
-                        else Country.Visible = false;
-                        txtRegWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_REGOFIMPORTER"].ToString();
+                            txtLICNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_IMPORTLICNO"].ToString();
+                            txtRegWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_REGOFIMPORTER"].ToString();
+                        }
+                        else
+                        {
+                            State.Visible = false;
+                            Country.Visible = false;
+                        }
+
                         rblstateside.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_SELLINGPLACE"].ToString();
                         rblDealer.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_DEALERLICAPPLIED"].ToString();
                         if (rblDealer.SelectedValue == "Y")
+                        {
                             DealerLic.Visible = true;
-                        else DealerLic.Visible = false;
-                        txtGiveDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_DEALERLICDETAILS"].ToString();
+                            txtGiveDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_DEALERLICDETAILS"].ToString();
+                        }
+                        else { DealerLic.Visible = false; }
+
                         txtskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SKILLEDEMP"].ToString();
                         txtsemiskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SEMISKILLEDEMP"].ToString();
                         txtunskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_UNSKILLEDEMP"].ToString();
@@ -122,29 +138,47 @@ namespace MeghalayaUIP.User.CFO
                         rblelectric.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_ELCENRGYAVLBL"].ToString();
                         rblLicdealer.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_MANFLICAPPLIED"].ToString();
                         if (rblLicdealer.SelectedValue == "Y")
+                        {
                             applieddealer.Visible = true;
-                        else applieddealer.Visible = false;
-                        txtDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_MANFLICDETAILS"].ToString();
+                            txtDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_MANFLICDETAILS"].ToString();
+                        }
+                        else { applieddealer.Visible = false; }
+
                         rblInstitute.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_LOANAVAILED"].ToString();
                         if (rblInstitute.SelectedValue == "Y")
+                        {
                             NameBanker.Visible = true;
-                        else NameBanker.Visible = false;
-                        txtBanker.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANBANKERS"].ToString();
+                            txtBanker.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANBANKERS"].ToString();
+                        }
+                        else { NameBanker.Visible = false; }
+
                         if (rblInstitute.SelectedValue == "Y")
+                        {
                             DetailsGet.Visible = true;
-                        else DetailsGet.Visible = false;
-                        txtGetDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANDETAILS"].ToString();
+                            txtGetDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANDETAILS"].ToString();
+                        }
+                        else { DetailsGet.Visible = false; }
+
                         rblLoan.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADSUFFSTOCK"].ToString();
                         if (rblLoan.SelectedValue == "Y")
+                        {
                             weightloan.Visible = true;
-                        else weightloan.Visible = false;
-                        txtDetailsGET.Text = ds.Tables[1].Rows[0]["CFOLGM_STOCKDETAILS"].ToString();
+                            txtDetailsGET.Text = ds.Tables[1].Rows[0]["CFOLGM_STOCKDETAILS"].ToString();
+                        }
+                        else { weightloan.Visible = false; }
+
                         rblRepaire.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_REPAIRERLICAPPLIED"].ToString();
-                        txtResults.Text = ds.Tables[1].Rows[0]["CFOLGM_REPAIRERLICDETAILS"].ToString();
+                        if (rblRepaire.Text == "Y")
+                        {
+                            License.Visible = true;
+                            txtResults.Text = ds.Tables[1].Rows[0]["CFOLGM_REPAIRERLICDETAILS"].ToString();
+                        }
+
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLMI_CFOQDID"]);
+                        ViewState["LegalDepartment"]= ds.Tables[2];
                         GVLegalDept.DataSource = ds.Tables[2];
                         GVLegalDept.DataBind();
                         GVLegalDept.Visible = true;
@@ -204,6 +238,15 @@ namespace MeghalayaUIP.User.CFO
                     GVLegalDept.DataSource = dt;
                     GVLegalDept.DataBind();
                     ViewState["LegalDepartment"] = dt;
+
+                    txtinstrment.Text = "";
+                    txtClass.Text = "";
+                    txtCapacity.Text = "";
+                    txtMake.Text = "";
+                    txtModel.Text = "";
+                    txtSerial.Text = "";
+                    txtProduct.Text = "";
+                    txtQuantity.Text = "";
                 }
             }
             catch (Exception ex)
@@ -364,7 +407,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOlegalDet.results = txtResults.Text;
 
                     result = objcfobal.InsertCFOLegalMetrologyDetails(ObjCFOlegalDet);
-                   // ViewState["UnitID"] = result;
+                 
                     if (result != "")
                     {
                         success.Visible = true;
@@ -373,6 +416,11 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)
@@ -462,23 +510,31 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Facilities of steel casting\\n";
                     slno = slno + 1;
                 }
+                if (rblfactory.SelectedIndex == -1)
+                {
+                   
+                    errormsg = errormsg + slno + ". Please Select  Yes or No current registration number of factory/ shop/ establishment? \\n";
+                    slno = slno + 1;
+
+                }
                 if (rblfactory.SelectedValue == "Y")
                 {
-                    Registration.Visible = true;
                     if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Date\\n";
                         slno = slno + 1;
                     }
-                    else { Registration.Visible = false; }
-                    Registration.Visible = true;
                     if (string.IsNullOrEmpty(txtRegNumber.Text) || txtRegNumber.Text == "" || txtRegNumber.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Current Reg Number\\n";
                         slno = slno + 1;
                     }
-                    else { Registration.Visible = false; }
+                }
 
+                if (rblMunicipal.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select  Yes or No current registration number of Municipal Trade licence/ADC?  \\n";
+                    slno = slno + 1;
                 }
                 if (rblMunicipal.SelectedValue == "Y")
                 {
@@ -510,6 +566,11 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Select Is it a limited company? \\n";
                     slno = slno + 1;
                 }
+                if (rblState.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select  Yes or No import weights, etc. from places outside the State/Country?  \\n";
+                    slno = slno + 1;
+                }
                 if (rblState.SelectedValue == "Y")
                 {
                     State.Visible = true;
@@ -535,6 +596,11 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Select manufactured will be sold within the State or out side the state or both \\n";
                     slno = slno + 1;
                 }
+                if (rblDealer.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No a dealer's licence,either in this State or elsewhere ? \\n";
+                    slno = slno + 1;
+                }
                 if (rblDealer.SelectedValue == "Y")
                 {
                     DealerLic.Visible = true;
@@ -551,6 +617,12 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Select Availability of electric energy   \\n";
                     slno = slno + 1;
                 }
+
+                if (rblLicdealer.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select  Yes or No Have you applied previously for a manufacturer's licence?  \\n";
+                    slno = slno + 1;
+                }
                 if (rblLicdealer.SelectedValue == "Y")
                 {
                     applieddealer.Visible = true;
@@ -561,6 +633,11 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else { applieddealer.Visible = false; }
 
+                }
+                if (rblInstitute.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No Do you received any loan from Government or financial Institution?\\n";
+                    slno = slno + 1;
                 }
                 if (rblInstitute.SelectedValue == "Y")
                 {
@@ -580,6 +657,11 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else { DetailsGet.Visible = false; }
                 }
+                if (rblLoan.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Have you sufficient stock of loan/test weights. etc.?\\n";
+                    slno = slno + 1;
+                }
                 if (rblLoan.SelectedValue == "Y")
                 {
                     weightloan.Visible = true;
@@ -589,6 +671,11 @@ namespace MeghalayaUIP.User.CFO
                         slno = slno + 1;
                     }
                     else { weightloan.Visible = false; }
+                }
+                if (rblRepaire.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Have you applied previously for a repairer's licence?  \\n";
+                    slno = slno + 1;
                 }
                 if (rblRepaire.SelectedValue == "Y")
                 {
@@ -683,6 +770,32 @@ namespace MeghalayaUIP.User.CFO
             }
 
          //   Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?next=N");
+        }
+
+        protected void GVLegalDept_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVLegalDept.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["LegalDepartment"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVLegalDept.DataSource = ((DataTable)ViewState["LegalDepartment"]).DefaultView;
+                    this.GVLegalDept.DataBind();
+                    GVLegalDept.Visible = true;
+                    GVLegalDept.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)

@@ -117,18 +117,25 @@ namespace MeghalayaUIP.User.CFO
                         txtCapacity.Text = ds.Tables[1].Rows[0]["CFODL_COLDSTORGDETAILS"].ToString();
                         rblLicense.SelectedValue = ds.Tables[1].Rows[0]["CFODL_ANYPREVLIC"].ToString();
                         if (rblLicense.Text == "Yes")
+                        {
                             CanceledLIC.Visible = true;
-                        else CanceledLIC.Visible = false;
-                        txtspecifyLICNo.Text = ds.Tables[1].Rows[0]["CFODL_PREVLICDETAILS"].ToString();
+                            txtspecifyLICNo.Text = ds.Tables[1].Rows[0]["CFODL_PREVLICDETAILS"].ToString();
+                        }
+                        else { CanceledLIC.Visible = false; }
+                       
                         rblinsection.SelectedValue = ds.Tables[1].Rows[0]["CFODL_PREMISERDYFORINSP"].ToString();
                         if (rblinsection.Text == "Yes")
+                        {
                             InspectionDate.Visible = true;
-                        else InspectionDate.Visible = false;
-                        txtInspection.Text = ds.Tables[1].Rows[0]["CFODL_DATEOFINSP"].ToString();
+                            txtInspection.Text = ds.Tables[1].Rows[0]["CFODL_DATEOFINSP"].ToString();
+                        }
+                        else { InspectionDate.Visible = false; }
+                      
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFODM_CFOQDID"]);
+                        ViewState["MANUFACTURE"] = ds.Tables[2];
                         GVHealthy.DataSource = ds.Tables[2];
                         GVHealthy.DataBind();
                         GVHealthy.Visible = true;
@@ -136,6 +143,7 @@ namespace MeghalayaUIP.User.CFO
                     if (ds.Tables[3].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFODT_CFOQDID"]);
+                        ViewState["TESTING"]= ds.Tables[3];
                         GVTESTING.DataSource = ds.Tables[3];
                         GVTESTING.DataBind();
                         GVTESTING.Visible = true;
@@ -143,6 +151,7 @@ namespace MeghalayaUIP.User.CFO
                     if (ds.Tables[4].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOD_CFOQDID"]);
+                        ViewState["NameDrug"]= ds.Tables[4];
                         GVDrug.DataSource = ds.Tables[4];
                         GVDrug.DataBind();
                         GVDrug.Visible = true;
@@ -158,7 +167,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblinsection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblinsection.SelectedItem.Text == "Yes")
+            if (rblinsection.SelectedValue == "Y")
             {
                 InspectionDate.Visible = true;
             }
@@ -174,6 +183,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 string result = "";
                 ErrorMsg = Validations();
+                if(ErrorMsg == "")
                 {
                     CFOHealthyWelfare ObjCFOHealthyWelfare = new CFOHealthyWelfare();
 
@@ -196,7 +206,7 @@ namespace MeghalayaUIP.User.CFO
                     if (GVHealthy.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "PROFESSIONALTAX Details Submitted Successfully";
+                        lblmsg.Text = "DRUG LICENSE Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -208,9 +218,9 @@ namespace MeghalayaUIP.User.CFO
                         ObjCFOHealthyWelfare.CreatedBy = hdnUserID.Value;
                         ObjCFOHealthyWelfare.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         ObjCFOHealthyWelfare.IPAddress = getclientIP();
-                        ObjCFOHealthyWelfare.testingName = GVTESTING.Rows[i].Cells[1].Text;
-                        ObjCFOHealthyWelfare.testingQualification = GVTESTING.Rows[i].Cells[2].Text;
-                        ObjCFOHealthyWelfare.testingExperience = GVTESTING.Rows[i].Cells[3].Text;
+                        ObjCFOHealthyWelfare.testingName = GVTESTING.Rows[i].Cells[0].Text;
+                        ObjCFOHealthyWelfare.testingQualification = GVTESTING.Rows[i].Cells[1].Text;
+                        ObjCFOHealthyWelfare.testingExperience = GVTESTING.Rows[i].Cells[2].Text;
 
                         string A = objcfobal.INSERTCFOTestingDetails(ObjCFOHealthyWelfare);
                         if (A != "")
@@ -219,7 +229,7 @@ namespace MeghalayaUIP.User.CFO
                     if (GVTESTING.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO PROFESSIONALTAXCOUNTRY Details Submitted Successfully";
+                        lblmsg.Text = "DRUG LICENSE Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -273,6 +283,13 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                 }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+
 
             }
             catch (Exception ex)
@@ -315,6 +332,11 @@ namespace MeghalayaUIP.User.CFO
                 if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Cold Storage\\n";
+                    slno = slno + 1;
+                }
+                if (rblinsection.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No Is the premise and plan ready for inspection? \\n";
                     slno = slno + 1;
                 }
                 if (rblinsection.SelectedValue == "Y")
@@ -387,7 +409,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblLicense_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblLicense.SelectedItem.Text == "Yes")
+            if (rblLicense.SelectedValue == "Y")
             {
                 CanceledLIC.Visible = true;
             }
@@ -454,6 +476,10 @@ namespace MeghalayaUIP.User.CFO
                     GVHealthy.DataSource = dt;
                     GVHealthy.DataBind();
                     ViewState["MANUFACTURE"] = dt;
+
+                    txtName.Text = "";
+                    txtQualification.Text = "";
+                    txtExperience.Text = "";
                 }
             }
             catch (Exception ex)
@@ -502,6 +528,10 @@ namespace MeghalayaUIP.User.CFO
                     GVTESTING.DataSource = dt;
                     GVTESTING.DataBind();
                     ViewState["TESTING"] = dt;
+
+                    txtNameTest.Text = "";
+                    txtQualifyTest.Text = "";
+                    txtExperienceTest.Text = "";
                 }
             }
             catch (Exception ex)
@@ -548,6 +578,8 @@ namespace MeghalayaUIP.User.CFO
                     GVDrug.DataSource = dt;
                     GVDrug.DataBind();
                     ViewState["NameDrug"] = dt;
+
+                    txtNameDrug.Text = "";
                 }
             }
             catch (Exception ex)

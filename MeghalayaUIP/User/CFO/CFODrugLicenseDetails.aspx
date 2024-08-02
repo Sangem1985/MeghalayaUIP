@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFODrugLicenseDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFODrugLicenseDetails" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -74,8 +78,12 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">(i). Valid up to date Trading License(TNT)</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txttradeLic" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                    <%--<asp:TextBox ID="txttradeLic" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                    <i class="fi fi-rr-calendar-lines"></i>--%>
+
+                                                      <asp:TextBox runat="server" ID="txttradeLic" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txttradeLic"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,8 +91,12 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-8 col-form-label">(ii). Valid up to date permission from Municipallity/Contt.Board/Local Dorbar *</label>
                                                 <div class="col-lg-4 d-flex">
-                                                    <asp:TextBox ID="txtClass" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                   <%-- <asp:TextBox ID="txtClass" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                    <i class="fi fi-rr-calendar-lines"></i>--%>
+
+                                                      <asp:TextBox runat="server" ID="txtClass" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtClass"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,8 +122,8 @@
                                             <label class="col-lg-6 col-form-label">Do you hold any previous cancelled license?   *</label>
                                             <div class="col-lg-4">
                                                 <asp:RadioButtonList ID="rblLicense" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicense_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Yes" Value="1" />
-                                                    <asp:ListItem Text="No" Value="2" />
+                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                    <asp:ListItem Text="No" Value="N" />
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
@@ -133,8 +145,8 @@
                                                 <label class="col-lg-6 col-form-label">Is the premise and plan ready for inspection? *</label>
                                                 <div class="col-lg-4">
                                                     <asp:RadioButtonList ID="rblinsection" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblinsection_SelectedIndexChanged">
-                                                        <asp:ListItem Text="Yes" Value="1" />
-                                                        <asp:ListItem Text="No" Value="2" />
+                                                        <asp:ListItem Text="Yes" Value="Y" />
+                                                        <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -143,8 +155,12 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Date for Inspection *</label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txtInspection" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                 <%--   <asp:TextBox ID="txtInspection" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                    <i class="fi fi-rr-calendar-lines"></i>--%>
+
+                                                      <asp:TextBox runat="server" ID="txtInspection" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtInspection"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -364,5 +380,12 @@
             </div>
         </div>
     </div>
-  
+    <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

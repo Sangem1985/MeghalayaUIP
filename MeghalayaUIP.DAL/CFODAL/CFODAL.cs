@@ -501,6 +501,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOLD_MANUFACTPLACE", ObjCFOLabourDet.Placemanu);
                 com.Parameters.AddWithValue("@CFOLD_NAMEAGENT", ObjCFOLabourDet.NameAgent);
                 com.Parameters.AddWithValue("@CFOLD_ADDRESSAGENT", ObjCFOLabourDet.Address);
+                com.Parameters.AddWithValue("@CFOLD_WORKETAILS", ObjCFOLabourDet.NameNature);
                 com.Parameters.AddWithValue("@CFOLD_DAYSLABOUR", Convert.ToInt32(ObjCFOLabourDet.contractorlabour));
                 com.Parameters.AddWithValue("@CFOLD_ESTDATE", DateTime.ParseExact( ObjCFOLabourDet.Estimateddate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOLD_ENDDATE", DateTime.ParseExact( ObjCFOLabourDet.Endingdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
@@ -615,15 +616,15 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOLGM_CREATEDBY", Convert.ToInt32(ObjCFOlegalDet.CreatedBy));
                 com.Parameters.AddWithValue("@CFOLGM_CREATEDBYIP", ObjCFOlegalDet.IPAddress);
                 com.Parameters.AddWithValue("@CFOLGM_CFOUNITID", Convert.ToInt32(ObjCFOlegalDet.UnitId));
-                com.Parameters.AddWithValue("@CFOLGM_CFOQDID", Convert.ToInt32(ObjCFOlegalDet.Questionnariid ));
+                com.Parameters.AddWithValue("@CFOLGM_CFOQDID", Convert.ToInt32(ObjCFOlegalDet.Questionnariid));
 
-                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHDATE", DateTime.ParseExact( ObjCFOlegalDet.DateEstablish, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHDATE", DateTime.ParseExact(ObjCFOlegalDet.DateEstablish, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOLGM_HADESTBLSHREG", ObjCFOlegalDet.RegFactoryShop);
-                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE",DateTime.ParseExact( ObjCFOlegalDet.DateReg, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE", DateTime.ParseExact(ObjCFOlegalDet.DateReg, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGNO", ObjCFOlegalDet.CurrentRegNumber);
                 com.Parameters.AddWithValue("@CFOLGM_HADMTLREG", ObjCFOlegalDet.LicADCnO);
                 //com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE",DateTime.ParseExact( ObjCFOlegalDet.DateReg, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLGM_MTLREGDATE", DateTime.ParseExact( ObjCFOlegalDet.RegDateNo, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOLGM_MTLREGDATE", DateTime.ParseExact(ObjCFOlegalDet.RegDateNo, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOLGM_MTLREGNO", ObjCFOlegalDet.RegCurrentNo);
                 com.Parameters.AddWithValue("@CFOLGM_WEIGHS", ObjCFOlegalDet.Weight);
                 com.Parameters.AddWithValue("@CFOLGM_MEASURES", ObjCFOlegalDet.Measures);
@@ -653,6 +654,8 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICAPPLIED", ObjCFOlegalDet.repairerLic);
                 com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICDETAILS", ObjCFOlegalDet.results);
                 com.Parameters.AddWithValue("@CFOLGM_HADSUFFSTOCK", ObjCFOlegalDet.stock);
+                com.Parameters.AddWithValue("@CFOLGM_STOCKDETAILS", ObjCFOlegalDet.GetDetails);
+
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -811,7 +814,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOPS_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPS_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
                 com.Parameters.AddWithValue("CFOPS_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPS_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+                com.Parameters.AddWithValue("@CFOPS_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPS_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.Business);
                 com.Parameters.AddWithValue("@CFOPS_ADDRESS", ObjCFOPROFESSIONALTAX.Address);
@@ -864,7 +867,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOPC_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPC_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
                 com.Parameters.AddWithValue("@CFOPC_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPC_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+                com.Parameters.AddWithValue("@CFOPC_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPC_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.PlaceBUSINESS);
                 com.Parameters.AddWithValue("@CFOPC_ADDRESS", ObjCFOPROFESSIONALTAX.AddressEST);
@@ -917,7 +920,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOPF_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPF_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
                 com.Parameters.AddWithValue("@CFOPF_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPF_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UnitId));
+                com.Parameters.AddWithValue("@CFOPF_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPF_PRINCIPLEWORK", ObjCFOPROFESSIONALTAX.PrincipalWORK);
                 com.Parameters.AddWithValue("@CFOPF_ADDRESS", ObjCFOPROFESSIONALTAX.AddressWORK);
@@ -1321,7 +1324,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFODT_CREATEDBY", Convert.ToInt32(ObjCFOHealthyWelfare.CreatedBy));
                 com.Parameters.AddWithValue("@CFODT_CREATEDBYIP", ObjCFOHealthyWelfare.IPAddress);
                 com.Parameters.AddWithValue("@CFODT_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
-                com.Parameters.AddWithValue("@CFODT_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
+                com.Parameters.AddWithValue("@CFODT_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UNITID));
 
                 com.Parameters.AddWithValue("@CFODT_EMPNAME", ObjCFOHealthyWelfare.testingName);
                 com.Parameters.AddWithValue("@CFODT_EMPQLFCATION", ObjCFOHealthyWelfare.testingQualification);

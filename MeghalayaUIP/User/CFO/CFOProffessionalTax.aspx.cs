@@ -223,7 +223,7 @@ namespace MeghalayaUIP.User.CFO
                     if (GVState.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO PROFESSIONALTAX Details Submitted Successfully";
+                        lblmsg.Text = "PROFESSIONALTAX Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -249,7 +249,7 @@ namespace MeghalayaUIP.User.CFO
                     if (GVCOUNTRY.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO PROFESSIONALTAXCOUNTRY Details Submitted Successfully";
+                        lblmsg.Text = " PROFESSIONALTAXCOUNTRY Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -275,7 +275,7 @@ namespace MeghalayaUIP.User.CFO
                     if (GVFOREIGN.Rows.Count == count)
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO PROFESSIONALTAXCOUNTRY Details Submitted Successfully";
+                        lblmsg.Text = "PROFESSIONALTAXCOUNTRY Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -320,7 +320,7 @@ namespace MeghalayaUIP.User.CFO
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "CFO legalMetrology Details Submitted Successfully";
+                        lblmsg.Text = "PROFESSIONALTAX Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -379,6 +379,11 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Gross Annual Income\\n";
                     slno = slno + 1;
                 }
+                if (rblBusiness.SelectedIndex == -1) 
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No Additional Place of Business in MEGHALAYA \\n";
+                    slno = slno + 1;
+                }
                 if (rblBusiness.SelectedValue == "Y")
                 {
 
@@ -388,6 +393,11 @@ namespace MeghalayaUIP.User.CFO
                         slno = slno + 1;
                     }
                 }
+                if (rblbusinessindia.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No Additional Place of Business in INDIA \\n";
+                    slno = slno + 1;
+                }
                 if (rblbusinessindia.SelectedValue == "Y")
                 {
                     if (GVCOUNTRY.Rows.Count <= 0)
@@ -395,6 +405,11 @@ namespace MeghalayaUIP.User.CFO
                         errormsg = errormsg + slno + ". Please Enter Additional Place of Business Details \\n";
                         slno = slno + 1;
                     }
+                }
+                if (rblForeign.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No Whether office from foreign country?  \\n";
+                    slno = slno + 1;
                 }
                 if (rblForeign.SelectedValue == "Y")
                 {
@@ -407,6 +422,11 @@ namespace MeghalayaUIP.User.CFO
                 if (string.IsNullOrEmpty(txtBranch.Text) || txtBranch.Text == "" || txtBranch.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Branch Cretificate\\n";
+                    slno = slno + 1;
+                }
+                if (rblother.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Yes or No Do you have registration under any other act? \\n";
                     slno = slno + 1;
                 }
                 if (rblother.SelectedValue == "Y")
@@ -493,6 +513,11 @@ namespace MeghalayaUIP.User.CFO
                     GVState.DataSource = dt;
                     GVState.DataBind();
                     ViewState["PROFESSIONALTAX"] = dt;
+
+                    txtplacebusiness.Text = "";
+                    txtadd.Text = "";
+                    txtEMP.Text = "";
+                    ddldist.ClearSelection();
                 }
             }
             catch (Exception ex)
@@ -542,6 +567,11 @@ namespace MeghalayaUIP.User.CFO
                     GVCOUNTRY.DataSource = dt;
                     GVCOUNTRY.DataBind();
                     ViewState["PROFESSIONALTAXCOUNTRY"] = dt;
+
+                    txtBusinessplace.Text = "";
+                    txtAddeddet.Text = "";
+                    ddlState.ClearSelection();
+                    txtwork.Text = "";
                 }
             }
             catch (Exception ex)
@@ -591,6 +621,11 @@ namespace MeghalayaUIP.User.CFO
                     GVFOREIGN.DataSource = dt;
                     GVFOREIGN.DataBind();
                     ViewState["PROFESSIONALTAXFOREIGN"] = dt;
+
+                    txtPrinciple.Text = "";
+                    txtAdded.Text = "";
+                    txtEmployee.Text = "";
+                    txtsalary.Text = "";
                 }
             }
             catch (Exception ex)
