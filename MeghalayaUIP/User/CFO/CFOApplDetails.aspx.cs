@@ -33,8 +33,8 @@ namespace MeghalayaUIP.User.CFO
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    Session["CFOUNITID"] = "1001";
-                    Unitid = Convert.ToString(Session["CFOUNITID"]);
+                    //Session["CFOUNITID"] = "1001";
+                    //Unitid = Convert.ToString(Session["CFOUNITID"]);
 
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
