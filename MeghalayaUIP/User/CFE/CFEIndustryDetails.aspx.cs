@@ -786,7 +786,7 @@ namespace MeghalayaUIP.User.CFE
                 if(ddlRegType.SelectedItem.Text.Trim() != "--Select--")
                 {
                     txtUdyamorIEMNo.Enabled = true;
-                    lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No ";
+                    lblregntype.InnerText ="5. "+ ddlRegType.SelectedItem.Text.Trim() + " No ";
                     txtUdyamorIEMNo.Text = "";
                 }
                 else
