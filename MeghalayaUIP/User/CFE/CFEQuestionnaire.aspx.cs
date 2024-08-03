@@ -105,6 +105,7 @@ namespace MeghalayaUIP.User.CFE
                         ddlIndustryType.SelectedValue = "1";
                     else
                         ddlIndustryType.SelectedValue = "2";
+                    ddlIndustryType.Enabled= false; 
                     txtUnitLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNTLOCATION"]);
                     rblMIDCL.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MIDCLLAND"]);
 

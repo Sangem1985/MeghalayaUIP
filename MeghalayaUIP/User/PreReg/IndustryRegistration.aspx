@@ -120,23 +120,7 @@
 
                                 </div>
                                 <div class="card-body">
-                                    <div class="col-md-12 ">
-                                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
-                                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                            <asp:Label ID="Label1" runat="server"></asp:Label>
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span></button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 ">
-                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
-                                            <strong>Warning!</strong>
-                                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                    </div>
+
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <asp:HiddenField ID="hdnResultTab2" runat="server" />
                                     <asp:HiddenField ID="hdnResultTab3" runat="server" />
@@ -155,6 +139,23 @@
                                             <asp:LinkButton ID="Link4" class="nav-link" runat="server" OnClick="Link4_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 6px !important;"> 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Enclosures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton></li>
                                     </ul>
+                                    <div class="col-md-12 ">
+                                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                            <strong>Warning!</strong>
+                                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                    </div>
                                     <div class="tab-content">
                                         <asp:MultiView ID="MVprereg" runat="server" OnActiveViewChanged="MVprereg_ActiveViewChanged">
                                             <asp:View ID="viewBasic" runat="server">
@@ -853,7 +854,7 @@
                                                                 </asp:BoundField>--%>
                                                                         <asp:TemplateField HeaderText="Year 1" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" ></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 2" ItemStyle-Width="150px">
