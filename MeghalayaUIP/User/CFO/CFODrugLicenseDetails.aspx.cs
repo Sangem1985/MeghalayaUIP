@@ -340,8 +340,7 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblinsection.SelectedValue == "Y")
-                {
-                    InspectionDate.Visible = true;
+                {                  
                     if (string.IsNullOrEmpty(txtInspection.Text) || txtInspection.Text == "" || txtInspection.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Date for Inspection\\n";

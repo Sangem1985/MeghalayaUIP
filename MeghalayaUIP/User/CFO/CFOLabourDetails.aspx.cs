@@ -420,17 +420,20 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter CFOLABOUR \\n";
                     slno = slno + 1;
                 }
-                if (RBLAPPROVED.SelectedValue == "Y")
+                if (RBLAPPROVED.SelectedIndex == -1)
                 {
-                    Approved.Visible = true;
+                    errormsg = errormsg + slno + ". Please Select Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate? \\n";
+                    slno = slno + 1;
+                }
+                if (RBLAPPROVED.SelectedValue == "Y")
+                {                    
                     if (string.IsNullOrEmpty(txtProvide.Text) || txtProvide.Text == "" || txtProvide.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Provide Details \\n";
                         slno = slno + 1;
                     }
-
                 }
-                else { Approved.Visible = false; }
+              
                 if (ddlApplied.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Enter Classification applied for  \\n";
@@ -571,15 +574,18 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter BoilerRating \\n";
                     slno = slno + 1;
                 }
-                if (rblBoilerTrans.SelectedValue == "Y")
+                if (rblBoilerTrans.SelectedIndex == -1)
                 {
-                    txtBoiler.Visible = true;
+                    errormsg = errormsg + slno + ". Please Select Boiler ownership being transfer  \\n";
+                    slno = slno + 1;
+                }
+                if (rblBoilerTrans.SelectedValue == "Y")
+                {                   
                     if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Remarks  \\n";
                         slno = slno + 1;
-                    }
-                    else { txtBoiler.Visible = false; }
+                    }                    
                 }
                 if (string.IsNullOrEmpty(txtNameManu.Text) || txtNameManu.Text == "" || txtNameManu.Text == null)
                 {
@@ -596,7 +602,6 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Place of manufacture \\n";
                     slno = slno + 1;
                 }
-
                 if (string.IsNullOrEmpty(txtNameAgent.Text) || txtNameAgent.Text == "" || txtNameAgent.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name of agent or manager\\n";
@@ -632,53 +637,57 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Maximum number of contract labour proposed to be employed \\n";
                     slno = slno + 1;
                 }
+                if (rblConvicated.SelectedIndex == -1)
+                {                    
+                    errormsg = errormsg + slno + ". Please Select the contractor is convicted of any offence within the proceeding five years \\n";
+                    slno = slno + 1;
+                }
                 if (rblConvicated.SelectedValue == "Y")
-                {
-                    txtcontractor.Visible = true;
+                {                   
                     if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Details  \\n";
                         slno = slno + 1;
-                    }
-                    else { txtcontractor.Visible = false; }
+                    }                 
+                }
+                if (rblrevoking.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract.  \\n";
+                    slno = slno + 1;
                 }
                 if (rblrevoking.SelectedValue == "Y")
-                {
-                    suspend.Visible = true;
+                {                   
                     if (string.IsNullOrEmpty(txtOrderDate.Text) || txtOrderDate.Text == "" || txtOrderDate.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Order Date  \\n";
                         slno = slno + 1;
-                    }
-                    else { suspend.Visible = false; }
+                    }                  
+                }
+                if (rblcontractor.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select the contractor has work in any other establishment within the past five years  \\n";
+                    slno = slno + 1;
                 }
                 if (rblcontractor.SelectedValue == "Y")
-                {
-                    fiveyear.Visible = true;
+                {                  
                     if (string.IsNullOrEmpty(txtprinciple.Text) || txtprinciple.Text == "" || txtprinciple.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Principal's Employers Details  \\n";
                         slno = slno + 1;
-                    }
-                    else { fiveyear.Visible = false; }
-
-                    nature.Visible = true;
+                    }               
+                                       
                     if (string.IsNullOrEmpty(txtEstablishment.Text) || txtEstablishment.Text == "" || txtEstablishment.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Establishment's Details  \\n";
                         slno = slno + 1;
                     }
-                    else { nature.Visible = false; }
-
-                    nature.Visible = true;
+                   
                     if (string.IsNullOrEmpty(txtNature.Text) || txtNature.Text == "" || txtNature.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Nature of work  \\n";
                         slno = slno + 1;
                     }
-                    else { nature.Visible = false; }
-
-
+                  
                 }
                 if (string.IsNullOrEmpty(txtAgent.Text) || txtAgent.Text == "" || txtAgent.Text == null)
                 {

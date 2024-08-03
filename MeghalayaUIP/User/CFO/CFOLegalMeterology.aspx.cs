@@ -538,23 +538,20 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblMunicipal.SelectedValue == "Y")
                 {
-                    ADCLicense.Visible = true;
+                   
                     if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Date of registration \\n";
                         slno = slno + 1;
                     }
-                    else { ADCLicense.Visible = false; }
-
-                    DateReg.Visible = true;
+                   
 
                     if (string.IsNullOrEmpty(txtcurrentReg.Text) || txtcurrentReg.Text == "" || txtcurrentReg.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Current Registration Number  \\n";
                         slno = slno + 1;
                     }
-                    else { DateReg.Visible = false; }
-
+                   
                 }
                 if (rblFirm.SelectedIndex == -1 || rblFirm.SelectedItem.Text == "--Select--")
                 {
@@ -572,24 +569,19 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblState.SelectedValue == "Y")
-                {
-                    State.Visible = true;
-
+                {                   
                     if (string.IsNullOrEmpty(txtLICNumber.Text) || txtLICNumber.Text == "" || txtLICNumber.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Licence number  \\n";
                         slno = slno + 1;
                     }
-                    else { State.Visible = false; }
-
-                    Country.Visible = true;
-
+                   
                     if (string.IsNullOrEmpty(txtRegWeight.Text) || txtRegWeight.Text == "" || txtRegWeight.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Registration of Importer of Weights and Measures  \\n";
                         slno = slno + 1;
                     }
-                    else { Country.Visible = false; }
+                  
                 }
                 if (rblstateside.SelectedIndex == -1)
                 {
@@ -603,14 +595,12 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblDealer.SelectedValue == "Y")
                 {
-                    DealerLic.Visible = true;
-
                     if (string.IsNullOrEmpty(txtGiveDetails.Text) || txtGiveDetails.Text == "" || txtGiveDetails.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Give details  \\n";
                         slno = slno + 1;
                     }
-                    else { DealerLic.Visible = false; }
+                   
                 }
                 if (rblelectric.SelectedIndex == -1 || rblelectric.SelectedItem.Text == "--Select--")
                 {
@@ -625,14 +615,13 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblLicdealer.SelectedValue == "Y")
                 {
-                    applieddealer.Visible = true;
+                 
                     if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Give Details\\n";
                         slno = slno + 1;
                     }
-                    else { applieddealer.Visible = false; }
-
+                  
                 }
                 if (rblInstitute.SelectedIndex == -1)
                 {
@@ -640,22 +629,19 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblInstitute.SelectedValue == "Y")
-                {
-                    NameBanker.Visible = true;
+                {                  
                     if (string.IsNullOrEmpty(txtBanker.Text) || txtBanker.Text == "" || txtBanker.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Bankers Details\\n";
                         slno = slno + 1;
-                    }
-                    else { NameBanker.Visible = false; }
+                    }                 
 
-                    DetailsGet.Visible = true;
                     if (string.IsNullOrEmpty(txtGetDetails.Text) || txtGetDetails.Text == "" || txtGetDetails.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Give Details\\n";
                         slno = slno + 1;
                     }
-                    else { DetailsGet.Visible = false; }
+                
                 }
                 if (rblLoan.SelectedIndex == -1)
                 {
@@ -663,14 +649,13 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblLoan.SelectedValue == "Y")
-                {
-                    weightloan.Visible = true;
+                {                  
                     if (string.IsNullOrEmpty(txtDetailsGET.Text) || txtDetailsGET.Text == "" || txtDetailsGET.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Give Details\\n";
                         slno = slno + 1;
                     }
-                    else { weightloan.Visible = false; }
+                   
                 }
                 if (rblRepaire.SelectedIndex == -1)
                 {
@@ -678,14 +663,13 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblRepaire.SelectedValue == "Y")
-                {
-                    License.Visible = true;
+                {                 
                     if (string.IsNullOrEmpty(txtResults.Text) || txtResults.Text == "" || txtResults.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter with what results?\\n";
                         slno = slno + 1;
                     }
-                    else { License.Visible = false; }
+                 
                 }
                 if (GVLegalDept.Rows.Count <= 0)
                 {

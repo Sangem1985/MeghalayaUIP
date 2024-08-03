@@ -225,7 +225,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblBusiness.SelectedValue == "Y")
                 {
-                    stall.Visible = true;
+                  
                     if (string.IsNullOrEmpty(txtHolding.Text) || txtHolding.Text == "" || txtHolding.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Holding Number\\n";
@@ -241,7 +241,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 else
                 {
-                    Districmaster.Visible = true;
+                   
                     if (ddlESTDistric.SelectedIndex == 0)
                     {
                         errormsg = errormsg + slno + ". Please Select District of Establishment\\n";

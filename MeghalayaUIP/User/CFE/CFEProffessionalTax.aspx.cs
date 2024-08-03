@@ -399,7 +399,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblAdditional.SelectedValue == "Y")
                 {
-                    if (GVState.Rows.Count == 0)
+                    if (GVState.Rows.Count <= 0)
                     {
                         errormsg = errormsg + slno + ". Please Enter Additional place of Business details then click on Add Details Button \\n";
                         slno = slno + 1;

@@ -394,7 +394,6 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblBusiness.SelectedValue == "Y")
                 {
-
                     if (GVState.Rows.Count <= 0)
                     {
                         errormsg = errormsg + slno + ". Please Enter Additional Place of Business Details \\n";

@@ -338,6 +338,11 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Any information \\n";
                     slno = slno + 1;
                 }
+                if (GVEXPLOSIVE.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Explosive GridView Details\\n";
+                    slno = slno + 1;
+                }
                 return errormsg;
             }
             catch (Exception ex)
