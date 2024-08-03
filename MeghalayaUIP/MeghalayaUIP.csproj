@@ -751,6 +751,7 @@
     <Content Include="User\PreReg\IndustryRegistrationQueryDetails.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
+    <Content Include="User\Renewal\RENApplDetails.aspx" />
     <Content Include="User\Renewal\RENContractorMigrantWork.aspx" />
     <Content Include="User\Renewal\RENBoilerDetails.aspx" />
     <Content Include="User\Renewal\RENBusinessLicenseDetails.aspx" />
@@ -1638,6 +1639,13 @@
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistrationViewDetails.aspx.designer.cs">
       <DependentUpon>IndustryRegistrationViewDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENApplDetails.aspx.cs">
+      <DependentUpon>RENApplDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENApplDetails.aspx.designer.cs">
+      <DependentUpon>RENApplDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENContractorMigrantWork.aspx.cs">
       <DependentUpon>RENContractorMigrantWork.aspx</DependentUpon>
