@@ -173,5 +173,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.CFEENTERPRISETYPE(ANNUALTURNOVER);
         }
+        public DataSet GetRENApplicationDetails(string UnitID, string InvesterID)
+        {
+            return objRENDAL.GetRENApplicationDetails(UnitID, InvesterID);
+        }
     }
 }
