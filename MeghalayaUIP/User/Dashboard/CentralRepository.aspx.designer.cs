@@ -15,6 +15,15 @@ namespace MeghalayaUIP.User.Dashboard
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,15 @@ namespace MeghalayaUIP.User.Dashboard
         protected global::System.Web.UI.WebControls.TextBox txtFDate;
 
         /// <summary>
+        /// CalendarExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+
+        /// <summary>
         /// rfvtxtFDate control.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,15 @@ namespace MeghalayaUIP.User.Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTDate;
+
+        /// <summary>
+        /// CalendarExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
 
         /// <summary>
         /// rfvtxtTDate control.
@@ -132,15 +159,6 @@ namespace MeghalayaUIP.User.Dashboard
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// divgrd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divgrd;
-
-        /// <summary>
         /// grdCentralRepo control.
         /// </summary>
         /// <remarks>
@@ -148,5 +166,14 @@ namespace MeghalayaUIP.User.Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdCentralRepo;
+
+        /// <summary>
+        /// divgrd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divgrd;
     }
 }

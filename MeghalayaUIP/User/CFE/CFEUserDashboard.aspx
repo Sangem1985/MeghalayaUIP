@@ -134,6 +134,11 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                             </Columns>
+                            <EmptyDataTemplate>
+                                <div align="center"  style="text-align: center; padding: 20px;">
+                                    There are no Registered Units Under MIIPP
+                                </div>
+                            </EmptyDataTemplate>
                         </asp:GridView>
 
                     </div>
