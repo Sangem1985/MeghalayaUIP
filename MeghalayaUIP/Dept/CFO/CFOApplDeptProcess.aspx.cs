@@ -93,10 +93,7 @@ namespace MeghalayaUIP.Dept.CFO
                     verifypanel.Visible = false;
                 }
 
-                //Session["Questionnaireid"] = CFEQDID;
-                // Session["INVESTERID"] = InvesterID;
-                //Session["stage"] = stage;
-                // Session["UNITID"] = UnitID;
+              
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null)
                 {
                     DataSet ds = new DataSet();

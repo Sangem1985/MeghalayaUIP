@@ -664,6 +664,7 @@
     <Content Include="Dept\PreReg\PreRegApplIMADashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
+    <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -1012,6 +1013,13 @@
     </Compile>
     <Compile Include="Dept\PreReg\PreRegApplIMAView.aspx.designer.cs">
       <DependentUpon>PreRegApplIMAView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptProcess.aspx.cs">
+      <DependentUpon>RENApplDeptProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptProcess.aspx.designer.cs">
+      <DependentUpon>RENApplDeptProcess.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>

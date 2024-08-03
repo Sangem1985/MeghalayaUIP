@@ -10,6 +10,9 @@
             padding-left: 6px;
         }
     </style>
+       <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -627,4 +630,12 @@
             </div>
         </div>
     </div>
+ <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

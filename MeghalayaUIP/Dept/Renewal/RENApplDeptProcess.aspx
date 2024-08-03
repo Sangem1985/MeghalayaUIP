@@ -1,10 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENApplDetails.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENApplDetails" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="RENApplDeptProcess.aspx.cs" Inherits="MeghalayaUIP.Dept.Renewal.RENApplDeptProcess" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
-    <style>
+       <style>
         .card {
             border: 1px solid #fff;
             margin-bottom: 12px;
@@ -78,32 +76,32 @@
             display: contents;
         }
     </style>
-    <div class="page-wrapper">
+  
+       <div class="page-wrapper">
         <div class="content container-fluid">
+            <div class="card-header d-flex justify-content-between">
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
+            </div>
             <div class="card flex-fill">
-                <div class="col-md-12 d-flex ">
-                    <div class="col-md-11 pb-2 pt-2 ">
-                        <h4>Renewal Application Details</h4>
-                    </div>
-                    <%-- <div class="col-md-1 pb-2 pt-2">
-                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
-                    </div>--%>
-                </div>
 
-
-                <div class="col-md-12 ">
-                    <div id="success" runat="server" visible="false" class="alert alert-success " align="Center">
+                <h4 class="mt-2 ml-4">View Details</h4>
+                <div class="col-md-12 d-flex">
+                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
                     </div>
                 </div>
-                <div class="col-md-12 ">
-                    <div id="Failure" runat="server" visible="false" class="alert alert-warning " align="Center">
+                <div class="col-md-12 d-flex">
+                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
                         <strong>Warning!</strong>
                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
                     </div>
                 </div>
-                <asp:HiddenField ID="hdnUserID" runat="server" />
-
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -111,7 +109,7 @@
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion"
                                         href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                                        class="collapsed">Renewal
+                                        class="collapsed">Pre-Opearational Application Details
                                     </a>
 
                                 </h4>
@@ -120,9 +118,9 @@
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Application Details</h3>
+                                        <h3>Renewal Application Details</h3>
                                     </div>
-                                    <section id="dashboardBasic">
+                                   <section id="dashboardBasic">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="card-body">
@@ -2272,101 +2270,7 @@
                                                                 </Columns>
                                                             </asp:GridView>
                                                         </div>
-                                                    </div>
-
-                                                    <%--  <div id="div9" runat="server" visible="false">
-                                                    <div class="col-md-12 d-flex">
-                                                        <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span style="font-weight: 900; font-size: 20px;">Details of Technical Staff employed for Manufacturing</span></label>
-                                                    </div>
-                                                    <div class="table-responsive">
-                                                        <asp:GridView ID="GVHealthy" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
-                                                            GridLines="Both" HeaderStyle-BackColor="Red"
-                                                            Width="100%" EnableModelValidation="True">
-                                                            <RowStyle />
-                                                            <AlternatingRowStyle BackColor="LightGray" />
-                                                            <HeaderStyle BackColor="Red" />
-                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                            <AlternatingRowStyle BackColor="White" />
-                                                            <Columns>
-                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
-                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                    <ItemTemplate>
-                                                                        <%# Container.DataItemIndex + 1%>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Name" DataField="CFODM_EMPNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-                                                                <asp:BoundField HeaderText="Qualification" DataField="CFODM_EMPQLFCATION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-                                                                <asp:BoundField HeaderText="Experience" DataField="CFODM_EMPEXPRNC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-
-                                                            </Columns>
-                                                        </asp:GridView>
-                                                    </div>
-                                                </div>
-
-                                                <div id="div10" runat="server" visible="false">
-                                                    <div class="col-md-12 d-flex">
-                                                        <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span style="font-weight: 900; font-size: 20px;">Details Of Technical Staff Employed For Testing</span></label>
-                                                    </div>
-                                                    <div class="table-responsive">
-                                                        <asp:GridView ID="GVTESTING" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
-                                                            GridLines="Both" HeaderStyle-BackColor="Red"
-                                                            Width="100%" EnableModelValidation="True">
-                                                            <RowStyle />
-                                                            <AlternatingRowStyle BackColor="LightGray" />
-                                                            <HeaderStyle BackColor="Red" />
-                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                            <AlternatingRowStyle BackColor="White" />
-                                                            <Columns>
-                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
-                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                    <ItemTemplate>
-                                                                        <%# Container.DataItemIndex + 1%>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Name" DataField="CFODT_EMPNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-                                                                <asp:BoundField HeaderText="Qualification" DataField="CFODT_EMPQLFCATION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-                                                                <asp:BoundField HeaderText="Experience" DataField="CFODT_EMPEXPRNC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-
-                                                            </Columns>
-                                                        </asp:GridView>
-                                                    </div>
-                                                </div>
-
-                                                <div id="div11" runat="server" visible="false">
-                                                    <div class="col-md-12 d-flex">
-                                                        <label class="col-lg-12 col-form-label fw-bold">
-                                                            <span style="font-weight: 900; font-size: 20px;">Drug Details</span></label>
-                                                    </div>
-                                                    <div class="table-responsive">
-                                                        <asp:GridView ID="GVDrug" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
-                                                            GridLines="Both" HeaderStyle-BackColor="Red"
-                                                            Width="100%" EnableModelValidation="True">
-                                                            <RowStyle />
-                                                            <AlternatingRowStyle BackColor="LightGray" />
-                                                            <HeaderStyle BackColor="Red" />
-                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                            <AlternatingRowStyle BackColor="White" />
-                                                            <Columns>
-                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
-                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                    <ItemTemplate>
-                                                                        <%# Container.DataItemIndex + 1%>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Name of Drug" DataField="CFOD_DRUGNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-
-                                                            </Columns>
-                                                        </asp:GridView>
-                                                    </div>
-                                                </div>--%>
+                                                    </div>                                                
                                                 </div>
 
 
@@ -3308,7 +3212,7 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Attachment Name</th>
-                                                                    <th>Status</th>
+                                                                    <th></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -3317,11 +3221,12 @@
                                                                 <tr>
                                                                     <td class="fw-bold">DPR</td>
 
-                                                                    <td style="text-align: center;">
-                                                                        <%--   <asp:LinkButton ID="linkViewDPR" runat="server" OnClick="linkViewDPR_Click"></asp:LinkButton>--%>
-                                                                        <asp:HyperLink ID="hplViewDPR" runat="server" Visible="false"></asp:HyperLink>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-rounded btn-dark">View</button>
                                                                     </td>
                                                                 </tr>
+
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -3378,7 +3283,6 @@
                                                         </Columns>
 
                                                     </asp:GridView>
-
                                                 </div>
 
                                             </div>
@@ -3400,7 +3304,7 @@
                                 aria-labelledby="headingFour" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Query Response Attachments Check Lists</h3>
+                                        <h3>Attachments in Response to Query Raised</h3>
                                     </div>
                                     <section id="dashboardQueryattachmnts">
                                         <div class="container-fluid">
@@ -3408,9 +3312,8 @@
                                                 <div class="col-md-12">
                                                     <asp:GridView ID="grdQryAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="Both" Width="70%" EnableModelValidation="True" ShowHeaderWhenEmpty="true" HorizontalAlign="Center">
+                                                        GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
@@ -3420,25 +3323,13 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="View" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <%--  <asp:TemplateField HeaderText="SI.No">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>--%>
-                                                            <asp:TemplateField HeaderText="VIEW" Visible="false">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Left" />
-                                                                <ItemTemplate>
-                                                                    <asp:HyperLink ID="hplViewQueryAttachment" Text='<%#Eval("FILELOCATION") %>' runat="server"></asp:HyperLink>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-
+                                                            <asp:BoundField HeaderText="File Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="View" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                         </Columns>
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
-
+                                                    <%--<div class="table-responsive">                                                      
+                                                       </div>--%>
                                                 </div>
 
                                             </div>
@@ -3447,7 +3338,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" visible="false" runat="server">
+                        <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -3466,34 +3357,173 @@
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="col-sm-12">
-                                                    <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
-                                                        GridLines="None" Width="100%" EnableModelValidation="True">
-                                                        <RowStyle />
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
 
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                <ItemTemplate>
-                                                                    <%# Container.DataItemIndex + 1%>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                    <div class="table-responsive">
+                                                        <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                            GridLines="Both" Width="100%" EnableModelValidation="True">
+                                                            <RowStyle />
+                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                    <ItemTemplate>
+                                                                        <%# Container.DataItemIndex + 1%>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                            <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                            <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                        </Columns>
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                    </asp:GridView>
+                                                                <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
+                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            </Columns>
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        </asp:GridView>
+                                                    </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" id="verifypanel" runat="server" visible="true">
+                            <div class="panel-heading" role="tab" id="headingSix">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseSix" aria-expanded="false"
+                                        aria-controls="collapseSix">
+                                        <asp:Label runat="server" ID="lblVerf"></asp:Label>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse show" role="tabpanel"
+                                aria-labelledby="headingSix" aria-expanded="false">
+
+                                <div class="card" id="scrutiny" runat="server" visible="false">
+                                    <div class="table-responsive">
+                                        <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
+                                            <tr style="border-color: brown; background-color: midnightblue; color: azure">
+                                                <td><b>Name</b></td>
+                                                <td><b>Unit Name</b></td>
+                                                <td><b>Application No</b></td>
+                                                <td style="width: 150px"><b>Application Date</b></td>
+                                                <td style="width: 200px"><b>Select Action</b></td>
+                                                <td id="tdquryorrej" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter Query/Forward Reason" ID="lblremarks"></asp:Label></b>
+                                                </td>
+                                                <td id="tdaction" runat="server" visible="true">
+                                                    <b>Submit Action</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lbl_Name1"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblunitname1" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblApplNo" runat="server"></asp:Label></td>
+                                                <td tyle="width: 100px">
+                                                    <asp:Label ID="lblapplDate" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="width: 200px">
+                                                    <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Completed" Value="12"></asp:ListItem>
+                                                        <asp:ListItem Text="Completed with Payment Request" Value="11"></asp:ListItem>
+                                                        <asp:ListItem Text="Raise Query" Value="6"></asp:ListItem>
+                                                        <asp:ListItem Text="Rejected" Value="17"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
+                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateAmount(event)" Visible="false" />
+                                                </td>
+
+
+                                                <td>
+                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="card" id="Approval" runat="server" visible="false">
+                                    <div class="table-responsive">
+                                        <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
+                                            <tr style="border-color: brown; background-color: midnightblue; color: azure">
+                                                <td><b>Name</b></td>
+                                                <td><b>Unit Name</b></td>
+                                                <td><b>Application No</b></td>
+                                                <td style="width: 150px"><b>Application Date</b></td>
+                                                <td style="width: 200px"><b>Select Action</b></td>
+                                                <td id="tdapproverejection" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter RejectionReason" ID="Label1"></asp:Label></b>
+                                                </td>
+                                                <td id="tdapprovalAction" runat="server" visible="true">
+                                                    <b>Submit Action</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lbl_Name1Approval"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblunitname1Approval" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblApplNoApproval" runat="server"></asp:Label></td>
+                                                <td tyle="width: 100px">
+                                                    <asp:Label ID="lblapplDateApproval" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="width: 200px">
+                                                    <asp:DropDownList ID="ddlapproval" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlapproval_SelectedIndexChanged">
+                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Approve" Value="13"></asp:ListItem>
+                                                        <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td style="vertical-align: central" id="trrejection" runat="server" visible="false">
+                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="btnreject" runat="server" Text="Submit" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
+                                                </td>
+                                            </tr>
+                                            <tr id="trapproval" runat="server" visible="false">
+                                                <td>
+                                                    <label>Reference No</label>
+                                                </td>
+                                                <td>:
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox runat="server" ID="txtreferenceno" class="form-control"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                            <tr id="trapprovalupload" runat="server" visible="false">
+                                                <td>
+                                                    <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" />
+                                                </td>
+                                                <td>
+                                                    <asp:Button runat="server" ID="btnUpldapproval" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                </td>
+                                                <td>
+                                                    <asp:HyperLink ID="hplApproval" runat="server" Target="_blank"></asp:HyperLink>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Button ID="btnApprove" runat="server" Text="Submit" class="btn btn-rounded btn-info btn-lg" BackColor="Green" Visible="false" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
