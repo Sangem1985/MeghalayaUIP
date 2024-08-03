@@ -26,7 +26,7 @@ namespace MeghalayaUIP.Dept.CFO
 
         CFOBAL objcfobal = new CFOBAL();
         CFODtls objcfoDtls = new CFODtls();
-        string userid, result;
+        string  result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -74,13 +74,11 @@ namespace MeghalayaUIP.Dept.CFO
                         verifypanel.Visible = true;
                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
                         {
-                            lblVerf.Text = "Scrutiny Verification of Application";
                             scrutiny.Visible = true;
                             Approval.Visible = false;
                         }
                         else
                         {
-                            lblVerf.Text = "Approval Process";
                             scrutiny.Visible = false;
                             Approval.Visible = true;
                         }
@@ -104,178 +102,621 @@ namespace MeghalayaUIP.Dept.CFO
                     DataSet ds = new DataSet();
                     ds = objcfobal.GetCFOApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString());
 
-                    DataRow row = ds.Tables[0].Rows[0];
-                    lblnameUnit.Text = Convert.ToString(row["CFOQD_COMPANYNAME"]);
-                    lblunitname1.Text = Convert.ToString(row["CFOQD_COMPANYNAME"]);
-                    lblApplNo.Text = Convert.ToString(row["CFOQD_CFEUIDNO"]);
-                    lblapplDate.Text = Convert.ToString(row["CFOQD_CREATEDDATE"]);
-                    lbl_Name1.Text = Convert.ToString(row["CFOQD_COMPANYNAME"]);
-                    lblunitname1Approval.Text = Convert.ToString(row["CFOQD_COMPANYNAME"]);
-                    lblApplNoApproval.Text = Convert.ToString(row["CFOQD_CFEUIDNO"]);
-                    lblapplDateApproval.Text = Convert.ToString(row["CFOQD_CREATEDDATE"]);
-                    lblconstitution.Text = Convert.ToString(row["CONST_TYPE"]);
-                    lblProposal.Text = Convert.ToString(row["CFOQD_PROPOSALFOR"]);
-                    lblLocation.Text = Convert.ToString(row["DistrictName"]);
-                    lblMandal.Text = Convert.ToString(row["Mandalname"]);
-                    lblVillage.Text = Convert.ToString(row["VillageName"]);
-                    lblExtentland.Text = Convert.ToString(row["CFOQD_TOTALEXTENTLAND"]);
-                    lblBuilt.Text = Convert.ToString(row["CFOQD_BUILTUPAREA"]);
-                    lblSectors.Text = Convert.ToString(row["CFOQD_SECTOR"]);
-                    lblActivity.Text = Convert.ToString(row["LineofActivity_Name"]);
-                    lblPollution.Text = Convert.ToString(row["CFOQD_PCBCATEGORY"]);
-                    lblIndustry.Text = Convert.ToString(row["INDUSTRYTYPE"]);
 
-                    lblUnitLocation.Text = Convert.ToString(row["CFOQD_UNTLOCATION"]);
-                    lblMIDCL.Text = Convert.ToString(row["CFOQD_MIDCLLAND"]);
-                    lblproposeEMP.Text = Convert.ToString(row["CFOQD_PROPEMP"]);
-                    lblLANDINR.Text = Convert.ToString(row["CFOQD_LANDVALUE"]);
-                    lblBuildingINR.Text = Convert.ToString(row["CFOQD_BUILDINGVALUE"]);
-                    lblMachineryINR.Text = Convert.ToString(row["CFOQD_PMCOST"]);
-                    lblExpectTurnINR.Text = Convert.ToString(row["CFOQD_EXPECTEDTURNOVER"]);
-                    lblTPCost.Text = Convert.ToString(row["CFOQD_TOTALPROJCOST"]);
-                    lblEnterpriseCat.Text = Convert.ToString(row["CFOQD_ENTERPRISETYPE"]);
+                    if (ObjUserInfo.Deptid == "6") //Proffessional Tax
+                    {
+                        ProffessionalTax.Visible = true;
+                    }
 
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
+                    if (ObjUserInfo.Deptid == "7")//EXICEDEPARTMENT
                     {
-                        lblBNameCompany.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_COMPANYNAME"]);
-                        lblTypecompany.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_COMPANYTYPE"]);
-                        lblCompanyProposal.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_PROPOSALFOR"]);
-                        lblCategory.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REGTYPE"]);
-                        lblRegistration.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REGNO"]);
-                        lblDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REGDATE"]);
-                        lblFactory.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_FACTORYTYPE"]);
-                        lblName.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPNAME"]);
-                        lblso.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPSoWoDo"]);
-                        lblEmail.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPEMAIL"]);
-                        lblMobile.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPMOBILE"]);
-                        lblAlternative.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPALTMOBILE"]);
-                        lbllandline.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPTELPHNO"]);
-                        lblDoor.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPDOORNO"]);
-                        lblLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPLOCALITY"]);
-                        lblDistrict.Text = Convert.ToString(ds.Tables[1].Rows[0]["DistrictName"]);
-                        lblMandals.Text = Convert.ToString(ds.Tables[1].Rows[0]["Mandalname"]);
-                        lblVillages.Text = Convert.ToString(ds.Tables[1].Rows[0]["VillageName"]);
-                        lblPincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPPINCODE"]);
+                        ExciseDep.Visible = true;
+                    }
 
-                        lblAbled.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPISDIFFABLED"]);
-                        lblWomen.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_REPISWOMANENTR"]);
+                    if (ObjUserInfo.Deptid == "8") //Health&Wealfire
+                    {
+                        DrugLic.Visible = true;
+                    }
 
-                        lblDevelopment.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_DEVELOPAREA"]);
-                        lblARCLIC.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_ARCHTCTLICNO"]);
-                        lblARCNAME.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_ARCHTCTNAME"]);
-                        lblARCMOBILE.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_ARCHTCTMOBILE"]);
-                        lblStrEng.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_SRTCTENGNRNAME"]);
-                        lblStrMobile.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_SRTCTENGNRMOBILE"]);
-                        lblStrLICNO.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_SRTCTENGNRLICNO"]);
-                        lblApproacheRoad.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_APPROACHROADTYPE"]);
+                    if (ObjUserInfo.Deptid == "9")//Fire Details
+                    {
+                        FireDet.Visible = true;
+                    }
 
-                        lblWidening.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_AFFECTEDRDWDNG"]);
-                        lblAffectedArea.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_AFFECTEDRDAREA"]);
-                        lblDirectMale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_DIRECTMALE"]);
-                        lblDirectFemale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_DIRECTFEMALE"]);
-                        lblEmployees.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_TOTALEMP"]);
-                        InMale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_INDIRECTMALE"]);
-                        InFemale.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_INDIRECTFEMALE"]);
-                        lblother.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_INDIRECTOTHERS"]);
-                        lblroadlength.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_RDCUTLENGTH"]);
-                        lblNumber.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOID_RDCUTLOCATIONS"]);
-                    }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[2].Rows.Count > 0)
+                    if (ObjUserInfo.Deptid == "10")//LabourDepartment
                     {
-                        lbllineActivity.Text = Convert.ToString(ds.Tables[2].Rows[0]["LineofActivity_Name"]);
-                        lblitem.Text = Convert.ToString(ds.Tables[2].Rows[0]["CFOLM_ITEMNAME"]);
-                        lblQuantityper.Text = Convert.ToString(ds.Tables[2].Rows[0]["CFOLM_ITEMANNUALCAPACITY"]);
-                        lblQuantity.Text = Convert.ToString(ds.Tables[2].Rows[0]["CFOLM_ITEMVALUE"]);
+                        Labourdet.Visible = true;
                     }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[3].Rows.Count > 0)
+
+                    if (ObjUserInfo.Deptid == "11") //LegalMetrology
                     {
-                        /*lblEstablish.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_CATEGORY_ESTABLISHMENT"]);
-                        lblNames.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_NAME"]);
-                        lblFather.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_FATHERNAME"]);
-                        lblAge.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_AGE"]);
-                        lblDesignation.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_DESIGNATION"]);
-                        lblMobiles.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_MOBILENO"]);
-                        lblMail.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_EMAILID"]);
-                        lbldist.Text = Convert.ToString(ds.Tables[3].Rows[0]["DISTRIC"]);
-                        lblMandalsmandal.Text = Convert.ToString(ds.Tables[3].Rows[0]["MANDAL"]);
-                        lblVILLAS.Text = Convert.ToString(ds.Tables[3].Rows[0]["VILLAGE"]);
-                        lblDoors.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_DOOR"]);
-                        lblLocalitys.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_LOCALITY"]);
-                        lblPins.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_PINCODE"]);
-                        lblcontractor.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_NAMECONTRACTOR"]);
-                        lblfafname.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_FATHER"]);
-                        lblages.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_AGES"]);
-                        lblMobileno.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_MOBILE"]);
-                        lblEmailId.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_EMAIL"]);
-                        lblDistr.Text = Convert.ToString(ds.Tables[3].Rows[0]["DISTRIC"]);
-                        lbltaluka.Text = Convert.ToString(ds.Tables[3].Rows[0]["MANDAL"]);
-                        lblVillvillage.Text = Convert.ToString(ds.Tables[3].Rows[0]["VILLAGE"]);
-                        lblDoorno.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_DOORNO"]);
-                        lbllocals.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_LOCALITYNAME"]);
-                        lblPincodeno.Text = Convert.ToString(ds.Tables[3].Rows[0]["CFOLD_PIN"]);*/
+                        LegalMetrology.Visible = true;
                     }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
+
+                    if (ObjUserInfo.Deptid == "12")//Pollutioncontrol
                     {
-                        lblHP.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFOPD_CONNECTEDLOAD"]);
-                        lblMaxDemand.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFOPD_MAXIMUMDEMAND"]);
-                        lblVoltageLevel.Text = Convert.ToString(ds.Tables[4].Rows[0]["VOLTAGERANGE"]);
-                        lblPermise.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFOPD_WRKNGHRSPERDAY"]);
-                        lblMonth.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFOPD_WRKNGHRSPERMONTH"]);
-                        lblYear.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFOPD_PRODUCTIONDTAE"]);
-                        lblPowersupply.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFOPD_POWERDATE"]);
-                        lblQuantum.Text = Convert.ToString(ds.Tables[4].Rows[0]["CFOPD_REQLOAD"]);
-                        lblEngeryLaod.Text = Convert.ToString(ds.Tables[4].Rows[0]["ENERGYLOAD_NAME"]);
+                        Pollutioncontrol.Visible = true;
                     }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
+
+                    if (ObjUserInfo.Deptid == "16") //ContractRegistration
                     {
-                        lblDistrics.Text = Convert.ToString(ds.Tables[5].Rows[0]["DistrictName"]);
-                        lblMan.Text = Convert.ToString(ds.Tables[5].Rows[0]["Mandalname"]);
-                        lblVill.Text = Convert.ToString(ds.Tables[5].Rows[0]["VillageName"]);
-                        lbllocal.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_Locality"]);
-                        lbNear.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_Landmark"]);
-                        lblPincodes.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_Pincode"]);
-                        lblheight.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_BUILDINGHT"]);
-                        lblEachfloor.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_FLOORHT"]);
-                        lblArea.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_PLOTAREA"]);
-                        lblbuild.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_BUILDINGAREA"]);
-                        lbldriveway.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_DRIVEPROPSED"]);
-                        lblcategoryBuild.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_CATEGORYBUILD"]);
-                        feeamount.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_FEEAMOUNT"]);
-                        lblEast.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_East"]);
-                        lblDistanceprop.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_DISTANCEEAST"]);
-                        lblwest.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_West"]);
-                        lblbUILDDIST.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_DISTANCEWEST"]);
-                        lblNorth.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_North"]);
-                        lblDistBuild.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_DISTANCENORTH"]);
-                        lblSouth.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_South"]);
-                        lblbuildProp.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_DISTANCESOUTH"]);
-                        lblFireStation.Text = Convert.ToString(ds.Tables[5].Rows[0]["CFOFD_FIRESTATION"]);
+                        ContractorReg.Visible = true;
                     }
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
+
+                    if (ds.Tables[0].Rows.Count > 0)
                     {
-                        lblspice.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_SPECIES"]);
-                        lblLength.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_TIMBERLENGTH"]);
-                        lblvolume.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_TIMBERVOLUME"]);
-                        lblGirth.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_GIRTH"]);
-                        lblFirewood.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_ESTIMATED"]);
-                        lblpole.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_POLES"]);
-                        lblNorths.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_NORTH"]);
-                        lblEasts.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_EAST"]);
-                        lblWests.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_WEST"]);
-                        lblSouths.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_SOUTH"]);
-                        lblAddress.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_ADDRESS"]);
-                        lbllatitude.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_LATTITUDE"]);
-                        lblDegreess.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_DEGREES"]);
-                        lblMinte.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_MINUTES"]);
-                        lblseconds.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_SECONDS"]);
-                        lbllongitude.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_LONGITUDE"]);
-                        lblDegrees.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_DEGREE"]);
-                        lblMinutes.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_MINUTE"]);
-                        lblsecond.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_SECOND"]);
-                        lblCoordinates.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_GPSCOORDINATES"]);
-                        lblApplication.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_PURPOSEAPPLICATION"]);
-                        lblDivision.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_FORESTDIVISION"]);
-                        lblinformation.Text = Convert.ToString(ds.Tables[6].Rows[0]["CFOFD_INFORMATION"]);
+                        lblnameUnit.Text = ds.Tables[0].Rows[0]["CFOQD_PREREGUIDNO"].ToString();
+                        lblCompanyType.Text = ds.Tables[0].Rows[0]["CFOQD_COMPANYNAME"].ToString();
+                        lblProposal.Text = ds.Tables[0].Rows[0]["CFOQD_PROPOSALFOR"].ToString();
+                        lblNatureIndustry.Text = ds.Tables[0].Rows[0]["CFOQD_COMPANYTYPE"].ToString();
+                        lblDistric.Text = ds.Tables[0].Rows[0]["DistrictName"].ToString();
+                        lblMandals.Text = ds.Tables[0].Rows[0]["Mandalname"].ToString();
+                        lblVilla.Text = ds.Tables[0].Rows[0]["VillageName"].ToString();
+                        lblExtentLand.Text = ds.Tables[0].Rows[0]["CFOQD_TOTALEXTENTLAND"].ToString();
+                        lblBuiltArea.Text = ds.Tables[0].Rows[0]["CFOQD_BUILTUPAREA"].ToString();
+                        lblSectors.Text = ds.Tables[0].Rows[0]["CFOQD_SECTOR"].ToString();
+                        lblActivity.Text = ds.Tables[0].Rows[0]["LineofActivity_Name"].ToString();
+                        lblPcb.Text = ds.Tables[0].Rows[0]["CFOQD_PCBCATEGORY"].ToString();
+                        lblMIDCL.Text = ds.Tables[0].Rows[0]["CFOQD_MIDCLLAND"].ToString();
+                        lblLocationUnit.Text = ds.Tables[0].Rows[0]["CFOQD_UNTLOCATION"].ToString();
+                        lblproposeEMP.Text = ds.Tables[0].Rows[0]["CFOQD_PROPEMP"].ToString();
+                        lblLANDINR.Text = ds.Tables[0].Rows[0]["CFOQD_LANDVALUE"].ToString();
+                        lblBuildingINR.Text = ds.Tables[0].Rows[0]["CFOQD_BUILDINGVALUE"].ToString();
+                        lblMachineryINR.Text = ds.Tables[0].Rows[0]["CFOQD_PMCOST"].ToString();
+                        lblExpectTurnINR.Text = ds.Tables[0].Rows[0]["CFOQD_EXPECTEDTURNOVER"].ToString();
+                        lblTPCost.Text = ds.Tables[0].Rows[0]["CFOQD_TOTALPROJCOST"].ToString();
+                        lblEnterpriseCat.Text = ds.Tables[0].Rows[0]["CFOQD_ENTERPRISETYPE"].ToString();
+
+                    }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        lblBNameCompany.Text = ds.Tables[1].Rows[0]["CFOID_COMPANYNAME"].ToString();
+                        lblTypecompany.Text = ds.Tables[1].Rows[0]["CFOID_COMPANYTYPE"].ToString();
+                        lblCompanyProposal.Text = ds.Tables[1].Rows[0]["CFOID_PROPOSALFOR"].ToString();
+                        lblCategory.Text = ds.Tables[1].Rows[0]["REGISTRATIONTYPENAME"].ToString();
+                        lblRegistration.Text = ds.Tables[1].Rows[0]["CFOID_REGNO"].ToString();
+                        lblDate.Text = ds.Tables[1].Rows[0]["CFOID_REGDATE"].ToString();
+                        lblFactory.Text = ds.Tables[1].Rows[0]["CFOID_FACTORYTYPE"].ToString();
+                        lblDetName.Text = ds.Tables[1].Rows[0]["CFOID_REPNAME"].ToString();
+                        lblDetSon.Text = ds.Tables[1].Rows[0]["CFOID_REPSoWoDo"].ToString();
+                        lblDetEmail.Text = ds.Tables[1].Rows[0]["CFOID_REPEMAIL"].ToString();
+                        lblDetMobile.Text = ds.Tables[1].Rows[0]["CFOID_REPMOBILE"].ToString();
+                        lblDetAlter.Text = ds.Tables[1].Rows[0]["CFOID_REPALTMOBILE"].ToString();
+                        lblDetLand.Text = ds.Tables[1].Rows[0]["CFOID_REPTELPHNO"].ToString();
+                        lblDetDoor.Text = ds.Tables[1].Rows[0]["CFOID_REPDOORNO"].ToString();
+                        lblDetLocality.Text = ds.Tables[1].Rows[0]["CFOID_REPLOCALITY"].ToString();
+                        lblDetDistrict.Text = ds.Tables[1].Rows[0]["DistrictName"].ToString();
+                        lblDetMandal.Text = ds.Tables[1].Rows[0]["Mandalname"].ToString();
+                        lblDetVillage.Text = ds.Tables[1].Rows[0]["VillageName"].ToString();
+                        lblDetPincode.Text = ds.Tables[1].Rows[0]["CFOID_REPPINCODE"].ToString();
+                        lblDetWomen.Text = ds.Tables[1].Rows[0]["CFOID_REPISWOMANENTR"].ToString();
+                        lblDetAbled.Text = ds.Tables[1].Rows[0]["CFOID_REPISDIFFABLED"].ToString();
+                        lblArcName.Text = ds.Tables[1].Rows[0]["CFOID_ARCHTCTNAME"].ToString();
+                        lblArcLicNo.Text = ds.Tables[1].Rows[0]["CFOID_ARCHTCTLICNO"].ToString();
+                        lblArcMobileNo.Text = ds.Tables[1].Rows[0]["CFOID_ARCHTCTMOBILE"].ToString();
+                        lblStrName.Text = ds.Tables[1].Rows[0]["CFOID_SRTCTENGNRNAME"].ToString();
+                        lblStrLicNo.Text = ds.Tables[1].Rows[0]["CFOID_SRTCTENGNRLICNO"].ToString();
+                        lblStrMobileno.Text = ds.Tables[1].Rows[0]["CFOID_SRTCTENGNRMOBILE"].ToString();
+                        // lblAreaDevelop.Text = ds.Tables[1].Rows[0][""].ToString();
+                        lblRoad.Text = ds.Tables[1].Rows[0]["CFOID_APPROACHROADTYPE"].ToString();
+                        lblwidthRoad.Text = ds.Tables[1].Rows[0]["CFOID_APPROACHROADWIDTH"].ToString();
+                        lblAffected.Text = ds.Tables[1].Rows[0]["CFOID_AFFECTEDRDWDNG"].ToString();
+                        if (lblAffected.Text == "Yes")
+                        {
+                            divAffectArea.Visible = true;
+                            lblExtend.Text = ds.Tables[1].Rows[0]["CFOID_AFFECTEDRDAREA"].ToString();
+                        }
+
+                        lblTotal.Text = ds.Tables[1].Rows[0]["CFOID_TOTALEMP"].ToString();
+                        lblDirectMale.Text = ds.Tables[1].Rows[0]["CFOID_DIRECTMALE"].ToString();
+                        lblDirectFemale.Text = ds.Tables[1].Rows[0]["CFOID_DIRECTFEMALE"].ToString();
+                        lblOtherEmp.Text = ds.Tables[1].Rows[0]["CFOID_DIRECTOTHERS"].ToString();
+                        lblIndMale.Text = ds.Tables[1].Rows[0]["CFOID_INDIRECTMALE"].ToString();
+                        lblIndFemale.Text = ds.Tables[1].Rows[0]["CFOID_INDIRECTFEMALE"].ToString();
+                        lblIndEmp.Text = ds.Tables[1].Rows[0]["CFOID_INDIRECTOTHERS"].ToString();
+
+
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        //  lbllineActivity.Text = Convert.ToString(ds.Tables[3].Rows[0]["LineofActivity_Name"]);
+                        gvManufacture.DataSource = ds.Tables[2];
+                        gvManufacture.DataBind();
+                    }
+                    if (ds.Tables[3].Rows.Count > 0)
+                    {
+                        gvRwaMaterial.DataSource = ds.Tables[3];
+                        gvRwaMaterial.DataBind();
+                    }
+                    if (ds.Tables[4].Rows.Count > 0)
+                    {
+                        if (DrugLic.Visible == true)
+                        {
+                            lblApplType.Text = ds.Tables[4].Rows[0]["CFODL_APPLTYPE"].ToString();
+                            lblTNTDATE.Text = ds.Tables[4].Rows[0]["CFODL_TRADELICVALDTYDATE"].ToString();
+                            lblMunicipality.Text = ds.Tables[4].Rows[0]["CFODL_MUNCPERMVALDTYDATE"].ToString();
+                            lblColdStorage.Text = ds.Tables[4].Rows[0]["CFODL_COLDSTORGDETAILS"].ToString();
+
+                            if (div_license.Visible == true)
+                            {
+                                lblcancel.Text = ds.Tables[4].Rows[0]["CFODL_ANYPREVLIC"].ToString();
+                                if (lblcancel.Text == "Yes")
+                                {
+                                    CanceledLIC.Visible = true;
+                                    lbllicno.Text = ds.Tables[4].Rows[0]["CFODL_PREVLICDETAILS"].ToString();
+                                }
+                                if (div_52.Visible == true)
+                                {
+                                    lblpremiseplan.Text = ds.Tables[4].Rows[0]["CFODL_PREMISERDYFORINSP"].ToString();
+                                }
+                                if (Inception.Visible == true)
+                                {
+                                    lblDateInspe.Text = ds.Tables[4].Rows[0]["CFODL_DATEOFINSP"].ToString();
+                                }
+
+                            }
+                        }
+
+                    }
+                    if (ds.Tables[5].Rows.Count > 0)
+                    {
+                        if (DrugLic.Visible == true)
+                        {
+                            div_Staff_Manf.Visible = true;
+                            GVHealthy.DataSource = ds.Tables[5];
+                            GVHealthy.DataBind();
+                        }
+
+                    }
+                    if (ds.Tables[6].Rows.Count > 0)
+                    {
+                        if (DrugLic.Visible == true)
+                        {
+                            div_Staff_Test.Visible = true;
+                            GVTESTING.DataSource = ds.Tables[6];
+                            GVTESTING.DataBind();
+                        }
+                    }
+                    if (ds.Tables[7].Rows.Count > 0)
+                    {
+                        if (DrugLic.Visible == true)
+                        {
+                            div_48.Visible = true;
+                            GVDrug.DataSource = ds.Tables[7];
+                            GVDrug.DataBind();
+                        }
+                    }
+                    if (ds.Tables[8].Rows.Count > 0)
+                    {
+                        if (ProffessionalTax.Visible == true)
+                        {
+                            lblEstName.Text = ds.Tables[8].Rows[0]["CFOPT_ESTBLSHNAME"].ToString();
+                            lblAddressEst.Text = ds.Tables[8].Rows[0]["CFOPT_ESTBLSHADDRESS"].ToString();
+                            lblDistrictEST.Text = ds.Tables[8].Rows[0]["CFOPT_ESTBLSHDISTID"].ToString();
+                            lblpinest.Text = ds.Tables[8].Rows[0]["CFOPT_ESTBLSHPINCODE"].ToString();
+                            lblTotalEst.Text = ds.Tables[8].Rows[0]["CFOPT_ESTBLSHEMP"].ToString();
+                            lblGoodEst.Text = ds.Tables[8].Rows[0]["CFOPT_ESTBLSHGOODS"].ToString();
+                            lblDateCommence.Text = ds.Tables[8].Rows[0]["CFOPT_COMMENCEDDATE"].ToString();
+                            lblGross.Text = ds.Tables[8].Rows[0]["CFOPT_ANNUALINCOME"].ToString();
+                            lblMeghalaya.Text = ds.Tables[8].Rows[0]["CFOPT_ADDLBSNESTATE"].ToString();
+                            lblbusinessindia.Text = ds.Tables[8].Rows[0]["CFOPT_ADDLBSNECOUNTRY"].ToString();
+                            lblForeign.Text = ds.Tables[8].Rows[0]["CFOPT_ADDLBSNEFOREIGN"].ToString();
+                            lblRegUnder.Text = ds.Tables[8].Rows[0]["CFOPT_HADANYREG"].ToString();
+
+                            if (lblRegUnder.Text == "Yes")
+                            {
+                                RegistrationType.Visible = true;
+                                lblRegType.Text = ds.Tables[8].Rows[0]["CFOPT_REGTYPE"].ToString();
+
+                                RegNo.Visible = true;
+                                lblRegNo.Text = ds.Tables[8].Rows[0]["CFOPT_REGNO"].ToString();
+                            }
+
+
+                        }
+
+
+                    }
+                    if (ds.Tables[9].Rows.Count > 0)
+                    {
+                        if (lblMeghalaya.Text == "Yes")
+                        {
+                            AdditionDetails.Visible = true;
+                            GVState.DataSource = ds.Tables[9];
+                            GVState.DataBind();
+                        }
+
+                    }
+                    if (ds.Tables[10].Rows.Count > 0)
+                    {
+                        if (lblbusinessindia.Text == "Yes")
+                        {
+                            Added.Visible = true;
+                            GVCOUNTRY.DataSource = ds.Tables[10];
+                            GVCOUNTRY.DataBind();
+                        }
+
+                    }
+                    if (ds.Tables[11].Rows.Count > 0)
+                    {
+                        if (lblForeign.Text == "Yes")
+                        {
+                            foreign.Visible = true;
+                            GVFOREIGN.DataSource = ds.Tables[11];
+                            GVFOREIGN.DataBind();
+                        }
+
+                    }
+                    if (ds.Tables[12].Rows.Count > 0)
+                    {
+                        if (FireDet.Visible == true)
+                        {
+                            lblNameofDet.Text = ds.Tables[12].Rows[0]["CFOFD_BUILDNAME"].ToString();
+                            lblBuildingFire.Text = ds.Tables[12].Rows[0]["CFOFD_CATEGORYBUILD"].ToString();
+                            lblFees.Text = ds.Tables[12].Rows[0]["CFOFD_FEEAMOUNT"].ToString();
+                            lblDistrics.Text = ds.Tables[12].Rows[0]["CFOFD_DISTRICID"].ToString();
+                            lblMand.Text = ds.Tables[12].Rows[0]["CFOFD_MANDALID"].ToString();
+                            lblTown.Text = ds.Tables[12].Rows[0]["CFOFD_VILLAGEID"].ToString();
+                            lblLocality.Text = ds.Tables[12].Rows[0]["CFOFD_Locality"].ToString();
+                            lblNearstLand.Text = ds.Tables[12].Rows[0]["CFOFD_Landmark"].ToString();
+                            lblPin.Text = ds.Tables[12].Rows[0]["CFOFD_Pincode"].ToString();
+                            lblPlotArea.Text = ds.Tables[12].Rows[0]["CFOFD_PLOTAREA"].ToString();
+                            lblBreadth.Text = ds.Tables[12].Rows[0]["CFOFD_DRIVEPROPSED"].ToString();
+                            lblBuildArea.Text = ds.Tables[12].Rows[0]["CFOFD_BUILDUPAREA"].ToString();
+                            lblApproachRoad.Text = ds.Tables[12].Rows[0]["CFOFD_EXISTINGROAD"].ToString();
+                            lblEast.Text = ds.Tables[12].Rows[0]["CFOFD_East"].ToString();
+                            lblDistanceprop.Text = ds.Tables[12].Rows[0]["CFOFD_West"].ToString();
+                            lblwest.Text = ds.Tables[12].Rows[0]["CFOFD_North"].ToString();
+                            lblbUILDDIST.Text = ds.Tables[12].Rows[0]["CFOFD_South"].ToString();
+                            lblNorth.Text = ds.Tables[12].Rows[0]["CFOFD_DISTANCEEAST"].ToString();
+                            lblDistBuild.Text = ds.Tables[12].Rows[0]["CFOFD_DISTANCEWEST"].ToString();
+                            lblSouth.Text = ds.Tables[12].Rows[0]["CFOFD_DISTANCENORTH"].ToString();
+                            lblbuildProp.Text = ds.Tables[12].Rows[0]["CFOFD_DISTANCESOUTH"].ToString();
+                            lblFireStation.Text = ds.Tables[12].Rows[0]["CFOFD_FIRESTATION"].ToString();
+                        }
+                        else { FireDet.Visible = false; }
+
+                    }
+                    if (ds.Tables[13].Rows.Count > 0)
+                    {
+                        if (ContractorReg.Visible == true)
+                        {
+                            lblApplication.Text = ds.Tables[13].Rows[0]["CFOWC_APPLPURPOSE"].ToString();
+                            lblRegContractor.Text = ds.Tables[13].Rows[0]["CFOWC_CONTRREGCLASS"].ToString();
+                            if (lblRegContractor.Text == "1")
+                            {
+                                director.Visible = true;
+                                lblManuDirectorate.Text = ds.Tables[13].Rows[0]["CFOWC_DIRECTORATE"].ToString();
+                            }
+                            else if (lblRegContractor.Text == "2")
+                            {
+                                circle.Visible = true;
+                                lblCircle.Text = ds.Tables[13].Rows[0]["CFOWC_CIRCLE"].ToString();
+                            }
+                            else if (lblRegContractor.Text == "3")
+                            {
+                                division.Visible = true;
+                                lblDivision.Text = ds.Tables[13].Rows[0]["CFOWC_DIVISION"].ToString();
+                            }
+
+                            // lbldirector.Text = ds.Tables[13].Rows[0][""].ToString();
+                            lblBankName.Text = ds.Tables[13].Rows[0]["CFOWC_CONTRBANKNAME"].ToString();
+                            lblTurnOver.Text = ds.Tables[13].Rows[0]["CFOWC_CONTRTURNOVER"].ToString();
+                            lbl3Financial.Text = ds.Tables[13].Rows[0]["CFOWC_CONTR3YRSTURNOVER"].ToString();
+                            lblDateContract.Text = ds.Tables[13].Rows[0]["CFOWC_CONTRSTARTDATE"].ToString();
+
+                        }
+                        else { ContractorReg.Visible = false; }
+                    }
+                    if (ds.Tables[14].Rows.Count > 0)
+                    {
+                        if (ExciseDep.Visible == true)
+                        {
+                            lblArticle5.Text = ds.Tables[14].Rows[0]["Artical5Selection"].ToString();
+                            lblindividual.Text = ds.Tables[14].Rows[0]["ApplicantSelection"].ToString();
+                            lblMultiple.Text = ds.Tables[14].Rows[0]["MemberSelection"].ToString();
+                            lblTaxPayer.Text = ds.Tables[14].Rows[0]["TaxSelection"].ToString();
+                            lblSalesTax.Text = ds.Tables[14].Rows[0]["SaleTaxSelection"].ToString();
+                            lblProfessionalTax.Text = ds.Tables[14].Rows[0]["ProfessionSelection"].ToString();
+                            lblExise.Text = ds.Tables[14].Rows[0]["GovernmentSelection"].ToString();
+                            if (lblExise.Text == "Yes")
+                            {
+                                Excisedept.Visible = true;
+                                lblProvideDet.Text = ds.Tables[14].Rows[0]["GovernmentDetails"].ToString();
+                            }
+
+
+                            lblPunished.Text = ds.Tables[14].Rows[0]["ViolationSelection"].ToString();
+                            if (lblPunished.Text == "Yes")
+                            {
+                                RulesOrder.Visible = true;
+                                lbllawRule.Text = ds.Tables[14].Rows[0]["ViolationDetails"].ToString();
+                            }
+
+
+                            lblapplicant.Text = ds.Tables[14].Rows[0]["ConvictedSelection"].ToString();
+                            if (lblapplicant.Text == "Yes")
+                            {
+                                convictedlaw.Visible = true;
+                                lblbailable.Text = ds.Tables[14].Rows[0]["ConvictedDetails"].ToString();
+                            }
+
+                            //lblLiquor.Text = ds.Tables[14].Rows[0][""].ToString();
+                            //lblMRP.Text = ds.Tables[14].Rows[0][""].ToString();
+                            lblRenewalBIO.Text = ds.Tables[14].Rows[0]["RenewBrand"].ToString();
+                            if (lblRenewalBIO.Text == "Yes")
+                            {
+                                Brands.Visible = true;
+                                lblRegFromDate.Text = ds.Tables[14].Rows[0]["RegFromDate"].ToString();
+                                TodateReg.Visible = true;
+                                lblToDate.Text = ds.Tables[14].Rows[0]["RegToDate"].ToString();
+                            }
+
+
+                            lblNameAddress.Text = ds.Tables[14].Rows[0]["FirmAddress"].ToString();
+
+                        }
+                    }
+                    if (ds.Tables[15].Rows.Count > 0)
+                    {
+                        if (ExciseDep.Visible == true)
+                        {
+                            div_47_BLR.Visible = true;
+                            gvBrandDetails.DataSource = ds.Tables[15];
+                            gvBrandDetails.DataBind();
+                        }
+                    }
+                    if (ds.Tables[16].Rows.Count > 0)
+                    {
+                        if (ExciseDep.Visible == true)
+                        {
+
+                            GvLiquor.DataSource = ds.Tables[16];
+                            GvLiquor.DataBind();
+                        }
+                    }
+                    if (ds.Tables[17].Rows.Count > 0)
+                    {
+                        if (Pollutioncontrol.Visible == true)
+                        {
+                            lblDateEstablish.Text = ds.Tables[17].Rows[0]["CFOB_ESTBDATE"].ToString();
+                            lblLocationStall.Text = ds.Tables[17].Rows[0]["CFOB_STALLLOCATION"].ToString();
+                            if (lblLocationStall.Text == "Yes")
+                            {
+                                stall.Visible = true;
+                                lblHoldingNo.Text = ds.Tables[17].Rows[0]["CFOB_HOLDINGNO"].ToString();
+                                MarketName.Visible = true;
+                                lblMarket.Text = ds.Tables[17].Rows[0]["CFOB_MARKETNAME"].ToString();
+                                District.Visible = true;
+                                lblDistrictEstablish.Text = ds.Tables[17].Rows[0]["CFOB_ESTBDISTRICT"].ToString();
+                                Districmaster.Visible = true;
+                                lblStallNo.Text = ds.Tables[17].Rows[0]["CFOB_STALLNO"].ToString();
+                            }
+
+
+
+                            lblShillong5Years.Text = ds.Tables[17].Rows[0]["CFOB_ANYBUSINESS"].ToString();
+                            if (lblShillong5Years.Text == "Yes")
+                            {
+                                Municipality.Visible = true;
+                                lblDetailsYes.Text = ds.Tables[17].Rows[0]["CFOB_BUSINESSDETAILS"].ToString();
+                            }
+
+                            lblGrossTurn.Text = ds.Tables[17].Rows[0]["CFOB_ANNUALGROSSTURNOVER"].ToString();
+                            lblAmount.Text = ds.Tables[17].Rows[0]["CFOB_TOTALFEE"].ToString();
+
+
+                        }
+                    }
+                    if (ds.Tables[18].Rows.Count > 0)
+                    {
+                        if (Pollutioncontrol.Visible == true)
+                        {
+                            GVPollution.DataSource = ds.Tables[18];
+                            GVPollution.DataBind();
+                        }
+                    }
+                    if (ds.Tables[19].Rows.Count > 0)
+                    {
+                        if (Labourdet.Visible == true)
+                        {
+                            lblDirectorate.Text = ds.Tables[19].Rows[0]["CFOLD_DIRECTINDIRECT"].ToString();
+                            lblApplied.Text = ds.Tables[19].Rows[0]["CFOLD_APPLIED"].ToString();
+                            lblYearEst.Text = ds.Tables[19].Rows[0]["CFOLD_YEAR"].ToString();
+                            lblDocumenteryEvidence.Text = ds.Tables[19].Rows[0]["CFOLD_TEMPMATERIAL"].ToString();
+                            lblRegulation1950.Text = ds.Tables[19].Rows[0]["CFOLD_REGULATION1950"].ToString();
+                            lblRegulation392.Text = ds.Tables[19].Rows[0]["CFOLD_GENGRINDE"].ToString();
+                            lblPersonnelDesig.Text = ds.Tables[19].Rows[0]["CFOLD_DESIGNATION"].ToString();
+                            lblSite.Text = ds.Tables[19].Rows[0]["CFOLD_SITES"].ToString();
+                            lblStrictly81.Text = ds.Tables[19].Rows[0]["CFOLD_REGULATION81"].ToString();
+                            lblHighStanded.Text = ds.Tables[19].Rows[0]["CFOLD_CONTROVERSIAL"].ToString();
+                            lblFirmMaterial.Text = ds.Tables[19].Rows[0]["CFOLD_MATERIAL"].ToString();
+                            lblInternalOwn.Text = ds.Tables[19].Rows[0]["CFOLD_OWNSYSTEM"].ToString();
+                            lblBoiler1950.Text = ds.Tables[19].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();
+                            if (lblDirectorate.Text == "Yes")
+                            {
+                                Approved.Visible = true;
+                                lblProvide.Text = ds.Tables[19].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
+
+                            }
+
+                            lblNameManufacture.Text = ds.Tables[19].Rows[0]["CFOLD_MANUFACTURENAME"].ToString();
+                            lblYearManufactures.Text = ds.Tables[19].Rows[0]["CFOLD_MANUYEAR"].ToString();
+                            lblManufactures.Text = ds.Tables[19].Rows[0]["CFOLD_MANUPLACE"].ToString();
+                            lblBoilerMaker.Text = ds.Tables[19].Rows[0]["CFOLD_BOILERNUMBER"].ToString();
+                            lblIntendedWork.Text = ds.Tables[19].Rows[0]["CFOLD_INTENDED"].ToString();
+                            lblPlacemodule.Text = ds.Tables[19].Rows[0]["CFOLD_MANUFACTUREPLACE"].ToString();
+                            lblSuperHeater.Text = ds.Tables[19].Rows[0]["CFOLD_HEATERRATING"].ToString();
+                            lblEcoRating.Text = ds.Tables[19].Rows[0]["CFOLD_ECONOMISERRATING"].ToString();
+                            lblMaxTonnes.Text = ds.Tables[19].Rows[0]["CFOLD_EVAPORATION"].ToString();
+                            lblReheater.Text = ds.Tables[19].Rows[0]["CFOLD_REHEATERRATING"].ToString();
+                            lblWorkingSeason.Text = ds.Tables[19].Rows[0]["CFOLD_SEASON"].ToString();
+                            lblPSI.Text = ds.Tables[19].Rows[0]["CFOLD_PRESSURE"].ToString();
+                            lblOwner.Text = ds.Tables[19].Rows[0]["CFOLD_OWNERNAME"].ToString();
+                            lblTypeBoiler.Text = ds.Tables[19].Rows[0]["CFOLD_TYPEBOILER"].ToString();
+                            lblBoilerDesc.Text = ds.Tables[19].Rows[0]["CFOLD_DESCBOILER"].ToString();
+                            lblBoilerRating.Text = ds.Tables[19].Rows[0]["CFOLD_BOILERRATING"].ToString();
+                            lblOwnership.Text = ds.Tables[19].Rows[0]["CFOLD_BOILEROWNERTRANSF"].ToString();
+                            if (lblOwnership.Text == "Yes")
+                            {
+                                RemarkTransfer.Visible = true;
+                                lblRemark.Text = ds.Tables[19].Rows[0]["CFOLD_REMARK"].ToString();
+                            }
+
+                            lblNameManu.Text = ds.Tables[19].Rows[0]["CFOLD_MANUNAME"].ToString();
+                            lblYearManu.Text = ds.Tables[19].Rows[0]["CFOLD_MANUFACTUREYEAR"].ToString();
+                            lblPlaceManu.Text = ds.Tables[19].Rows[0]["CFOLD_MANUFACTPLACE"].ToString();
+                            lblNameManger.Text = ds.Tables[19].Rows[0]["CFOLD_NAMEAGENT"].ToString();
+                            lblAddressAgent.Text = ds.Tables[19].Rows[0]["CFOLD_ADDRESSAGENT"].ToString();
+                            lblEmpLabour.Text = ds.Tables[19].Rows[0]["CFOLD_WORKETAILS"].ToString();
+                            lbllabourDays.Text = ds.Tables[19].Rows[0]["CFOLD_DAYSLABOUR"].ToString();
+                            lblEstDateComm.Text = ds.Tables[19].Rows[0]["CFOLD_ESTDATE"].ToString();
+                            lblEndingDate.Text = ds.Tables[19].Rows[0]["CFOLD_ENDDATE"].ToString();
+                            lbllabourEmp.Text = ds.Tables[19].Rows[0]["CFOLD_CONTRACTEMP"].ToString();
+                            lblContractor5.Text = ds.Tables[19].Rows[0]["CFOLD_FIVEYEARCONVICTED"].ToString();
+                            if (lblContractor5.Text == "Yes")
+                            {
+                                contractor.Visible = true;
+                                lblDetails5.Text = ds.Tables[19].Rows[0]["CFOLD_DETAILS"].ToString();
+                            }
+
+                            lblRevokingLic.Text = ds.Tables[19].Rows[0]["CFOLD_REVORKING"].ToString();
+                            if (lblRevokingLic.Text == "Yes")
+                            {
+                                OrderDate.Visible = true;
+                                lblOrderDate.Text = ds.Tables[19].Rows[0]["CFOLD_ORDERDAET"].ToString();
+                            }
+
+                            lblPast5.Text = ds.Tables[19].Rows[0]["CFOLD_ESTCONTRACTOR"].ToString();
+                            if (lblPast5.Text == "Yes")
+                            {
+                                Principle.Visible = true;
+                                lblEmpDetails.Text = ds.Tables[19].Rows[0]["CFOLD_PRINCIPLEEMP"].ToString();
+                                nature.Visible = true;
+                                lblEstablishDetails.Text = ds.Tables[19].Rows[0]["CFOLD_ESTDETAILS"].ToString();
+                                WorkNature.Visible = true;
+                                lblNature.Text = ds.Tables[19].Rows[0]["CFOLD_NATUREWORK"].ToString();
+                            }
+
+                            lblGeneralAct.Text = ds.Tables[19].Rows[0]["CFOLD_MANAGERNAME"].ToString();
+                            lblManagerAgent.Text = ds.Tables[19].Rows[0]["CFOLD_ADDRESSMANAGER"].ToString();
+                            lblCategoryEst.Text = ds.Tables[19].Rows[0]["CFOLD_CATEGORYEST"].ToString();
+                            lblNatureBusiness.Text = ds.Tables[19].Rows[0]["CFOLD_NATUREBUSINESS"].ToString();
+                            lblfamilyestablish.Text = ds.Tables[19].Rows[0]["CFOLD_FAMILYEMP"].ToString();
+                            lblEmpEstablish.Text = ds.Tables[19].Rows[0]["CFOLD_EMPEST"].ToString();
+
+
+                        }
+                    }
+                    if (ds.Tables[20].Rows.Count > 0)
+                    {
+                        if (Labourdet.Visible == true)
+                        {
+
+                            GVCFOLabour.DataSource = ds.Tables[20];
+                            GVCFOLabour.DataBind();
+                        }
+                    }
+                    if (ds.Tables[21].Rows.Count > 0)
+                    {
+                        if (LegalMetrology.Visible == true)
+                        {
+
+                            GVLegalDept.DataSource = ds.Tables[21];
+                            GVLegalDept.DataBind();
+                        }
+                    }
+                    if (ds.Tables[22].Rows.Count > 0)
+                    {
+                        if (LegalMetrology.Visible == true)
+                        {
+                            lblDateEstablishments.Text = ds.Tables[22].Rows[0]["CFOLGM_ESTBLSHDATE"].ToString();
+                            lblRegNoFactory.Text = ds.Tables[22].Rows[0]["CFOLGM_HADESTBLSHREG"].ToString();
+                            if (lblRegNoFactory.Text == "Yes")
+                            {
+                                Registration.Visible = true;
+                                lblDateOfReg.Text = ds.Tables[22].Rows[0]["CFOLGM_ESTBLSHREGDATE"].ToString();
+                                RegNumber.Visible = true;
+                                lblCurrentRegNo.Text = ds.Tables[22].Rows[0]["CFOLGM_ESTBLSHREGNO"].ToString();
+                            }
+
+
+                            lblRegADC.Text = ds.Tables[22].Rows[0]["CFOLGM_HADMTLREG"].ToString();
+                            if (lblRegADC.Text == "Yes")
+                            {
+                                ADCLicense.Visible = true;
+                                lblDateRegistration.Text = ds.Tables[22].Rows[0]["CFOLGM_MTLREGDATE"].ToString();
+                                DateReg.Visible = true;
+                                lblNumberRegCurrent.Text = ds.Tables[22].Rows[0]["CFOLGM_MTLREGNO"].ToString();
+                            }
+
+                            //lblPartnership.Text = ds.Tables[22].Rows[0][""].ToString();
+                            //lblCompany.Text = ds.Tables[22].Rows[0][""].ToString();
+                            //lblNames.Text = ds.Tables[22].Rows[0][""].ToString();
+                            //lblAddressed.Text = ds.Tables[22].Rows[0][""].ToString();
+                            lblManuDetails.Text = ds.Tables[22].Rows[0]["CFOLGM_WEIGHS"].ToString();
+                            lblManumeasure.Text = ds.Tables[22].Rows[0]["CFOLGM_MEASURES"].ToString();
+                            lblWeighting.Text = ds.Tables[22].Rows[0]["CFOLGM_WEIGHINGINSTR"].ToString();
+                            lblRegNumberTax.Text = ds.Tables[22].Rows[0]["CFOLGM_PROFTAXREGNO"].ToString();
+                            lblGST.Text = ds.Tables[22].Rows[0]["CFOLGM_GSTREGNO"].ToString();
+                            lblITNumber.Text = ds.Tables[22].Rows[0]["CFOLGM_ITNO"].ToString();
+                            lblStateimport.Text = ds.Tables[22].Rows[0]["CFOLGM_ISIMPORTING"].ToString();
+                            if (lblStateimport.Text == "Yes")
+                            {
+                                State.Visible = true;
+                                lblLICNumbers.Text = ds.Tables[22].Rows[0]["CFOLGM_IMPORTLICNO"].ToString();
+                                Country.Visible = true;
+                                lblRegImportMeasure.Text = ds.Tables[22].Rows[0]["CFOLGM_REGOFIMPORTER"].ToString();
+                            }
+
+
+                            lblManusold.Text = ds.Tables[22].Rows[0]["CFOLGM_SELLINGPLACE"].ToString();
+                            lblDealerLic.Text = ds.Tables[22].Rows[0]["CFOLGM_DEALERLICAPPLIED"].ToString();
+                            if (lblDealerLic.Text == "Yes")
+                            {
+                                DealerLic.Visible = true;
+                                lblManufactureDetails.Text = ds.Tables[22].Rows[0]["CFOLGM_DEALERLICDETAILS"].ToString();
+                            }
+
+                            lblSkilled.Text = ds.Tables[22].Rows[0]["CFOLGM_SKILLEDEMP"].ToString();
+                            lblsemiSkill.Text = ds.Tables[22].Rows[0]["CFOLGM_SEMISKILLEDEMP"].ToString();
+                            lblUnskill.Text = ds.Tables[22].Rows[0]["CFOLGM_UNSKILLEDEMP"].ToString();
+                            lblSpecialist.Text = ds.Tables[22].Rows[0]["CFOLGM_TRAINEDEMP"].ToString();
+                            lblManufactureWeight.Text = ds.Tables[22].Rows[0]["CFOLGM_MACHINERYDETAILS"].ToString();
+                            lbllongtermlease.Text = ds.Tables[22].Rows[0]["CFOLGM_WORKSHOPDETAILS"].ToString();
+                            lblvitaothermeans.Text = ds.Tables[22].Rows[0]["CFOLGM_TESTFACILITIES"].ToString();
+                            lblElectricEnergy.Text = ds.Tables[22].Rows[0]["CFOLGM_ELCENRGYAVLBL"].ToString();
+                            lblManuLic.Text = ds.Tables[22].Rows[0]["CFOLGM_MANFLICAPPLIED"].ToString();
+                            if (lblManuLic.Text == "Yes")
+                            {
+                                applieddealer.Visible = true;
+                                lblManuGiveDetails.Text = ds.Tables[22].Rows[0]["CFOLGM_MANFLICDETAILS"].ToString();
+                            }
+
+                            lblFinancialloan.Text = ds.Tables[22].Rows[0]["CFOLGM_LOANAVAILED"].ToString();
+                            if (lblFinancialloan.Text == "Yes")
+                            {
+                                NameBanker.Visible = true;
+                                lblManuBank.Text = ds.Tables[22].Rows[0]["CFOLGM_LOANBANKERS"].ToString();
+                                DetailsGet.Visible = true;
+                                lblLabourgiveDetails.Text = ds.Tables[22].Rows[0]["CFOLGM_LOANDETAILS"].ToString();
+                            }
+
+
+                            lblLoanWeight.Text = ds.Tables[22].Rows[0]["CFOLGM_HADSUFFSTOCK"].ToString();
+                            if (lblLoanWeight.Text == "Yes")
+                            {
+                                weightloan.Visible = true;
+                                lblGiveDet.Text = ds.Tables[22].Rows[0]["CFOLGM_HADSUFFSTOCK"].ToString();
+                            }
+
+                            lblRepairerLic.Text = ds.Tables[22].Rows[0]["CFOLGM_REPAIRERLICAPPLIED"].ToString();
+                            if (lblRepairerLic.Text == "Yes")
+                            {
+                                License.Visible = true;
+                                lblResults.Text = ds.Tables[22].Rows[0]["CFOLGM_REPAIRERLICDETAILS"].ToString();
+                            }
+                        }
                     }
                 }
 
@@ -692,7 +1133,7 @@ namespace MeghalayaUIP.Dept.CFO
                 btnApprove_Click(sender, e);
             }
             catch (Exception ex)
-            { }
+            { throw ex; }
         }
         public static bool ValidateFileExtension(FileUpload Attachment)
         {

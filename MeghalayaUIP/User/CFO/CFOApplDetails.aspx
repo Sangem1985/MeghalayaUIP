@@ -84,7 +84,7 @@
             <div class="card flex-fill">
                 <div class="col-md-12 d-flex ">
                     <div class="col-md-11 pb-2 pt-2 ">
-                        <h4>CFO APPLICATION DETAILS</h4>
+                        <h4>Pre-Operational</h4>
                     </div>
                     <%-- <div class="col-md-1 pb-2 pt-2">
                         <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
@@ -121,7 +121,7 @@
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>CFO APPLICATION DETAILS</h3>
+                                        <h3>Application Detail's</h3>
                                     </div>
                                     <section id="dashboardBasic">
                                         <div class="container-fluid">
@@ -659,7 +659,8 @@
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <div class="col-md-12">
-                                                                        <h5>Manufacturing Items and Raw Materials Used</h5>
+                                                                          <h4 class="card-title1 col-lg-12">Manufacturing Items and Raw Materials Used</h4>
+                                                                        <h5></h5>
                                                                         <hr />
                                                                     </div>
                                                                     <%--  <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
@@ -1134,24 +1135,21 @@
                                                                         </div>
 
                                                                         <h4 class="card-title1 col-lg-12">Establishments Details</h4>
-                                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                            <div>
+                                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                                            
                                                                                 <div class="col-md-2">
                                                                                     <label>Name of the Manager /Agent/other person acting in the general management </label>
                                                                                 </div>
                                                                                 <div class="col-md-2">
                                                                                     <spna class="dots">:</spna><asp:Label ID="lblGeneralAct" runat="server"></asp:Label>
-                                                                                </div>
-                                                                            </div>
+                                                                                </div>                                                                           
 
-                                                                            <div>
+                                                                          
                                                                                 <div class="col-md-2">
                                                                                     <label>Address of the Manager/Agent</label>
                                                                                 </div>
                                                                                 <div class="col-md-2">
                                                                                     <spna class="dots">:</spna><asp:Label ID="lblManagerAgent" runat="server"></asp:Label>
-                                                                                </div>
-                                                                            </div>
+                                                                                </div>                                                                       
 
                                                                             <div class="col-md-2">
                                                                                 <label>Category of Establishmnet </label>
@@ -1183,7 +1181,7 @@
                                                                                 <spna class="dots">:</spna><asp:Label ID="lblEmpEstablish" runat="server"></asp:Label>
                                                                             </div>
                                                                         </div>
-
+                                                                        <br />
                                                                         <div class="table-responsive">
                                                                             <asp:GridView ID="GVCFOLabour" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
@@ -2220,7 +2218,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div id="LegalMetrology" runat="server" visible="true">
+                                                    <div id="LegalMetrology" runat="server" visible="false">
                                                         <h4 class="card-title1 col-lg-12">Legal Metrology Department Details </h4>
 
                                                         <div class="col-md-12 d-flex">

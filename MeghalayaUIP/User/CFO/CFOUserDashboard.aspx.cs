@@ -102,6 +102,28 @@ namespace MeghalayaUIP.User.CFO
 
         }
 
+        protected void btnCombndAppl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblcfeqid = (Label)row.FindControl("lblCFOQID");
+                Session["CFOUNITID"] = lblunitId.Text;
+                Session["CFOQID"] = lblcfeqid.Text;
+                string newurl = "CFOApplDetails.aspx";
+                Response.Redirect(newurl);
+
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
         public void BindApproved()
         {
             try
@@ -147,6 +169,7 @@ namespace MeghalayaUIP.User.CFO
                     int gvrcnt = gvCFOApproved.Rows.Count;
                     Button btnApply;
                     Button btnApprvlsReq;
+                    Button btnCombndAppl;
                     Button btnApplstatus;
                     Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFOQID");
                     Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
@@ -186,9 +209,12 @@ namespace MeghalayaUIP.User.CFO
                     if (Applstatus == "" || Applstatus == null || Applstatus == "2")
                     {
                         btnApply = (Button)e.Row.FindControl("btnApplyCFO");
+
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
+                        btnCombndAppl = (Button)e.Row.FindControl("btnCombndAppl");
                         btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
                         btnApply.Enabled = true;
+                        btnCombndAppl.Enabled = false;
                         //btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
                         btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
                        
