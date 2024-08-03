@@ -57,7 +57,6 @@
                                    <br />
                                     <br />
                                     <div class="alldetails" id="bodypart">
-
                                             <div class="row">
                                             <div class="col-xl-12 col-sm-12 col-12">
                                                 <div class="card">
@@ -622,8 +621,7 @@
 
 
                                          
-                                        <div id="PowerDetails" runat="server" visible="false">
-                                            
+                                        <div id="PowerDetails" runat="server" visible="false">                                            
                                             <div class="row">
                                             <div class="col-xl-12 col-sm-12 col-12">
                                                 <div class="card">

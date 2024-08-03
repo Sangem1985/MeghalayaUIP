@@ -709,6 +709,7 @@
     <Content Include="User\CFE\CFEUserDashboard.aspx" />
     <Content Include="User\CFE\CFEWaterDetails.aspx" />
     <Content Include="User\CFE\demo.aspx" />
+    <Content Include="User\CFO\CFOApplDetails.aspx" />
     <Content Include="User\CFO\CFOBusinessLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOCombinedApplication.aspx" />
     <Content Include="User\CFO\CFOContractorsRegistration.aspx" />
@@ -1340,6 +1341,13 @@
     </Compile>
     <Compile Include="User\CFE\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOApplDetails.aspx.cs">
+      <DependentUpon>CFOApplDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOApplDetails.aspx.designer.cs">
+      <DependentUpon>CFOApplDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOBusinessLicenseDetails.aspx.cs">
       <DependentUpon>CFOBusinessLicenseDetails.aspx</DependentUpon>

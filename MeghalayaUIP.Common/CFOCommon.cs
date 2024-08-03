@@ -53,7 +53,7 @@ namespace MeghalayaUIP.Common
 
         public static string GetCFODashBoard = "USP_CFODASHBOARDCOUNT";
         public static string GetCFODashBoardView = "USP_CFODASHBOARDVIEW";
-        public static string GetCFOApplicationDet = "USP_GETCFOAPPLICATIONDETAILS";
+        public static string GetCFOApplicationDet = "USP_GETCFOAPPLICATIONDET";
         public static string UpdateCFODepartmentProcess = "USP_UPDATECFOSCRUTINYACTION";
 
         //------------------DEPARTMENT ENDED HERE ---------------------------------//
