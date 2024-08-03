@@ -36,6 +36,9 @@ namespace MeghalayaUIP.User.Dashboard
                     }
                     if (!IsPostBack)
                     {
+                        CalendarExtender1.EndDate = DateTime.Now;
+                        CalendarExtender2.EndDate = DateTime.Now;
+
                         BindModuleType();
 
                     }
