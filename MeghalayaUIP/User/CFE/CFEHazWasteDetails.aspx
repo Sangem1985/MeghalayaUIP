@@ -109,7 +109,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Year of commissioning and commence of production *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtYearpro" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtYearpro" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

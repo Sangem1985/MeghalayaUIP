@@ -169,7 +169,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtClass.Text) || string.IsNullOrEmpty(txtDivision.Text) || string.IsNullOrEmpty(txtQuantityTime.Text) || String.IsNullOrEmpty(txtQuantityMonth.Text))
+                if (string.IsNullOrEmpty(txtName.Text.Trim()) || string.IsNullOrEmpty(txtClass.Text) || string.IsNullOrEmpty(txtDivision.Text) || string.IsNullOrEmpty(txtQuantityTime.Text) || String.IsNullOrEmpty(txtQuantityMonth.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -196,7 +196,7 @@ namespace MeghalayaUIP.User.CFE
                     dr["CFEME_CFEUNITID"] = Convert.ToString(Session["CFEUNITID"]);
                     dr["CFEME_CREATEDBY"] = hdnUserID.Value;
                     dr["CFEME_CREATEDBYIP"] = getclientIP();
-                    dr["CFEME_NAME"] = txtName.Text;
+                    dr["CFEME_NAME"] = txtName.Text.Trim();
                     dr["CFEME_CLASS"] = txtClass.Text;
                     dr["CFEME_DIVISION"] = txtDivision.Text;
                     dr["CFEME_QUANTITYTIME"] = txtQuantityTime.Text;

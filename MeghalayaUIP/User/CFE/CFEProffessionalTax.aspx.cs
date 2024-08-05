@@ -303,7 +303,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFETax.IPAddress = getclientIP();
 
                     ObjCFETax.APPLYAS = rblApply.SelectedValue;
-                    ObjCFETax.NAMEEST = txtEstDet.Text;
+                    ObjCFETax.NAMEEST = txtEstDet.Text.Trim();
                     ObjCFETax.ADDRESSEST = txtadd.Text;
                     ObjCFETax.DISTRICEST = ddlDistric.SelectedValue;
                     ObjCFETax.PINCODEEST = txtPincode.Text;
@@ -352,7 +352,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Apply as \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEstDet.Text) || txtEstDet.Text == "" || txtEstDet.Text == null)
+                if (string.IsNullOrEmpty(txtEstDet.Text.Trim()) || txtEstDet.Text.Trim() == "" || txtEstDet.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name Establishment\\n";
                     slno = slno + 1;

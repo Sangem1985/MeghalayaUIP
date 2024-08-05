@@ -108,7 +108,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtspecies.Text) || txtspecies.Text == "" || txtspecies.Text == null)
+                if (string.IsNullOrEmpty(txtspecies.Text.Trim()) || txtspecies.Text.Trim() == "" || txtspecies.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Species \\n";
                     slno = slno + 1;
@@ -294,7 +294,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQForest.IPAddress = getclientIP();
                     objCFEQForest.Questionnariid = Convert.ToString(Session["CFEQID"]);
                     objCFEQForest.UnitId = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEQForest.Address = txtAddress.Text;
+                    objCFEQForest.Address = txtAddress.Text.Trim();
                     objCFEQForest.Lattitude = RblLatitude.SelectedValue;
                     objCFEQForest.LatDegrees = txtLatDegrees.Text;
                     objCFEQForest.LatMinutes = txtLatMinutes.Text;
@@ -307,7 +307,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQForest.Purpose = txtPurpose.Text;
                     objCFEQForest.ForestDivision = ddlForest.SelectedValue;
                     objCFEQForest.information = txtInformation.Text;
-                    objCFEQForest.Species = txtspecies.Text;
+                    objCFEQForest.Species = txtspecies.Text.Trim();
                     objCFEQForest.EstTimberLength = txtTimberlength.Text;
                     objCFEQForest.EstTimberVolume = txtTimberVolume.Text;
                     objCFEQForest.Girth = txtGirth.Text;

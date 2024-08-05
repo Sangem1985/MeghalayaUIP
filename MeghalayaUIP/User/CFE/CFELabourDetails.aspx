@@ -79,7 +79,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Age *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtage" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtage" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,7 +148,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Door No.*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtdoor3" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtdoor3" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="50"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,7 +156,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Locality *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtlocality3" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtlocality3" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,7 +188,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Mobile No.*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtMobilenumber" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtMobilenumber" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,7 +214,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Door No. *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtDoor1" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtDoor1" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="50"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -222,7 +222,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Locality *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLocality1" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtLocality1" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="100"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -325,7 +325,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Duration of proposed contract work in a number of days(Min 1 and Max 179)*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtContactWork" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                            <asp:TextBox ID="txtContactWork" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -425,7 +425,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name, nature and location of work for which migrant workmen are to be employed or are employed*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtEmployedName" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtEmployedName" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="50"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -433,7 +433,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Max No of migrant workmen to be employed on any day through each contractor*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtMaxmigrant" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtMaxmigrant" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="50"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -443,7 +443,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Duration of proposed contract work in a number of days(Min 1 and Max 179)*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtContractwork" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                            <asp:TextBox ID="txtContractwork" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -531,7 +531,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label ">16. Nature of work in which contract labour is employed or is to be employed in the establishment *</label>
                                                         <div class="col-lg-5">
-                                                            <asp:TextBox ID="txtLabourEmp" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtLabourEmp" runat="server" class="form-control" MaxLength="300" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -543,7 +543,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label ">17. Estimated date of commencement of building or other construction work *</label>
                                                         <div class="col-lg-5">
-                                                            <asp:TextBox ID="txtconstructionwork" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtconstructionwork" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="300"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -555,7 +555,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label ">18. Maximum number of Contract Employees / building workers to be employed on any day *</label>
                                                         <div class="col-lg-5">
-                                                            <asp:TextBox ID="txtContractEmployees" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtContractEmployees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="300"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -567,7 +567,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label ">19. Estimated date of completion of building or other construction work *</label>
                                                         <div class="col-lg-5">
-                                                            <asp:TextBox ID="txtbuilding" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtbuilding" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="300"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -580,7 +580,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label ">20. Maximum Number of migrant workmen proposed to be employed in the establishment on any date *</label>
                                                         <div class="col-lg-5">
-                                                            <asp:TextBox ID="txtMaximum" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtMaximum" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="300"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -672,7 +672,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of the Contractor/Firm *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtcontractor" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
+                                                            <asp:TextBox ID="txtcontractor" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -680,7 +680,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Father's Name</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtfathername" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
+                                                            <asp:TextBox ID="txtfathername" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -688,7 +688,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Age</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtAges" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                            <asp:TextBox ID="txtAges" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -749,7 +749,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Door No. *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtdoorno" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtdoorno" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="50"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -760,7 +760,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Locality *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtlocal" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtlocal" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="100"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

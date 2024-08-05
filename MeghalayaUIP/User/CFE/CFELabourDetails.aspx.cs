@@ -864,7 +864,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (string.IsNullOrEmpty(txtNameAddress.Text) || string.IsNullOrEmpty(txtLocation.Text) || string.IsNullOrEmpty(txtContactWork.Text) || string.IsNullOrEmpty(txtEstimated.Text) || string.IsNullOrEmpty(txtDateWork.Text) || string.IsNullOrEmpty(txtEmployeeLabour.Text))
+                if (string.IsNullOrEmpty(txtNameAddress.Text.Trim()) || string.IsNullOrEmpty(txtLocation.Text.Trim()) || string.IsNullOrEmpty(txtContactWork.Text) || string.IsNullOrEmpty(txtEstimated.Text) || string.IsNullOrEmpty(txtDateWork.Text) || string.IsNullOrEmpty(txtEmployeeLabour.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -892,8 +892,8 @@ namespace MeghalayaUIP.User.CFE
                     dr["CFECL_UNITID"] = Convert.ToString(Session["CFEUNITID"]);
                     dr["CFECL_CREATEDBY"] = hdnUserID.Value;
                     dr["CFECL_CREATEDBYIP"] = getclientIP();
-                    dr["CFECL_CONTRACTORNAMEADDRESS"] = txtNameAddress.Text;
-                    dr["CFECL_WORKNAMENATURELOCATION"] = txtLocation.Text;
+                    dr["CFECL_CONTRACTORNAMEADDRESS"] = txtNameAddress.Text.Trim();
+                    dr["CFECL_WORKNAMENATURELOCATION"] = txtLocation.Text.Trim();
                     dr["CFECL_MAXCONTRACTLABOUR"] = ddlMaximumNo.SelectedItem.Text;
                     dr["CFECL_CONTRACTDURATION"] = txtContactWork.Text;
 
@@ -906,6 +906,14 @@ namespace MeghalayaUIP.User.CFE
                     GVLabour.DataSource = dt;
                     GVLabour.DataBind();
                     ViewState["LabourDetails"] = dt;
+
+                    txtNameAddress.Text = "";
+                    txtLocation.Text = "";
+                    ddlMaximumNo.ClearSelection();
+                    txtContactWork.Text="";
+                    txtEstimated.Text = "";
+                    txtDateWork.Text = "";
+                    txtEmployeeLabour.Text = "";
                 }
             }
             catch (Exception ex)
@@ -943,7 +951,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (string.IsNullOrEmpty(txtAddressName.Text) || string.IsNullOrEmpty(txtEmployedName.Text) || string.IsNullOrEmpty(txtMaxmigrant.Text) || string.IsNullOrEmpty(txtContractwork.Text) || string.IsNullOrEmpty(txtEstwork.Text) || string.IsNullOrEmpty(txtEstDate.Text) || string.IsNullOrEmpty(txtEstDateWork.Text))
+                if (string.IsNullOrEmpty(txtAddressName.Text.Trim()) || string.IsNullOrEmpty(txtEmployedName.Text) || string.IsNullOrEmpty(txtMaxmigrant.Text) || string.IsNullOrEmpty(txtContractwork.Text) || string.IsNullOrEmpty(txtEstwork.Text) || string.IsNullOrEmpty(txtEstDate.Text) || string.IsNullOrEmpty(txtEstDateWork.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -971,7 +979,7 @@ namespace MeghalayaUIP.User.CFE
                     dr["CFEMW_UNITID"] = Convert.ToString(Session["CFEUNITID"]);
                     dr["CFEMW_CREATEDBY"] = hdnUserID.Value;
                     dr["CFEMW_CREATEDBYIP"] = getclientIP();
-                    dr["CFEMW_CONTRACTORNAMEADDRESS"] = txtAddressName.Text;
+                    dr["CFEMW_CONTRACTORNAMEADDRESS"] = txtAddressName.Text.Trim();
                     dr["CFEMW_MIGRANTNAMENATURELOCATION"] = txtEmployedName.Text;
                     dr["CFEMW_MAXCONTRACTMIGRANT"] = txtMaxmigrant.Text;
                     dr["CFEMW_CONTRACTDURATION"] = txtContractwork.Text;
@@ -984,6 +992,14 @@ namespace MeghalayaUIP.User.CFE
                     GVMigrant.DataSource = dt;
                     GVMigrant.DataBind();
                     ViewState["MIGRANTDETAILS"] = dt;
+
+                    txtAddressName.Text = "";
+                    txtEmployedName.Text = "";
+                    txtMaxmigrant.Text = "";
+                    txtContractwork.Text = "";
+                    txtEstwork.Text = "";
+                    txtEstDate.Text = "";
+                    txtEstDateWork.Text = "";
                 }
             }
             catch (Exception ex)
@@ -1140,7 +1156,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objApplPhoto = new CFEAttachments();
                         objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.MasterID = "3";
+                        objApplPhoto.MasterID = "17";
                         objApplPhoto.FilePath = serverpath + fupForm5.PostedFile.FileName;
                         objApplPhoto.FileName = fupForm5.PostedFile.FileName;
                         objApplPhoto.FileType = fupForm5.PostedFile.ContentType;
@@ -1197,7 +1213,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objLandDoc = new CFEAttachments();
                         objLandDoc.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objLandDoc.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objLandDoc.MasterID = "4";
+                        objLandDoc.MasterID = "18";
                         objLandDoc.FilePath = serverpath + fupForm8.PostedFile.FileName;
                         objLandDoc.FileName = fupForm8.PostedFile.FileName;
                         objLandDoc.FileType = fupForm8.PostedFile.ContentType;
@@ -1255,7 +1271,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSitePlan = new CFEAttachments();
                         objSitePlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objSitePlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objSitePlan.MasterID = "1";
+                        objSitePlan.MasterID = "19";
                         objSitePlan.FilePath = serverpath + fupForm10.PostedFile.FileName;
                         objSitePlan.FileName = fupForm10.PostedFile.FileName;
                         objSitePlan.FileType = fupForm10.PostedFile.ContentType;
@@ -1313,7 +1329,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSitePlan = new CFEAttachments();
                         objSitePlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objSitePlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objSitePlan.MasterID = "1";
+                        objSitePlan.MasterID = "20";
                         objSitePlan.FilePath = serverpath + fupCrimeForm10.PostedFile.FileName;
                         objSitePlan.FileName = fupCrimeForm10.PostedFile.FileName;
                         objSitePlan.FileType = fupCrimeForm10.PostedFile.ContentType;
@@ -1371,7 +1387,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSitePlan = new CFEAttachments();
                         objSitePlan.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objSitePlan.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objSitePlan.MasterID = "1";
+                        objSitePlan.MasterID = "21";
                         objSitePlan.FilePath = serverpath + fupemployer.PostedFile.FileName;
                         objSitePlan.FileName = fupemployer.PostedFile.FileName;
                         objSitePlan.FileType = fupemployer.PostedFile.ContentType;
@@ -1495,10 +1511,10 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFELabourDet.UnitId = Convert.ToString(Session["CFEUNITID"]);
 
                     ObjCFELabourDet.Category_Estab = ddlCategory.SelectedValue;
-                    ObjCFELabourDet.Name_Contractor = txtname1.Text;
-                    ObjCFELabourDet.Father_Name = txtfather.Text;
+                    ObjCFELabourDet.Name_Contractor = txtname1.Text.Trim();
+                    ObjCFELabourDet.Father_Name = txtfather.Text.Trim();
                     ObjCFELabourDet.Age = txtage.Text;
-                    ObjCFELabourDet.Designation = txtdesignation.Text;
+                    ObjCFELabourDet.Designation = txtdesignation.Text.Trim();
                     ObjCFELabourDet.MobileNo = txtmobile.Text;
                     ObjCFELabourDet.EmailId = txtEmail1.Text;
                     ObjCFELabourDet.District = ddlPropLocDist.SelectedValue;
@@ -1507,42 +1523,42 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFELabourDet.MandalName = ddlPropLocTaluka.SelectedItem.Text;
                     ObjCFELabourDet.Village = ddlPropLocVillage.SelectedValue;
                     ObjCFELabourDet.VillageName = ddlPropLocVillage.SelectedItem.Text;
-                    ObjCFELabourDet.Door_No = txtdoor3.Text;
-                    ObjCFELabourDet.Locality = txtlocality3.Text;
+                    ObjCFELabourDet.Door_No = txtdoor3.Text.Trim();
+                    ObjCFELabourDet.Locality = txtlocality3.Text.Trim();
                     ObjCFELabourDet.Pincode = TXTPIN.Text;
 
-                    ObjCFELabourDet.ManagerName = txtnames.Text;
+                    ObjCFELabourDet.ManagerName = txtnames.Text.Trim();
                     ObjCFELabourDet.ManagerMobile = txtMobilenumber.Text;
                     ObjCFELabourDet.ManagerEmail = txtEmail.Text;
-                    ObjCFELabourDet.ManagerFather = txtFathersname.Text;
-                    ObjCFELabourDet.ManagerDoor = txtDoor1.Text;
-                    ObjCFELabourDet.ManagerLocality = txtLocality1.Text;
+                    ObjCFELabourDet.ManagerFather = txtFathersname.Text.Trim();
+                    ObjCFELabourDet.ManagerDoor = txtDoor1.Text.Trim();
+                    ObjCFELabourDet.ManagerLocality = txtLocality1.Text.Trim();
                     ObjCFELabourDet.ManagerDistrict = ddlDistricts.SelectedValue;
                     ObjCFELabourDet.ManagerMandal = ddlMandal.SelectedValue;
                     ObjCFELabourDet.ManagerVillage = ddlVillage.SelectedValue;
                     ObjCFELabourDet.ManagerPincode = txtpincode.Text;
                     ObjCFELabourDet.ManagerDesignation = txtDesignations.Text;
 
-                    ObjCFELabourDet.NatureOflabourCont = txtLabourEmp.Text;
-                    ObjCFELabourDet.BuildingContractWork = txtconstructionwork.Text;
-                    ObjCFELabourDet.BuildingEmpDay = txtContractEmployees.Text;
-                    ObjCFELabourDet.EstDateBuilding = txtbuilding.Text;
-                    ObjCFELabourDet.MigrantWork = txtMaximum.Text;
+                    ObjCFELabourDet.NatureOflabourCont = txtLabourEmp.Text.Trim();
+                    ObjCFELabourDet.BuildingContractWork = txtconstructionwork.Text.Trim();
+                    ObjCFELabourDet.BuildingEmpDay = txtContractEmployees.Text.Trim();
+                    ObjCFELabourDet.EstDateBuilding = txtbuilding.Text.Trim();
+                    ObjCFELabourDet.MigrantWork = txtMaximum.Text.Trim();
                     ObjCFELabourDet.ContractFiveYears = rblconvicted.SelectedValue;
                     ObjCFELabourDet.Revoking = rblrevoking.SelectedValue;
                     ObjCFELabourDet.PrincipleEmpWork = rblcontractor.SelectedValue;
                     ObjCFELabourDet.ManuooCupation = ddlbusiness.SelectedValue;
 
-                    ObjCFELabourDet.ContarctorName = txtcontractor.Text;
-                    ObjCFELabourDet.ContarctorFather = txtfathername.Text;
+                    ObjCFELabourDet.ContarctorName = txtcontractor.Text.Trim();
+                    ObjCFELabourDet.ContarctorFather = txtfathername.Text.Trim();
                     ObjCFELabourDet.ContarctorAge = txtAges.Text;
                     ObjCFELabourDet.ContarctorMobile = txtmobileno.Text;
                     ObjCFELabourDet.ContarctorEmailId = txtemailid.Text;
                     ObjCFELabourDet.ContarctorDistrict = ddlDistric.SelectedValue;
                     ObjCFELabourDet.ContarctorMandals = ddlMandals.SelectedValue;
                     ObjCFELabourDet.ContarctorVillages = ddlvillages.SelectedValue;
-                    ObjCFELabourDet.ContarctorDoor = txtdoorno.Text;
-                    ObjCFELabourDet.ContarctorLocality = txtlocal.Text;
+                    ObjCFELabourDet.ContarctorDoor = txtdoorno.Text.Trim();
+                    ObjCFELabourDet.ContarctorLocality = txtlocal.Text.Trim();
                     ObjCFELabourDet.ContarctorPincode = txtpinnumber.Text;
                     ObjCFELabourDet.AgentName = txtname.Text;
                     ObjCFELabourDet.AgentDoorNo = txtDoor.Text;
@@ -1589,12 +1605,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Category of Establishment \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtname1.Text) || txtname1.Text == "" || txtname1.Text == null)
+                if (string.IsNullOrEmpty(txtname1.Text.Trim()) || txtname1.Text.Trim() == "" || txtname1.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter NAME \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtfather.Text) || txtfather.Text == "" || txtfather.Text == null)
+                if (string.IsNullOrEmpty(txtfather.Text.Trim()) || txtfather.Text.Trim() == "" || txtfather.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter FatherName \\n";
                     slno = slno + 1;
@@ -1604,7 +1620,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Age \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtdesignation.Text) || txtdesignation.Text == "" || txtdesignation.Text == null)
+                if (string.IsNullOrEmpty(txtdesignation.Text.Trim()) || txtdesignation.Text.Trim() == "" || txtdesignation.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Desigantion \\n";
                     slno = slno + 1;
@@ -1634,12 +1650,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Village \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtdoor3.Text) || txtdoor3.Text == "" || txtdoor3.Text == null)
+                if (string.IsNullOrEmpty(txtdoor3.Text.Trim()) || txtdoor3.Text.Trim() == "" || txtdoor3.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter DOOR No \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtlocality3.Text) || txtlocality3.Text == "" || txtlocality3.Text == null)
+                if (string.IsNullOrEmpty(txtlocality3.Text.Trim()) || txtlocality3.Text.Trim() == "" || txtlocality3.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Locality \\n";
                     slno = slno + 1;
@@ -1651,7 +1667,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (divsupervision.Visible == true)
                 {
-                    if (string.IsNullOrEmpty(txtnames.Text) || txtnames.Text == "" || txtnames.Text == null)
+                    if (string.IsNullOrEmpty(txtnames.Text.Trim()) || txtnames.Text.Trim() == "" || txtnames.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Name \\n";
                         slno = slno + 1;
@@ -1666,17 +1682,17 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter EmailId \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtFathersname.Text) || txtFathersname.Text == "" || txtFathersname.Text == null)
+                    if (string.IsNullOrEmpty(txtFathersname.Text.Trim()) || txtFathersname.Text.Trim() == "" || txtFathersname.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter FatherName \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtDoor1.Text) || txtDoor1.Text == "" || txtDoor1.Text == null)
+                    if (string.IsNullOrEmpty(txtDoor1.Text.Trim()) || txtDoor1.Text.Trim() == "" || txtDoor1.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter DoorNo \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtLocality1.Text) || txtLocality1.Text == "" || txtLocality1.Text == null)
+                    if (string.IsNullOrEmpty(txtLocality1.Text.Trim()) || txtLocality1.Text.Trim() == "" || txtLocality1.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Locality \\n";
                         slno = slno + 1;
@@ -1711,22 +1727,22 @@ namespace MeghalayaUIP.User.CFE
 
                 if (div4questions.Visible == true)
                 {
-                    if (string.IsNullOrEmpty(txtLabourEmp.Text) || txtLabourEmp.Text == "" || txtLabourEmp.Text == null)
+                    if (string.IsNullOrEmpty(txtLabourEmp.Text.Trim()) || txtLabourEmp.Text.Trim() == "" || txtLabourEmp.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Nature of work in which contract labour is employed \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtconstructionwork.Text) || txtconstructionwork.Text == "" || txtconstructionwork.Text == null)
+                    if (string.IsNullOrEmpty(txtconstructionwork.Text.Trim()) || txtconstructionwork.Text.Trim() == "" || txtconstructionwork.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter  Estimated date of commencement of building or other construction work \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtContractEmployees.Text) || txtContractEmployees.Text == "" || txtContractEmployees.Text == null)
+                    if (string.IsNullOrEmpty(txtContractEmployees.Text.Trim()) || txtContractEmployees.Text.Trim() == "" || txtContractEmployees.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Maximum number of Contract Employees \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtbuilding.Text) || txtbuilding.Text == "" || txtbuilding.Text == null)
+                    if (string.IsNullOrEmpty(txtbuilding.Text.Trim()) || txtbuilding.Text.Trim() == "" || txtbuilding.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter  Estimated date of completion of building \\n";
                         slno = slno + 1;
@@ -1736,7 +1752,7 @@ namespace MeghalayaUIP.User.CFE
 
                 if (div5questions.Visible == true)
                 {
-                    if (string.IsNullOrEmpty(txtMaximum.Text) || txtMaximum.Text == "" || txtMaximum.Text == null)
+                    if (string.IsNullOrEmpty(txtMaximum.Text.Trim()) || txtMaximum.Text.Trim() == "" || txtMaximum.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Maximum Number of migrant workmen proposed to be employed \\n";
                         slno = slno + 1;
@@ -1766,12 +1782,12 @@ namespace MeghalayaUIP.User.CFE
 
                 if (divContractorDtls.Visible == true)
                 {
-                    if (string.IsNullOrEmpty(txtcontractor.Text) || txtcontractor.Text == "" || txtcontractor.Text == null)
+                    if (string.IsNullOrEmpty(txtcontractor.Text.Trim()) || txtcontractor.Text.Trim() == "" || txtcontractor.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Name \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtfathername.Text) || txtfathername.Text == "" || txtfathername.Text == null)
+                    if (string.IsNullOrEmpty(txtfathername.Text.Trim()) || txtfathername.Text.Trim() == "" || txtfathername.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter AGE \\n";
                         slno = slno + 1;
@@ -1801,12 +1817,12 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Select Village \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtdoorno.Text) || txtdoorno.Text == "" || txtdoorno.Text == null)
+                    if (string.IsNullOrEmpty(txtdoorno.Text.Trim()) || txtdoorno.Text.Trim() == "" || txtdoorno.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter DOOR NO \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtlocal.Text) || txtlocal.Text == "" || txtlocal.Text == null)
+                    if (string.IsNullOrEmpty(txtlocal.Text.Trim()) || txtlocal.Text.Trim() == "" || txtlocal.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter LOCALITY \\n";
                         slno = slno + 1;

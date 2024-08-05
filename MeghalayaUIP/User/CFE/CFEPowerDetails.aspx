@@ -104,7 +104,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Per Day*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMaxhours" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMaxhours" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Per Month*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMonth" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMonth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

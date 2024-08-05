@@ -446,7 +446,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEComn.PreRegUID = hdnPreRegUID.Value;
                     objCFEComn.IPAddress = getclientIP();
                     objCFEComn.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEComn.CompanyName = txtIndustryName.Text;
+                    objCFEComn.CompanyName = txtIndustryName.Text.Trim() ;
                     objCFEComn.CompanyType = ddlCompanyType.SelectedValue;
                     objCFEComn.CompanyPraposal = rblproposal.SelectedValue;
 
@@ -485,7 +485,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEComn.ApprchRdType = ddlApproachRoad.SelectedValue;
                     objCFEComn.strctralLicNo = txtStrLicNo.Text;
                     objCFEComn.strctralMobileNo = txtStrEngnrMobileno.Text;
-                    objCFEComn.strctralName = txtStrEngnrName.Text;
+                    objCFEComn.strctralName = txtStrEngnrName.Text.Trim();
                     objCFEComn.ArchitechtureMobileNo = txtArchitectMobileno.Text;
                     objCFEComn.ArchitechtureName = txtArchitectName.Text;
                     objCFEComn.ArchitechtureLICNo = txtArchitectLicNo.Text;
@@ -647,7 +647,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Architect Mobile No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtStrEngnrName.Text) || txtStrEngnrName.Text == "" || txtStrEngnrName.Text == null)
+                if (string.IsNullOrEmpty(txtStrEngnrName.Text.Trim()) || txtStrEngnrName.Text.Trim() == "" || txtStrEngnrName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Structural Engineer Name\\n";
                     slno = slno + 1;

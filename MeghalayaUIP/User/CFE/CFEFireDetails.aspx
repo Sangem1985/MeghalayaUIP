@@ -90,7 +90,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4. Locality *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return Address(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return Address(event)" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5. Nearest Landmark *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtlandmark" runat="server" class="form-control" onkeypress="return Address(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtlandmark" runat="server" class="form-control" onkeypress="return Address(event)" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -199,7 +199,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1 (a).                                                                          East *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,7 +218,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2  (a). West  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtWest" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtWest" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,7 +236,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3  (a). North  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtnorth" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtnorth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -254,7 +254,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4  (a). South   *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtsouth" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtsouth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

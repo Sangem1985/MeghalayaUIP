@@ -327,11 +327,11 @@ namespace MeghalayaUIP.User.CFE
                             ObjCFEDGset.WorkCompletionDate = txtWrkComplDate.Text;
                             ObjCFEDGset.WorkStartingDate = txtWrkStartDate.Text;
                             ObjCFEDGset.CommissioningDate = txtCommissiongDate.Text;
-                            ObjCFEDGset.SupervisorName = txtSuprvisorName.Text;
+                            ObjCFEDGset.SupervisorName = txtSuprvisorName.Text.Trim();
                             ObjCFEDGset.SupervisorLicNo = txtSuprvisorLICno.Text;
-                            ObjCFEDGset.ContractorName = txtContractorName.Text;
+                            ObjCFEDGset.ContractorName = txtContractorName.Text.Trim();
                             ObjCFEDGset.ContractorLicNo = txtContractorLICno.Text;
-                            ObjCFEDGset.DGSetOperatorNmae = txtDGsetOperatorName.Text;
+                            ObjCFEDGset.DGSetOperatorNmae = txtDGsetOperatorName.Text.Trim();
                             ObjCFEDGset.DGSetCapacity = txtDGSetCapacity.Text;
                             ObjCFEDGset.DGSetCapacityin = rblDGSetCapacity.SelectedValue;
                             ObjCFEDGset.DGSetPowerFactor = txtPowerFactor.Text;
@@ -486,7 +486,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Expected Date of Commissioning \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtSuprvisorName.Text) || txtSuprvisorName.Text == "" || txtSuprvisorName.Text == null)
+                if (string.IsNullOrEmpty(txtSuprvisorName.Text.Trim()) || txtSuprvisorName.Text.Trim() == "" || txtSuprvisorName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Suprvisor Name \\n";
                     slno = slno + 1;
@@ -496,7 +496,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Supervisor License Number \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtContractorName.Text) || txtContractorName.Text == "" || txtContractorName.Text == null)
+                if (string.IsNullOrEmpty(txtContractorName.Text.Trim()) || txtContractorName.Text.Trim() == "" || txtContractorName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name of the Contractor who will carry out the internal electricfication \\n";
                     slno = slno + 1;
@@ -506,7 +506,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Contractor License Number \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtDGsetOperatorName.Text) || txtDGsetOperatorName.Text == "" || txtDGsetOperatorName.Text == null)
+                if (string.IsNullOrEmpty(txtDGsetOperatorName.Text.Trim()) || txtDGsetOperatorName.Text.Trim() == "" || txtDGsetOperatorName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name of the Person who will be authorized to operate the D.G Sets \\n";
                     slno = slno + 1;

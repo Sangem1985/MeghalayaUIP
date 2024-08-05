@@ -54,7 +54,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">No Objection Certificate (NOC) required for (mention the purpose clearly) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtNOCreq" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNOCreq" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="50"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,7 +126,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Land Holding Certificate No *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandHoldingNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandHoldingNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,7 +148,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Please enter Lease Deed Registration No *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRegNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRegNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,7 +156,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Area of Land as per Land Holding Certificate No *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtHoldingNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHoldingNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,7 +172,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">(i) North *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNorth" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNorth" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -180,7 +180,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">(ii) East *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,7 +188,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">(iii) South *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtsouth" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtsouth" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -198,7 +198,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">(iv) West *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtwest" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtwest" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
