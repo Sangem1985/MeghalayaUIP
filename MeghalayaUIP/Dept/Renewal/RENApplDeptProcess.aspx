@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="RENApplDeptProcess.aspx.cs" Inherits="MeghalayaUIP.Dept.Renewal.RENApplDeptProcess" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-       <style>
+    <style>
         .card {
             border: 1px solid #fff;
             margin-bottom: 12px;
@@ -76,8 +77,8 @@
             display: contents;
         }
     </style>
-  
-       <div class="page-wrapper">
+
+    <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <div class="col-md-1">
@@ -87,19 +88,21 @@
             <div class="card flex-fill">
 
                 <h4 class="mt-2 ml-4">View Details</h4>
-                <div class="col-md-12 d-flex">
-                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                <div class="col-md-12 ">
+                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        <asp:Label ID="Label2" runat="server"></asp:Label>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">×</span></button>
                     </div>
                 </div>
-                <div class="col-md-12 d-flex">
-                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                <div class="col-md-12 ">
+                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                         <strong>Warning!</strong>
                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span></button>
+                            <span aria-hidden="true">×</span>
+                        </button>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -120,7 +123,7 @@
                                     <div class="card-header">
                                         <h3>Renewal Application Details</h3>
                                     </div>
-                                   <section id="dashboardBasic">
+                                    <section id="dashboardBasic">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="card-body">
@@ -2270,7 +2273,7 @@
                                                                 </Columns>
                                                             </asp:GridView>
                                                         </div>
-                                                    </div>                                                
+                                                    </div>
                                                 </div>
 
 

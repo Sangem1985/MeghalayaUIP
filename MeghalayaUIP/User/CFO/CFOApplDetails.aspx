@@ -93,14 +93,20 @@
 
 
                 <div class="col-md-12 ">
-                    <div id="success" runat="server" visible="false" class="alert alert-success " align="Center">
+                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        <asp:Label ID="Label1" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
                     </div>
                 </div>
                 <div class="col-md-12 ">
-                    <div id="Failure" runat="server" visible="false" class="alert alert-warning " align="Center">
+                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                         <strong>Warning!</strong>
                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
                     </div>
                 </div>
                 <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -659,7 +665,7 @@
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <div class="col-md-12">
-                                                                          <h4 class="card-title1 col-lg-12">Manufacturing Items and Raw Materials Used</h4>
+                                                                        <h4 class="card-title1 col-lg-12">Manufacturing Items and Raw Materials Used</h4>
                                                                         <h5></h5>
                                                                         <hr />
                                                                     </div>
@@ -739,8 +745,8 @@
                                                                             <h5>Labour Details</h5>
                                                                             <hr />
                                                                         </div>
-                                                                          <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Vendor Technical:</b></p>
-                                                                      
+                                                                        <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Vendor Technical:</b></p>
+
                                                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                                             <div class="col-md-2">
                                                                                 <label>1.Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate?</label>
@@ -850,8 +856,8 @@
                                                                             </div>
                                                                         </div>
 
-                                                                         <p class="card-title1 col-lg-12 mt-4 mb-0"> <b>Boiler Technical Details :</b>                                                </p>
-                                                                       
+                                                                        <p class="card-title1 col-lg-12 mt-4 mb-0"><b>Boiler Technical Details :</b>                                                </p>
+
                                                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                                             <div class="col-md-2">
                                                                                 <label>Name of the Manufacturer </label>
@@ -1135,21 +1141,21 @@
                                                                         </div>
 
                                                                         <h4 class="card-title1 col-lg-12">Establishments Details</h4>
-                                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                                            
-                                                                                <div class="col-md-2">
-                                                                                    <label>Name of the Manager /Agent/other person acting in the general management </label>
-                                                                                </div>
-                                                                                <div class="col-md-2">
-                                                                                    <spna class="dots">:</spna><asp:Label ID="lblGeneralAct" runat="server"></asp:Label>
-                                                                                </div>                                                                           
+                                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                            <div class="col-md-2">
+                                                                                <label>Name of the Manager /Agent/other person acting in the general management </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <spna class="dots">:</spna><asp:Label ID="lblGeneralAct" runat="server"></asp:Label>
+                                                                            </div>
 
-                                                                          
-                                                                                <div class="col-md-2">
-                                                                                    <label>Address of the Manager/Agent</label>
-                                                                                </div>
-                                                                                <div class="col-md-2">
-                                                                                    <spna class="dots">:</spna><asp:Label ID="lblManagerAgent" runat="server"></asp:Label>
-                                                                                </div>                                                                       
+
+                                                                            <div class="col-md-2">
+                                                                                <label>Address of the Manager/Agent</label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <spna class="dots">:</spna><asp:Label ID="lblManagerAgent" runat="server"></asp:Label>
+                                                                            </div>
 
                                                                             <div class="col-md-2">
                                                                                 <label>Category of Establishmnet </label>

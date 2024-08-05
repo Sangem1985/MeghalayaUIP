@@ -6,36 +6,41 @@
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <link rel="stylesheet" href="assets/admin/css/style.css">
     <style>
-        
         table#ContentPlaceHolder1_rblproposal label, table#ContentPlaceHolder1_rblInvestments label {
-    font-weight: 100;
-}
+            font-weight: 100;
+        }
+
         table#ContentPlaceHolder1_rblproposal tr td, table#ContentPlaceHolder1_rblInvestments tr td {
-    padding: 0px 10px;
-}
+            padding: 0px 10px;
+        }
+
         label.col-lg-6.col-form-label {
-    font-weight: 400;
-}
+            font-weight: 400;
+        }
+
         section.innerpages {
-    margin-top: 50px;
-    margin-bottom: 10px;
-}
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
         .card-body {
-    background: #fff;
-}
-      .widget.link-widget ul {
-    width: 100% !important;
-}
-      section.innerpages {
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
+            background: #fff;
+        }
+
+        .widget.link-widget ul {
+            width: 100% !important;
+        }
+
+        section.innerpages {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
     </style>
     <section class="innerpages IntentInvest">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                 
+
                     <div class="">
                         <div class="content container-fluid">
                             <div class="row">
@@ -45,15 +50,21 @@
                                             <h4 class="card-title">Intent to Invest</h4>
                                         </div>
                                         <div class="card-body">
-                                            <div class="col-md-12 d-flex">
-                                                <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                                            <div class="col-md-12 ">
+                                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                                     <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">×</span></button>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                            <div class="col-md-12 ">
+                                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                                     <strong>Warning!</strong>
                                                     <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
                                                 </div>
                                             </div>
                                             <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -221,12 +232,15 @@
                                                 </div>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
-                                                      
+
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Project Category  * <img src="assets/assetsnew/images/helpImage4.png" title="Micro - Investment in Plant and Machinery or Equipment does not exceed Rs 1 crore and annual turnover does not exceed Rs 5 crore. 
+                                                            <label class="col-lg-6 col-form-label">
+                                                                Project Category  *
+                                                                <img src="assets/assetsnew/images/helpImage4.png" title="Micro - Investment in Plant and Machinery or Equipment does not exceed Rs 1 crore and annual turnover does not exceed Rs 5 crore. 
 Small - Investment in Plant and Machinery or Equipment does not exceed Rs 10 crore and annual turnover does not exceed Rs 50 crore. 
 Medium - Investment in Plant and Machinery or Equipment does not exceed Rs 50 crore and annual turnover does not exceed Rs 250 crore.
-Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores." style="width: 11%;"></label>
+Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
+                                                                    style="width: 11%;"></label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:DropDownList ID="ddlPCB" runat="server" class="form-control">
                                                                     <asp:ListItem Text="--Select--" Value="0" />
@@ -299,12 +313,12 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores." st
                                                 </div>
 
 
-                                                <div class="col-md-12 d-flex mt-4" style="margin-top: 17px !important;margin-bottom: 7px;">
-                                                    
+                                                <div class="col-md-12 d-flex mt-4" style="margin-top: 17px !important; margin-bottom: 7px;">
+
                                                     <div class="col-md-12 text-center">
-                                                        <asp:Button ID="BtnSave" runat="server" Text="Submit" class="btn btn-info btn-submit" padding-right="10px" Width="120px" OnClick="BtnSave_Click"  />
+                                                        <asp:Button ID="BtnSave" runat="server" Text="Submit" class="btn btn-info btn-submit" padding-right="10px" Width="120px" OnClick="BtnSave_Click" />
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>

@@ -33,15 +33,21 @@
                                     <h4 class="card-title">Contract Labour Deatils</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="col-md-12 d-flex">
-                                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                                    <div class="col-md-12 ">
+                                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                    <div class="col-md-12 ">
+                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                             <strong>Warning!</strong>
                                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -260,10 +266,10 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Registration Date *</label>
                                                     <div class="col-lg-6">
-                                                      <%--  <asp:TextBox ID="txtRegDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <%--  <asp:TextBox ID="txtRegDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                         <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                        <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
                                                         <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>

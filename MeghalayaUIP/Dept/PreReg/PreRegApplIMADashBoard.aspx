@@ -5,19 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>            
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">Industry Registrations</li>
         </ol>
     </nav>
     <div class="page-wrapper" style="margin: 10px 0px !important;">
         <div class="container-fluid">
-             <div class="card-header d-flex justify-content-between">
-               <h4 class="card-title mt-1"><b></b></h4>
+            <div class="card-header d-flex justify-content-between">
+                <h4 class="card-title mt-1"><b></b></h4>
                 <div class="col-md-1">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
             </div>
-           
+
             <div class="card" style="padding: 10px; border-radius: 4px;">
                 <h2 style="font-size: 22px; color: #3f51b5;"></h2>
                 <div class="card">
@@ -25,14 +25,20 @@
                         <h3>Industry Registration Applications</h3>
                     </div>
                     <div class="col-md-12 ">
-                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
                         </div>
                     </div>
                     <div class="col-md-12 ">
-                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />

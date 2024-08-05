@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEPowerCEIGDetails.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEPowerCEIGDetails" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -17,15 +18,21 @@
                                     <h4 class="card-title">POWERCEIG Details</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="col-md-12 d-flex">
-                                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                                    <div class="col-md-12 ">
+                                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                    <div class="col-md-12 ">
+                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                             <strong>Warning!</strong>
                                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -252,9 +259,9 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Date of Commencement of Production(dd-MMM-yyyy)*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                       <%-- <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <%-- <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
-                                                          <asp:TextBox runat="server" ID="txtDate" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" />
+                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -404,15 +411,15 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
-          <Triggers>
+        <Triggers>
             <asp:PostBackTrigger ControlID="btnowner" />
             <asp:PostBackTrigger ControlID="btnLic" />
             <asp:PostBackTrigger ControlID="btnElectrical" />
             <asp:PostBackTrigger ControlID="btnDiscoms" />
             <asp:PostBackTrigger ControlID="btnEnergy" />
-            <asp:PostBackTrigger ControlID="btnPlan" />   
-            <asp:PostBackTrigger ControlID="btnDraw" />   
-            <asp:PostBackTrigger ControlID="btnEarth" />   
+            <asp:PostBackTrigger ControlID="btnPlan" />
+            <asp:PostBackTrigger ControlID="btnDraw" />
+            <asp:PostBackTrigger ControlID="btnEarth" />
         </Triggers>
     </asp:UpdatePanel>
 

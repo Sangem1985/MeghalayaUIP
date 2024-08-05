@@ -57,17 +57,21 @@
                 </div>
 
                 <div>
-                    <div class="col-md-12 d-flex">
-                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                    <div class="col-md-12 ">
+                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                            <asp:Label ID="Label2" runat="server"></asp:Label>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
                         </div>
                     </div>
-                    <div class="col-md-12 d-flex">
-                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                    <div class="col-md-12 ">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                            <br />
-                            <asp:HyperLink ID="hplIndReg" runat="server" Visible="false"></asp:HyperLink>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
