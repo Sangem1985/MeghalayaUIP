@@ -96,6 +96,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtLicIssue;
 
         /// <summary>
+        /// CalendarExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
+
+        /// <summary>
         /// txtLicValid control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLicValid;
+
+        /// <summary>
+        /// CalendarExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
 
         /// <summary>
         /// txtNameBusiness control.

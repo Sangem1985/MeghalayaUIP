@@ -985,6 +985,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[1].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["RENMW_RENQDID"]);
+                        ViewState["Migrant"]= ds.Tables[1];
                         GVMigrant.DataSource = ds.Tables[1];
                         GVMigrant.DataBind();
                         GVMigrant.Visible = true;

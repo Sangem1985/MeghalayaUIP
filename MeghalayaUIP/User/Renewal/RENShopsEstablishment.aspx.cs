@@ -970,6 +970,7 @@ namespace MeghalayaUIP.User.Renewal
                         txtLicValidDate.Text = ds.Tables[0].Rows[0]["RENSE_LICVALIDUP"].ToString();
                         txttradeLic.Text = ds.Tables[0].Rows[0]["RENSE_NAMEEST"].ToString();
                         ddlconstitution.SelectedValue = ds.Tables[0].Rows[0]["RENSE_CONSTITUTION"].ToString();
+                        ddlconstitution_SelectedIndexChanged(null, EventArgs.Empty);
                         txtApplicantName.Text = ds.Tables[0].Rows[0]["RENSE_APPLICANTNAME"].ToString();
                         txtMobileNo.Text = ds.Tables[0].Rows[0]["RENSE_MOBILENO"].ToString();
                         txtEmailId.Text = ds.Tables[0].Rows[0]["RENSE_EMAILID"].ToString();
@@ -1002,6 +1003,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[1].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["RENWP_RENQDID"]);
+                        ViewState["DETAILS"]= ds.Tables[1];
                         GVDETAILS.DataSource = ds.Tables[1];
                         GVDETAILS.DataBind();
                         GVDETAILS.Visible = true;
@@ -1009,6 +1011,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENED_RENQDID"]);
+                        ViewState["EMPLOYEES"]= ds.Tables[2];
                         GVTEST.DataSource = ds.Tables[2];
                         GVTEST.DataBind();
                         GVTEST.Visible = true;
@@ -1016,6 +1019,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[3].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENP_RENQDID"]);
+                        ViewState["PROPERTIE"]= ds.Tables[3];
                         GVPROPERTIE.DataSource = ds.Tables[3];
                         GVPROPERTIE.DataBind();
                         GVPROPERTIE.Visible = true;
@@ -1023,6 +1027,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[4].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENPS_RENQDID"]);
+                        ViewState["PATNER"]= ds.Tables[4];
                         GVPATNER.DataSource = ds.Tables[4];
                         GVPATNER.DataBind();
                         GVPATNER.Visible = true;
@@ -1030,6 +1035,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[5].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[5].Rows[0]["RENLC_RENQDID"]);
+                        ViewState["LIMITED"]= ds.Tables[5];
                         GVLIMITED.DataSource = ds.Tables[5];
                         GVLIMITED.DataBind();
                         GVLIMITED.Visible = true;

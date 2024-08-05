@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENBusinessLicenseDetails.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENBusinessLicenseDetails" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -60,7 +62,11 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">License Issue Date *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLicIssue" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <%--  <asp:TextBox ID="txtLicIssue" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <i class="fi fi-rr-calendar-lines"></i>--%>
+
+                                                        <asp:TextBox runat="server" ID="txtLicIssue" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtLicIssue"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
@@ -69,7 +75,11 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">License Valid Upto *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLicValid" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <%-- <asp:TextBox ID="txtLicValid" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <i class="fi fi-rr-calendar-lines"></i>--%>
+
+                                                        <asp:TextBox runat="server" ID="txtLicValid" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtLicValid"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
@@ -91,26 +101,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <%--  <div class="col-md-4">
-                                            <div class="form-group row">
-                                               <label class="col-lg-6 col-form-label"> *</label>
-                                                <div class="col-lg-6 d-block">
-                                                    <div class="form-check form-check-inline">
-															<input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1" checked="">
-															<label class="form-check-label" for="gender_male">
-															
-															</label>
-														</div>
-														<div class="form-check form-check-inline">
-															<input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2">
-															<label class="form-check-label" for="gender_female">
-															
-															</label>
-														</div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>--%>
+
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether Establishment is owned by *</label>
@@ -151,6 +142,8 @@
                                                 </div>
                                             </div>
 
+                                        </div>
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Passport Size Photograph of Individual/Authorized Representative *</label>
@@ -226,9 +219,9 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
-         <Triggers>
-            <asp:PostBackTrigger ControlID="btndpr" />           
-            
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btndpr" />
+
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

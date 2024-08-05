@@ -15,6 +15,24 @@ namespace MeghalayaUIP.User.Renewal
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -78,6 +96,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtRenLicIssued;
 
         /// <summary>
+        /// CalendarExtender3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender3;
+
+        /// <summary>
         /// txtRenValid control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRenValid;
+
+        /// <summary>
+        /// CalendarExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
 
         /// <summary>
         /// txtTitlesdt control.
@@ -220,6 +256,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateBirth;
+
+        /// <summary>
+        /// CalendarExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
 
         /// <summary>
         /// Age control.
@@ -375,6 +420,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtDateLic;
 
         /// <summary>
+        /// CalendarExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender4;
+
+        /// <summary>
         /// Validdate control.
         /// </summary>
         /// <remarks>
@@ -391,6 +445,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtValidDate;
+
+        /// <summary>
+        /// CalendarExtender5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender5;
 
         /// <summary>
         /// Tribal control.
@@ -528,6 +591,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtDateRegCert;
 
         /// <summary>
+        /// CalendarExtender6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender6;
+
+        /// <summary>
         /// ddlTitles control.
         /// </summary>
         /// <remarks>
@@ -573,6 +645,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtCommencingDate;
 
         /// <summary>
+        /// CalendarExtender7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender7;
+
+        /// <summary>
         /// txtEnding control.
         /// </summary>
         /// <remarks>
@@ -580,6 +661,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEnding;
+
+        /// <summary>
+        /// CalendarExtender8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender8;
 
         /// <summary>
         /// txtSiteManager control.
@@ -717,6 +807,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtOrderDate;
 
         /// <summary>
+        /// CalendarExtender9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender9;
+
+        /// <summary>
         /// rblfiveyears control.
         /// </summary>
         /// <remarks>
@@ -796,5 +895,14 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext;
+
+        /// <summary>
+        /// UpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress UpdateProgress;
     }
 }

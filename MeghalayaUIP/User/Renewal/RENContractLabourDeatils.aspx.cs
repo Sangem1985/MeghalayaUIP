@@ -620,6 +620,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[1].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["RENMD_RENQDID"]);
+                        ViewState["PERSONDETAILS"]= ds.Tables[1];
                         GVDETAILS.DataSource = ds.Tables[1];
                         GVDETAILS.DataBind();
                         GVDETAILS.Visible = true;

@@ -491,6 +491,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[1].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["REND_CFOQDID"]);
+                        ViewState["NameDrug"]= ds.Tables[1];
                         GVDrugName.DataSource = ds.Tables[1];
                         GVDrugName.DataBind();
                         GVDrugName.Visible = true;
@@ -498,6 +499,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENSTCFOQDID"]);
+                        ViewState["TESTING"]= ds.Tables[2];
                         GVTEST.DataSource = ds.Tables[2];
                         GVTEST.DataBind();
                         GVTEST.Visible = true;
@@ -505,6 +507,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[3].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENDMCFOQDID"]);
+                        ViewState["MANUFACTURE"]= ds.Tables[3];
                         GVMANU.DataSource = ds.Tables[3];
                         GVMANU.DataBind();
                         GVMANU.Visible = true;
@@ -512,6 +515,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[4].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENDA_CFOQDID"]);
+                        ViewState["ADDEDITEM"]= ds.Tables[4];
                         GVADDED.DataSource = ds.Tables[4];
                         GVADDED.DataBind();
                         GVADDED.Visible = true;
