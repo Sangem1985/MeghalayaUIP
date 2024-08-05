@@ -23,7 +23,8 @@
             font-size: 26px !important;
         }
     </style>
-    <link href="assets/css/login.css" rel="stylesheet" />
+    <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
+    
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
