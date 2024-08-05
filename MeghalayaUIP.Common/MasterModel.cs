@@ -57,7 +57,7 @@ namespace MeghalayaUIP.Common
         public static string GetWaterSource = "USP_GETWATERSOURCEMASTER";
 
         public static string GetCentralRepository = "USP_GET_CENTRALREPOSITORY_FILES";
-        public static string GetInformationWizard = "USP_GET_CENTRALREPOSITORY_FILES";
+        public static string GetInformationWizard = "USP_GETINFORMATIONWIZARD";
         public static string GetPageAuthorization = "USP_CHECK_ROLE_PAGE_AUTH";
 
     }

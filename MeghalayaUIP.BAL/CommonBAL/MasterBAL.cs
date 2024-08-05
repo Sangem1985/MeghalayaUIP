@@ -179,6 +179,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetPageAuthorization(PageName, RoleCode);
         }
+        public DataSet GetInformationWizard(string module, string deptid, string sector)
+        {
+            return objMasterDAL.GetInformationWizard(module, deptid, sector);
+        }
 
     }
 }
