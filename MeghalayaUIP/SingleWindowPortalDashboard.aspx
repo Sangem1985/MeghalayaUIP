@@ -326,8 +326,8 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <img alt="" style="cursor: pointer" src="assets/images/plus.png" />
-                                        <img alt="" style="cursor: pointer; display: none" src="assets/images/minus.png" />
+                                        <img alt="" style="cursor: pointer" src="assets/assetsnew/images/plus.png" />
+                                        <img alt="" style="cursor: pointer; display: none" src="assets/assetsnew/images/minus.png" />
                                         <asp:Panel ID="pnlApprovals" runat="server" Style="display: none">
                                             <asp:GridView ID="gvApprovals" runat="server" AutoGenerateColumns="false" CssClass="ChildGrid"
                                                 OnRowDataBound="gvApprovals_RowDataBound" ShowFooter="true">
