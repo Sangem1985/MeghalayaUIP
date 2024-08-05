@@ -524,7 +524,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtIndustryName.Text) || txtIndustryName.Text == "" || txtIndustryName.Text == null)
+                if (string.IsNullOrEmpty(txtIndustryName.Text.Trim()) || txtIndustryName.Text == "" || txtIndustryName.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Company Registration  \\n";
                     slno = slno + 1;

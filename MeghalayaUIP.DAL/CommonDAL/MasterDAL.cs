@@ -1477,6 +1477,42 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetInformationWizard(int moduleid, int deptid, string fdate, string tdate, int userid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetCentralRepository, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetCentralRepository;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@MODULETYPE", moduleid);
+                da.SelectCommand.Parameters.AddWithValue("@DEPARMENTID", deptid);
+                da.SelectCommand.Parameters.AddWithValue("@FROMDATE", fdate);
+                da.SelectCommand.Parameters.AddWithValue("@TODATE", tdate);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
         public string GetPageAuthorization(string PageName, string RoleCode)
         {
 
