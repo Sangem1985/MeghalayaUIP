@@ -57,7 +57,7 @@ namespace MeghalayaUIP
             try
             {
                 ddlSector.Items.Clear();
-               
+
                 List<MasterSector> objSectorModel = new List<MasterSector>();
 
                 objSectorModel = mstrBAL.GetSectors();
@@ -98,7 +98,7 @@ namespace MeghalayaUIP
         {
             try
             {
-                string Module="%";
+                string Module = "%";
                 if (ddlModule.SelectedValue == "2")
                     Module = "CFE";
                 if (ddlModule.SelectedValue == "3")
@@ -106,7 +106,12 @@ namespace MeghalayaUIP
                 if (ddlModule.SelectedValue == "4")
                     Module = "REN";
                 DataSet dsInfo = new DataSet();
-                
+                dsInfo = mstrBAL.GetInformationWizard(Module, ddldept.SelectedValue, ddlSector.SelectedValue);
+                if (dsInfo != null && dsInfo.Tables.Count > 0 && dsInfo.Tables[0].Rows.Count > 0)
+                {
+                    gvInfoWiz.DataSource = dsInfo.Tables[0];
+                    gvInfoWiz.DataBind();
+                }
 
 
 
@@ -118,6 +123,41 @@ namespace MeghalayaUIP
         protected void btnSearch_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void gvInfoWiz_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplSOP = (HyperLink)e.Row.FindControl("hplViewSOP");
+                    if (hplSOP != null)
+                    {
+                        if (hplSOP.NavigateUrl == null || hplSOP.NavigateUrl == "")
+                        { hplSOP.Text = ""; }
+                    }
+                    HyperLink hplRules = (HyperLink)e.Row.FindControl("hplRulesandReg");
+                    if (hplRules != null)
+                    {
+                        if (hplRules.NavigateUrl == null || hplRules.NavigateUrl == "")
+                        { hplRules.Text = ""; }
+                    }
+                    HyperLink hpPreReqs = (HyperLink)e.Row.FindControl("hplPrerequisites");
+                    if (hpPreReqs != null)
+                    {
+                        if (hpPreReqs.NavigateUrl == null || hpPreReqs.NavigateUrl == "")
+                        { hpPreReqs.Text = ""; }
+                    }
+                    HyperLink hplAppl = (HyperLink)e.Row.FindControl("hplApplForm");
+                    if (hplAppl != null)
+                    {
+                        if (hplAppl.NavigateUrl == null || hplAppl.NavigateUrl == "")
+                        { hplAppl.Text = ""; }
+                    }
+                }
+            }
+            catch (Exception ex) { }
         }
     }
 }
