@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOTracker.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOTracker" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <link href="../assets/admin/css/user.css" rel="stylesheet" />
+    <link href="../assets/admin/css/user.css" rel="stylesheet" />
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid">
 
@@ -17,15 +18,21 @@
                 <section id="dashboardcount" class="mt-2">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-12 d-flex">
-                                <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                            <div class="col-md-12 ">
+                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                     <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span></button>
                                 </div>
                             </div>
-                            <div class="col-md-12 d-flex">
-                                <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                            <div class="col-md-12 ">
+                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                     <strong>Warning!</strong>
                                     <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />

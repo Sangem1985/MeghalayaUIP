@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
-    
+
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid">
             <div class="card">
@@ -15,17 +15,21 @@
                     </h4>
                 </div>
                 <div>
-                    <div class="col-md-12 d-flex">
-                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                    <div class="col-md-12 ">
+                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
                         </div>
                     </div>
-                    <div class="col-md-12 d-flex">
-                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                    <div class="col-md-12 ">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                            <br />
-                            <asp:HyperLink  ID="hplIndReg" runat="server" Visible="false"></asp:HyperLink>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
@@ -52,7 +56,7 @@
                                     <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
                                     <asp:BoundField HeaderText="Unit ID" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
                                     <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%"/>
+                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%" />
                                     <asp:HyperLinkField ControlStyle-Font-Underline="false" ControlStyle-ForeColor="Black"
                                         FooterStyle-CssClass="text-center" DataTextField="STATUS" HeaderText="Registration Under MIIPP 2024 Status">
                                         <FooterStyle HorizontalAlign="Center" Font-Underline="false" Font-Bold="true" CssClass="text-center" />
@@ -81,7 +85,7 @@
             </div>
         </div>
     </div>
-    
 
-    
+
+
 </asp:Content>

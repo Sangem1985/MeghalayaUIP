@@ -27,16 +27,21 @@
                                             <div class="card-body">
                                                 <%--<h4 class="card-title"></h4>--%>
                                                 <div class="row">
-                                                    <div class="col-md-12 d-flex justify-content-center text-center">
-                                                        <div id="success" runat="server" visible="false" class="alert alert-success">
-                                                            <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                            <strong>Success!</strong>
-                                                            <asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                                    <div class="col-md-12 ">
+                                                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">×</span></button>
                                                         </div>
-                                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger">
-                                                            <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                    </div>
+                                                    <div class="col-md-12 ">
+                                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                                             <strong>Warning!</strong>
                                                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">

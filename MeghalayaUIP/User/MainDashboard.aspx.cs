@@ -65,10 +65,10 @@ namespace MeghalayaUIP.User
                 {
                     
                     Failure.Visible = true;
-                    hplIndReg.Visible = true;
-                    hplIndReg.ForeColor = System.Drawing.Color.Green;
-                    hplIndReg.Text = "Click here to Apply Registration under MIIPP (2024)";
-                    hplIndReg.NavigateUrl = "PreReg/IndustryRegistration.aspx";
+                    //hplIndReg.Visible = true;
+                    //hplIndReg.ForeColor = System.Drawing.Color.Green;
+                    //hplIndReg.Text = "Click here to Apply Registration under MIIPP (2024)";
+                    //hplIndReg.NavigateUrl = "PreReg/IndustryRegistration.aspx";
                     lblmsg0.Text = "There are no Applications to Show " ;
                     gvUserDashboard.DataSource = null;
                     gvUserDashboard.DataBind();
@@ -77,6 +77,7 @@ namespace MeghalayaUIP.User
             }
             catch (Exception ex)
             {
+                throw ex;
             }
 
         }

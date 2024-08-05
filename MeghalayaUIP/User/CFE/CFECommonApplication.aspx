@@ -23,15 +23,21 @@
                                                     select the Approvals for which you intend to apply for.</h5>
                                 <asp:HiddenField ID="hdnUserID" runat="server" />
                                 <asp:HiddenField ID="hdnQuesid" runat="server" />
-                                <div class="col-md-12 d-flex">
-                                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                                <div class="col-md-12 ">
+                                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                        <asp:Label ID="Label1" runat="server"></asp:Label>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span></button>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                <div class="col-md-12 ">
+                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                         <strong>Warning!</strong>
                                         <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="col-md-12 d-flex">
@@ -755,7 +761,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-right">
-                    <asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false"  />
+                    <asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
 
                 </div>
             </section>

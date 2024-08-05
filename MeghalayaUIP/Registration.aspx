@@ -40,16 +40,16 @@
                                         <p style="color: #164976;">Access to our dashboard</p>
                                     </div>
                                     <div class="row" align="Center">
-                                        <div class="col-md-12">
-                                            <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="center">
+                                        <div class="col-md-12 ">
+                                            <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                                 <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                                <asp:Label ID="Label1" runat="server"></asp:Label>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
+                                                    <span aria-hidden="true">×</span></button>
                                             </div>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="center">
+                                            <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                                 <strong>Warning!</strong>
                                                 <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -127,8 +127,8 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" MaxLength="12" 
-                                                        AutoComplete="off" AutoCompleteType="None"  ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character" ></asp:TextBox>
+                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" MaxLength="12"
+                                                        AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>

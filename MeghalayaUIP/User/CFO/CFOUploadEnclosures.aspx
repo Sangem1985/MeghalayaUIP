@@ -24,15 +24,21 @@
                                     <h3 class="card-title">Enclosures Details</h3>
                                 </div>
                                 <div class="card-body">
-                                    <div class="col-md-12 d-flex">
-                                        <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                                    <div class="col-md-12 ">
+                                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 d-flex">
-                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                                    <div class="col-md-12 ">
+                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                             <strong>Warning!</strong>
                                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -158,12 +164,12 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
-       <Triggers>
+        <Triggers>
             <asp:PostBackTrigger ControlID="btnUpldAadhar" />
-             <asp:PostBackTrigger ControlID="btnUpldEPIC" />
-             <asp:PostBackTrigger ControlID="btnUpldPhoto" />
-             <asp:PostBackTrigger ControlID="btnUplLandDoc" />
-             <asp:PostBackTrigger ControlID="btnUpldSitePlan" />
+            <asp:PostBackTrigger ControlID="btnUpldEPIC" />
+            <asp:PostBackTrigger ControlID="btnUpldPhoto" />
+            <asp:PostBackTrigger ControlID="btnUplLandDoc" />
+            <asp:PostBackTrigger ControlID="btnUpldSitePlan" />
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

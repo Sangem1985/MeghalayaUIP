@@ -359,7 +359,7 @@
                                             </div>
                                         </div>
 
-                                         <h4 class="card-title ml-3">Other Details: </h4>
+                                        <h4 class="card-title ml-3">Other Details: </h4>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
