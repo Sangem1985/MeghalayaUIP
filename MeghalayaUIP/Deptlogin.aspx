@@ -20,7 +20,7 @@
     font-size: 26px !important;
 }
     </style>
-    <link href="assets/css/login.css" rel="stylesheet" />
+    <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
     <section class="about-us-section section-padding">
             <div class="">
                 <div class="">

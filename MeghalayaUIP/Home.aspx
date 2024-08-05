@@ -1,13 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="MeghalayaUIP.Home" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--  <p style="background: #a8cfe5; display: flex; flex-direction: row; flex-wrap: nowrap; align-content: center; justify-content: center; align-items: center; color: #000; padding: 2px 2px;">
-        &nbsp;<i class="fi fi-br-bell-notification-social-media" style="line-height: 10px;"></i> &nbsp; Did you Know :
-        <marquee style="width: 86%; font-weight: 300;">
-            <b> Meghalaya will host the National Games in 2024</b></marquee>
-    </p>--%>
-    <!-- main-slider -->
+    <!--Banner Video-->
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
         <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;">
     </video>
@@ -110,14 +106,8 @@
         </div>
     </section>
 
-
-
-
-    <!-- about-style-three -->
-
     <section class="testimonial-style-five centred overall1">
         <div class="container">
-
             <div class="owl-carousel">
 
 
@@ -178,141 +168,14 @@
 
             </div>
         </div>
-
-
-
     </section>
 
-
-
-
-
-
-
-    <%--<section class="about-section-two1 easy active">
-        <div class="container">
-            <div class="row">
-                <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
-                <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                    <!-- <img src="assets/assetsnew/images/easyicon.png" alt="image" style="width: 65%"/> -->
-                    <div class="col-md-2 mt-3">
-
-                        <div class="iconimage">
-                            <div class="icontext">
-                                <p class="numb">01</p>
-                                <!-- <i class="fi fi-rr-file-user"></i> -->
-                                <!-- <h4>Register</h4> -->
-                                <p style="margin-top: -26px;">
-                                    Have a<br />
-                                    business Idea or want to expand your Business?
-                                </p>
-                            </div>
-                            <img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="iconimage">
-                            <div class="icontext">
-                                <p class="numb">02</p>
-                                <!-- <i class="fi fi-br-form"></i>
-						<h4>Indent</h4> -->
-                                <p style="margin-top: -26px;">
-                                    Fill <span style="color: #ffeb3b;">
-                                        <br />
-                                        Intent to Invest form</span> and our team will reach out
-                                </p>
-                            </div>
-                            <img src="assets/assetsnew/images/easy/icon2.png" alt="icon" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="iconimage">
-                            <div class="icontext">
-                                <p class="numb">03</p>
-                                <!-- <i class="fi fi-br-supplier-alt"></i>
-						<h4>Stock</h4> -->
-                                <p style="margin-top: -26px;">
-                                    Prepare your<br />
-                                    Documents (Project DPR, loan sanctions, etc.) 
-                                </p>
-                            </div>
-                            <img src="assets/assetsnew/images/easy/icon3.png" alt="icon" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="iconimage">
-                            <div class="icontext">
-                                <p class="numb">04</p>
-                                <!-- <i class="fi fi-br-tags"></i>
-						<h4>Price List</h4> -->
-                                <p>
-                                    <span style="color: #ffeb3b;">Register on<br />
-                                        UNNATI Portal</span>
-
-                                    Fill <span style="color: #ffeb3b;">Registration form</span> on Invest Meghalaya Poral
-                            
-                            
-                                </p>
-                            </div>
-                            <img src="assets/assetsnew/images/easy/icon4.png" alt="icon" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="iconimage">
-                            <div class="icontext">
-                                <p class="numb">05</p>
-                                <!-- <i class="fi fi-br-feedback"></i>
-						<h4>Feedback</h4> -->
-                                <p>
-                                    Get <span style="color: #ffeb3b;">Clearance<br />
-                                        for Pre-establishment & Pre-operations</span> for your business
-                                </p>
-                            </div>
-                            <img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="iconimage">
-                            <div class="icontext">
-                                <p class="numb">06</p>
-                                <!-- <i class="fi fi-br-feedback"></i>
-						<h4>Feedback</h4> -->
-                                <p style="margin-top: -26px;">
-                                    Commence<br />
-                                    your
-                                <br />
-                                    Commercial Operations
-                                </p>
-                            </div>
-                            <img src="assets/assetsnew/images/easy/icon2.png" alt="icon" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="iconimage">
-                            <div class="icontext">
-                                <p class="numb">07</p>
-                                <!-- <i class="fi fi-br-feedback"></i>
-						<h4>Feedback</h4> -->
-                                <p style="margin-top: -26px;">
-                                    <span style="color: #ffeb3b;">Eligible Unit</span><br />
-                                    can avail Incentives under <span style="color: #ffeb3b;">MIIPP 2024 & UNNATI 2024</span>
-
-                                </p>
-                            </div>
-                            <img src="assets/assetsnew/images/easy/icon5.png" alt="icon" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>--%>
     <section class="about-section-two1 2 easy active">
         <div class="container">
             <div class="row">
                 <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
                 <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                    <!-- <img src="assets/assetsnew/images/easyicon.png" alt="image" style="width: 65%"/> -->
+                    
                     <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgleft" />
                     <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgright" />
                     <div class="col-md-2 mt-3">
@@ -320,10 +183,10 @@
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
-                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
+                                </div>
                                 <p class="numb">01</p>
-                                <!-- <i class="fi fi-rr-file-user"></i> -->
-                                <!-- <h4>Register</h4> -->
+                                
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-chart-user"></i>
                                     <br />
@@ -331,17 +194,17 @@
                                     business Idea or want to expand your Business?
                                 </p>
                             </div>
-                            <%--<img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />--%>
+                           
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
-                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
+                                </div>
                                 <p class="numb">02</p>
-                                <!-- <i class="fi fi-br-form"></i>
-						<h4>Indent</h4> -->
+                                
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-reservation-table"></i>
                                     <br />
@@ -350,17 +213,17 @@
                                         Intent to Invest form</span> and our team will reach out
                                 </p>
                             </div>
-                            <%--<img src="assets/assetsnew/images/easy/icon2.png" alt="icon" />--%>
+                            
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
-                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
+                                </div>
                                 <p class="numb">03</p>
-                                <!-- <i class="fi fi-br-supplier-alt"></i>
-						<h4>Stock</h4> -->
+                               
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-clip-file"></i>
                                     <br />
@@ -368,17 +231,17 @@
                                     Documents (Project DPR, loan sanctions, etc.) 
                                 </p>
                             </div>
-                            <%--<img src="assets/assetsnew/images/easy/icon3.png" alt="icon" />--%>
+                            
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
-                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
+                                </div>
                                 <p class="numb">04</p>
-                                <!-- <i class="fi fi-br-tags"></i>
-						<h4>Price List</h4> -->
+                                
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-challenge-alt"></i>
                                     <br />
@@ -390,17 +253,17 @@
                             
                                 </p>
                             </div>
-                            <%--<img src="assets/assetsnew/images/easy/icon4.png" alt="icon" />--%>
+                            
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
-                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
+                                </div>
                                 <p class="numb">05</p>
-                                <!-- <i class="fi fi-br-feedback"></i>
-						<h4>Feedback</h4> -->
+                                
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-trust-alt"></i>
                                     <br />
@@ -408,17 +271,17 @@
                                         for Pre-establishment & Pre-operations</span> for your business
                                 </p>
                             </div>
-                            <%--<img src="assets/assetsnew/images/easy/icon1.png" alt="icon" />--%>
+                            
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
-                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
+                                </div>
                                 <p class="numb">06</p>
-                                <!-- <i class="fi fi-br-feedback"></i>
-						<h4>Feedback</h4> -->
+                                
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-operation"></i>
                                     <br />
@@ -428,17 +291,17 @@
                                     Commercial Operations
                                 </p>
                             </div>
-                            <%--<img src="assets/assetsnew/images/easy/icon2.png" alt="icon" />--%>
+                            
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
-                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" /></div>
+                                    <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
+                                </div>
                                 <p class="numb">07</p>
-                                <!-- <i class="fi fi-br-feedback"></i>
-						<h4>Feedback</h4> -->
+                                
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-book-user"></i>
                                     <br />
@@ -447,7 +310,7 @@
 
                                 </p>
                             </div>
-                            <%--<img src="assets/assetsnew/images/easy/icon5.png" alt="icon" />--%>
+                            
                         </div>
                     </div>
                 </div>
@@ -455,11 +318,7 @@
         </div>
 
     </section>
-    <!-- ourmission-style-three end -->
-
-
-
-    <!-- team-section -->
+    
     <section class="team-section" style="background: url(assets/assetsnew/images/sectors.png); background-size: auto;">
         <div class="container">
             <div class="sec-title">
@@ -579,8 +438,6 @@
             </div>
         </div>
     </section>
-    <!-- team-section end -->
-
 
     <section class="about-style-three">
         <div class="container">
@@ -588,9 +445,9 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content-box">
                         <div class="top-content">
-                            <!-- <div class="top-text">About Acto</div> -->
+                            
 
-                            <h2 class="head2" style="font-size:30px !important;">The only interface with Investors</h2>
+                            <h2 class="head2" style="font-size: 30px !important;">The only interface with Investors</h2>
                             <div class="middle-content">
                                 <div class="text"><i class="fi fi-sr-check-double"></i>&nbsp; End to end online and transparent systems for granting clearance.</div>
                                 <div class="text mt-2"><i class="fi fi-sr-check-double"></i>&nbsp; Participating 20+ departments provide 100+ regulatory clearance.</div>
@@ -602,32 +459,18 @@
                         </div>
 
                     </div>
-                    <%--<div class="col-md-12 d-flex tracking">
-                        <div class="col-md-8">
-
-                            <div class="btn-box pull-right wow fadeInUp animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInUp;">
-                                <a href="login.aspx" style="width: 105%;"><i class="fi fi-br-form"></i>Apply for Clearance/ approvals<br />
-                                    for your business</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-
-                            <div class="btn-box pull-right  wow fadeInDown animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 900ms; animation-name: fadeInDown;">
-                                <a href="login.aspx" style="width: 151%;"><i class="fi fi-br-search"></i>Track Application Status</a>
-                            </div>
-                        </div>
-                    </div>--%>
+                   
                     <div class="row">
                         <div class="col-md-12 d-flex" id="bottomvibebox">
                             <div class="col-md-6 glow-on-hover" id="bottombox">
-                                <a href="login.aspx" class="" style="margin-left:82px;">
-                                    <%--<i class="fi fi-br-form"></i>--%>
-                                    <img src="assets/assetsnew/images/form.gif" style="width: 26%;margin-left: -94px;margin-right: 10px;">
+                                <a href="login.aspx" class="" style="margin-left: 82px;">
+                                    
+                                    <img src="assets/assetsnew/images/form.gif" style="width: 26%; margin-left: -94px; margin-right: 10px;">
                                     Apply for Clearance/<br />
                                     approvals
                                     for your business</a>
                             </div>
-                            <%--<i class="fi fi-br-search"></i>--%>
+                            
                             <div class="col-md-6 glow-on-hover" id="bottombox1">
                                 <a href="login.aspx" class="">
                                     <img src="assets/assetsnew/images/search.gif" style="width: 28%; margin-left: -54px;">
@@ -666,7 +509,7 @@
                     </button>
                     <h5 class="modal-title" id="exampleModalLongTitle1">
                         <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%; position: absolute; left: -95px; top: -5px; border-radius: 12px;">
-                        <%--<img src="assetsbeta/images/circle1.png" style="width: 10%; position: absolute; left: 25px; top: 7px;">--%>
+                       
                             Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 &nbsp;&nbsp;&nbsp;&nbsp;<span
                                 style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="Documents/unnati2024.pdf" target="_blank">Read the UNNATI 2024 scheme document here.</a></span>
                     </h5>
@@ -935,8 +778,10 @@
                             <a href="login.aspx">
                                 <img src="assets/assetsnew/images/info/indbox.png" />
                                 <div class="textinvd1">
-                                    <p class="smallinv">Service<br />
-                                        Dashboard</p>
+                                    <p class="smallinv">
+                                        Service<br />
+                                        Dashboard
+                                    </p>
                                 </div>
                                 <div class="invticon">
                                     <i class="fi fi-tr-dashboard-panel"></i>
@@ -992,7 +837,7 @@
                             </a>
                         </div>
                     </div>
-                    <%--<a href="login.aspx"><img src="assets/assetsnew/images/popupimg.png" /></a>--%>
+                    
                 </div>
 
             </div>
@@ -1000,7 +845,7 @@
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i> Investors Desk
+            <i class="fi fi-tr-admin-alt"></i>Investors Desk
         </button>
     </div>
 
