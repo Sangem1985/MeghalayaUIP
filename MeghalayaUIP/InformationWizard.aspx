@@ -104,7 +104,7 @@
                                         <div class="col-md-12 d-flex">
                                             <asp:GridView ID="gvInfoWiz" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                 BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
-                                                GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound"
+                                                GridLines="None" Width="100%" EnableModelValidation="True"
                                                 ShowFooter="true">
                                                 <RowStyle />
                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
