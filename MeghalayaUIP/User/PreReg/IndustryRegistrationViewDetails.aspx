@@ -661,14 +661,14 @@
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <HeaderStyle BackColor="Red" />
                                                             <Columns>
-                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="1%">
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
+                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" ItemStyle-Width="40%" />
                                                                 <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />

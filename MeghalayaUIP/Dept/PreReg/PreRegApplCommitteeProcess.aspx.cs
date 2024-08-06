@@ -174,7 +174,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
 
                         lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
-                        lblunitname1.Text = Convert.ToString(row["REP_NAME"]);
+                        lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
                         lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
@@ -263,41 +263,42 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
                 if (ddlStatus.SelectedValue == "10")
                 {
-                    if (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null)
+
+                    if (string.IsNullOrWhiteSpace(txtDeptLandArea.Text.Trim()) || txtDeptLandArea.Text.Trim() == "" || txtDeptLandArea.Text.Trim() == null)
                     {
-                        ErrorMsg = ErrorMsg + "Please Enter Remarks";
+                        ErrorMsg = ErrorMsg + "Please Enter Land Area \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptLandArea.Text) || txtDeptLandArea.Text == "" || txtDeptLandArea.Text == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptPower.Text.Trim()) || txtDeptPower.Text.Trim() == "" || txtDeptPower.Text.Trim() == null)
                     {
-                        ErrorMsg = ErrorMsg + "Please Enter Land Area";
+                        ErrorMsg = ErrorMsg + "Please Enter Power Required  \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptPower.Text) || txtDeptPower.Text == "" || txtDeptPower.Text == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptWater.Text.Trim()) || txtDeptWater.Text.Trim() == "" || txtDeptWater.Text.Trim() == null)
                     {
-                        ErrorMsg = ErrorMsg + "Please Enter Power Required";
+                        ErrorMsg = ErrorMsg + "Please Enter Water Required \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptWater.Text) || txtDeptWater.Text == "" || txtDeptWater.Text == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text.Trim()) || txtDeptWastedtls.Text.Trim() == "" || txtDeptWastedtls.Text.Trim() == null)
                     {
-                        ErrorMsg = ErrorMsg + "Please Enter Water Required";
+                        ErrorMsg = ErrorMsg + "Please Enter Waste details \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text) || txtDeptWastedtls.Text == "" || txtDeptWastedtls.Text == null)
+                    if (string.IsNullOrWhiteSpace(txtHazWaste.Text.Trim()) || txtHazWaste.Text.Trim() == "" || txtHazWaste.Text.Trim() == null)
                     {
-                        ErrorMsg = ErrorMsg + "Please Enter Waste and Hazardous waste details";
+                        ErrorMsg = ErrorMsg + "Please Enter Hazardous waste details \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtHazWaste.Text) || txtHazWaste.Text == "" || txtHazWaste.Text == null)
+                    if (string.IsNullOrWhiteSpace(txtRequest.Text.Trim()) || txtRequest.Text.Trim() == "" || txtRequest.Text.Trim() == null)
                     {
-                        ErrorMsg = ErrorMsg + "Please Enter Waste and Hazardous waste details";
+                        ErrorMsg = ErrorMsg + "Please Enter Remarks \\n";
                     }
                 }
                 else if (ddlStatus.SelectedValue == "11")
                 {
-                    if (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null)
+                    if (string.IsNullOrWhiteSpace(txtRequest.Text.Trim()) || txtRequest.Text.Trim() == "" || txtRequest.Text.Trim() == null)
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Rejection Remarks";
                     }
                 }
                 else if (ddlStatus.SelectedValue == "9")
                 {
-                    if (string.IsNullOrWhiteSpace(txtQuery.Text) || txtQuery.Text == "" || txtQuery.Text == null)
+                    if (string.IsNullOrWhiteSpace(txtQuery.Text.Trim()) || txtQuery.Text.Trim() == "" || txtQuery.Text.Trim() == null)
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Query Description";
                     }

@@ -17,8 +17,11 @@ namespace MeghalayaUIP
         {
             try
             {
-                BindDepartments();
-                BindSectors();
+                if (!IsPostBack)
+                {
+                    BindDepartments();
+                    BindSectors();
+                }
                 BindInformationWizard();
             }
             catch (Exception ex)
