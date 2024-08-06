@@ -1986,26 +1986,41 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         if (string.IsNullOrEmpty(txtApplDist.Text) || txtApplDist.Text == "" || txtApplDist.Text == null)
                         {
-                            errormsg = errormsg + slno + ". Please Enter District Name Name \\n";
+                            errormsg = errormsg + slno + ". Please Enter District Name  \\n";
                             slno = slno + 1;
                         }
                         if (string.IsNullOrEmpty(txtApplTaluka.Text) || txtApplTaluka.Text == "" || txtApplTaluka.Text == null)
                         {
-                            errormsg = errormsg + slno + ". Please Enter State Name \\n";
+                            errormsg = errormsg + slno + ". Please Enter Mandal Name \\n";
                             slno = slno + 1;
                         }
                         if (string.IsNullOrEmpty(txtApplVillage.Text) || txtApplVillage.Text == "" || txtApplVillage.Text == null)
                         {
-                            errormsg = errormsg + slno + ". Please Enter State Name \\n";
+                            errormsg = errormsg + slno + ". Please Enter Village Name \\n";
                             slno = slno + 1;
                         }
                     }
                 }
-                else if (ddlApplCountry.SelectedValue != "78" && ddlApplCountry.SelectedValue != "0")
+                else if (ddlApplCountry.SelectedValue != "78" || ddlApplCountry.SelectedValue != "0")
                 {
                     if (string.IsNullOrEmpty(txtApplState.Text) || txtApplState.Text == "" || txtApplState.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter State Name \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtApplDist.Text) || txtApplDist.Text == "" || txtApplDist.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter District Name  \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtApplTaluka.Text) || txtApplTaluka.Text == "" || txtApplTaluka.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Mandal Name \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtApplVillage.Text) || txtApplVillage.Text == "" || txtApplVillage.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Village Name \\n";
                         slno = slno + 1;
                     }
                 }
