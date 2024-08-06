@@ -55,7 +55,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Connected Load in KW*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtHP" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHP" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                         <span class="form-text text-muted mt-2 ml-2"></span>
                                                         <!-- <span class="mt-2">HP</span> -->
                                                     </div>
@@ -65,7 +65,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Contracted Maximum Demand in KVA *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMaxDemand" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMaxDemand" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,7 +104,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Per Day*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMaxhours" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMaxhours" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Per Month*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMonth" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMonth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,7 +146,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5. Quantum of energy/load required (in KW) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtenergy" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtenergy" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

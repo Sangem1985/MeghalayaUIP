@@ -154,7 +154,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (string.IsNullOrEmpty(txtManfItemName.Text) || string.IsNullOrEmpty(txtManfAnnualCapacity.Text) || string.IsNullOrEmpty(txtManfValue.Text))
+                if (string.IsNullOrEmpty(txtManfItemName.Text.Trim()) || string.IsNullOrEmpty(txtManfAnnualCapacity.Text) || string.IsNullOrEmpty(txtManfValue.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details of Manufacture Items";
                     Failure.Visible = true;
@@ -173,7 +173,7 @@ namespace MeghalayaUIP.User.CFE
 
                     DataRow dr = dt.NewRow();
 
-                    dr["ManfItemName"] = txtManfItemName.Text;
+                    dr["ManfItemName"] = txtManfItemName.Text.Trim();
                     dr["ManfItemQuantity"] = txtManfAnnualCapacity.Text;
                     dr["ManfItemValue"] = txtManfValue.Text;
 
@@ -227,8 +227,8 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (string.IsNullOrEmpty(txtRMItemName.Text) || string.IsNullOrEmpty(txtRMAnnualCapacity.Text)
-                    || string.IsNullOrEmpty(txtRMValue.Text) || string.IsNullOrEmpty(txtRMSource.Text))
+                if (string.IsNullOrEmpty(txtRMItemName.Text.Trim()) || string.IsNullOrEmpty(txtRMAnnualCapacity.Text)
+                    || string.IsNullOrEmpty(txtRMValue.Text) || string.IsNullOrEmpty(txtRMSource.Text.Trim()))
                 {
                     lblmsg0.Text = "Please Enter All Details of Raw-Materials used";
                     Failure.Visible = true;
@@ -248,10 +248,10 @@ namespace MeghalayaUIP.User.CFE
                     }
                     DataRow dr = dt.NewRow();
 
-                    dr["RMName"] = txtRMItemName.Text;
+                    dr["RMName"] = txtRMItemName.Text.Trim();
                     dr["RMAnnualCapacity"] = txtRMAnnualCapacity.Text;
                     dr["RMValue"] = txtRMValue.Text;
-                    dr["RMSource"] = txtRMSource.Text;
+                    dr["RMSource"] = txtRMSource.Text.Trim();
 
                     dt.Rows.Add(dr);
                     gvRwaMaterial.Visible = true;
@@ -320,7 +320,7 @@ namespace MeghalayaUIP.User.CFE
                         objCFEManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objCFEManufacture.LOAID = ddlLineOfActivity.SelectedValue;
                         objCFEManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                        objCFEManufacture.ManfItemName = gvManufacture.Rows[i].Cells[1].Text;
+                        objCFEManufacture.ManfItemName = gvManufacture.Rows[i].Cells[1].Text.Trim();
                         objCFEManufacture.ManfItemAnnualCapacity = gvManufacture.Rows[i].Cells[2].Text;
                         objCFEManufacture.ManfItemValue = gvManufacture.Rows[i].Cells[3].Text;
                         objCFEManufacture.CreatedBy = hdnUserID.Value;
@@ -334,10 +334,10 @@ namespace MeghalayaUIP.User.CFE
                     {
                         objCFEManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objCFEManufacture.LOAID = ddlLineOfActivity.SelectedValue;
-                        objCFEManufacture.RMItemName = gvRwaMaterial.Rows[i].Cells[1].Text;
+                        objCFEManufacture.RMItemName = gvRwaMaterial.Rows[i].Cells[1].Text.Trim();
                         objCFEManufacture.RMItemAnnualCapacity = gvRwaMaterial.Rows[i].Cells[2].Text;
                         objCFEManufacture.RMItemValue = gvRwaMaterial.Rows[i].Cells[3].Text;
-                        objCFEManufacture.RMSourceofSupply = gvRwaMaterial.Rows[i].Cells[4].Text;
+                        objCFEManufacture.RMSourceofSupply = gvRwaMaterial.Rows[i].Cells[4].Text.Trim();
                         objCFEManufacture.CreatedBy = hdnUserID.Value;
                         objCFEManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objCFEManufacture.IPAddress = getclientIP();

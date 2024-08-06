@@ -357,8 +357,8 @@ namespace MeghalayaUIP.User.CFE
                     ObjCCFEFireDetails.DistricName = ddldistric.SelectedItem.Text;
                     ObjCCFEFireDetails.MandalName = ddlmandal.SelectedItem.Text;
                     ObjCCFEFireDetails.VillageName = ddlvillage.SelectedItem.Text;
-                    ObjCCFEFireDetails.Locality = txtLocality.Text;
-                    ObjCCFEFireDetails.Landmark = txtlandmark.Text;
+                    ObjCCFEFireDetails.Locality = txtLocality.Text.Trim();
+                    ObjCCFEFireDetails.Landmark = txtlandmark.Text.Trim();
                     ObjCCFEFireDetails.Pincode = txtpincode.Text;
                     ObjCCFEFireDetails.HeightBuilding = txtheight.Text;
                     ObjCCFEFireDetails.HeightFloor = txtheightfloor.Text;
@@ -412,12 +412,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Fire Station \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
+                if (string.IsNullOrEmpty(txtLocality.Text.Trim()) || txtLocality.Text.Trim() == "" || txtLocality.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Locality \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtlandmark.Text) || txtlandmark.Text == "" || txtlandmark.Text == null)
+                if (string.IsNullOrEmpty(txtlandmark.Text.Trim()) || txtlandmark.Text.Trim() == "" || txtlandmark.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter LandMark \\n";
                     slno = slno + 1;
