@@ -1814,7 +1814,7 @@ namespace MeghalayaUIP.User.PreReg
                     return;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { throw ex; }
 
         }
         protected void gvPromoters_RowDeleting(object sender, GridViewDeleteEventArgs e)
