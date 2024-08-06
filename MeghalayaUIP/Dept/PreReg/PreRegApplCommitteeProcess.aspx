@@ -773,7 +773,7 @@
                                                 <div class="col-sm-12">
                                                     <asp:GridView ID="grdQueries" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
