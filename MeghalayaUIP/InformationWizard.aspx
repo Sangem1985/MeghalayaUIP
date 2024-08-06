@@ -129,7 +129,7 @@
                                                                             <%# Container.DataItemIndex + 1%>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:BoundField HeaderText="APPROVALID"  DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                                                    <asp:BoundField HeaderText="APPROVALID"  DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
 
                                                                     <asp:BoundField HeaderText="Service Name" DataField="IW_APPROVALNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
                                                                     <asp:BoundField HeaderText="Department" DataField="IW_DEPTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" />
@@ -173,7 +173,7 @@
                                                     <div class="row dt-row">
                                                         <div class="col-sm-12">
 
-                                                            <table id="servicestable" class="table table-striped table-hover dataTable no-footer" style="width: 100%;" aria-describedby="servicestable_info">
+                                                            <table id="servicestable" class="table table-striped table-hover dataTable no-footer" style="width: 100%;" aria-describedby="servicestable_info" runat="server" visible="false">
                                                                 <thead style="background-color: #247BA0; color: white;">
                                                                     <tr>
                                                                         <th style="width: 60px;">Sl. No.</th>
