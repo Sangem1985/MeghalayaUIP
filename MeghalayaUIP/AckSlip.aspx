@@ -32,25 +32,32 @@
 						
 						<div class="row">
 							<div class="col-sm-12 m-b-20 text-center" style="display: flex;justify-content: center;">
-								<img alt="Logo" class="img-fluid" src="assets/admin/img/acklogo.jpg" "="">
+								<img alt="Logo" class="img-fluid" src="assets/admin/img/logo.png"/>
 							</div>
                 
 							<div class="col-sm-6 m-b-20 text-center"  style="display: flex;justify-content: center;">
 								<div class="invoice-details text-center d-flex" style="text-align: center;">
-									<h3 class="text-uppercase" style="margin-bottom: 0;"><u>ACKNOWLEDGEMENT SLIP</u></h3>
-									<h3>Registration for MIIPP</h3>
-									
+									<h3 class="text-uppercase" style="margin-bottom: 0;"><u>Application Acknowledgement</u></h3>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-12 m-b-20">
 								<ul class="list-unstyled mb-0 list-item">
-									<li>Date : <label runat="server" id="lblDate" ></label></li>
-									<li><label runat="server" id="lblEnterPrise" ></label> ,</li>
-									<li>Your intent to invest in Meghalaya has been successfully submitted to Planning, Investment Promotion and<br />Sustainable Development Department, Meghalaya.</li>
-									<li>Your Application reference number is : <label runat="server" id="lblUIDNo"><b>IMA/2024/00004</b></label></li>
+									<li>Date : <label runat="server" id="lblDate" ></label><br /><br /></li>
+									<li><label runat="server" id="lblEnterPrise" ></label></li>
+									<li>Dear Applicant,<br /><br />Your intent to invest in Meghalaya has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
+									
 								</ul>
+								<div class="col-sm-12 m-b-20 text-center"  style="display: flex;justify-content: center;">
+								<div class="invoice-details text-center d-flex" style="text-align: center;">
+									<h3 class="text-uppercase" style="margin-bottom: 0;"><u>Application Summary</u></h3>
+								</div>
+							</div>
+								<ul class="list-unstyled mb-0 list-item">
+								<li>Application Reference Number is : <label runat="server" id="lblUIDNo"><b>IMA/2024/00004</b></label><br /><br /></li>
+									<li>Your application was received by Online mode on <label runat="server" id="lblDate1" ></label>.</li>
+									</ul>
 							</div>
 						</div>
 						

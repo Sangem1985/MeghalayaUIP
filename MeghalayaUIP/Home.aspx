@@ -775,18 +775,15 @@
                         </div>
 
                         <div class="col-md-6 p-0">
-                            <a href="login.aspx">
+                            <button type="button" class="" data-toggle="modal" data-target="#exampleModal123">
                                 <img src="assets/assetsnew/images/info/indbox.png" />
                                 <div class="textinvd1">
-                                    <p class="smallinv">
-                                        Service<br />
-                                        Dashboard
-                                    </p>
+                                    <p class="smallinv">Dashboard</p>
                                 </div>
                                 <div class="invticon">
                                     <i class="fi fi-tr-dashboard-panel"></i>
                                 </div>
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div class="col-md-12 d-flex mt-2">
@@ -818,7 +815,7 @@
                             <a href="login.aspx">
                                 <img src="assets/assetsnew/images/info/indbox.png" style="margin-left: -14px;">
                                 <div class="textinvd1">
-                                    <p class="smallinv">Building Plan Status</p>
+                                    <p class="smallinv">Register Grievance/Query</p>
                                 </div>
                                 <div class="invticon">
                                     <i class="fi fi-tr-building"></i>
@@ -829,7 +826,7 @@
                             <a href="login.aspx">
                                 <img src="assets/assetsnew/images/info/indbox.png" />
                                 <div class="textinvd1">
-                                    <p class="smallinv">Track Licenses</p>
+                                    <p class="smallinv">Track Application Status</p>
                                 </div>
                                 <div class="invticon">
                                     <i class="fi fi-tr-track"></i>
@@ -845,10 +842,30 @@
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i>Investors Desk
+            <i class="fi fi-tr-admin-alt"></i> Investors Desk
         </button>
     </div>
 
-
+    <div class="modal fade" id="exampleModal123" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel123">Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          
+      </div>
+      <div class="modal-body">
+        <p>Which dashboard would you like to go?</p>
+      </div>
+      <div class="modal-footer">
+          
+        <a href="SingleWindowPortalDashboard.aspx" class="btn btn-secondary">Single Window Dashboard</a>
+        <a href="#" class="btn btn-primary">Grievance/Query Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </asp:Content>
