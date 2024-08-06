@@ -240,7 +240,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Location of the unit<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
 

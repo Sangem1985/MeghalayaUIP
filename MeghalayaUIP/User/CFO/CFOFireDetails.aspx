@@ -52,7 +52,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Business/Building *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(event)" TabIndex="1" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -72,7 +72,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Fee Amount (Note: This is an approx. value. The amount may change tentatively)*</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:TextBox ID="txtFeeAmount" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFeeAmount" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -117,7 +117,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Locality</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandline" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandline" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,7 +125,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nearest Landmark</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtSitArea" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSitArea" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,7 +133,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Pincode</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPincode" runat="server" class="form-control" onkeypress="return validatePincode(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPincode" runat="server" class="form-control" onkeypress="return validatePincode(event)" TabIndex="1" MaxLength="6"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,7 +143,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Plot Area (in Sq m)</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPlotAREA" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPlotAREA" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,7 +151,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Proposed Drive way (Breadth [in meters]) </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtBreadth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtBreadth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,7 +159,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Build up Area (in Sq m)</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtBuildupArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtBuildupArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,7 +169,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Existing or proposed Approach Road (L x B [in meters]) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtExisting" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtExisting" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -183,7 +183,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1 (a). East *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,7 +191,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">1 (a). Distance from proposed Building (in meters) *  *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtDistEast" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDistEast" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -201,7 +201,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1 (b). West *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtWest" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtWest" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">1 (b). Distance from proposed Building (in meters)*</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtDistWest" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDistWest" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -219,7 +219,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1 (c). North   *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNorth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNorth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,7 +227,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">1 (c). Distance from proposed Building (in meters) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtDistNorth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDistNorth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -237,7 +237,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1 (d). South *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtSouth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSouth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -245,7 +245,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">1 (d). Distance from proposed Building (in meters)   *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtDistSouth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDistSouth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,7 +255,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Distance from the nearest Fire Station (in meters)*</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtFire" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFire" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

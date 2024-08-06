@@ -155,7 +155,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Bank   :*</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtNameBank" runat="server" class="form-control" onkeypress="return Names(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameBank" runat="server" class="form-control" onkeypress="return Names(this)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -163,7 +163,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Turn Over (in Rs. Lakhs): *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -173,7 +173,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total Value of Works in last 3 financial years (in Rs. Lakhs): *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtFinancial" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFinancial" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

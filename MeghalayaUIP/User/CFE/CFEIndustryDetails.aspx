@@ -154,7 +154,7 @@
                                                         1. Name
                                                     <span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtPromoterName" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPromoterName" runat="server" class="form-control" onkeypress="return validateNames(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -164,7 +164,7 @@
                                                         2.
 														S/o.D/o.W/o<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtSoWoDo" runat="server" class="form-control" onkeypress="return validateNames(event)" MaxLength="50"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSoWoDo" runat="server" class="form-control" onkeypress="return validateNames(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,7 +172,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3. Email<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEmail" runat="server" class="form-control" onblur="validateEmail(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmail" runat="server" class="form-control" onblur="validateEmail(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4. Mobile No<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,7 +192,7 @@
                                                         5. Alternative Mobile
 														No <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAltMobile" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAltMobile" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,7 +202,7 @@
                                                         6. Landline Tel No
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandlineno" runat="server" class="form-control" onkeypress="validateNumberAndHyphen();" MaxLength="8"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandlineno" runat="server" class="form-control" onkeypress="validateNumberAndHyphen();" MaxLength="8" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,7 +212,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">7. Door No<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDoorNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="30"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDoorNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="30" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -220,7 +220,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">8. Locality<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" MaxLength="50"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -264,7 +264,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">12. Pincode<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return validatePincode(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -309,7 +309,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Proposed Area for Development(in Sq. mts)<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDevelopmentArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDevelopmentArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -331,7 +331,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3. Existing Width of Approach Road(in feet)<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtExstngWidth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtExstngWidth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -353,7 +353,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5. 	Extend of affected area in sq.mts<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAffectedArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="20"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAffectedArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="20" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -365,7 +365,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Architect Name <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtArchitectName" runat="server" class="form-control" onkeypress="return validateNames(event)" MaxLength="50"></asp:TextBox>
+                                                        <asp:TextBox ID="txtArchitectName" runat="server" class="form-control" onkeypress="return validateNames(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -374,7 +374,7 @@
                                                     <label class="col-lg-6 col-form-label">2. Architect License No.<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
 
-                                                        <asp:TextBox ID="txtArchitectLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="50"></asp:TextBox>
+                                                        <asp:TextBox ID="txtArchitectLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
 
                                                 </div>
@@ -383,7 +383,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3. Architect Mobile No.<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtArchitectMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
+                                                        <asp:TextBox ID="txtArchitectMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -394,7 +394,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4.Structural Engineer Name<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtStrEngnrName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="50"></asp:TextBox>
+                                                        <asp:TextBox ID="txtStrEngnrName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -402,7 +402,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5.	Structural License No.<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtStrLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="50"></asp:TextBox>
+                                                        <asp:TextBox ID="txtStrLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -410,7 +410,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">6.	Structural Mobile No<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtStrEngnrMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
+                                                        <asp:TextBox ID="txtStrEngnrMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -429,7 +429,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Direct Male<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -437,7 +437,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2.Direct Female<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtFemale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFemale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -445,7 +445,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3. Direct Other Employee<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDirectOthers" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDirectOthers" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -456,7 +456,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4. Indirect Male<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtIndirectMale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5"></asp:TextBox>
+                                                        <asp:TextBox ID="txtIndirectMale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -464,7 +464,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5. Indirect Female<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtIndirectFemale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5"></asp:TextBox>
+                                                        <asp:TextBox ID="txtIndirectFemale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -472,7 +472,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">6. Indirect Other Employee<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtInDirectOthers" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5"></asp:TextBox>
+                                                        <asp:TextBox ID="txtInDirectOthers" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -484,7 +484,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Length of road to be cut: (in mtrs) <span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtRdCutlenght" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="9"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRdCutlenght" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="9" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

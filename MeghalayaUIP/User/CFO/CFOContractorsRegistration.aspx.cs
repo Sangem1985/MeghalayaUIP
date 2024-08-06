@@ -147,7 +147,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOWorkDepartment.Director = ddlDirector.SelectedValue;
                     ObjCFOWorkDepartment.Circle = ddlCircle.SelectedValue;
                     ObjCFOWorkDepartment.Division = ddlDivision.SelectedValue;
-                    ObjCFOWorkDepartment.BankerName = txtNameBank.Text;
+                    ObjCFOWorkDepartment.BankerName = txtNameBank.Text.Trim();
                     ObjCFOWorkDepartment.Turnover = txtTurnOver.Text;
                     ObjCFOWorkDepartment.financialYear = txtFinancial.Text;
                     ObjCFOWorkDepartment.Datework = txtContractor.Text;
@@ -176,7 +176,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 int slno = 1;
 
-                if (string.IsNullOrEmpty(txtNameBank.Text) || txtNameBank.Text == "" || txtNameBank.Text == null)
+                if (string.IsNullOrEmpty(txtNameBank.Text.Trim()) || txtNameBank.Text.Trim() == "" || txtNameBank.Text.Trim() == null)
                 {
                     ErrorMsg = ErrorMsg + slno + ". Please Enter Address\\n";
                     slno = slno + 1;

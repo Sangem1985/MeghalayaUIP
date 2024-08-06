@@ -195,7 +195,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Provide Details Here (if convicted by Court of Law for a non bailable offence) :</label>
                                                         <div class="col-lg-2 d-flex">
-                                                            <asp:TextBox ID="txtDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -210,7 +210,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Brand*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -218,7 +218,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Strength(Alcohol Content)  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtStrength" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtStrength" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -226,7 +226,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Size*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtSize" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSize" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -236,7 +236,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">No. of bottles (in one case)*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtBottle" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBottle" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -244,7 +244,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">MRP (Rs.) *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtMRP" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtMRP" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -252,7 +252,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Bulk liter (in one case)*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtBulkLiter" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBulkLiter" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -262,7 +262,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">London Proof liter (in one case)*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLandonProof" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtLandonProof" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,7 +270,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Name & address of Distillery/ Brewery/Winery/Bottling Plant*</label>
                                                         <div class="col-lg-4 d-flex">
-                                                            <asp:TextBox ID="txtBottlePlant" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBottlePlant" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -377,7 +377,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Brand :</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtBrandName" runat="server" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBrandName" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="200"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -455,7 +455,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">c. Name and address of the Firm :*</label>
                                                         <div class="col-lg-4 d-flex">
-                                                            <asp:TextBox ID="txtAddress" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtAddress" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

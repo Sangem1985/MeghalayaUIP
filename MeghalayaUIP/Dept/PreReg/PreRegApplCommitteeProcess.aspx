@@ -628,14 +628,14 @@
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <HeaderStyle BackColor="Red" />
                                                             <Columns>
-                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="1%">
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" />
+                                                                <asp:BoundField HeaderText="Items" DataField="ITEMS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="left" ItemStyle-Width="40%" />
                                                                 <asp:BoundField HeaderText="YEAR1" DataField="YEAR1" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="YEAR2" DataField="YEAR2" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="YEAR3" DataField="YEAR3" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -661,7 +661,7 @@
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                             <AlternatingRowStyle BackColor="White" />
                                                             <Columns>
-                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
+                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="1px">
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
@@ -674,7 +674,7 @@
                                                                 <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%" />
                                                             </Columns>
 
                                                         </asp:GridView>
@@ -777,15 +777,17 @@
                                                         <RowStyle />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
-                                                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                            <asp:TemplateField HeaderText="SI.No" >
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Left" />
                                                                 <ItemTemplate>
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <%--<asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
+                                                            <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
+                                                            <%--<asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                           <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
                                                             <asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Raised To" DataField="QUERYRAISETO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -901,7 +903,7 @@
                                                             </asp:TemplateField>
 
                                                             <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                            <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -980,7 +982,7 @@
                                                 <td colspan="4">
                                                     <table style="width: 100%; border: none; align-content: flex-start" class="table-responsive table-hover table-bordered">
                                                         <tr>
-                                                            <th><b>Paramater Name</b></th>
+                                                            <th><b>Parameter Name</b></th>
                                                             <th><b>Applicant Data</b></th>
                                                             <th><b>Committee Value</b></th>
                                                         </tr>
@@ -992,7 +994,7 @@
                                                                 <asp:Label ID="lblApplLandArea" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1003,7 +1005,7 @@
                                                                 <asp:Label ID="lblApplPowerReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1014,7 +1016,7 @@
                                                                 <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1027,7 +1029,7 @@
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" MaxLength="8000"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1041,7 +1043,7 @@
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" MaxLength="8000"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </table>
