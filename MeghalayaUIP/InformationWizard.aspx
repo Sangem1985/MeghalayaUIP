@@ -18,8 +18,8 @@
                         <div class="col-md-12">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Services</a></li>
+                                    <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+                                    <li class="breadcrumb-item">Services</li>
                                     <li class="breadcrumb-item active" aria-current="page">Information Wizard</li>
                                 </ol>
                             </nav>
@@ -40,10 +40,10 @@
                                                 <div class="card-body justify-content-center " align="justify">
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Application Category:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Application Category :</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlModule" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
@@ -54,11 +54,21 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Department: </label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Department : </label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddldept" runat="server" class="form-control"
+                                                                            AutoPostBack="true">
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Sector :</label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -66,20 +76,11 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Sector:</label>
-                                                                    <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control"
-                                                                            AutoPostBack="true">
-                                                                        </asp:DropDownList>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Location:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Location:</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlLocation" runat="server" class="form-control">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
                                                                             <asp:ListItem Text="Rural" Value="Rural"></asp:ListItem>
@@ -88,12 +89,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Nature of Activity: </label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Nature of Activity: </label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="DropDownList2" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
@@ -103,10 +102,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Size of Firm:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Size of Firm:</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlProjectCategory" runat="server" class="form-control">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
                                                                             <asp:ListItem Text="Micro" Value="Micro"></asp:ListItem>
@@ -119,11 +118,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                       
                                                         <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Risk Category:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Risk Category:</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlPolCategory" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
@@ -135,10 +135,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Investor Type:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Investor Type:</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlInvestorType" runat="server" class="form-control">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
                                                                             <asp:ListItem Text="Domestic" Value="Domestic"></asp:ListItem>
@@ -147,12 +147,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">No of Employee:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">No of Employee:</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlEmployee" runat="server" class="form-control">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
                                                                             <asp:ListItem Text="Below 10" Value="10"></asp:ListItem>
@@ -164,6 +162,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        
                                                         <div class="col-md-12 float-left ">
                                                             <div class="form-group row justify-content-center" style="padding: 20px">
                                                                 <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
