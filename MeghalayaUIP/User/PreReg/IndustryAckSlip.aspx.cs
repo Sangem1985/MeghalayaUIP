@@ -70,7 +70,7 @@ namespace MeghalayaUIP.User.PreReg
                             }
                             if (ds.Tables[3].Rows.Count > 0)
                             {
-                                lblApplDate.Text = Convert.ToString(ds.Tables[3].Rows[0]["APPLICATIONDATE"]);
+                                lblApplDate.Text = lblApplDate1.Text = Convert.ToString(ds.Tables[3].Rows[0]["APPLICATIONDATE"]);
 
                             }
 

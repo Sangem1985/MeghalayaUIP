@@ -43,6 +43,12 @@
             background-size: contain;
             background-position: inherit;
         }
+        .fotter {
+    margin-left: 93px;
+}
+        .fotter p {
+   line-height:14px;
+}
     </style>
 </head>
 <body>
@@ -60,13 +66,13 @@
 
                         <div class="row">
                             <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
-                                <img alt="Logo" class="img-fluid" src="../../assets/admin/img/acklogo.jpg" />
+                                <img alt="Logo" class="img-fluid" src="../../assets/admin/img/logo.png" />
                             </div>
 
                             <div class="col-sm-6 m-b-20 text-center" style="display: flex; justify-content: center;">
                                 <div class="invoice-details text-center d-flex" style="text-align: center;">
-                                    <h3 class="text-uppercase" style="margin-bottom: 0;"><u>ACKNOWLEDGEMENT SLIP</u></h3>
-                                    <h3>Registration for MIIPP</h3>
+                                    <h3 class="text-uppercase" style="margin-bottom: 0;"><u>Application Acknowledgement</u></h3>
+                                    
 
                                 </div>
                             </div>
@@ -74,18 +80,57 @@
                         <div class="row">
                             <div class="col-sm-12 m-b-20">
                                 <ul class="list-unstyled mb-0 list-item">
-                                    <li>Application Date :
-                                        <asp:Label runat="server" ID="lblApplDate"></asp:Label>
+                                    <li>Date : 
+                                        <asp:Label runat="server" ID="lblApplDate"></asp:Label>,
                                     </li>
                                     <li>
                                         <label runat="server" id="lblEnterPrise"></label>
-                                        ,</li>
-                                    <li>Your Industry Registration in Meghalaya has been successfully submitted to Planning, Investment Promotion and<br />
-                                        Sustainable Development Department, Meghalaya.</li>
+                                        </li>
+                                    <li>Dear Applicant,<br />Your Request for Registration under MIIPP 2024 has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya</li>
+                                    </ul>
+                                <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
+                                <div class="invoice-details text-center d-flex" style="text-align: center;">
+                                    <h3 class="text-uppercase" style="margin-bottom: 0;"><u>Application Summary</u></h3>
+                                    
+
+                                </div>
+                            </div>
+                                <ul class="list-unstyled mb-0 list-item">
+                                    
+                                    
                                     <li>Your Application reference number is :
                                         <b>
                                             <asp:Label runat="server" ID="lblUIDNo"></asp:Label></b></li>
-                                </ul>
+                                    <li>Your application was recevied by Online mode on <asp:Label runat="server" ID="lblApplDate1"></asp:Label></li>
+
+                                    </ul>
+                                <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
+                                <div class="invoice-details text-center d-flex" style="text-align: center;">
+                                    <h3 class="text-uppercase" style="margin-bottom: 0;"><u>List of Enclosures with Applications</u></h3>
+                                    
+
+                                </div>
+                            </div>
+                                
+                                    
+                                  
+                                        <ol style="margin-left:18px;">
+                                            <li>Copy of incorporation.</li>
+                                            <li>Proof of Udyami/EMI No.</li>
+                                            <li>Copy of PAN.</li>
+                                            <li>Copy of GSTIN Certificate.</li>
+                                            <li>Proof of CIN.</li>
+                                            <li>Detailed Project Report.</li>
+                                        </ol>
+                                    
+
+                                
+                                <div class="fotter">
+                                    <p><br /><br />Regards</p>
+                                    <p><b>Invest Meghalaya Authority</b></p>
+                                    <p><b>Government of Meghalaya</b></p>
+                                    <p>Email : investmeghalayaauthority@gmail.com</p>
+                                </div>
                             </div>
                         </div>
 
