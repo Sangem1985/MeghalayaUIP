@@ -986,7 +986,7 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Authorised Representative Email \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtAuthReprLocality.Text) || txtAuthReprLocality.Text == "" || txtAuthReprLocality.Text == null)
+                if (string.IsNullOrEmpty(txtAuthReprLocality.Text.Trim()) || txtAuthReprLocality.Text.Trim() == "" || txtAuthReprLocality.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Authorised Representative Locality \\n";
                     slno = slno + 1;
@@ -1006,7 +1006,7 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Select Authorised Representative Village \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtAuthReprDoorNo.Text) || txtAuthReprDoorNo.Text == "" || txtAuthReprDoorNo.Text == null)
+                if (string.IsNullOrEmpty(txtAuthReprDoorNo.Text.Trim()) || txtAuthReprDoorNo.Text.Trim() == "" || txtAuthReprDoorNo.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Authorised Representative Door No \\n";
                     slno = slno + 1;
@@ -1025,13 +1025,13 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 if (rblLandType.SelectedValue == "Own")
                 {
-                    if (string.IsNullOrEmpty(txtPropLocDoorno.Text) || txtPropLocDoorno.Text == "" || txtPropLocDoorno.Text == null)
+                    if (string.IsNullOrEmpty(txtPropLocDoorno.Text.Trim()) || txtPropLocDoorno.Text.Trim() == "" || txtPropLocDoorno.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Unit Door number \\n";
                         slno = slno + 1;
                     }
                 }
-                if (string.IsNullOrEmpty(txtPropLocLocality.Text) || txtPropLocLocality.Text == "" || txtPropLocLocality.Text == null)
+                if (string.IsNullOrEmpty(txtPropLocLocality.Text.Trim()) || txtPropLocLocality.Text.Trim() == "" || txtPropLocLocality.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Unit Locality \\n";
                     slno = slno + 1;
@@ -1077,17 +1077,17 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 if (rblNatureofActvty.SelectedValue == "Manufacturing")
                 {
-                    if (string.IsNullOrEmpty(txtMainManf.Text) || txtMainManf.Text == "" || txtMainManf.Text == null)
+                    if (string.IsNullOrEmpty(txtMainManf.Text.Trim()) || txtMainManf.Text.Trim() == "" || txtMainManf.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Main Manufacturing Activity \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtManfprodct.Text) || txtManfprodct.Text == "" || txtManfprodct.Text == null)
+                    if (string.IsNullOrEmpty(txtManfprodct.Text.Trim()) || txtManfprodct.Text.Trim() == "" || txtManfprodct.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Product to be Manufactured \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtRawmaterial.Text) || txtRawmaterial.Text == "" || txtRawmaterial.Text == null)
+                    if (string.IsNullOrEmpty(txtRawmaterial.Text.Trim()) || txtRawmaterial.Text.Trim() == "" || txtRawmaterial.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Main Raw Materials details \\n";
                         slno = slno + 1;
@@ -1097,7 +1097,7 @@ namespace MeghalayaUIP.User.PreReg
                         errormsg = errormsg + slno + ". Please Enter Annual Capacity \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtMeasurementUnits.Text) || txtMeasurementUnits.Text == "" || txtMeasurementUnits.Text == null)
+                    if (string.IsNullOrEmpty(txtMeasurementUnits.Text.Trim()) || txtMeasurementUnits.Text.Trim() == "" || txtMeasurementUnits.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Unit of measurement \\n";
                         slno = slno + 1;
@@ -1126,12 +1126,12 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Select Line of Activity \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtWasteDetails.Text) || txtWasteDetails.Text == "" || txtWasteDetails.Text == null)
+                if (string.IsNullOrEmpty(txtWasteDetails.Text.Trim()) || txtWasteDetails.Text.Trim() == "" || txtWasteDetails.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Details of waste / effluent to be generated \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtHazWasteDetails.Text) || txtHazWasteDetails.Text == "" || txtHazWasteDetails.Text == null)
+                if (string.IsNullOrEmpty(txtHazWasteDetails.Text.Trim()) || txtHazWasteDetails.Text.Trim() == "" || txtHazWasteDetails.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Details of hazardous waste to be generated \\n";
                     slno = slno + 1;
@@ -1716,14 +1716,14 @@ namespace MeghalayaUIP.User.PreReg
                         dr["IDD_DIRECTOR_NO"] = gvPromoters.Rows.Count + 1;
                         dr["IDD_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                         dr["IDD_INVESTERID"] = hdnUserID.Value;
-                        dr["IDD_FIRSTNAME"] = txtApplFrstName.Text;
-                        dr["IDD_LASTNAME"] = txtApplLstName.Text;
+                        dr["IDD_FIRSTNAME"] = txtApplFrstName.Text.Trim();
+                        dr["IDD_LASTNAME"] = txtApplLstName.Text.Trim();
                         dr["IDD_ADNO"] = txtApplAadhar.Text;
                         dr["IDD_PAN"] = txtApplPAN.Text;
                         dr["IDD_DINNO"] = txtApplDIN.Text;
                         dr["IDD_NATIONALITY"] = ddlApplNationality.SelectedItem.Text;
-                        dr["IDD_DOORNO"] = txtApplDoorNo.Text;
-                        dr["IDD_STREET"] = txtApplStreet.Text;
+                        dr["IDD_DOORNO"] = txtApplDoorNo.Text.Trim();
+                        dr["IDD_STREET"] = txtApplStreet.Text.Trim();
                         dr["IDD_CITY"] = ddlApplVillage.SelectedValue;
                         dr["IDD_DISTRICT"] = ddlApplDist.SelectedValue;
                         dr["IDD_MANDAL"] = ddlApplTaluka.SelectedValue;
@@ -1745,20 +1745,20 @@ namespace MeghalayaUIP.User.PreReg
                             }
                             else if (ddlApplState.SelectedValue != "23")
                             {
-                                dr["IDD_DISTRICTName"] = txtApplDist.Text;
-                                dr["IDD_MANDALName"] = txtApplTaluka.Text;
-                                dr["IDD_CITYName"] = txtApplVillage.Text;
+                                dr["IDD_DISTRICTName"] = txtApplDist.Text.Trim();
+                                dr["IDD_MANDALName"] = txtApplTaluka.Text.Trim();
+                                dr["IDD_CITYName"] = txtApplVillage.Text.Trim();
                             }
 
                         }
                         else if (ddlApplCountry.SelectedValue != "78")
                         {
                             dr["IDD_STATE"] = "0";
-                            dr["IDD_STATEName"] = txtApplState.Text;
+                            dr["IDD_STATEName"] = txtApplState.Text.Trim();
 
-                            dr["IDD_DISTRICTName"] = txtApplDist.Text;
-                            dr["IDD_MANDALName"] = txtApplTaluka.Text;
-                            dr["IDD_CITYName"] = txtApplVillage.Text;
+                            dr["IDD_DISTRICTName"] = txtApplDist.Text.Trim();
+                            dr["IDD_MANDALName"] = txtApplTaluka.Text.Trim();
+                            dr["IDD_CITYName"] = txtApplVillage.Text.Trim();
                         }
 
 
@@ -1902,12 +1902,12 @@ namespace MeghalayaUIP.User.PreReg
                 int slno = 1;
                 string errormsg = "";
 
-                if (string.IsNullOrEmpty(txtApplFrstName.Text) || txtApplFrstName.Text == "" || txtApplFrstName.Text == null)
+                if (string.IsNullOrEmpty(txtApplFrstName.Text.Trim()) || txtApplFrstName.Text.Trim() == "" || txtApplFrstName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter First Name \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtApplLstName.Text) || txtApplLstName.Text == "" || txtApplLstName.Text == null)
+                if (string.IsNullOrEmpty(txtApplLstName.Text.Trim()) || txtApplLstName.Text.Trim() == "" || txtApplLstName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Last Name \\n";
                     slno = slno + 1;
@@ -1927,12 +1927,12 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Select Natonality \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtApplDoorNo.Text) || txtApplDoorNo.Text == "" || txtApplDoorNo.Text == null)
+                if (string.IsNullOrEmpty(txtApplDoorNo.Text.Trim()) || txtApplDoorNo.Text.Trim() == "" || txtApplDoorNo.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Door Number \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtApplStreet.Text) || txtApplStreet.Text == "" || txtApplStreet.Text == null)
+                if (string.IsNullOrEmpty(txtApplStreet.Text.Trim()) || txtApplStreet.Text.Trim() == "" || txtApplStreet.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Street Name \\n";
                     slno = slno + 1;
@@ -2003,22 +2003,22 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else if (ddlApplCountry.SelectedValue != "78" || ddlApplCountry.SelectedValue != "0")
                 {
-                    if (string.IsNullOrEmpty(txtApplState.Text) || txtApplState.Text == "" || txtApplState.Text == null)
+                    if (string.IsNullOrEmpty(txtApplState.Text.Trim()) || txtApplState.Text.Trim() == "" || txtApplState.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter State Name \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtApplDist.Text) || txtApplDist.Text == "" || txtApplDist.Text == null)
+                    if (string.IsNullOrEmpty(txtApplDist.Text.Trim()) || txtApplDist.Text.Trim() == "" || txtApplDist.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter District Name  \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtApplTaluka.Text) || txtApplTaluka.Text == "" || txtApplTaluka.Text == null)
+                    if (string.IsNullOrEmpty(txtApplTaluka.Text.Trim()) || txtApplTaluka.Text.Trim() == "" || txtApplTaluka.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Mandal Name \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtApplVillage.Text) || txtApplVillage.Text == "" || txtApplVillage.Text == null)
+                    if (string.IsNullOrEmpty(txtApplVillage.Text.Trim()) || txtApplVillage.Text.Trim() == "" || txtApplVillage.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Village Name \\n";
                         slno = slno + 1;
