@@ -356,7 +356,7 @@
                                                         <li><a href="InformationWizard.aspx">Information Wizard</a></li>
                                                         <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                                         <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
-                                                        <li><a href="#" target="_blank">Grievance(Query) Dashboard</a></li>
+                                                        <li><a href="#" target="_blank">Grievance/Query Dashboard</a></li>
                                                         <li><a href="ViewCertifcateDetails.aspx">Third Party Verfification</a></li>
                                                         <li><a href="OtherService.aspx">Other Services</a></li>
 

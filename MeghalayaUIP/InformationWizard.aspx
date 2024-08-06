@@ -18,8 +18,8 @@
                         <div class="col-md-12">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Services</a></li>
+                                    <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+                                    <li class="breadcrumb-item">Services</li>
                                     <li class="breadcrumb-item active" aria-current="page">Information Wizard</li>
                                 </ol>
                             </nav>
@@ -40,10 +40,10 @@
                                                 <div class="card-body justify-content-center " align="justify">
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Application Category:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Application Category :</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlModule" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
@@ -54,35 +54,20 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Department: </label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Department : </label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddldept" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Nature of Activity: </label>
-                                                                    <div class="col-lg-6 d-flex">
-                                                                        <asp:DropDownList ID="ddlNOA" runat="server" class="form-control"
-                                                                            AutoPostBack="true">
-                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
-                                                                            <asp:ListItem Text="Manufacturing" Value="Manufacturing"></asp:ListItem>
-                                                                            <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
-                                                                        </asp:DropDownList>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Sector:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Sector :</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlSector" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                         </asp:DropDownList>
@@ -91,10 +76,54 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Pollution (Risk) Category:</label>
-                                                                    <div class="col-lg-6 d-flex">
+                                                            
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Location:</label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlLocation" runat="server" class="form-control">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                            <asp:ListItem Text="Rural" Value="Rural"></asp:ListItem>
+                                                                            <asp:ListItem Text="Urban" Value="Urban"></asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Nature of Activity: </label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="DropDownList2" runat="server" class="form-control"
+                                                                            AutoPostBack="true">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                            <asp:ListItem Text="Manufacturing" Value="Manufacturing"></asp:ListItem>
+                                                                            <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Size of Firm:</label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlProjectCategory" runat="server" class="form-control">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                            <asp:ListItem Text="Micro" Value="Micro"></asp:ListItem>
+                                                                            <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
+                                                                            <asp:ListItem Text="Medium" Value="Medium"></asp:ListItem>
+                                                                            <asp:ListItem Text="Large" Value="Large"></asp:ListItem>
+                                                                            <asp:ListItem Text="Mega" Value="Mega"></asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Risk Category:</label>
+                                                                    <div class="col-lg-12 d-flex">
                                                                         <asp:DropDownList ID="ddlPolCategory" runat="server" class="form-control"
                                                                             AutoPostBack="true">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
@@ -106,7 +135,34 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Investor Type:</label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlInvestorType" runat="server" class="form-control">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                            <asp:ListItem Text="Domestic" Value="Domestic"></asp:ListItem>
+                                                                            <asp:ListItem Text="Foreign" Value="Foreign"></asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">No of Employee:</label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlEmployee" runat="server" class="form-control">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                            <asp:ListItem Text="Below 10" Value="10"></asp:ListItem>
+                                                                            <asp:ListItem Text="10 to 100" Value="100"></asp:ListItem>
+                                                                            <asp:ListItem Text="Above 100" Value=">100"></asp:ListItem>
+
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                        
                                                         <div class="col-md-12 float-left ">
                                                             <div class="form-group row justify-content-center" style="padding: 20px">
                                                                 <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
@@ -117,10 +173,10 @@
                                                                 BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
                                                                 GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="gvInfoWiz_RowDataBound"
                                                                 ShowFooter="true">
-                                                                <RowStyle  />
+                                                                <RowStyle />
                                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                                                 <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                                                                <AlternatingRowStyle BackColor="#ccccff"  />
+                                                                <AlternatingRowStyle BackColor="#ccccff" />
                                                                 <Columns>
                                                                     <asp:TemplateField HeaderText="Sl.No." ItemStyle-Width="3%">
                                                                         <HeaderStyle HorizontalAlign="Center" />
@@ -129,7 +185,7 @@
                                                                             <%# Container.DataItemIndex + 1%>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:BoundField HeaderText="APPROVALID"  DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                                                    <asp:BoundField HeaderText="APPROVALID" DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
 
                                                                     <asp:BoundField HeaderText="Service Name" DataField="IW_APPROVALNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
                                                                     <asp:BoundField HeaderText="Department" DataField="IW_DEPTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" />

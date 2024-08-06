@@ -21,8 +21,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                 string filePath = context.Request.QueryString["filePath"];
                 if (!string.IsNullOrEmpty(filePath))
                 {
-
-                    // string physicalPath = HttpContext.Current.Server.MapPath(filePath);
+                   //  string physicalPath = HttpContext.Current.Server.MapPath(filePath);
                     if (File.Exists(filePath))
                     {
                         context.Response.ContentType = "application/pdf";

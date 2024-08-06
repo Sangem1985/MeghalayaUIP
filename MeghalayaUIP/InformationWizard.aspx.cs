@@ -21,8 +21,9 @@ namespace MeghalayaUIP
                 {
                     BindDepartments();
                     BindSectors();
+                    BindInformationWizard();
                 }
-                BindInformationWizard();
+
             }
             catch (Exception ex)
             { }
@@ -115,9 +116,6 @@ namespace MeghalayaUIP
                     gvInfoWiz.DataSource = dsInfo.Tables[0];
                     gvInfoWiz.DataBind();
                 }
-
-
-
             }
             catch (Exception ex)
             { }
@@ -125,6 +123,7 @@ namespace MeghalayaUIP
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            BindInformationWizard();
 
         }
 

@@ -1078,7 +1078,7 @@
                                             <tr id="trVrfyhdng" runat="server">
                                                 <td><b>Name</b></td>
                                                 <td><b>Unit Name</b></td>
-                                                <td><b>Acknowledgement ID</b></td>
+                                                <td><b>Application ID</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Application Action</b></td>
                                                 <td id="tdRemarks" runat="server" visible="false"><b>
