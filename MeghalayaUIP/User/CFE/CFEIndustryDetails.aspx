@@ -164,7 +164,7 @@
                                                         2.
 														S/o.D/o.W/o<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtSoWoDo" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSoWoDo" runat="server" class="form-control" onkeypress="return validateNames(event)" MaxLength="50"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -309,7 +309,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Proposed Area for Development(in Sq. mts)<span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDevelopmentArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDevelopmentArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -331,7 +331,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3. Existing Width of Approach Road(in feet)<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtExstngWidth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtExstngWidth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -353,7 +353,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5. 	Extend of affected area in sq.mts<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAffectedArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAffectedArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="20"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -365,7 +365,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Architect Name <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtArchitectName" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtArchitectName" runat="server" class="form-control" onkeypress="return validateNames(event)" MaxLength="50"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -394,7 +394,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4.Structural Engineer Name<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtStrEngnrName" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtStrEngnrName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="50"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -484,7 +484,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Length of road to be cut: (in mtrs) <span class="star">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtRdCutlenght" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRdCutlenght" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="9"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

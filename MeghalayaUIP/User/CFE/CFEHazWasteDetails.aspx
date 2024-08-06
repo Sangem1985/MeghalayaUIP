@@ -71,7 +71,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Metric Tons) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtMetricTons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMetricTons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Metric Tons) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtstoredtons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtstoredtons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,7 +90,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Kilo Litre) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtwasteannum" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtwasteannum" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="8"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Kilo Litre)  *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtnature" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtnature" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
