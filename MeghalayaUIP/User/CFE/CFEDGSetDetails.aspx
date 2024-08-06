@@ -126,7 +126,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Supplier *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtSupplierName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSupplierName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,7 +134,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total Connected Load (in KW)*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtConnectedLoad" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtConnectedLoad" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1" MaxLength="6"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +142,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total Proposed Load to be Supplied from D.G. Sets (in KW)</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPropLoadfrmDGSet" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPropLoadfrmDGSet" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1" MaxLength="6"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -249,7 +249,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Supervisor *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtSuprvisorName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSuprvisorName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1" MaxLength="200"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,7 +265,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Contractor who will carry out the internal electricfication</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtContractorName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtContractorName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1" MaxLength="200"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,7 +283,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Person who will be authorized to operate the D.G Sets *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDGsetOperatorName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDGsetOperatorName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1" MaxLength="200"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -295,7 +295,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Capacity *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDGSetCapacity" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDGSetCapacity" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1" MaxLength="50"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -315,7 +315,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Power Factor *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPowerFactor" runat="server" class="form-control" Text="0.8" onkeypress="validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPowerFactor" runat="server" class="form-control" Text="0.8" onkeypress="validateNumberAndDot(event)" TabIndex="1" MaxLength="50"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -326,7 +326,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Rated Voltage (KV)  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRatedVolatge" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRatedVolatge" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -402,7 +402,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total Impedance of the system in ohm *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtTotalImpedance" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtTotalImpedance" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

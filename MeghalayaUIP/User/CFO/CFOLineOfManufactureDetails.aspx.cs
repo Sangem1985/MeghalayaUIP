@@ -176,7 +176,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtManfItemName.Text) || string.IsNullOrEmpty(txtManfAnnualCapacity.Text) || string.IsNullOrEmpty(txtManfValue.Text))
+                if (string.IsNullOrEmpty(txtManfItemName.Text.Trim()) || string.IsNullOrEmpty(txtManfAnnualCapacity.Text) || string.IsNullOrEmpty(txtManfValue.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details of Manufacture Items";
                     Failure.Visible = true;
@@ -201,7 +201,7 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFOLM_UNITID"] = Convert.ToString(ViewState["CFOUNITID"]);
                     dr["CFOLM_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOLM_CREATEDBYIP"] = getclientIP();
-                    dr["CFOLM_ITEMNAME"] = txtManfItemName.Text;
+                    dr["CFOLM_ITEMNAME"] = txtManfItemName.Text.Trim();
                     dr["CFOLM_ITEMANNUALCAPACITY"] = txtManfAnnualCapacity.Text;
                     dr["CFOLM_ITEMVALUE"] = txtManfValue.Text;
 
@@ -210,6 +210,12 @@ namespace MeghalayaUIP.User.CFO
                     gvManufacture.DataSource = dt;
                     gvManufacture.DataBind();
                     ViewState["ManufactureTable"] = dt;
+
+
+                    txtManfItemName.Text = "";
+                    txtManfAnnualCapacity.Text = "";
+                    txtManfValue.Text = "";
+
                 }
             }
             catch (Exception ex)
@@ -224,8 +230,8 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtRMItemName.Text) || string.IsNullOrEmpty(txtRMAnnualCapacity.Text)
-                    || string.IsNullOrEmpty(txtRMValue.Text) || string.IsNullOrEmpty(txtRMSource.Text))
+                if (string.IsNullOrEmpty(txtRMItemName.Text.Trim()) || string.IsNullOrEmpty(txtRMAnnualCapacity.Text)
+                    || string.IsNullOrEmpty(txtRMValue.Text) || string.IsNullOrEmpty(txtRMSource.Text.Trim()))
                 {
                     lblmsg0.Text = "Please Enter All Details of Raw-Materials used";
                     Failure.Visible = true;
@@ -251,16 +257,21 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFORM_UNITID"] = Convert.ToString(ViewState["CFOUNITID"]);
                     dr["CFORM_CREATEDBY"] = hdnUserID.Value;
                     dr["CFORM_CREATEDBYIP"] = getclientIP();
-                    dr["CFORM_ITEMNAME"] = txtRMItemName.Text;
+                    dr["CFORM_ITEMNAME"] = txtRMItemName.Text.Trim();
                     dr["CFORM_ITEMANNUALCAPACITY"] = txtRMAnnualCapacity.Text;
                     dr["CFORM_ITEMVALUE"] = txtRMValue.Text;
-                    dr["CFORM_SOURCEOFSUPPLY"] = txtRMSource.Text;
+                    dr["CFORM_SOURCEOFSUPPLY"] = txtRMSource.Text.Trim();
 
                     dt.Rows.Add(dr);
                     gvRwaMaterial.Visible = true;
                     gvRwaMaterial.DataSource = dt;
                     gvRwaMaterial.DataBind();
                     ViewState["RawMaterialTable"] = dt;
+
+                    txtRMItemName.Text = "";
+                    txtRMAnnualCapacity.Text = "";
+                    txtRMValue.Text = "";
+                    txtRMSource.Text = "";
                 }
             }
             catch (Exception ex)

@@ -436,7 +436,7 @@ namespace MeghalayaUIP.User.CFO
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             // Check TextBoxes for required values
-            if (string.IsNullOrWhiteSpace(txtName.Text))
+            if (string.IsNullOrWhiteSpace(txtName.Text.Trim()))
             {
                 ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Name of Brand', allowOutsideClick:false})", true);
                 txtName.Focus();
@@ -495,7 +495,7 @@ namespace MeghalayaUIP.User.CFO
             }
             CFOExciseBrandDetails newDetail = new CFOExciseBrandDetails();
 
-            newDetail.NameOfBrand = txtName.Text;
+            newDetail.NameOfBrand = txtName.Text.Trim();
             newDetail.Strength = txtStrength.Text;
             newDetail.Size = txtSize.Text;
             newDetail.NumberOfBottles = txtBottle.Text;
@@ -544,7 +544,7 @@ namespace MeghalayaUIP.User.CFO
             }
             else if (rblMRPRS.SelectedValue == "Y")
             {
-                if (string.IsNullOrWhiteSpace(txtBrandName.Text)) // Assuming this triggers more fields, handle accordingly
+                if (string.IsNullOrWhiteSpace(txtBrandName.Text.Trim())) // Assuming this triggers more fields, handle accordingly
                 {
                     ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'Oops...',text: 'Please enter Name of Brand', allowOutsideClick:false})", true);
                     txtBrandName.Focus();
@@ -563,7 +563,7 @@ namespace MeghalayaUIP.User.CFO
                 CountryID = ddlCountry.SelectedValue,
                 CountryName = ddlCountry.SelectedItem.Text,
                 MRPSSelection = rblMRPRS.SelectedValue,
-                BrandName = txtBrandName.Text,
+                BrandName = txtBrandName.Text.Trim(),
                 CreatedBy = hdnUserID.Value,
                 CreatedDate = DateTime.Now,
                 CreatedIp = Request.UserHostAddress,

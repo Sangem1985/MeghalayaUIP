@@ -240,7 +240,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Location of the unit<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
 
@@ -511,7 +511,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Height of the building(in Meters)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="5"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -946,7 +946,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7"></asp:TextBox></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

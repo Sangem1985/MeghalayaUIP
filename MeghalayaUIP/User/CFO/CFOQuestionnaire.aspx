@@ -95,7 +95,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Name of Unit</label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names(event)" Enabled="false"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names(event)" Enabled="false" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -183,7 +183,7 @@
 																		Extent of Land<br />
                                                                                 (in sq.m)</label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:TextBox ID="txtLandArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtLandArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -193,7 +193,7 @@
                                                                                 5. Built up
 																		Area (In Sq.m)</label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="16"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -255,7 +255,7 @@
                                                                                 10. Location
 																		of the unit</label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
 
@@ -297,7 +297,7 @@
                                                                                 1. Proposed
 																		Employment</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -305,7 +305,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Value of Land as per saleDeed(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -315,7 +315,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" onkeypress="return validateAmount(event)"  MaxLength="16" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -323,7 +323,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -439,7 +439,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>

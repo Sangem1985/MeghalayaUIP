@@ -195,7 +195,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtages.Text) || string.IsNullOrEmpty(txtFulladdress.Text) || string.IsNullOrEmpty(txtPermanent.Text) || string.IsNullOrEmpty(txtHalfDay.Text) || string.IsNullOrEmpty(txtFullDay.Text))
+                if (string.IsNullOrEmpty(txtName.Text.Trim()) || string.IsNullOrEmpty(txtages.Text) || string.IsNullOrEmpty(txtFulladdress.Text) || string.IsNullOrEmpty(txtPermanent.Text) || string.IsNullOrEmpty(txtHalfDay.Text) || string.IsNullOrEmpty(txtFullDay.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -224,7 +224,7 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFOLD_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFOLD_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOLD_CREATEDBYIP"] = getclientIP();
-                    dr["CFOLD_NAME"] = txtName.Text;
+                    dr["CFOLD_NAME"] = txtName.Text.Trim();
                     dr["CFOLD_GENDER"] = rblGender.SelectedItem.Text;
                     dr["CFOLD_AGE"] = txtages.Text;
                     dr["CFOLD_COMMUNITY"] = txtCommunity.Text;
@@ -343,7 +343,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.materials = rblmaterial.SelectedValue;
                     ObjCFOLabourDet.OwnSystem = rblinternalcontrol.SelectedValue;
                     ObjCFOLabourDet.Upload_Document = rbldocument.SelectedValue;
-                    ObjCFOLabourDet.NameManufacture = txtname1.Text;
+                    ObjCFOLabourDet.NameManufacture = txtname1.Text.Trim();
                     ObjCFOLabourDet.manufactureYear = txtfather.Text;
                     ObjCFOLabourDet.manufactureplace = txtage.Text;
                     ObjCFOLabourDet.BoilerNumber = txtBoilerNumber.Text;
@@ -379,7 +379,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.PrincipalEMP = txtprinciple.Text;
                     ObjCFOLabourDet.EstablishmentDET = txtEstablishment.Text;
                     ObjCFOLabourDet.NatureWORK = txtNature.Text;
-                    ObjCFOLabourDet.generalManagement = txtAgent.Text;
+                    ObjCFOLabourDet.generalManagement = txtAgent.Text.Trim();
                     ObjCFOLabourDet.AddressAgent = txtfathername.Text;
                     ObjCFOLabourDet.CategoryEst = ddlCategory.SelectedItem.Text;
                     ObjCFOLabourDet.NatureBusiness = txtNaturebusiness.Text;
@@ -494,7 +494,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter employed with copies of current certificate issued by a Competent Authority under the Indian Boiler Regulations, 1950? \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtname1.Text) || txtname1.Text == "" || txtname1.Text == null)
+                if (string.IsNullOrEmpty(txtname1.Text.Trim()) || txtname1.Text.Trim() == "" || txtname1.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter MANUFACTURE NAME \\n";
                     slno = slno + 1;
@@ -554,7 +554,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Working Pressure \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtOwner.Text) || txtOwner.Text == "" || txtOwner.Text == null)
+                if (string.IsNullOrEmpty(txtOwner.Text.Trim()) || txtOwner.Text.Trim() == "" || txtOwner.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name of the owner  \\n";
                     slno = slno + 1;
@@ -602,7 +602,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Place of manufacture \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtNameAgent.Text) || txtNameAgent.Text == "" || txtNameAgent.Text == null)
+                if (string.IsNullOrEmpty(txtNameAgent.Text.Trim()) || txtNameAgent.Text.Trim() == "" || txtNameAgent.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name of agent or manager\\n";
                     slno = slno + 1;
@@ -689,7 +689,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                   
                 }
-                if (string.IsNullOrEmpty(txtAgent.Text) || txtAgent.Text == "" || txtAgent.Text == null)
+                if (string.IsNullOrEmpty(txtAgent.Text.Trim()) || txtAgent.Text.Trim() == "" || txtAgent.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name of the Manager /Agent/other  \\n";
                     slno = slno + 1;

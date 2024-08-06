@@ -1073,7 +1073,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Industry Type \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtUnitLocation.Text) || txtUnitLocation.Text == "" || txtUnitLocation.Text == null)
+                if (string.IsNullOrEmpty(txtUnitLocation.Text.Trim()) || txtUnitLocation.Text.Trim() == "" || txtUnitLocation.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Location Of The Unit \\n";
                     slno = slno + 1;
