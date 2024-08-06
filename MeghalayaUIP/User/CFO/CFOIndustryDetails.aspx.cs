@@ -460,7 +460,7 @@ namespace MeghalayaUIP.User.CFO
                     objCFOComn.CompanyRegDate = txtRegDate.Text;
                     objCFOComn.FactoryType = ddlFactories.SelectedItem.Text;
 
-                    objCFOComn.AuthRep_Name = txtPromoterName.Text;
+                    objCFOComn.AuthRep_Name = txtPromoterName.Text.Trim();
                     objCFOComn.AuthRep_SoWoDo = txtSoWoDo.Text;
                     objCFOComn.AuthRep_DistrictID = ddlDistric.SelectedValue;
                     objCFOComn.AuthRep_MandalID = ddlMandal.SelectedValue;
@@ -490,9 +490,9 @@ namespace MeghalayaUIP.User.CFO
                     objCFOComn.ApprchRdType = ddlApproachRoad.SelectedValue;
                     objCFOComn.strctralLicNo = txtStrLicNo.Text;
                     objCFOComn.strctralMobileNo = txtStrEngnrMobileno.Text;
-                    objCFOComn.strctralName = txtStrEngnrName.Text;
+                    objCFOComn.strctralName = txtStrEngnrName.Text.Trim();
                     objCFOComn.ArchitechtureMobileNo = txtArchitectMobileno.Text;
-                    objCFOComn.ArchitechtureName = txtArchitectName.Text;
+                    objCFOComn.ArchitechtureName = txtArchitectName.Text.Trim();
                     objCFOComn.ArchitechtureLICNo = txtArchitectLicNo.Text;
                     objCFOComn.DevelopmentArea = txtDevelopmentArea.Text;
 
@@ -566,7 +566,7 @@ namespace MeghalayaUIP.User.CFO
                 }
 
 
-                if (string.IsNullOrEmpty(txtPromoterName.Text) || txtPromoterName.Text == "" || txtPromoterName.Text == null)
+                if (string.IsNullOrEmpty(txtPromoterName.Text.Trim()) || txtPromoterName.Text.Trim() == "" || txtPromoterName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name Promoter  \\n";
                     slno = slno + 1;
@@ -637,7 +637,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Select Differently Abled or not \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtArchitectName.Text) || txtArchitectName.Text == "" || txtArchitectName.Text == null)
+                if (string.IsNullOrEmpty(txtArchitectName.Text.Trim()) || txtArchitectName.Text.Trim() == "" || txtArchitectName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Architect Name\\n";
                     slno = slno + 1;
@@ -652,7 +652,7 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Architect Mobile No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtStrEngnrName.Text) || txtStrEngnrName.Text == "" || txtStrEngnrName.Text == null)
+                if (string.IsNullOrEmpty(txtStrEngnrName.Text.Trim()) || txtStrEngnrName.Text.Trim() == "" || txtStrEngnrName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Structural Engineer Name\\n";
                     slno = slno + 1;

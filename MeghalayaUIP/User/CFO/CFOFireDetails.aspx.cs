@@ -128,14 +128,14 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOFireDepartment.Questionnariid = Convert.ToString(Session["CFOQID"]);
                     ObjCFOFireDepartment.UnitId = Convert.ToString(Session["CFOUNITID"]);
 
-                    ObjCFOFireDepartment.BuildingName = txtName.Text;
+                    ObjCFOFireDepartment.BuildingName = txtName.Text.Trim();
                     ObjCFOFireDepartment.CategoryBuild = ddlCategory.SelectedValue;
                     ObjCFOFireDepartment.FeeAmount = txtFeeAmount.Text;
                     ObjCFOFireDepartment.District = ddlDistrict.SelectedValue;
                     ObjCFOFireDepartment.Mandal = ddlMandal.SelectedValue;
                     ObjCFOFireDepartment.Village = ddlVillage.SelectedValue;
-                    ObjCFOFireDepartment.Locality = txtLandline.Text;
-                    ObjCFOFireDepartment.Landmark = txtSitArea.Text;
+                    ObjCFOFireDepartment.Locality = txtLandline.Text.Trim();
+                    ObjCFOFireDepartment.Landmark = txtSitArea.Text.Trim();
                     ObjCFOFireDepartment.Pincode = txtPincode.Text;
                     ObjCFOFireDepartment.PlotArea = txtPlotAREA.Text;
                     ObjCFOFireDepartment.Breadth = txtBreadth.Text;
@@ -180,7 +180,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                if (string.IsNullOrEmpty(txtName.Text.Trim()) || txtName.Text.Trim() == "" || txtName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name \\n";
                     slno = slno + 1;
@@ -210,12 +210,12 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Select Village \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtLandline.Text) || txtLandline.Text == "" || txtLandline.Text == null)
+                if (string.IsNullOrEmpty(txtLandline.Text.Trim()) || txtLandline.Text.Trim() == "" || txtLandline.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Locality\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtSitArea.Text) || txtSitArea.Text == "" || txtSitArea.Text == null)
+                if (string.IsNullOrEmpty(txtSitArea.Text.Trim()) || txtSitArea.Text.Trim() == "" || txtSitArea.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter LandMark\\n";
                     slno = slno + 1;

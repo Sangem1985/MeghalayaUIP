@@ -374,7 +374,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOlegalDet.RegCurrentNo = txtcurrentReg.Text;
                     ObjCFOlegalDet.PatnershipFirm = rblFirm.SelectedValue;
                     ObjCFOlegalDet.CompanyLimited = rblLimit.SelectedValue;
-                    ObjCFOlegalDet.Name = txtName.Text;
+                    ObjCFOlegalDet.Name = txtName.Text.Trim();
                     ObjCFOlegalDet.Address = txtAddress.Text;
                     ObjCFOlegalDet.Weight = txtWeight.Text;
                     ObjCFOlegalDet.Measures = txtMeasure.Text;
@@ -399,12 +399,12 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOlegalDet.GiveDetailsin = txtDetails.Text;
                     ObjCFOlegalDet.LICState = rblLicdealer.SelectedValue;
                     ObjCFOlegalDet.Institution = rblInstitute.SelectedValue;
-                    ObjCFOlegalDet.NameBankers = txtBanker.Text;
+                    ObjCFOlegalDet.NameBankers = txtBanker.Text.Trim();
                     ObjCFOlegalDet.DetailsDet = txtGetDetails.Text;
                     ObjCFOlegalDet.stock = rblLoan.SelectedValue;
                     ObjCFOlegalDet.GetDetails = txtDetailsGET.Text;
                     ObjCFOlegalDet.repairerLic = rblRepaire.SelectedValue;
-                    ObjCFOlegalDet.results = txtResults.Text;
+                    ObjCFOlegalDet.results = txtResults.Text.Trim();
 
                     result = objcfobal.InsertCFOLegalMetrologyDetails(ObjCFOlegalDet);
                  
@@ -440,7 +440,7 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                if (string.IsNullOrEmpty(txtName.Text.Trim()) || txtName.Text.Trim() == "" || txtName.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name\\n";
                     slno = slno + 1;
@@ -630,7 +630,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblInstitute.SelectedValue == "Y")
                 {                  
-                    if (string.IsNullOrEmpty(txtBanker.Text) || txtBanker.Text == "" || txtBanker.Text == null)
+                    if (string.IsNullOrEmpty(txtBanker.Text.Trim()) || txtBanker.Text.Trim() == "" || txtBanker.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Bankers Details\\n";
                         slno = slno + 1;
@@ -664,7 +664,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblRepaire.SelectedValue == "Y")
                 {                 
-                    if (string.IsNullOrEmpty(txtResults.Text) || txtResults.Text == "" || txtResults.Text == null)
+                    if (string.IsNullOrEmpty(txtResults.Text.Trim()) || txtResults.Text.Trim() == "" || txtResults.Text.Trim() == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter with what results?\\n";
                         slno = slno + 1;

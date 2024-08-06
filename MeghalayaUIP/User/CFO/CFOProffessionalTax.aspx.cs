@@ -89,10 +89,11 @@ namespace MeghalayaUIP.User.CFO
                         txtDate.Text = ds.Tables[1].Rows[0]["CFOPT_COMMENCEDDATE"].ToString();
                         txtIncome.Text = ds.Tables[1].Rows[0]["CFOPT_ANNUALINCOME"].ToString();
                         rblBusiness.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNESTATE"].ToString();
-
+                       // rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
                         rblbusinessindia.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNECOUNTRY"].ToString();
-
+                      //  rblbusinessindia_SelectedIndexChanged(null, EventArgs.Empty);
                         rblForeign.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNEFOREIGN"].ToString();
+                      //  rblForeign_SelectedIndexChanged(null, EventArgs.Empty);
                         txtBranch.Text = ds.Tables[1].Rows[0]["CFOPT_BRANCHCERTNO"].ToString();
                         rblother.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_HADANYREG"].ToString();
                         ddlRegType.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_REGTYPE"].ToString();
@@ -132,7 +133,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblBusiness_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblBusiness.SelectedItem.Text == "Yes")
+            if (rblBusiness.SelectedValue == "Y")
             {
                 AdditionDetails.Visible = true;
                 AdditionPlace.Visible = true;
@@ -148,7 +149,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblother_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblother.SelectedItem.Text == "Yes")
+            if (rblother.SelectedValue == "Y")
             {
                 RegistrationType.Visible = true;
                 RegNo.Visible = true;
@@ -162,7 +163,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblForeign_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblForeign.SelectedItem.Text == "Yes")
+            if (rblForeign.SelectedValue == "Y")
             {
                 foreign.Visible = true;
                 country.Visible = true;
@@ -180,7 +181,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblbusinessindia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblbusinessindia.SelectedItem.Text == "Yes")
+            if (rblbusinessindia.SelectedValue == "Y")
             {
                 Added.Visible = true;
             }
@@ -288,7 +289,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOPROFESSIONALTAX.Questionnariid = Convert.ToString(Session["CFOQID"]);
                    // ObjCFOPROFESSIONALTAX.UnitId = UnitId;
 
-                    ObjCFOPROFESSIONALTAX.NameEst = txtEstDet.Text;
+                    ObjCFOPROFESSIONALTAX.NameEst = txtEstDet.Text.Trim();
                     ObjCFOPROFESSIONALTAX.AddressEst = txtaddress.Text;
                     ObjCFOPROFESSIONALTAX.DistrictEst = ddlDistric.SelectedValue;
                     ObjCFOPROFESSIONALTAX.PinCode = txtPincode.Text;
@@ -347,7 +348,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtEstDet.Text) || txtEstDet.Text == "" || txtEstDet.Text == null)
+                if (string.IsNullOrEmpty(txtEstDet.Text.Trim()) || txtEstDet.Text.Trim() == "" || txtEstDet.Text.Trim() == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Name Of Establishment \\n";
                     slno = slno + 1;
@@ -483,7 +484,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtplacebusiness.Text) || string.IsNullOrEmpty(txtadd.Text) || string.IsNullOrEmpty(txtEMP.Text))
+                if (string.IsNullOrEmpty(txtplacebusiness.Text.Trim()) || string.IsNullOrEmpty(txtadd.Text) || string.IsNullOrEmpty(txtEMP.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -509,7 +510,7 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFOPS_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["CFOPS_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOPS_CREATEDBYIP"] = getclientIP();
-                    dr["CFOPS_PLACEBUSINESS"] = txtplacebusiness.Text;
+                    dr["CFOPS_PLACEBUSINESS"] = txtplacebusiness.Text.Trim();
                     dr["CFOPS_ADDRESS"] = txtadd.Text;
                     dr["CFOPS_DISTRIC"] = ddldist.SelectedItem.Text;
                     dr["CFOPS_TOTALEMP"] = txtEMP.Text;
@@ -537,7 +538,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtBusinessplace.Text) || string.IsNullOrEmpty(txtAddeddet.Text) || string.IsNullOrEmpty(txtwork.Text))
+                if (string.IsNullOrEmpty(txtBusinessplace.Text.Trim()) || string.IsNullOrEmpty(txtAddeddet.Text) || string.IsNullOrEmpty(txtwork.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -563,7 +564,7 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFOPC_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["CFOPC_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOPC_CREATEDBYIP"] = getclientIP();
-                    dr["CFOPC_PLACEBUSINESS"] = txtBusinessplace.Text;
+                    dr["CFOPC_PLACEBUSINESS"] = txtBusinessplace.Text.Trim();
                     dr["CFOPC_ADDRESS"] = txtAddeddet.Text;
                     dr["CFOPC_STATE"] = ddlState.SelectedItem.Text;
                     dr["CFOPC_TOTALEMP"] = txtwork.Text;
@@ -591,7 +592,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtPrinciple.Text) || string.IsNullOrEmpty(txtAdded.Text) || string.IsNullOrEmpty(txtEmployee.Text) || string.IsNullOrEmpty(txtsalary.Text))
+                if (string.IsNullOrEmpty(txtPrinciple.Text.Trim()) || string.IsNullOrEmpty(txtAdded.Text) || string.IsNullOrEmpty(txtEmployee.Text.Trim()) || string.IsNullOrEmpty(txtsalary.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -617,9 +618,9 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFOPF_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["CFOPF_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOPF_CREATEDBYIP"] = getclientIP();
-                    dr["CFOPF_PRINCIPLEWORK"] = txtPrinciple.Text;
+                    dr["CFOPF_PRINCIPLEWORK"] = txtPrinciple.Text.Trim();
                     dr["CFOPF_ADDRESS"] = txtAdded.Text;
-                    dr["CFOPF_EMPNAME"] = txtEmployee.Text;
+                    dr["CFOPF_EMPNAME"] = txtEmployee.Text.Trim();
                     dr["CFOPF_MONTHLYWAGES"] = txtsalary.Text;
 
 

@@ -90,7 +90,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Holding Number *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtHolding" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHolding" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,7 +120,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Stall number *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtstall" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtstall" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,7 +141,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Details (if Yes)*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" MaxLength="400"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +187,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Fees *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtFees" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFees" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="10"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,12 +221,13 @@
                                                 <AlternatingRowStyle BackColor="White" />
                                             </asp:GridView>
                                         </div>
+
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total Amount *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAmount" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAmount" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="10"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

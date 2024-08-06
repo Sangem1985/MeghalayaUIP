@@ -439,7 +439,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtQualification.Text) || string.IsNullOrEmpty(txtExperience.Text))
+                if (string.IsNullOrEmpty(txtName.Text.Trim()) || string.IsNullOrEmpty(txtQualification.Text.Trim()) || string.IsNullOrEmpty(txtExperience.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -465,8 +465,8 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFODM_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFODM_CREATEDBY"] = hdnUserID.Value;
                     dr["CFODM_CREATEDBYIP"] = getclientIP();
-                    dr["CFODM_EMPNAME"] = txtName.Text;
-                    dr["CFODM_EMPQLFCATION"] = txtQualification.Text;
+                    dr["CFODM_EMPNAME"] = txtName.Text.Trim();
+                    dr["CFODM_EMPQLFCATION"] = txtQualification.Text.Trim();
                     dr["CFODM_EMPEXPRNC"] = txtExperience.Text;
 
 
@@ -491,7 +491,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtNameTest.Text) || string.IsNullOrEmpty(txtQualifyTest.Text) || string.IsNullOrEmpty(txtExperienceTest.Text))
+                if (string.IsNullOrEmpty(txtNameTest.Text.Trim()) || string.IsNullOrEmpty(txtQualifyTest.Text.Trim()) || string.IsNullOrEmpty(txtExperienceTest.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -517,8 +517,8 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFODT_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFODT_CREATEDBY"] = hdnUserID.Value;
                     dr["CFODT_CREATEDBYIP"] = getclientIP();
-                    dr["CFODT_EMPNAME"] = txtNameTest.Text;
-                    dr["CFODT_EMPQLFCATION"] = txtQualifyTest.Text;
+                    dr["CFODT_EMPNAME"] = txtNameTest.Text.Trim();
+                    dr["CFODT_EMPQLFCATION"] = txtQualifyTest.Text.Trim();
                     dr["CFODT_EMPEXPRNC"] = txtExperienceTest.Text;
 
 
@@ -543,7 +543,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtNameDrug.Text))
+                if (string.IsNullOrEmpty(txtNameDrug.Text.Trim()))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -568,7 +568,7 @@ namespace MeghalayaUIP.User.CFO
                     dr["CFOD_UNITID"] = Convert.ToString(Session["CFOUNITID"]);
                     dr["CFOD_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOD_CREATEDBYIP"] = getclientIP();
-                    dr["CFOD_DRUGNAME"] = txtNameDrug.Text;
+                    dr["CFOD_DRUGNAME"] = txtNameDrug.Text.Trim();
 
 
 
