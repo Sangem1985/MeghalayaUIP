@@ -541,10 +541,13 @@
     <Content Include="IntentInvest.aspx" />
     <Content Include="IntenttoInvestPrint.aspx" />
     <Content Include="IT_ITES.aspx" />
+    <Content Include="KnowYourApprovalsCFE.aspx" />
+    <Content Include="KnowYourApprovalsCFO.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="OtherService.aspx" />
     <Content Include="Power.aspx" />
+    <Content Include="RegisterGrievance.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
     <Content Include="SingleWindowPortalDashboard.aspx" />
@@ -963,6 +966,20 @@
     <Compile Include="IT_ITES.aspx.designer.cs">
       <DependentUpon>IT_ITES.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KnowYourApprovalsCFE.aspx.cs">
+      <DependentUpon>KnowYourApprovalsCFE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KnowYourApprovalsCFE.aspx.designer.cs">
+      <DependentUpon>KnowYourApprovalsCFE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KnowYourApprovalsCFO.aspx.cs">
+      <DependentUpon>KnowYourApprovalsCFO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KnowYourApprovalsCFO.aspx.designer.cs">
+      <DependentUpon>KnowYourApprovalsCFO.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -999,6 +1016,13 @@
       <DependentUpon>Power.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterGrievance.aspx.cs">
+      <DependentUpon>RegisterGrievance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterGrievance.aspx.designer.cs">
+      <DependentUpon>RegisterGrievance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -76,7 +76,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex">
-                                                            
+
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Location:</label>
@@ -118,7 +118,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                       
+
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
@@ -162,7 +162,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="col-md-12 float-left ">
                                                             <div class="form-group row justify-content-center" style="padding: 20px">
                                                                 <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
