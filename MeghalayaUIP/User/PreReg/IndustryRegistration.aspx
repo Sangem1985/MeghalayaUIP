@@ -235,7 +235,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">Registraion No <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" TabIndex="1" class="form-control" onkeypress="return validateNameAndNumbers(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" TabIndex="1" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="25" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -281,12 +281,12 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-12 d-flex">
+                                                            <div class="col-md-12 d-flex">  
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Locality <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtAuthReprLocality" class="form-control" onkeypress="return Address(event)" TabIndex="1" />
+                                                                            <asp:TextBox runat="server" ID="txtAuthReprLocality" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -328,7 +328,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Door No. <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtAuthReprDoorNo" class="form-control" onkeypress="return Address(event)" TabIndex="1" />
+                                                                            <asp:TextBox runat="server" ID="txtAuthReprDoorNo" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="20" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -364,7 +364,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Door No.</label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtPropLocDoorno" class="form-control" TabIndex="1" onkeypress="return Address(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtPropLocDoorno" class="form-control" TabIndex="1" onkeypress="return Address(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -372,7 +372,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Locality <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtPropLocLocality" class="form-control" TabIndex="1" onkeypress="return Address(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtPropLocLocality" class="form-control" TabIndex="1" onkeypress="return Address(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -453,7 +453,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Main Manufacturing Activity<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtMainManf" class="form-control" TabIndex="1" Visible="true" onkeypress="return Names(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtMainManf" class="form-control" TabIndex="1" Visible="true" onkeypress="return Names(event)" MaxLength="50" />
                                                                             <%--<asp:TextBox runat="server" ID="txtServcActvty" class="form-control" Visible="false" ></asp:TextBox> --%>
                                                                         </div>
                                                                     </div>
@@ -462,7 +462,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Main Raw Materials for the Project<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtRawmaterial" class="form-control" TabIndex="1" onkeypress="return Names(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtRawmaterial" class="form-control" TabIndex="1" onkeypress="return Names(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -471,7 +471,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label ">(If Existing) Production No.<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtProductionNo" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtProductionNo" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -481,7 +481,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Product to be Manufactured </label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtManfprodct" class="form-control" TabIndex="1" onkeypress="return Names(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtManfprodct" class="form-control" TabIndex="1" onkeypress="return Names(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -565,7 +565,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Details of Waste / Effluent to be generated<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtWasteDetails" class="form-control" TabIndex="1" onkeypress="return Names(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtWasteDetails" class="form-control" TabIndex="1" onkeypress="return Names(event)" MaxLength="100" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -573,7 +573,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Details of Hazardous Waste to be generated<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtHazWasteDetails" class="form-control" TabIndex="1" onkeypress="return Names(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtHazWasteDetails" class="form-control" TabIndex="1" onkeypress="return Names(event)" MaxLength="100" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -918,7 +918,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">First Name <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplFrstName" class="form-control" TabIndex="1" onkeypress="return Names(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtApplFrstName" class="form-control" TabIndex="1" onkeypress="return Names(this)" MaxLength="100" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -926,7 +926,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Last Name <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplLstName" class="form-control" TabIndex="1" onkeypress="return Names(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtApplLstName" class="form-control" TabIndex="1" onkeypress="return Names(this)" MaxLength="100" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -979,7 +979,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Door No. <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplDoorNo" class="form-control" TabIndex="1" onkeypress="return Address(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtApplDoorNo" class="form-control" TabIndex="1" onkeypress="return Address(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -987,7 +987,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Street <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplStreet" class="form-control" TabIndex="1" onkeypress="return Address(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtApplStreet" class="form-control" TabIndex="1" onkeypress="return Address(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1028,7 +1028,7 @@
                                                                             <asp:DropDownList runat="server" ID="ddlApplState" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplState_SelectedIndexChanged">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
-                                                                            <asp:TextBox runat="server" ID="txtApplState" class="form-control" TabIndex="1" onkeypress="return Names(event)" Visible="false"></asp:TextBox>
+                                                                            <asp:TextBox runat="server" ID="txtApplState" class="form-control" TabIndex="1" onkeypress="return Names(event)" Visible="false" MaxLength="100"></asp:TextBox>
 
                                                                         </div>
                                                                     </div>
@@ -1081,7 +1081,7 @@
                                                                         <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
 
-                                                                            <asp:TextBox runat="server" ID="txtApplDist" class="form-control" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
+                                                                            <asp:TextBox runat="server" ID="txtApplDist" class="form-control" TabIndex="1" onkeypress="return Names(event)" MaxLength="100"></asp:TextBox>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1090,7 +1090,7 @@
                                                                         <label class="col-lg-6 col-form-label">Taluka <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
 
-                                                                            <asp:TextBox runat="server" ID="txtApplTaluka" class="form-control" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
+                                                                            <asp:TextBox runat="server" ID="txtApplTaluka" class="form-control" TabIndex="1" onkeypress="return Names(event)" MaxLength="100"></asp:TextBox>
 
                                                                         </div>
                                                                     </div>
@@ -1100,7 +1100,7 @@
                                                                         <label class="col-lg-6 col-form-label">City / Town / Village <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
 
-                                                                            <asp:TextBox runat="server" ID="txtApplVillage" class="form-control" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
+                                                                            <asp:TextBox runat="server" ID="txtApplVillage" class="form-control" TabIndex="1" onkeypress="return Names(event)" MaxLength="100"></asp:TextBox>
                                                                         </div>
                                                                     </div>
                                                                 </div>
