@@ -229,7 +229,7 @@
                                                     <div class="row dt-row">
                                                         <div class="col-sm-12">
 
-                                                            <table id="servicestable" class="table table-striped table-hover dataTable no-footer" style="width: 100%;" aria-describedby="servicestable_info" runat="server" visible="false">
+                                                            <table id="servicestable" class="table table-striped table-hover dataTable no-footer" style="width: 100%;" aria-describedby="servicestable_info" runat="server" visible="true">
                                                                 <thead style="background-color: #247BA0; color: white;">
                                                                     <tr>
                                                                         <th style="width: 60px;">Sl. No.</th>

@@ -979,20 +979,20 @@ namespace MeghalayaUIP
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void btnNext3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                btnSave3_Click(sender, e);
-                if (ErrorMsg == "")
-                    Response.Redirect("~/User/CFE/CFECommonApplication.aspx");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
-        }
+        //protected void btnNext3_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        btnSave3_Click(sender, e);
+        //        if (ErrorMsg == "")
+        //            Response.Redirect("~/User/CFE/CFECommonApplication.aspx");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblmsg0.Text = ex.Message;
+        //        Failure.Visible = true;
+        //    }
+        //}
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -1326,7 +1326,9 @@ namespace MeghalayaUIP
                 }
                 else
                 {
-
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)

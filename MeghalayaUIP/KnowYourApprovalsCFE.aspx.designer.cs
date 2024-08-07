@@ -861,15 +861,6 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.Button btnSave3;
 
         /// <summary>
-        /// btnNext3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext3;
-
-        /// <summary>
         /// divApprovals control.
         /// </summary>
         /// <remarks>
