@@ -210,7 +210,7 @@ namespace MeghalayaUIP
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPCBCategory;
+        protected global::System.Web.UI.WebControls.TextBox lblPCBCategory;
 
         /// <summary>
         /// rblMIDCL control.
@@ -681,15 +681,6 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.RadioButtonList rblExciseVerification;
 
         /// <summary>
-        /// btnApprvlsReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApprvlsReq;
-
-        /// <summary>
         /// btnPreviuos3 control.
         /// </summary>
         /// <remarks>
@@ -715,6 +706,15 @@ namespace MeghalayaUIP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext3;
+
+        /// <summary>
+        /// btnApprvlsReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnApprvlsReq;
 
         /// <summary>
         /// divApprovals control.

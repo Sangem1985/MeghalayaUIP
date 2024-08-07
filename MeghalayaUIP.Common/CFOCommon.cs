@@ -70,6 +70,9 @@ namespace MeghalayaUIP.Common
         public static string InsertCFOQueryResponse = "USP_UPDATECFOAPPLQUERYRESPONSE";
 
         public static string GetCFOAttachments = "USP_GETCFOATTACHMNETS";
+
+        public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
+        public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
     }
     public class CFOExciseDetails
     {

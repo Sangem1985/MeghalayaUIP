@@ -232,5 +232,14 @@ namespace MeghalayaUIP.BAL.CFOBAL
         //---------------------CFO ATTACHMENT BINDING----------------//
         public DataSet GetCFOAttachmentsData(string userid, string UNITID)
         { return objCFODAL.GetCFOAttachmentsData(userid, UNITID); }
+
+        public string GETANNUALTURNOVER(string PMAMOUNT, string ANNUALTURNOVER)
+        {
+            return objCFODAL.GETANNUALTURNOVER(PMAMOUNT, ANNUALTURNOVER);
+        }
+        public string CFOENTERPRISETYPE(string ANNUALTURNOVER)
+        {
+            return objCFODAL.CFOENTERPRISETYPE(ANNUALTURNOVER);
+        }
     }
 }
