@@ -62,9 +62,18 @@
                                     <span class="count-name"></span>
                                     </asp:LinkButton>
                                 </div>
+                            </div>
+                            
+                             <div class="col-md-3" id="Renewal" runat="server" visible="false">
+                                <div class="card-counter danger">
+                                    <asp:LinkButton runat="server" ID="lnkrenewal" OnClick="lnkrenewal_Click">
+                                     <img src="../../assets/admin/img/poa.png" alt="logo">
+                                    <span class="count-numbers">Renewal<br /> Approval</span>
+                                    <span class="count-name"></span>
+                                    </asp:LinkButton>
+                                </div>
 
                             </div>
-
 
                         </div>
                     </div>
