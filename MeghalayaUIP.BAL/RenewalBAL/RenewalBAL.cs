@@ -177,5 +177,13 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRENApplicationDetails(UnitID, InvesterID);
         }
+        public DataTable GetRENDashboard(RENDtls ObjREN)
+        {
+            return objRENDAL.GetRENDashboard(ObjREN);
+        }
+        public DataTable GetRENDashBoardView(RENDtls ObjREN)
+        {
+            return objRENDAL.GetRENDashBoardView(ObjREN);
+        }
     }
 }

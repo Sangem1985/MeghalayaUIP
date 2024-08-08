@@ -530,6 +530,8 @@
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
+    <Content Include="Dept\Renewal\RENApplDeptView.aspx" />
+    <Content Include="Dept\Renewal\RENDeptDashboard.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -888,6 +890,20 @@
     </Compile>
     <Compile Include="Dept\Renewal\RENApplDeptProcess.aspx.designer.cs">
       <DependentUpon>RENApplDeptProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptView.aspx.cs">
+      <DependentUpon>RENApplDeptView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptView.aspx.designer.cs">
+      <DependentUpon>RENApplDeptView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENDeptDashboard.aspx.cs">
+      <DependentUpon>RENDeptDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENDeptDashboard.aspx.designer.cs">
+      <DependentUpon>RENDeptDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>
