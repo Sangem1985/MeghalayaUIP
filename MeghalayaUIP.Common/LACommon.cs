@@ -61,4 +61,28 @@ namespace MeghalayaUIP.Common
         public string WATERMANU { get; set; }
         public string SOURCEWATER { get; set; }
     }
+    public class LADeptDtls
+    {
+        public string UserName { get; set; }
+        public string UserID { get; set; }
+        public int Role { get; set; }
+        public int? status { get; set; }
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public int Stage { get; set; }
+        public string ViewStatus { get; set; }
+        public string Remarks { get; set; }
+        public int? deptid { get; set; }
+        public string DeptDesc { get; set; }
+        public string IPAddress { get; set; }
+        public string LandArea { get; set; }
+        public string Power { get; set; }
+        public string Water { get; set; }
+        public string WasteDetails { get; set; }
+        public string HazDetails { get; set; }
+        public string QuerytoDept { get; set; }
+        public string QuerytoDeptID { get; set; } // FROM IMA TO DEPT (OR) FROM COMM TO IMA OR DEPT
+        public string QueryID { get; set; }
+        public string QueryResponse { get; set; }
+    }
 }

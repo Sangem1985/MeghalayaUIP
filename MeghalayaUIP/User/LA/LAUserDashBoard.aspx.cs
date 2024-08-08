@@ -116,7 +116,7 @@ namespace MeghalayaUIP.User.LA
                 Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
                 Session["ISD_UNITID"] = lblunitId.Text;
                 Session["ISD_QDID"] = lblcfeqid.Text;
-                string newurl = "~/User/Prereg/INDLANDINDUSTRIALSHED.aspx";
+                string newurl = "~/User/LA/LAQuestionnaire.aspx";
                 Response.Redirect(newurl);
 
             }
@@ -128,15 +128,15 @@ namespace MeghalayaUIP.User.LA
 
         protected void btnView_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            //Button btn = (Button)sender;
+            //GridViewRow row = (GridViewRow)btn.NamingContainer;
 
-            Label lblunitId = (Label)row.FindControl("lblUNITID");
-            Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
-            Session["ISD_UNITID"] = lblunitId.Text;
-            Session["ISD_QDID"] = lblcfeqid.Text;
-            string newurl = "INDLANDINDUSTRIALSHED.aspx";
-            Response.Redirect(newurl);
+            //Label lblunitId = (Label)row.FindControl("lblUNITID");
+            //Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
+            //Session["ISD_UNITID"] = lblunitId.Text;
+            //Session["ISD_QDID"] = lblcfeqid.Text;
+            //string newurl = "~/User/LA/LAApplDetails.aspx";
+            //Response.Redirect(newurl);
         }
 
         protected void gvPreRegApproved_RowCreated(object sender, GridViewRowEventArgs e)
@@ -165,16 +165,36 @@ namespace MeghalayaUIP.User.LA
                     HeaderCell.Text = "Land Approvals";
                     HeaderGridRow.Cells.Add(HeaderCell);
 
-                    //HeaderCell = new TableHeaderCell();
-                    //HeaderCell.ColumnSpan = 3;
-                    //HeaderCell.RowSpan = 1;
-                    //HeaderCell.Font.Bold = true;
-                    //HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                    //HeaderCell.Text = "";
-                    //HeaderGridRow.Cells.Add(HeaderCell);
+                    HeaderCell = new TableHeaderCell();
+                    HeaderCell.ColumnSpan = 3;
+                    HeaderCell.RowSpan = 1;
+                    HeaderCell.Font.Bold = true;
+                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                    HeaderCell.Text = "";
+                    HeaderGridRow.Cells.Add(HeaderCell);
 
                     gvPreRegApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnCombndAppl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
+                Session["ISD_UNITID"] = lblunitId.Text;
+                Session["ISD_QDID"] = lblcfeqid.Text;
+                string newurl = "~/User/LA/LAApplDetails.aspx";
+                Response.Redirect(newurl);
             }
             catch (Exception ex)
             {

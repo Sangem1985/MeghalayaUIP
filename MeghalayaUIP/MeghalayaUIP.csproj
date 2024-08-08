@@ -519,6 +519,8 @@
     <Content Include="Dept\Grievance\GrievanceDeptProcess.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptView.aspx" />
     <Content Include="Dept\IntenttoInvestDashboard.aspx" />
+    <Content Include="Dept\LA\LAApplDeptProcess.aspx" />
+    <Content Include="Dept\LA\LADeptdashboard.aspx" />
     <Content Include="Dept\PreReg\demo.aspx" />
     <Content Include="Dept\PreReg\PreRegApplCommitteeDashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplCommitteeProcess.aspx" />
@@ -814,6 +816,20 @@
     </Compile>
     <Compile Include="Dept\IntenttoInvestDashboard.aspx.designer.cs">
       <DependentUpon>IntenttoInvestDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\LA\LAApplDeptProcess.aspx.cs">
+      <DependentUpon>LAApplDeptProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\LA\LAApplDeptProcess.aspx.designer.cs">
+      <DependentUpon>LAApplDeptProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\LA\LADeptdashboard.aspx.cs">
+      <DependentUpon>LADeptdashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\LA\LADeptdashboard.aspx.designer.cs">
+      <DependentUpon>LADeptdashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\PreReg\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
