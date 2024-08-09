@@ -31,23 +31,61 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UnitID = Convert.ToString(Session["UNITID"]);
+                if (Convert.ToString(Session["RENUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                else
+                {
+                    string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
+                //Session["UNITID"] = "1001";
+                //UnitID = Convert.ToString(Session["UNITID"]);
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                    BindDistricts();
-                    BindData();
+                    GetAppliedorNot();
                 }
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "", "");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "6")
+                    {
+                        BindDistricts();
+                        BindData();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            string Quesstionriids = "1001";
+           
             try
             {
                 string ErrorMsg = "", result = "";
@@ -56,9 +94,9 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     RenSafteySecurity ObjRenSafteySecurity = new RenSafteySecurity();
 
-                    ObjRenSafteySecurity.Questionnariid = Quesstionriids;
+                    ObjRenSafteySecurity.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenSafteySecurity.CreatedBy = hdnUserID.Value;
-                    ObjRenSafteySecurity.UnitId = Convert.ToString(Session["UnitID"]);
+                    ObjRenSafteySecurity.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenSafteySecurity.IPAddress = getclientIP();
                     ObjRenSafteySecurity.MIGRANTREGNO = txtMigrantRegNo.Text;
                     ObjRenSafteySecurity.DISTRICREGISSUED = ddlRegIssued.SelectedValue;

@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,6 +33,7 @@ namespace MeghalayaUIP
             {
                 lblmsg0.Text = "Oops, You've have encountered an error!!";
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindDistricts()
@@ -455,6 +457,8 @@ namespace MeghalayaUIP
             try
             {
                 ddlRegisterAs.ClearSelection();
+                ddlModule.ClearSelection();
+                txtApplcantName.Text = "";
                 txtindname.Text = "";
                 ddldept.SelectedIndex = 0;
                 txtEmail.Text = "";

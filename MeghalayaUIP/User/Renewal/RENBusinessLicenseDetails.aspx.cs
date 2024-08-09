@@ -30,22 +30,60 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UnitID = Convert.ToString(Session["UNITID"]);
+                if (Convert.ToString(Session["RENUNITID"]) != "")
+                { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                else
+                {
+                    string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
+                //Session["UNITID"] = "1001";
+                //UnitID = Convert.ToString(Session["UNITID"]);
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                    Binddata();
+                    GetAppliedorNot();
                 }
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "2", "77");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "77")
+                    {
+                        Binddata();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Renewal/RENCinemaLicenseDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Renewal/RENBusinessLicenseDetails.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            string Quesstionriids = "1001";
+           // string Quesstionriids = "1001";
             try
             {
                 string ErrorMsg = "", result = "";
@@ -54,9 +92,9 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     RenBusinessLicDetails ObjRenBusinessLic = new RenBusinessLicDetails();
 
-                    ObjRenBusinessLic.Questionnariid = Quesstionriids;
+                    ObjRenBusinessLic.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenBusinessLic.CreatedBy = hdnUserID.Value;
-                    ObjRenBusinessLic.UnitId = Convert.ToString(Session["UnitID"]);
+                    ObjRenBusinessLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenBusinessLic.IPAddress = getclientIP();
 
                     ObjRenBusinessLic.LICNO = txtLicNo.Text;

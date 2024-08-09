@@ -632,10 +632,12 @@
     <Content Include="User\Renewal\RENBusinessLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENCinemaLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
+    <Content Include="User\Renewal\RENContractRegistationDetails.aspx" />
     <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
     <Content Include="User\Renewal\RenewalServices.aspx" />
     <Content Include="User\Renewal\RENFactoriesLicense.aspx" />
     <Content Include="User\Renewal\RENIndustryDetails.aspx" />
+    <Content Include="User\Renewal\RENLegalmetrologyDetails.aspx" />
     <Content Include="User\Renewal\RENQuestionnaire.aspx" />
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
@@ -1620,6 +1622,13 @@
     <Compile Include="User\Renewal\RENContractLabourDeatils.aspx.designer.cs">
       <DependentUpon>RENContractLabourDeatils.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Renewal\RENContractRegistationDetails.aspx.cs">
+      <DependentUpon>RENContractRegistationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENContractRegistationDetails.aspx.designer.cs">
+      <DependentUpon>RENContractRegistationDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.cs">
       <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1647,6 +1656,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENIndustryDetails.aspx.designer.cs">
       <DependentUpon>RENIndustryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENLegalmetrologyDetails.aspx.cs">
+      <DependentUpon>RENLegalmetrologyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENLegalmetrologyDetails.aspx.designer.cs">
+      <DependentUpon>RENLegalmetrologyDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENQuestionnaire.aspx.cs">
       <DependentUpon>RENQuestionnaire.aspx</DependentUpon>
