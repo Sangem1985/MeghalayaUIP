@@ -162,7 +162,7 @@ namespace MeghalayaUIP
         {
             if (ddlRegisterAs.SelectedIndex <= 0)
             {
-
+                LabelHeading.Text = "";
             }
             else if (ddlRegisterAs.SelectedValue == "G")
             {
@@ -182,12 +182,32 @@ namespace MeghalayaUIP
             }
 
         }
-
         protected void ddlModule_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-
+                if (ddlModule.SelectedIndex != 0)
+                {                  
+                    
+                 
+                    if (ddlModule.SelectedValue != "0")
+                    {
+                        if (ddlModule.SelectedValue == "1" || ddlModule.SelectedValue == "7")
+                        {
+                            BindPreRegDepts();                            
+                        }
+                        if (ddlModule.SelectedValue == "2" || ddlModule.SelectedValue == "3" || ddlModule.SelectedValue == "4" ||
+                            ddlModule.SelectedValue == "5" || ddlModule.SelectedValue == "6")
+                        {
+                            BindDepartment();                            
+                        }                                            
+                    }
+                }
+                else
+                {                    
+                    ddldept.Items.Clear();
+                    AddSelect(ddldept);
+                }
             }
             catch (Exception ex)
             {
@@ -196,7 +216,6 @@ namespace MeghalayaUIP
 
             }
         }
-
         protected void ddlPreRegUnits_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtindname.Text = ddlPreRegUnits.SelectedItem.Text;
@@ -249,7 +268,7 @@ namespace MeghalayaUIP
                                     fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" ||
                                     fileType[i - 1].ToUpper().Trim() == "DWG")
                                 {
-                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value);
+                                    newPath = System.IO.Path.Combine(sFileDir, System.DateTime.Now.ToString("ddMMyyyy"));
                                     Grivance_File_Path = newPath + System.DateTime.Now.ToString("ddMMyyyyhhmmss");
                                     Grivance_File_Type = fileType[i - 1].ToUpper().Trim();
                                     Grievnace_FileName = sFileName;
@@ -290,9 +309,6 @@ namespace MeghalayaUIP
                         }
                     }
                     int j = 0;
-                    //    (string RegisterType, string ModuleType, string UIDNo, string UnitID, string UnitName, string ApplcantName,
-                    //string DistID, string Email, string Mobile, string intDeptid, string Subject, string Description, string Grivance_FilePath,
-                    //string Grivance_FileType, string GrievnaceFileName, string Createdby, string IPAddress)
                     string UnitID = "";
                     if (ddlModule.SelectedValue == "1" && ddlPreRegUnits.Items.Count > 0)
                     { UnitID = ddlPreRegUnits.SelectedValue; }
@@ -309,7 +325,7 @@ namespace MeghalayaUIP
                     j = objcommon.InsertGrievance(ddlRegisterAs.SelectedValue, ddlModule.SelectedItem.Text, "", UnitID, txtindname.Text, txtApplcantName.Text,
                         ddldist.SelectedValue, txtEmail.Text.Trim(), txtMob.Text.Trim(), ddldept.SelectedValue.ToString(),
                         txtSub.Text.Trim(), txtDesc.Text.Trim(), Grivance_File_Path, Grivance_File_Type, Grievnace_FileName,
-                       hdnUserID.Value, getclientIP());
+                       "", getclientIP());
                     if (j != 0)
                     {
                         lblmsg.Text = "Details Submited Successfully..!";
@@ -346,7 +362,7 @@ namespace MeghalayaUIP
                 string errormsg = "";
                 if (ddlRegisterAs.SelectedIndex == -1 || ddlRegisterAs.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Regester Type \\n";
+                    errormsg = errormsg + slno + ". Please Select Register Type \\n";
                     slno = slno + 1;
                 }
                 if (ddlModule.SelectedIndex == -1 || ddlModule.SelectedItem.Text == "--Select--")
@@ -438,6 +454,7 @@ namespace MeghalayaUIP
         {
             try
             {
+                ddlRegisterAs.ClearSelection();
                 txtindname.Text = "";
                 ddldept.SelectedIndex = 0;
                 txtEmail.Text = "";

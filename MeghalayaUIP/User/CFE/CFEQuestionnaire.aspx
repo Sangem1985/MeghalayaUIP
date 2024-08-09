@@ -913,7 +913,7 @@
                                                                             <tr>
                                                                                 <td>21 d.</td>
                                                                                 <td>License under Contract Labour Act (For Contractor) <span class="text-danger">*</span>
-                                                                        <br />
+                                                                                    <br />
                                                                                 </td>
                                                                                 <td>
                                                                                     <asp:RadioButtonList Style="border: none" ID="rblLabourAct" runat="server" TabIndex="1" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLabourAct_SelectedIndexChanged">
@@ -933,7 +933,7 @@
                                                                                 <td>Does your Establishment employ 05 or more contract Labour(License for Contractors) as defined in the contract labour
                                                                     <br />
                                                                                     (Regulation and Abolition) Act,1970?  <span class="text-danger">*</span>
-                                                                        <br />
+                                                                                    <br />
                                                                                 </td>
                                                                                 <td>
                                                                                     <asp:RadioButtonList Style="border: none" ID="rblForContr1970" runat="server" TabIndex="1" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblForContr1970_SelectedIndexChanged">

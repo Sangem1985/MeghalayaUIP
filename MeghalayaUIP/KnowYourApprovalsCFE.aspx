@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script src="assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <%--<script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>--%>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
@@ -110,7 +111,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Company Proposal <span class="star">*</span><span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control" >
+                                                                                <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control">
                                                                                     <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                                                                                     <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                                     <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
@@ -183,7 +184,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Sector<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="ddlSector" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged" >
+                                                                                <asp:DropDownList ID="ddlSector" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Select" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -198,7 +199,7 @@
                                                                                 7. Line of
 																		Activity<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged" >
+                                                                                <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Select" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -210,7 +211,7 @@
                                                                                 8. Pollution
 																		Category of Enterprise<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"  TabIndex="1" ></asp:TextBox>
+                                                                                <asp:TextBox ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -952,13 +953,13 @@
 
                                                                 <div class="col-md-12 d-flex mt-2" id="padding">
                                                                     <div class="col-md-2">
-                                                                        <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="true"></asp:Button>
+                                                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
+
 
                                                                     </div>
                                                                     <div class="col-md-10 text-right mb-2">
-                                                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
+                                                                        <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="true"></asp:Button>
                                                                         <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" Visible="false" />
-                                                                        <%--<asp:Button ID="btnNext3" runat="server" Text="Next" OnClick="btnNext3_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />--%>
                                                                     </div>
 
                                                                 </div>

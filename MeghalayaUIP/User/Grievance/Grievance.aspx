@@ -175,7 +175,7 @@
                                             <label class="col-lg-6 col-form-label">Subject *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtSub" runat="server" class="form-control txtbox"
-                                                    MaxLength="40" TabIndex="1" TextMode="MultiLine"
+                                                     TabIndex="1" TextMode="MultiLine"
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>

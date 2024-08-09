@@ -834,15 +834,6 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.TextBox txtContr1970wrkrs;
 
         /// <summary>
-        /// btnApprvlsReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApprvlsReq;
-
-        /// <summary>
         /// btnPreviuos3 control.
         /// </summary>
         /// <remarks>
@@ -850,6 +841,15 @@ namespace MeghalayaUIP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPreviuos3;
+
+        /// <summary>
+        /// btnApprvlsReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnApprvlsReq;
 
         /// <summary>
         /// btnSave3 control.
