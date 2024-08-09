@@ -177,7 +177,7 @@ namespace MeghalayaUIP.User.Grievance
         {
             if (ddlRegisterAs.SelectedIndex <= 0)
             {
-
+                LabelHeading.Text = "";
             }
             else if (ddlRegisterAs.SelectedValue == "G")
             {
