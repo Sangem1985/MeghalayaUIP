@@ -34,20 +34,24 @@ namespace MeghalayaUIP.BAL.LABAL
             return objLANDDAL.InsertWaterDetails(Objindustry);
         }
         public string InsertIndustrialShedDetails(LANDQUESTIONNAIRE Objindustry)
-        {   
+        {
             return objLANDDAL.InsertIndustrialShedDetails(Objindustry);
         }
         public DataSet GETIndustrialShedDetails(string userid, string UnitID)
         {
             return objLANDDAL.GETIndustrialShedDetails(userid, UnitID);
         }
-        public DataSet GetLandUserDashboard(string USERID)
+        public DataSet GetLandUserDashboard(string USERID, string UnitID)
         {
-            return objLANDDAL.GetLandUserDashboard(USERID);
+            return objLANDDAL.GetLandUserDashboard(USERID, UnitID);
         }
         public DataSet GetLandApplicationDetails(string UnitID, string InvesterID)
         {
             return objLANDDAL.GetLandApplicationDetails(UnitID, InvesterID);
+        }
+        public string SubmitLandApplication(LANDQUESTIONNAIRE Objindustry)
+        {
+            return objLANDDAL.SubmitLandApplication(Objindustry);
         }
     }
 }

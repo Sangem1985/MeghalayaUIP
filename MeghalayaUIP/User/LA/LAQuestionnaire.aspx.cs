@@ -31,16 +31,10 @@ namespace MeghalayaUIP.User.LA
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                Session["UNITID"] = "1001";
-                UnitID = Convert.ToString(Session["UNITID"]);
-                //if (Convert.ToString(Session["CFEUNITID"]) != "")
-                //{ UnitID = Convert.ToString(Session["CFEUNITID"]); }
-                //else
-                //{
-                //    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
-                //    Response.Redirect(newurl);
-                //}
-                //Page.MaintainScrollPositionOnPostBack = true;
+
+                UnitID = Convert.ToString(Session["LANDUNITID"]);
+
+                Page.MaintainScrollPositionOnPostBack = true;
                 if (!IsPostBack)
                 {
                     BindDistricts();
@@ -50,7 +44,6 @@ namespace MeghalayaUIP.User.LA
                     BindDatatype();
                     BindData();
                 }
-
             }
         }
         public void BindData()
@@ -58,7 +51,7 @@ namespace MeghalayaUIP.User.LA
             try
             {
                 DataSet ds = new DataSet();
-                ds = Objland.GETIndustrialShedDetails(hdnUserID.Value, UnitID);
+                ds = Objland.GETIndustrialShedDetails(hdnUserID.Value, Convert.ToString(Session["LANDUNITID"]));
                 if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0 || ds.Tables[3].Rows.Count > 0 || ds.Tables[4].Rows.Count > 0 || ds.Tables[5].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
@@ -70,6 +63,9 @@ namespace MeghalayaUIP.User.LA
                         ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["ISD_MANDAL"].ToString();
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["ISD_VILLAGE"].ToString();
+                        ddlname.SelectedValue= ds.Tables[0].Rows[0]["ISD_NAMEOFINUSTRIALPARK"].ToString();
+                        txtQuantum.Text= ds.Tables[0].Rows[0]["ISD_LANDREQ"].ToString();
+                        txtSheds.Text= ds.Tables[0].Rows[0]["ISD_SHEDSNO"].ToString();
                         txtEquity.Text = ds.Tables[0].Rows[0]["ISD_EQUITY"].ToString();
                         txtTermLoan.Text = ds.Tables[0].Rows[0]["ISD_LOANBANK"].ToString();
                         txtUnsecured.Text = ds.Tables[0].Rows[0]["ISD_UNSECUREDLOAN"].ToString();
@@ -82,12 +78,7 @@ namespace MeghalayaUIP.User.LA
                         txtGenerated.Text = ds.Tables[0].Rows[0]["ISD_WASTEGENERATED"].ToString();
 
                     }
-                    //if (ds.Tables[1].Rows.Count > 0)
-                    //{
-                    //    GVIndustrialArea.DataSource = ds.Tables[1];
-                    //    GVIndustrialArea.DataBind();
-                    //    GVIndustrialArea.Visible = true;
-                    //}
+
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         GVManu.DataSource = ds.Tables[2];
@@ -114,7 +105,6 @@ namespace MeghalayaUIP.User.LA
                     }
                 }
 
-
             }
             catch (Exception ex)
             {
@@ -131,7 +121,7 @@ namespace MeghalayaUIP.User.LA
                 ddlVillage.Items.Clear();
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-               
+
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -139,15 +129,11 @@ namespace MeghalayaUIP.User.LA
                     ddlDistrict.DataValueField = "DistrictId";
                     ddlDistrict.DataTextField = "DistrictName";
                     ddlDistrict.DataBind();
-
-
                 }
                 else
                 {
                     ddlDistrict.DataSource = null;
                     ddlDistrict.DataBind();
-
-
                 }
                 AddSelect(ddlDistrict);
                 AddSelect(ddlMandal);
@@ -231,7 +217,6 @@ namespace MeghalayaUIP.User.LA
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
         protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -249,7 +234,6 @@ namespace MeghalayaUIP.User.LA
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
         protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -383,9 +367,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
-       
-
         protected void btnAddManu_Click(object sender, EventArgs e)
         {
             try
@@ -435,7 +416,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnAddraw_Click(object sender, EventArgs e)
         {
             try
@@ -485,7 +465,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnAddPower_Click(object sender, EventArgs e)
         {
             try
@@ -534,7 +513,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnAdded_Click(object sender, EventArgs e)
         {
             try
@@ -583,9 +561,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
-        
-
         protected void GVManu_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
@@ -612,7 +587,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void GVRawMaterial_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
@@ -639,7 +613,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void GVPOWER_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
@@ -666,7 +639,6 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void GVWATER_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
@@ -694,10 +666,9 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            string Quesstionriids = "1001";
+            string Quesstionriids = Convert.ToString(Session["LANDQDID"]);
             try
             {
                 string ErrorMsg = "", result = "";
@@ -707,119 +678,13 @@ namespace MeghalayaUIP.User.LA
                     LANDQUESTIONNAIRE Objindustry = new LANDQUESTIONNAIRE();
 
                     int count = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
-                    //for (int i = 0; i < GVIndustrialArea.Rows.Count; i++)
-                    //{
-                    //    Objindustry.Questionnariid = Quesstionriids;
-                    //    Objindustry.CreatedBy = hdnUserID.Value;
-                    //    Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
-                    //    Objindustry.IPAddress = getclientIP();
-                    //    Objindustry.NAMEINDUSTRYPARK = GVIndustrialArea.Rows[i].Cells[1].Text;
-                    //    Objindustry.QUANTUMLAND = GVIndustrialArea.Rows[i].Cells[2].Text;
-                    //    Objindustry.SHEDSNO = GVIndustrialArea.Rows[i].Cells[3].Text;
-
-                    //    string A = Objland.InsertindustrialareaDetails(Objindustry);
-                    //    if (A != "")
-                    //    { count = count + 1; }
-                    //}
-                    //if (GVIndustrialArea.Rows.Count == count)
-                    //{
-                    //    success.Visible = true;
-                    //    lblmsg.Text = "INDUSTRIALSHEDS Details Submitted Successfully";
-                    //    string message = "alert('" + lblmsg.Text + "')";
-                    //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    //}
-
-                    for (int i = 0; i < GVManu.Rows.Count; i++)
-                    {
-                        Objindustry.Questionnariid = Quesstionriids;
-                        Objindustry.CreatedBy = hdnUserID.Value;
-                        Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
-                        Objindustry.IPAddress = getclientIP();
-                        Objindustry.NAMEPRODUCT = GVManu.Rows[i].Cells[1].Text;
-                        Objindustry.MUNUCAPACITY = GVManu.Rows[i].Cells[2].Text;
-                        Objindustry.APPROXVALUE = GVManu.Rows[i].Cells[3].Text;
-
-                        string A = Objland.InsertManufactureDetails(Objindustry);
-                        if (A != "")
-                        { count1 = count + 1; }
-                    }
-                    if (GVManu.Rows.Count == count)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "INDUSTRIALSHEDS Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-
-                    for (int i = 0; i < GVRawMaterial.Rows.Count; i++)
-                    {
-                        Objindustry.Questionnariid = Quesstionriids;
-                        Objindustry.CreatedBy = hdnUserID.Value;
-                        Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
-                        Objindustry.IPAddress = getclientIP();
-                        Objindustry.RAWMATERIALNAME = GVRawMaterial.Rows[i].Cells[1].Text;
-                        Objindustry.ANNUALCONSUMPTION = GVRawMaterial.Rows[i].Cells[2].Text;
-                        Objindustry.APPROXVALUELAKH = GVRawMaterial.Rows[i].Cells[3].Text;
-
-                        string A = Objland.InsertRawMaterial(Objindustry);
-                        if (A != "")
-                        { count2 = count + 1; }
-                    }
-                    if (GVRawMaterial.Rows.Count == count)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "INDUSTRIALSHEDS Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-
-                    for (int i = 0; i < GVPOWER.Rows.Count; i++)
-                    {
-                        Objindustry.Questionnariid = Quesstionriids;
-                        Objindustry.CreatedBy = hdnUserID.Value;
-                        Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
-                        Objindustry.IPAddress = getclientIP();
-                        Objindustry.QUANTUMENERGYLOAD = GVPOWER.Rows[i].Cells[1].Text;
-                        Objindustry.SOURCEENERGYLOAD = GVPOWER.Rows[i].Cells[2].Text;
-
-                        string A = Objland.InsertPowerdetails(Objindustry);
-                        if (A != "")
-                        { count3 = count + 1; }
-                    }
-                    if (GVPOWER.Rows.Count == count)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "INDUSTRIALSHEDS Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-
-                    for (int i = 0; i < GVWATER.Rows.Count; i++)
-                    {
-                        Objindustry.Questionnariid = Quesstionriids;
-                        Objindustry.CreatedBy = hdnUserID.Value;
-                        Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
-                        Objindustry.IPAddress = getclientIP();
-                        Objindustry.WATERMANU = GVWATER.Rows[i].Cells[1].Text;
-                        Objindustry.SOURCEWATER = GVWATER.Rows[i].Cells[2].Text;
-
-                        string A = Objland.InsertWaterDetails(Objindustry);
-                        if (A != "")
-                        { count4 = count + 1; }
-                    }
-                    if (GVWATER.Rows.Count == count)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "INDUSTRIALSHEDS Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-
                     Objindustry.Questionnariid = Quesstionriids;
                     Objindustry.CreatedBy = hdnUserID.Value;
-                    Objindustry.UnitId = Convert.ToString(Session["UnitID"]);
+                    Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                     Objindustry.IPAddress = getclientIP();
-
+                    Objindustry.NAMEINDUSTRYPARK = ddlname.SelectedValue;
+                    Objindustry.QUANTUMLAND=txtQuantum.Text;
+                    Objindustry.SHEDSNO = txtSheds.Text;
                     Objindustry.COMPANYNAME = txtUnitName.Text;
                     Objindustry.DISTRIC = ddlDistrict.SelectedValue;
                     Objindustry.MANDAL = ddlMandal.SelectedValue;
@@ -836,12 +701,82 @@ namespace MeghalayaUIP.User.LA
                     Objindustry.WASTEGENERATOR = txtGenerated.Text;
 
                     result = Objland.InsertIndustrialShedDetails(Objindustry);
+                    Session["LANDQDID"] = result;
+                    Quesstionriids = Convert.ToString(Session["LANDQDID"]);
 
                     if (result != "")
                     {
-                        success.Visible = true;
-                        lblmsg.Text = "Industrial shed Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
+                        for (int i = 0; i < GVManu.Rows.Count; i++)
+                        {
+                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.CreatedBy = hdnUserID.Value;
+                            Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
+                            Objindustry.IPAddress = getclientIP();
+                            Objindustry.NAMEPRODUCT = GVManu.Rows[i].Cells[1].Text;
+                            Objindustry.MUNUCAPACITY = GVManu.Rows[i].Cells[2].Text;
+                            Objindustry.APPROXVALUE = GVManu.Rows[i].Cells[3].Text;
+                            string A = Objland.InsertManufactureDetails(Objindustry);
+                            if (A != "")
+                            { count1 = count1 + 1; }
+                        }
+                        for (int i = 0; i < GVRawMaterial.Rows.Count; i++)
+                        {
+                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.CreatedBy = hdnUserID.Value;
+                            Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
+                            Objindustry.IPAddress = getclientIP();
+                            Objindustry.RAWMATERIALNAME = GVRawMaterial.Rows[i].Cells[1].Text;
+                            Objindustry.ANNUALCONSUMPTION = GVRawMaterial.Rows[i].Cells[2].Text;
+                            Objindustry.APPROXVALUELAKH = GVRawMaterial.Rows[i].Cells[3].Text;
+
+                            string A = Objland.InsertRawMaterial(Objindustry);
+                            if (A != "")
+                            { count2 = count2 + 1; }
+                        }
+                        for (int i = 0; i < GVPOWER.Rows.Count; i++)
+                        {
+                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.CreatedBy = hdnUserID.Value;
+                            Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
+                            Objindustry.IPAddress = getclientIP();
+                            Objindustry.QUANTUMENERGYLOAD = GVPOWER.Rows[i].Cells[1].Text;
+                            Objindustry.SOURCEENERGYLOAD = GVPOWER.Rows[i].Cells[2].Text;
+
+                            string A = Objland.InsertPowerdetails(Objindustry);
+                            if (A != "")
+                            { count3 = count3 + 1; }
+                        }
+                        for (int i = 0; i < GVWATER.Rows.Count; i++)
+                        {
+                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.CreatedBy = hdnUserID.Value;
+                            Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
+                            Objindustry.IPAddress = getclientIP();
+                            Objindustry.WATERMANU = GVWATER.Rows[i].Cells[1].Text;
+                            Objindustry.SOURCEWATER = GVWATER.Rows[i].Cells[2].Text;
+
+                            string A = Objland.InsertWaterDetails(Objindustry);
+                            if (A != "")
+                            { count4 = count4 + 1; }
+                        }
+
+
+                        if (GVManu.Rows.Count == count1 && GVRawMaterial.Rows.Count == count2 && GVPOWER.Rows.Count == count3 && GVWATER.Rows.Count == count4)
+                        {
+                            Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
+                            Objindustry.CreatedBy = hdnUserID.Value;
+                            Objindustry.Questionnariid = result;
+                            Objindustry.IPAddress= getclientIP();
+                            string Finalresult = Objland.SubmitLandApplication(Objindustry);
+                            success.Visible = true;
+                            lblmsg.Text = "Industrial shed Details Submitted Successfully";
+                            string message = "alert('" + lblmsg.Text + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        string message = "alert('" + "Some Internal Error Occured, Please try later" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
@@ -885,6 +820,16 @@ namespace MeghalayaUIP.User.LA
                     errormsg = errormsg + slno + ". Please Enter village\\n";
                     slno = slno + 1;
                 }
+                if (ddlname.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Select Industrial Shed\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtQuantum.Text) || txtQuantum.Text == "" || txtQuantum.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Quantum of land required (in square metres)\\n";
+                    slno = slno + 1;
+                }
                 if (string.IsNullOrEmpty(txtEquity.Text) || txtEquity.Text == "" || txtEquity.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Equity\\n";
@@ -922,7 +867,7 @@ namespace MeghalayaUIP.User.LA
                 }
                 if (string.IsNullOrEmpty(txtPMLakh.Text) || txtPMLakh.Text == "" || txtPMLakh.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Plant&&Machinary\\n";
+                    errormsg = errormsg + slno + ". Please Enter Plant & Machinary\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtprojectCost.Text) || txtprojectCost.Text == "" || txtprojectCost.Text == null)
@@ -935,7 +880,26 @@ namespace MeghalayaUIP.User.LA
                     errormsg = errormsg + slno + ". Please Enter Details of waste/effluent to be generated\\n";
                     slno = slno + 1;
                 }
-
+                if(GVManu.Rows.Count==0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Details of Proposed items for manufacturing and click on Add\\n";
+                    slno = slno + 1;
+                }
+                if (GVRawMaterial.Rows.Count == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Details of Proposed annual consumption of major raw material and click on Add\\n";
+                    slno = slno + 1;
+                }
+                if (GVPOWER.Rows.Count == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Details of Power requirement and click on Add\\n";
+                    slno = slno + 1;
+                }
+                if (GVWATER.Rows.Count == 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Details of Proposed requirement of water for manufacturing and click on Add\\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
             }

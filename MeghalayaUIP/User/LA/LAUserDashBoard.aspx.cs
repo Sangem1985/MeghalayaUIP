@@ -62,7 +62,7 @@ namespace MeghalayaUIP.User.LA
                     UnitID = Request.QueryString[0];
                 }
                 else UnitID = "%";
-                dsApproved = Objland.GetLandUserDashboard(hdnUserID.Value);
+                dsApproved = Objland.GetLandUserDashboard(hdnUserID.Value, UnitID);
                 if (dsApproved.Tables.Count > 0)
                 {
                     if (dsApproved.Tables[0].Rows.Count > 0)
@@ -96,7 +96,7 @@ namespace MeghalayaUIP.User.LA
                     UnitID = Request.QueryString[0];
                 else
                     UnitID = "%";
-                Response.Redirect("~/User/Dashboard/.aspx?UnitID=" + UnitID);
+                Response.Redirect("~/User/Dashboard.aspx?UnitID=" + UnitID);
 
             }
             catch (Exception ex)
@@ -113,9 +113,9 @@ namespace MeghalayaUIP.User.LA
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
                 Label lblunitId = (Label)row.FindControl("lblUNITID");
-                Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
-                Session["ISD_UNITID"] = lblunitId.Text;
-                Session["ISD_QDID"] = lblcfeqid.Text;
+                Label lblLAQID = (Label)row.FindControl("lblLAQID");
+                Session["LANDUNITID"] = lblunitId.Text;
+                Session["LANDQDID"] = lblLAQID.Text;
                 string newurl = "~/User/LA/LAQuestionnaire.aspx";
                 Response.Redirect(newurl);
 
@@ -125,63 +125,6 @@ namespace MeghalayaUIP.User.LA
                 throw ex;
             }
         }
-
-        protected void btnView_Click(object sender, EventArgs e)
-        {
-            //Button btn = (Button)sender;
-            //GridViewRow row = (GridViewRow)btn.NamingContainer;
-
-            //Label lblunitId = (Label)row.FindControl("lblUNITID");
-            //Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
-            //Session["ISD_UNITID"] = lblunitId.Text;
-            //Session["ISD_QDID"] = lblcfeqid.Text;
-            //string newurl = "~/User/LA/LAApplDetails.aspx";
-            //Response.Redirect(newurl);
-        }
-
-        protected void gvPreRegApproved_RowCreated(object sender, GridViewRowEventArgs e)
-        {
-            try
-            {
-                if (e.Row.RowType == DataControlRowType.Header)
-                {
-                    GridView HeaderGrid = (GridView)sender;
-                    GridViewRow HeaderGridRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
-
-                    TableHeaderCell HeaderCell = new TableHeaderCell();
-                    HeaderCell.ColumnSpan = 5;
-                    HeaderCell.RowSpan = 1;
-                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                    HeaderCell.Text = "";
-                    HeaderCell.Font.Bold = true;
-                    HeaderGridRow.Cells.Add(HeaderCell);
-
-
-                    HeaderCell = new TableHeaderCell();
-                    HeaderCell.ColumnSpan = 5;
-                    HeaderCell.RowSpan = 1;
-                    HeaderCell.Font.Bold = true;
-                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                    HeaderCell.Text = "Land Approvals";
-                    HeaderGridRow.Cells.Add(HeaderCell);
-
-                    HeaderCell = new TableHeaderCell();
-                    HeaderCell.ColumnSpan = 3;
-                    HeaderCell.RowSpan = 1;
-                    HeaderCell.Font.Bold = true;
-                    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
-                    HeaderCell.Text = "";
-                    HeaderGridRow.Cells.Add(HeaderCell);
-
-                    gvPreRegApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         protected void btnCombndAppl_Click(object sender, EventArgs e)
         {
             try
@@ -190,9 +133,9 @@ namespace MeghalayaUIP.User.LA
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
 
                 Label lblunitId = (Label)row.FindControl("lblUNITID");
-                Label lblcfeqid = (Label)row.FindControl("lblCFEQID");
-                Session["ISD_UNITID"] = lblunitId.Text;
-                Session["ISD_QDID"] = lblcfeqid.Text;
+                Label lblLAQID = (Label)row.FindControl("lblLAQID");
+                Session["LANDUNITID"] = lblunitId.Text;
+                Session["LANDQDID"] = lblLAQID.Text;
                 string newurl = "~/User/LA/LAApplDetails.aspx";
                 Response.Redirect(newurl);
             }
@@ -201,6 +144,63 @@ namespace MeghalayaUIP.User.LA
                 throw ex;
             }
         }
+        protected void btnView_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            Label lblunitId = (Label)row.FindControl("lblUNITID");
+            Label lblLAQID = (Label)row.FindControl("lblLAQID");
+            Session["LANDUNITID"] = lblunitId.Text;
+            Session["LANDQDID"] = lblLAQID.Text;
+            string newurl = "~/User/LA/LAApplDetails.aspx";
+            Response.Redirect(newurl);
+        }
+
+        protected void gvPreRegApproved_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                //if (e.Row.RowType == DataControlRowType.Header)
+                //{
+                //    GridView HeaderGrid = (GridView)sender;
+                //    GridViewRow HeaderGridRow = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
+
+                //    TableHeaderCell HeaderCell = new TableHeaderCell();
+                //    HeaderCell.ColumnSpan = 5;
+                //    HeaderCell.RowSpan = 1;
+                //    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                //    HeaderCell.Text = "";
+                //    HeaderCell.Font.Bold = true;
+                //    HeaderGridRow.Cells.Add(HeaderCell);
+
+
+                //    HeaderCell = new TableHeaderCell();
+                //    HeaderCell.ColumnSpan = 5;
+                //    HeaderCell.RowSpan = 1;
+                //    HeaderCell.Font.Bold = true;
+                //    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                //    HeaderCell.Text = "Land Approvals";
+                //    HeaderGridRow.Cells.Add(HeaderCell);
+
+                //    HeaderCell = new TableHeaderCell();
+                //    HeaderCell.ColumnSpan = 3;
+                //    HeaderCell.RowSpan = 1;
+                //    HeaderCell.Font.Bold = true;
+                //    HeaderCell.HorizontalAlign = HorizontalAlign.Center;
+                //    HeaderCell.Text = "";
+                //    HeaderGridRow.Cells.Add(HeaderCell);
+
+                //    gvPreRegApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);
+                //}
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         protected void gvPreRegApproved_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -210,39 +210,28 @@ namespace MeghalayaUIP.User.LA
                 {
                     int gvrcnt = gvPreRegApproved.Rows.Count;
                     Button btnApply;
-                    Button btnApprvlsReq;
-                    //  Button btnApplstatus;
-                    Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
-                    Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
-                    Label APPLSTATUS = (Label)e.Row.FindControl("lblCFEAPPLSTATUS");
+                    Button btnView;
+                    Button btnApplStatus;
+                    Label lblLandQuesnrID = (Label)e.Row.FindControl("lblLAQID");
+                    Label lblUnitId = (Label)e.Row.FindControl("lblUNITID");
+                    Label lblApplStatus = (Label)e.Row.FindControl("lblAPPLSTATUS");
+                    
+                    LinkButton linkQryRaised = (LinkButton)e.Row.FindControl("hplQueryRaised");
 
-                    HyperLink hplStatus = (HyperLink)e.Row.FindControl("hplStatus");
-                    HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
-
-                    if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/Dashboard/.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
-
-                    if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/Dashboard/.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
-
-                    int TotalStatus = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "STATUS"));
-                    Tostatus = Tostatus + TotalStatus;
+                    if (linkQryRaised.Text != "0")
+                        linkQryRaised.PostBackUrl = "~/User/Dashboard.aspx?UnitID=" + lblUnitId.Text + "&Type=QueryRaised";
 
                     int TotalQuery = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "QUERYCOUNT"));
                     TotQueryRaised = TotQueryRaised + TotalQuery;
-                    string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "STATUS"));
 
+                    string Applstatus = lblApplStatus.Text;
 
                     if (Applstatus == "" || Applstatus == null || Applstatus == "3")
                     {
                         btnApply = (Button)e.Row.FindControl("btnApplyLand");
-                        btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
-                        //btnApplstatus = (Button)e.Row.FindControl("lblCFEAPPLSTATUS");
-                        btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                                                       // btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                                                       //  btnApplstatus.Style.Add("border", "none");
-                                                       //  btnApplstatus.Style.Add("color", "black");
+                        btnView = (Button)e.Row.FindControl("btnCombndAppl");
+                        btnApplStatus = (Button)e.Row.FindControl("btnApplStatus");
+                        btnApply.Enabled = true; btnView.Enabled = false; btnApplStatus.Enabled = false;
                     }
                     else
                     {

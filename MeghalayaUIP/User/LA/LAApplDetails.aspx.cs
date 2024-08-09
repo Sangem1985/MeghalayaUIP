@@ -36,8 +36,8 @@ namespace MeghalayaUIP.User.LA
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    Session["UNITID"] = "1001";
-                    UNITID = Convert.ToString(Session["UNITID"]);
+                    
+                    UNITID = Convert.ToString(Session["LANDUNITID"]);
 
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
@@ -60,13 +60,12 @@ namespace MeghalayaUIP.User.LA
         }
         public void BindLandApplicationDetails()
         {
-            hdnUserID.Value = "1001";
             try
             {
-                if (Session["UNITID"] != null && hdnUserID.Value != null)
+                if (Session["LANDUNITID"] != null && hdnUserID.Value != null)
                 {
                     DataSet ds = new DataSet();
-                    ds = Objland.GetLandApplicationDetails(Convert.ToString(Session["UNITID"]), hdnUserID.Value);
+                    ds = Objland.GetLandApplicationDetails(Convert.ToString(Session["LANDUNITID"]), hdnUserID.Value);
 
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {

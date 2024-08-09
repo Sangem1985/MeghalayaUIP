@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 
 namespace MeghalayaUIP.DAL.LADAL
@@ -28,7 +29,7 @@ namespace MeghalayaUIP.DAL.LADAL
 
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = LANDConstants.InsertIndustryDetails;
+                //com.CommandText = LANDConstants.InsertIndustryDetails;
 
                 com.Transaction = transaction;
                 com.Connection = connection;
@@ -285,7 +286,7 @@ namespace MeghalayaUIP.DAL.LADAL
 
                 com.Parameters.AddWithValue("@ISD_CREATEDBY", Convert.ToInt32(Objindustry.CreatedBy));
                 com.Parameters.AddWithValue("@ISD_CREATEDBYIP", Objindustry.IPAddress);
-                com.Parameters.AddWithValue("@ISD_QDID", Convert.ToInt32(Objindustry.Questionnariid));
+                com.Parameters.AddWithValue("@ISD_QDID", Objindustry.Questionnariid);
                 com.Parameters.AddWithValue("@ISD_UNITID", Convert.ToInt32(Objindustry.UnitId));
 
                 com.Parameters.AddWithValue("@ISD_NAMEOFCOMPANY", Objindustry.COMPANYNAME);
@@ -302,9 +303,55 @@ namespace MeghalayaUIP.DAL.LADAL
                 com.Parameters.AddWithValue("@ISD_PMLAKH", Convert.ToDecimal(Objindustry.PMLAKH));
                 com.Parameters.AddWithValue("@ISD_PROJECTCOSTLAKH", Convert.ToDecimal(Objindustry.TOTALPROJECTCOST));
                 com.Parameters.AddWithValue("@ISD_WASTEGENERATED", Objindustry.WASTEGENERATOR);
+                com.Parameters.AddWithValue("@ISD_NAMEOFINUSTRIALPARK", Objindustry.NAMEINDUSTRYPARK);
+                com.Parameters.AddWithValue("@ISD_LANDREQ", Objindustry.QUANTUMLAND);
+                   com.Parameters.AddWithValue("@ISD_SHEDSNO", Objindustry.SHEDSNO);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string SubmitLandApplication(LANDQUESTIONNAIRE Objindustry)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = LANDConstants.SubmitLandApplication;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
 
 
 
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(Objindustry.CreatedBy));
+                com.Parameters.AddWithValue("@QDID", Convert.ToInt32(Objindustry.Questionnariid));
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Objindustry.UnitId));
+                com.Parameters.AddWithValue("@IPADDRESS",Objindustry.IPAddress);
+                
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -359,7 +406,7 @@ namespace MeghalayaUIP.DAL.LADAL
                 connection.Dispose();
             }
         }
-        public DataSet GetLandUserDashboard(string userid)
+        public DataSet GetLandUserDashboard(string userid, string unitid)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -377,6 +424,8 @@ namespace MeghalayaUIP.DAL.LADAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", unitid);
+
 
                 da.Fill(ds);
                 transaction.Commit();
