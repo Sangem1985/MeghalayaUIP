@@ -185,5 +185,15 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRENDashBoardView(ObjREN);
         }
+        public DataSet GetRenAppliedApprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        { return objRENDAL.GetRenAppliedApprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
+        public string InsertRENLegalMetrologyDetails(RenLegalMetrology objRenLegal)
+        {
+            return objRENDAL.InsertRENLegalMetrologyDetails(objRenLegal);
+        }
+        public DataSet GetRenLegalmetrologyDetails(string userid, string UnitID)
+        {
+            return objRENDAL.GetRenLegalmetrologyDetails(userid, UnitID);
+        }
     }
 }

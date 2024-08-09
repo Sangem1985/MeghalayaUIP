@@ -53,8 +53,16 @@ namespace MeghalayaUIP.Common
         public static string GetRENApplicationDet = "USP_GETRENAPPLICATIONDETAILS";
 
 
-        public static string GetRENDashBoard = "USP_RENDASHBOARDCOUNT";
+        public static string GetRENDashBoard = "USP_RENDASHBOARDCOUNT"; 
         public static string GetRENDashBoardView = "USP_RENDASHBOARDVIEW";
+
+        public static string InsertRenLegalMetrologyDet = "USP_INSRENLEGALMETROLOGYDET";
+        public static string GetLegalMetrologyDetails = "USP_GETRENLEGALMETROLOGY";
+
+        //////------------------APPLIED APPROVALS--------------///////
+
+        public static string GetAppliedApprovalIDs = "USP_GETRENAPPROVALIDS";
+
     }
 
     public class RenPublicWorK
@@ -599,5 +607,17 @@ namespace MeghalayaUIP.Common
         public string DeptDesc { get; set; }
         public string ReferenceNumber { get; set; }
         public string IPAddress { get; set; }
+    }
+    public class RenLegalMetrology
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string LICNO { get; set; }
+        public string AUTORENEWAL { get; set; }
+        public string RENEWEDDATE { get; set; }
+        public string LICVALIDDATE { get; set; }
     }
 }

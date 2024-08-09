@@ -106,6 +106,7 @@ namespace MeghalayaUIP.User.Renewal
                 {
 
                     RenApplicationDetails ObjApplicationDetails = new RenApplicationDetails();
+                    int count = 0;
                     List<RenApprovals> lstRenApprovals = new List<RenApprovals>();
                     foreach (GridViewRow row in gvRenewals.Rows)
                     {
@@ -157,6 +158,18 @@ namespace MeghalayaUIP.User.Renewal
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Failed to Apply Renewal Approvals')", true);
                         return;
                     }
+
+                  //  string A;
+                  //  if(A != "")
+                   // { count = count + 1; }
+
+                    if (gvRenewals.Rows.Count == count)
+                    {
+
+                    }
+
+
+
                 }
             }
             catch (Exception ex)
@@ -186,6 +199,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             
         }
+      
 
     }
 }

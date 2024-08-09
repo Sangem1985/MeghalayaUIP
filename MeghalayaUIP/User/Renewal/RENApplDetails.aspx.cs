@@ -33,9 +33,15 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    Session["RENUNITID"] = "1001";
-                    UnitID = Convert.ToString(Session["RENUNITID"]);
-
+                    if (Convert.ToString(Session["RENUNITID"]) != "")
+                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    else
+                    {
+                        string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+                    //Session["RENUNITID"] = "1001";
+                    //UnitID = Convert.ToString(Session["RENUNITID"]);
 
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
