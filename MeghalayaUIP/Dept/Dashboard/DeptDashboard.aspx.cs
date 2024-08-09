@@ -45,6 +45,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     prereg.Visible = false;
                     Preestablishment.Visible = true;
                     PreOperational.Visible = true;
+                    Renewal.Visible = true;
                 }
                 else
                 {
@@ -112,6 +113,16 @@ namespace MeghalayaUIP.Dept.Dashboard
         {
             string url = "~/Dept/IntenttoInvestDashboard.aspx";
             Response.Redirect(url);
+        }
+
+        protected void lnkrenewal_Click(object sender, EventArgs e)
+        {          
+            if (ObjUserInfo.Roleid == "8")
+            {
+                Renewal.Visible = true;
+                string url = "~/Dept/Renewal/RENDeptDashboard.aspx";
+                Response.Redirect(url);
+            }
         }
     }
 }

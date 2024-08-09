@@ -2132,5 +2132,102 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
         }
+        public DataTable GetRENDashboard(RENDtls ObjREN)
+        {
+            DataTable dt = new DataTable();
+            string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", ObjREN.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", ObjREN.Role);
+                if (ObjREN.deptid != null && ObjREN.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", ObjREN.deptid);
+                }
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
+        public DataTable GetRENDashBoardView(RENDtls ObjREN)
+        {
+            string valid = "";
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENDashBoardView, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENDashBoardView;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //PRD.deptid = 1;
+                //PRD.status = 4;
+                //PRD.Role = 0;
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", ObjREN.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", ObjREN.ViewStatus);
+                if (ObjREN.deptid != null && ObjREN.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", ObjREN.deptid);
+                }
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", ObjREN.Role);
+
+
+                da.Fill(dt);
+                // if (dt.Rows.Count > 0)
+                //     valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+                //// IDno = valid;
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
     }
 }

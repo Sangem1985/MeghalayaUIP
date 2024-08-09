@@ -213,7 +213,8 @@
                                                                                 8. Pollution
 																		Category of Enterprise</label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"></asp:Label>
+                                                                              <%--  <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"></asp:Label>--%>
+                                                                                  <asp:TextBox ID="lblPCBCategory" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -308,7 +309,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtPMCost" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1" AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -424,7 +425,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -916,15 +917,15 @@
                                                                 </div>
 
                                                                 <div class="col-md-12 d-flex mt-2" id="padding">
-                                                                    <div class="col-md-2">
-                                                                        <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="true"></asp:Button>
-
-                                                                    </div>
-                                                                    <div class="col-md-10 text-right mb-2">
+                                                                       <div class="col-md-2">
                                                                         <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
                                                                         <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" Visible="false" />
                                                                         <asp:Button ID="btnNext3" runat="server" Text="Next" OnClick="btnNext3_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
                                                                     </div>
+                                                                    <div class="col-md-10 text-right">
+                                                                        <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="true"></asp:Button>
+
+                                                                    </div>                                                                 
                                                                 </div>
 
                                                             </div>

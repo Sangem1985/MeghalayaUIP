@@ -848,6 +848,44 @@ namespace MeghalayaUIP
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
+
+        protected void txtPMCost_TextChanged(object sender, EventArgs e)
+        {
+            txtAnnualTurnOver_TextChanged(sender, e);
+        }
+
+        protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(txtAnnualTurnOver.Text !="" && txtPMCost.Text != "")
+                {
+                    string Res = objcfobal.GETANNUALTURNOVER(txtPMCost.Text.ToString(), txtAnnualTurnOver.Text.ToString());
+                    if (Res != "")
+                    {
+                        txtAnnualTurnOver.Text = "";
+                        string message = "alert('" + Res + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+
+                    }
+                    else
+                    {
+                        string Result = objcfobal.CFOENTERPRISETYPE(txtAnnualTurnOver.Text.ToString());
+                        if (Result != "")
+                        {
+                            lblEntCategory.Text = Result;
+
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public string Validations()
         {
             try

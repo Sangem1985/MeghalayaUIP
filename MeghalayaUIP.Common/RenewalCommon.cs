@@ -51,6 +51,10 @@ namespace MeghalayaUIP.Common
         public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
 
         public static string GetRENApplicationDet = "USP_GETRENAPPLICATIONDETAILS";
+
+
+        public static string GetRENDashBoard = "USP_RENDASHBOARDCOUNT";
+        public static string GetRENDashBoardView = "USP_RENDASHBOARDVIEW";
     }
 
     public class RenPublicWorK
@@ -575,5 +579,25 @@ namespace MeghalayaUIP.Common
         public string DeptId { get; set; }
         public string ApprovalFee { get; set; }
         public string UidNo { get; set; }
+    }
+    public class RENDtls
+    {
+        public string UserName { get; set; }
+        public string UserID { get; set; }
+        public int Role { get; set; }
+        public int? status { get; set; }
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public string Questionnaireid { get; set; }
+        public int Stage { get; set; }
+        public string ViewStatus { get; set; }
+        public string Remarks { get; set; }
+        public int? deptid { get; set; }
+        public int? ApprovalId { get; set; }
+        public string AdditionalAmount { get; set; }
+        public string PrescrutinyRejectionFlag { get; set; }
+        public string DeptDesc { get; set; }
+        public string ReferenceNumber { get; set; }
+        public string IPAddress { get; set; }
     }
 }

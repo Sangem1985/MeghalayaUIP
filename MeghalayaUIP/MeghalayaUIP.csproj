@@ -519,6 +519,8 @@
     <Content Include="Dept\Grievance\GrievanceDeptProcess.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptView.aspx" />
     <Content Include="Dept\IntenttoInvestDashboard.aspx" />
+    <Content Include="Dept\LA\LAApplDeptProcess.aspx" />
+    <Content Include="Dept\LA\LADeptdashboard.aspx" />
     <Content Include="Dept\PreReg\demo.aspx" />
     <Content Include="Dept\PreReg\PreRegApplCommitteeDashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplCommitteeProcess.aspx" />
@@ -529,7 +531,10 @@
     <Content Include="Dept\PreReg\PreRegApplIMADashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
+    <Content Include="Dept\Renewal\RENApplDeptdrill.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
+    <Content Include="Dept\Renewal\RENApplDeptView.aspx" />
+    <Content Include="Dept\Renewal\RENDeptDashboard.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -812,6 +817,20 @@
     <Compile Include="Dept\IntenttoInvestDashboard.aspx.designer.cs">
       <DependentUpon>IntenttoInvestDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dept\LA\LAApplDeptProcess.aspx.cs">
+      <DependentUpon>LAApplDeptProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\LA\LAApplDeptProcess.aspx.designer.cs">
+      <DependentUpon>LAApplDeptProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\LA\LADeptdashboard.aspx.cs">
+      <DependentUpon>LADeptdashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\LA\LADeptdashboard.aspx.designer.cs">
+      <DependentUpon>LADeptdashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dept\PreReg\demo.aspx.cs">
       <DependentUpon>demo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -882,12 +901,33 @@
     <Compile Include="Dept\PreReg\PreRegApplIMAView.aspx.designer.cs">
       <DependentUpon>PreRegApplIMAView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptdrill.aspx.cs">
+      <DependentUpon>RENApplDeptdrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptdrill.aspx.designer.cs">
+      <DependentUpon>RENApplDeptdrill.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dept\Renewal\RENApplDeptProcess.aspx.cs">
       <DependentUpon>RENApplDeptProcess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Dept\Renewal\RENApplDeptProcess.aspx.designer.cs">
       <DependentUpon>RENApplDeptProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptView.aspx.cs">
+      <DependentUpon>RENApplDeptView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENApplDeptView.aspx.designer.cs">
+      <DependentUpon>RENApplDeptView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENDeptDashboard.aspx.cs">
+      <DependentUpon>RENDeptDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Renewal\RENDeptDashboard.aspx.designer.cs">
+      <DependentUpon>RENDeptDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>
