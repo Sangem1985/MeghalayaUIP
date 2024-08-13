@@ -58,7 +58,7 @@
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Department : </label>
                                                                     <div class="col-lg-12 d-flex">
-                                                                        <asp:DropDownList ID="ddldept" runat="server" class="form-control"
+                                                                        <asp:DropDownList ID="ddldept" runat="server" class="form-control" OnSelectedIndexChanged="ddldept_SelectedIndexChanged"
                                                                             AutoPostBack="true">
                                                                         </asp:DropDownList>
                                                                     </div>
@@ -124,7 +124,7 @@
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Risk Category:</label>
                                                                     <div class="col-lg-12 d-flex">
-                                                                        <asp:DropDownList ID="ddlPolCategory" runat="server" class="form-control"
+                                                                        <asp:DropDownList ID="ddlPolCategory" runat="server" class="form-control" Enabled="false"
                                                                             AutoPostBack="true">
                                                                             <asp:ListItem Text="All" Value="%"></asp:ListItem>
                                                                             <asp:ListItem Text="White" Value="W"></asp:ListItem>

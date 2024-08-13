@@ -161,5 +161,14 @@ namespace MeghalayaUIP
             }
             catch (Exception ex) { }
         }
+
+        protected void ddldept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddldept.SelectedValue != "0")
+            { ddlPolCategory.Enabled = true; }
+            else
+                ddlPolCategory.Enabled = false;
+
+        }
     }
 }
