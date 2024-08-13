@@ -90,7 +90,9 @@ namespace MeghalayaUIP.Dept.CFO
         {
             try
             {
-                Response.Redirect("~/Dept/DeptDashboard.aspx");
+                Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
+
+                //Response.Redirect("~/Dept/DeptDashboard.aspx");
             }
             catch (Exception ex)
             {
