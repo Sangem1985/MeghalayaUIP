@@ -3,7 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-
+     <link rel="stylesheet" href="assets/admin/css/style.css">
+    <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
+    <style>
+        .page-wrapper {
+    padding-top: 15px;
+}
+    </style>
       <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -917,12 +923,13 @@
                                                                 </div>
 
                                                                 <div class="col-md-12 d-flex mt-2" id="padding">
+                                                                    <div class="col-md-7">&nbsp;</div>
                                                                        <div class="col-md-2">
                                                                         <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
                                                                         <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" Visible="false" />
                                                                         <asp:Button ID="btnNext3" runat="server" Text="Next" OnClick="btnNext3_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
                                                                     </div>
-                                                                    <div class="col-md-10 text-right">
+                                                                    <div class="col-md-3 text-right">
                                                                         <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="true"></asp:Button>
 
                                                                     </div>                                                                 
