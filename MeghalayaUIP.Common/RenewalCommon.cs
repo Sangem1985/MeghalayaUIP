@@ -63,6 +63,10 @@ namespace MeghalayaUIP.Common
 
         public static string GetAppliedApprovalIDs = "USP_GETRENAPPROVALIDS";
 
+        /////////---------PAYMENT---------/////
+
+        public static string InsertPaymentDetails = "USP_INSRENPAYMENTDETAILS";
+        public static string GetRENApprovalsAmounttoPay = "USP_GETRENAPPROVALSAMOUNTTOPAY";
     }
 
     public class RenPublicWorK
@@ -619,5 +623,22 @@ namespace MeghalayaUIP.Common
         public string AUTORENEWAL { get; set; }
         public string RENEWEDDATE { get; set; }
         public string LICVALIDDATE { get; set; }
+    }
+    public class RENPayments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string RENUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string OnlineOrderNo { get; set; }
+        public string OnlineOrderAmount { get; set; }
+        public string PaymentFlag { get; set; }
+        public string TransactionNo { get; set; }
+        public string TransactionDate { get; set; }
+        public string BankName { get; set; }
+
     }
 }

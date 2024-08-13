@@ -146,11 +146,14 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENDL_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
-                com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", ObjRenDrugLic.ExpiryDate);
+                //com.Parameters.AddWithValue("@", ObjRenDrugLic.ExpiryDate);
+                com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+
                 com.Parameters.AddWithValue("@RENDL_LICCANCEL", ObjRenDrugLic.CancelledLic);
                 com.Parameters.AddWithValue("@RENDL_LICNOSPECIFY", ObjRenDrugLic.SpecifyLicno);
                 com.Parameters.AddWithValue("@RENDL_PREMISEINSPECTION", ObjRenDrugLic.PremiseInspection);
-                com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", ObjRenDrugLic.DateInspection);
+                //com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", ObjRenDrugLic.DateInspection);
+                com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", DateTime.ParseExact(ObjRenDrugLic.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@RENDL_TOTALAMOUNT", Convert.ToInt32(ObjRenDrugLic.TotalAmount));
                 com.Parameters.AddWithValue("@RENDL_ADDITIONALFEES", Convert.ToInt32(ObjRenDrugLic.AdditionalFees));
                 com.Parameters.AddWithValue("@RENDL_LATEFEES", Convert.ToInt32(ObjRenDrugLic.LateFees));
@@ -2359,6 +2362,90 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
         }
+        public string InsertPaymentDetails(RENPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
 
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertPaymentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@RENPD_UNITID", Convert.ToInt32(objpay.UNITID));
+                com.Parameters.AddWithValue("@RENPD_RENQDID", Convert.ToInt32(objpay.Questionnareid));
+                com.Parameters.AddWithValue("@RENPD_UIDNO", objpay.RENUID);
+                com.Parameters.AddWithValue("@RENPD_DEPTID", objpay.DeptID);
+                com.Parameters.AddWithValue("@RENPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@RENPD_ONLINEORDERNO", objpay.OnlineOrderNo);
+                com.Parameters.AddWithValue("@RENPD_ONLINEAMOUNT", objpay.OnlineOrderAmount);
+                com.Parameters.AddWithValue("@RENPD_PAYMENTFLAG", objpay.PaymentFlag);
+                com.Parameters.AddWithValue("@RENPD_TRANSACTIONNO", objpay.TransactionNo);
+                com.Parameters.AddWithValue("@RENPD_BANKNAME", objpay.BankName);
+                com.Parameters.AddWithValue("@RENPD_TRANSACTIONDATE", objpay.TransactionDate);
+                com.Parameters.AddWithValue("@RENPD_CRETAEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@RENPD_CRETAEDBYIP", objpay.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetPaymentAmounttoPay(string userid, string UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENApprovalsAmounttoPay, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENApprovalsAmounttoPay;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }

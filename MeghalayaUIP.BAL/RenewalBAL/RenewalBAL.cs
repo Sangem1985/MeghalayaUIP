@@ -195,5 +195,13 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRenLegalmetrologyDetails(userid, UnitID);
         }
+        public string InsertPaymentDetails(RENPayments objpay)
+        {
+            return objRENDAL.InsertPaymentDetails(objpay);
+        }
+        public DataSet GetPaymentAmounttoPay(string userid, string UNITID)
+        {
+            return objRENDAL.GetPaymentAmounttoPay(userid, UNITID);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.RenewalBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +16,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -55,7 +56,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "16", "79");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "16", "");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -71,7 +72,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Renewal/.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Renewal/RENPaymentPage.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/Renewal/RENCinemaLicenseDetails.aspx?Previous=" + "P");
                     }
@@ -128,7 +129,7 @@ namespace MeghalayaUIP.User.Renewal
           //  string Quesstionriids = "1001";
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = Stepvalidations();
                 if (ErrorMsg == "")
                 {
@@ -404,6 +405,36 @@ namespace MeghalayaUIP.User.Renewal
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Renewal/RENPaymentPage.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Renewal/RENCinemaLicenseDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

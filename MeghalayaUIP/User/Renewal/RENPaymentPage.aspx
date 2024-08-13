@@ -1,12 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEPaymentPage.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEPaymentPage" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENPaymentPage.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENPaymentPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <nav aria-label="breadcrumb">
+      <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
+            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Renewal</a></li>
 
             <li class="breadcrumb-item active" aria-current="page">Payments Details</li>
         </ol>
@@ -79,7 +78,7 @@
                                     <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
                                         <ItemStyle Width="180px" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="CFEDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
+                                    <asp:BoundField DataField="RENDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
                                         <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                         <HeaderStyle HorizontalAlign="Right" />
                                         <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Center" />
@@ -88,12 +87,12 @@
 
                                     <asp:TemplateField HeaderText="Approval ID" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("CFEDA_APPROVALID") %>'></asp:Label>
+                                            <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("RENDA_APPROVALID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("CFEDA_DEPTID") %>'></asp:Label>
+                                            <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("RENDA_DEPTID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -146,5 +145,4 @@
         </div>
 
     </div>
- 
 </asp:Content>

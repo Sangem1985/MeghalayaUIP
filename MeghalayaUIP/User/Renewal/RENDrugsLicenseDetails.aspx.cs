@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.RenewalBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +16,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -54,11 +55,11 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "", "");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "8", "");
 
                 if(ds.Tables[0].Rows.Count > 0)
                 {
-                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "6")
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "62")
                     {
                         Binddata();
                     }
@@ -73,10 +74,12 @@ namespace MeghalayaUIP.User.Renewal
                             Response.Redirect("~/User/Renewal/RenewalServices.aspx?Previous=" + "P");
                     }
                 }
+              
             }
             catch(Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -291,10 +294,10 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            string Quesstionriids = "1001";
+           // string Quesstionriids = "1001";
             try
             {
-                string ErrorMsg = "", result = "";
+                string  result = "";
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
@@ -426,11 +429,17 @@ namespace MeghalayaUIP.User.Renewal
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
             }
             catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations()
@@ -688,6 +697,36 @@ namespace MeghalayaUIP.User.Renewal
                 DateInsp.Visible = true;
             }
             else { DateInsp.Visible = false; }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Renewal/RENBoilerDetails.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Renewal/RenewalServices.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

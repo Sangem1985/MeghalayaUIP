@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.RenewalBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,7 +18,7 @@ namespace MeghalayaUIP.User.Renewal
 
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID;
+        string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -56,11 +57,11 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "", "");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "10", "");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "6")
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "68")
                     {
                         BindDistricts();
                         BindData();
@@ -71,9 +72,9 @@ namespace MeghalayaUIP.User.Renewal
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Renewal/RENBoilerDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails.aspx?Previous=" + "P");
                     }
                 }
             }
@@ -88,7 +89,7 @@ namespace MeghalayaUIP.User.Renewal
            
             try
             {
-                string ErrorMsg = "", result = "";
+                string result = "";
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
@@ -354,6 +355,37 @@ namespace MeghalayaUIP.User.Renewal
                 throw ex;
             }
         }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Renewal/RENBoilerDetails.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public void BindData()
         {
             try

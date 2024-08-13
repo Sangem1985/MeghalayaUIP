@@ -638,6 +638,7 @@
     <Content Include="User\Renewal\RENFactoriesLicense.aspx" />
     <Content Include="User\Renewal\RENIndustryDetails.aspx" />
     <Content Include="User\Renewal\RENLegalmetrologyDetails.aspx" />
+    <Content Include="User\Renewal\RENPaymentPage.aspx" />
     <Content Include="User\Renewal\RENQuestionnaire.aspx" />
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
@@ -1663,6 +1664,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENLegalmetrologyDetails.aspx.designer.cs">
       <DependentUpon>RENLegalmetrologyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENPaymentPage.aspx.cs">
+      <DependentUpon>RENPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENPaymentPage.aspx.designer.cs">
+      <DependentUpon>RENPaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENQuestionnaire.aspx.cs">
       <DependentUpon>RENQuestionnaire.aspx</DependentUpon>

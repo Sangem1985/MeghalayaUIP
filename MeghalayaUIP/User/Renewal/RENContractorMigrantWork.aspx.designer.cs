@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.Renewal
 {
 
 
-    public partial class ContractorMigrantWork
+    public partial class RENContractorMigrantWork
     {
 
         /// <summary>
