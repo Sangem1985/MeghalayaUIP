@@ -1,16 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="KnowYourApprovalsCFO.aspx.cs" Inherits="MeghalayaUIP.KnowYourApprovalsCFO" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-     <link rel="stylesheet" href="assets/admin/css/style.css">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="assets/admin/css/style.css">
     <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
     <style>
         .page-wrapper {
-    padding-top: 15px;
-}
+            padding-top: 15px;
+        }
     </style>
-      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
             <nav aria-label="breadcrumb">
@@ -219,8 +220,8 @@
                                                                                 8. Pollution
 																		Category of Enterprise</label>
                                                                             <div class="col-lg-6">
-                                                                              <%--  <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"></asp:Label>--%>
-                                                                                  <asp:TextBox ID="lblPCBCategory" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                                                <%--  <asp:Label ID="lblPCBCategory" Font-Bold="true" runat="server" class="form-control"></asp:Label>--%>
+                                                                                <asp:TextBox ID="lblPCBCategory" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -307,7 +308,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" onkeypress="return validateAmount(event)"  MaxLength="16" TabIndex="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -924,7 +925,7 @@
 
                                                                 <div class="col-md-12 d-flex mt-2" id="padding">
                                                                     <div class="col-md-7">&nbsp;</div>
-                                                                       <div class="col-md-2">
+                                                                    <div class="col-md-2">
                                                                         <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
                                                                         <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" Visible="false" />
                                                                         <asp:Button ID="btnNext3" runat="server" Text="Next" OnClick="btnNext3_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
@@ -932,11 +933,61 @@
                                                                     <div class="col-md-3 text-right">
                                                                         <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="true"></asp:Button>
 
-                                                                    </div>                                                                 
+                                                                    </div>
                                                                 </div>
 
                                                             </div>
 
+                                                        </div>
+                                                    </div>
+                                                </asp:View>
+                                                <asp:View ID="viewApprovals" runat="server">
+                                                    <div class="row" runat="server" visible="false" id="divApprovals">
+                                                        <div class="col-lg-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h4 class="card-title"><b>Details of Approvals with Fee (in Rs.)</b></h4>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                                                        CssClass="GRD table-bordered " ForeColor="#333333" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
+                                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                                                        <AlternatingRowStyle BackColor="White" />
+                                                                        <Columns>
+                                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                                <ItemTemplate>
+                                                                                    <%# Container.DataItemIndex + 1%>
+                                                                                </ItemTemplate>
+                                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                                <ItemStyle Width="50px" />
+                                                                            </asp:TemplateField>
+                                                                            <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
+                                                                                <ItemStyle Width="450px" />
+                                                                            </asp:BoundField>
+                                                                            <asp:BoundField DataField="DeptName" HeaderText="Department">
+                                                                                <ItemStyle Width="180px" />
+                                                                            </asp:BoundField>
+                                                                            <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fees (Rs.)">
+                                                                                <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
+                                                                                <HeaderStyle HorizontalAlign="Right" />
+                                                                                <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Right" />
+                                                                            </asp:BoundField>
+                                                                            <asp:TemplateField HeaderText="Approval ID" Visible="false">
+                                                                                <ItemTemplate>
+                                                                                    <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+                                                                            <asp:TemplateField HeaderText=" Dept ID" Visible="false">
+                                                                                <ItemTemplate>
+                                                                                    <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("DeptId") %>'></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+                                                                        </Columns>
+                                                                    </asp:GridView>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </asp:View>
@@ -948,54 +999,7 @@
                         </div>
 
 
-                        <div class="row" runat="server" visible="false" id="divApprovals">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title"><b>Details of Approvals with Fee (in Rs.)</b></h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                            CssClass="GRD" ForeColor="#333333" Width="90%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
-                                            <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                            <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                            <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
-                                            <AlternatingRowStyle BackColor="White" />
-                                            <Columns>
-                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                    <ItemTemplate>
-                                                        <%# Container.DataItemIndex + 1%>
-                                                    </ItemTemplate>
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle Width="50px" />
-                                                </asp:TemplateField>
-                                                <asp:BoundField DataField="ApprovalName" HeaderText="Approval Required ">
-                                                    <ItemStyle Width="450px" />
-                                                </asp:BoundField>
-                                                <asp:BoundField DataField="DeptName" HeaderText="Department">
-                                                    <ItemStyle Width="180px" />
-                                                </asp:BoundField>
-                                                <asp:BoundField DataField="FEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fees (Rs.)">
-                                                    <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
-                                                    <HeaderStyle HorizontalAlign="Right" />
-                                                    <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Right" />
-                                                </asp:BoundField>
-                                                <asp:TemplateField HeaderText="Approval ID" Visible="false">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText=" Dept ID" Visible="false">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("DeptId") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                            </Columns>
-                                        </asp:GridView>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </section>
                 </div>
             </div>
