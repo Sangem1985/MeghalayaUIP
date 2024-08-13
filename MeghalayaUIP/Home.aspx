@@ -812,7 +812,7 @@
                     </div>
                     <div class="col-md-12 d-flex mt-2">
                         <div class="col-md-6 p-0 pr-0">
-                            <a href="login.aspx">
+                            <a href="RegisterGrievance.aspx">
                                 <img src="assets/assetsnew/images/info/indbox.png" style="margin-left: -14px;">
                                 <div class="textinvd1">
                                     <p class="smallinv">Register Grievance/Query</p>
@@ -859,10 +859,9 @@
       <div class="modal-body">
         <p>Which dashboard would you like to go?</p>
       </div>
-      <div class="modal-footer">
-          
+      <div class="modal-footer">          
         <a href="SingleWindowPortalDashboard.aspx" class="btn btn-secondary">Single Window Dashboard</a>
-        <a href="#" class="btn btn-primary">Grievance/Query Dashboard</a>
+        <a href="GrievanceMisReport.aspx" class="btn btn-primary">Grievance/Query Dashboard</a>
       </div>
     </div>
   </div>
