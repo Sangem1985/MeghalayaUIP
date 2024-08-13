@@ -39,7 +39,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     prereg.Visible = true;
                     Preestablishment.Visible = false;
                 }
-                else if (ObjUserInfo.Roleid == "8")
+                else if (ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "9")
                 {
                     intenttoinvest.Visible = false;
                     prereg.Visible = false;
@@ -82,7 +82,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void linkCFE_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "8")
+            if (ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "9")
             {
                 Preestablishment.Visible = true;
                 string url = "~/Dept/CFE/CFEDeptDashboard.aspx";
@@ -93,7 +93,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void linkCFO_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "8")
+            if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
             {
                 PreOperational.Visible = true;
                 string url = "~/Dept/CFO/CFODeptDashboard.aspx";
@@ -117,7 +117,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void lnkrenewal_Click(object sender, EventArgs e)
         {          
-            if (ObjUserInfo.Roleid == "8")
+            if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
             {
                 Renewal.Visible = true;
                 string url = "~/Dept/Renewal/RENDeptDashboard.aspx";

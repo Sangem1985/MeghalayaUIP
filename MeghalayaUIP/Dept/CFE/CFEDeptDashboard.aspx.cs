@@ -31,6 +31,18 @@ namespace MeghalayaUIP.Dept.CFE
                         if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                         {
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                            if (ObjUserInfo.Roleid == "8")
+                            {
+                                divScrutiny.Visible = true;
+                                divApproval.Visible = false;
+                                divOffline.Visible = false;
+                            }
+                            else if (ObjUserInfo.Roleid == "9")
+                            {
+                                divScrutiny.Visible = false;
+                                divApproval.Visible = true;
+                                divOffline.Visible = true;
+                            }
                         }
                         // username = ObjUserInfo.UserName;
                     }
