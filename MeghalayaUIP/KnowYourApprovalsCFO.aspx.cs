@@ -542,6 +542,7 @@ namespace MeghalayaUIP
                 if (ErrorMsg == "")
                 {
                     GetApprovals();
+                    viewApprovals.Focus();
                     MVQues.ActiveViewIndex = 3;
                 }
                 else
