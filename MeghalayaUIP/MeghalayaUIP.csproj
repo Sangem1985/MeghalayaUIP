@@ -486,11 +486,13 @@
     <Content Include="assets\assetsnew\js\countdown.js" />
     <Content Include="assets\assetsnew\js\gmaps.js" />
     <Content Include="assets\assetsnew\js\isotope.js" />
+    <Content Include="assets\assetsnew\js\jquery-1.7.2.min.js" />
     <Content Include="assets\assetsnew\js\jquery-ui.js" />
     <Content Include="assets\assetsnew\js\jquery.bootstrap-touchspin.js" />
     <Content Include="assets\assetsnew\js\jquery.countTo.js" />
     <Content Include="assets\assetsnew\js\jquery.fancybox.js" />
     <Content Include="assets\assetsnew\js\jquery.js" />
+    <Content Include="assets\assetsnew\js\jquery.min.js" />
     <Content Include="assets\assetsnew\js\map-helper.js" />
     <Content Include="assets\assetsnew\js\nav-tool.js" />
     <Content Include="assets\assetsnew\js\owl.js" />
@@ -540,6 +542,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
     <Content Include="forgot-password.aspx" />
+    <Content Include="GrievanceMisReport.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="HomeNew.aspx" />
     <Content Include="Hospitality.aspx" />
@@ -967,6 +970,13 @@
     </Compile>
     <Compile Include="forgot-password.aspx.designer.cs">
       <DependentUpon>forgot-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GrievanceMisReport.aspx.cs">
+      <DependentUpon>GrievanceMisReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GrievanceMisReport.aspx.designer.cs">
+      <DependentUpon>GrievanceMisReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

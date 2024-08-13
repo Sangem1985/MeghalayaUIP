@@ -183,6 +183,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetInformationWizard(module, deptid, sector);
         }
+        public DataSet GetGrievanceMisReport(string fdate, string tdate, string Type)
+        {
+            return objMasterDAL.GetGrievanceMisReport(fdate, tdate, Type);
+        }
 
     }
 }

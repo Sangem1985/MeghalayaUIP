@@ -1554,5 +1554,39 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return Result;
         }
+        public DataSet GetGrievanceMisReport(string fdate, string tdate, string Type)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetGrievanceMisReport, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetGrievanceMisReport;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@TYPE", Type);
+                da.SelectCommand.Parameters.AddWithValue("@FDATE", fdate);
+                da.SelectCommand.Parameters.AddWithValue("@TDATE", tdate);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }
