@@ -8,16 +8,17 @@ namespace MeghalayaUIP.Common
 {
     public class LANDConstants
     {
+        public static string GetLandUserDashBoard = "USP_GETLANDUSERDASHBOARD";
 
-        public static string InsertIndustryDetails = "USP_INSLAINDUSTRIALESTATEDETAILS";
+        //public static string InsertIndustryDetails = "USP_INSLAINDUSTRIALESTATEDETAILS";
+        public static string InsertIndustrialShedDetails = "USP_INSLAINDUSTRIALSHEDDETAILS";
         public static string InsertManufactureDetails = "USP_INSLAMANUFACTUREDETAILS";
         public static string InsertRawMaterialDetails = "USP_INSLARAWMATERIALDETAILS";
         public static string InsertPowerDetails = "USP_INSLAPOWERREQDETAILS";
         public static string InsertWaterDetails = "USP_INSLAWATERREQMANUDETAILS";
-        public static string InsertIndustrialShedDetails = "USP_INSLAINDUSTRIALSHEDDETAILS";
         public static string GetIndustrialShedDetails = "USP_GETLAINDUSTRIALSHEDDETAILS";
-        public static string GetLandUserDashBoard = "USP_GETLANDUSERDASHBOARD";
         public static string GetLandApplicationDet = "USP_GETLANDUSERDASHBOARDDETAILS";
+        public static string SubmitLandApplication ="USP_SUBMITLANDAPPLICATION";
 
     }
 
