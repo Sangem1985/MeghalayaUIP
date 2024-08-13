@@ -3211,7 +3211,7 @@
                                     <div class="table-responsive">
                                         <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
                                             <tr style="border-color: brown; background-color: midnightblue; color: azure">
-                                                <td><b>Name</b></td>
+                                                <%--<td><b>Name</b></td>--%>
                                                 <td><b>Unit Name</b></td>
                                                 <td><b>Application No</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
@@ -3219,13 +3219,16 @@
                                                 <td id="tdquryorrej" runat="server" visible="false"><b>
                                                     <asp:Label runat="server" Text="Please Enter Query/Forward Reason" ID="lblremarks"></asp:Label></b>
                                                 </td>
+                                                <td id="tdInspReport" runat="server" visible="false">
+                                                    <b>Upload Inspection Report</b>
+                                                </td>
                                                 <td id="tdaction" runat="server" visible="true">
                                                     <b>Submit Action</b>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <asp:Label runat="server" ID="lbl_Name1"></asp:Label></td>
+                                                <%--<td>
+                                                    <asp:Label runat="server" ID="lbl_Name1"></asp:Label></td>--%>
                                                 <td>
                                                     <asp:Label ID="lblunitname1" runat="server"></asp:Label>
                                                 </td>
@@ -3247,7 +3250,12 @@
                                                     <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
                                                     <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateAmount(event)" Visible="false" />
                                                 </td>
-
+                                                <td id="tdInspReport1" runat="server" visible="false">
+                                                    
+                                                    <asp:FileUpload runat="server" ID="fupInspReport" Width="300px" Font-Italic="true" Height="45px" CssClass="mt-2" />
+                                                    <asp:Button runat="server" ID="btnInspReport" OnClick="btnInspReport_Click" Text="Upload" class="btn btn-rounded btn-dark btn-sm mt-2" Width="110px" Height="30px" /><br />
+                                                    <asp:HyperLink ID="hplInspReport" runat="server" Visible="false"></asp:HyperLink>
+                                                </td>
 
                                                 <td>
                                                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />

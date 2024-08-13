@@ -33,6 +33,16 @@ namespace MeghalayaUIP.Dept.Renewal
                         {
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                         }
+                        if (ObjUserInfo.Roleid == "8")
+                        {
+                            divScrutiny.Visible = true;
+                            divApproval.Visible = false;
+                        }
+                        else if (ObjUserInfo.Roleid == "9")
+                        {
+                            divScrutiny.Visible = false;
+                            divApproval.Visible = true;
+                        }
                         // username = ObjUserInfo.UserName;
 
                         ObjREN.UserID= ObjUserInfo.UserID;

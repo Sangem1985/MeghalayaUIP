@@ -31,6 +31,16 @@ namespace MeghalayaUIP.Dept.CFO
                         {
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                         }
+                        if (ObjUserInfo.Roleid == "8")
+                        {
+                            divScrutiny.Visible = true;
+                            divApproval.Visible = false;
+                        }
+                        else if (ObjUserInfo.Roleid == "9")
+                        {
+                            divScrutiny.Visible = false;
+                            divApproval.Visible = true;
+                        }
                         // username = ObjUserInfo.UserName;
                     }
                     objCFO.UserID = ObjUserInfo.UserID;

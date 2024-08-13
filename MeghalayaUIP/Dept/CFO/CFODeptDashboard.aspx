@@ -13,15 +13,9 @@
     </nav>
     <div class="page-wrapper cfodeptdashboard">
         <div class="content container-fluid">
-           <div class="col-md-12 d-flex" style="
-    display: flex !important;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: baseline;    margin-top: -20px;
-">
-            <div class="col-md-11">
-                <h4 style="margin-left: -10px; padding-top: 20px">Pre-Opearational Applications :
+            <div class="col-md-12 d-flex" style="display: flex !important; flex-direction: row; flex-wrap: nowrap; justify-content: space-evenly; align-items: baseline; margin-top: -20px;">
+                <div class="col-md-11">
+                    <h4 style="margin-left: -10px; padding-top: 20px">Pre-Opearational Applications :
                  <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
                 </div>
                 <div class="col-md-1">
@@ -30,8 +24,8 @@
                 </div>
 
             </div>
-            
-            <div class="card">
+
+            <div class="card" id="divScrutiny" runat="server">
                 <div class="card-header">
                     <h3>Pre-Scrutiny Stage</h3>
                 </div>
@@ -159,7 +153,8 @@
                                         <hr class="dark horizontal my-0">
                                         <div class="card-footer p-3">
                                             <p class="mb-0">
-                                                Query Response<br /> Pending<br />
+                                                Query Response<br />
+                                                Pending<br />
                                             </p>
                                         </div>
                                     </a>
@@ -170,7 +165,7 @@
                 </section>
             </div>
             <%--*************************************--%>
-            <div class="card">
+            <div class="card" id="divApproval" runat="server">
                 <div class="card-header">
                     <h3>Approval Stages</h3>
                 </div>

@@ -11,7 +11,7 @@ namespace MeghalayaUIP
 {
 
 
-    public partial class SingleWindowPortalDashboard
+    public partial class GrievanceMisReport
     {
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtTDate;
 
         /// <summary>
-        /// ddlDept control.
+        /// ddlType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDept;
+        protected global::System.Web.UI.WebControls.DropDownList ddlType;
 
         /// <summary>
         /// btnSearch control.
@@ -69,13 +69,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// gvDepts control.
+        /// gvDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDepts;
+        protected global::System.Web.UI.WebControls.GridView gvDetails;
 
         /// <summary>
         /// UpdateProgress control.

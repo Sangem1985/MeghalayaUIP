@@ -23,9 +23,12 @@ namespace MeghalayaUIP
         {
             string fullUrl = Request.Url.AbsoluteUri;
             string[] segments = Request.Url.Segments;
-            BindDepartments();
-            Binddata();
-            /*smsMail.SendEmail("1001", "1002", "Dash", "Board");*/
+            if (!IsPostBack)
+            {
+                BindDepartments();
+                Binddata();
+                /*smsMail.SendEmail("1001", "1002", "Dash", "Board");*/
+            }
         }
         public void Binddata()
         {

@@ -3381,6 +3381,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Label lblremarks;
 
         /// <summary>
+        /// tdInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdInspReport;
+
+        /// <summary>
         /// tdaction control.
         /// </summary>
         /// <remarks>
@@ -3388,15 +3397,6 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdaction;
-
-        /// <summary>
-        /// lbl_Name1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Name1;
 
         /// <summary>
         /// lblunitname1 control.
@@ -3460,6 +3460,42 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAdditionalAmount;
+
+        /// <summary>
+        /// tdInspReport1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdInspReport1;
+
+        /// <summary>
+        /// fupInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupInspReport;
+
+        /// <summary>
+        /// btnInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInspReport;
+
+        /// <summary>
+        /// hplInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplInspReport;
 
         /// <summary>
         /// btnSubmit control.

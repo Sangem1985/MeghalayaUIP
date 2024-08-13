@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" id="divScrutiny" runat="server" >
                 <div class="card-header">
                     <h3>Pre-Scrutiny Stage</h3>
                 </div>
@@ -161,7 +161,7 @@
                 </section>
             </div>
 
-            <div class="card">
+            <div class="card" id="divApproval" runat="server">
                 <div class="card-header">
                     <h3>Approval Stages</h3>
                 </div>

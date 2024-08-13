@@ -24,6 +24,15 @@ namespace MeghalayaUIP.Dept.Renewal
         protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
 
         /// <summary>
+        /// divScrutiny control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divScrutiny;
+
+        /// <summary>
         /// anchrTotal control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace MeghalayaUIP.Dept.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblQUERYPENDING;
+
+        /// <summary>
+        /// divApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divApproval;
 
         /// <summary>
         /// anchrApproved control.
