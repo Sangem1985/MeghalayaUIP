@@ -75,7 +75,7 @@
                                     <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
                                         <ItemStyle Width="450px" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
+                                    <asp:BoundField DataField="TMD_DeptName" HeaderText="Department" Visible="false">
                                         <ItemStyle Width="180px" />
                                     </asp:BoundField>
                                     <asp:BoundField DataField="RENDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
