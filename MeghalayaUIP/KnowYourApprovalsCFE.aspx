@@ -5,7 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="assets/admin/js/form-validation.js" type="text/javascript"></script>
     <%--<script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>--%>
-
+    <link rel="stylesheet" href="assets/admin/css/style.css">
+    <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
+    <style>
+        .page-wrapper {
+    padding-top: 15px;
+}
+    </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -952,12 +958,13 @@
                                                                 </div>
 
                                                                 <div class="col-md-12 d-flex mt-2" id="padding">
+                                                                    <div class="col-md-7">&nbsp;</div>
                                                                     <div class="col-md-2">
                                                                         <asp:Button Text="Previous" runat="server" ID="btnPreviuos3" class="btn btn-rounded btn-info btn-lg" OnClick="btnPreviuos3_Click" Width="150px" />
 
 
                                                                     </div>
-                                                                    <div class="col-md-10 text-right mb-2">
+                                                                    <div class="col-md-3 text-right mb-2">
                                                                         <asp:Button Text="Show Approvals Required" runat="server" ID="btnApprvlsReq" class="btn btn-rounded btn-info btn-lg" OnClick="btnApprvlsReq_Click" Visible="true"></asp:Button>
                                                                         <asp:Button ID="btnSave3" Text="Submit" runat="server" class="btn btn-rounded btn-submit btn-lg" OnClick="btnSave3_Click" Width="150px" Visible="false" />
                                                                     </div>
@@ -971,15 +978,8 @@
                                                         </div>
                                                     </div>
                                                 </asp:View>
-                                            </asp:MultiView>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row" runat="server" visible="false" id="divApprovals">
+                                                <asp:View ID="viewAPproval" runat="server">
+                                                    <div class="row" runat="server" visible="false" id="divApprovals">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -1030,6 +1030,16 @@
                                 </div>
                             </div>
                         </div>
+                                                </asp:View>
+                                            </asp:MultiView>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
                     </section>
                 </div>
             </div>
