@@ -62,6 +62,8 @@ namespace MeghalayaUIP.Common
 
         public static string GetGrievanceMisReport = "USP_GET_GRIEVANCE_MIS_REPORT";
 
+        public static string GetYearMaster = "USP_GETYEAR";
+        public static string GetMonthMaster = "USP_GETMONTH";
     }
     public class MasterCountry
     {
@@ -310,6 +312,16 @@ namespace MeghalayaUIP.Common
         public string WATERSOURCE_ID { get; set; }
         public string WATERSOURCE_NAME { get; set; }
     }
-   
+    public class MasterYear
+    {
+        public string YEAR_ID { get; set; }
+        public string YEAR { get; set; }
+    }
+    public class MasterMonth
+    {
+        public string MONTH_ID { get; set; }
+        public string MONTH_NAME { get; set; }
+    }
+
 
 }

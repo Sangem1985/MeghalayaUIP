@@ -500,6 +500,7 @@
     <Content Include="assets\assetsnew\js\script.js" />
     <Content Include="assets\assetsnew\js\validation.js" />
     <Content Include="assets\assetsnew\js\wow.js" />
+    <Content Include="CentralInspectionDashboard.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Dashboarddrill.aspx" />
     <Content Include="demoinnerpage.aspx" />
@@ -664,6 +665,13 @@
     </Compile>
     <Compile Include="Agri-Horti.aspx.designer.cs">
       <DependentUpon>Agri-Horti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CentralInspectionDashboard.aspx.cs">
+      <DependentUpon>CentralInspectionDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CentralInspectionDashboard.aspx.designer.cs">
+      <DependentUpon>CentralInspectionDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="CommonClass\MGCommonClass.cs" />
     <Compile Include="Contact.aspx.cs">
