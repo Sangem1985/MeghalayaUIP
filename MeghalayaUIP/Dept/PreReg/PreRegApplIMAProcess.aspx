@@ -1112,10 +1112,10 @@
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdRemarksTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdApplQueryTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtApplQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+                                                    <asp:TextBox ID="txtApplQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                                 </td>
 
                                                 <td>

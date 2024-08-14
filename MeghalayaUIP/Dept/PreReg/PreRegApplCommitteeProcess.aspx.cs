@@ -446,6 +446,18 @@ namespace MeghalayaUIP.Dept.PreReg
             return result;
         }
 
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/PreReg/PreRegApplCommitteeView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         //protected void btnQuery_Click(object sender, EventArgs e)
         //{
         //    try
