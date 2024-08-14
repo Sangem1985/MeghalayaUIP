@@ -1029,7 +1029,7 @@
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" MaxLength="8000"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" MaxLength="8000" onkeypress="return Names(this)"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1043,7 +1043,7 @@
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" MaxLength="8000"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" MaxLength="8000" onkeypress="return Names(this)"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -1057,8 +1057,8 @@
                                                     </b>
                                                 </td>
                                                 <td style="text-align: center" colspan="2">
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true"></asp:TextBox>
-                                                    <asp:TextBox ID="txtQuery" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtQuery" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                                 </td>
 
 
