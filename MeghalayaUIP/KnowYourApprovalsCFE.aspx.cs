@@ -678,6 +678,7 @@ namespace MeghalayaUIP
                 ErrorMsg1 = Validations1();
                 if (ErrorMsg1 == "")
                 {
+                    Link2.Enabled = true;
                     MVQues.ActiveViewIndex = 1;
                 }
                 else
@@ -713,6 +714,7 @@ namespace MeghalayaUIP
                 ErrorMsg2 = Validations2();
                 if (ErrorMsg2 == "")
                 {
+                    Link3.Enabled = true;
                     MVQues.ActiveViewIndex = 2;
                 }
                 else
@@ -1486,7 +1488,7 @@ namespace MeghalayaUIP
             {
                 ErrorMsg1 = Validations1();
                 if (ErrorMsg1 == "")
-                {
+                {                  
                     MVQues.ActiveViewIndex = 1;
                 }
                 else

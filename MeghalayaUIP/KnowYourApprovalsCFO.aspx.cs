@@ -338,7 +338,7 @@ namespace MeghalayaUIP
         protected void Link1_Click(object sender, EventArgs e)
         {
             try
-            {
+            {               
                 MVQues.ActiveViewIndex = 0;
                 var cls = Link1.Attributes["class"];
                 Link1.Attributes.Add("class", cls + " nav-tab");
@@ -354,9 +354,10 @@ namespace MeghalayaUIP
         {
             try
             {
+              
                 ErrorMsg1 = Validations1();
                 if (ErrorMsg1 == "")
-                {
+                {                  
                     MVQues.ActiveViewIndex = 1;
                 }
                 else
@@ -407,6 +408,7 @@ namespace MeghalayaUIP
                 ErrorMsg1 = Validations1();
                 if (ErrorMsg1 == "")
                 {
+                    Link2.Enabled = true;
                     MVQues.ActiveViewIndex = 1;
                 }
                 else
@@ -437,6 +439,7 @@ namespace MeghalayaUIP
                 ErrorMsg2 = Validations2();
                 if (ErrorMsg2 == "")
                 {
+                    Link3.Enabled = true;
                     MVQues.ActiveViewIndex = 2;
                 }
                 else
