@@ -13,7 +13,7 @@ namespace MeghalayaUIP
 {
     public partial class KnowYourApprovalsCFO : System.Web.UI.Page
     {
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg = "", ErrorMsg1 = "", ErrorMsg2 = "";
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
@@ -337,24 +337,90 @@ namespace MeghalayaUIP
 
         protected void Link1_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 0;
-            var cls = Link1.Attributes["class"];
-            Link1.Attributes.Add("class", cls + " nav-tab");
+            try
+            {
+                MVQues.ActiveViewIndex = 0;
+                var cls = Link1.Attributes["class"];
+                Link1.Attributes.Add("class", cls + " nav-tab");
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+          
         }
 
         protected void Link2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 1;
+            try
+            {
+                ErrorMsg1 = Validations1();
+                if (ErrorMsg1 == "")
+                {
+                    MVQues.ActiveViewIndex = 1;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg1;
+                    string message = "alert('" + ErrorMsg1 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+           
         }
         protected void Link3_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            try
+            {
+                ErrorMsg2 = Validations2();
+                if (ErrorMsg2 == "")
+                {
+                    MVQues.ActiveViewIndex = 2;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg2;
+                    string message = "alert('" + ErrorMsg2 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+         
         }
         protected void btnsave1_Click(object sender, EventArgs e)
         { }
         protected void btnNext1_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 1;
+            try
+            {
+                ErrorMsg1 = Validations1();
+                if (ErrorMsg1 == "")
+                {
+                    MVQues.ActiveViewIndex = 1;
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg1 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+                  
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+         
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
@@ -366,7 +432,24 @@ namespace MeghalayaUIP
         }
         protected void btnNext2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            try
+            {
+                ErrorMsg2 = Validations2();
+                if (ErrorMsg2 == "")
+                {
+                    MVQues.ActiveViewIndex = 2;
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg2 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+           
         }
         protected void btnSave3_Click(object sender, EventArgs e)
         {
@@ -887,8 +970,7 @@ namespace MeghalayaUIP
                 throw ex;
             }
         }
-
-        public string Validations()
+        public string Validations1()
         {
             try
             {
@@ -969,6 +1051,19 @@ namespace MeghalayaUIP
                     errormsg = errormsg + slno + ". Please Select Whether land purchased from MIDCL or not \\n";
                     slno = slno + 1;
                 }
+                return errormsg;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string Validations2()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
                 if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Employment \\n";
@@ -995,6 +1090,23 @@ namespace MeghalayaUIP
                     slno = slno + 1;
                 }
 
+
+                return errormsg;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string Validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+              
+               
 
                 if (rblRegMigrantWorkers.SelectedIndex == -1)
                 {
