@@ -106,12 +106,13 @@
                                                                             <asp:Label ID="lblDeptid" runat="server" Text='<%#Eval("TMD_DEPTID") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                   <asp:TemplateField HeaderText="Department Name">
+                                                                      <asp:BoundField DataField="TMD_DEPTNAME" HeaderText="Department Name" ItemStyle-HorizontalAlign="Left" />
+                                                                <%--   <asp:TemplateField HeaderText="Department Name">
                                                                         <ItemTemplate>
                                                                            <asp:LinkButton runat="server" ID="lblDeptName" Text='<%#Eval("TMD_DEPTNAME") %>'  />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
-                                                                    </asp:TemplateField>
+                                                                    </asp:TemplateField>--%>
                                                                     <asp:TemplateField HeaderText="Scheduled Inspections">
                                                                         <ItemTemplate>
                                                                             <asp:LinkButton runat="server" ID="lblInspection" Text='<%#Eval("INSPSCHEDULED") %>' />
