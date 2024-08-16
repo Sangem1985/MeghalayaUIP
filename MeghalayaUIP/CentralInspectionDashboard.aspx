@@ -151,7 +151,6 @@
                                                                 </EmptyDataTemplate>
                                                             </asp:GridView>
                                                         </div>
-
                                                         <h2>The data in the dashboard is updated on a real time basis</h2>
                                                     </div>
                                                 </div>

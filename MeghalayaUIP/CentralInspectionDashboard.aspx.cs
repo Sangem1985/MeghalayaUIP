@@ -15,7 +15,7 @@ namespace MeghalayaUIP
         MasterBAL mstrBAL = new MasterBAL();
         MGCommonBAL objcommon = new MGCommonBAL();
         //  PreRegBAL indstregBAL = new PreRegBAL();
-        int DeptName;
+     
         int Scheduled;
         int Done;
         int Pending;
@@ -23,12 +23,20 @@ namespace MeghalayaUIP
         int Beyond;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                BindYear();
-                BindMonth();
-              //  Binddata();
+                if (!IsPostBack)
+                {
+                    BindYear();
+                    BindMonth();
+                    //  Binddata();
+                }
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+          
         }
         protected void BindYear()
         {
