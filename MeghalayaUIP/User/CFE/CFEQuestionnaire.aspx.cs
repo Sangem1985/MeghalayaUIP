@@ -80,7 +80,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet ds = new DataSet(); 
                 ds = objcfebal.RetrieveQuestionnaireDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -201,8 +201,8 @@ namespace MeghalayaUIP.User.CFE
                         else
                             ddlIndustryType.SelectedValue = "2";
 
-                        ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
-                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
+                     //   ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
+                       // ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                         //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
                         txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
@@ -1142,7 +1142,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null)
+                if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null || txtPropEmp.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPropEmp.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Employment \\n";
                     slno = slno + 1;
@@ -1162,7 +1162,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Value of Plant & Machinery \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtAnnualTurnOver.Text) || txtAnnualTurnOver.Text == "" || txtAnnualTurnOver.Text == null)
+                if (string.IsNullOrEmpty(txtAnnualTurnOver.Text) || txtAnnualTurnOver.Text == "" || txtAnnualTurnOver.Text == null || txtAnnualTurnOver.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAnnualTurnOver.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Expected Annual Turnover( \\n";
                     slno = slno + 1;
