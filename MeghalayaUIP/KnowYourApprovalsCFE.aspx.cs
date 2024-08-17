@@ -1486,7 +1486,7 @@ namespace MeghalayaUIP
           
             try
             {
-                ErrorMsg1 = Validations1();
+                ErrorMsg1 = Validations1(); 
                 if (ErrorMsg1 == "")
                 {                  
                     MVQues.ActiveViewIndex = 1;
