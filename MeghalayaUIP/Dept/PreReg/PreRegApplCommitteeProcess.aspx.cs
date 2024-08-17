@@ -79,11 +79,13 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                         lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
                         lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                        lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                     
                         lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                         lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
                         lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
+                        lblregcategory.Text = "7. " + lblcatreg.Text + " No.";
+                        lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
                         lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                         lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
                         if (lblisland.Text == "Own")
