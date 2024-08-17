@@ -18,6 +18,7 @@ namespace MeghalayaUIP
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
+        MGCommonBAL objMGcom = new MGCommonBAL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -855,8 +856,8 @@ namespace MeghalayaUIP
                 else
                 {
                     Failure.Visible = true;
-                    lblmsg0.Text = ErrorMsg;
-                    string message = "alert('" + ErrorMsg + "')";
+                    lblmsg0.Text = ErrorMsg3;
+                    string message = "alert('" + ErrorMsg3 + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     return;
                 }
@@ -1276,7 +1277,7 @@ namespace MeghalayaUIP
                 {
                     objCFEQ.PCBCategory = lblPCBCategory.Text;
                     objCFEQ.ApprovalID = "1";
-                    dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtPCB = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtPCB);
                 }
                 if (ddlPowerReq.SelectedValue != "")
@@ -1284,147 +1285,147 @@ namespace MeghalayaUIP
                     objCFEQ.PowerReqKW = ddlPowerReq.SelectedValue;
                     objCFEQ.PropEmployment = txtPropEmp.Text;
                     objCFEQ.ApprovalID = "3";
-                    dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtpower = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtpower);
                     objCFEQ.ApprovalID = "5";
-                    dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtFctry = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtFctry);
                 }
                 if (rblGenerator.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "6";
-                    dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtGenReq = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtGenReq);
                 }
                 if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
                 {
                     objCFEQ.BuildingHeight = txtBuildingHeight.Text;
                     objCFEQ.ApprovalID = "7";
-                    dtfire = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtfire = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtfire);
                 }
                 if (rblRSDSstore.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "8";
-                    dtRSDS = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtRSDS = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtRSDS);
                 }
                 if (rblexplosives.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "9";
-                    dtExplosivs = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtExplosivs = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtExplosivs);
                 }
                 if (rblPetrlManf.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "10";
-                    dtPtrlsale = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtPtrlsale = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtPtrlsale);
                 }
                 if (rblRoadCutting.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "11";
-                    dtRdctng = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtRdctng = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtRdctng);
                 }
                 if (rblNonEncCert.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "12";
-                    dtNonEncCert = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtNonEncCert = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtNonEncCert);
                 }
                 if (rblCommericalTax.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "13";
-                    dtCommTax = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtCommTax = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtCommTax);
                 }
                 if (rblHighTension.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "14";
-                    dtHitens = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtHitens = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtHitens);
                 }
                 if (rblfrstDistncLtr.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "15";
-                    dtfrstDist = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtfrstDist = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtfrstDist);
                 }
                 if (rblNonForstLandCert.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "16";
-                    dtNonFrstLand = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtNonFrstLand = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtNonFrstLand);
                 }
                 if (rblwaterbody.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "17";
-                    dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtWtrbody = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtWtrbody);
                     dtWtrbody.Clear();
                     objCFEQ.ApprovalID = "18";
-                    dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtWtrbody = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtWtrbody);
                 }
                 if (rblLbrAct1970.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "25";
-                    dtAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtAct1970 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1970);
                 }
                 if (rblLbrAct1979.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "26";
-                    dtAct1979 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtAct1979 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1979);
                 }
                 if (rblLbrAct1996.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "27";
-                    dtAct1996 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtAct1996 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1996);
                 }
                 if (rblLabourAct.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "28";
-                    dtContrLbrAct = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtContrLbrAct = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtContrLbrAct);
                 }
                 if (rblForContr1970.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "29";
-                    dtContAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtContAct1970 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtContAct1970);
                 }
                 if (rblNocGroundWater.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "19";
-                    dtGroundwater = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtGroundwater = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtGroundwater);
                 }
                 if (rblwatersupply.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "20";
-                    watersupply = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    watersupply = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(watersupply);
                 }
                 if (rblRiverTanks.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "21";
-                    rivertanker = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    rivertanker = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(rivertanker);
                 }
                 if (rblMunicipal.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "22";
-                    Municipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    Municipal = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(Municipal);
                 }
                 if (rblGrantwater.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "23";
-                    NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    NonMunicipal = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(NonMunicipal);
                 }
 
@@ -1543,6 +1544,17 @@ namespace MeghalayaUIP
         {
             btnApprvlsReq_Click(sender, e);
         }
+
+        protected void txtLandValue_TextChanged(object sender, EventArgs e)
+        {
+            TotalAmount();
+        }
+
+        protected void txtBuildingValue_TextChanged(object sender, EventArgs e)
+        {
+            TotalAmount();
+        }
+
         protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
         {
             try
@@ -1578,7 +1590,19 @@ namespace MeghalayaUIP
         protected void txtPMCost_TextChanged(object sender, EventArgs e)
         {
             txtAnnualTurnOver_TextChanged(sender, e);
-
+            TotalAmount();
+        }
+        public void TotalAmount()
+        {
+            if (int.TryParse(txtLandValue.Text, out int LanCount) && int.TryParse(txtBuildingValue.Text, out int Buildingcount) && int.TryParse(txtPMCost.Text,out int PMcount))
+            {
+                int total = LanCount + Buildingcount+PMcount;
+                lblTotProjCost.Text = total.ToString();
+            }
+            else
+            {
+                lblTotProjCost.Text = "0.00";
+            }
         }
 
 

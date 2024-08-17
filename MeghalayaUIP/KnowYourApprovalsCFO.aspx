@@ -974,6 +974,30 @@
                                                                                 <HeaderStyle HorizontalAlign="Right" />
                                                                                 <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Right" />
                                                                             </asp:BoundField>
+                                                                              <asp:TemplateField HeaderText="Standard Operating Procedure">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:HyperLink runat="server" ID="hplViewSOP" Text="View SOP" NavigateUrl='<%#Eval("IW_SOP") %>' Target="_blank" />
+                                                                                    </ItemTemplate>
+                                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Rules and Regulations">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:HyperLink runat="server" ID="hplRulesandReg" Text="View Document" NavigateUrl='<%#Eval("IW_RULESANDREGL") %>' Target="_blank" />
+                                                                                    </ItemTemplate>
+                                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Prerequisites">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:HyperLink runat="server" ID="hplPrerequisites" Text="View Enclosures" NavigateUrl='<%#Eval("IW_PREREQUISITES") %>' Target="_blank" />
+                                                                                    </ItemTemplate>
+                                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Application Form Format">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:HyperLink runat="server" ID="hplApplForm" Text="Download Form" NavigateUrl='<%#Eval("IW_APPLFORMAT") %>' Target="_blank" />
+                                                                                    </ItemTemplate>
+                                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                                </asp:TemplateField>
                                                                             <asp:TemplateField HeaderText="Approval ID" Visible="false">
                                                                                 <ItemTemplate>
                                                                                     <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>

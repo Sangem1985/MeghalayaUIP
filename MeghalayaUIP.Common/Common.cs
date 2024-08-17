@@ -21,6 +21,8 @@ namespace MeghalayaUIP.Common
         public static string GetGrowthFinancialYear = "USP_GET_GROWTH_FINANCIALYEAR";
 
         public static string GETCENTRALINSPECTIONDASHBOARD = "USP_GETCENTRALINSPDASHBAORD";
+        public static string GetCFEApprovalsReq = "USP_GETKNOWYOURAPPROVALSCFE";
+        public static string GetCFOApprovalsReq = "USP_GETKNOWYOURAPPROVALSCFO";
 
         //-----dept----
         public static string GetDeptGrievanceDashboard = "USP_GETDEPTGRIEVANCEDASHBOARD";

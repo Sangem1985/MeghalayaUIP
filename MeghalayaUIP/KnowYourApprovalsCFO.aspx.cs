@@ -17,6 +17,7 @@ namespace MeghalayaUIP
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
+        MGCommonBAL objMGcom = new MGCommonBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.MaintainScrollPositionOnPostBack = true;
@@ -786,13 +787,13 @@ namespace MeghalayaUIP
                 {
                     ApprovalIds = ApprovalIds + ",60";
                 }
-                if (rblExciseVerification.SelectedValue == "Y")
+                if (rblExciseVerification.SelectedValue == "Y") 
                 {
                     ApprovalIds = ApprovalIds + ",61";
                 }
-                objCFOQ.ApprovalID = ApprovalIds;
+                objCFOQ.ApprovalID = ApprovalIds; //
                 DataSet dsApprovals = new DataSet();
-                dsApprovals = objcfobal.GetApprovalsReqWithFee(objCFOQ);
+                dsApprovals = objMGcom.GetApprovalsReqWithFee(objCFOQ);
 
 
                 if (dsApprovals.Tables[0].Rows.Count > 0)
