@@ -14,7 +14,7 @@ namespace MeghalayaUIP
 {
     public partial class KnowYourApprovalsCFE : System.Web.UI.Page
     {
-        string UnitID, ErrorMsg = "", ErrorMsg1 = "", ErrorMsg2 = "";
+        string UnitID, ErrorMsg3 = "", ErrorMsg1 = "", ErrorMsg2 = "";
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
@@ -23,7 +23,7 @@ namespace MeghalayaUIP
         {
             try
             {
-                
+
                 Page.MaintainScrollPositionOnPostBack = true;
                 if (!IsPostBack)
                 {
@@ -36,8 +36,8 @@ namespace MeghalayaUIP
                     GetElectricRegulations();
                     GetVoltageMaster();
                     GetPowerPlants();
-                   
-                }               
+
+                }
             }
             catch (Exception ex)
             {
@@ -690,16 +690,16 @@ namespace MeghalayaUIP
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-         
-          
+
+
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
-          
+
             MVQues.ActiveViewIndex = 0;
         }
         protected void btnsave2_Click(object sender, EventArgs e)
@@ -730,7 +730,7 @@ namespace MeghalayaUIP
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-           
+
 
         }
 
@@ -739,8 +739,11 @@ namespace MeghalayaUIP
             try
             {
                 string result = "";
-                ErrorMsg = Validations();
-                if (ErrorMsg == "")
+                ErrorMsg1 = Validations1();
+                ErrorMsg2 = Validations2();
+
+                ErrorMsg3 = Validations3();
+                if (ErrorMsg3 == "")
                 {
                     btnApprvlsReq_Click(sender, e);
                     CFEQuestionnaireDet objCFEQsnaire = new CFEQuestionnaireDet();
@@ -865,7 +868,7 @@ namespace MeghalayaUIP
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-      
+
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -998,19 +1001,19 @@ namespace MeghalayaUIP
 
                 return errormsg;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public string Validations()
+        public string Validations3()
         {
             try
             {
                 int slno = 1;
                 string errormsg = "";
-              
-              
+
+
                 if (ddlPowerReq.SelectedIndex == -1 || ddlPowerReq.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Power requirement \\n";
@@ -1224,11 +1227,12 @@ namespace MeghalayaUIP
             try
             {
                 string ErrorMsg;
-                ErrorMsg = Validations();
+                ErrorMsg = Validations3();
                 if (ErrorMsg == "")
                 {
                     GetApprovals();
                     MVQues.ActiveViewIndex = 3;
+                    Link4.Visible = true;
                 }
                 else
                 {
@@ -1474,21 +1478,21 @@ namespace MeghalayaUIP
                 var cls = Link1.Attributes["class"];
                 Link1.Attributes.Add("class", cls + " nav-tab");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-          
+
         }
 
         protected void Link2_Click(object sender, EventArgs e)
         {
-          
+
             try
             {
                 ErrorMsg1 = Validations1();
                 if (ErrorMsg1 == "")
-                {                  
+                {
                     MVQues.ActiveViewIndex = 1;
                 }
                 else
@@ -1500,16 +1504,18 @@ namespace MeghalayaUIP
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-          
+
         }
+
+       
 
         protected void Link3_Click(object sender, EventArgs e)
         {
-          
+
             try
             {
                 ErrorMsg2 = Validations2();
@@ -1526,14 +1532,17 @@ namespace MeghalayaUIP
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
 
-          
-        }
 
+        }
+        protected void Link4_Click(object sender, EventArgs e)
+        {
+            btnApprvlsReq_Click(sender, e);
+        }
         protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
         {
             try
