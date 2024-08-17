@@ -40,10 +40,10 @@
                                                 <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 20px"> 
                                                 1. Project Details</asp:LinkButton></li>
                                             <li class="nav-item">
-                                                <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Style="padding-right: 20px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
+                                                <asp:LinkButton ID="Link2" class="nav-link" runat="server" OnClick="Link2_Click" Enabled="false" Style="padding-right: 20px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                                 2. Project Financials</asp:LinkButton></li>
                                             <li class="nav-item">
-                                                <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
+                                                <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Enabled="false" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                                 3. Project Requirements</asp:LinkButton></li>
                                         </ul>
                                         <div class="col-md-12 ">

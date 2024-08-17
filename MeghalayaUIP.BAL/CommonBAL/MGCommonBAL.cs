@@ -61,5 +61,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetGrowthFinancialYear();
         }
+        public DataSet GetCentralInspection(string fYear, string tMonth, string Insepction)
+        {
+            return objCommonDAL.GetCentralInspection(fYear, tMonth, Insepction);
+        }
     }
 }

@@ -187,6 +187,14 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetGrievanceMisReport(fdate, tdate, Type);
         }
+        public List<MasterYear> GetYear()
+        {
+            return objMasterDAL.GetYear();
+        }
+        public List<MasterMonth> GetMonth()
+        {
+            return objMasterDAL.GetMonth();
+        }
 
     }
 }

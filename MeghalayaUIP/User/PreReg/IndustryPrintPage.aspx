@@ -170,7 +170,7 @@
 
                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                         <div class="col-md-2">
-                                            <label>7. Registration No </label>
+                                            <asp:Label runat="server" ID="lblregcategory"> </asp:Label>
                                         </div>
                                         <div class="col-md-2">
                                             <spna class="dots">:</spna><asp:Label ID="lblUdyam" runat="server"></asp:Label>
@@ -186,7 +186,7 @@
                                     </div>
 
 
-                                    <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
+                                    <h4 class="card-title1 col-lg-12">Correspondence Details of Authorised Representative</h4>
 
                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                         <div class="col-md-2">

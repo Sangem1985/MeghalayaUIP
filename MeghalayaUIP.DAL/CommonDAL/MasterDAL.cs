@@ -1588,5 +1588,73 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public List<MasterYear> GetYear()
+        {
+            List<MasterYear> lstYearMstr = new List<MasterYear>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetYearMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Country = new MasterYear()
+                        {
+                            YEAR_ID = Convert.ToString(drOptions["YEAR_ID"]),
+                            YEAR = Convert.ToString(drOptions["YEAR"])
+                        };
+                        lstYearMstr.Add(Country);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstYearMstr;
+        }
+        public List<MasterMonth> GetMonth()
+        {
+            List<MasterMonth> lstMonthMstr = new List<MasterMonth>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetMonthMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var masterMonth = new MasterMonth()
+                        {
+                            MONTH_ID = Convert.ToString(drOptions["MONTH_ID"]),
+                            MONTH_NAME = Convert.ToString(drOptions["MONTH_NAME"])
+                        };
+                        lstMonthMstr.Add(masterMonth);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstMonthMstr;
+        }
     }
 }
