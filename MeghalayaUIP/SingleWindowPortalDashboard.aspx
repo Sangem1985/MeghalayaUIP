@@ -182,6 +182,7 @@
                                                             <asp:BoundField DataField="TOTALREJECTED" HeaderStyle-BackColor="#650855" HeaderText="Rejected" />
                                                             <asp:BoundField DataField="AVGTIMETOGRANT" HeaderStyle-BackColor="#650855" HeaderText="Average time taken to grant approval (in Days)" />
                                                             <asp:BoundField DataField="MDMTIMETOGRANT" HeaderStyle-BackColor="#650855" HeaderText="Median time taken to grant approval (in Days)" />
+                                                            <asp:BoundField DataField="AVERAGEFEE" HeaderStyle-BackColor="#650855" HeaderText="Average Fee for Application" />
                                                         </Columns>
                                                     </asp:GridView>
                                                 </asp:Panel>
@@ -201,6 +202,14 @@
                                         <asp:BoundField ItemStyle-Width="400px" DataField="TOTALPROCESSED" HeaderText="Total Applications Processed" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
                                     </Columns>
                                 </asp:GridView>
+                            </div>
+
+                        </div>
+                        <div id="DivFooter" runat="server">
+                            <div>
+                                <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                                    <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
+                                </div>
                             </div>
                         </div>
                     </div>

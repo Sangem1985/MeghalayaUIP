@@ -61,6 +61,7 @@ namespace MeghalayaUIP.Common
         public static string GetPageAuthorization = "USP_CHECK_ROLE_PAGE_AUTH";
 
         public static string GetGrievanceMisReport = "USP_GET_GRIEVANCE_MIS_REPORT";
+        public static string GrievanceHandledDashboard = "USP_GET_QUERYHANDLING_DASHBOARD_EODB";
 
         public static string GetYearMaster = "USP_GETYEAR";
         public static string GetMonthMaster = "USP_GETMONTH";
