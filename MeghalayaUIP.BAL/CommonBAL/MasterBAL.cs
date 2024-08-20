@@ -199,6 +199,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GrievanceHandledDashboard(fdate, tdate);
         }
+        public DataSet MISIIncentiveDashboard(string fdate, string tdate)
+        {
+            return objMasterDAL.MISIIncentiveDashboard(fdate, tdate);
+        }
 
     }
 }

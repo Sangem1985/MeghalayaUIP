@@ -63,6 +63,8 @@ namespace MeghalayaUIP.Common
         public static string GetGrievanceMisReport = "USP_GET_GRIEVANCE_MIS_REPORT";
         public static string GrievanceHandledDashboard = "USP_GET_QUERYHANDLING_DASHBOARD_EODB";
 
+        public static string MISIIncentiveDashboard = "USP_GETINCENTIVEDASHBOARD";
+
         public static string GetYearMaster = "USP_GETYEAR";
         public static string GetMonthMaster = "USP_GETMONTH";
     }

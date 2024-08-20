@@ -555,6 +555,7 @@
     <Content Include="KnowYourApprovalsCFE.aspx" />
     <Content Include="KnowYourApprovalsCFO.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="MISIncentiveDashboard.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="OtherService.aspx" />
     <Content Include="Power.aspx" />
@@ -1063,6 +1064,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MISIncentiveDashboard.aspx.cs">
+      <DependentUpon>MISIncentiveDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MISIncentiveDashboard.aspx.designer.cs">
+      <DependentUpon>MISIncentiveDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notifications.aspx.cs">
       <DependentUpon>Notifications.aspx</DependentUpon>
