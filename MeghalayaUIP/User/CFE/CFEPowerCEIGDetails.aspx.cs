@@ -1111,7 +1111,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Proposed \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtTotal.Text) || txtTotal.Text == "" || txtTotal.Text == null)
+                if (string.IsNullOrEmpty(txtTotal.Text) || txtTotal.Text == "" || txtTotal.Text == null || txtTotal.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTotal.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total \\n";
                     slno = slno + 1;
@@ -1131,7 +1131,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Proposed \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtTotals.Text) || txtTotals.Text == "" || txtTotals.Text == null)
+                if (string.IsNullOrEmpty(txtTotals.Text) || txtTotals.Text == "" || txtTotals.Text == null || txtTotal.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTotal.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total \\n";
                     slno = slno + 1;
@@ -1148,7 +1148,7 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Select Power Plant Type \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
+                    if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null || txtCapacity.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtCapacity.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Aggregate Capacity  \\n";
                         slno = slno + 1;
@@ -1168,12 +1168,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Proposed Location of Factory \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtSurvey.Text) || txtSurvey.Text == "" || txtSurvey.Text == null)
+                if (string.IsNullOrEmpty(txtSurvey.Text) || txtSurvey.Text == "" || txtSurvey.Text == null || txtSurvey.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtSurvey.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Survey \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtExtent.Text) || txtExtent.Text == "" || txtExtent.Text == null)
+                if (string.IsNullOrEmpty(txtExtent.Text) || txtExtent.Text == "" || txtExtent.Text == null || txtExtent.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtExtent.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Extent \\n";
                     slno = slno + 1;
@@ -1198,17 +1198,17 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Street Name \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
+                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null || txtPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPincode.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Pincode \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtTelephone.Text) || txtTelephone.Text == "" || txtTelephone.Text == null)
+                if (string.IsNullOrEmpty(txtTelephone.Text) || txtTelephone.Text == "" || txtTelephone.Text == null || txtTelephone.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTelephone.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Telephone \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtNearestNo.Text) || txtNearestNo.Text == "" || txtNearestNo.Text == null)
+                if (string.IsNullOrEmpty(txtNearestNo.Text) || txtNearestNo.Text == "" || txtNearestNo.Text == null || txtNearestNo.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtNearestNo.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Phone Number \\n";
                     slno = slno + 1;

@@ -113,27 +113,27 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Species \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtTimberlength.Text) || txtTimberlength.Text == "" || txtTimberlength.Text == null)
+                if (string.IsNullOrEmpty(txtTimberlength.Text) || txtTimberlength.Text == "" || txtTimberlength.Text == null || txtTimberlength.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTimberlength.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Length Of Timber (in Meters) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtTimberVolume.Text) || txtTimberVolume.Text == "" || txtTimberVolume.Text == null)
+                if (string.IsNullOrEmpty(txtTimberVolume.Text) || txtTimberVolume.Text == "" || txtTimberVolume.Text == null || txtTimberVolume.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTimberVolume.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter  Volume Of Timber (in Meters) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtGirth.Text) || txtGirth.Text == "" || txtGirth.Text == null)
+                if (string.IsNullOrEmpty(txtGirth.Text) || txtGirth.Text == "" || txtGirth.Text == null || txtGirth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtGirth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Girth (in Meters) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEstimated.Text) || txtEstimated.Text == "" || txtEstimated.Text == null)
+                if (string.IsNullOrEmpty(txtEstimated.Text) || txtEstimated.Text == "" || txtEstimated.Text == null || txtEstimated.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEstimated.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Firewood/Rootwood/Faggot \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtpole.Text) || txtpole.Text == "" || txtpole.Text == null)
+                if (string.IsNullOrEmpty(txtpole.Text) || txtpole.Text == "" || txtpole.Text == null || txtpole.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpole.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter No of Pole \\n";
                     slno = slno + 1;

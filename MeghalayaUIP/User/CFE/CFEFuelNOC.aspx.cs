@@ -383,32 +383,32 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Land Holding Certificate No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtNorth.Text) || txtNorth.Text == "" || txtNorth.Text == null)
+                if (string.IsNullOrEmpty(txtNorth.Text) || txtNorth.Text == "" || txtNorth.Text == null || txtNorth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtNorth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter North\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtsouth.Text) || txtsouth.Text == "" || txtsouth.Text == null)
+                if (string.IsNullOrEmpty(txtsouth.Text) || txtsouth.Text == "" || txtsouth.Text == null || txtsouth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtsouth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter south\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEast.Text) || txtEast.Text == "" || txtEast.Text == null)
+                if (string.IsNullOrEmpty(txtEast.Text) || txtEast.Text == "" || txtEast.Text == null || txtEast.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEast.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter east\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtwest.Text) || txtwest.Text == "" || txtwest.Text == null)
+                if (string.IsNullOrEmpty(txtwest.Text) || txtwest.Text == "" || txtwest.Text == null || txtwest.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwest.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter West\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtFrontage.Text) || txtFrontage.Text == "" || txtFrontage.Text == null)
+                if (string.IsNullOrEmpty(txtFrontage.Text) || txtFrontage.Text == "" || txtFrontage.Text == null || txtFrontage.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtFrontage.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Frontage\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtDepth.Text) || txtDepth.Text == "" || txtDepth.Text == null)
+                if (string.IsNullOrEmpty(txtDepth.Text) || txtDepth.Text == "" || txtDepth.Text == null || txtDepth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDepth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Depth\\n";
                     slno = slno + 1;

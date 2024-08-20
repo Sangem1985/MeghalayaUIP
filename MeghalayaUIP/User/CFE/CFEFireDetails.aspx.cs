@@ -422,37 +422,37 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter LandMark \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null || txtpincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpincode.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Pincode \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtheight.Text) || txtheight.Text == "" || txtheight.Text == null)
+                if (string.IsNullOrEmpty(txtheight.Text) || txtheight.Text == "" || txtheight.Text == null || txtheight.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtheight.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Building Height \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtheightfloor.Text) || txtheightfloor.Text == "" || txtheightfloor.Text == null)
+                if (string.IsNullOrEmpty(txtheightfloor.Text) || txtheightfloor.Text == "" || txtheightfloor.Text == null || txtheightfloor.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtheightfloor.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Height floor \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtplot.Text) || txtplot.Text == "" || txtplot.Text == null)
+                if (string.IsNullOrEmpty(txtplot.Text) || txtplot.Text == "" || txtplot.Text == null || txtplot.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtplot.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Plot Area \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtbuildup.Text) || txtbuildup.Text == "" || txtbuildup.Text == null)
+                if (string.IsNullOrEmpty(txtbuildup.Text) || txtbuildup.Text == "" || txtbuildup.Text == null || txtbuildup.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtbuildup.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Building Proposed area \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtdriveway.Text) || txtdriveway.Text == "" || txtdriveway.Text == null)
+                if (string.IsNullOrEmpty(txtdriveway.Text) || txtdriveway.Text == "" || txtdriveway.Text == null || txtdriveway.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtdriveway.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Drive way \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBreadth.Text) || txtBreadth.Text == "" || txtBreadth.Text == null)
+                if (string.IsNullOrEmpty(txtBreadth.Text) || txtBreadth.Text == "" || txtBreadth.Text == null || txtBreadth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBreadth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Existing or proposed Approach Road \\n";
                     slno = slno + 1;
@@ -462,52 +462,52 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Category of Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null)
+                if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null || txtAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAmount.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Fee amount RS \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEast.Text) || txtEast.Text == "" || txtEast.Text == null)
+                if (string.IsNullOrEmpty(txtEast.Text) || txtEast.Text == "" || txtEast.Text == null || txtEast.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEast.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter EAST \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtdistance.Text) || txtdistance.Text == "" || txtdistance.Text == null)
+                if (string.IsNullOrEmpty(txtdistance.Text) || txtdistance.Text == "" || txtdistance.Text == null || txtdistance.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtdistance.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Distance from proposed Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtWest.Text) || txtWest.Text == "" || txtWest.Text == null)
+                if (string.IsNullOrEmpty(txtWest.Text) || txtWest.Text == "" || txtWest.Text == null || txtWest.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtWest.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter West \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtbuilding.Text) || txtbuilding.Text == "" || txtbuilding.Text == null)
+                if (string.IsNullOrEmpty(txtbuilding.Text) || txtbuilding.Text == "" || txtbuilding.Text == null || txtbuilding.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtbuilding.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Distance from proposed Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtnorth.Text) || txtnorth.Text == "" || txtnorth.Text == null)
+                if (string.IsNullOrEmpty(txtnorth.Text) || txtnorth.Text == "" || txtnorth.Text == null || txtnorth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtnorth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter North \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtproposedbuid.Text) || txtproposedbuid.Text == "" || txtproposedbuid.Text == null)
+                if (string.IsNullOrEmpty(txtproposedbuid.Text) || txtproposedbuid.Text == "" || txtproposedbuid.Text == null || txtproposedbuid.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtproposedbuid.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Distance from proposed Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtsouth.Text) || txtsouth.Text == "" || txtsouth.Text == null)
+                if (string.IsNullOrEmpty(txtsouth.Text) || txtsouth.Text == "" || txtsouth.Text == null || txtsouth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtsouth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter south \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtdistancebuild.Text) || txtdistancebuild.Text == "" || txtdistancebuild.Text == null)
+                if (string.IsNullOrEmpty(txtdistancebuild.Text) || txtdistancebuild.Text == "" || txtdistancebuild.Text == null || txtdistancebuild.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtdistancebuild.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Distance from proposed Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtstation.Text) || txtstation.Text == "" || txtstation.Text == null)
+                if (string.IsNullOrEmpty(txtstation.Text) || txtstation.Text == "" || txtstation.Text == null || txtstation.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtstation.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Distance from Nearest Station \\n";
                     slno = slno + 1;

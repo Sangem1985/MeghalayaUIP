@@ -221,27 +221,27 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Authorization required for  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtMetricTons.Text) || txtMetricTons.Text == "" || txtMetricTons.Text == null)
+                if (string.IsNullOrEmpty(txtMetricTons.Text) || txtMetricTons.Text == "" || txtMetricTons.Text == null || txtMetricTons.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMetricTons.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Nature Quantity  waste handled per annum (in Metric Tons) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtstoredtons.Text) || txtstoredtons.Text == "" || txtstoredtons.Text == null)
+                if (string.IsNullOrEmpty(txtstoredtons.Text) || txtstoredtons.Text == "" || txtstoredtons.Text == null || txtstoredtons.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtstoredtons.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Nature and Quantity to waste stored at any time \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtwasteannum.Text) || txtwasteannum.Text == "" || txtwasteannum.Text == null)
+                if (string.IsNullOrEmpty(txtwasteannum.Text) || txtwasteannum.Text == "" || txtwasteannum.Text == null || txtwasteannum.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwasteannum.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Nature and Quantity to waste handled per annum (in Kilo Litre) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtnature.Text) || txtnature.Text == "" || txtnature.Text == null)
+                if (string.IsNullOrEmpty(txtnature.Text) || txtnature.Text == "" || txtnature.Text == null || txtnature.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtnature.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Nature and Quantity to waste stored at any time (in Kilo Litre) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtYearpro.Text) || txtYearpro.Text == "" || txtYearpro.Text == null)
+                if (string.IsNullOrEmpty(txtYearpro.Text) || txtYearpro.Text == "" || txtYearpro.Text == null || txtYearpro.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYearpro.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Year of commissioning and commence of production \\n";
                     slno = slno + 1;

@@ -426,7 +426,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Village \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
+                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null || txtPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPincode.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Pincode No\\n";
                     slno = slno + 1;
@@ -436,12 +436,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Supplier Name  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtConnectedLoad.Text) || txtConnectedLoad.Text == "" || txtConnectedLoad.Text == null)
+                if (string.IsNullOrEmpty(txtConnectedLoad.Text) || txtConnectedLoad.Text == "" || txtConnectedLoad.Text == null || txtConnectedLoad.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtConnectedLoad.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total Connected Load\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPropLoadfrmDGSet.Text) || txtPropLoadfrmDGSet.Text == "" || txtPropLoadfrmDGSet.Text == null)
+                if (string.IsNullOrEmpty(txtPropLoadfrmDGSet.Text) || txtPropLoadfrmDGSet.Text == "" || txtPropLoadfrmDGSet.Text == null || txtPropLoadfrmDGSet.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPropLoadfrmDGSet.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total Proposed Load to be Supplied from D.G. Sets (in KW)\\n";
                     slno = slno + 1;
@@ -512,7 +512,7 @@ namespace MeghalayaUIP.User.CFE
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtDGSetCapacity.Text) || txtDGSetCapacity.Text == "" || txtDGSetCapacity.Text == null)
+                if (string.IsNullOrEmpty(txtDGSetCapacity.Text) || txtDGSetCapacity.Text == "" || txtDGSetCapacity.Text == null || txtDGSetCapacity.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDGSetCapacity.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter  DG Set Capacity\\n";
                     slno = slno + 1;
@@ -522,23 +522,23 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select DG Set Capacity in KW or KVA \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPowerFactor.Text) || txtPowerFactor.Text == "" || txtPowerFactor.Text == null)
+                if (string.IsNullOrEmpty(txtPowerFactor.Text) || txtPowerFactor.Text == "" || txtPowerFactor.Text == null || txtPowerFactor.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPowerFactor.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Power Factor\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtRatedVolatge.Text) || txtRatedVolatge.Text == "" || txtRatedVolatge.Text == null)
+                if (string.IsNullOrEmpty(txtRatedVolatge.Text) || txtRatedVolatge.Text == "" || txtRatedVolatge.Text == null || txtRatedVolatge.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtRatedVolatge.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Rated Volatge\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEngineDtls.Text) || txtEngineDtls.Text == "" || txtEngineDtls.Text == null)
+                if (string.IsNullOrEmpty(txtEngineDtls.Text) || txtEngineDtls.Text == "" || txtEngineDtls.Text == null || txtEngineDtls.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEngineDtls.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Engine Make/Serial No. \\n";
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtAlternatorDtls.Text) || txtAlternatorDtls.Text == "" || txtAlternatorDtls.Text == null)
+                if (string.IsNullOrEmpty(txtAlternatorDtls.Text) || txtAlternatorDtls.Text == "" || txtAlternatorDtls.Text == null || txtAlternatorDtls.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAlternatorDtls.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Alternator Make/Serial No \\n";
                     slno = slno + 1;
@@ -554,7 +554,7 @@ namespace MeghalayaUIP.User.CFE
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtConductorPaths.Text) || txtConductorPaths.Text == "" || txtConductorPaths.Text == null)
+                if (string.IsNullOrEmpty(txtConductorPaths.Text) || txtConductorPaths.Text == "" || txtConductorPaths.Text == null || txtConductorPaths.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtConductorPaths.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter No. of independent conductor path \\n";
                     slno = slno + 1;
@@ -564,12 +564,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Type & size electrode and length/dia \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtImpedance.Text) || txtImpedance.Text == "" || txtImpedance.Text == null)
+                if (string.IsNullOrEmpty(txtImpedance.Text) || txtImpedance.Text == "" || txtImpedance.Text == null || txtImpedance.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtImpedance.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Impedance of the systems in ohm \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtTotalImpedance.Text) || txtTotalImpedance.Text == "" || txtTotalImpedance.Text == null)
+                if (string.IsNullOrEmpty(txtTotalImpedance.Text) || txtTotalImpedance.Text == "" || txtTotalImpedance.Text == null || txtTotalImpedance.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTotalImpedance.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total Impedance of the system in ohm\\n";
                     slno = slno + 1;
@@ -605,12 +605,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Megger No.\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtMeggerMake.Text) || txtMeggerMake.Text == "" || txtMeggerMake.Text == null)
+                if (string.IsNullOrEmpty(txtMeggerMake.Text) || txtMeggerMake.Text == "" || txtMeggerMake.Text == null || txtMeggerMake.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMeggerMake.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Megger Make \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtMeggerRange.Text) || txtMeggerRange.Text == "" || txtMeggerRange.Text == null)
+                if (string.IsNullOrEmpty(txtMeggerRange.Text) || txtMeggerRange.Text == "" || txtMeggerRange.Text == null || txtMeggerRange.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMeggerRange.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter megger Range\\n";
                     slno = slno + 1;
