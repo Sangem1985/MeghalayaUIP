@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
@@ -1166,7 +1167,7 @@
                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
                                             <asp:TemplateField HeaderText="Response">
                                                 <ItemTemplate>
-                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                                     <br />
                                                     <br />
                                                     <asp:FileUpload ID="FileUploadquery" runat="server" />

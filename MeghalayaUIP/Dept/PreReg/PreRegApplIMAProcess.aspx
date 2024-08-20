@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
@@ -193,7 +194,7 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                          <asp:Label runat="server" ID="lblregcategory"> </asp:Label>
+                                                            <asp:Label runat="server" ID="lblregcategory"> </asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblUdyam" runat="server"></asp:Label>
@@ -711,7 +712,7 @@
                                                                 <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                 <asp:BoundField HeaderText="Nationality." DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Nationality." DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Mobile No." DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="E-Mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%" />
@@ -819,10 +820,10 @@
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
-                                                            <asp:TemplateField HeaderText="Sl.No" HeaderStyle-Width="1px"  >
+                                                            <asp:TemplateField HeaderText="Sl.No" HeaderStyle-Width="1px">
                                                                 <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="center"   />
-                                                                <ItemTemplate >
+                                                                <ItemStyle HorizontalAlign="center" />
+                                                                <ItemTemplate>
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
@@ -1026,7 +1027,7 @@
                                         <td style="width: 150px">Enter Response
                                         </td>
                                         <td>
-                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 350px; margin-top: 10px;"></asp:TextBox>
+                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 350px; margin-top: 10px;" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                         </td>
                                         <td>Upload File if any:</td>
                                         <td>
@@ -1042,7 +1043,7 @@
                                         <td style="width: 200px">Enter Additional Query
                                         </td>
                                         <td style="width: 370px">
-                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="350px"></asp:TextBox>
+                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="350px" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                         </td>
                                         <td></td>
                                         <td></td>
@@ -1139,7 +1140,7 @@
                                                             <td>Enter Query Description
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtDeptQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50"></asp:TextBox>
+                                                                <asp:TextBox ID="txtDeptQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return validateNameInput(event)"></asp:TextBox>
 
                                                             </td>
                                                         </tr>

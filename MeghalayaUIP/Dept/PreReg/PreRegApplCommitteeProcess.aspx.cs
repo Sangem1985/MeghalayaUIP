@@ -266,23 +266,23 @@ namespace MeghalayaUIP.Dept.PreReg
                 if (ddlStatus.SelectedValue == "10")
                 {
 
-                    if (string.IsNullOrWhiteSpace(txtDeptLandArea.Text.Trim()) || txtDeptLandArea.Text.Trim() == "" || txtDeptLandArea.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptLandArea.Text.Trim()) || txtDeptLandArea.Text.Trim() == "" || txtDeptLandArea.Text.Trim() == null || txtDeptLandArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptLandArea.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Land Area \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptPower.Text.Trim()) || txtDeptPower.Text.Trim() == "" || txtDeptPower.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptPower.Text.Trim()) || txtDeptPower.Text.Trim() == "" || txtDeptPower.Text.Trim() == null || txtDeptPower.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptPower.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Power Required  \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptWater.Text.Trim()) || txtDeptWater.Text.Trim() == "" || txtDeptWater.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptWater.Text.Trim()) || txtDeptWater.Text.Trim() == "" || txtDeptWater.Text.Trim() == null || txtDeptWater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptWater.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Water Required \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text.Trim()) || txtDeptWastedtls.Text.Trim() == "" || txtDeptWastedtls.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text.Trim()) || txtDeptWastedtls.Text.Trim() == "" || txtDeptWastedtls.Text.Trim() == null || txtDeptWastedtls.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptWastedtls.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Waste details \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtHazWaste.Text.Trim()) || txtHazWaste.Text.Trim() == "" || txtHazWaste.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtHazWaste.Text.Trim()) || txtHazWaste.Text.Trim() == "" || txtHazWaste.Text.Trim() == null || txtHazWaste.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtHazWaste.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Hazardous waste details \\n";
                     }
