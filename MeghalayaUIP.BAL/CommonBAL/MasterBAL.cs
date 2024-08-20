@@ -195,6 +195,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetMonth();
         }
+        public DataSet GrievanceHandledDashboard(string fdate, string tdate)
+        {
+            return objMasterDAL.GrievanceHandledDashboard(fdate, tdate);
+        }
 
     }
 }
