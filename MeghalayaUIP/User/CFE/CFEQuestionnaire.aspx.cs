@@ -1093,12 +1093,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Proposed Location Village \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null)
+                if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null || txtLandArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandArea.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total Extend Land  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBuiltArea.Text) || txtBuiltArea.Text == "" || txtBuiltArea.Text == null)
+                if (string.IsNullOrEmpty(txtBuiltArea.Text) || txtBuiltArea.Text == "" || txtBuiltArea.Text == null || txtBuiltArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuiltArea.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Built Up Area \\n";
                     slno = slno + 1;
@@ -1147,17 +1147,17 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Proposed Employment \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null)
+                if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null || txtLandValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandValue.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Value of Land as per sale Deed(In INR) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null)
+                if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null || txtBuildingValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingValue.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Value of Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPMCost.Text) || txtPMCost.Text == "" || txtPMCost.Text == null)
+                if (string.IsNullOrEmpty(txtPMCost.Text) || txtPMCost.Text == "" || txtPMCost.Text == null || txtPMCost.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPMCost.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Value of Plant & Machinery \\n";
                     slno = slno + 1;
@@ -1192,7 +1192,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Whether Generator Required or not \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBuildingHeight.Text) || txtBuildingHeight.Text == "" || txtBuildingHeight.Text == null)
+                if (string.IsNullOrEmpty(txtBuildingHeight.Text) || txtBuildingHeight.Text == "" || txtBuildingHeight.Text == null || txtBuildingHeight.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingHeight.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Height of the building \\n";
                     slno = slno + 1;
@@ -1246,7 +1246,7 @@ namespace MeghalayaUIP.User.CFE
                             errormsg = errormsg + slno + ". Please Select Power Plant Type \\n";
                             slno = slno + 1;
                         }
-                        if (string.IsNullOrEmpty(txtAggrCapacity.Text) || txtAggrCapacity.Text == "" || txtAggrCapacity.Text == null)
+                        if (string.IsNullOrEmpty(txtAggrCapacity.Text) || txtAggrCapacity.Text == "" || txtAggrCapacity.Text == null || txtAggrCapacity.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAggrCapacity.Text, @"^0+(\.0+)?$"))
                         {
                             errormsg = errormsg + slno + ". Please Enter Aggregate Capacity  \\n";
                             slno = slno + 1;
@@ -1279,7 +1279,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblFelltrees.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtNoofTrees.Text) || txtNoofTrees.Text == "" || txtNoofTrees.Text == null)
+                    if (string.IsNullOrEmpty(txtNoofTrees.Text) || txtNoofTrees.Text == "" || txtNoofTrees.Text == null || txtNoofTrees.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtNoofTrees.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Number of trees to be felled \\n";
                         slno = slno + 1;
@@ -1302,7 +1302,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblLbrAct1970.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txt1970Workers.Text) || txt1970Workers.Text == "" || txt1970Workers.Text == null)
+                    if (string.IsNullOrEmpty(txt1970Workers.Text) || txt1970Workers.Text == "" || txt1970Workers.Text == null || txt1970Workers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txt1970Workers.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of workers under Contract Labour(Regulation and Abolition)Act, 1970 \\n";
                         slno = slno + 1;
@@ -1315,7 +1315,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblLbrAct1979.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txt1979Workers.Text) || txt1979Workers.Text == "" || txt1979Workers.Text == null)
+                    if (string.IsNullOrEmpty(txt1979Workers.Text) || txt1979Workers.Text == "" || txt1979Workers.Text == null || txt1979Workers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txt1979Workers.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of workers under Inter-state Migrant Workmen Act, 1979? \\n";
                         slno = slno + 1;
@@ -1335,7 +1335,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     if (rblbuildingwork.SelectedValue == "Y")
                     {
-                        if (string.IsNullOrEmpty(txt1996Workers.Text) || txt1996Workers.Text == "" || txt1996Workers.Text == null)
+                        if (string.IsNullOrEmpty(txt1996Workers.Text) || txt1996Workers.Text == "" || txt1996Workers.Text == null || txt1996Workers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txt1996Workers.Text, @"^0+(\.0+)?$"))
                         {
                             errormsg = errormsg + slno + ". Please Enter No.of workers Building and Other Constrution Worker(RE&COS) Act, 1996? \\n";
                             slno = slno + 1;
@@ -1349,7 +1349,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblLabourAct.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtContractWorkers.Text) || txtContractWorkers.Text == "" || txtContractWorkers.Text == null)
+                    if (string.IsNullOrEmpty(txtContractWorkers.Text) || txtContractWorkers.Text == "" || txtContractWorkers.Text == null || txtContractWorkers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtContractWorkers.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of Workers under License under Contract Labour Act (For Contractor) \\n";
                         slno = slno + 1;
@@ -1362,7 +1362,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblForContr1970.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtContr1970wrkrs.Text) || txtContr1970wrkrs.Text == "" || txtContr1970wrkrs.Text == null)
+                    if (string.IsNullOrEmpty(txtContr1970wrkrs.Text) || txtContr1970wrkrs.Text == "" || txtContr1970wrkrs.Text == null || txtContr1970wrkrs.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtContr1970wrkrs.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of workers under License for Contractors) as defined in the contract labour\r\n(Regulation and Abolition) Act,1970? \\n";
                         slno = slno + 1;

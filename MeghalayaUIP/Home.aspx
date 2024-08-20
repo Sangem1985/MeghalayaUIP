@@ -175,7 +175,7 @@
             <div class="row">
                 <p class="pftext">Easy Process to Register your Business and Claim Incentives</p>
                 <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 d-flex mb-3 mt-5 text-center easyprocess wow zoomIn animated" data-wow-delay="500ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 500ms; animation-name: zoomIn;">
-                    
+
                     <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgleft" />
                     <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgright" />
                     <div class="col-md-2 mt-3">
@@ -186,7 +186,7 @@
                                     <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
                                 </div>
                                 <p class="numb">01</p>
-                                
+
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-chart-user"></i>
                                     <br />
@@ -194,7 +194,7 @@
                                     business Idea or want to expand your Business?
                                 </p>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -204,7 +204,7 @@
                                     <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
                                 </div>
                                 <p class="numb">02</p>
-                                
+
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-reservation-table"></i>
                                     <br />
@@ -213,7 +213,7 @@
                                         Intent to Invest form</span> and our team will reach out
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -223,7 +223,7 @@
                                     <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
                                 </div>
                                 <p class="numb">03</p>
-                               
+
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-clip-file"></i>
                                     <br />
@@ -231,7 +231,7 @@
                                     Documents (Project DPR, loan sanctions, etc.) 
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -241,7 +241,7 @@
                                     <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
                                 </div>
                                 <p class="numb">04</p>
-                                
+
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-challenge-alt"></i>
                                     <br />
@@ -253,7 +253,7 @@
                             
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -263,7 +263,7 @@
                                     <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
                                 </div>
                                 <p class="numb">05</p>
-                                
+
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-trust-alt"></i>
                                     <br />
@@ -271,7 +271,7 @@
                                         for Pre-establishment & Pre-operations</span> for your business
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -281,7 +281,7 @@
                                     <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
                                 </div>
                                 <p class="numb">06</p>
-                                
+
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-operation"></i>
                                     <br />
@@ -291,7 +291,7 @@
                                     Commercial Operations
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -301,7 +301,7 @@
                                     <img src="assets/assetsnew/images/easy/arrowicon.png" alt="icon" />
                                 </div>
                                 <p class="numb">07</p>
-                                
+
                                 <p class="textboxyk">
                                     <i class="fi fi-tr-book-user"></i>
                                     <br />
@@ -310,7 +310,7 @@
 
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
         </div>
 
     </section>
-    
+
     <section class="team-section" style="background: url(assets/assetsnew/images/sectors.png); background-size: auto;">
         <div class="container">
             <div class="sec-title">
@@ -445,7 +445,7 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content-box">
                         <div class="top-content">
-                            
+
 
                             <h2 class="head2" style="font-size: 30px !important;">The only interface with Investors</h2>
                             <div class="middle-content">
@@ -459,18 +459,18 @@
                         </div>
 
                     </div>
-                   
+
                     <div class="row">
                         <div class="col-md-12 d-flex" id="bottomvibebox">
                             <div class="col-md-6 glow-on-hover" id="bottombox">
                                 <a href="login.aspx" class="" style="margin-left: 82px;">
-                                    
+
                                     <img src="assets/assetsnew/images/form.gif" style="width: 26%; margin-left: -94px; margin-right: 10px;">
                                     Apply for Clearance/<br />
                                     approvals
                                     for your business</a>
                             </div>
-                            
+
                             <div class="col-md-6 glow-on-hover" id="bottombox1">
                                 <a href="login.aspx" class="">
                                     <img src="assets/assetsnew/images/search.gif" style="width: 28%; margin-left: -54px;">
@@ -509,9 +509,8 @@
                     </button>
                     <h5 class="modal-title" id="exampleModalLongTitle1">
                         <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%; position: absolute; left: -95px; top: -5px; border-radius: 12px;">
-                       
-                            Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 &nbsp;&nbsp;&nbsp;&nbsp;<span
-                                style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="Documents/unnati2024.pdf" target="_blank">Read the UNNATI 2024 scheme document here.</a></span>
+                        Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="Documents/unnati2024.pdf" target="_blank">Read the UNNATI 2024 scheme document here.</a></span>
                     </h5>
 
 
@@ -834,7 +833,7 @@
                             </a>
                         </div>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -842,29 +841,31 @@
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i> Investors Desk
+            <i class="fi fi-tr-admin-alt"></i>Investors Desk
         </button>
     </div>
 
     <div class="modal fade" id="exampleModal123" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel123">Services</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-          
-      </div>
-      <div class="modal-body">
-        <p>Which dashboard would you like to go?</p>
-      </div>
-      <div class="modal-footer">          
-        <a href="SingleWindowPortalDashboard.aspx" class="btn btn-secondary">Single Window Dashboard</a>
-        <a href="GrievanceMisReport.aspx" class="btn btn-primary">Grievance/Query Dashboard</a>
-      </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel123">Services</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Which dashboard would you like to go?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="SingleWindowPortalDashboard.aspx" class="btn btn-secondary">Single Window Dashboard</a>
+                    <a href="GrievanceMisReport.aspx" class="btn btn-primary">Grievance/Query Dashboard</a>
+                   
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
 </asp:Content>

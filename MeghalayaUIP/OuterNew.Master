@@ -380,13 +380,14 @@
 
                                                     </ul>
                                                 </li>
-                                                 <li class="dropdown"><a href="#">Dashboard <i class="fi fi-br-chevron-double-down"></i></a>
-                                                     <ul>
-                                    <li><a href="SingleWindowPortalDashboard.aspx">Single Window Dashboard</a></li>
-                                    <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>                         
-                                    
-                                        </ul>
-                                    </li>  
+                                                <li class="dropdown"><a href="#">Dashboard <i class="fi fi-br-chevron-double-down"></i></a>
+                                                    <ul>
+                                                        <li><a href="SingleWindowPortalDashboard.aspx">Single Window Dashboard</a></li>
+                                                        <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
+                                                        <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grivance Timelines</a></li>
+
+                                                    </ul>
+                                                </li>
                                                 <!-- <a href="login.html"><li class="button-box"><i class="fas fa-arrow-right"></i> Login </li></a>  -->
 
                                                 <!-- <li>
@@ -488,6 +489,7 @@
                                                 <li><a href="InformationWizard.aspx">Information Wizard</a></li>
                                                 <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                                 <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
+
 
                                             </ul>
                                         </div>
