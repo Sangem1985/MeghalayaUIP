@@ -3270,7 +3270,7 @@
                                     <div class="table-responsive">
                                         <table align="Center" style="width: 100%; border-color: brown; align-content: center;" class="table table-bordered mb-10">
                                             <tr style="border-color: brown; background-color: midnightblue; color: azure">
-                                                <td><b>Name</b></td>
+                                               <%-- <td><b>Name</b></td>--%>
                                                 <td><b>Unit Name</b></td>
                                                 <td><b>Application No</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
@@ -3283,8 +3283,8 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <asp:Label runat="server" ID="lbl_Name1Approval"></asp:Label></td>
+                                              <%--  <td>
+                                                    <asp:Label runat="server" ID="lbl_Name1Approval"></asp:Label></td>--%>
                                                 <td>
                                                     <asp:Label ID="lblunitname1Approval" runat="server"></asp:Label>
                                                 </td>
