@@ -1,9 +1,8 @@
-﻿<%@ Page Title="Grievance/Query Dashboard" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="GrievanceMisReport.aspx.cs" Inherits="MeghalayaUIP.GrievanceMisReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="MISIncentiveDashboard.aspx.cs" Inherits="MeghalayaUIP.MISIncentiveDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <style>
         .swpd thead tr th {
             vertical-align: middle;
@@ -90,15 +89,15 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Grievance/Feedback/General Query</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Services</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Incentive Dashboard</li>
                                 </ol>
                             </nav>
 
 
-                            <h3>Grievance/Feedback/General Query</h3>
+                            <h3>Incentive Dashboard</h3>
                             <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
-                                <div class="col-md-3" runat="server" visible="false">
+                                <div class="col-md-3" runat="server">
                                     <div class="form-group row">
                                         <label class="col-md-5 col-form-label" style="text-align: right;">
                                             From Date :</label>
@@ -109,7 +108,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3" runat="server" visible="false">
+                                <div class="col-md-3" runat="server">
                                     <div class="form-group row">
                                         <label class="col-md-5 col-form-label" style="text-align: right;">
                                             To Date :</label>
@@ -119,21 +118,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 d-flex">
-                                    <div class="col-md-6" style="margin-top: 4px;">Tepy of Report :</div>
-                                    <div class="col-md-6">
-                                        <asp:DropDownList ID="ddlType" runat="server" class=" form-control">
-                                            <asp:ListItem Value="G" Selected="True">Grievance</asp:ListItem>
-                                            <asp:ListItem Value="F">Feedback</asp:ListItem>
-                                            <asp:ListItem Value="Q">General Query</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
+
                                 <div class="col-md-2">
                                     <div class="form-group row">
 
                                         <div class="col-lg-6 d-flex">
-                                            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn btn-rounded btn-success" Width="80px" />
+                                            <asp:Button ID="btnSearch" runat="server" Text="Submit" OnClick="btnSearch_Click" class="btn btn-rounded btn-success" Width="80px" />
                                         </div>
                                     </div>
                                 </div>
@@ -141,7 +131,7 @@
                             <div class="swpd">
 
                                 <asp:GridView ID="gvDetails" runat="server" AutoGenerateColumns="false" CssClass="table table-responsive table-bordered table-sm mb-0 table-hover"
-                                    OnRowDataBound="gvDetails_RowDataBound" ShowFooter="true" FooterStyle-HorizontalAlign="Left">
+                                    FooterStyle-HorizontalAlign="Left">
                                     <Columns>
                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S. No." HeaderStyle-CssClass="fw-bold">
                                             <ItemTemplate>
@@ -150,14 +140,37 @@
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <ItemStyle Width="5%" />
                                         </asp:TemplateField>
-                                        <asp:BoundField ItemStyle-Width="1028px" DataField="DEPT_NAME" HeaderText="Department Name" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="TOTALAPPLICATIONSRCVD" HeaderText="Total Received" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="PENDING" HeaderText="Pending" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="REDRESS" HeaderText="Redressed" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="REJECT" HeaderText="Rejected" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
+                                        <asp:BoundField ItemStyle-Width="1028px" DataField="IncentiveName" HeaderText="Particulars" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
+                                        <asp:BoundField ItemStyle-Width="400px" DataField="TimelimitPrescribed" HeaderText="TimelimitPrescribed" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
+                                        <asp:TemplateField HeaderText="TotalNumberofApplicationsReceived">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblReportWithin" Text='<%#Eval("TotalNumberofApplicationsReceived") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="TotalNumberofapplicationsprocessed">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblReportWithin" Text='<%#Eval("TotalNumberofapplicationsprocessed") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Averagetimetakentograntapproval">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblReportWithin" Text='<%#Eval("Averagetimetakentograntapproval") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Mediantimetakentograntapproval">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblReportWithin" Text='<%#Eval("Mediantimetakentograntapproval") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+
                                     </Columns>
                                 </asp:GridView>
                             </div>
+
                         </div>
                     </div>
                     <div id="DivFooter" runat="server">
@@ -177,5 +190,4 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </section>
-
 </asp:Content>

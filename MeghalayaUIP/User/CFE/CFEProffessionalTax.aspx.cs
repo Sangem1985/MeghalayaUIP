@@ -367,12 +367,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Distric Establishment\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
+                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null || txtPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPincode.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Pincode\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEmployeeESt.Text) || txtEmployeeESt.Text == "" || txtEmployeeESt.Text == null)
+                if (string.IsNullOrEmpty(txtEmployeeESt.Text) || txtEmployeeESt.Text == "" || txtEmployeeESt.Text == null || txtEmployeeESt.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEmployeeESt.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Employee Establishment\\n";
                     slno = slno + 1;
@@ -420,7 +420,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Distric Registration Type\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(TXTRegNo.Text) || TXTRegNo.Text == "" || TXTRegNo.Text == null)
+                if (string.IsNullOrEmpty(TXTRegNo.Text) || TXTRegNo.Text == "" || TXTRegNo.Text == null || TXTRegNo.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(TXTRegNo.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Registration Number\\n";
                     slno = slno + 1;

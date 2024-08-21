@@ -581,7 +581,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Mobile No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtAltMobile.Text) || txtAltMobile.Text == "" || txtAltMobile.Text == null)
+                if (string.IsNullOrEmpty(txtAltMobile.Text) || txtAltMobile.Text == "" || txtAltMobile.Text == null || txtAltMobile.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAltMobile.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter AlterNative Mobile No\\n";
                     slno = slno + 1;
@@ -591,7 +591,7 @@ namespace MeghalayaUIP.User.CFE
                 //    errormsg = errormsg + slno + ". Please Enter Landline No\\n";
                 //    slno = slno + 1;
                 //}
-                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
+                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null || txtDoorNo.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDoorNo.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Door No\\n";
                     slno = slno + 1;
@@ -642,7 +642,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Architect LIC No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtArchitectMobileno.Text) || txtArchitectMobileno.Text == "" || txtArchitectMobileno.Text == null)
+                if (string.IsNullOrEmpty(txtArchitectMobileno.Text) || txtArchitectMobileno.Text == "" || txtArchitectMobileno.Text == null || txtArchitectMobileno.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtArchitectMobileno.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Architect Mobile No\\n";
                     slno = slno + 1;
@@ -657,12 +657,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Structural Engineer LIC No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtStrEngnrMobileno.Text) || txtStrEngnrMobileno.Text == "" || txtStrEngnrMobileno.Text == null)
+                if (string.IsNullOrEmpty(txtStrEngnrMobileno.Text) || txtStrEngnrMobileno.Text == "" || txtStrEngnrMobileno.Text == null || txtStrEngnrMobileno.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtStrEngnrMobileno.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Structural Engineer Mobile No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtDevelopmentArea.Text) || txtDevelopmentArea.Text == "" || txtDevelopmentArea.Text == null)
+                if (string.IsNullOrEmpty(txtDevelopmentArea.Text) || txtDevelopmentArea.Text == "" || txtDevelopmentArea.Text == null  || txtDevelopmentArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDevelopmentArea.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Area for Development(in Sq. mts) \\n";
                     slno = slno + 1;
@@ -672,7 +672,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Type of Approach Road \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtExstngWidth.Text) || txtExstngWidth.Text == "" || txtExstngWidth.Text == null)
+                if (string.IsNullOrEmpty(txtExstngWidth.Text) || txtExstngWidth.Text == "" || txtExstngWidth.Text == null || txtExstngWidth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtExstngWidth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Existing Width of Approach Road(in feet) \\n";
                     slno = slno + 1;
@@ -685,51 +685,51 @@ namespace MeghalayaUIP.User.CFE
                 if (rblAffectedroad.SelectedValue == "Y")
                 {
 
-                    if (string.IsNullOrEmpty(txtAffectedArea.Text) || txtAffectedArea.Text == "" || txtAffectedArea.Text == null)
+                    if (string.IsNullOrEmpty(txtAffectedArea.Text) || txtAffectedArea.Text == "" || txtAffectedArea.Text == null || txtAffectedArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAffectedArea.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Extent of affected area in sq.mts* \\n";
                         slno = slno + 1;
                     }
                 }
 
-                if (string.IsNullOrEmpty(txtMale.Text) || txtMale.Text == "" || txtMale.Text == null)
+                if (string.IsNullOrEmpty(txtMale.Text) || txtMale.Text == "" || txtMale.Text == null || txtMale.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMale.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Male Employee \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtFemale.Text) || txtFemale.Text == "" || txtFemale.Text == null)
+                if (string.IsNullOrEmpty(txtFemale.Text) || txtFemale.Text == "" || txtFemale.Text == null || txtFemale.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtFemale.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Female Employee \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtDirectOthers.Text) || txtDirectOthers.Text == "" || txtDirectOthers.Text == null)
+                if (string.IsNullOrEmpty(txtDirectOthers.Text) || txtDirectOthers.Text == "" || txtDirectOthers.Text == null || txtDirectOthers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDirectOthers.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Direct Other Employee\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtIndirectMale.Text) || txtIndirectMale.Text == "" || txtIndirectMale.Text == null)
+                if (string.IsNullOrEmpty(txtIndirectMale.Text) || txtIndirectMale.Text == "" || txtIndirectMale.Text == null || txtIndirectMale.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtIndirectMale.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Direct Male Employee\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtIndirectFemale.Text) || txtIndirectFemale.Text == "" || txtIndirectFemale.Text == null)
+                if (string.IsNullOrEmpty(txtIndirectFemale.Text) || txtIndirectFemale.Text == "" || txtIndirectFemale.Text == null || txtIndirectFemale.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtIndirectFemale.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Direct Female Employee\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtInDirectOthers.Text) || txtInDirectOthers.Text == "" || txtInDirectOthers.Text == null)
+                if (string.IsNullOrEmpty(txtInDirectOthers.Text) || txtInDirectOthers.Text == "" || txtInDirectOthers.Text == null || txtInDirectOthers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtInDirectOthers.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
                     slno = slno + 1;
                 }
                 if (divRDctng.Visible == true)
                 {
-                    if (string.IsNullOrEmpty(txtRdCutlenght.Text) || txtRdCutlenght.Text == "" || txtRdCutlenght.Text == null)
+                    if (string.IsNullOrEmpty(txtRdCutlenght.Text) || txtRdCutlenght.Text == "" || txtRdCutlenght.Text == null || txtRdCutlenght.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtRdCutlenght.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtRdCutLocations.Text) || txtRdCutLocations.Text == "" || txtRdCutLocations.Text == null)
+                    if (string.IsNullOrEmpty(txtRdCutLocations.Text) || txtRdCutLocations.Text == "" || txtRdCutLocations.Text == null || txtRdCutLocations.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtRdCutLocations.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
                         slno = slno + 1;

@@ -179,9 +179,9 @@ namespace MeghalayaUIP.Dept.CFE
 
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
-                        lblnameUnit.Text = lblunitname1.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYNAME"]);
-                        lblApplNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CFEUIDNO"]);
-                        lblapplDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CREATEDDATE"]);
+                        lblnameUnit.Text = lblunitname1.Text= lblunitname1Approval.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYNAME"]);
+                        lblApplNo.Text= lblApplNoApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CFEUIDNO"]);
+                        lblapplDate.Text= lblapplDateApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CREATEDDATE"]);
 
                         lblconstitution.Text = Convert.ToString(ds.Tables[0].Rows[0]["CONST_TYPE"]);
                         lblProposal.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPOSALFOR"]);

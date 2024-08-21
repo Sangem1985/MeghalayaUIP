@@ -106,7 +106,7 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQueryRaised" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkQueryRaised" ForeColor="White" Enabled="false">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -126,7 +126,7 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQueryResponded" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkQueryResponded" ForeColor="White" Enabled="false">
                                         <div class="info-box bg-yellow hover-expand-effect">
                                             <div class="icon">
                                                 <h4>

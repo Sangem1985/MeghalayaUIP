@@ -78,6 +78,33 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.GridView gvDetails;
 
         /// <summary>
+        /// DivFooter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivFooter;
+
+        /// <summary>
+        /// LBLDATETEXT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LBLDATETEXT;
+
+        /// <summary>
+        /// LBLDATETIME control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LBLDATETIME;
+
+        /// <summary>
         /// UpdateProgress control.
         /// </summary>
         /// <remarks>

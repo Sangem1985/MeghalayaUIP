@@ -1588,5 +1588,137 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public List<MasterYear> GetYear()
+        {
+            List<MasterYear> lstYearMstr = new List<MasterYear>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetYearMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Country = new MasterYear()
+                        {
+                            YEAR_ID = Convert.ToString(drOptions["YEAR_ID"]),
+                            YEAR = Convert.ToString(drOptions["YEAR"])
+                        };
+                        lstYearMstr.Add(Country);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstYearMstr;
+        }
+        public List<MasterMonth> GetMonth()
+        {
+            List<MasterMonth> lstMonthMstr = new List<MasterMonth>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetMonthMaster);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var masterMonth = new MasterMonth()
+                        {
+                            MONTH_ID = Convert.ToString(drOptions["MONTH_ID"]),
+                            MONTH_NAME = Convert.ToString(drOptions["MONTH_NAME"])
+                        };
+                        lstMonthMstr.Add(masterMonth);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstMonthMstr;
+        }
+        public DataSet GrievanceHandledDashboard(string fdate, string tdate)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GrievanceHandledDashboard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GrievanceHandledDashboard;
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@fromdate", fdate);
+                da.SelectCommand.Parameters.AddWithValue("@TODATE", tdate);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet MISIIncentiveDashboard(string fdate, string tdate)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.MISIIncentiveDashboard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.MISIIncentiveDashboard;
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@fromdate", fdate);
+                da.SelectCommand.Parameters.AddWithValue("@TODATE", tdate);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }

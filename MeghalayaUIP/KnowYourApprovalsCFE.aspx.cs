@@ -14,16 +14,17 @@ namespace MeghalayaUIP
 {
     public partial class KnowYourApprovalsCFE : System.Web.UI.Page
     {
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg3 = "", ErrorMsg1 = "", ErrorMsg2 = "";
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
+        MGCommonBAL objMGcom = new MGCommonBAL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                
+
                 Page.MaintainScrollPositionOnPostBack = true;
                 if (!IsPostBack)
                 {
@@ -36,8 +37,8 @@ namespace MeghalayaUIP
                     GetElectricRegulations();
                     GetVoltageMaster();
                     GetPowerPlants();
-                   
-                }               
+
+                }
             }
             catch (Exception ex)
             {
@@ -673,10 +674,33 @@ namespace MeghalayaUIP
 
         protected void btnNext1_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 1;
+            try
+            {
+                ErrorMsg1 = Validations1();
+                if (ErrorMsg1 == "")
+                {
+                    Link2.Enabled = true;
+                    MVQues.ActiveViewIndex = 1;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg1;
+                    string message = "alert('" + ErrorMsg1 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+
+
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
+
             MVQues.ActiveViewIndex = 0;
         }
         protected void btnsave2_Click(object sender, EventArgs e)
@@ -686,7 +710,28 @@ namespace MeghalayaUIP
 
         protected void btnNext2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            try
+            {
+                ErrorMsg2 = Validations2();
+                if (ErrorMsg2 == "")
+                {
+                    Link3.Enabled = true;
+                    MVQues.ActiveViewIndex = 2;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg2;
+                    string message = "alert('" + ErrorMsg2 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+
 
         }
 
@@ -695,8 +740,11 @@ namespace MeghalayaUIP
             try
             {
                 string result = "";
-                ErrorMsg = Validations();
-                if (ErrorMsg == "")
+                ErrorMsg1 = Validations1();
+                ErrorMsg2 = Validations2();
+
+                ErrorMsg3 = Validations3();
+                if (ErrorMsg3 == "")
                 {
                     btnApprvlsReq_Click(sender, e);
                     CFEQuestionnaireDet objCFEQsnaire = new CFEQuestionnaireDet();
@@ -808,8 +856,8 @@ namespace MeghalayaUIP
                 else
                 {
                     Failure.Visible = true;
-                    lblmsg0.Text = ErrorMsg;
-                    string message = "alert('" + ErrorMsg + "')";
+                    lblmsg0.Text = ErrorMsg3;
+                    string message = "alert('" + ErrorMsg3 + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     return;
                 }
@@ -821,7 +869,7 @@ namespace MeghalayaUIP
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-      
+
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -839,7 +887,7 @@ namespace MeghalayaUIP
 
             return result;
         }
-        public string Validations()
+        public string Validations1()
         {
             try
             {
@@ -910,6 +958,22 @@ namespace MeghalayaUIP
                     errormsg = errormsg + slno + ". Please Select Whether land purchased from MIDCL or not \\n";
                     slno = slno + 1;
                 }
+
+
+                return errormsg;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string Validations2()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
                 if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Employment \\n";
@@ -935,6 +999,22 @@ namespace MeghalayaUIP
                     errormsg = errormsg + slno + ". Please Enter Expected Annual Turnover( \\n";
                     slno = slno + 1;
                 }
+
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string Validations3()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+
+
                 if (ddlPowerReq.SelectedIndex == -1 || ddlPowerReq.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Power requirement \\n";
@@ -1148,11 +1228,12 @@ namespace MeghalayaUIP
             try
             {
                 string ErrorMsg;
-                ErrorMsg = Validations();
+                ErrorMsg = Validations3();
                 if (ErrorMsg == "")
                 {
                     GetApprovals();
                     MVQues.ActiveViewIndex = 3;
+                    Link4.Visible = true;
                 }
                 else
                 {
@@ -1196,7 +1277,7 @@ namespace MeghalayaUIP
                 {
                     objCFEQ.PCBCategory = lblPCBCategory.Text;
                     objCFEQ.ApprovalID = "1";
-                    dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtPCB = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtPCB);
                 }
                 if (ddlPowerReq.SelectedValue != "")
@@ -1204,147 +1285,147 @@ namespace MeghalayaUIP
                     objCFEQ.PowerReqKW = ddlPowerReq.SelectedValue;
                     objCFEQ.PropEmployment = txtPropEmp.Text;
                     objCFEQ.ApprovalID = "3";
-                    dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtpower = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtpower);
                     objCFEQ.ApprovalID = "5";
-                    dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtFctry = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtFctry);
                 }
                 if (rblGenerator.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "6";
-                    dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtGenReq = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtGenReq);
                 }
                 if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
                 {
                     objCFEQ.BuildingHeight = txtBuildingHeight.Text;
                     objCFEQ.ApprovalID = "7";
-                    dtfire = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtfire = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtfire);
                 }
                 if (rblRSDSstore.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "8";
-                    dtRSDS = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtRSDS = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtRSDS);
                 }
                 if (rblexplosives.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "9";
-                    dtExplosivs = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtExplosivs = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtExplosivs);
                 }
                 if (rblPetrlManf.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "10";
-                    dtPtrlsale = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtPtrlsale = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtPtrlsale);
                 }
                 if (rblRoadCutting.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "11";
-                    dtRdctng = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtRdctng = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtRdctng);
                 }
                 if (rblNonEncCert.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "12";
-                    dtNonEncCert = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtNonEncCert = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtNonEncCert);
                 }
                 if (rblCommericalTax.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "13";
-                    dtCommTax = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtCommTax = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtCommTax);
                 }
                 if (rblHighTension.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "14";
-                    dtHitens = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtHitens = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtHitens);
                 }
                 if (rblfrstDistncLtr.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "15";
-                    dtfrstDist = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtfrstDist = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtfrstDist);
                 }
                 if (rblNonForstLandCert.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "16";
-                    dtNonFrstLand = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtNonFrstLand = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtNonFrstLand);
                 }
                 if (rblwaterbody.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "17";
-                    dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtWtrbody = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtWtrbody);
                     dtWtrbody.Clear();
                     objCFEQ.ApprovalID = "18";
-                    dtWtrbody = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtWtrbody = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtWtrbody);
                 }
                 if (rblLbrAct1970.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "25";
-                    dtAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtAct1970 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1970);
                 }
                 if (rblLbrAct1979.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "26";
-                    dtAct1979 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtAct1979 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1979);
                 }
                 if (rblLbrAct1996.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "27";
-                    dtAct1996 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtAct1996 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1996);
                 }
                 if (rblLabourAct.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "28";
-                    dtContrLbrAct = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtContrLbrAct = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtContrLbrAct);
                 }
                 if (rblForContr1970.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "29";
-                    dtContAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtContAct1970 = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtContAct1970);
                 }
                 if (rblNocGroundWater.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "19";
-                    dtGroundwater = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtGroundwater = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtGroundwater);
                 }
                 if (rblwatersupply.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "20";
-                    watersupply = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    watersupply = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(watersupply);
                 }
                 if (rblRiverTanks.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "21";
-                    rivertanker = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    rivertanker = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(rivertanker);
                 }
                 if (rblMunicipal.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "22";
-                    Municipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    Municipal = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(Municipal);
                 }
                 if (rblGrantwater.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "23";
-                    NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    NonMunicipal = objMGcom.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(NonMunicipal);
                 }
 
@@ -1392,19 +1473,86 @@ namespace MeghalayaUIP
 
         protected void Link1_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 0;
-            var cls = Link1.Attributes["class"];
-            Link1.Attributes.Add("class", cls + " nav-tab");
+            try
+            {
+                MVQues.ActiveViewIndex = 0;
+                var cls = Link1.Attributes["class"];
+                Link1.Attributes.Add("class", cls + " nav-tab");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+
         }
 
         protected void Link2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 1;
+
+            try
+            {
+                ErrorMsg1 = Validations1(); 
+                if (ErrorMsg1 == "")
+                {
+                    MVQues.ActiveViewIndex = 1;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg1;
+                    string message = "alert('" + ErrorMsg1 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+
         }
+
+       
 
         protected void Link3_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+
+            try
+            {
+                ErrorMsg2 = Validations2();
+                if (ErrorMsg2 == "")
+                {
+                    MVQues.ActiveViewIndex = 2;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg2;
+                    string message = "alert('" + ErrorMsg2 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+
+
+        }
+        protected void Link4_Click(object sender, EventArgs e)
+        {
+            btnApprvlsReq_Click(sender, e);
+        }
+
+        protected void txtLandValue_TextChanged(object sender, EventArgs e)
+        {
+            TotalAmount();
+        }
+
+        protected void txtBuildingValue_TextChanged(object sender, EventArgs e)
+        {
+            TotalAmount();
         }
 
         protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
@@ -1442,7 +1590,19 @@ namespace MeghalayaUIP
         protected void txtPMCost_TextChanged(object sender, EventArgs e)
         {
             txtAnnualTurnOver_TextChanged(sender, e);
-
+            TotalAmount();
+        }
+        public void TotalAmount()
+        {
+            if (int.TryParse(txtLandValue.Text, out int LanCount) && int.TryParse(txtBuildingValue.Text, out int Buildingcount) && int.TryParse(txtPMCost.Text,out int PMcount))
+            {
+                int total = LanCount + Buildingcount+PMcount;
+                lblTotProjCost.Text = total.ToString();
+            }
+            else
+            {
+                lblTotProjCost.Text = "0.00";
+            }
         }
 
 

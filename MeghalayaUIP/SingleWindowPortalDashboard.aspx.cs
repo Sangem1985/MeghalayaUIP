@@ -52,6 +52,7 @@ namespace MeghalayaUIP
                     gvDepts.DataSource = null;
                     gvDepts.DataBind();
                 }
+                LBLDATETIME.Text = System.DateTime.Now.ToString();
             }
             catch (Exception ex)
             {

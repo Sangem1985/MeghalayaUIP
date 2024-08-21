@@ -1615,7 +1615,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter FatherName \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtage.Text) || txtage.Text == "" || txtage.Text == null)
+                if (string.IsNullOrEmpty(txtage.Text) || txtage.Text == "" || txtage.Text == null || txtage.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtage.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Age \\n";
                     slno = slno + 1;
@@ -1625,7 +1625,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Desigantion \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtmobile.Text) || txtmobile.Text == "" || txtmobile.Text == null)
+                if (string.IsNullOrEmpty(txtmobile.Text) || txtmobile.Text == "" || txtmobile.Text == null || txtmobile.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtmobile.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Mobile No \\n";
                     slno = slno + 1;
@@ -1660,7 +1660,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Locality \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(TXTPIN.Text) || TXTPIN.Text == "" || TXTPIN.Text == null)
+                if (string.IsNullOrEmpty(TXTPIN.Text) || TXTPIN.Text == "" || TXTPIN.Text == null || TXTPIN.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(TXTPIN.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Pincode \\n";
                     slno = slno + 1;
@@ -1672,7 +1672,7 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter Name \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtMobilenumber.Text) || txtMobilenumber.Text == "" || txtMobilenumber.Text == null)
+                    if (string.IsNullOrEmpty(txtMobilenumber.Text) || txtMobilenumber.Text == "" || txtMobilenumber.Text == null || txtMobilenumber.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMobilenumber.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Mobile Number \\n";
                         slno = slno + 1;
@@ -1712,7 +1712,7 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter Village \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                    if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null || txtpincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpincode.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter PinCode \\n";
                         slno = slno + 1;
@@ -1732,17 +1732,17 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter Nature of work in which contract labour is employed \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtconstructionwork.Text.Trim()) || txtconstructionwork.Text.Trim() == "" || txtconstructionwork.Text.Trim() == null)
+                    if (string.IsNullOrEmpty(txtconstructionwork.Text.Trim()) || txtconstructionwork.Text.Trim() == "" || txtconstructionwork.Text.Trim() == null || txtconstructionwork.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtconstructionwork.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter  Estimated date of commencement of building or other construction work \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtContractEmployees.Text.Trim()) || txtContractEmployees.Text.Trim() == "" || txtContractEmployees.Text.Trim() == null)
+                    if (string.IsNullOrEmpty(txtContractEmployees.Text.Trim()) || txtContractEmployees.Text.Trim() == "" || txtContractEmployees.Text.Trim() == null || txtContractEmployees.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtContractEmployees.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Maximum number of Contract Employees \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtbuilding.Text.Trim()) || txtbuilding.Text.Trim() == "" || txtbuilding.Text.Trim() == null)
+                    if (string.IsNullOrEmpty(txtbuilding.Text.Trim()) || txtbuilding.Text.Trim() == "" || txtbuilding.Text.Trim() == null || txtbuilding.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtbuilding.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter  Estimated date of completion of building \\n";
                         slno = slno + 1;
@@ -1752,7 +1752,7 @@ namespace MeghalayaUIP.User.CFE
 
                 if (div5questions.Visible == true)
                 {
-                    if (string.IsNullOrEmpty(txtMaximum.Text.Trim()) || txtMaximum.Text.Trim() == "" || txtMaximum.Text.Trim() == null)
+                    if (string.IsNullOrEmpty(txtMaximum.Text.Trim()) || txtMaximum.Text.Trim() == "" || txtMaximum.Text.Trim() == null || txtMaximum.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMaximum.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Maximum Number of migrant workmen proposed to be employed \\n";
                         slno = slno + 1;
@@ -1792,7 +1792,7 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter AGE \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtmobileno.Text) || txtmobileno.Text == "" || txtmobileno.Text == null)
+                    if (string.IsNullOrEmpty(txtmobileno.Text) || txtmobileno.Text == "" || txtmobileno.Text == null || txtmobileno.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtmobileno.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter MOBILE NO \\n";
                         slno = slno + 1;
@@ -1827,7 +1827,7 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter LOCALITY \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtpinnumber.Text) || txtpinnumber.Text == "" || txtpinnumber.Text == null)
+                    if (string.IsNullOrEmpty(txtpinnumber.Text) || txtpinnumber.Text == "" || txtpinnumber.Text == null || txtpinnumber.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpinnumber.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter PINNUMBER \\n";
                         slno = slno + 1;
@@ -1867,7 +1867,7 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Select Village \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtAgentPincode.Text) || txtAgentPincode.Text == "" || txtAgentPincode.Text == null)
+                    if (string.IsNullOrEmpty(txtAgentPincode.Text) || txtAgentPincode.Text == "" || txtAgentPincode.Text == null || txtAgentPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAgentPincode.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter PINNUMBER \\n";
                         slno = slno + 1;

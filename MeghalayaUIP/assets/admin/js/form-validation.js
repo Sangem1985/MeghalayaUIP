@@ -864,6 +864,22 @@ function validateDateFormat(input) {
     }
 
 }
+function validateNameInput(event) {
+    var asciiValue = event.keyCode || event.which;
+
+    // Check if the key pressed is a letter (A-Z, a-z), a number (0-9), or a space (32)
+    if ((asciiValue >= 65 && asciiValue <= 90) ||   // Uppercase letters
+        (asciiValue >= 97 && asciiValue <= 122) ||  // Lowercase letters
+        (asciiValue >= 48 && asciiValue <= 57) ||   // Digits 0-9
+        asciiValue == 32) {                         // Space
+        return true;
+    } else {
+        event.preventDefault();
+        alert("Enter only alphabets, numbers, and spaces.");
+        return false;
+    }
+}
+
 
 
 

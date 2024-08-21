@@ -452,22 +452,22 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtwater.Text) || txtwater.Text == "" || txtwater.Text == null)
+                if (string.IsNullOrEmpty(txtwater.Text) || txtwater.Text == "" || txtwater.Text == null || txtwater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwater.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Drinking Water (KL/Day) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtIndustrial.Text) || txtIndustrial.Text == "" || txtIndustrial.Text == null)
+                if (string.IsNullOrEmpty(txtIndustrial.Text) || txtIndustrial.Text == "" || txtIndustrial.Text == null || txtIndustrial.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtIndustrial.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Water Industrial (KL/Day) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtQuantwater.Text) || txtQuantwater.Text == "" || txtQuantwater.Text == null)
+                if (string.IsNullOrEmpty(txtQuantwater.Text) || txtQuantwater.Text == "" || txtQuantwater.Text == null || txtQuantwater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtQuantwater.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Quantity of Water Required for Consumptive (KL/Day) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtwaterReq.Text) || txtwaterReq.Text == "" || txtwaterReq.Text == null)
+                if (string.IsNullOrEmpty(txtwaterReq.Text) || txtwaterReq.Text == "" || txtwaterReq.Text == null || txtwaterReq.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwaterReq.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Quantity of Water Required for Non-Consumptive (KL/Day) \\n";
                     slno = slno + 1;
@@ -487,7 +487,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Number of persons working in the premise \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtdemand.Text) || txtdemand.Text == "" || txtdemand.Text == null)
+                if (string.IsNullOrEmpty(txtdemand.Text) || txtdemand.Text == "" || txtdemand.Text == null || txtdemand.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtdemand.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Water requirement per day demand \\n";
                     slno = slno + 1;
@@ -522,7 +522,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Landmark \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null || txtpincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpincode.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Picode \\n";
                     slno = slno + 1;

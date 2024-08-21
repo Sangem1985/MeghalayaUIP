@@ -19,7 +19,11 @@ namespace MeghalayaUIP.Common
         public static string InsertGrievance = "USP_INS_GRIEVANCE";
         public static string GetUserGrievanceList= "USP_GETUSERGRIEVANCES";
         public static string GetGrowthFinancialYear = "USP_GET_GROWTH_FINANCIALYEAR";
-        
+
+        public static string GETCENTRALINSPECTIONDASHBOARD = "USP_GETCENTRALINSPDASHBAORD";
+        public static string GetCFEApprovalsReq = "USP_GETKNOWYOURAPPROVALSCFE";
+        public static string GetCFOApprovalsReq = "USP_GETKNOWYOURAPPROVALSCFO";
+
         //-----dept----
         public static string GetDeptGrievanceDashboard = "USP_GETDEPTGRIEVANCEDASHBOARD";
         public static string GetDepGrievanceList = "USP_GETGRIEVANCEBYDEPT";

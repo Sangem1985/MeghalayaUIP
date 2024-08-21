@@ -79,11 +79,13 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                         lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
                         lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                        lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                     
                         lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                         lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
                         lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
+                        lblregcategory.Text = "7. " + lblcatreg.Text + " No.";
+                        lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
                         lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                         lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
                         if (lblisland.Text == "Own")
@@ -264,23 +266,23 @@ namespace MeghalayaUIP.Dept.PreReg
                 if (ddlStatus.SelectedValue == "10")
                 {
 
-                    if (string.IsNullOrWhiteSpace(txtDeptLandArea.Text.Trim()) || txtDeptLandArea.Text.Trim() == "" || txtDeptLandArea.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptLandArea.Text.Trim()) || txtDeptLandArea.Text.Trim() == "" || txtDeptLandArea.Text.Trim() == null || txtDeptLandArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptLandArea.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Land Area \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptPower.Text.Trim()) || txtDeptPower.Text.Trim() == "" || txtDeptPower.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptPower.Text.Trim()) || txtDeptPower.Text.Trim() == "" || txtDeptPower.Text.Trim() == null || txtDeptPower.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptPower.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Power Required  \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptWater.Text.Trim()) || txtDeptWater.Text.Trim() == "" || txtDeptWater.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptWater.Text.Trim()) || txtDeptWater.Text.Trim() == "" || txtDeptWater.Text.Trim() == null || txtDeptWater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptWater.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Water Required \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text.Trim()) || txtDeptWastedtls.Text.Trim() == "" || txtDeptWastedtls.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtDeptWastedtls.Text.Trim()) || txtDeptWastedtls.Text.Trim() == "" || txtDeptWastedtls.Text.Trim() == null || txtDeptWastedtls.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDeptWastedtls.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Waste details \\n";
                     }
-                    if (string.IsNullOrWhiteSpace(txtHazWaste.Text.Trim()) || txtHazWaste.Text.Trim() == "" || txtHazWaste.Text.Trim() == null)
+                    if (string.IsNullOrWhiteSpace(txtHazWaste.Text.Trim()) || txtHazWaste.Text.Trim() == "" || txtHazWaste.Text.Trim() == null || txtHazWaste.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtHazWaste.Text, @"^0+(\.0+)?$"))
                     {
                         ErrorMsg = ErrorMsg + "Please Enter Hazardous waste details \\n";
                     }
@@ -444,6 +446,18 @@ namespace MeghalayaUIP.Dept.PreReg
             }
 
             return result;
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/PreReg/PreRegApplCommitteeView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         //protected void btnQuery_Click(object sender, EventArgs e)

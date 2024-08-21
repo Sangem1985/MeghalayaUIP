@@ -180,7 +180,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtnames" runat="server" class="form-control" MaxLength="150" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtnames" runat="server" class="form-control" MaxLength="150" TabIndex="1" onkeypress="return Names()"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -196,7 +196,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Email Id.*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" TabIndex="1" onblur="validateEmail(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -206,7 +206,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Father's Name</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtFathersname" runat="server" class="form-control" TabIndex="1" MaxLength="200"></asp:TextBox>
+                                                            <asp:TextBox ID="txtFathersname" runat="server" class="form-control" TabIndex="1" MaxLength="200" onkeypress="return Names()"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -265,7 +265,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Pincode *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtpincode" runat="server" class="form-control" MaxLength="6" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtpincode" runat="server" class="form-control" MaxLength="6" TabIndex="1" onkeypress="return NumberOnly()"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -843,7 +843,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Pincode *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtAgentPincode" runat="server" class="form-control" MaxLength="6"></asp:TextBox>
+                                                            <asp:TextBox ID="txtAgentPincode" runat="server" class="form-control" MaxLength="6" onkeypress="return validatePincode(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

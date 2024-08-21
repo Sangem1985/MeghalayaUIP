@@ -523,7 +523,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label ">(If Existing) Service No.</label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtSrviceno" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtSrviceno" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="30" />
                                                                         </div>
                                                                     </div>
                                                                 </div>

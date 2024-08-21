@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.CFE
 {
     public partial class CFEQuestionnaire : System.Web.UI.Page
     {
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg = "", ErrorMsg1 = "", ErrorMsg2 = "";
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
@@ -80,7 +80,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet ds = new DataSet(); 
                 ds = objcfebal.RetrieveQuestionnaireDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -99,6 +99,7 @@ namespace MeghalayaUIP.User.CFE
                     ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_SECTOR"]);
                     ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LOAID"]);
+                    ddlLine_Activity_SelectedIndexChanged(null, EventArgs.Empty);
                     lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PCBCATEGORY"]);
 
                     if (Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_INDUSTRYTYPE"]) == "Manufacturing")
@@ -189,18 +190,19 @@ namespace MeghalayaUIP.User.CFE
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
                         txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
 
-                        txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
-                        lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
+                        txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);                      
                         ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
                         ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
+                        ddlLine_Activity_SelectedIndexChanged(null, EventArgs.Empty);
+                        lblPCBCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PCBCATEGORY"]);
                         if (Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
                             ddlIndustryType.SelectedValue = "1";
                         else
                             ddlIndustryType.SelectedValue = "2";
 
-                        ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
-                        ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
+                     //   ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
+                       // ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                         //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
                         txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
@@ -835,7 +837,28 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnNext1_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 1;
+            try
+            {
+                ErrorMsg1 = Validations1();
+                if (ErrorMsg1 == "")
+                {
+                    Link2.Enabled = true;
+                    MVQues.ActiveViewIndex = 1;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg1;
+                    string message = "alert('" + ErrorMsg1 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+          
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
@@ -848,7 +871,29 @@ namespace MeghalayaUIP.User.CFE
 
         protected void btnNext2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            try
+            {
+                ErrorMsg2 = Validations2();
+                if (ErrorMsg2 == "")
+                {
+                    Link3.Enabled = true;
+                    MVQues.ActiveViewIndex = 2;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg2;
+                    string message = "alert('" + ErrorMsg2 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+          
 
         }
 
@@ -1012,7 +1057,7 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
-        public string Validations()
+        public string Validations1()
         {
             try
             {
@@ -1048,12 +1093,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Proposed Location Village \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null)
+                if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null || txtLandArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandArea.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total Extend Land  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBuiltArea.Text) || txtBuiltArea.Text == "" || txtBuiltArea.Text == null)
+                if (string.IsNullOrEmpty(txtBuiltArea.Text) || txtBuiltArea.Text == "" || txtBuiltArea.Text == null || txtBuiltArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuiltArea.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Built Up Area \\n";
                     slno = slno + 1;
@@ -1083,31 +1128,60 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Whether land purchased from MIDCL or not \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null)
+                return errormsg;
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string Validations2()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+                if (string.IsNullOrEmpty(txtPropEmp.Text) || txtPropEmp.Text == "" || txtPropEmp.Text == null || txtPropEmp.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPropEmp.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Employment \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null)
+                if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null || txtLandValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandValue.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Value of Land as per sale Deed(In INR) \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null)
+                if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null || txtBuildingValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingValue.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Value of Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPMCost.Text) || txtPMCost.Text == "" || txtPMCost.Text == null)
+                if (string.IsNullOrEmpty(txtPMCost.Text) || txtPMCost.Text == "" || txtPMCost.Text == null || txtPMCost.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPMCost.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Value of Plant & Machinery \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtAnnualTurnOver.Text) || txtAnnualTurnOver.Text == "" || txtAnnualTurnOver.Text == null)
+                if (string.IsNullOrEmpty(txtAnnualTurnOver.Text) || txtAnnualTurnOver.Text == "" || txtAnnualTurnOver.Text == null || txtAnnualTurnOver.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAnnualTurnOver.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Expected Annual Turnover( \\n";
                     slno = slno + 1;
                 }
+                return errormsg;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string Validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";              
+               
                 if (ddlPowerReq.SelectedIndex == -1 || ddlPowerReq.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Power requirement \\n";
@@ -1118,7 +1192,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Whether Generator Required or not \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBuildingHeight.Text) || txtBuildingHeight.Text == "" || txtBuildingHeight.Text == null)
+                if (string.IsNullOrEmpty(txtBuildingHeight.Text) || txtBuildingHeight.Text == "" || txtBuildingHeight.Text == null || txtBuildingHeight.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingHeight.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Height of the building \\n";
                     slno = slno + 1;
@@ -1172,7 +1246,7 @@ namespace MeghalayaUIP.User.CFE
                             errormsg = errormsg + slno + ". Please Select Power Plant Type \\n";
                             slno = slno + 1;
                         }
-                        if (string.IsNullOrEmpty(txtAggrCapacity.Text) || txtAggrCapacity.Text == "" || txtAggrCapacity.Text == null)
+                        if (string.IsNullOrEmpty(txtAggrCapacity.Text) || txtAggrCapacity.Text == "" || txtAggrCapacity.Text == null || txtAggrCapacity.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAggrCapacity.Text, @"^0+(\.0+)?$"))
                         {
                             errormsg = errormsg + slno + ". Please Enter Aggregate Capacity  \\n";
                             slno = slno + 1;
@@ -1205,7 +1279,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblFelltrees.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtNoofTrees.Text) || txtNoofTrees.Text == "" || txtNoofTrees.Text == null)
+                    if (string.IsNullOrEmpty(txtNoofTrees.Text) || txtNoofTrees.Text == "" || txtNoofTrees.Text == null || txtNoofTrees.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtNoofTrees.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter Number of trees to be felled \\n";
                         slno = slno + 1;
@@ -1228,7 +1302,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblLbrAct1970.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txt1970Workers.Text) || txt1970Workers.Text == "" || txt1970Workers.Text == null)
+                    if (string.IsNullOrEmpty(txt1970Workers.Text) || txt1970Workers.Text == "" || txt1970Workers.Text == null || txt1970Workers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txt1970Workers.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of workers under Contract Labour(Regulation and Abolition)Act, 1970 \\n";
                         slno = slno + 1;
@@ -1241,7 +1315,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblLbrAct1979.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txt1979Workers.Text) || txt1979Workers.Text == "" || txt1979Workers.Text == null)
+                    if (string.IsNullOrEmpty(txt1979Workers.Text) || txt1979Workers.Text == "" || txt1979Workers.Text == null || txt1979Workers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txt1979Workers.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of workers under Inter-state Migrant Workmen Act, 1979? \\n";
                         slno = slno + 1;
@@ -1261,7 +1335,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     if (rblbuildingwork.SelectedValue == "Y")
                     {
-                        if (string.IsNullOrEmpty(txt1996Workers.Text) || txt1996Workers.Text == "" || txt1996Workers.Text == null)
+                        if (string.IsNullOrEmpty(txt1996Workers.Text) || txt1996Workers.Text == "" || txt1996Workers.Text == null || txt1996Workers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txt1996Workers.Text, @"^0+(\.0+)?$"))
                         {
                             errormsg = errormsg + slno + ". Please Enter No.of workers Building and Other Constrution Worker(RE&COS) Act, 1996? \\n";
                             slno = slno + 1;
@@ -1275,7 +1349,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblLabourAct.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtContractWorkers.Text) || txtContractWorkers.Text == "" || txtContractWorkers.Text == null)
+                    if (string.IsNullOrEmpty(txtContractWorkers.Text) || txtContractWorkers.Text == "" || txtContractWorkers.Text == null || txtContractWorkers.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtContractWorkers.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of Workers under License under Contract Labour Act (For Contractor) \\n";
                         slno = slno + 1;
@@ -1288,7 +1362,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblForContr1970.SelectedValue == "Y")
                 {
-                    if (string.IsNullOrEmpty(txtContr1970wrkrs.Text) || txtContr1970wrkrs.Text == "" || txtContr1970wrkrs.Text == null)
+                    if (string.IsNullOrEmpty(txtContr1970wrkrs.Text) || txtContr1970wrkrs.Text == "" || txtContr1970wrkrs.Text == null || txtContr1970wrkrs.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtContr1970wrkrs.Text, @"^0+(\.0+)?$"))
                     {
                         errormsg = errormsg + slno + ". Please Enter No.of workers under License for Contractors) as defined in the contract labour\r\n(Regulation and Abolition) Act,1970? \\n";
                         slno = slno + 1;
@@ -1560,19 +1634,68 @@ namespace MeghalayaUIP.User.CFE
 
         protected void Link1_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 0;
-            var cls = Link1.Attributes["class"];
-            Link1.Attributes.Add("class", cls + " nav-tab");
+            try
+            {
+                MVQues.ActiveViewIndex = 0;
+                var cls = Link1.Attributes["class"];
+                Link1.Attributes.Add("class", cls + " nav-tab");
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+           
         }
 
         protected void Link2_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 1;
+            try
+            {
+                ErrorMsg1 = Validations1();
+                if (ErrorMsg1 == "")
+                {
+                    MVQues.ActiveViewIndex = 1;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg1;
+                    string message = "alert('" + ErrorMsg1 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+            
         }
 
         protected void Link3_Click(object sender, EventArgs e)
         {
-            MVQues.ActiveViewIndex = 2;
+            try
+            {
+                ErrorMsg2 = Validations2();
+                if (ErrorMsg2 == "")
+                {
+                    MVQues.ActiveViewIndex = 2;
+                }
+                else
+                {
+                    Failure.Visible = false;
+                    lblmsg0.Text = ErrorMsg2;
+                    string message = "alert('" + ErrorMsg2 + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+          
         }
 
         protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)

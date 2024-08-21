@@ -3543,15 +3543,6 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdapprovalAction;
 
         /// <summary>
-        /// lbl_Name1Approval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Name1Approval;
-
-        /// <summary>
         /// lblunitname1Approval control.
         /// </summary>
         /// <remarks>

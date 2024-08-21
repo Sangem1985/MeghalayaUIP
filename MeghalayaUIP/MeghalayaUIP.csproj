@@ -433,6 +433,7 @@
     <Content Include="assets\assetsnew\js\script.js" />
     <Content Include="assets\assetsnew\js\validation.js" />
     <Content Include="assets\assetsnew\js\wow.js" />
+    <Content Include="CentralInspectionDashboard.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Dashboarddrill.aspx" />
     <Content Include="demoinnerpage.aspx" />
@@ -476,6 +477,7 @@
     <Content Include="Faq.aspx" />
     <Content Include="forgot-password.aspx" />
     <Content Include="GrievanceMisReport.aspx" />
+    <Content Include="GrievanceQueryHandleEODBDashboard.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="HomeNew.aspx" />
     <Content Include="Hospitality.aspx" />
@@ -486,6 +488,7 @@
     <Content Include="KnowYourApprovalsCFE.aspx" />
     <Content Include="KnowYourApprovalsCFO.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="MISIncentiveDashboard.aspx" />
     <Content Include="Notifications.aspx" />
     <Content Include="OtherService.aspx" />
     <Content Include="Power.aspx" />
@@ -597,6 +600,13 @@
     </Compile>
     <Compile Include="Agri-Horti.aspx.designer.cs">
       <DependentUpon>Agri-Horti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CentralInspectionDashboard.aspx.cs">
+      <DependentUpon>CentralInspectionDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CentralInspectionDashboard.aspx.designer.cs">
+      <DependentUpon>CentralInspectionDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="CommonClass\MGCommonClass.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -911,6 +921,13 @@
     <Compile Include="GrievanceMisReport.aspx.designer.cs">
       <DependentUpon>GrievanceMisReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GrievanceQueryHandleEODBDashboard.aspx.cs">
+      <DependentUpon>GrievanceQueryHandleEODBDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GrievanceQueryHandleEODBDashboard.aspx.designer.cs">
+      <DependentUpon>GrievanceQueryHandleEODBDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -980,6 +997,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MISIncentiveDashboard.aspx.cs">
+      <DependentUpon>MISIncentiveDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MISIncentiveDashboard.aspx.designer.cs">
+      <DependentUpon>MISIncentiveDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notifications.aspx.cs">
       <DependentUpon>Notifications.aspx</DependentUpon>

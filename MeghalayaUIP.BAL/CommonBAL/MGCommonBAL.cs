@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MeghalayaUIP.DAL.CommonDAL;
+using MeghalayaUIP.Common;
 
 namespace MeghalayaUIP.BAL.CommonBAL
 {
@@ -60,6 +61,16 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public DataSet GetGrowthFinancialYear()
         {
             return objCommonDAL.GetGrowthFinancialYear();
+        }
+        public DataSet GetCentralInspection(string fYear, string tMonth, string Insepction)
+        {
+            return objCommonDAL.GetCentralInspection(fYear, tMonth, Insepction);
+        }
+        public DataTable GetApprovalsReqWithFee(CFEQuestionnaireDet objCFEQ)
+        { return objCommonDAL.GetApprovalsReqWithFee(objCFEQ); }
+        public DataSet GetApprovalsReqWithFee(CFOQuestionnaireDet objCFOQ)
+        {
+            return objCommonDAL.GetApprovalsReqWithFee(objCFOQ);
         }
     }
 }

@@ -263,12 +263,12 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtHP.Text) || txtHP.Text == "" || txtHP.Text == null)
+                if (string.IsNullOrEmpty(txtHP.Text) || txtHP.Text == "" || txtHP.Text == null || txtHP.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtHP.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Load Connected  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtMaxDemand.Text) || txtMaxDemand.Text == "" || txtMaxDemand.Text == null)
+                if (string.IsNullOrEmpty(txtMaxDemand.Text) || txtMaxDemand.Text == "" || txtMaxDemand.Text == null || txtMaxDemand.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMaxDemand.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Maximum Demand in KVA  \\n";
                     slno = slno + 1;
@@ -278,12 +278,12 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Required Voltage Level  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtMaxhours.Text) || txtMaxhours.Text == "" || txtMaxhours.Text == null)
+                if (string.IsNullOrEmpty(txtMaxhours.Text) || txtMaxhours.Text == "" || txtMaxhours.Text == null || txtMaxhours.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMaxhours.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Per Day...  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtMonth.Text) || txtMonth.Text == "" || txtMonth.Text == null)
+                if (string.IsNullOrEmpty(txtMonth.Text) || txtMonth.Text == "" || txtMonth.Text == null || txtMonth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMonth.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Per Month....  \\n";
                     slno = slno + 1;
@@ -298,7 +298,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Probable Date of Requirement of Power Supply  \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtenergy.Text) || txtenergy.Text == "" || txtenergy.Text == null)
+                if (string.IsNullOrEmpty(txtenergy.Text) || txtenergy.Text == "" || txtenergy.Text == null || txtenergy.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtenergy.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Quantum of energy/load required (in KW) \\n";
                     slno = slno + 1;
