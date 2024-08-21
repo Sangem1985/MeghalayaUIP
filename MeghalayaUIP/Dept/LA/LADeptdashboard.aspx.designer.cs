@@ -15,15 +15,6 @@ namespace MeghalayaUIP.Dept.LA
     {
 
         /// <summary>
-        /// lbtnBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
-
-        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -148,95 +139,5 @@ namespace MeghalayaUIP.Dept.LA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblQueryRaised;
-
-        /// <summary>
-        /// linkQueryResponded control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkQueryResponded;
-
-        /// <summary>
-        /// lblQueryResponded control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQueryResponded;
-
-        /// <summary>
-        /// linkQuerytoDept control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkQuerytoDept;
-
-        /// <summary>
-        /// lblIMATODEPTQUERY control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIMATODEPTQUERY;
-
-        /// <summary>
-        /// linkDeptReplyToIMA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkDeptReplyToIMA;
-
-        /// <summary>
-        /// lblIMAQUERYREPLIEDBYDEPT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIMAQUERYREPLIEDBYDEPT;
-
-        /// <summary>
-        /// linkQuerytoApplc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkQuerytoApplc;
-
-        /// <summary>
-        /// lblIMATOAPPLICANTTQUERY control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIMATOAPPLICANTTQUERY;
-
-        /// <summary>
-        /// linkApplcReplyToIMA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkApplcReplyToIMA;
-
-        /// <summary>
-        /// lblIMAQUERYREPLIEDBYAPPLICANT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIMAQUERYREPLIEDBYAPPLICANT;
     }
 }

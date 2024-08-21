@@ -475,5 +475,105 @@ namespace MeghalayaUIP.DAL.LADAL
                 connection.Dispose();
             }
         }
+
+        /////////////////////////////////////////////////-------------------------------------------------///////////////////
+
+        public DataTable GetLADeptDashBoard(LADeptDtls objDtls)
+        {
+            DataTable dt = new DataTable();
+            //string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(LANDConstants.GetLandDeptDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = LANDConstants.GetLandDeptDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objDtls.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objDtls.Role);
+                if (objDtls.deptid != null && objDtls.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objDtls.deptid);
+                }
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
+        public DataTable GetLandAllottmentDashBoardView(LADeptDtls objDtls)
+        {
+           // string valid = "";
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(LANDConstants.GetLANDDashBoardView, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = LANDConstants.GetLANDDashBoardView;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //PRD.deptid = 1;
+                //PRD.status = 4;
+                //PRD.Role = 0;
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objDtls.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objDtls.ViewStatus);
+                if (objDtls.deptid != null && objDtls.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objDtls.deptid);
+                }
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objDtls.Role);
+
+
+                da.Fill(dt);
+                // if (dt.Rows.Count > 0)
+                //     valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+                //// IDno = valid;
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
     }
 }

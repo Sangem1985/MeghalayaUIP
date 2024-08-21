@@ -11,17 +11,14 @@
     <div class="page-wrapper" style="margin: 10px 0px !important;">
         <div class="container-fluid">
             <div class="card-header d-flex justify-content-between">
-                <h4 class="card-title mt-1"><b></b></h4>
-                <div class="col-md-1">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
-                </div>
+                <h4 class="card-title mt-1"><b></b></h4>               
             </div>
 
             <div class="card" style="padding: 10px; border-radius: 4px;">
                 <h2 style="font-size: 22px; color: #3f51b5;"></h2>
                 <div class="card">
                     <div class="card-header">
-                        <h3>Industry Registration Applications</h3>
+                        <h3>Land Allottment Applications</h3>
                     </div>
                     <div class="col-md-12 ">
                         <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
@@ -46,7 +43,7 @@
                         <div class="container-fluid">
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 ">
-                                    <asp:LinkButton runat="server" ID="linkTotal" OnClick="linkTotal_Click" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkTotal" ForeColor="White">
                                         <div class="info-box bg-orange hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -96,7 +93,7 @@
                                             <div class="content">
                                                 <div class="text">
                                               
-                                                    Land Allotted 
+                                                    Land Allotted Approved
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
@@ -123,117 +120,10 @@
                                             </div>
                                         </div>
                                     </asp:LinkButton>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQueryResponded" ForeColor="White">
-                                        <div class="info-box bg-yellow hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblQueryResponded" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
-                                                        Queries Redressed<br />
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-edit"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
+                                </div>                               
                             </div>
                         </div>
-                    </section>
-
-                    <section id="dashboardcount">
-                        <div class="container-fluid">
-                            <div class="row clearfix">
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQuerytoDept" ForeColor="White">
-                                        <div class="info-box bg-cyan hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblIMATODEPTQUERY" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERY" style="color: white"></a>--%>
-                                                    Queries Raised<br />
-                                                    to Department
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-edit"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkDeptReplyToIMA" ForeColor="White">
-                                        <div class="info-box bg-pink hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblIMAQUERYREPLIEDBYDEPT" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white"></a>--%>
-                                                    Queries Redressed<br />
-                                                    by Department
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-edit"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQuerytoApplc" ForeColor="White">
-                                        <div class="info-box bg-cyan hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblIMATOAPPLICANTTQUERY" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERY" style="color: white"></a>--%>
-                                                        Query Raised<br />
-                                                    to Applicant
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-edit"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkApplcReplyToIMA" ForeColor="White">
-                                        <div class="info-box bg-pink hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblIMAQUERYREPLIEDBYAPPLICANT" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                   
-                                                    Query Redressed<br />
-                                                    by Applicant
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-edit"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
-                             
-                            </div>
-                        </div>
-                    </section>
+                    </section>                 
                 </div>              
             </div>
         </div>

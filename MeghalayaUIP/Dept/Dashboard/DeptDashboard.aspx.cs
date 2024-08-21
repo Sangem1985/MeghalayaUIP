@@ -24,6 +24,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                 {
                     intenttoinvest.Visible = true;
                     prereg.Visible = true;
+                    Land.Visible = true;
                     Preestablishment.Visible = false;
 
                 }
@@ -31,6 +32,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                 {
                     intenttoinvest.Visible = false;
                     prereg.Visible = true;
+                    Land.Visible = true;
                     Preestablishment.Visible = false;
                 }
                 else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
@@ -38,6 +40,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     intenttoinvest.Visible = false;
                     prereg.Visible = true;
                     Preestablishment.Visible = false;
+                    Land.Visible = false;
                 }
                 else if (ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "9")
                 {
@@ -46,6 +49,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     Preestablishment.Visible = true;
                     PreOperational.Visible = true;
                     Renewal.Visible = true;
+                    Land.Visible = false;
                 }
                 else
                 {
@@ -121,6 +125,16 @@ namespace MeghalayaUIP.Dept.Dashboard
             {
                 Renewal.Visible = true;
                 string url = "~/Dept/Renewal/RENDeptDashboard.aspx";
+                Response.Redirect(url);
+            }
+        }
+
+        protected void lnkLandAllotment_Click(object sender, EventArgs e)
+        {
+            if (ObjUserInfo.Roleid == "1" || ObjUserInfo.Roleid == "4")
+            {
+                Land.Visible = true;
+                string url = "~/Dept/LA/LADeptdashboard.aspx";
                 Response.Redirect(url);
             }
         }

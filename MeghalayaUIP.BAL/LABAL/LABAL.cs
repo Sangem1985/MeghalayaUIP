@@ -53,5 +53,16 @@ namespace MeghalayaUIP.BAL.LABAL
         {
             return objLANDDAL.SubmitLandApplication(Objindustry);
         }
+
+        //////////////////////////---------------------------------------------------------------/////////////////////////
+
+        public DataTable GetLADeptDashBoard(LADeptDtls objDtls)
+        {
+            return objLANDDAL.GetLADeptDashBoard(objDtls);
+        }
+        public DataTable GetLandAllottmentDashBoardView(LADeptDtls objDtls)
+        {
+            return objLANDDAL.GetLandAllottmentDashBoardView(objDtls);
+        }
     }
 }

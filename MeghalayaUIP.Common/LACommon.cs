@@ -20,6 +20,11 @@ namespace MeghalayaUIP.Common
         public static string GetLandApplicationDet = "USP_GETLANDUSERDASHBOARDDETAILS";
         public static string SubmitLandApplication ="USP_SUBMITLANDAPPLICATION";
 
+        ////////////////////////////////////----------------------------------/////////////////////////////////
+        ///
+        public static string GetLandDeptDashBoard = "USP_GETLANDDASHBOARD";
+        public static string GetLANDDashBoardView = "USP_LANDDASHBOARDDRILLDOWN";
+
     }
 
 

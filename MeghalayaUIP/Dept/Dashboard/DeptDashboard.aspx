@@ -75,6 +75,17 @@
 
                             </div>
 
+                                 <div class="col-md-3" id="Land" runat="server" visible="false">
+                                <div class="card-counter info">
+                                    <asp:LinkButton ID="lnkLandAllotment" runat="server" OnClick="lnkLandAllotment_Click">
+									<i class="fa fa-users"></i>
+									<span class="count-numbers">Land Allotment</span>
+									<span class="count-name"></span>
+                                    </asp:LinkButton>
+                                </div>
+                            </div>
+                           
+
                         </div>
                     </div>
                 </section>

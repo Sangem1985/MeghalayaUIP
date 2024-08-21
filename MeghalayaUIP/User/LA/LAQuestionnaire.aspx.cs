@@ -222,7 +222,9 @@ namespace MeghalayaUIP.User.LA
             try
             {
                 ddlMandal.ClearSelection();
+                AddSelect(ddlMandal);
                 ddlVillage.ClearSelection();
+                AddSelect(ddlVillage);
                 if (ddlDistrict.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlMandal, ddlDistrict.SelectedValue);
@@ -239,6 +241,7 @@ namespace MeghalayaUIP.User.LA
             try
             {
                 ddlVillage.ClearSelection();
+                AddSelect(ddlVillage);
                 if (ddlMandal.SelectedItem.Text != "--Select--")
                 {
 
