@@ -54,7 +54,7 @@
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">YEAR :</label>
                                                                     <div class="col-lg-12 d-flex">
-                                                                       <asp:DropDownList ID="ddlYear" runat="server" class="form-control" AutoPostBack="true"></asp:DropDownList>
+                                                                        <asp:DropDownList ID="ddlYear" runat="server" class="form-control" AutoPostBack="true"></asp:DropDownList>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -106,8 +106,8 @@
                                                                             <asp:Label ID="lblDeptid" runat="server" Text='<%#Eval("TMD_DEPTID") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                      <asp:BoundField DataField="TMD_DEPTNAME" HeaderText="Department Name" ItemStyle-HorizontalAlign="Left" />
-                                                                <%--   <asp:TemplateField HeaderText="Department Name">
+                                                                    <asp:BoundField DataField="TMD_DEPTNAME" HeaderText="Department Name" ItemStyle-HorizontalAlign="Left" />
+                                                                    <%--   <asp:TemplateField HeaderText="Department Name">
                                                                         <ItemTemplate>
                                                                            <asp:LinkButton runat="server" ID="lblDeptName" Text='<%#Eval("TMD_DEPTNAME") %>'  />
                                                                         </ItemTemplate>
@@ -121,25 +121,25 @@
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Inspections Conducted">
                                                                         <ItemTemplate>
-                                                                            <asp:LinkButton runat="server" ID="lblConducted" Text='<%#Eval("INSPDONE") %>'  />
+                                                                            <asp:LinkButton runat="server" ID="lblConducted" Text='<%#Eval("INSPDONE") %>' />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Pending Inspections">
                                                                         <ItemTemplate>
-                                                                             <asp:LinkButton runat="server" ID="lblPendingInspection" Text='<%#Eval("INSPPENDING") %>' />
+                                                                            <asp:LinkButton runat="server" ID="lblPendingInspection" Text='<%#Eval("INSPPENDING") %>' />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
-                                                                      <asp:TemplateField HeaderText="Report Uploaded Within 48Hrs">
+                                                                    <asp:TemplateField HeaderText="Report Uploaded Within 48Hrs">
                                                                         <ItemTemplate>
-                                                                             <asp:LinkButton runat="server" ID="lblReportWithin" Text='<%#Eval("INSPDONEWITHIN48HRS") %>' />
+                                                                            <asp:LinkButton runat="server" ID="lblReportWithin" Text='<%#Eval("INSPDONEWITHIN48HRS") %>' />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
-                                                                      <asp:TemplateField HeaderText="Report Uploaded Beyond 48Hrs">
+                                                                    <asp:TemplateField HeaderText="Report Uploaded Beyond 48Hrs">
                                                                         <ItemTemplate>
-                                                                             <asp:LinkButton runat="server" ID="lblBeyonReport" Text='<%#Eval("INSPDONEBEYOND48HRS") %>' />
+                                                                            <asp:LinkButton runat="server" ID="lblBeyonReport" Text='<%#Eval("INSPDONEBEYOND48HRS") %>' />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
@@ -152,7 +152,14 @@
                                                                 </EmptyDataTemplate>
                                                             </asp:GridView>
                                                         </div>
-                                                        <h2>The data in the dashboard is updated on a real time basis</h2>
+                                                        <%--  <h2>The data in the dashboard is updated on a real time basis</h2>--%>
+                                                    </div>
+                                                    <div id="DivFooter" runat="server">
+                                                        <div>
+                                                            <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                                                                <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

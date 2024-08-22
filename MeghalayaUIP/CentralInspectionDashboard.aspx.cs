@@ -137,6 +137,7 @@ namespace MeghalayaUIP
                     GVInspection.DataSource = null;
                     GVInspection.DataBind();
                 }
+                LBLDATETIME.Text = System.DateTime.Now.ToString();
             }
             catch(Exception ex)
             {

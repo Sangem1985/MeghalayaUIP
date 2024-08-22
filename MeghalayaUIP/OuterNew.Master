@@ -366,6 +366,7 @@
                                                         <%--<li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
                                                         <li><a href="GrievanceMisReport.aspx" target="_blank">Grievance/Query Dashboard</a></li>--%>
                                                         <li><a href="ViewCertifcateDetails.aspx">Third Party Verfification</a></li>
+                                                        <li><a href="CentralInspectionDashboard.aspx">Central Inspection SySTEM</a></li>
                                                         <li><a href="OtherService.aspx">Other Services</a></li>
 
                                                     </ul>

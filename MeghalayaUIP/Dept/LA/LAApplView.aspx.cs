@@ -58,7 +58,7 @@ namespace MeghalayaUIP.Dept.LA
                     { lblHdng.Text = "Industry Registration - Total Applications"; }
                     else if (Request.QueryString["status"].ToString() == "TOBEPROCESSED")
                     { lblHdng.Text = "Industry Registration Applications - To be Processed"; }
-                    else if (Request.QueryString["status"].ToString() == "LANDPPROVED")
+                    else if (Request.QueryString["status"].ToString() == "LANDPROVED")
                     { lblHdng.Text = "Industry Registration Applications - Forwarded to Committee"; }
                     else if (Request.QueryString["status"].ToString() == "TODEPTQUERY")
                     { lblHdng.Text = "Industry Registration Applications - Query Raised to Departments"; }
@@ -123,7 +123,7 @@ namespace MeghalayaUIP.Dept.LA
                     Session["UNITID"] = UNITID;
                     Session["INVESTERID"] = INVESTERID;
                     Session["stage"] = stage;
-                    Response.Redirect("PreRegApplIMAProcess.aspx?status=" + Request.QueryString["status"].ToString());
+                    Response.Redirect(".aspx?status=" + Request.QueryString["status"].ToString());
                 }
             }
             catch (Exception ex)
