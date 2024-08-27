@@ -31,9 +31,8 @@
 
                     <h3 class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p>
-                        Empowering Investor at every stage of their journey.<br>
-                        Set up your business in Meghalaya with ease- now one of the fastest growing business
-                    destination in North- East India.
+                        Empowering Investors at every stage of their journey.<br>
+                        Set up your business in Meghalaya with, one of the fastest growing business destinations in North-East India.
                     </p>
                 </div>
             </div>
@@ -122,7 +121,7 @@
                             </div>
 
                             <div class="text">
-                                <button class="button-box"><a href="https://investmeghalaya.gov.in/resources/homePage/17/megeodb/documents/incentives.pdf" target="_blank" style="color: #164976">Click Here !</a></button>
+                                <button class="button-box"><a href="Documents/Incentive_Package_Demo_27082024.pdf" target="_blank" style="color: #164976">Click Here !</a></button>
 
                             </div>
 

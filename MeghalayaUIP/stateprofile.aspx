@@ -4,10 +4,19 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css'>
     <style>
         section.project-section.case-page-3 .inner-box {
-    height: 235px !important;
-}
+            height: 330px !important;
+        }
+
         .team-block-two .inner-box {
             border-radius: 10px;
+        }
+
+        .project-block-one .inner-box .lower-content {
+            position: relative;
+            display: block;
+            background: #fff;
+            padding: 2px 5px 25px 10px;
+            height: 330px !important;
         }
 
         .owl-dots {
@@ -189,10 +198,14 @@
                     </nav>
 
                     <h3>Meghalaya’s strengths :</h3>
-                    <p>Located in India's North-Eastern Region (NER), Meghalaya, fondly referred to as the "Abode of Clouds," holds significant strategic importance that offers unique economic opportunities to drive regional growth.</p>
+                    <%--  <p>Located in India's North-Eastern Region (NER), Meghalaya, fondly referred to as the "Abode of Clouds," holds significant strategic importance that offers unique economic opportunities to drive regional growth.</p>
                     <p>Bordered by Assam to the North and Northeast and Bangladesh to the South and Southwest, Meghalaya's advantageous position is further strengthened by the upcoming BBIN2 Corridor. This corridor will transform Meghalaya into a crucial connecting node for Bangladesh, Bhutan, and Nepal.</p>
                     <p>Additionally, its proximity to the Bay of Bengal underscores its potential to become a major trade hub for the NER.</p>
-                    <p>Moreover, the Government of India is committed to accelerating the development and connectivity of the NER, including Meghalaya, through initiatives like the NITI Forum for regional growth, comprehensive transportation projects, and the Act East Policy. These efforts aim to enhance trade and relations with Southeast Asian countries, evident in initiatives such as establishing rail sections, air connectivity with NER and ASEAN countries, and constructing National Highway corridors linking Meghalaya with Bangladesh.</p>
+                    <p>Moreover, the Government of India is committed to accelerating the development and connectivity of the NER, including Meghalaya, through initiatives like the NITI Forum for regional growth, comprehensive transportation projects, and the Act East Policy. These efforts aim to enhance trade and relations with Southeast Asian countries, evident in initiatives such as establishing rail sections, air connectivity with NER and ASEAN countries, and constructing National Highway corridors linking Meghalaya with Bangladesh.</p>--%>
+                    <p>The State of Meghalaya was carved out of Assam as an autonomous State in April 1970 and was declared a full-fledged State in January 1972. Meghalaya, situated in the northeastern region (NER) of India is a narrow stretch of land, running between Bangladesh on the South and West and Assam on the North and East. Meghalaya's advantageous position is further strengthened by the upcoming BBIN2 Corridor. This corridor will transform Meghalaya into a crucial connecting node for Bangladesh, Bhutan, and Nepal. Further, its proximity to the Bay of Bengal underscores its potential to become a major trade hub for the NER.</p>
+                    <p>The State, known forits natural beauty and cultural richness, has demonstrated a remarkable economic journey from the late 20th century into the present day. It hasseen its GDP rise from approximately USD 3.16 billion in FY15 to a significant USD 5.9 billion in FY24. This growth has been sustained despite facing substantial challenges in the form of a National Green Tribunal ban on coal mining in the middle of the previous decade followed by the global pandemicin 2020.</p>
+                    <p>The State's abundance of natural resources, including water, coal, limestone, and uranium, provides a solid foundation for various industries to thrive. Meghalaya's agricultural sector is another significant strength, with its rich soil and favorable climate making it an ideal location for farming and allied activities. The State is also home to a vibrant tourism industry, with its unique culture, breathtaking scenery, and potential for eco-tourism. Furthermore, Meghalaya has a growing IT sector, with a focus on software development and BPO, providing opportunities for entrepreneurs and investors.</p>
+                    <p>The State's skilled workforce, rich cultural heritage, and potential for mineral-based industries, food processing, and renewable energy make it an attractive destination for businesses and investors. By leveraging these strengths, Meghalaya isdiversifying its economy, attracting investments, and driving business and industrial growth. </p>
                     <h3>State Demography :</h3>
 
                     <p>Discover the key demographic and economic indicators shaping Meghalaya's landscape. From population statistics to export growth, explore the state's dynamic profile in a glance.</p>
@@ -402,7 +415,7 @@
                                                 <div class="left-layer"></div>
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="flaticon-support"></i></div>
-                                                <h3><a href="#">1.39602 L</a></h3>
+                                                <h3><a href="#">1.39 L</a></h3>
                                                 <div class="text">Per Capita GSDP</div>
 
                                             </div>
@@ -464,17 +477,18 @@
                                         <div class="inner-box">
 
                                             <div class="lower-content">
-                                                <div class="icon-box"><img src="assets/assetsnew/images/road.png" style="width:50%;"/></div>
+                                                <div class="icon-box">
+                                                    <img src="assets/assetsnew/images/road.png" style="width: 50%;" /></div>
                                                 <h3><a href="#">Road Connectivity</a></h3>
                                                 <div class="text">
                                                     <ul>
-                                                        
-                                                        <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Road Network : 13,000 km</li>
-                                                        <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Road Density : 0.48 km/sq. km density</li>
-                                                        <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Ongoing developments : SARDP, PMGSY, and Shillong Smart-city programs</li>
+
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Road Network : 13,000 km</li>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Road Density : 0.48 km/sq. km density</li>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Ongoing developments : SARDP, PMGSY, and Shillong Smart-city programs</li>
                                                     </ul>
                                                 </div>
-                                              
+
                                             </div>
                                         </div>
                                     </div>
@@ -484,16 +498,17 @@
                                         <div class="inner-box">
 
                                             <div class="lower-content">
-                                                <div class="icon-box"><img src="assets/assetsnew/images/train.png" style="width:50%;"/></div>
+                                                <div class="icon-box">
+                                                    <img src="assets/assetsnew/images/train.png" style="width: 50%;" /></div>
                                                 <h3><a href="#">Rail Connectivity</a></h3>
                                                 <div class="text">
                                                     <ul>
-                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Ongoing projects linking Meghalaya with Manipur, Mizoram, Nagaland, and Sikkim</li>
-                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Regular service connecting Mendipathar and Guwahati density</li>
-                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Railhead at Mendipathar</li>
-                                                                  </ul>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Ongoing projects linking Meghalaya with Manipur, Mizoram, Nagaland, and Sikkim</li>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Regular service connecting Mendipathar and Guwahati density</li>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp; Railhead at Mendipathar</li>
+                                                    </ul>
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -503,18 +518,19 @@
                                         <div class="inner-box">
 
                                             <div class="lower-content">
-                                                <div class="icon-box"><img src="assets/assetsnew/images/airplane.png" style="width:50%;"/></div>
+                                                <div class="icon-box">
+                                                    <img src="assets/assetsnew/images/airplane.png" style="width: 50%;" /></div>
                                                 <h3><a href="#">Air Connectivity</a></h3>
                                                 <div class="text">
                                                     <ul>
-                                                    <li><i class="fas fa-arrow-right"></i>&nbsp; Airport at Umroi (30 km from Shillong)</li>
-                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Helicopter service connecting Shillong to Guwahati and Tura density</li>
-                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Guwahati airport (118 km from Shillong)</li>
-                                                    <li style="margin-left: 20px;text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Additional helipads and heliports planned across the state</li>
-                                                                  </ul>
+                                                        <li><i class="fas fa-arrow-right"></i>&nbsp; Airport at Umroi (30 km from Shillong)</li>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Helicopter service connecting Shillong to Guwahati and Tura density</li>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Guwahati airport (118 km from Shillong)</li>
+                                                        <li style="margin-left: 20px; text-indent: -11px;"><i class="fas fa-arrow-right"></i>&nbsp;  Additional helipads and heliports planned across the state</li>
+                                                    </ul>
 
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -734,7 +750,7 @@
                                             <div class="lower-content">
                                                 <%--<div class="count-number">03</div>--%>
                                                 <h3><a href="#">Organic Produce</a></h3>
-                                                <div class="text">Most state produce is naturally organic</div>
+                                                <div class="text">Most state produce is naturally organic – Replace with “Meghalaya, with its pristine environment, rich soil, and favorable climate, is a haven for organic produce, offering a diverse range of chemical-free and sustainably grown crops, including fruits, vegetables, spices, and herbs”.</div>
                                             </div>
                                         </div>
                                     </div>

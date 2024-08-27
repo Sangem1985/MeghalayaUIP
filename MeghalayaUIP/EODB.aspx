@@ -101,12 +101,13 @@
 
                     <%--<h3>About EODB</h3>
                     
-					<img src="assets/assetsbeta/images/eodb_1.jpg" width="100%" class="rounded">--%>
+					<img src="assets/assetsbeta/images/eodb_1.jpg" width="100%" class="rounded">--%>                   
                     <h3>Transforming Meghalaya’s Business Landscape :</h3>
                     <p>
-                        The Government of India is committed to fostering a business-friendly environment across the country to attract investments, generate employment opportunities, and drive economic growth. 
+                        Meghalaya, with its proactive and investor-friendly government policies, streamlined regulatory framework, efficient single-window clearance system, and dedicated support infrastructure, offers a highly conducive and hassle-free environment for ease of doing business, thereby enabling entrepreneurs and investors to seamlessly establish, operate, and expand their ventures, and fostering a vibrant ecosystem for economic growth and development in the state.
                     </p>
-                    <p>Concerted efforts are taken to simplify, rationalize, and digitize Government to Business (G2B) and Government to Citizen (G2C) interfaces, creating a seamless ecosystem facilitating Ease of Doing Business for investors and Ease of Living for citizens. By streamlining processes, reducing bureaucracy, and leveraging technology, the Government aims to provide a conducive environment stimulating economic activity, employment generation, and overall development in Meghalaya and other parts of the nation.</p>
+                    <p>The State is actively engaged in envisioning, designing, and implementing the reforms under Ease of Doing Business shared by Department for Promotion of Industry and Internal Trade (DPIIT) each year.Meghalaya has also prioritizedsteps to minimize regulatory compliance for businesses & industries and decriminalize minor offencesto make it easier, simpler and quicker for businesses to operate for their entire life cycle.</p>
+                    <p>From its inception till the year 2019, the Ease of Doing Business ranking of Meghalaya was among the lowest. In the year 2020, Meghalaya was recognized as an “Emerging Business Ecosystem” by DPIIT- an acknowledgement that is a testament to the State's dedicated commitment to creating a favorable business environment. Meghalaya has also taken proactive steps for digitization of records and carrying out the minimizing compliance burden exercise in the State by identifying burdensome compliances & redundant rules to eventually remove / minimize / simplify them.</p>
                     <h3>Key Initiatives :</h3>
                     <p>The State of Meghalaya has implemented key initiatives to enhance its business environment, focusing on minimizing regulatory compliance and decriminalizing minor offenses. </p>
 
@@ -145,7 +146,7 @@
                                         <p>
                                             <img src="assets/assetsnew/images/info/icon33.png" />
                                         </p>
-                                        <p class="texttop11" style="color:#fff;">State Governments implement annual reforms.</p>
+                                        <p class="texttop11" style="color:#fff;">Implementation of Business Reform Action Plan</p>
                                     </div>
                                 </div>
                             </div>
@@ -259,12 +260,12 @@
                             <div class="lower-content">
                                 <div class="count-number">02</div>
                                 <h3><i class="fi fi-tr-compliance-document"></i></h3>
-                                <div class="text">Minimizing compliance burdens</div>
+                                <div class="text">Minimizing Compliane Burden</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                <div class="col-lg-3 col-md-6 col-sm-12 project-block" id="Identified" runat="server" visible="false">
                     <div class="project-block-one wow fadeInUp animated" data-wow-delay="400ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 400ms; animation-name: fadeInUp;">
                         <div class="inner-box">
                            
@@ -276,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                <div class="col-lg-3 col-md-6 col-sm-12 project-block" id="Reduced" runat="server" visible="false">
                     <div class="project-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
                         <div class="inner-box">
                             

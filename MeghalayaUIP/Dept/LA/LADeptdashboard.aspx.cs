@@ -125,7 +125,23 @@ namespace MeghalayaUIP.Dept.LA
             try
             {
                 if (lblIMAPPROVED.Text != "0")
-                    Response.Redirect("LAApplView.aspx?status=LANDPPROVED");
+                    Response.Redirect("LAApplView.aspx?status=LANDAPPROVED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void linkTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblTotalApp.Text != "0")
+                    Response.Redirect("LAApplView.aspx?status=TOTAL");
             }
             catch (Exception ex)
             {

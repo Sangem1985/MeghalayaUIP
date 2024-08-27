@@ -43,7 +43,7 @@
                         <div class="container-fluid">
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 ">
-                                    <asp:LinkButton runat="server" ID="linkTotal" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkTotal" OnClick="linkTotal_Click" ForeColor="White">
                                         <div class="info-box bg-orange hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Total Applications
+                                                    Total Application
                                                     <%-- <a href="PreRegApplIMAView.aspx?status=IMATOTAL" style="color: white">Total<br />
                                                     Application </a>--%>
                                                 </div>

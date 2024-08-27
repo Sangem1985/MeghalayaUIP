@@ -55,36 +55,36 @@ namespace MeghalayaUIP.Dept.LA
                     objDtls.ViewStatus = Request.QueryString["status"].ToString();
 
                     if (Request.QueryString["status"].ToString() == "LANDTotal")
-                    { lblHdng.Text = "Industry Registration - Total Applications"; }
+                    { lblHdng.Text = "Land Registration - Total Applications"; }
                     else if (Request.QueryString["status"].ToString() == "TOBEPROCESSED")
-                    { lblHdng.Text = "Industry Registration Applications - To be Processed"; }
-                    else if (Request.QueryString["status"].ToString() == "LANDPROVED")
-                    { lblHdng.Text = "Industry Registration Applications - Forwarded to Committee"; }
+                    { lblHdng.Text = "Land Registration Applications - To be Processed"; }
+                    else if (Request.QueryString["status"].ToString() == "LANDAPPROVED")
+                    { lblHdng.Text = "Land Registration Applications - Forwarded to Committee"; }
                     else if (Request.QueryString["status"].ToString() == "TODEPTQUERY")
-                    { lblHdng.Text = "Industry Registration Applications - Query Raised to Departments"; }
+                    { lblHdng.Text = "Land Registration Applications - Query Raised to Departments"; }
                     else if (Request.QueryString["status"].ToString() == "DEPTREPLIEDTOLAND")
-                    { lblHdng.Text = "Industry Registration Applications - Queries Redressed by Departments"; }
+                    { lblHdng.Text = "Land Registration Applications - Queries Redressed by Departments"; }
                     else if (Request.QueryString["status"].ToString() == "LANDQUERYTOAPPLCNT")
-                    { lblHdng.Text = "Industry Registration Applications - Query Raised to Investor"; }
+                    { lblHdng.Text = "Land Registration Applications - Query Raised to Investor"; }
                     else if (Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOLAND")
-                    { lblHdng.Text = "Industry Registration Applications - Queries Redressed by Investor"; }
+                    { lblHdng.Text = "Land Registration Applications - Queries Redressed by Investor"; }
                     else if (Request.QueryString["status"].ToString() == "COMMQUERYTOLAND")
-                    { lblHdng.Text = "Industry Registration Applications - Query Raised by Committee"; }
+                    { lblHdng.Text = "Land Registration Applications - Query Raised by Committee"; }
                     else if (Request.QueryString["status"].ToString() == "LANDREPLIEDTOCOMM")
-                    { lblHdng.Text = "Industry Registration Applications - Committee Queries Redressed by IMA"; }
+                    { lblHdng.Text = "Land Registration Applications - Committee Queries Redressed by IMA"; }
                     else if (Request.QueryString["status"].ToString() == "LANDFWDCOMMQRYTOAPPLCNT")
-                    { lblHdng.Text = "Industry Registration Applications - Committe Query Forwarded to Investor"; }
+                    { lblHdng.Text = "Land Registration Applications - Committe Query Forwarded to Investor"; }
                     //else if (Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY")
                     //{ lblHdng.Text = "Industry Registration Applications - Committe Query Redressed by Investor"; }
                     else if (Request.QueryString["status"].ToString() == "LANDFWDCOMMQRYTODEPT")
-                    { lblHdng.Text = "Industry Registration Applications - Committe Query Forwarded to Departments"; }
+                    { lblHdng.Text = "Land Registration Applications - Committe Query Forwarded to Departments"; }
                     else if (Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
-                    { lblHdng.Text = "Industry Registration Applications - Committe Query Redressed by Departments"; }
+                    { lblHdng.Text = "Land Registration Applications - Committe Query Redressed by Departments"; }
                 }
                 else
                 {
-                    objDtls.ViewStatus = "IMATOTAL";
-                    lblHdng.Text = "Industry Registration Total Applications";
+                    objDtls.ViewStatus = "LANDTOTAL";
+                    lblHdng.Text = "Land Application Total Applications";
                 }
                 if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
                 {
@@ -123,7 +123,7 @@ namespace MeghalayaUIP.Dept.LA
                     Session["UNITID"] = UNITID;
                     Session["INVESTERID"] = INVESTERID;
                     Session["stage"] = stage;
-                    Response.Redirect(".aspx?status=" + Request.QueryString["status"].ToString());
+                    Response.Redirect("LAApplDeptProcess.aspx?status=" + Request.QueryString["status"].ToString());
                 }
             }
             catch (Exception ex)
@@ -142,7 +142,7 @@ namespace MeghalayaUIP.Dept.LA
                 Button button = e.Row.FindControl("ciw_id") as Button;
                 if (button != null)
                 {
-                    if (Request.QueryString["status"].ToString() == "LANDTOBEPROCESSED" ||
+                    if (Request.QueryString["status"].ToString() == "TOBEPROCESSED" ||
                         Request.QueryString["status"].ToString() == "DEPTREPLIEDTOLAND" ||
                         Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOLAND" ||
                       //  Request.QueryString["status"].ToString() == "COMMQUERYTOLAND" ||
@@ -153,6 +153,18 @@ namespace MeghalayaUIP.Dept.LA
                         button.Text = "View";
 
                 }
+            }
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/LA/LADeptdashboard.aspx");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

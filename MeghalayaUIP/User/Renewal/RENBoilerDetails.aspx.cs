@@ -416,11 +416,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Intended Working Pressure\\n";
                     slno = slno + 1;
                 }
-                if (ddlFuel.SelectedIndex == -1 || ddlFuel.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Fuel use \\n";
-                    slno = slno + 1;
-                }
+                //if (ddlFuel.SelectedIndex == -1 || ddlFuel.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Fuel use \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtHeater.Text) || txtHeater.Text == "" || txtHeater.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Super Heater Rating\\n";
@@ -441,11 +441,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Re-Heater Rating\\n";
                     slno = slno + 1;
                 }
-                if (ddlWorkingsea.SelectedIndex == -1 || ddlWorkingsea.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Working Season \\n";
-                    slno = slno + 1;
-                }
+                //if (ddlWorkingsea.SelectedIndex == -1 || ddlWorkingsea.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Working Season \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtPressure.Text) || txtPressure.Text == "" || txtPressure.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Working Pressure\\n";
@@ -456,11 +456,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Name of Owner\\n";
                     slno = slno + 1;
                 }
-                if (ddlBoilerType.SelectedIndex == -1 || ddlBoilerType.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Boiler Type \\n";
-                    slno = slno + 1;
-                }
+                //if (ddlBoilerType.SelectedIndex == -1 || ddlBoilerType.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Boiler Type \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtDescBoiler.Text) || txtDescBoiler.Text == "" || txtDescBoiler.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Description Of Boiler\\n";

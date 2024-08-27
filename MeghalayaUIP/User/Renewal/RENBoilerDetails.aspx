@@ -70,7 +70,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">License Issued Date *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLicIssDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLicIssDate" runat="server" Type="text" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" ></asp:TextBox>
+                                                          <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtLicIssDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
@@ -212,7 +213,9 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Year of Manufacture *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtYearManu" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtYearManu" runat="server" class="form-control" Type="text" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true"></asp:TextBox>
+                                                         <cc1:CalendarExtender ID="CalendarExtender7" runat="server" Format="dd-MM-yyyy" TargetControlID="txtYearManu"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
 
                                                     </div>
                                                 </div>
@@ -453,9 +456,9 @@
                                                     <label class="col-lg-6 col-form-label">Year of manufacture(H) *</label>
                                                     <div class="col-lg-6 d-flex">
 
-                                                        <asp:TextBox ID="txtYearManufacture" runat="server" class="form-control" Type="text"></asp:TextBox>
-
-
+                                                        <asp:TextBox ID="txtYearManufacture" runat="server" class="form-control" Type="text" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true"></asp:TextBox>
+                                                           <cc1:CalendarExtender ID="CalendarExtender6" runat="server" Format="dd-MM-yyyy" TargetControlID="txtYearManufacture"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
 
                                                     </div>
                                                 </div>
@@ -509,8 +512,9 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Hydraulically Tested ON(H) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtHydraulical" runat="server" class="date form-control" Type="text"></asp:TextBox>
-
+                                                        <asp:TextBox ID="txtHydraulical" runat="server" class="form-control" Type="text" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true"></asp:TextBox>
+                                                         <cc1:CalendarExtender ID="CalendarExtender5" runat="server" Format="dd-MM-yyyy" TargetControlID="txtHydraulical"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>

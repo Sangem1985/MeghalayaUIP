@@ -789,8 +789,10 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENBD_UNITID", Convert.ToInt32(ObjRenBoilerDetails.UnitId));
 
                 com.Parameters.AddWithValue("@RENBD_LICNO", ObjRenBoilerDetails.LICNO);
-                com.Parameters.AddWithValue("@RENBD_LICISSUEDATE", ObjRenBoilerDetails.LICISSUEDDATE);
-                com.Parameters.AddWithValue("@RENBD_LICVALIDDATE", ObjRenBoilerDetails.LICVALIDDATE);
+               // com.Parameters.AddWithValue("@RENBD_LICISSUEDATE", ObjRenBoilerDetails.LICISSUEDDATE);
+                com.Parameters.AddWithValue("@RENBD_LICISSUEDATE", DateTime.ParseExact(ObjRenBoilerDetails.LICISSUEDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                //com.Parameters.AddWithValue("@RENBD_LICVALIDDATE", ObjRenBoilerDetails.LICVALIDDATE);
+                com.Parameters.AddWithValue("@RENBD_LICVALIDDATE", DateTime.ParseExact(ObjRenBoilerDetails.LICVALIDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@RENBD_BOILERPLANT", ObjRenBoilerDetails.BOILERWORK);
                 com.Parameters.AddWithValue("@RENBD_FACTORYNAME", ObjRenBoilerDetails.FACTORYNAME);
                 com.Parameters.AddWithValue("@RENBD_FACTORYADDRESS", ObjRenBoilerDetails.ADDRESSFACTORY);
@@ -800,7 +802,8 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENBD_LOCALITY", ObjRenBoilerDetails.LOCALITY);
                 com.Parameters.AddWithValue("@RENBD_PINCODE", Convert.ToInt32(ObjRenBoilerDetails.PINCODE));
                 com.Parameters.AddWithValue("@RENBD_NAMEMANU", ObjRenBoilerDetails.NAMEMANU);
-                com.Parameters.AddWithValue("@RENBD_YEARMANU", ObjRenBoilerDetails.YEARMANU);
+                //com.Parameters.AddWithValue("@RENBD_YEARMANU", ObjRenBoilerDetails.YEARMANU);
+                com.Parameters.AddWithValue("@RENBD_YEARMANU", DateTime.ParseExact(ObjRenBoilerDetails.YEARMANU, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@RENBD_PLACEMANU", ObjRenBoilerDetails.PLACEMANU);
 
                 com.Parameters.AddWithValue("@RENBD_BOILERMAKERNO", Convert.ToInt32(ObjRenBoilerDetails.BOILERNO));
@@ -823,17 +826,21 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENBD_BOILERRATING", ObjRenBoilerDetails.BOILERRATINGS);
                 com.Parameters.AddWithValue("@RENBD_WORKPLANTBOILER", ObjRenBoilerDetails.BOILERSITUATED);
                 com.Parameters.AddWithValue("@RENBD_PLACEMANUFACTURE", ObjRenBoilerDetails.MANUFACTUREPLACE);
-                com.Parameters.AddWithValue("@RENBD_YEARMANUFACTURE", ObjRenBoilerDetails.MANUFACTUREYEAR);
+                //com.Parameters.AddWithValue("@RENBD_YEARMANUFACTURE", ObjRenBoilerDetails.MANUFACTUREYEAR);
+                com.Parameters.AddWithValue("@RENBD_YEARMANUFACTURE", DateTime.ParseExact(ObjRenBoilerDetails.MANUFACTUREYEAR, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@RENBD_NAMEMANUFACTURE", ObjRenBoilerDetails.OWNERNAMES);
                 com.Parameters.AddWithValue("@RENBD_MAXCOUNT", Convert.ToDecimal(ObjRenBoilerDetails.MAXCOUNT));
                 com.Parameters.AddWithValue("@RENBD_MAXIMUMPRESSURE", ObjRenBoilerDetails.MAXIMUMPRESSURE);
                 com.Parameters.AddWithValue("@RENBD_REPAIRS", ObjRenBoilerDetails.REPAIRS);
-                com.Parameters.AddWithValue("@RENBD_HYDRAULICALLY", ObjRenBoilerDetails.HYDRAULICALLY);
+               // com.Parameters.AddWithValue("@RENBD_HYDRAULICALLY", ObjRenBoilerDetails.HYDRAULICALLY);
+                com.Parameters.AddWithValue("@RENBD_HYDRAULICALLY", DateTime.ParseExact(ObjRenBoilerDetails.HYDRAULICALLY, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@RENBD_UPTO", ObjRenBoilerDetails.UPTO);
                 com.Parameters.AddWithValue("@RENBD_LOADING", ObjRenBoilerDetails.LOADING);
                 com.Parameters.AddWithValue("@RENBD_SAFTEY", ObjRenBoilerDetails.SAFETY);
-                com.Parameters.AddWithValue("@RENBD_PERIODDATE", ObjRenBoilerDetails.PERIODDATE);
-                com.Parameters.AddWithValue("@RENBD_TODATE", ObjRenBoilerDetails.TODATE);
+               // com.Parameters.AddWithValue("@RENBD_PERIODDATE", ObjRenBoilerDetails.PERIODDATE);
+                com.Parameters.AddWithValue("@RENBD_PERIODDATE", DateTime.ParseExact(ObjRenBoilerDetails.PERIODDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                // com.Parameters.AddWithValue("@RENBD_TODATE", ObjRenBoilerDetails.TODATE);
+                com.Parameters.AddWithValue("@RENBD_TODATE", DateTime.ParseExact(ObjRenBoilerDetails.TODATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@RENBD_REMARK", ObjRenBoilerDetails.REMARK);
                 com.Parameters.AddWithValue("@RENBD_REGFEES", Convert.ToInt32(ObjRenBoilerDetails.REGFEES));
                 com.Parameters.AddWithValue("@RENBD_TOTALAMOUNT", Convert.ToInt32(ObjRenBoilerDetails.TOTALAMOUNT));
@@ -919,8 +926,10 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENSE_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
 
                 com.Parameters.AddWithValue("@RENSE_LICNO", ObjRenShopEst.LICNO);
-                com.Parameters.AddWithValue("@RENSE_LICISSUEDATE", ObjRenShopEst.LICISSUEDATE);
-                com.Parameters.AddWithValue("@RENSE_LICVALIDUP", ObjRenShopEst.LICVALIDUP);
+                //com.Parameters.AddWithValue("@RENSE_LICISSUEDATE", ObjRenShopEst.LICISSUEDATE);
+                com.Parameters.AddWithValue("@RENSE_LICISSUEDATE", DateTime.ParseExact(ObjRenShopEst.LICISSUEDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                //com.Parameters.AddWithValue("@RENSE_LICVALIDUP", ObjRenShopEst.LICVALIDUP);
+                com.Parameters.AddWithValue("@RENSE_LICVALIDUP", DateTime.ParseExact(ObjRenShopEst.LICVALIDUP, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@RENSE_NAMEEST", ObjRenShopEst.NAMEEST);
                 com.Parameters.AddWithValue("@RENSE_CONSTITUTION", ObjRenShopEst.CONSTITUTION);
                 com.Parameters.AddWithValue("@RENSE_APPLICANTNAME", ObjRenShopEst.APPLICANTNAME);
