@@ -416,7 +416,7 @@
                                                 <div class="right-layer"></div>
                                                 <div class="icon-box"><i class="flaticon-support"></i></div>
                                                 <h3><a href="#">1.39 L</a></h3>
-                                                <div class="text">Per Capita GSDP</div>
+                                                <div class="text">Per Capita GSPD</div>
 
                                             </div>
                                         </div>

@@ -527,7 +527,13 @@ namespace MeghalayaUIP.User.Renewal
                         rblCancelledLic.SelectedValue = ds.Tables[0].Rows[0]["RENDL_LICCANCEL"].ToString();
                         txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
                         rblInspection.SelectedValue = ds.Tables[0].Rows[0]["RENDL_PREMISEINSPECTION"].ToString();
-                        txtDateInsp.Text = ds.Tables[0].Rows[0]["RENDL_INSPECTIONDATE"].ToString();
+                        if (rblInspection.SelectedValue == "Y")
+                        {
+                            DateInsp.Visible = true;
+                            txtDateInsp.Text = ds.Tables[0].Rows[0]["RENDL_INSPECTIONDATE"].ToString();
+                        }
+                        else { DateInsp.Visible = false; }                     
+                      
                         txtTotalpaid.Text = ds.Tables[0].Rows[0]["RENDL_TOTALAMOUNT"].ToString();
                         txtFeeAdd.Text = ds.Tables[0].Rows[0]["RENDL_ADDITIONALFEES"].ToString();
                         txtLatefee.Text = ds.Tables[0].Rows[0]["RENDL_LATEFEES"].ToString();
