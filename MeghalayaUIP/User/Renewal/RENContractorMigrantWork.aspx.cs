@@ -649,6 +649,11 @@ namespace MeghalayaUIP.User.Renewal
 
 
                 }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
             }
             catch (Exception ex)
             {

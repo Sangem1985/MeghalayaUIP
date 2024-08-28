@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENContractRegistationDetails.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENContractRegistationDetails" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -150,11 +152,23 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                           <%-- <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Date of Birth/Date of Incorporation*  :</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtBirth" runat="server" class="form-control" Type="Date"></asp:TextBox>
+                                                        <asp:TextBox ID="txtBirth" runat="server" class="date form-control" Type="Date"></asp:TextBox>
+                                                          <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtBirth"></cc1:CalendarExtender>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>--%>
+                                               <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Date of Birth/Date of Incorporation*  :</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtBirth" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtBirth"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -273,6 +287,8 @@
                                                     <label class="col-lg-6 col-form-label">Date from which working as contractor * :</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtContractor" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtContractor"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>

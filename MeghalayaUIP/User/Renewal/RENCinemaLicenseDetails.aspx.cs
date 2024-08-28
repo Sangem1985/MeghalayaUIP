@@ -277,6 +277,11 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                 }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
             }
             catch (Exception ex)
             {
@@ -553,7 +558,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 btnsave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/Renewal/RENCinemaLicenseDetails.aspx?Next=" + "N");
+                    Response.Redirect("~/User/Renewal/RENContractRegistationDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

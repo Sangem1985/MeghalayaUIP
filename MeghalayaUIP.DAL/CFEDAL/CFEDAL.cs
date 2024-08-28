@@ -142,6 +142,14 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Parameters.AddWithValue("@POWERKW_ID", objCFEQ.PowerReqKW);
                 da.SelectCommand.Parameters.AddWithValue("@EMPLOYEE", Convert.ToInt32(objCFEQ.PropEmployment));
                 da.SelectCommand.Parameters.AddWithValue("@BUILDINGHEIGHT", objCFEQ.BuildingHeight);
+
+                if (objCFEQ.Investment != null && objCFEQ.Investment != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@INVESTMENT", objCFEQ.Investment);
+                }
+                               
+
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds.Tables[0];

@@ -229,6 +229,11 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                 }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
             }
             catch (Exception ex)
             {
@@ -302,6 +307,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     else
                     {
+                        Generating.Visible = true;
                         ddlDGSet.SelectedValue = ds.Tables[0].Rows[0]["RENFL_TOTALDGSET"].ToString();
                         ddlPowerAmount.SelectedValue = ds.Tables[0].Rows[0]["RENFL_MAXPOWER"].ToString();
                     }
@@ -318,6 +324,7 @@ namespace MeghalayaUIP.User.Renewal
                         Proprietor.Visible = true;
                         txtproprietor.Text = ds.Tables[0].Rows[0]["RENFL_NAMEPROPRIETOR"].ToString();
                     }
+                    else { Proprietor.Visible = false; }
                     rblpublicfactory.SelectedValue = ds.Tables[0].Rows[0]["RENFL_PUBLICFIRM"].ToString();
                     if (rblpublicfactory.SelectedValue == "Y")
                     {
@@ -331,12 +338,14 @@ namespace MeghalayaUIP.User.Renewal
                         Administrative.Visible = true;
                         txtChiefHead.Text = ds.Tables[0].Rows[0]["RENFL_NAMECHIEFHEAD"].ToString();
                     }
+                    else { Administrative.Visible = false; }
                     rblAgent.SelectedValue = ds.Tables[0].Rows[0]["RENFL_MANAGINGAPPOINTEDAGENT"].ToString();
                     if (rblAgent.SelectedValue == "Y")
                     {
                         ManagingAgent.Visible = true;
                         txtMangingAgent.Text = ds.Tables[0].Rows[0]["RENFL_NAMEOFAGENT"].ToString();
                     }
+                    else { ManagingAgent.Visible = false; }
                     rblDateofRules.SelectedValue = ds.Tables[0].Rows[0]["RENFL_FACTORYEXTENDED"].ToString();
                     if (rblDateofRules.SelectedValue == "Y")
                     {

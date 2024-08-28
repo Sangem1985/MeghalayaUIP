@@ -438,6 +438,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.RadioButtonList rblwithin5Year;
 
         /// <summary>
+        /// Details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Details;
+
+        /// <summary>
         /// txtDetails control.
         /// </summary>
         /// <remarks>
@@ -454,6 +463,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblRevoking;
+
+        /// <summary>
+        /// Orderdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Orderdate;
 
         /// <summary>
         /// txtOrderDate control.
@@ -481,6 +499,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblpast5year;
+
+        /// <summary>
+        /// ESTdETAILS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ESTdETAILS;
 
         /// <summary>
         /// txtEstDetails control.

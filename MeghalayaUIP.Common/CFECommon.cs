@@ -190,7 +190,7 @@ namespace MeghalayaUIP.Common
         public string RiverPublicTanker { get; set; }
         public string MuncipalAreawater { get; set; }
         public string NonMuncipalAreaUrban { get; set; }
-
+        public string Investment { get; set; }
     }
     public class CFECommonDet
     {

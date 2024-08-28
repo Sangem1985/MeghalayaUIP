@@ -137,7 +137,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     ObjRenPublicWork.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenPublicWork.CreatedBy = hdnUserID.Value;
-                    ObjRenPublicWork.UnitId = Convert.ToString(Session["RENWC_UNITID"]);
+                    ObjRenPublicWork.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenPublicWork.IPAddress = getclientIP();
 
                     ObjRenPublicWork.ApplicantType = rblApplication.SelectedValue;
@@ -174,7 +174,11 @@ namespace MeghalayaUIP.User.Renewal
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)

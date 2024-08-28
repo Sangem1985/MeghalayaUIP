@@ -395,10 +395,15 @@ namespace MeghalayaUIP.User.Renewal
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "Contract Labour Details Submitted Successfully";
+                        lblmsg.Text = "Renewal Contract Labour Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)
@@ -647,13 +652,31 @@ namespace MeghalayaUIP.User.Renewal
                         txtApproved.Text = ds.Tables[0].Rows[0]["RENCLD_LABOURAPPROVED"].ToString();
                         txtNoContract.Text = ds.Tables[0].Rows[0]["RENCLD_MAXNOLABOUREMP"].ToString();
                         rblwithin5Year.SelectedValue = ds.Tables[0].Rows[0]["RENCLD_WITHIN5YEARS"].ToString();
-                        txtDetails.Text = ds.Tables[0].Rows[0]["RENCLD_DETAILS"].ToString();
+                        if (rblwithin5Year.SelectedValue == "Y")
+                        {
+                            Details.Visible = true;
+                            txtDetails.Text = ds.Tables[0].Rows[0]["RENCLD_DETAILS"].ToString();
+                        }
+                        else { Details.Visible = false; }
+                       
                         rblRevoking.SelectedValue = ds.Tables[0].Rows[0]["RENCLD_REVOKINGLIC"].ToString();
-                        txtOrderDate.Text = ds.Tables[0].Rows[0]["RENCLD_ORDERDATE"].ToString();
+                        if (rblRevoking.SelectedValue == "Y")
+                        {
+                            Orderdate.Visible = true;
+                            txtOrderDate.Text = ds.Tables[0].Rows[0]["RENCLD_ORDERDATE"].ToString();
+                        }
+                        else { Orderdate.Visible = false; }
+                       
                         rblpast5year.SelectedValue = ds.Tables[0].Rows[0]["RENCLD_ESTWITHIN5YEAR"].ToString();
-                        txtEstDetails.Text = ds.Tables[0].Rows[0]["RENCLD_ESTDETAILS"].ToString();
-                        txtEmpDetails.Text = ds.Tables[0].Rows[0]["RENCLD_EMPDETAILS"].ToString();
-                        txtNature.Text = ds.Tables[0].Rows[0]["RENCLD_NATUREOFWORK"].ToString();
+                        if (rblpast5year.SelectedValue == "Y")
+                        {
+                            ESTdETAILS.Visible = true;
+                            txtEstDetails.Text = ds.Tables[0].Rows[0]["RENCLD_ESTDETAILS"].ToString();
+                            txtEmpDetails.Text = ds.Tables[0].Rows[0]["RENCLD_EMPDETAILS"].ToString();
+                            txtNature.Text = ds.Tables[0].Rows[0]["RENCLD_NATUREOFWORK"].ToString();
+                        }
+                        else { ESTdETAILS.Visible = false; }
+                       
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
@@ -804,6 +827,54 @@ namespace MeghalayaUIP.User.Renewal
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void rblRevoking_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblRevoking.SelectedValue == "Y")
+                {
+                    Orderdate.Visible = true;
+                }
+                else { Orderdate.Visible = false; }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void rblpast5year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblpast5year.SelectedValue == "Y")
+                {
+                    ESTdETAILS.Visible = true;
+                }
+                else { ESTdETAILS.Visible = false; }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void rblwithin5Year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblwithin5Year.SelectedValue == "Y")
+                {
+                    Details.Visible = true;
+                }
+                else { Details.Visible = false; }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 

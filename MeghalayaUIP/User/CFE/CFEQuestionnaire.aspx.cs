@@ -169,7 +169,7 @@ namespace MeghalayaUIP.User.CFE
                     rblForContr1970_SelectedIndexChanged(null, EventArgs.Empty);
                     txtContr1970wrkrs.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERSCONTR1970"]);
 
-                    GetApprovals(); ;
+                    GetApprovals(); 
                 }
                 else
                 {
@@ -1421,7 +1421,7 @@ namespace MeghalayaUIP.User.CFE
                 DataTable dtPCB = new DataTable(); DataTable dtpower = new DataTable(); DataTable dtGenReq = new DataTable();
                 DataTable dtfire = new DataTable(); DataTable dtFctry = new DataTable(); DataTable dtRSDS = new DataTable();
 
-                DataTable dtExplosivs = new DataTable(); DataTable dtPtrlsale = new DataTable();
+                DataTable dtExplosivs = new DataTable(); DataTable dtPtrlsale = new DataTable(); DataTable dtElectric = new DataTable();
                 DataTable dtRdctng = new DataTable(); DataTable dtNonEncCert = new DataTable();
 
                 DataTable dtCommTax = new DataTable(); DataTable dtfrstDist = new DataTable(); DataTable dtNonFrstLand = new DataTable();
@@ -1436,10 +1436,16 @@ namespace MeghalayaUIP.User.CFE
                 objCFEQ.EnterpriseCategory = lblEntCategory.Text;
                 if (lblPCBCategory.Text.Trim() != "White")
                 {
+                    objCFEQ.Investment = txtPMCost.Text;
                     objCFEQ.PCBCategory = lblPCBCategory.Text;
                     objCFEQ.ApprovalID = "1";
                     dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtPCB);
+
+                    
+                    //objCFEQ.ApprovalID = "2";
+                    //dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    //dtApprReq.Merge(dtPCB);
                 }
                 if (ddlPowerReq.SelectedValue != "")
                 {
@@ -1447,10 +1453,18 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQ.PropEmployment = txtPropEmp.Text;
                     objCFEQ.ApprovalID = "3";
                     dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+
+                    dtApprReq.Merge(dtpower);
+                    objCFEQ.ApprovalID = "4";
+                    dtElectric=objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtElectric);
+
                     dtApprReq.Merge(dtpower);
                     objCFEQ.ApprovalID = "5";
                     dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtFctry);
+
+
                 }
                 if (rblGenerator.SelectedValue == "Y")
                 {

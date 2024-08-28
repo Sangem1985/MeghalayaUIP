@@ -455,14 +455,14 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether the contractor is convicted of any offence within the proceeding five years *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblwithin5Year" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblwithin5Year" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblwithin5Year_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mt-2">
+                                            <div class="col-md-4 mt-2" id="Details" runat="server" visible="false">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Details *</label>
                                                     <div class="col-lg-6 d-flex">
@@ -477,14 +477,14 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblRevoking" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblRevoking" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblRevoking_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mt-2">
+                                            <div class="col-md-4 mt-2" id="Orderdate" runat="server" visible="false">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Order Date *</label>
                                                     <div class="col-lg-6 d-flex">
@@ -504,7 +504,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether the contractor has work in any other establishment within the past five years*</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblpast5year" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblpast5year" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblpast5year_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -513,7 +513,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" id="ESTdETAILS" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Establishment's Details *</label>

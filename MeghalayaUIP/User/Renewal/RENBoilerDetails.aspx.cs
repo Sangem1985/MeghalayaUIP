@@ -316,12 +316,16 @@ namespace MeghalayaUIP.User.Renewal
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "Boiler Details Submitted Successfully";
+                        lblmsg.Text = "Renewal Boiler Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)

@@ -580,10 +580,15 @@ namespace MeghalayaUIP.User.Renewal
                     if (result != "")
                     {
                         success.Visible = true;
-                        lblmsg.Text = "Shop Establishment Details Submitted Successfully";
+                        lblmsg.Text = "Renewal Shop Establishment Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)
@@ -692,11 +697,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Locality \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Unit PinCode \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Unit PinCode \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtLandmark.Text) || txtLandmark.Text == "" || txtLandmark.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter LandMark \\n";
@@ -1017,8 +1022,19 @@ namespace MeghalayaUIP.User.Renewal
                         ddlCategory.SelectedValue = ds.Tables[0].Rows[0]["RENSE_CATEGORYEST"].ToString();
                         txtNature.Text = ds.Tables[0].Rows[0]["RENSE_NATUREBUSINESS"].ToString();
                         rblFamilymember.SelectedValue = ds.Tables[0].Rows[0]["RENSE_YOURFAMILY"].ToString();
+                        if (rblFamilymember.SelectedValue == "Y")
+                        {
+                            GVTEST.Visible = true;
+                        }
+                        else { GVTEST.Visible = false; }
                         rblEMPEst.SelectedValue = ds.Tables[0].Rows[0]["RENSE_EMPLOYEESEST"].ToString();
-                        txtEMPNo.Text = ds.Tables[0].Rows[0]["RENSE_NOOFEMPLOYEE"].ToString();
+                        if (rblEMPEst.SelectedValue == "Y")
+                        {
+                            NumberEmp.Visible = true;
+                            txtEMPNo.Text = ds.Tables[0].Rows[0]["RENSE_NOOFEMPLOYEE"].ToString();
+                        }
+                        else { NumberEmp.Visible = false; }
+                       
                         ddlDistrict.SelectedItem.Text = ds.Tables[0].Rows[0]["RENSE_DISTRIC"].ToString();
                         ddldist_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlMandal.SelectedItem.Text = ds.Tables[0].Rows[0]["RENSE_MANDAL"].ToString();
@@ -1028,6 +1044,11 @@ namespace MeghalayaUIP.User.Renewal
                         txtpin.Text = ds.Tables[0].Rows[0]["RENSE_PINCODE"].ToString();
                         txtLandmark.Text = ds.Tables[0].Rows[0]["RENSE_LANDMARK"].ToString();
                         rblOwnership.SelectedValue = ds.Tables[0].Rows[0]["RENSE_GODOWN"].ToString();
+                        if (rblOwnership.SelectedValue == "Y")
+                        {
+                            DETAILSGRID.Visible = true;
+                        }
+                        else { DETAILSGRID.Visible = false; }
                         lblRegDate.Text = ds.Tables[0].Rows[0]["RENSE_REGRENEWEDDATE"].ToString();
                         lblRegUptoDate.Text = ds.Tables[0].Rows[0]["RENSE_REGVALIDDATE"].ToString();
                         lblYearRenewed.Text = ds.Tables[0].Rows[0]["RENSE_YEARRENEWED"].ToString();

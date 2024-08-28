@@ -183,15 +183,15 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-            }
+            //try
+            //{
+            //    Response.Redirect("~/User/CFE/CFEUploadEnclosures.aspx");
+            //}
+            //catch (Exception ex)
+            //{
+            //    lblmsg0.Text = ex.Message;
+            //    Failure.Visible = true;
+            //}
         }
     }
 }

@@ -100,6 +100,8 @@
                                                     <label class="col-lg-6 col-form-label">NOC issued no. with Issue Date *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtIssuedDate" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtIssuedDate"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
 
                                                     </div>
                                                 </div>
