@@ -553,6 +553,7 @@
     <Content Include="User\Dashboard\OpenDashboard.aspx" />
     <Content Include="User\Grievance\Grievance.aspx" />
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
+    <Content Include="User\HelpDesk\RegisterHelpDesk.aspx" />
     <Content Include="User\LA\LAApplDetails.aspx" />
     <Content Include="User\LA\LAQuestionnaire.aspx" />
     <Content Include="User\LA\LAUserDashBoard.aspx" />
@@ -1463,6 +1464,13 @@
     </Compile>
     <Compile Include="User\Grievance\GrievanceUserView.aspx.designer.cs">
       <DependentUpon>GrievanceUserView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.cs">
+      <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.designer.cs">
+      <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\LA\LAApplDetails.aspx.cs">
       <DependentUpon>LAApplDetails.aspx</DependentUpon>

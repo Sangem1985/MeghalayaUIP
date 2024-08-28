@@ -198,7 +198,7 @@
                                                                             <%# Container.DataItemIndex + 1%>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:BoundField HeaderText="APPROVALID" DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                                                    <asp:BoundField HeaderText="APPROVALID" DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="false" />
 
                                                                     <asp:BoundField HeaderText="Service Name" DataField="IW_APPROVALNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
                                                                     <asp:BoundField HeaderText="Department" DataField="IW_DEPTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" />

@@ -711,7 +711,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 btnsave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/Renewal/RENBoilerDetails.aspx?Next=" + "N");
+                    Response.Redirect("~/User/Renewal/RENSafetySecurityDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

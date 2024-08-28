@@ -30,7 +30,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Renewal Application Deatils:</h4>
+                                    <h4 class="card-title">Renewal Application Details:</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-md-12 ">

@@ -1440,12 +1440,8 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQ.PCBCategory = lblPCBCategory.Text;
                     objCFEQ.ApprovalID = "1";
                     dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                    dtApprReq.Merge(dtPCB);
-
-                    
-                    //objCFEQ.ApprovalID = "2";
-                    //dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                    //dtApprReq.Merge(dtPCB);
+                    dtApprReq.Merge(dtPCB);                   
+                  
                 }
                 if (ddlPowerReq.SelectedValue != "")
                 {
@@ -1453,13 +1449,13 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQ.PropEmployment = txtPropEmp.Text;
                     objCFEQ.ApprovalID = "3";
                     dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-
                     dtApprReq.Merge(dtpower);
+
                     objCFEQ.ApprovalID = "4";
-                    dtElectric=objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtElectric = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtElectric);
 
-                    dtApprReq.Merge(dtpower);
+                    //dtApprReq.Merge(dtpower);
                     objCFEQ.ApprovalID = "5";
                     dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtFctry);
