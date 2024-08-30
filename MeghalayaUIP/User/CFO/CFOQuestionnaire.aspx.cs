@@ -16,12 +16,18 @@ namespace MeghalayaUIP.User.CFO
 {
     public partial class CFOQuestionnaire : System.Web.UI.Page
     {
-        string UnitID, ErrorMsg = "", ErrorMsg1= "", ErrorMsg2="";
+        string UnitID, ErrorMsg = "", ErrorMsg1 = "", ErrorMsg2 = "";
         int index; Decimal TotalFee = 0;
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
+        string status = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString.Count > 0)
+            {
+                status = Request.QueryString["status"];
+            }
+
             if (Session["UserInfo"] != null)
             {
                 var ObjUserInfo = new UserInfo();
@@ -33,12 +39,16 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                if (Convert.ToString(Session["CFOUNITID"]) != "")
-                { UnitID = Convert.ToString(Session["CFOUNITID"]); }
-                else
+                if (status == null || status == "")
                 {
-                    string newurl = "~/User/CFO/CFOUserDashboard.aspx";
-                    Response.Redirect(newurl);
+
+                    if (Convert.ToString(Session["CFOUNITID"]) != "")
+                    { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                    else
+                    {
+                        string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
                 }
                 Page.MaintainScrollPositionOnPostBack = true;
                 if (!IsPostBack)
@@ -279,7 +289,6 @@ namespace MeghalayaUIP.User.CFO
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
-
         protected void ddlSector_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -365,11 +374,11 @@ namespace MeghalayaUIP.User.CFO
                 var cls = Link1.Attributes["class"];
                 Link1.Attributes.Add("class", cls + " nav-tab");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-          
+
         }
 
         protected void Link2_Click(object sender, EventArgs e)
@@ -391,11 +400,11 @@ namespace MeghalayaUIP.User.CFO
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-          
+
         }
         protected void Link3_Click(object sender, EventArgs e)
         {
@@ -415,11 +424,11 @@ namespace MeghalayaUIP.User.CFO
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-           
+
         }
         protected void btnsave1_Click(object sender, EventArgs e)
         { }
@@ -439,11 +448,11 @@ namespace MeghalayaUIP.User.CFO
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-          
+
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
@@ -469,11 +478,11 @@ namespace MeghalayaUIP.User.CFO
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
-           
+
         }
         protected void btnSave3_Click(object sender, EventArgs e)
         {
@@ -680,6 +689,7 @@ namespace MeghalayaUIP.User.CFO
 
                 if (rblRegMigrantWorkers.SelectedValue == "Y")
                 {
+                    objCFOQ.Investment = txtPMCost.Text;
                     ApprovalIds = ApprovalIds + "32";
                 }
                 if (rblRegManfRepairs.SelectedValue == "Y")
@@ -784,6 +794,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblShpsestbregformA.SelectedValue == "Y")
                 {
+                    objCFOQ.PropEmployment = txtPropEmp.Text;
                     ApprovalIds = ApprovalIds + ",58";
                 }
                 if (rblBusinesssLic.SelectedValue == "Y")
@@ -1027,7 +1038,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 return errormsg;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -1066,7 +1077,7 @@ namespace MeghalayaUIP.User.CFO
 
                 return errormsg;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -1076,8 +1087,8 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 int slno = 1;
-                string errormsg = "";            
-              
+                string errormsg = "";
+
 
                 if (rblRegMigrantWorkers.SelectedIndex == -1)
                 {

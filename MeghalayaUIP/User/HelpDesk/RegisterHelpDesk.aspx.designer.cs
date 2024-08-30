@@ -69,6 +69,15 @@ namespace MeghalayaUIP.User.HelpDesk
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// hdnusername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnusername;
+
+        /// <summary>
         /// LabelHeading control.
         /// </summary>
         /// <remarks>
@@ -105,40 +114,40 @@ namespace MeghalayaUIP.User.HelpDesk
         protected global::System.Web.UI.WebControls.TextBox txtApplcantName;
 
         /// <summary>
-        /// txtEmail control.
+        /// txtUIDNO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtUIDNO;
 
         /// <summary>
-        /// txtSub control.
+        /// txtMobileNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSub;
+        protected global::System.Web.UI.WebControls.TextBox txtMobileNo;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtEmailid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailid;
 
         /// <summary>
-        /// ddldist control.
+        /// ddlHelpdesk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddldist;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHelpdesk;
 
         /// <summary>
         /// txtDesc control.

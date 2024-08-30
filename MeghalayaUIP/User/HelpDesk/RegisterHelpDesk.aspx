@@ -35,6 +35,7 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
+                              <asp:HiddenField ID="hdnusername" runat="server" />
                             <div class="row">
                                 <div class="col-md-12 d-flex">
                                     <h4 class="card-title ml-3">
@@ -64,8 +65,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">UID Number *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtEmail" runat="server" class="form-control txtbox" TextMode="Email"
-                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                <asp:TextBox ID="txtUIDNO" runat="server" class="form-control txtbox"
+                                                    TabIndex="1" ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -75,7 +76,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Mobile No *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="txtSub" runat="server" class="form-control txtbox"
+                                                <asp:TextBox ID="txtMobileNo" runat="server" class="form-control txtbox"
                                                     TabIndex="1"
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
@@ -85,7 +86,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">Your Mail Id *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:TextBox ID="TextBox1" runat="server" class="form-control txtbox"
+                                                <asp:TextBox ID="txtEmailid" runat="server" class="form-control txtbox"
                                                     TabIndex="1"
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
@@ -95,7 +96,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">HelpDesk Type *</label>
                                             <div class="col-lg-6 d-flex">
-                                                <asp:DropDownList ID="ddldist" runat="server" class="form-control txtbox"
+                                                <asp:DropDownList ID="ddlHelpdesk" runat="server" class="form-control txtbox"
                                                     TabIndex="1">
                                                     <asp:ListItem>--Select--</asp:ListItem>
                                                     <asp:ListItem Text="Data Correction"></asp:ListItem>
@@ -154,8 +155,8 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12 float-end">
                                         <div class="form-group row justify-content-end">
-                                            <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-warning btn-lg" Width="150px" />
-                                            <asp:Button runat="server" Text="Submit" ID="btnsave" class="btn btn-rounded btn-submit btn-lg mr-2" Width="150px" />
+                                            <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" OnClick="btnClear_Click" class="btn btn-rounded btn-warning btn-lg" Width="150px" />
+                                            <asp:Button runat="server" Text="Submit" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-submit btn-lg mr-2" Width="150px" />
 
                                         </div>
                                     </div>

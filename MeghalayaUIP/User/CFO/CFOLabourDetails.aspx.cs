@@ -18,6 +18,8 @@ namespace MeghalayaUIP.User.CFO
         string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (Session["UserInfo"] != null)
             {
                 var ObjUserInfo = new UserInfo();
@@ -29,7 +31,7 @@ namespace MeghalayaUIP.User.CFO
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                
+
                 if (Convert.ToString(Session["CFOUNITID"]) != "")
                 {
                     UnitID = Convert.ToString(Session["CFOUNITID"]);
@@ -39,6 +41,9 @@ namespace MeghalayaUIP.User.CFO
                     string newurl = "~/User/CFO/CFOUserDashboard.aspx";
                     Response.Redirect(newurl);
                 }
+
+
+
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
@@ -90,7 +95,7 @@ namespace MeghalayaUIP.User.CFO
                             txtProvide.Text = ds.Tables[1].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
                         }
                         else { Approved.Visible = false; }
-                        ddlApplied.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();                      
+                        ddlApplied.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();
                         txtESTYear.Text = ds.Tables[1].Rows[0]["CFOLD_YEAR"].ToString();
                         rblmaximum.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TEMPMATERIAL"].ToString();
                         rblregulation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION1950"].ToString();
@@ -101,7 +106,7 @@ namespace MeghalayaUIP.User.CFO
                         rblfirm.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_CONTROVERSIAL"].ToString();
                         rblmaterial.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_MATERIAL"].ToString();
                         rblinternalcontrol.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_OWNSYSTEM"].ToString();
-                        rbldocument.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();                       
+                        rbldocument.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();
                         txtname1.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTURENAME"].ToString();
                         txtfather.Text = ds.Tables[1].Rows[0]["CFOLD_MANUYEAR"].ToString();
                         txtage.Text = ds.Tables[1].Rows[0]["CFOLD_MANUPLACE"].ToString();
@@ -125,7 +130,7 @@ namespace MeghalayaUIP.User.CFO
                             txtRemark.Text = ds.Tables[1].Rows[0]["CFOLD_REMARK"].ToString();
                         }
                         else { txtBoiler.Visible = false; }
-                        
+
                         txtNameManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUNAME"].ToString();
                         txtYearManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREYEAR"].ToString();
                         txtPlaceManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTPLACE"].ToString();
@@ -143,14 +148,14 @@ namespace MeghalayaUIP.User.CFO
                             txtDetails.Text = ds.Tables[1].Rows[0]["CFOLD_DETAILS"].ToString();
                         }
                         else { txtcontractor.Visible = false; }
-                        
+
                         rblrevoking.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REVORKING"].ToString();
                         if (rblrevoking.Text == "Y")
                         {
                             suspend.Visible = true;
                             txtOrderDate.Text = ds.Tables[1].Rows[0]["CFOLD_ORDERDAET"].ToString();
-                        }                            
-                        else { suspend.Visible = false; }                        
+                        }
+                        else { suspend.Visible = false; }
                         rblcontractor.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_ESTCONTRACTOR"].ToString();
                         if (rblcontractor.Text == "Y")
                         {
@@ -158,14 +163,14 @@ namespace MeghalayaUIP.User.CFO
                             txtprinciple.Text = ds.Tables[1].Rows[0]["CFOLD_PRINCIPLEEMP"].ToString();
                         }
                         else { fiveyear.Visible = false; }
-                        
+
                         if (rblcontractor.Text == "Y")
                         {
                             nature.Visible = true;
                             txtEstablishment.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDETAILS"].ToString();
                             txtNature.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREWORK"].ToString();
                         }
-                        else { nature.Visible = false; }                        
+                        else { nature.Visible = false; }
                         txtAgent.Text = ds.Tables[1].Rows[0]["CFOLD_MANAGERNAME"].ToString();
                         txtfathername.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSMANAGER"].ToString();
                         ddlCategory.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_CATEGORYEST"].ToString();
@@ -285,8 +290,8 @@ namespace MeghalayaUIP.User.CFO
 
         protected void savebtn_Click(object sender, EventArgs e)
         {
-           
-           
+
+
 
             try
             {
@@ -323,8 +328,8 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-                                      
-                    ObjCFOLabourDet.UNITID = Convert.ToString(Session["CFOUNITID"]); 
+
+                    ObjCFOLabourDet.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOLabourDet.CreatedBy = hdnUserID.Value;
                     ObjCFOLabourDet.IPAddress = getclientIP();
                     ObjCFOLabourDet.Questionnariid = Convert.ToString(Session["CFOQID"]);
@@ -426,14 +431,14 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (RBLAPPROVED.SelectedValue == "Y")
-                {                    
+                {
                     if (string.IsNullOrEmpty(txtProvide.Text) || txtProvide.Text == "" || txtProvide.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Provide Details \\n";
                         slno = slno + 1;
                     }
                 }
-              
+
                 if (ddlApplied.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Enter Classification applied for  \\n";
@@ -580,12 +585,12 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblBoilerTrans.SelectedValue == "Y")
-                {                   
+                {
                     if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Remarks  \\n";
                         slno = slno + 1;
-                    }                    
+                    }
                 }
                 if (string.IsNullOrEmpty(txtNameManu.Text) || txtNameManu.Text == "" || txtNameManu.Text == null)
                 {
@@ -638,17 +643,17 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblConvicated.SelectedIndex == -1)
-                {                    
+                {
                     errormsg = errormsg + slno + ". Please Select the contractor is convicted of any offence within the proceeding five years \\n";
                     slno = slno + 1;
                 }
                 if (rblConvicated.SelectedValue == "Y")
-                {                   
+                {
                     if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Details  \\n";
                         slno = slno + 1;
-                    }                 
+                    }
                 }
                 if (rblrevoking.SelectedIndex == -1)
                 {
@@ -656,12 +661,12 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblrevoking.SelectedValue == "Y")
-                {                   
+                {
                     if (string.IsNullOrEmpty(txtOrderDate.Text) || txtOrderDate.Text == "" || txtOrderDate.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Order Date  \\n";
                         slno = slno + 1;
-                    }                  
+                    }
                 }
                 if (rblcontractor.SelectedIndex == -1)
                 {
@@ -669,25 +674,25 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
                 if (rblcontractor.SelectedValue == "Y")
-                {                  
+                {
                     if (string.IsNullOrEmpty(txtprinciple.Text) || txtprinciple.Text == "" || txtprinciple.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Principal's Employers Details  \\n";
                         slno = slno + 1;
-                    }               
-                                       
+                    }
+
                     if (string.IsNullOrEmpty(txtEstablishment.Text) || txtEstablishment.Text == "" || txtEstablishment.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Establishment's Details  \\n";
                         slno = slno + 1;
                     }
-                   
+
                     if (string.IsNullOrEmpty(txtNature.Text) || txtNature.Text == "" || txtNature.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Nature of work  \\n";
                         slno = slno + 1;
                     }
-                  
+
                 }
                 if (string.IsNullOrEmpty(txtAgent.Text.Trim()) || txtAgent.Text.Trim() == "" || txtAgent.Text.Trim() == null)
                 {
@@ -833,7 +838,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
             }
 
-          //  Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
+            //  Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
         }
         protected void BindBoilerType()
         {

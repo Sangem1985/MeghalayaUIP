@@ -13,6 +13,7 @@ namespace MeghalayaUIP
     public partial class InformationWizard : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -133,6 +134,24 @@ namespace MeghalayaUIP
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
+                    Button btn = (Button)e.Row.FindControl("btnOnline");
+                    Label lbl = (Label)e.Row.FindControl("lblApprovalid");
+
+                    if (lbl.Text == "58")
+                    {
+                        btn.Visible = true;
+                    }
+                    else
+                    {
+                        btn.Visible = false;
+                    }
+
+                    //Button button = (Button)e.Row.Cells[0].Controls[0];
+                    //if(button.Text != "0")
+                    //{
+
+                    //}
+
                     HyperLink hplSOP = (HyperLink)e.Row.FindControl("hplViewSOP");
                     if (hplSOP != null)
                     {
@@ -159,7 +178,7 @@ namespace MeghalayaUIP
                     }
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { throw ex; }
         }
 
         protected void ddldept_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +188,23 @@ namespace MeghalayaUIP
             else
                 ddlPolCategory.Enabled = false;
 
+        }
+
+        protected void btnOnline_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)  sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                Label lblApprovalID =row. FindControl("lblApprovalid") as Label;
+
+                Response.Redirect("login.aspx?status=" + lblApprovalID.Text);
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;              
+            }
         }
     }
 }

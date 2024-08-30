@@ -7,19 +7,20 @@
         table#servicestable th {
             vertical-align: middle;
         }
+
         select#ContentPlaceHolder1_ddlPolCategory {
-    display: block;
-    width: 100%;
-    padding: 0.475rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+            display: block;
+            width: 100%;
+            padding: 0.475rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
     </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
@@ -198,7 +199,14 @@
                                                                             <%# Container.DataItemIndex + 1%>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:BoundField HeaderText="APPROVALID" DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="false" />
+
+                                                                    <asp:TemplateField>
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="lblApprovalid" runat="server" Text='<%#Eval("IW_APPROVALID") %>' HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="false"></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+
+                                                                   <%-- <asp:BoundField HeaderText="APPROVALID" DataField="IW_APPROVALID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="false" />--%>
 
                                                                     <asp:BoundField HeaderText="Service Name" DataField="IW_APPROVALNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
                                                                     <asp:BoundField HeaderText="Department" DataField="IW_DEPTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" />
@@ -227,7 +235,12 @@
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
-
+                                                                    <asp:TemplateField HeaderText="Apply Online" ItemStyle-Width="10%">                                                                       
+                                                                        <ItemTemplate>
+                                                                            <asp:Button ID="btnOnline" runat="server" Text='Apply Online' CommandName="Apply" CssClass="btn btn-info" OnClick="btnOnline_Click" />                                                                                
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
                                                                 </Columns>
                                                                 <EmptyDataTemplate>
                                                                     <div align="center" style="text-align: center; padding: 20px;">

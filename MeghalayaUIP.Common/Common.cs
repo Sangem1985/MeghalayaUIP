@@ -29,5 +29,10 @@ namespace MeghalayaUIP.Common
         public static string GetDepGrievanceList = "USP_GETGRIEVANCEBYDEPT";
         public static string UpdateGrievanceDeptProcess = "USP_UPDATEGRIEVANCEDEPTPROCESS";
 
+        /////////////---------HelpDesk----------------////////
+        ///
+
+        public static string InsertHelpDesk = "USP_INSHELPDESK";
+        public static string GetUserHelpDeskList = "USP_GETUSERHELPDESK";
     }
 }

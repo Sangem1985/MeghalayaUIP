@@ -675,5 +675,158 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return valid;
         }
+
+        /////////////////////////////////////////////////--------------------------------HelpDesk-----------------------------------------/////////////////////////////////
+
+
+
+        public int InsertHelpDesk(string UnitName, string ApplcantName, string UIDNo,
+           string Mobile, string HelpDesk, string Email, string Description, string File_Path,
+          string File_Type, string FileName, string UserType, string Username, string Createdby, string IPAddress)
+        {
+            int valid = 0;
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CommonConstants.InsertHelpDesk;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                if (UnitName.ToString().Trim() == "" || UnitName.ToString().Trim() == null)
+                    com.Parameters.Add("@HD_UNITNAME", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_UNITNAME", SqlDbType.VarChar).Value = UnitName.Trim();
+
+                if (ApplcantName.ToString().Trim() == "" || ApplcantName.ToString().Trim() == null)
+                    com.Parameters.Add("@HD_APPLNAME", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_APPLNAME", SqlDbType.VarChar).Value = ApplcantName.Trim();
+
+                if (UIDNo.Trim() == "" || UIDNo.Trim() == null)
+                    com.Parameters.Add("@HD_UIDNO", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_UIDNO", SqlDbType.VarChar).Value = UIDNo.Trim();
+
+                if (Mobile.Trim() == "" || Mobile.Trim() == null)
+                    com.Parameters.Add("@HD_MOBILENO", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_MOBILENO", SqlDbType.VarChar).Value = Mobile.Trim();
+
+                if (HelpDesk.Trim() == "" || HelpDesk.Trim() == null)
+                    com.Parameters.Add("@HD_HELPDESKTYPE", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_HELPDESKTYPE", SqlDbType.VarChar).Value = HelpDesk.Trim();
+
+                if (Email.Trim() == "" || Email.Trim() == null)
+                    com.Parameters.Add("@HD_EMAILID", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_EMAILID", SqlDbType.VarChar).Value = Email.Trim();
+
+                if (Description.Trim() == "" || Description.Trim() == null)
+                    com.Parameters.Add("@HD_HELPDESKDESCRIPTION", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_HELPDESKDESCRIPTION", SqlDbType.VarChar).Value = Description.Trim();
+                                      
+
+                if (File_Path.Trim() == "" || File_Path.Trim() == null)
+                    com.Parameters.Add("@HD_FILEPATH", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_FILEPATH", SqlDbType.VarChar).Value = File_Path.Trim();
+
+                if (File_Type.Trim() == "" || File_Type.Trim() == null)
+                    com.Parameters.Add("@HD_FILETYPE", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_FILETYPE", SqlDbType.VarChar).Value = File_Type.Trim();
+
+                if (FileName.Trim() == "" || FileName.Trim() == null)
+                    com.Parameters.Add("@HD_FILENAME", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_FILENAME", SqlDbType.VarChar).Value = FileName.Trim();
+
+                if (UserType.Trim() == "" || UserType.Trim() == null)
+                    com.Parameters.Add("@HD_CREATEDBYUSERTYPE", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_CREATEDBYUSERTYPE", SqlDbType.VarChar).Value = UserType.Trim();
+
+                if (Username.Trim() == "" || Username.Trim() == null)
+                    com.Parameters.Add("@HD_CREATEDBYUSERNAME", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_CREATEDBYUSERNAME", SqlDbType.VarChar).Value = Username.Trim();
+
+                if (Createdby.Trim() == "" || Createdby.Trim() == null)
+                    com.Parameters.Add("@HD_CREATEDBY", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_CREATEDBY", SqlDbType.VarChar).Value = Createdby.Trim();
+                if (IPAddress.Trim() == "" || IPAddress.Trim() == null)
+                    com.Parameters.Add("@HD_CREATEDBYIP", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@HD_CREATEDBYIP", SqlDbType.VarChar).Value = IPAddress.Trim();
+
+                com.Parameters.Add("@RESULT", SqlDbType.Int, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+                valid = (Int32)com.Parameters["@RESULT"].Value;
+
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
+        public DataSet GetUserHelpDeskList(string UserID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetUserHelpDeskList, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetUserHelpDeskList;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@USERID", UserID);
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+
+
     }
 }

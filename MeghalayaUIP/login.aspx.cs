@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -17,10 +18,15 @@ namespace MeghalayaUIP
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        string url;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                //DataSet ds = new DataSet();
+                //string status = Request.QueryString[0].ToString().Trim();
+
+              
 
                 if (!IsPostBack)
                 {
@@ -101,7 +107,7 @@ namespace MeghalayaUIP
         {
             try
             {
-
+               
                 if (Request.RequestType.ToUpper() != "POST")
                 {
                     Killsession();
@@ -151,6 +157,17 @@ namespace MeghalayaUIP
                         Failure.Visible = true;
                     }
                 }
+                if (Request.QueryString.Count > 0)
+                {
+                    string status = Request.QueryString["status"];
+                    if (!string.IsNullOrEmpty(status))
+                    {
+
+                        url = "~/User/CFO/CFOQuestionnaire.aspx?status=" + status;
+                        Response.Redirect(url);
+
+                    }
+                }
             }
             catch (SqlException ex)
             {
@@ -182,5 +199,6 @@ namespace MeghalayaUIP
 
             return result;
         }
+      
     }
 }

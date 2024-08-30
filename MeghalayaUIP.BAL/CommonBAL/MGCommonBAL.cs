@@ -72,5 +72,23 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetApprovalsReqWithFee(objCFOQ);
         }
+
+        //////-------------------HELPDESK------------------------/////
+
+        public int InsertHelpDesk( string UnitName, string ApplcantName, string UIDNo,
+           string Mobile, string HelpDesk, string Email, string Description, string File_Path,
+          string File_Type, string FileName,string UserType,string Username, string Createdby, string IPAddress)
+        {
+            return objCommonDAL.InsertHelpDesk(UnitName, ApplcantName, UIDNo,
+                Mobile, HelpDesk, Email, Description, File_Path,
+                File_Type, FileName, UserType, Username,  Createdby, IPAddress);
+                         
+        }
+        public DataSet GetUserHelpDeskList(string Userid)
+        {
+            return objCommonDAL.GetUserHelpDeskList(Userid);
+        }
+
+
     }
 }

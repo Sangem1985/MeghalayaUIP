@@ -489,6 +489,8 @@ namespace MeghalayaUIP.Common
         public string PCBCategory { get; set; }
         public string NatureofActivity { get; set; }
         public string UnitLocation { get; set; }
+        public string Investment { get; set; }
+        public string Employment { get; set; }
 
         public string PropEmployment { get; set; }
         public string ProjectCost { get; set; }

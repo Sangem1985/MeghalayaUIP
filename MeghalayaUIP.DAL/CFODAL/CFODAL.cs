@@ -1687,6 +1687,14 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 da.SelectCommand.Parameters.AddWithValue("@ENTPRISETYPE", objCFOQ.EnterpriseCategory);
                 da.SelectCommand.Parameters.AddWithValue("@APPROVALID", objCFOQ.ApprovalID);
+                if (objCFOQ.Investment != null && objCFOQ.Investment != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@INVESTMENT", objCFOQ.Investment);
+                }
+                if (objCFOQ.PropEmployment != null && objCFOQ.PropEmployment != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@EMPLOYEES", objCFOQ.PropEmployment);
+                }
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
