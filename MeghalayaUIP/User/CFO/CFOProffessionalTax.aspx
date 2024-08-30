@@ -48,8 +48,7 @@
                                         <div class="col-md-12 d-flex">
                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Establishment Details</span></label>
                                         </div>
-                                        <div class="col-md-12 d-flex">
-
+                                        <div class="col-md-12 d-flex" id="ESTFALSE" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Establishment *</label>
@@ -77,8 +76,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
-
+                                        <div class="col-md-12 d-flex" id="ESTABLISHFALSE" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Pin Code of Establishment *</label>
@@ -97,9 +95,13 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Description of Goods and Services supplied by the Establishment *</label>
+                                                    <label class="col-lg-6 col-form-label">Date of commencement *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtGoodssupplie" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1"></asp:TextBox>
+                                                        <%--   <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
+                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,14 +109,9 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Date of commencement *</label>
+                                                    <label class="col-lg-6 col-form-label">Description of Goods and Services supplied by the Establishment *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <%--   <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
-
-                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
-                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
-                                                        <i class="fi fi-rr-calendar-lines"></i>
+                                                        <asp:TextBox ID="txtGoodssupplie" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,25 +181,26 @@
                                                     <asp:Button ID="btnAdd" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAdd_Click" Width="110px" />
                                                 </div>
                                             </div>
-
                                         </div>
-                                        <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="GVState" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="None"
-                                                Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVState_RowDeleting">
-                                                <RowStyle BackColor="#ffffff" />
-                                                <Columns>
-                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Place of Business" DataField="CFOPS_PLACEBUSINESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Address" DataField="CFOPS_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="District" DataField="CFOPS_DISTRIC" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Total working employees" DataField="CFOPS_TOTALEMP" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                        <div id="Div2" runat="server" visible="false">
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <asp:GridView ID="GVState" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                    GridLines="None"
+                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVState_RowDeleting">
+                                                    <RowStyle BackColor="#ffffff" />
+                                                    <Columns>
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Place of Business" DataField="CFOPS_PLACEBUSINESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Address" DataField="CFOPS_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="District" DataField="CFOPS_DISTRIC" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Total working employees" DataField="CFOPS_TOTALEMP" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                                </Columns>
-                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                <AlternatingRowStyle BackColor="White" />
-                                            </asp:GridView>
+                                                    </Columns>
+                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                </asp:GridView>
+                                            </div>
                                         </div>
 
                                         <div class="col-md-12 d-flex">
@@ -265,25 +263,26 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="GVCOUNTRY" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="None"
-                                                Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVCOUNTRY_RowDeleting">
-                                                <RowStyle BackColor="#ffffff" />
-                                                <Columns>
-                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Place of Business" DataField="CFOPC_PLACEBUSINESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Address" DataField="CFOPC_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="State" DataField="CFOPC_STATE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Total working employees" DataField="CFOPC_TOTALEMP" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                        <div id="Div1" runat="server" visible="false">
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <asp:GridView ID="GVCOUNTRY" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                    GridLines="None"
+                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVCOUNTRY_RowDeleting">
+                                                    <RowStyle BackColor="#ffffff" />
+                                                    <Columns>
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Place of Business" DataField="CFOPC_PLACEBUSINESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Address" DataField="CFOPC_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="State" DataField="CFOPC_STATE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Total working employees" DataField="CFOPC_TOTALEMP" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                                </Columns>
-                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                <AlternatingRowStyle BackColor="White" />
-                                            </asp:GridView>
+                                                    </Columns>
+                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                </asp:GridView>
+                                            </div>
                                         </div>
-
 
 
                                         <div class="col-md-12 d-flex">
@@ -368,27 +367,28 @@
                                         <div id="Address" runat="server" visible="false">
                                             <div class="col-md-12 d-flex justify-content-center">
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <label class="col-lg-12 col-form-label fw-bold">Other place of work, if any, in state:</label>
-                                        </div>
-                                        <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="GVFOREIGN" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="None"
-                                                Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVFOREIGN_RowDeleting">
-                                                <RowStyle BackColor="#ffffff" />
-                                                <Columns>
-                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Principal Place of Work" DataField="CFOPF_PRINCIPLEWORK" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Address" DataField="CFOPF_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Employer Name" DataField="CFOPF_EMPNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Monthly Salary/Wages" DataField="CFOPF_MONTHLYWAGES" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                                </Columns>
-                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                <AlternatingRowStyle BackColor="White" />
-                                            </asp:GridView>
+                                            <div class="col-md-12 d-flex">
+                                                <label class="col-lg-12 col-form-label fw-bold">Other place of work, if any, in state:</label>
+                                            </div>
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <asp:GridView ID="GVFOREIGN" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                    GridLines="None"
+                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVFOREIGN_RowDeleting">
+                                                    <RowStyle BackColor="#ffffff" />
+                                                    <Columns>
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Principal Place of Work" DataField="CFOPF_PRINCIPLEWORK" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Address" DataField="CFOPF_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Employer Name" DataField="CFOPF_EMPNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Monthly Salary/Wages" DataField="CFOPF_MONTHLYWAGES" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+
+                                                    </Columns>
+                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                </asp:GridView>
+                                            </div>
                                         </div>
                                         <br />
                                         <div class="col-md-12 d-flex">

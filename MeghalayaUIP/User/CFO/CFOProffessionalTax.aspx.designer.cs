@@ -87,6 +87,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// ESTFALSE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ESTFALSE;
+
+        /// <summary>
         /// txtEstDet control.
         /// </summary>
         /// <remarks>
@@ -114,6 +123,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.DropDownList ddlDistric;
 
         /// <summary>
+        /// ESTABLISHFALSE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ESTABLISHFALSE;
+
+        /// <summary>
         /// txtPincode control.
         /// </summary>
         /// <remarks>
@@ -132,15 +150,6 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeESt;
 
         /// <summary>
-        /// txtGoodssupplie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGoodssupplie;
-
-        /// <summary>
         /// txtDate control.
         /// </summary>
         /// <remarks>
@@ -157,6 +166,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+
+        /// <summary>
+        /// txtGoodssupplie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGoodssupplie;
 
         /// <summary>
         /// txtIncome control.
@@ -249,6 +267,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
+        /// Div2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
+
+        /// <summary>
         /// GVState control.
         /// </summary>
         /// <remarks>
@@ -319,6 +346,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAdeed;
+
+        /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
 
         /// <summary>
         /// GVCOUNTRY control.

@@ -124,7 +124,7 @@ namespace MeghalayaUIP.User.CFO
                         else { CanceledLIC.Visible = false; }
                        
                         rblinsection.SelectedValue = ds.Tables[1].Rows[0]["CFODL_PREMISERDYFORINSP"].ToString();
-                        if (rblinsection.Text == "Yes")
+                        if (rblinsection.Text == "Y")
                         {
                             InspectionDate.Visible = true;
                             txtInspection.Text = ds.Tables[1].Rows[0]["CFODL_DATEOFINSP"].ToString();

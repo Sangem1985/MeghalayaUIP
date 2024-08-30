@@ -510,6 +510,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOLD_DETAILS", ObjCFOLabourDet.Details);
                 com.Parameters.AddWithValue("@CFOLD_REVORKING", ObjCFOLabourDet.licenseDeposite);
                 com.Parameters.AddWithValue("@CFOLD_ORDERDAET", ObjCFOLabourDet.OrderDate);
+              //  com.Parameters.AddWithValue("@CFOLD_ORDERDAET", DateTime.ParseExact(ObjCFOLabourDet.OrderDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOLD_ESTCONTRACTOR", ObjCFOLabourDet.establishmentpast);
                 com.Parameters.AddWithValue("@CFOLD_PRINCIPLEEMP", ObjCFOLabourDet.PrincipalEMP);
                 com.Parameters.AddWithValue("@CFOLD_ESTDETAILS", ObjCFOLabourDet.EstablishmentDET);

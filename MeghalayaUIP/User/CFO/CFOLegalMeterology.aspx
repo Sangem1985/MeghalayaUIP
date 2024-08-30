@@ -454,7 +454,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Specialist trained in the line: </label>
                                                 <div class="col-lg-6 d-flex">
-                                                    <asp:TextBox ID="txttrained" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                    <asp:TextBox ID="txttrained" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="10" TabIndex="1"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>

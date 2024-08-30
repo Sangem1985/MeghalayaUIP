@@ -401,6 +401,13 @@ namespace MeghalayaUIP.User.CFO
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
+                    else
+                    {
+                        Failure.Visible = true;
+                        lblmsg0.Text = "Labour Details Not Submitted";
+                        string message = "alert('" + lblmsg0.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
 
                 }
                 else

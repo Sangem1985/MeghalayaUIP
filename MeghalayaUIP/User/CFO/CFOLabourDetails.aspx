@@ -552,9 +552,9 @@
                                                         <%--  <asp:TextBox ID="txtOrderDate" runat="server" class="date form-control" type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                        <asp:TextBox runat="server" ID="txtOrderDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
-                                                        <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtOrderDate"></cc1:CalendarExtender>
-                                                        <i class="fi fi-rr-calendar-lines"></i>
+                                                        <asp:TextBox runat="server" ID="txtOrderDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" TabIndex="1" />
+                                                      <%--  <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtOrderDate"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>--%>
                                                     </div>
                                                 </div>
                                             </div>
