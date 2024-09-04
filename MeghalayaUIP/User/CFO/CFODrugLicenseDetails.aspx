@@ -4,9 +4,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        div#ContentPlaceHolder1_div_52, div#ContentPlaceHolder1_div_Staff_Manf, div#ContentPlaceHolder1_div_Staff_Test,div#ContentPlaceHolder1_div_48 {
-    width: 100%;
-}
+        div#ContentPlaceHolder1_div_52, div#ContentPlaceHolder1_div_Staff_Manf, div#ContentPlaceHolder1_div_Staff_Test, div#ContentPlaceHolder1_div_48 {
+            width: 100%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -281,22 +281,22 @@
 
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
-                                                <asp:GridView ID="GVTESTING" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD table-striped table-hover"
-                                                    GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVTESTING_RowDeleting">
-                                                    <RowStyle BackColor="#ffffff" />
-                                                    <Columns>
-                                                        <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-Width="100px" />
-                                                        <asp:BoundField HeaderText="Name" DataField="CFODT_EMPNAME" ItemStyle-BackColor="Wheat" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="420px" />
-                                                        <asp:BoundField HeaderText="Qualification" DataField="CFODT_EMPQLFCATION" ItemStyle-BackColor="Wheat" ItemStyle-Width="400px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
-                                                        <asp:BoundField HeaderText="Experience" DataField="CFODT_EMPEXPRNC" ItemStyle-BackColor="Wheat" ItemStyle-Width="400px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
-                                                        
+                                                    <asp:GridView ID="GVTESTING" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD table-striped table-hover"
+                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVTESTING_RowDeleting">
+                                                        <RowStyle BackColor="#ffffff" />
+                                                        <Columns>
+                                                            <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-Width="100px" />
+                                                            <asp:BoundField HeaderText="Name" DataField="CFODT_EMPNAME" ItemStyle-BackColor="Wheat" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="420px" />
+                                                            <asp:BoundField HeaderText="Qualification" DataField="CFODT_EMPQLFCATION" ItemStyle-BackColor="Wheat" ItemStyle-Width="400px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
+                                                            <asp:BoundField HeaderText="Experience" DataField="CFODT_EMPEXPRNC" ItemStyle-BackColor="Wheat" ItemStyle-Width="400px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" />
 
-                                                    </Columns>
-                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="Wheat" />
-                                                    <AlternatingRowStyle BackColor="Wheat" />
-                                                </asp:GridView>
-                                                    </div>
+
+                                                        </Columns>
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="Wheat" />
+                                                        <AlternatingRowStyle BackColor="Wheat" />
+                                                    </asp:GridView>
+                                                </div>
                                             </div>
                                         </div>
                                         <div runat="server" id="div_48" visible="false">
@@ -328,20 +328,20 @@
                                 </div>--%>
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
-                                                <asp:GridView ID="GVDrug" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                    GridLines="None"
-                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDrug_RowDeleting">
-                                                    <RowStyle BackColor="#ffffff" />
-                                                    <Columns>
-                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-Width="100px"  />
-                                                        <asp:BoundField HeaderText="Name of Drug " DataField="CFOD_DRUGNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:GridView ID="GVDrug" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                        GridLines="None"
+                                                        Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDrug_RowDeleting">
+                                                        <RowStyle BackColor="#ffffff" />
+                                                        <Columns>
+                                                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-Width="100px" />
+                                                            <asp:BoundField HeaderText="Name of Drug " DataField="CFOD_DRUGNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                                    </Columns>
-                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                    <AlternatingRowStyle BackColor="White" />
-                                                </asp:GridView>
-                                                    </div>
+                                                        </Columns>
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <AlternatingRowStyle BackColor="White" />
+                                                    </asp:GridView>
+                                                </div>
                                             </div>
                                             <%--   <div class="col-md-12 d-flex">
                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Item</span></label>
@@ -382,6 +382,253 @@
                                     </asp:GridView>
                                 </div>--%>
                                         </div>
+                                        <br />
+
+                                        <h4 class="card-title ml-3">Upload Below Documents</h4>
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.ST Certificate/Trading License in case of Non Tribal of new proprietor *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupTribal" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnTribal" OnClick="btnTribal_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypTribal" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblTribal" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2.Qualification Certificate of new proprietor  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupQualification" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnQualification" OnClick="btnQualification_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypQualification" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblQualification" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">3.Specimen signature of new proprietor *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupSpecimen" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnSpecimen" OnClick="btnSpecimen_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypSpecimen" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblSpecimen" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">4.NOC from Local Headman/Municipal/Cantonment Board in favour of new proprietor  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupHeadman" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnHeadman" OnClick="btnHeadman_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypHeadman" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblHeadman" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">5.Tenancy agreement   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupTenancy" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnTenancy" OnClick="btnTenancy_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypTenancy" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblTenancy" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">6.Up to Date Registration of Pharmacist*</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupRegistration" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnRegistration" OnClick="btnRegistration_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypRegistration" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblRegistration" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">7.Specimen Signature of Pharmacist   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupPharmacist" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnPharmacist" OnClick="btnPharmacist_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypPharmacist" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblPharmacist" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">8. Qualification Certificate of Pharmacist    *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupQualificationcertificate" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnQualificationcertificate" OnClick="btnQualificationcertificate_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypQualificationcertificate" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblQualificationcertificate" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">9.Key and Site Plan    *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupsiteplan" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnsiteplan" OnClick="btnsiteplan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypsiteplan" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblsiteplan" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">10.Specimen Signature of pharmacist/ Competent person    *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupCompetentperson" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnCompetentperson" OnClick="btnCompetentperson_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypCompetentperson" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblCompetentperson" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">11.Qualification Certificate of pharmacist/ Competent person    *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fuppharmacistlist" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnpharmacistlist" OnClick="btnpharmacistlist_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hyppharmacistlist" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblpharmacistlist" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">12.Undertaking I   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupundertaking1" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnundertaking1" OnClick="btnundertaking1_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypundertaking1" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblundertaking1" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">13.Undertaking II   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupundertaking2" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnundertaking2" OnClick="btnundertaking2_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypundertaking2" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblundertaking2" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">14.Staff List   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupstaff" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnstaff" OnClick="btnstaff_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypstaff" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblstaff" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-12 text-right mt-2 mb-2">
 
                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
@@ -403,5 +650,21 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnTribal" />
+            <asp:PostBackTrigger ControlID="btnQualification" />
+            <asp:PostBackTrigger ControlID="btnSpecimen" />
+            <asp:PostBackTrigger ControlID="btnHeadman" />
+            <asp:PostBackTrigger ControlID="btnTenancy" />
+            <asp:PostBackTrigger ControlID="btnRegistration" />
+            <asp:PostBackTrigger ControlID="btnPharmacist" />
+            <asp:PostBackTrigger ControlID="btnQualificationcertificate" />
+            <asp:PostBackTrigger ControlID="btnsiteplan" />
+            <asp:PostBackTrigger ControlID="btnCompetentperson" />
+            <asp:PostBackTrigger ControlID="btnpharmacistlist" />
+            <asp:PostBackTrigger ControlID="btnundertaking1" />
+            <asp:PostBackTrigger ControlID="btnundertaking2" />
+            <asp:PostBackTrigger ControlID="btnstaff" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

@@ -1054,7 +1054,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objAadhar = new CFEAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objAadhar.MasterID = "1";
+                        objAadhar.MasterID = "16";
                         objAadhar.FilePath = serverpath + fupLicgrant.PostedFile.FileName;
                         objAadhar.FileName = fupLicgrant.PostedFile.FileName;
                         objAadhar.FileType = fupLicgrant.PostedFile.ContentType;

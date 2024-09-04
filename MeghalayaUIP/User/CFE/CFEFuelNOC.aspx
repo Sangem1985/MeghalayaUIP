@@ -223,9 +223,108 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
                                         </div>
+                                         <h4 class="card-title">Upload Document</h4>
+                                             <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.NoC from Meghalaya State Pollution Control Board *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupPCB" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnPCB" OnClick="btnPCB_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypPCB" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblPCB" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2.NoC from Fire Department *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupNocFire" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnNocFire" OnClick="btnNocFire_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypNocFire" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblNocFire" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <h4 class="card-title">1.If the location is on highway:</h4>
+                                           <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.For national highways: NOC from National Highways Authority of India (NHAI)</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupNHAI" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnNHAI" OnClick="btnNHAI_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypNHAI" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblNHAI" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                           <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2."For state highways: NOC from concerned Executive Engineer (PWD –Roads)"</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupHighway" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnHighway" OnClick="btnHighway_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypHighway" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblHighway" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                           <h4 class="card-title">2.In case the permission is for Petrol Pump:</h4>
+                                            <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.Letter of Intent</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupIntent" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnIntent" OnClick="btnIntent_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypIntent" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblIntent" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="col-md-12 text-right mt-2 mb-2">
 
                                             <asp:Button Text="Previous" runat="server" ID="btnPrevious" OnClick="btnPrevious_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
@@ -249,5 +348,11 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+         <Triggers>
+            <asp:PostBackTrigger ControlID="btnPCB" />
+            <asp:PostBackTrigger ControlID="btnNHAI" />
+            <asp:PostBackTrigger ControlID="btnHighway" />
+            <asp:PostBackTrigger ControlID="btnIntent" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

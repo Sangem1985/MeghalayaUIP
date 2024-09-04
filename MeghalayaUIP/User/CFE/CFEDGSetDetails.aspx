@@ -45,75 +45,75 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
+                                        <div id="DGsetPostal" runat="server" visible="false">
+                                            <h4 class="card-title ml-3">Location of D.G. Set with Full Postal Address*</h4>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Door No/Survey No*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtDoorNo" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="30"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Locality *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="200"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Landmark*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtLandmark" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="300"></asp:TextBox>
 
-                                        <h4 class="card-title ml-3">Location of D.G. Set with Full Postal Address*</h4>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Door No/Survey No*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDoorNo" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="30"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">District *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList runat="server" ID="ddlLocDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocDist_SelectedIndexChanged">
+                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Mandal *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList runat="server" ID="ddlLocTaluka" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocTaluka_SelectedIndexChanged">
+                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Village *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList runat="server" ID="ddlLocVillage" class="form-control">
+                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Locality *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="200"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Landmark*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandmark" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="300"></asp:TextBox>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">District *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlLocDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocDist_SelectedIndexChanged">
-                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        </asp:DropDownList>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Mandal *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlLocTaluka" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocTaluka_SelectedIndexChanged">
-                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        </asp:DropDownList>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Village *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlLocVillage" class="form-control">
-                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        </asp:DropDownList>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">PinCode*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPincode" runat="server" class="form-control" MaxLength="6" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">PinCode*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtPincode" runat="server" class="form-control" MaxLength="6" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -486,6 +486,9 @@
                                             </div>
                                         </div>
 
+                                          
+
+
                                         <div class="col-md-12 text-right mb-3">
                                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
@@ -506,6 +509,6 @@
                     </div>
                 </ProgressTemplate>
             </asp:UpdateProgress>
-        </ContentTemplate>
+        </ContentTemplate>       
     </asp:UpdatePanel>
 </asp:Content>

@@ -681,6 +681,24 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.RadioButtonList rblExciseVerification;
 
         /// <summary>
+        /// txtPower control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtPower;
+
+        /// <summary>
+        /// ddlPowerReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPowerReq;
+
+        /// <summary>
         /// btnApprvlsReq control.
         /// </summary>
         /// <remarks>

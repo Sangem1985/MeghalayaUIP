@@ -310,12 +310,97 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtSouth" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200"></asp:TextBox>
                                                     </div>
-
                                                 </div>
-
                                             </div>
-
                                         </div>
+
+                                        <h4 class="card-title ml-3">Upload Documents</h4>
+                                        <%--    <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">1.GPS Coordinates (in .kmlfile) *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupGPS" runat="server" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnGPS" OnClick="btnGPS_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-5 d-flex">
+                                                        <asp:HyperLink ID="hypGPS" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-5 d-flex">
+                                                        <asp:Label ID="lblGPS" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>--%>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.Proof of ownership of land (Lease deed or Agreement of Sale or any related document) *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupOwnership" runat="server" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnownership" OnClick="btnownership_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypownership" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblownership" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2.Rough map of the concerned land *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupland" runat="server" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnland" OnClick="btnland_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypland" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblland" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">3.NoC from the concerned Autonomous District Council for land use *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupNOCLand" runat="server" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnNOCLand" OnClick="btnNOCLand_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypNOCLand" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblnocland" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">4.Distance from Forest Certificate from DFO (Wild-life) *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupForestDFO" runat="server" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnforestdfo" OnClick="btnforestdfo_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypforestdfo" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblforestdfo" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                         <div class="col-md-12 d-flex">
                                             <br />
@@ -342,5 +427,13 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnownership" />
+            <asp:PostBackTrigger ControlID="btnland" />
+            <asp:PostBackTrigger ControlID="btnNOCLand" />
+            <asp:PostBackTrigger ControlID="btnforestdfo" />
+            <%--  <asp:PostBackTrigger ControlID="btnLic" />
+            <asp:PostBackTrigger ControlID="btnElectrical" />--%>
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

@@ -500,7 +500,7 @@ namespace MeghalayaUIP.Common
         public string ExpectedTurnover { get; set; }
         public string TotalProjCost { get; set; }
         public string EnterpriseCategory { get; set; }
-
+        public string Power { get; set; }
         public string LabourAct2020 { get; set; }
         public string BoilerManfreg { get; set; }
         public string WorkContractorsReg { get; set; }

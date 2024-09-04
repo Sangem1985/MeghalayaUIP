@@ -289,8 +289,29 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
+                                        <h5 class="card-title ml-4 mt-3">Upload Document</h5>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.Route Sketch Map</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupSketch" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnSketch" OnClick="btnSketch_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypSketch" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblSketch" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="col-md-12 text-right mb-3">
                                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
@@ -313,5 +334,8 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnSketch" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

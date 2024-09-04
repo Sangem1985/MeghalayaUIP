@@ -461,6 +461,287 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <h4 class="card-title ml-3">Upload Below Documents</h4>
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.Noc From Local Area Authority Provisional Recognition *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupTribal" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnTribal" OnClick="btnTribal_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypTribal" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblTribal" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2.NoC from: a. Municipal Board (if within municipal area) b. From Market/ Bazzar Committee (if within market baazar area)  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupQualification" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnQualification" OnClick="btnQualification_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypQualification" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblQualification" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">3.Professional tax clearance certificate (From Autonomous District Council) *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupSpecimen" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnSpecimen" OnClick="btnSpecimen_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypSpecimen" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblSpecimen" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">4.Sales tax clearance Certificate (From Meghalaya Taxation Department)   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupHeadman" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnHeadman" OnClick="btnHeadman_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypHeadman" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblHeadman" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">5.Income tax return for last three year   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupTenancy" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnTenancy" OnClick="btnTenancy_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypTenancy" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblTenancy" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">6.Financial Capacity Certificate (From any bank or financial institution)*</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupRegistration" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnRegistration" OnClick="btnRegistration_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypRegistration" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblRegistration" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">7. Age Proof (Birth Certificate/ School leaving Certificate)  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupPharmacist" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnPharmacist" OnClick="btnPharmacist_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypPharmacist" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblPharmacist" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">8.Educational Qualification Certificates   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupQualificationcertificate" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnQualificationcertificate" OnClick="btnQualificationcertificate_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypQualificationcertificate" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblQualificationcertificate" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">9.Marriage Certificate (If Married)   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupsiteplan" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnsiteplan" OnClick="btnsiteplan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypsiteplan" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblsiteplan" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">10. Scheduled Tribe/ Caste Certificate   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupCompetentperson" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnCompetentperson" OnClick="btnCompetentperson_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypCompetentperson" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblCompetentperson" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">11.Trade Licence/ Factories Licence  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fuppharmacistlist" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnpharmacistlist" OnClick="btnpharmacistlist_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hyppharmacistlist" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblpharmacistlist" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">12. Non-Encumbrance Certificate   *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupundertaking1" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnundertaking1" OnClick="btnundertaking1_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypundertaking1" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblundertaking1" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">13.Excise licence held individually/jointly for one/multiple shop/s (Current and Previous)  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupundertaking2" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnundertaking2" OnClick="btnundertaking2_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypundertaking2" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblundertaking2" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">14.Excise licence held by direct family member/ dependant individually/jointly for one/multiple shop/s (Current and Previous) 18. Meghalaya Pollution Control Board Clearance  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupstaff" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnstaff" OnClick="btnstaff_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypstaff" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblstaff" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">15. Single Window Agency Clearance    *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupagencyClearance" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnagencyClearance" OnClick="btnagencyClearance_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypagencyClearance" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblagencyClearance" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">16.Detailed Project Report  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupProjectReport" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnProjectReport" OnClick="btnProjectReport_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypProjectReport" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblProjectReport" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="col-md-12 d-flex mt-2 mb-2 justify-content-end">
 
                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg mr-2" Width="150px" />
@@ -483,5 +764,23 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnTribal" />
+            <asp:PostBackTrigger ControlID="btnQualification" />
+            <asp:PostBackTrigger ControlID="btnSpecimen" />
+            <asp:PostBackTrigger ControlID="btnHeadman" />
+            <asp:PostBackTrigger ControlID="btnTenancy" />
+            <asp:PostBackTrigger ControlID="btnRegistration" />
+            <asp:PostBackTrigger ControlID="btnPharmacist" />
+            <asp:PostBackTrigger ControlID="btnQualificationcertificate" />
+            <asp:PostBackTrigger ControlID="btnsiteplan" />
+            <asp:PostBackTrigger ControlID="btnCompetentperson" />
+            <asp:PostBackTrigger ControlID="btnpharmacistlist" />
+            <asp:PostBackTrigger ControlID="btnundertaking1" />
+            <asp:PostBackTrigger ControlID="btnundertaking2" />
+            <asp:PostBackTrigger ControlID="btnstaff" />
+            <asp:PostBackTrigger ControlID="btnagencyClearance" />
+            <asp:PostBackTrigger ControlID="btnProjectReport" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

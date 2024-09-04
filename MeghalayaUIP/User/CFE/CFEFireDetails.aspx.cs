@@ -5,7 +5,9 @@ using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,7 +18,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -340,7 +342,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string  result = "";
+                
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -412,21 +414,21 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Fire Station \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtLocality.Text.Trim()) || txtLocality.Text.Trim() == "" || txtLocality.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Locality \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtlandmark.Text.Trim()) || txtlandmark.Text.Trim() == "" || txtlandmark.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter LandMark \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null || txtpincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpincode.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtLocality.Text.Trim()) || txtLocality.Text.Trim() == "" || txtLocality.Text.Trim() == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Locality \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtlandmark.Text.Trim()) || txtlandmark.Text.Trim() == "" || txtlandmark.Text.Trim() == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter LandMark \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null || txtpincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpincode.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Pincode \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtheight.Text) || txtheight.Text == "" || txtheight.Text == null || txtheight.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtheight.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Building Height \\n";
@@ -512,21 +514,21 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Distance from Nearest Station \\n";
                     slno = slno + 1;
                 }
-                if (ddldistric.SelectedIndex == -1 || ddldistric.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
-                    slno = slno + 1;
-                }
-                if (ddlmandal.SelectedIndex == -1 || ddlmandal.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                    slno = slno + 1;
-                }
-                if (ddlvillage.SelectedIndex == -1 || ddlvillage.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Village \\n";
-                    slno = slno + 1;
-                }
+                //if (ddldistric.SelectedIndex == -1 || ddldistric.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlmandal.SelectedIndex == -1 || ddlmandal.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlvillage.SelectedIndex == -1 || ddlvillage.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Village \\n";
+                //    slno = slno + 1;
+                //}
 
                 return errormsg;
             }
@@ -563,6 +565,197 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnbuildingplan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupBuildingplan.HasFile)
+                {
+                    Error = validations(fupBuildingplan);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Blueprint of Building" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupBuildingplan.PostedFile.SaveAs(serverpath + "\\" + fupBuildingplan.PostedFile.FileName);
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "37";
+                        objManufacture.FilePath = serverpath + fupBuildingplan.PostedFile.FileName;
+                        objManufacture.FileName = fupBuildingplan.PostedFile.FileName;
+                        objManufacture.FileType = fupBuildingplan.PostedFile.ContentType;
+                        objManufacture.FileDescription = "Blueprint of Building i.e. Building Plan as per NBC";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypbuildingplan.Text = fupBuildingplan.PostedFile.FileName;
+                            hypbuildingplan.NavigateUrl = serverpath;
+                            hypbuildingplan.Target = "blank";
+                            message = "alert('" + "Blueprint of Building i.e. Building Plan as per NBC Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnfireplan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupfireplan.HasFile)
+                {
+                    Error = validations(fupfireplan);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Fire Lay out Plan" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupfireplan.PostedFile.SaveAs(serverpath + "\\" + fupfireplan.PostedFile.FileName);
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "38";
+                        objManufacture.FilePath = serverpath + fupfireplan.PostedFile.FileName;
+                        objManufacture.FileName = fupfireplan.PostedFile.FileName;
+                        objManufacture.FileType = fupfireplan.PostedFile.ContentType;
+                        objManufacture.FileDescription = "Fire Lay out Plan ";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypfireplan.Text = fupfireplan.PostedFile.FileName;
+                            hypfireplan.NavigateUrl = serverpath;
+                            hypfireplan.Target = "blank";
+                            message = "alert('" + "Fire Lay out Plan Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
             }
         }
         protected void btnNext_Click(object sender, EventArgs e)

@@ -260,6 +260,116 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <h4 class="card-title ml-3">Upload Below Documents</h4>
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1.Fire Layout Plan *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupFireLayout" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnFireLayout" OnClick="btnFireLayout_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypFireLayout" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblFireLayout" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2. Fire Safety Certificate*</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupFireCertificate" runat="server" />                                                        
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnFireCertificate" OnClick="btnFireCertificate_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypFireCertificate" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Label ID="lblFireCertificate" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">3.Building plan  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupBuildingplan" runat="server" />                                                       
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                         <asp:Button Text="Upload" runat="server" ID="btnBuildingplan" OnClick="btnBuildingplan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypBuildingplan" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblBuildingplan" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">4.Certificate from the authorized /competent authority certifying that all the Electrical Installations are in good working condition.  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupElectricalinstall" runat="server" />                                                        
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnElectricalinstall" OnClick="btnElectricalinstall_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypElectricalinstall" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblElectricalinstall" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">5.Declaration with Undertaking that all Fire Safety Measures implemented and installed is in good working condition.  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupFireSaftey" runat="server" />                                                        
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnFireSaftey" OnClick="btnFireSaftey_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypFireSaftey" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblFireSaftey" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">6.Pre Construction NOC  *</label>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupPreconNOC" runat="server" />                                                        
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnPreconNOC" OnClick="btnPreconNOC_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypPreconNOC" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblPreconNOC" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-12 text-right mt-2 mb-2">
 
                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
@@ -282,5 +392,13 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnFireLayout" />
+            <asp:PostBackTrigger ControlID="btnFireCertificate" />
+            <asp:PostBackTrigger ControlID="btnBuildingplan" />
+            <asp:PostBackTrigger ControlID="btnElectricalinstall" />
+            <asp:PostBackTrigger ControlID="btnFireSaftey" />
+            <asp:PostBackTrigger ControlID="btnPreconNOC" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

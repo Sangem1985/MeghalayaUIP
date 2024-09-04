@@ -315,7 +315,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)</label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" onkeypress="return validateAmount(event)"  MaxLength="16" TabIndex="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="16" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -575,7 +575,7 @@
                                                                                 5. Do you require License to Work as a Factory?
                                                                             </label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblLicensetoWorkFac" runat="server" RepeatDirection="Horizontal">
+                                                                                <asp:RadioButtonList ID="rblLicensetoWorkFac" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLicensetoWorkFac_SelectedIndexChanged" AutoPostBack="true">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -927,8 +927,24 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
+                                                                <div class="col-md-12 d-flex" id="txtPower" runat="server" visible="false">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">
+                                                                                Power
+																		requirement in KW<span
+                                                                            class="text-danger">*</span></label>
+                                                                            <div class="col-lg-4">
+                                                                                <asp:DropDownList ID="ddlPowerReq" runat="server" class="form-control" TabIndex="1">
+                                                                                    <asp:ListItem Text="--Select--" Value="0" />
+                                                                                </asp:DropDownList>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
 
                                                                 <div class="col-md-12 d-flex mt-2" id="padding">
                                                                     <div class="col-md-2">

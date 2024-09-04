@@ -5,7 +5,9 @@ using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,7 +18,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -292,7 +294,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string  result = "";
+                
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
@@ -396,41 +398,41 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Door No of the Location  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Locality  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLandmark.Text) || txtLandmark.Text == "" || txtLandmark.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Landmark  \\n";
-                    slno = slno + 1;
-                }
-                if (ddlLocDist.SelectedIndex == -1 || ddlLocDist.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
-                    slno = slno + 1;
-                }
-                if (ddlLocTaluka.SelectedIndex == -1 || ddlLocTaluka.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                    slno = slno + 1;
-                }
-                if (ddlLocVillage.SelectedIndex == -1 || ddlLocVillage.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Village \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null || txtPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPincode.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode No\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Door No of the Location  \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtLocality.Text) || txtLocality.Text == "" || txtLocality.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Locality  \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtLandmark.Text) || txtLandmark.Text == "" || txtLandmark.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Landmark  \\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlLocDist.SelectedIndex == -1 || ddlLocDist.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlLocTaluka.SelectedIndex == -1 || ddlLocTaluka.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlLocVillage.SelectedIndex == -1 || ddlLocVillage.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Village \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null || txtPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPincode.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Pincode No\\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtSupplierName.Text) || txtSupplierName.Text == "" || txtSupplierName.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Supplier Name  \\n";
@@ -652,7 +654,8 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
 
-        }
+        }      
+
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try

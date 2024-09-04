@@ -52,61 +52,63 @@
 
 
                                 </div>--%>
-                                        <h4 class="card-title ml-3">Location and address of the proposed building</h4>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. District*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddldistric" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged">
-                                                            <asp:ListItem Text="--Select--" Value="0" />
-                                                        </asp:DropDownList>
+                                        <div id="Location" runat="server" visible="false">
+                                            <h4 class="card-title ml-3">Location and address of the proposed building</h4>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">1. District*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList ID="ddldistric" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged">
+                                                                <asp:ListItem Text="--Select--" Value="0" />
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">2. Mandal*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged">
+                                                                <asp:ListItem Text="--Select--" Value="0" />
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">3. Village*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList ID="ddlvillage" runat="server" class="form-control">
+                                                                <asp:ListItem Text="--Select--" Value="0" />
+                                                            </asp:DropDownList>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. Mandal*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged">
-                                                            <asp:ListItem Text="--Select--" Value="0" />
-                                                        </asp:DropDownList>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">4. Locality *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return Address(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. Village*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlvillage" runat="server" class="form-control">
-                                                            <asp:ListItem Text="--Select--" Value="0" />
-                                                        </asp:DropDownList>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">5. Nearest Landmark *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtlandmark" runat="server" class="form-control" onkeypress="return Address(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4. Locality *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" onkeypress="return Address(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">5. Nearest Landmark *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtlandmark" runat="server" class="form-control" onkeypress="return Address(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">6. Pincode *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="6" TabIndex="1"></asp:TextBox>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">6. Pincode *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="6" TabIndex="1"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -278,6 +280,44 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <h4 class="card-title ml-3">Upload Document</h4>
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">1.Blueprint of Building i.e. Building Plan as per NBC  *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupBuildingplan" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnbuildingplan" OnClick="btnbuildingplan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:HyperLink ID="hypbuildingplan" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblbuildingplan" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">2.Fire Lay out Plan  *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupfireplan" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnfireplan" OnClick="btnfireplan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:HyperLink ID="hypfireplan" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblfireplan" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-12 text-right mt-3 mb-3">
 
                                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
@@ -309,5 +349,9 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnbuildingplan" />
+            <asp:PostBackTrigger ControlID="btnfireplan" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

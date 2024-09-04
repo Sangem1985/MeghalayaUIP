@@ -1696,6 +1696,10 @@ namespace MeghalayaUIP.DAL.CFODAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@EMPLOYEES", objCFOQ.PropEmployment);
                 }
+                if (objCFOQ.Power != null && objCFOQ.Power != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@POWERKW_ID", objCFOQ.Power);
+                }
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

@@ -5,7 +5,9 @@ using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,7 +19,7 @@ namespace MeghalayaUIP.User.CFE
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -101,7 +103,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFEME_CFEQDID"]);
                         ViewState["MANUFACTURE"] = ds.Tables[1];
-                        GVEXPLOSIVE.DataSource = ds.Tables[1];                       
+                        GVEXPLOSIVE.DataSource = ds.Tables[1];
                         GVEXPLOSIVE.DataBind();
                         GVEXPLOSIVE.Visible = true;
                     }
@@ -220,7 +222,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                string result = "";
+
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
@@ -407,6 +409,314 @@ namespace MeghalayaUIP.User.CFE
 
             }
         }
+
+        protected void btnNocHeadMan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupNocHeadman.HasFile)
+                {
+                    Error = validations(fupNocHeadman);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "NOC from Headman for proposed site for rural areas" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupNocHeadman.PostedFile.SaveAs(serverpath + "\\" + fupNocHeadman.PostedFile.FileName);
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "39";
+                        objManufacture.FilePath = serverpath + fupNocHeadman.PostedFile.FileName;
+                        objManufacture.FileName = fupNocHeadman.PostedFile.FileName;
+                        objManufacture.FileType = fupNocHeadman.PostedFile.ContentType;
+                        objManufacture.FileDescription = "NOC from Headman for proposed site for rural areas and NOC from Local Authority for urban areas";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypNocHeadman.Text = fupNocHeadman.PostedFile.FileName;
+                            hypNocHeadman.NavigateUrl = serverpath;
+                            hypNocHeadman.Target = "blank";
+                            message = "alert('" + "NOC from Headman for proposed site for rural areas and NOC from Local Authority for urban areas Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnFireDepartment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupFireDepartment.HasFile)
+                {
+                    Error = validations(fupFireDepartment);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Clearance certificate from Fire Department" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupFireDepartment.PostedFile.SaveAs(serverpath + "\\" + fupFireDepartment.PostedFile.FileName);
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "40";
+                        objManufacture.FilePath = serverpath + fupFireDepartment.PostedFile.FileName;
+                        objManufacture.FileName = fupFireDepartment.PostedFile.FileName;
+                        objManufacture.FileType = fupFireDepartment.PostedFile.ContentType;
+                        objManufacture.FileDescription = "Clearance certificate from Fire Department";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypfireDepartment.Text = fupFireDepartment.PostedFile.FileName;
+                            hypfireDepartment.NavigateUrl = serverpath;
+                            hypfireDepartment.Target = "blank";
+                            message = "alert('" + "Clearance certificate from Fire Department Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnsite_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupsite.HasFile)
+                {
+                    Error = validations(fupsite);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "site where explosives will be used and distance of site" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupsite.PostedFile.SaveAs(serverpath + "\\" + fupsite.PostedFile.FileName);
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "41";
+                        objManufacture.FilePath = serverpath + fupsite.PostedFile.FileName;
+                        objManufacture.FileName = fupsite.PostedFile.FileName;
+                        objManufacture.FileType = fupsite.PostedFile.ContentType;
+                        objManufacture.FileDescription = "Details of site where explosives will be used and distance of site (Site layout)";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypsite.Text = fupsite.PostedFile.FileName;
+                            hypsite.NavigateUrl = serverpath;
+                            hypsite.Target = "blank";
+                            message = "alert('" + "Details of site where explosives will be used and distance of site of use from the storage premises (Site layout) Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnExplosives_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupExplosives.HasFile)
+                {
+                    Error = validations(fupExplosives);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Clearance from Deputy Controller of Explosives" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        fupExplosives.PostedFile.SaveAs(serverpath + "\\" + fupExplosives.PostedFile.FileName);
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "42";
+                        objManufacture.FilePath = serverpath + fupExplosives.PostedFile.FileName;
+                        objManufacture.FileName = fupExplosives.PostedFile.FileName;
+                        objManufacture.FileType = fupExplosives.PostedFile.ContentType;
+                        objManufacture.FileDescription = "Clearance from Deputy Controller of Explosives";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypExplosives.Text = fupExplosives.PostedFile.FileName;
+                            hypExplosives.NavigateUrl = serverpath;
+                            hypExplosives.Target = "blank";
+                            message = "alert('" + "Clearance from Deputy Controller of Explosives Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
+            }
+        }
+
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try

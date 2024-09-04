@@ -58,9 +58,38 @@ namespace MeghalayaUIP.User.CFO
                     BindDistricts();
                     BindConstitutionType();
                     BindIndustryType();
+                    BindPowerReq();
                     BindData();
                 }
 
+            }
+        }
+        protected void BindPowerReq()
+        {
+            try
+            {
+                ddlPowerReq.Items.Clear();
+
+                List<MasterPowerReq> objPowerRange = new List<MasterPowerReq>();
+
+                objPowerRange = mstrBAL.GetPowerKW();
+                if (objPowerRange != null)
+                {
+                    ddlPowerReq.DataSource = objPowerRange;
+                    ddlPowerReq.DataValueField = "PowerReqID";
+                    ddlPowerReq.DataTextField = "PowerReqRange";
+                    ddlPowerReq.DataBind();
+                }
+                else
+                {
+                    ddlPowerReq.DataSource = null;
+                    ddlPowerReq.DataBind();
+                }
+                AddSelect(ddlPowerReq);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
         protected void BindConstitutionType()
@@ -691,6 +720,7 @@ namespace MeghalayaUIP.User.CFO
                 {
                     objCFOQ.Investment = txtPMCost.Text;
                     ApprovalIds = ApprovalIds + "32";
+
                 }
                 if (rblRegManfRepairs.SelectedValue == "Y")
                 {
@@ -706,6 +736,8 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblLicensetoWorkFac.SelectedValue == "Y")
                 {
+                    objCFOQ.Power = ddlPowerReq.SelectedItem.Text;
+                    objCFOQ.PropEmployment = txtPropEmp.Text;
                     ApprovalIds = ApprovalIds + ",36";
                 }
                 if (rblInterstateMigrantWorkmen.SelectedValue == "Y")
@@ -955,6 +987,23 @@ namespace MeghalayaUIP.User.CFO
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
             }
         }
+
+        protected void rblLicensetoWorkFac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblLicensetoWorkFac.SelectedValue == "Y")
+                {
+                    txtPower.Visible = true;
+                }
+                else { txtPower.Visible = false; }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public string Validations1()
         {
             try
