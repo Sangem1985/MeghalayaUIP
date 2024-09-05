@@ -708,13 +708,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblTaxClearance;
 
         /// <summary>
-        /// fupGSTREG control.
+        /// fupWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupGSTREG;
+        protected global::System.Web.UI.WebControls.FileUpload fupWeight;
 
         /// <summary>
         /// btnGSTREG control.
@@ -726,22 +726,22 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Button btnGSTREG;
 
         /// <summary>
-        /// hypGSTREG control.
+        /// hypweight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hypGSTREG;
+        protected global::System.Web.UI.WebControls.HyperLink hypweight;
 
         /// <summary>
-        /// lblGSTREG control.
+        /// lblweight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGSTREG;
+        protected global::System.Web.UI.WebControls.Label lblweight;
 
         /// <summary>
         /// fupWeightdeal control.

@@ -116,7 +116,7 @@
 
 
                 </div>
-                <div class="row">
+            <%--    <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
 
                 <div class="col-md-12 text-right">
                     <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" class="btn btn-rounded btn-warning btn-lg" Width="150px" Visible="false" />

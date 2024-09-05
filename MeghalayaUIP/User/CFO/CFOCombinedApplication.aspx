@@ -113,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+             <%--   <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 <div class="col-md-12 text-right mt-2 mb-2">
                     <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                     <asp:Button ID="btnSubmit" runat="server" Text="Save" OnClick="btnSubmit_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />

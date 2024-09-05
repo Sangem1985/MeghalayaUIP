@@ -585,6 +585,7 @@ namespace MeghalayaUIP.User.CFO
                     objCFOQsnaire.Businessslic = rblBusinesssLic.SelectedValue;
                     objCFOQsnaire.Liquorlic = rblLiquorLic.SelectedValue;
                     objCFOQsnaire.Stateexciseverfcert = rblExciseVerification.SelectedValue;
+                    objCFOQsnaire.PowerReqKW = ddlPowerReq.SelectedValue;
                     objCFOQsnaire.CreatedBy = hdnUserID.Value;
                     int count = 0;
                     result = objcfobal.InsertQuestionnaireCFO(objCFOQsnaire);
@@ -912,6 +913,12 @@ namespace MeghalayaUIP.User.CFO
                     rblServicesRenewal.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_WORKCONTRACTORSREG"].ToString();
                     rblBoilers.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_BOILERREG"].ToString();
                     rblLicensetoWorkFac.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_FACTORYLICENCE"].ToString();
+                    if (rblLicensetoWorkFac.SelectedValue == "Y")
+                    {
+                        txtPower.Visible = true;
+                        ddlPowerReq.SelectedValue= ds.Tables[0].Rows[0]["CFEQD_POWERREQKW"].ToString();
+                    }
+                    else { txtPower.Visible = false; }
                     rblInterstateMigrantWorkmen.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_LABOURACT1979"].ToString();
                     rblContractLabourAct1970.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_LABOURACT1970"].ToString();
                     rblWDruglicence.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_DRUGLIC"].ToString();
@@ -1084,7 +1091,7 @@ namespace MeghalayaUIP.User.CFO
                 {
                     errormsg = errormsg + slno + ". Please Select Whether land purchased from MIDCL or not \\n";
                     slno = slno + 1;
-                }
+                }               
                 return errormsg;
             }
             catch (Exception ex)
@@ -1162,7 +1169,15 @@ namespace MeghalayaUIP.User.CFO
                 if (rblLicensetoWorkFac.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Whether License to Work as a Factory Required or not \\n";
-                    slno = slno + 1;
+                    slno = slno + 1;                 
+                }
+                if (rblLicensetoWorkFac.SelectedValue == "Y")
+                {
+                    if (ddlPowerReq.SelectedIndex == -1 || ddlPowerReq.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Power Required \\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (rblInterstateMigrantWorkmen.SelectedIndex == -1)
                 {

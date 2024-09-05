@@ -531,6 +531,7 @@ namespace MeghalayaUIP.Common
         public string Businessslic { get; set; }
         public string Liquorlic { get; set; }
         public string Stateexciseverfcert { get; set; }
+        public string PowerReqKW { get; set; }
     }
     public class CFOPayments
     {

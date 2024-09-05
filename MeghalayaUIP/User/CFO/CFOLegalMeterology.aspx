@@ -620,16 +620,16 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">2.Manufacturing Licence if you intend to import weights & measures from outside the State *</label>
                                                 <div class="col-lg-2 d-flex">
-                                                    <asp:FileUpload ID="fupGSTREG" runat="server" />
+                                                    <asp:FileUpload ID="fupWeight" runat="server" />
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
                                                     <asp:Button Text="Upload" runat="server" ID="btnGSTREG" OnClick="btnGSTREG_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
-                                                    <asp:HyperLink ID="hypGSTREG" runat="server" Target="_blank"></asp:HyperLink>
+                                                    <asp:HyperLink ID="hypweight" runat="server" Target="_blank"></asp:HyperLink>
                                                 </div>
                                                 <div class="col-lg-1 d-flex">
-                                                    <asp:Label ID="lblGSTREG" runat="server" />
+                                                    <asp:Label ID="lblweight" runat="server" />
                                                 </div>
                                             </div>
                                         </div>

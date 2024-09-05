@@ -762,7 +762,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void RBLAPPROVED_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (RBLAPPROVED.SelectedItem.Text == "Yes")
+            if (RBLAPPROVED.SelectedValue == "Y")
             {
                 Approved.Visible = true;
             }
@@ -774,7 +774,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblBoilerTrans_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblBoilerTrans.SelectedItem.Text == "Yes")
+            if (rblBoilerTrans.SelectedValue == "Y")
             {
                 txtBoiler.Visible = true;
             }
@@ -786,7 +786,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblConvicated_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblConvicated.SelectedItem.Text == "Yes")
+            if (rblConvicated.SelectedValue == "Y")
             {
                 txtcontractor.Visible = true;
             }
@@ -798,7 +798,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblrevoking_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblrevoking.SelectedItem.Text == "Yes")
+            if (rblrevoking.SelectedValue == "Y")
             {
                 suspend.Visible = true;
             }
@@ -810,7 +810,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblcontractor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblcontractor.SelectedItem.Text == "Yes")
+            if (rblcontractor.SelectedValue == "Y")
             {
                 fiveyear.Visible = true;
                 nature.Visible = true;

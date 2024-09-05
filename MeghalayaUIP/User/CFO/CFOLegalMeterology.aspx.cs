@@ -848,9 +848,9 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 string Error = ""; string message = "";
-                if (fupGSTREG.HasFile)
+                if (fupWeight.HasFile)
                 {
-                    Error = validations(fupGSTREG);
+                    Error = validations(fupWeight);
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
@@ -860,24 +860,24 @@ namespace MeghalayaUIP.User.CFO
                             Directory.CreateDirectory(serverpath);
 
                         }
-                        fupGSTREG.PostedFile.SaveAs(serverpath + "\\" + fupGSTREG.PostedFile.FileName);
+                        fupWeight.PostedFile.SaveAs(serverpath + "\\" + fupWeight.PostedFile.FileName);
 
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
                         objAadhar.MasterID = "55";
-                        objAadhar.FilePath = serverpath + fupGSTREG.PostedFile.FileName;
-                        objAadhar.FileName = fupGSTREG.PostedFile.FileName;
-                        objAadhar.FileType = fupGSTREG.PostedFile.ContentType;
+                        objAadhar.FilePath = serverpath + fupWeight.PostedFile.FileName;
+                        objAadhar.FileName = fupWeight.PostedFile.FileName;
+                        objAadhar.FileType = fupWeight.PostedFile.ContentType;
                         objAadhar.FileDescription = "Manufacturing Licence if you intend to import weights & measures";
                         objAadhar.CreatedBy = hdnUserID.Value;
                         objAadhar.IPAddress = getclientIP();
                         result = objcfobal.InsertCFOAttachments(objAadhar);
                         if (result != "")
                         {
-                            hypGSTREG.Text = fupGSTREG.PostedFile.FileName;
-                            hypGSTREG.NavigateUrl = serverpath;
-                            hypGSTREG.Target = "blank";
+                            hypweight.Text = fupWeight.PostedFile.FileName;
+                            hypweight.NavigateUrl = serverpath;
+                            hypweight.Target = "blank";
                             message = "alert('" + "Manufacturing Licence if you intend to import weights & measures from outside the State Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
