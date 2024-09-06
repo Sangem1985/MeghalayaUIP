@@ -59,10 +59,10 @@ namespace MeghalayaUIP.User.CFO
                             Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
                         }
                     }
-                    BindDistric();
-                    Binddata();
+                    BindDistric();                    
                     BindRegType();
                     BindState();
+                    Binddata();
 
 
                 }

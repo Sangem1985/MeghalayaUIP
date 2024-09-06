@@ -945,7 +945,7 @@ namespace MeghalayaUIP.User.CFO
                     rblLiquorLic.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_LIQUORLIC"].ToString();
                     rblExciseVerification.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_STATEEXCISEVERFCERT"].ToString();
 
-                    /*GetApprovals(); ;*/
+                    GetApprovals(); 
                 }
                 else
                 {

@@ -273,14 +273,20 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Agreement letter between Contractor & Owner *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupoWNER" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnowner" OnClick="btnowner_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-5 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypowner" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lblowner" runat="server" />
                                                     </div>
+                                                    <asp:Label ID="lblowner" runat="server" />
+
                                                 </div>
                                             </div>
                                         </div>
@@ -288,14 +294,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Contractor License copy *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupLic" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnLic" OnClick="btnLic_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-5 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypLic" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lblLic" runat="server" />
                                                     </div>
+                                                    <asp:Label ID="lblLic" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -303,14 +314,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Contractor/Project electrical supervisor permit copy  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupElectrical" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnElectrical" OnClick="btnElectrical_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-5 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypElectrical" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lblElectrical" runat="server" />
                                                     </div>
+                                                    <asp:Label ID="lblElectrical" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -318,14 +334,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Feasibility report from the DISCOMS  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupdiscoms" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnDiscoms" OnClick="btnDiscoms_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-5 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypdiscoms" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lbldiscoms" runat="server" />
                                                     </div>
+                                                    <asp:Label ID="lbldiscoms" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -333,15 +354,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Electrical Single line diagram from Point of Commencement of supply to the end use of electrical energy  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupenergy" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnEnergy" OnClick="btnEnergy_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-5 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypenergy" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lblenergy" runat="server" />
                                                     </div>
-
+                                                    <asp:Label ID="lblenergy" runat="server" />
 
                                                 </div>
                                             </div>
@@ -350,14 +375,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">The structural layout showing plan and Elevations with sectional and safe clearances  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupPlan" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnPlan" OnClick="btnPlan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-5 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypplan" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lblplan" runat="server" />
                                                     </div>
+                                                    <asp:Label ID="lblplan" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -365,14 +395,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">General arrangement of the equipment drawing showing the location of various equipments.  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupDraw" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnDraw" OnClick="btnDraw_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-5 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypDraw" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lblDraw" runat="server" />
                                                     </div>
+                                                    <asp:Label ID="lblDraw" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -380,14 +415,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">The earthing layout diagram  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupEarth" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnEarth" OnClick="btnEarth_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:HyperLink ID="hypEarth" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lblEarth" runat="server" />
                                                     </div>
+                                                    <asp:Label ID="lblEarth" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
