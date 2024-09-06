@@ -1927,6 +1927,14 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Select Natonality \\n";
                     slno = slno + 1;
                 }
+                if (txtApplDIN.Text != "")
+                {
+                    if (txtApplDIN.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtApplDIN.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Din no's \\n";
+                        slno = slno + 1;
+                    }
+                }
                 if (string.IsNullOrEmpty(txtApplDoorNo.Text.Trim()) || txtApplDoorNo.Text.Trim() == "" || txtApplDoorNo.Text.Trim() == null || txtApplDoorNo.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtApplDoorNo.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Door Number \\n";

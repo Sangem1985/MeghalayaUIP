@@ -953,7 +953,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">DIN No. (if available) </label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplDIN" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" />
+                                                                            <asp:TextBox runat="server" ID="txtApplDIN" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="50" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
