@@ -203,7 +203,7 @@
                                                     </div>
 
 
-                                                    <h4 class="card-title1 col-lg-12">Correspodence Details of Authorised Representative</h4>
+                                                    <h4 class="card-title1 col-lg-12">Correspondence Details of Authorised Representative</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
@@ -852,7 +852,7 @@
                                 aria-labelledby="headingFour" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Query Response Attachments Check Lists</h3>
+                                        <h3>Query Response Attachments</h3>
                                     </div>
                                     <section id="dashboardQueryattachmnts">
                                         <div class="container-fluid">
@@ -872,8 +872,8 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="View" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:TemplateField HeaderText="SI.No">
+                                                            <asp:BoundField HeaderText="FILENAME" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="VIEW">
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>

@@ -132,6 +132,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOffline;
 
         /// <summary>
+        /// div2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div2;
+
+        /// <summary>
         /// divPCB control.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPCB;
+
+        /// <summary>
+        /// txtPCBOARD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPCBOARD;
 
         /// <summary>
         /// fup1PCB control.
@@ -177,6 +195,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divHazPCB;
 
         /// <summary>
+        /// TextBox26 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox26;
+
+        /// <summary>
         /// fup2HazPCB control.
         /// </summary>
         /// <remarks>
@@ -211,6 +238,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSrvcCon;
+
+        /// <summary>
+        /// txtservicecon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtservicecon;
 
         /// <summary>
         /// fup3SrvcCon control.
@@ -249,6 +285,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEleCon;
 
         /// <summary>
+        /// txtElectricitycon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtElectricitycon;
+
+        /// <summary>
         /// fup4EleCon control.
         /// </summary>
         /// <remarks>
@@ -283,6 +328,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFctryPlan;
+
+        /// <summary>
+        /// txtFactoryPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFactoryPlan;
 
         /// <summary>
         /// fup5FctryPlan control.
@@ -321,6 +375,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDGsetNOC;
 
         /// <summary>
+        /// txtNOCDG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNOCDG;
+
+        /// <summary>
         /// fup6DGsetNOC control.
         /// </summary>
         /// <remarks>
@@ -355,6 +418,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFireSfty;
+
+        /// <summary>
+        /// txtFireSaftey control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFireSaftey;
 
         /// <summary>
         /// fup7FireSfty control.
@@ -393,6 +465,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRSDSLic;
 
         /// <summary>
+        /// txtLicStore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLicStore;
+
+        /// <summary>
         /// fup8RSDSLic control.
         /// </summary>
         /// <remarks>
@@ -427,6 +508,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExplsvNOC;
+
+        /// <summary>
+        /// txtExplosive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExplosive;
 
         /// <summary>
         /// fup9ExplsvNOC control.
@@ -465,6 +555,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPtrlNOC;
 
         /// <summary>
+        /// txtDieselNoc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDieselNoc;
+
+        /// <summary>
         /// fup10PtrlNOC control.
         /// </summary>
         /// <remarks>
@@ -499,6 +598,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRdCtng;
+
+        /// <summary>
+        /// txtRoadCut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRoadCut;
 
         /// <summary>
         /// fup11RdCtng control.
@@ -537,6 +645,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNonEncmb;
 
         /// <summary>
+        /// txtNOnEncumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNOnEncumb;
+
+        /// <summary>
         /// fup12NonEncmb control.
         /// </summary>
         /// <remarks>
@@ -571,6 +688,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divProfTax;
+
+        /// <summary>
+        /// txtproftax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtproftax;
 
         /// <summary>
         /// fup13ProfTax control.
@@ -609,6 +735,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divElcInsp;
 
         /// <summary>
+        /// txtDrawingApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDrawingApproval;
+
+        /// <summary>
         /// fup14ElcInsp control.
         /// </summary>
         /// <remarks>
@@ -643,6 +778,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divForstDist;
+
+        /// <summary>
+        /// txtDistanceofforest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDistanceofforest;
 
         /// <summary>
         /// fup15ForstDist control.
@@ -681,6 +825,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNonForstLand;
 
         /// <summary>
+        /// txtNonForestLand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNonForestLand;
+
+        /// <summary>
         /// fup16NonForstLand control.
         /// </summary>
         /// <remarks>
@@ -715,6 +868,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIrrgNOC;
+
+        /// <summary>
+        /// txtFTLNOC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFTLNOC;
 
         /// <summary>
         /// fup17IrrgNOC control.
@@ -753,6 +915,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRevNOC;
 
         /// <summary>
+        /// txtFTLLand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFTLLand;
+
+        /// <summary>
         /// fup18RevNOC control.
         /// </summary>
         /// <remarks>
@@ -787,6 +958,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGrndWtrNOC;
+
+        /// <summary>
+        /// txtNOCGround control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNOCGround;
 
         /// <summary>
         /// fup19GrndWtrNOC control.
@@ -825,6 +1005,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNoWtrSplyCertfct;
 
         /// <summary>
+        /// txtwateragency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtwateragency;
+
+        /// <summary>
         /// fup20NoWtrSply control.
         /// </summary>
         /// <remarks>
@@ -859,6 +1048,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPrmsntoDrawWtr;
+
+        /// <summary>
+        /// txtRiverTank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRiverTank;
 
         /// <summary>
         /// fup21ToDrawWtr control.
@@ -897,6 +1095,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMunicipalWatr;
 
         /// <summary>
+        /// txtMuncipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMuncipal;
+
+        /// <summary>
         /// fup22MunicipalWatr control.
         /// </summary>
         /// <remarks>
@@ -931,6 +1138,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUrbanWatr;
+
+        /// <summary>
+        /// txtwaterConNON control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtwaterConNON;
 
         /// <summary>
         /// fup23UrbanWatr control.
@@ -969,6 +1185,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLbrAct1970;
 
         /// <summary>
+        /// txtRegContractLabour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRegContractLabour;
+
+        /// <summary>
         /// fup25LbrAct1970 control.
         /// </summary>
         /// <remarks>
@@ -1003,6 +1228,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLbrAct1979;
+
+        /// <summary>
+        /// txtRegMigrantworkmen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRegMigrantworkmen;
 
         /// <summary>
         /// fup26LbrAct1979 control.
@@ -1041,6 +1275,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLbrAct1996;
 
         /// <summary>
+        /// txtRegBuilding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRegBuilding;
+
+        /// <summary>
         /// fup27LbrAct1996 control.
         /// </summary>
         /// <remarks>
@@ -1075,6 +1318,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divContrLbrAct;
+
+        /// <summary>
+        /// txtLicLabourACT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLicLabourACT;
 
         /// <summary>
         /// fup28ContrLbrAct control.
@@ -1113,6 +1365,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divContrLbrAct1979;
 
         /// <summary>
+        /// txtReference control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReference;
+
+        /// <summary>
         /// fup29ContrLbrAct1979 control.
         /// </summary>
         /// <remarks>
@@ -1140,6 +1401,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.HyperLink hpl29ContrLbrAct1979;
 
         /// <summary>
+        /// div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+
+        /// <summary>
         /// divConstrPermit control.
         /// </summary>
         /// <remarks>
@@ -1147,6 +1417,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divConstrPermit;
+
+        /// <summary>
+        /// txtPermitApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPermitApproval;
 
         /// <summary>
         /// fup30ConstrPermit control.
@@ -1183,6 +1462,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBldngPlan;
+
+        /// <summary>
+        /// txtIndustrialPlans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIndustrialPlans;
 
         /// <summary>
         /// fup31BldngPlan control.

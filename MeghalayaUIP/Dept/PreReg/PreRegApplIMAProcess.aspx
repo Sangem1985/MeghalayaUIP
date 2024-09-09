@@ -88,6 +88,8 @@
             <li class="breadcrumb-item active" aria-current="page">Application Details</li>
         </ol>
     </nav>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
@@ -110,7 +112,7 @@
                 <div class="col-md-12 ">
                     <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                         <strong>Warning!</strong>
-                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        <asp:Label ID="lblmsg0" runat="server" autosize="true"></asp:Label>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -859,7 +861,7 @@
                                 aria-labelledby="headingFour" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Query Response Attachments Check Lists</h3>
+                                        <h3>Query Response Attachments </h3>
                                     </div>
                                     <section id="dashboardQueryattachmnts">
                                         <div class="container-fluid">

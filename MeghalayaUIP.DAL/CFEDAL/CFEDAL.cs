@@ -1494,6 +1494,11 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEA_APPROVALID", objAttachments.ApprovalID);
                 com.Parameters.AddWithValue("@CFEA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@CFEA_CREATEDBYIP", objAttachments.IPAddress);
+                if (objAttachments.ReferenceNo != null && objAttachments.ReferenceNo != "")
+                {
+                    com.Parameters.AddWithValue("@CFEA_REFERENCENO", objAttachments.ReferenceNo);
+                }
+                  
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

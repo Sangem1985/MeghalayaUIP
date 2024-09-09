@@ -671,6 +671,7 @@ namespace MeghalayaUIP.Common
         public string FileType { get; set; }
         public string MasterID { get; set; }
         public string QueryID { get; set; }
+        public string ReferenceNo { get; set; }
 
     }
     public class Labour_Details

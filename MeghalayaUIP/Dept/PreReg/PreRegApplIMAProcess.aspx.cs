@@ -471,15 +471,16 @@ namespace MeghalayaUIP.Dept.PreReg
                     Failure.Visible = true; string Error = "";
                     if (ddldepartment.SelectedItem.Text == "--Select--")
                     {
-                        lblmsg0.Text = "Please Select Department";
+                       // lblmsg0.Text = "Please Select Department";
                         Error = "Please Select Department";
                     }
                     if (txtDeptQuery.Text == "" || string.IsNullOrEmpty(txtDeptQuery.Text) || txtDeptQuery.Text == null)
                     {
-                        lblmsg0.Text = lblmsg0.Text + "\n Please Enter Query Description";
-                        Error = "\n Please Enter Query Description";
+                        lblmsg0.Text = Error + Environment.NewLine+  " Please Enter Query Description";
+                        Error = Error+ "\\n Please Enter Query Description";
 
                     }
+                  ////  lblmsg0.Text = Error;
                     string message = "alert('" + Error + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }

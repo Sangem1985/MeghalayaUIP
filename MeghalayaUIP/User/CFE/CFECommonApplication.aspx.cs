@@ -3,6 +3,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -323,6 +324,7 @@ namespace MeghalayaUIP.User.CFE
                         {
                             btnNext.Enabled = false;
                             divOffline.Visible = true;
+                            div2.Visible = true;
                             for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
                             {
                                 if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "1")
@@ -391,7 +393,7 @@ namespace MeghalayaUIP.User.CFE
 
                             if (dsOffline.Tables[1].Rows.Count > 0)
                             {
-                                divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false;
+                                divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false; div2.Visible = true;
                                 btnNext2.Visible = true;
                                 for (int i = 0; i < dsOffline.Tables[1].Rows.Count; i++)
                                 {
@@ -400,7 +402,7 @@ namespace MeghalayaUIP.User.CFE
                                         divPCB.Visible = true;
                                         hpl1PCB.Visible = true;
                                         hpl1PCB.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                                        hpl1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);  
                                     }
                                     if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 2)//PCB HAZ NOC
                                     {
@@ -718,6 +720,7 @@ namespace MeghalayaUIP.User.CFE
                         objPCBNOC.FileDescription = "OfflineApprovalPCBNOC";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtPCBOARD.Text;
                         result = objcfebal.InsertCFEAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -837,6 +840,7 @@ namespace MeghalayaUIP.User.CFE
                         objSrvcCon.FileDescription = "OfflineApprovalServiceConnection";
                         objSrvcCon.CreatedBy = hdnUserID.Value;
                         objSrvcCon.IPAddress = getclientIP();
+                        objSrvcCon.ReferenceNo = txtservicecon.Text;
                         result = objcfebal.InsertCFEAttachments(objSrvcCon);
                         if (result != "")
                         {
@@ -896,6 +900,7 @@ namespace MeghalayaUIP.User.CFE
                         objEleCon.FileDescription = "OfflineApprovalElectricConnection";
                         objEleCon.CreatedBy = hdnUserID.Value;
                         objEleCon.IPAddress = getclientIP();
+                        objEleCon.ReferenceNo = txtElectricitycon.Text;
                         result = objcfebal.InsertCFEAttachments(objEleCon);
                         if (result != "")
                         {
@@ -955,6 +960,7 @@ namespace MeghalayaUIP.User.CFE
                         objFctryPlan.FileDescription = "OfflineApprovalFactoryPlan";
                         objFctryPlan.CreatedBy = hdnUserID.Value;
                         objFctryPlan.IPAddress = getclientIP();
+                        objFctryPlan.ReferenceNo = txtFactoryPlan.Text;
                         result = objcfebal.InsertCFEAttachments(objFctryPlan);
                         if (result != "")
                         {
@@ -1014,6 +1020,7 @@ namespace MeghalayaUIP.User.CFE
                         objDGsetNOC.FileDescription = "OfflineApprovalDGsetNOC";
                         objDGsetNOC.CreatedBy = hdnUserID.Value;
                         objDGsetNOC.IPAddress = getclientIP();
+                        objDGsetNOC.ReferenceNo = txtNOCDG.Text;
                         result = objcfebal.InsertCFEAttachments(objDGsetNOC);
                         if (result != "")
                         {
@@ -1073,6 +1080,7 @@ namespace MeghalayaUIP.User.CFE
                         objFireSfty.FileDescription = "OfflineApprovalFireSafetyCertificate";
                         objFireSfty.CreatedBy = hdnUserID.Value;
                         objFireSfty.IPAddress = getclientIP();
+                        objFireSfty.ReferenceNo = txtFireSaftey.Text;
                         result = objcfebal.InsertCFEAttachments(objFireSfty);
                         if (result != "")
                         {
@@ -1133,6 +1141,7 @@ namespace MeghalayaUIP.User.CFE
                         objRSDSLic.FileDescription = "OfflineApprovalRSDSLicence";
                         objRSDSLic.CreatedBy = hdnUserID.Value;
                         objRSDSLic.IPAddress = getclientIP();
+                        objRSDSLic.ReferenceNo = txtLicStore.Text;
                         result = objcfebal.InsertCFEAttachments(objRSDSLic);
                         if (result != "")
                         {
@@ -1192,6 +1201,7 @@ namespace MeghalayaUIP.User.CFE
                         objExplsvNOC.FileDescription = "OfflineApprovalExplosivesManufactureNOC";
                         objExplsvNOC.CreatedBy = hdnUserID.Value;
                         objExplsvNOC.IPAddress = getclientIP();
+                        objExplsvNOC.ReferenceNo = txtExplosive.Text;
                         result = objcfebal.InsertCFEAttachments(objExplsvNOC);
                         if (result != "")
                         {
@@ -1251,6 +1261,7 @@ namespace MeghalayaUIP.User.CFE
                         objPtrlNOC.FileDescription = "OfflineApprovalPetrolManfactureNOC";
                         objPtrlNOC.CreatedBy = hdnUserID.Value;
                         objPtrlNOC.IPAddress = getclientIP();
+                        objPtrlNOC.ReferenceNo = txtDieselNoc.Text;
                         result = objcfebal.InsertCFEAttachments(objPtrlNOC);
                         if (result != "")
                         {
@@ -1310,6 +1321,7 @@ namespace MeghalayaUIP.User.CFE
                         objRdCtng.FileDescription = "OfflineApprovalRoadCuttingPermission";
                         objRdCtng.CreatedBy = hdnUserID.Value;
                         objRdCtng.IPAddress = getclientIP();
+                        objRdCtng.ReferenceNo = txtRoadCut.Text;
                         result = objcfebal.InsertCFEAttachments(objRdCtng);
                         if (result != "")
                         {
@@ -1370,6 +1382,7 @@ namespace MeghalayaUIP.User.CFE
                         objNonEncmb.FileDescription = "OfflineApprovalNonEncumbrance";
                         objNonEncmb.CreatedBy = hdnUserID.Value;
                         objNonEncmb.IPAddress = getclientIP();
+                        objNonEncmb.ReferenceNo = txtNOnEncumb.Text;
                         result = objcfebal.InsertCFEAttachments(objNonEncmb);
                         if (result != "")
                         {
@@ -1429,6 +1442,7 @@ namespace MeghalayaUIP.User.CFE
                         objProfTax.FileDescription = "OfflineApprovalProffessionalTax";
                         objProfTax.CreatedBy = hdnUserID.Value;
                         objProfTax.IPAddress = getclientIP();
+                        objProfTax.ReferenceNo = txtproftax.Text;
                         result = objcfebal.InsertCFEAttachments(objProfTax);
                         if (result != "")
                         {
@@ -1489,6 +1503,7 @@ namespace MeghalayaUIP.User.CFE
                         objElcInsp.FileDescription = "OfflineApprovalElectricalInspectorate";
                         objElcInsp.CreatedBy = hdnUserID.Value;
                         objElcInsp.IPAddress = getclientIP();
+                        objElcInsp.ReferenceNo = txtDrawingApproval.Text;
                         result = objcfebal.InsertCFEAttachments(objElcInsp);
                         if (result != "")
                         {
@@ -1549,6 +1564,7 @@ namespace MeghalayaUIP.User.CFE
                         objForstDist.FileDescription = "OfflineApprovalDistancefromForestLetter";
                         objForstDist.CreatedBy = hdnUserID.Value;
                         objForstDist.IPAddress = getclientIP();
+                        objForstDist.ReferenceNo = txtDistanceofforest.Text;
                         result = objcfebal.InsertCFEAttachments(objForstDist);
                         if (result != "")
                         {
@@ -1608,6 +1624,7 @@ namespace MeghalayaUIP.User.CFE
                         objNonForstLand.FileDescription = "OfflineApprovalNonForestLandCertificate";
                         objNonForstLand.CreatedBy = hdnUserID.Value;
                         objNonForstLand.IPAddress = getclientIP();
+                        objNonForstLand.ReferenceNo = txtNonForestLand.Text;
                         result = objcfebal.InsertCFEAttachments(objNonForstLand);
                         if (result != "")
                         {
@@ -1667,6 +1684,7 @@ namespace MeghalayaUIP.User.CFE
                         objIrrgNOC.FileDescription = "OfflineApprovalFTLIrrigationNOC";
                         objIrrgNOC.CreatedBy = hdnUserID.Value;
                         objIrrgNOC.IPAddress = getclientIP();
+                        objIrrgNOC.ReferenceNo = txtFTLNOC.Text;
                         result = objcfebal.InsertCFEAttachments(objIrrgNOC);
                         if (result != "")
                         {
@@ -1726,6 +1744,7 @@ namespace MeghalayaUIP.User.CFE
                         objFctryPlan.FileDescription = "OfflineApprovalFTLRevenueNOC";
                         objFctryPlan.CreatedBy = hdnUserID.Value;
                         objFctryPlan.IPAddress = getclientIP();
+                        objFctryPlan.ReferenceNo = txtFTLLand.Text;
                         result = objcfebal.InsertCFEAttachments(objFctryPlan);
                         if (result != "")
                         {
@@ -1784,6 +1803,7 @@ namespace MeghalayaUIP.User.CFE
                         objGrndWtrNOC.FileDescription = "OfflineApprovalGroundWaterAbstractionNOC";
                         objGrndWtrNOC.CreatedBy = hdnUserID.Value;
                         objGrndWtrNOC.IPAddress = getclientIP();
+                        objGrndWtrNOC.ReferenceNo = txtNOCGround.Text;
                         result = objcfebal.InsertCFEAttachments(objGrndWtrNOC);
                         if (result != "")
                         {
@@ -1843,6 +1863,7 @@ namespace MeghalayaUIP.User.CFE
                         objNoWtrSply.FileDescription = "OfflineApprovalNonAvailablityofWaterSupply";
                         objNoWtrSply.CreatedBy = hdnUserID.Value;
                         objNoWtrSply.IPAddress = getclientIP();
+                        objNoWtrSply.ReferenceNo = txtwateragency.Text;
                         result = objcfebal.InsertCFEAttachments(objNoWtrSply);
                         if (result != "")
                         {
@@ -1902,6 +1923,7 @@ namespace MeghalayaUIP.User.CFE
                         objToDrawWtr.FileDescription = "OfflineApprovalPermissionToDrawWaterFromRivers";
                         objToDrawWtr.CreatedBy = hdnUserID.Value;
                         objToDrawWtr.IPAddress = getclientIP();
+                        objToDrawWtr.ReferenceNo = txtRiverTank.Text;
                         result = objcfebal.InsertCFEAttachments(objToDrawWtr);
                         if (result != "")
                         {
@@ -1961,6 +1983,7 @@ namespace MeghalayaUIP.User.CFE
                         objMunWatr.FileDescription = "OfflineApprovalMuniciaplWaterConnection";
                         objMunWatr.CreatedBy = hdnUserID.Value;
                         objMunWatr.IPAddress = getclientIP();
+                        objMunWatr.ReferenceNo = txtMuncipal.Text;
                         result = objcfebal.InsertCFEAttachments(objMunWatr);
                         if (result != "")
                         {
@@ -2020,6 +2043,7 @@ namespace MeghalayaUIP.User.CFE
                         objFctryPlan.FileDescription = "OfflineApprovalUrbanWaterConnection";
                         objFctryPlan.CreatedBy = hdnUserID.Value;
                         objFctryPlan.IPAddress = getclientIP();
+                        objFctryPlan.ReferenceNo = txtwaterConNON.Text;
                         result = objcfebal.InsertCFEAttachments(objFctryPlan);
                         if (result != "")
                         {
@@ -2079,6 +2103,7 @@ namespace MeghalayaUIP.User.CFE
                         objLbrAct1970.FileDescription = "OfflineApprovalRegistrationunderLAbourAct1970";
                         objLbrAct1970.CreatedBy = hdnUserID.Value;
                         objLbrAct1970.IPAddress = getclientIP();
+                        objLbrAct1970.ReferenceNo = txtRegContractLabour.Text;
                         result = objcfebal.InsertCFEAttachments(objLbrAct1970);
                         if (result != "")
                         {
@@ -2138,6 +2163,7 @@ namespace MeghalayaUIP.User.CFE
                         objLbrAct1979.FileDescription = "OfflineApprovalRegistrationunderLAbourAct1979";
                         objLbrAct1979.CreatedBy = hdnUserID.Value;
                         objLbrAct1979.IPAddress = getclientIP();
+                        objLbrAct1979.ReferenceNo = txtRegMigrantworkmen.Text;
                         result = objcfebal.InsertCFEAttachments(objLbrAct1979);
                         if (result != "")
                         {
@@ -2197,6 +2223,7 @@ namespace MeghalayaUIP.User.CFE
                         objFctryPlan.FileDescription = "OfflineApprovalRegistrationunderLAbourAct1996";
                         objFctryPlan.CreatedBy = hdnUserID.Value;
                         objFctryPlan.IPAddress = getclientIP();
+                        objFctryPlan.ReferenceNo = txtRegBuilding.Text;
                         result = objcfebal.InsertCFEAttachments(objFctryPlan);
                         if (result != "")
                         {
@@ -2256,6 +2283,7 @@ namespace MeghalayaUIP.User.CFE
                         objContrLbrAct.FileDescription = "OfflineApprovalRegistrationunderContractLAbourAct";
                         objContrLbrAct.CreatedBy = hdnUserID.Value;
                         objContrLbrAct.IPAddress = getclientIP();
+                        objContrLbrAct.ReferenceNo = txtLicLabourACT.Text;
                         result = objcfebal.InsertCFEAttachments(objContrLbrAct);
                         if (result != "")
                         {
@@ -2314,6 +2342,7 @@ namespace MeghalayaUIP.User.CFE
                         objContrLbrAct1979.FileDescription = "OfflineApprovalRegistrationunderConractLAbourAct1979";
                         objContrLbrAct1979.CreatedBy = hdnUserID.Value;
                         objContrLbrAct1979.IPAddress = getclientIP();
+                        objContrLbrAct1979.ReferenceNo = txtReference.Text;
                         result = objcfebal.InsertCFEAttachments(objContrLbrAct1979);
                         if (result != "")
                         {
@@ -2374,6 +2403,7 @@ namespace MeghalayaUIP.User.CFE
                         objFctryPlan.FileDescription = "OfflineApprovalConstructionPermit";
                         objFctryPlan.CreatedBy = hdnUserID.Value;
                         objFctryPlan.IPAddress = getclientIP();
+                        objFctryPlan.ReferenceNo = txtPermitApproval.Text;
                         result = objcfebal.InsertCFEAttachments(objFctryPlan);
                         if (result != "")
                         {
@@ -2433,6 +2463,7 @@ namespace MeghalayaUIP.User.CFE
                         objBldngPlan.FileDescription = "OfflineApprovalBuildingPlanApproval";
                         objBldngPlan.CreatedBy = hdnUserID.Value;
                         objBldngPlan.IPAddress = getclientIP();
+                        objBldngPlan.ReferenceNo = txtIndustrialPlans.Text;
                         result = objcfebal.InsertCFEAttachments(objBldngPlan);
                         if (result != "")
                         {
@@ -2466,6 +2497,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 if (Attachment.PostedFile.ContentType != "application/pdf"
                      || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
@@ -2474,6 +2506,11 @@ namespace MeghalayaUIP.User.CFE
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
                         slno = slno + 1;
                     }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))

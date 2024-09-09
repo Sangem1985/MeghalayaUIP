@@ -116,7 +116,7 @@
 
 
                 </div>
-            <%--    <div class="row">
+                <%--    <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -155,6 +155,18 @@
                             <div class="card-body">
                                 <h4><b>Upload Approval Documents which are already obtained:</b></h4>
                                 <br />
+                                <div class="col-md-12 d-flex" runat="server" visible="false" id="div2">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label"></label>
+                                            <div class="col-lg-2 d-flex">
+                                            </div>
+                                            <div class="col-lg-4 d-flex">
+                                                <label class="col-lg-5 col-form-label">Reference No </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <%-- Approvalid=1--%>
                                 <div class="col-md-12 d-flex" runat="server" visible="false" id="divPCB">
                                     <div class="col-md-12">
@@ -164,14 +176,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup1PCB" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtPCBOARD" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup1PCB" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld1PCB" Text="Upload" OnClick="btnUpld1PCB_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl1PCB" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -184,14 +200,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup2HazPCB" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="TextBox26" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup2HazPCB" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld2HazPCB" Text="Upload" OnClick="btnUpld2HazPCB_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl2HazPCB" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -204,14 +224,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup3SrvcCon" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtservicecon" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup3SrvcCon" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld3SrvcCon" OnClick="btnUpld3SrvcCon_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl3SrvcCon" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -224,14 +248,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup4EleCon" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtElectricitycon" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup4EleCon" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld4EleCon" OnClick="btnUpld4EleCon_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl4EleCon" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -244,14 +272,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup5FctryPlan" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtFactoryPlan" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup5FctryPlan" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld5FctryPlan" OnClick="btnUpld5FctryPlan_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl5FctryPlan" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -264,14 +296,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup6DGsetNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtNOCDG" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup6DGsetNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld6DGsetNOC" OnClick="btnUpld6DGsetNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl6DGsetNOC" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -284,14 +320,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup7FireSfty" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtFireSaftey" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup7FireSfty" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld7FireSfty" OnClick="btnUpld7FireSfty_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl7FireSfty" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -304,14 +344,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup8RSDSLic" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtLicStore" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup8RSDSLic" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld8RSDSLic" OnClick="btnUpld8RSDSLic_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl8RSDSLic" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -324,14 +368,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup9ExplsvNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtExplosive" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup9ExplsvNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld9ExplsvNOC" OnClick="btnUpld9ExplsvNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl9ExplsvNOC" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -344,14 +392,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup10PtrlNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtDieselNoc" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup10PtrlNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld10PtrlNOC" OnClick="btnUpld10PtrlNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl10PtrlNOC" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -364,14 +416,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup11RdCtng" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtRoadCut" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup11RdCtng" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld11RdCtng" OnClick="btnUpld11RdCtng_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl11RdCtng" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -384,14 +440,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtNOnEncumb" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup12NonEncmb" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld12NonEncmb" OnClick="btnUpld12NonEncmb_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl12NonEncmb" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -404,14 +464,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup13ProfTax" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtproftax" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup13ProfTax" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld13ProfTax" OnClick="btnUpld13ProfTax_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl13ProfTax" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -424,14 +488,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup14ElcInsp" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtDrawingApproval" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup14ElcInsp" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld14ElcInsp" OnClick="btnUpld14ElcInsp_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl14ElcInsp" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -444,14 +512,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup15ForstDist" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtDistanceofforest" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup15ForstDist" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld15ForstDist" OnClick="btnUpld15ForstDist_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl15ForstDist" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -464,14 +536,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup16NonForstLand" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtNonForestLand" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup16NonForstLand" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld16NonForstLand" OnClick="btnUpld16NonForstLand_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl16NonForstLand" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -484,14 +560,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup17IrrgNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtFTLNOC" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup17IrrgNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld17IrrgNOC" OnClick="btnUpld17IrrgNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl17IrrgNOC" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -504,14 +584,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup18RevNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtFTLLand" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup18RevNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld18RevNOC" OnClick="btnUpld18RevNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl18RevNOC" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -524,14 +608,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup19GrndWtrNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtNOCGround" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup19GrndWtrNOC" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld19GrndWtrNOC" OnClick="btnUpld19GrndWtrNOC_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl19GrndWtrNOC" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -544,14 +632,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup20NoWtrSply" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtwateragency" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup20NoWtrSply" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld20NoWtrSply" OnClick="btnUpld20NoWtrSply_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl20NoWtrSply" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -564,14 +656,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup21ToDrawWtr" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtRiverTank" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup21ToDrawWtr" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld21ToDrawWtr" OnClick="btnUpld21ToDrawWtr_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl21ToDrawWtr" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -584,14 +680,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup22MunicipalWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtMuncipal" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup22MunicipalWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld22MunicipalWatr" OnClick="btnUpld22MunicipalWatr_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl22MunicipalWatr" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -604,14 +704,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup23UrbanWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtwaterConNON" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup23UrbanWatr" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld23UrbanWatr" OnClick="btnUpld23UrbanWatr_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl23UrbanWatr" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -624,14 +728,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup25LbrAct1970" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtRegContractLabour" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup25LbrAct1970" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld25LbrAct1970" OnClick="btnUpld25LbrAct1970_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl25LbrAct1970" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -644,14 +752,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup26LbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtRegMigrantworkmen" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup26LbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld26LbrAct1979" OnClick="btnUpld26LbrAct1979_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl26LbrAct1979" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -664,14 +776,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup27LbrAct1996" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtRegBuilding" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup27LbrAct1996" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld27LbrAct1996" OnClick="btnUpld27LbrAct1996_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl27LbrAct1996" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -684,14 +800,18 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup28ContrLbrAct" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtLicLabourACT" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup28ContrLbrAct" Width="300px" Font-Italic="true" Height="45px" />
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld28ContrLbrAct" OnClick="btnUpld28ContrLbrAct_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl28ContrLbrAct" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -704,66 +824,90 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup29ContrLbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
+                                                <asp:TextBox ID="txtReference" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
+                                                <asp:FileUpload runat="server" ID="fup29ContrLbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
+
+                                            </div>
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld29ContrLbrAct1979" OnClick="btnUpld29ContrLbrAct1979_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:HyperLink ID="hpl29ContrLbrAct1979" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <%-- Approvalid=30--%>
-                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divConstrPermit">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label">Construction Permit Approval </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup30ConstrPermit" Width="300px" Font-Italic="true" Height="45px" />
-                                            </div>
-                                            <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpld30ConstrPermit" OnClick="btnUpld30ConstrPermit_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hpl30ConstrPermit" runat="server" Target="_blank"></asp:HyperLink>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <%-- Approvalid=31--%>
-                                <div class="col-md-12 d-flex" runat="server" visible="false" id="divBldngPlan">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label">Industrial Building Plan Approval </label>
-                                            <div class="col-lg-1 d-flex">
-                                                :
-                                            </div>
-                                            <div class="col-lg-2 d-flex">
-                                                <asp:FileUpload runat="server" ID="fup31BldngPlan" Width="300px" Font-Italic="true" Height="45px" />
-                                            </div>
-                                            <div class="col-lg-2 d-flex">
-                                                <asp:Button runat="server" ID="btnUpld31BldngPlan" OnClick="btnUpld31BldngPlan_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
-                                            </div>
-                                            <div class="col-lg-3 d-flex">
-                                                <asp:HyperLink ID="hpl31BldngPlan" runat="server" Target="_blank"></asp:HyperLink>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 d-flex" runat="server" visible="true" id="div1">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label"></label>
+                                                <div class="col-lg-1 d-flex">
+                                                </div>
+                                                <div class="col-lg-3 d-flex">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%-- Approvalid=30--%>
+                                    <div class="col-md-12 d-flex" runat="server" visible="false" id="divConstrPermit">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Construction Permit Approval </label>
+                                                <div class="col-lg-1 d-flex">
+                                                    :
+                                                </div>
+                                                <div class="col-lg-2 d-flex">
+                                                    <asp:TextBox ID="txtPermitApproval" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <div class="col-lg-2 d-flex">
+                                                    <asp:FileUpload runat="server" ID="fup30ConstrPermit" Width="300px" Font-Italic="true" Height="45px" />
+                                                </div>
+                                                <div class="col-lg-1 d-flex">
+                                                    <asp:Button runat="server" ID="btnUpld30ConstrPermit" OnClick="btnUpld30ConstrPermit_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                </div>
+                                                <div class="col-lg-1 d-flex">
+                                                    <asp:HyperLink ID="hpl30ConstrPermit" runat="server" Target="_blank"></asp:HyperLink>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%-- Approvalid=31--%>
+                                    <div class="col-md-12 d-flex" runat="server" visible="false" id="divBldngPlan">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Industrial Building Plan Approval </label>
+                                                <div class="col-lg-1 d-flex">
+                                                    :
+                                                </div>
+                                                <div class="col-lg-2 d-flex">
+                                                    <asp:TextBox ID="txtIndustrialPlans" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <div class="col-lg-2 d-flex">
+                                                    <asp:FileUpload runat="server" ID="fup31BldngPlan" Width="300px" Font-Italic="true" Height="45px" />
+                                                </div>
+                                                <div class="col-lg-1 d-flex">
+                                                    <asp:Button runat="server" ID="btnUpld31BldngPlan" OnClick="btnUpld31BldngPlan_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
+                                                </div>
+                                                <div class="col-lg-1 d-flex">
+                                                    <asp:HyperLink ID="hpl31BldngPlan" runat="server" Target="_blank"></asp:HyperLink>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12 text-right">
-                    <asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
 
-                </div>
+                    </div>
             </section>
 
         </div>
