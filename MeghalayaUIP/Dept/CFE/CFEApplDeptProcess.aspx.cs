@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using MeghalayaUIP.CommonClass;
 using MeghalayaUIP.BAL.CFEBLL;
 using System.Text.RegularExpressions;
+using System.Configuration;
 
 namespace MeghalayaUIP.Dept.CFE
 {
@@ -1247,6 +1248,7 @@ namespace MeghalayaUIP.Dept.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 if (Attachment.PostedFile.ContentType != "application/pdf"
                      || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
@@ -1255,6 +1257,11 @@ namespace MeghalayaUIP.Dept.CFE
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
                         slno = slno + 1;
                     }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))

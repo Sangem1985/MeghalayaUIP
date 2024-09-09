@@ -5,6 +5,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -1082,6 +1083,7 @@ namespace MeghalayaUIP.Dept.CFO
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 if (Attachment.PostedFile.ContentType != "application/pdf"
                      || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
@@ -1090,6 +1092,11 @@ namespace MeghalayaUIP.Dept.CFO
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
                         slno = slno + 1;
                     }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))
