@@ -89,7 +89,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                         lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
                         lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                       
+
                         lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                         lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
@@ -328,7 +328,6 @@ namespace MeghalayaUIP.Dept.PreReg
                         Failure.Visible = true;
                         return;
                     }
-
                     else
                     {
                         prd.Unitid = Session["UNITID"].ToString();
@@ -355,6 +354,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblmsg0.Text = "Please Select Action";
                     Failure.Visible = true;
                 }
+
             }
             catch (Exception ex)
             {
@@ -377,6 +377,7 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
+
                 if (ddlStatus.SelectedValue == "8")
                 {
                     tdRemarks.Visible = true;
@@ -415,7 +416,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     tdaction.Visible = false;
                     tdRemarks.Visible = false;
                     tdRemarksTxtbx.Visible = false;
-
+                }
+                else if (ddlStatus.SelectedValue == "0")
+                {
+                    tdDeptQuery.Visible = false;
                 }
 
 
@@ -471,16 +475,16 @@ namespace MeghalayaUIP.Dept.PreReg
                     Failure.Visible = true; string Error = "";
                     if (ddldepartment.SelectedItem.Text == "--Select--")
                     {
-                       // lblmsg0.Text = "Please Select Department";
+                        // lblmsg0.Text = "Please Select Department";
                         Error = "Please Select Department";
                     }
                     if (txtDeptQuery.Text == "" || string.IsNullOrEmpty(txtDeptQuery.Text) || txtDeptQuery.Text == null)
                     {
-                        lblmsg0.Text = Error + Environment.NewLine+  " Please Enter Query Description";
-                        Error = Error+ "\\n Please Enter Query Description";
+                        lblmsg0.Text = Error + Environment.NewLine + " Please Enter Query Description";
+                        Error = Error + "\\n Please Enter Query Description";
 
                     }
-                  ////  lblmsg0.Text = Error;
+                    ////  lblmsg0.Text = Error;
                     string message = "alert('" + Error + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
