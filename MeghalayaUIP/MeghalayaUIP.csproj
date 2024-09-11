@@ -433,6 +433,7 @@
     <Content Include="assets\assetsnew\js\script.js" />
     <Content Include="assets\assetsnew\js\validation.js" />
     <Content Include="assets\assetsnew\js\wow.js" />
+    <Content Include="BusinessRegulation.aspx" />
     <Content Include="CentralInspectionDashboard.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Dashboarddrill.aspx" />
@@ -602,6 +603,13 @@
     </Compile>
     <Compile Include="Agri-Horti.aspx.designer.cs">
       <DependentUpon>Agri-Horti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessRegulation.aspx.cs">
+      <DependentUpon>BusinessRegulation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessRegulation.aspx.designer.cs">
+      <DependentUpon>BusinessRegulation.aspx</DependentUpon>
     </Compile>
     <Compile Include="CentralInspectionDashboard.aspx.cs">
       <DependentUpon>CentralInspectionDashboard.aspx</DependentUpon>
@@ -2095,6 +2103,8 @@
     <Content Include="assets\assetsnew\fonts\Flaticon.woff2" />
     <Content Include="assets\assetsnew\fonts\Flaticond41d.eot" />
     <Content Include="Dept\Dashboard\DeptServePdfFile.ashx" />
+    <Content Include="Documents\Decriminalizationlist.xlsx" />
+    <Content Include="Documents\Decriminalization list %281%29 %281%29.pdf" />
     <None Include="packages.config" />
     <Content Include="User\user.Master" />
     <Content Include="User\Dashboard\ServePdfFile.ashx" />
