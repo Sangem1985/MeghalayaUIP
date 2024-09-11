@@ -152,6 +152,18 @@
                             <div class="card-body">
                                 <h4><b>Upload Approval Documents which are already obtained:</b></h4>
                                 <br />
+                                   <div class="col-md-12 d-flex" runat="server" visible="false" id="div2">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label"></label>
+                                            <div class="col-lg-2 d-flex">
+                                            </div>
+                                            <div class="col-lg-4 d-flex">
+                                                <label class="col-lg-5 col-form-label">Reference No </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <%-- Approvalid=32--%>
                                 <div class="col-md-12 d-flex" runat="server" visible="false" id="divMigrantReg2020">
                                     <div class="col-md-12">
@@ -160,13 +172,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                              <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtMigrant" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup32MigrantReg" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnMigrantReg" Text="Upload" OnClick="btnMigrantReg_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl32MigrantReg" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -180,13 +195,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                              <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtManufacture" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup33ManufactureReg" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld33ManufactureReg" Text="Upload" OnClick="btnUpld33ManufactureReg_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl33ManufactureReg" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -200,13 +218,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                               <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtRegWorksService" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup34RenewalReg" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld34RenewalReg" Text="Upload" OnClick="btnUpld34RenewalReg_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl34RenewalReg" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -220,13 +241,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtRegBoiler" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup35BoilerReg" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld35BoilerReg" Text="Upload" OnClick="btnUpld35BoilerReg_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl35BoilerReg" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -240,13 +264,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicFactory" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup36LICFactory" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld36LICFactory" Text="Upload" OnClick="btnUpld36LICFactory_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl36LICFactory" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -260,13 +287,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicWorkmen1979" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup37LICMIGRANTWORKMEN" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld37LICMIGRANTWORKMEN" Text="Upload" OnClick="btnUpld37LICMIGRANTWORKMEN_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl37LICMIGRANTWORKMEN" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -280,13 +310,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicLabour1970" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup38LICLabourContractor" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld38LICLabourContractor" Text="Upload" OnClick="btnUpld38LICLabourContractor_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl38LICLabourContractor" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -300,13 +333,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicRetailsDrug" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup39LicRetailDrug" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld39LicRetailDrug" Text="Upload" OnClick="btnUpld39LicRetailDrug_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl39LicRetailDrug" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -320,13 +356,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicRepairers" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup40LicRepairWeight" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld40LicRepairWeight" Text="Upload" OnClick="btnUpld40LicRepairWeight_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl40LicRepairWeight" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -340,13 +379,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtMeasuresLic" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup41LicManuMeasure" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld41LicManuMeasure" Text="Upload" OnClick="btnUpld41LicManuMeasure_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl41LicManuMeasure" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -360,13 +402,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicDealer" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup42LicDealerWeight" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld42LicDealerWeight" Text="Upload" OnClick="btnUpld42LicDealerWeight_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl42LicDealerWeight" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -380,13 +425,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtWeightInstrument" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup43IVSMeasure" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld43IVSMeasure" Text="Upload" OnClick="btnUpld43IVSMeasure_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl43IVSMeasure" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -400,13 +448,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtFiresaftey" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup44FireSafeCert" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld44FireSafeCert" Text="Upload" OnClick="btnUpld44FireSafeCert_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl44FireSafeCert" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -420,13 +471,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtRetailPlant" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup45ExiseRetail" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld45ExiseRetail" Text="Upload" OnClick="btnUpld45ExiseRetail_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl45ExiseRetail" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -440,13 +494,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtWholeDrugLic" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup46LicWholeDrug" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld46LicWholeDrug" Text="Upload" OnClick="btnUpld46LicWholeDrug_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl46LicWholeDrug" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -460,13 +517,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtBrandReg" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup47BrandReg" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld47BrandReg" Text="Upload" OnClick="btnUpld47BrandReg_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl47BrandReg" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -480,13 +540,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtDrugRenewal" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup48LicGrantRenew" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld48LicGrantRenew" Text="Upload" OnClick="btnUpld48LicGrantRenew_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl48LicGrantRenew" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -500,13 +563,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicManufacture" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup49LicManuDrug" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld49LicManuDrug" Text="Upload" OnClick="btnUpld49LicManuDrug_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl49LicManuDrug" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -520,13 +586,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLicLoanDrug" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup50LicManuDrugSpecifie" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld50LicManuDrugSpecifie" Text="Upload" OnClick="btnUpld50LicManuDrugSpecifie_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl50LicManuDrugSpecifie" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -540,13 +609,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtDrugSale" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup51LicGrantRenewSch" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld51LicGrantRenewSch" Text="Upload" OnClick="btnUpld51LicGrantRenewSch_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl51LicGrantRenewSch" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -560,13 +632,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtGrantManu" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup52LicManuVolumesera" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld52LicManuVolumesera" Text="Upload" OnClick="btnUpld52LicManuVolumesera_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl52LicManuVolumesera" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -580,13 +655,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtProfessionalTax" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup53ProffessTax" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld53ProffessTax" Text="Upload" OnClick="btnUpld53ProffessTax_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl53ProffessTax" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -600,13 +678,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtPCB" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup54PCB" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld54PCB" Text="Upload" OnClick="btnUpld54PCB_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl54PCB" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -620,13 +701,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtCertificate" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup55OccupancyCert" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld55OccupancyCert" Text="Upload" OnClick="btnUpld55OccupancyCert_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl55OccupancyCert" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -640,13 +724,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtsteamDept" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup56BoilerDept" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld56BoilerDept" Text="Upload" OnClick="btnUpld56BoilerDept_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl56BoilerDept" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -660,13 +747,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtBoilerSteam" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup57RegPipelineSteam" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld57RegPipelineSteam" Text="Upload" OnClick="btnUpld57RegPipelineSteam_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl57RegPipelineSteam" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -680,13 +770,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtShopESt" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup58RegShopEst" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld58RegShopEst" Text="Upload" OnClick="btnUpld58RegShopEst_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl58RegShopEst" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -700,13 +793,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtGrantLic" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup59LicGrantBusiness" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld59LicGrantBusiness" Text="Upload" OnClick="btnUpld59LicGrantBusiness_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl59LicGrantBusiness" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -720,13 +816,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtLocalSale" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup60LicIMFL" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld60LicIMFL" Text="Upload" OnClick="btnUpld60LicIMFL_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl60LicIMFL" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -740,13 +839,16 @@
                                             <div class="col-lg-1 d-flex">
                                                 :
                                             </div>
+                                             <div class="col-lg-2 d-flex">
+                                                <asp:TextBox ID="txtExcise" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup61SatateExcise" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld61SatateExcise" Text="Upload" OnClick="btnUpld61SatateExcise_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
-                                            <div class="col-lg-3 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:HyperLink ID="hpl61SatateExcise" runat="server" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
@@ -759,6 +861,10 @@
                         </div>
                     </div>
                 </div>
+                   <div class="col-md-12 text-right">
+                        <asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
+
+                    </div>
             </section>
         </div>
     </div>

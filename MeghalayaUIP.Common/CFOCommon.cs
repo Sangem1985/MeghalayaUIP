@@ -674,6 +674,7 @@ namespace MeghalayaUIP.Common
         public string FileDescription { get; set; }
         public string FileType { get; set; }
         public string MasterID { get; set; }
+        public string ReferenceNo { get; set; }
 
     }
     public class CFOQueryDet

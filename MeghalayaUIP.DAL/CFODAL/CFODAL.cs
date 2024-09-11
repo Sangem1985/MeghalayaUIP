@@ -1945,6 +1945,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOA_APPROVALID", objAttachments.ApprovalID);
                 com.Parameters.AddWithValue("@CFOA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@CFOA_CREATEDBYIP", objAttachments.IPAddress);
+                com.Parameters.AddWithValue("@CFOA_REFERENCENO", objAttachments.ReferenceNo);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

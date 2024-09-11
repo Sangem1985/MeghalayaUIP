@@ -56,6 +56,8 @@ namespace MeghalayaUIP.User.CFE
                         if (Convert.ToString(Session["CFEUNITID"]) != "")
                         {
                             BindData();
+                            Getofflineapprovals();
+
                         }
                         else
                         {
@@ -315,310 +317,13 @@ namespace MeghalayaUIP.User.CFE
                 if (grdApprovals.Rows.Count == count)
                 {
                     SetGridLabelValue();
+                    Getofflineapprovals();
+                    success.Visible = true;
+                    lblmsg.Text = "Details Submitted Successfully";
+                    string message = "alert('" + lblmsg.Text + "')";
 
-                    DataSet dsOffline = new DataSet();
-                    dsOffline = objcfebal.GetCFEAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
-                    if (dsOffline.Tables.Count > 0)
-                    {
-                        if (dsOffline.Tables[0].Rows.Count > 0)
-                        {
-                            btnNext.Enabled = false;
-                            divOffline.Visible = true;
-                            div2.Visible = true;
-                            for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
-                            {
-                                if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "1")
-                                    divPCB.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "2")
-                                    divHazPCB.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "3")
-                                    divSrvcCon.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "4")
-                                    divEleCon.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "5")
-                                    divFctryPlan.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "6")
-                                    divDGsetNOC.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
-                                    divFireSfty.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "8")
-                                    divRSDSLic.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "9")
-                                    divExplsvNOC.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "10")
-                                    divPtrlNOC.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "11")
-                                    divRdCtng.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "12")
-                                    divNonEncmb.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "13")
-                                    divProfTax.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "14")
-                                    divElcInsp.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "15")
-                                    divForstDist.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "16")
-                                    divNonForstLand.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "17")
-                                    divIrrgNOC.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "18")
-                                    divRevNOC.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "19")
-                                    divGrndWtrNOC.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "20")
-                                    divNoWtrSplyCertfct.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "21")
-                                    divPrmsntoDrawWtr.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "22")
-                                    divMunicipalWatr.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "23")
-                                    divUrbanWatr.Visible = true;
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
 
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
-                                    divLbrAct1970.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "26")
-                                    divLbrAct1979.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "27")
-                                    divLbrAct1996.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "28")
-                                    divContrLbrAct.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "29")
-                                    divContrLbrAct1979.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "30")
-                                    divConstrPermit.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "31")
-                                    divBldngPlan.Visible = true;
-
-                            }
-
-                            if (dsOffline.Tables[1].Rows.Count > 0)
-                            {
-                                divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false; div2.Visible = true;
-                                btnNext2.Visible = true;
-                                for (int i = 0; i < dsOffline.Tables[1].Rows.Count; i++)
-                                {
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC
-                                    {
-                                        divPCB.Visible = true;
-                                        hpl1PCB.Visible = true;
-                                        hpl1PCB.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);  
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 2)//PCB HAZ NOC
-                                    {
-                                        divHazPCB.Visible = true;
-                                        hpl2HazPCB.Visible = true;
-                                        hpl2HazPCB.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl2HazPCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 3)
-                                    {
-                                        divSrvcCon.Visible = true;
-                                        hpl3SrvcCon.Visible = true;
-                                        hpl3SrvcCon.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl3SrvcCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 4)
-                                    {
-                                        divEleCon.Visible = true;
-                                        hpl4EleCon.Visible = true;
-                                        hpl4EleCon.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl4EleCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 5)
-                                    {
-                                        divFctryPlan.Visible = true;
-                                        hpl5FctryPlan.Visible = true;
-                                        hpl5FctryPlan.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl5FctryPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 6)
-                                    {
-                                        divDGsetNOC.Visible = true;
-                                        hpl6DGsetNOC.Visible = true;
-                                        hpl6DGsetNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl6DGsetNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 7)
-                                    {
-                                        divFireSfty.Visible = true;
-                                        hpl7FireSfty.Visible = true;
-                                        hpl7FireSfty.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl7FireSfty.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 8)
-                                    {
-                                        divRSDSLic.Visible = true;
-                                        hpl8RSDSLic.Visible = true;
-                                        hpl8RSDSLic.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl8RSDSLic.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 9)
-                                    {
-                                        divExplsvNOC.Visible = true;
-                                        hpl9ExplsvNOC.Visible = true;
-                                        hpl9ExplsvNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl9ExplsvNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 10)
-                                    {
-                                        divPtrlNOC.Visible = true;
-                                        hpl10PtrlNOC.Visible = true;
-                                        hpl10PtrlNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl10PtrlNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 11)
-                                    {
-                                        divRdCtng.Visible = true;
-                                        hpl11RdCtng.Visible = true;
-                                        hpl11RdCtng.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl11RdCtng.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 12)
-                                    {
-                                        divNonEncmb.Visible = true;
-                                        hpl12NonEncmb.Visible = true;
-                                        hpl12NonEncmb.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl12NonEncmb.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 13)
-                                    {
-                                        divProfTax.Visible = true;
-                                        hpl13ProfTax.Visible = true;
-                                        hpl13ProfTax.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl13ProfTax.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 14)
-                                    {
-                                        divElcInsp.Visible = true;
-                                        hpl14ElcInsp.Visible = true;
-                                        hpl14ElcInsp.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl14ElcInsp.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 15)
-                                    {
-                                        divForstDist.Visible = true;
-                                        hpl15ForstDist.Visible = true;
-                                        hpl15ForstDist.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl15ForstDist.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 16)
-                                    {
-                                        divNonForstLand.Visible = true;
-                                        hpl16NonForstLand.Visible = true;
-                                        hpl16NonForstLand.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl16NonForstLand.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 17)
-                                    {
-                                        divIrrgNOC.Visible = true;
-                                        hpl17IrrgNOC.Visible = true;
-                                        hpl17IrrgNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl17IrrgNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 18)
-                                    {
-                                        divRevNOC.Visible = true;
-                                        hpl18RevNOC.Visible = true;
-                                        hpl18RevNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl18RevNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 19)
-                                    {
-                                        divGrndWtrNOC.Visible = true;
-                                        hpl19GrndWtrNOC.Visible = true;
-                                        hpl19GrndWtrNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl19GrndWtrNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 20)
-                                    {
-                                        divNoWtrSplyCertfct.Visible = true;
-                                        hpl20NoWtrSply.Visible = true;
-                                        hpl20NoWtrSply.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl20NoWtrSply.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 21)
-                                    {
-                                        divPrmsntoDrawWtr.Visible = true;
-                                        hpl21ToDrawWtr.Visible = true;
-                                        hpl21ToDrawWtr.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl21ToDrawWtr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 22)
-                                    {
-                                        divMunicipalWatr.Visible = true;
-                                        hpl22MunicipalWatr.Visible = true;
-                                        hpl22MunicipalWatr.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl22MunicipalWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 23)
-                                    {
-                                        divUrbanWatr.Visible = true;
-                                        hpl23UrbanWatr.Visible = true;
-                                        hpl23UrbanWatr.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl23UrbanWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 25)
-                                    {
-                                        divLbrAct1970.Visible = true;
-                                        hpl25LbrAct1970.Visible = true;
-                                        hpl25LbrAct1970.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl25LbrAct1970.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 26)
-                                    {
-                                        divLbrAct1979.Visible = true;
-                                        hpl26LbrAct1979.Visible = true;
-                                        hpl26LbrAct1979.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl26LbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 27)
-                                    {
-                                        divLbrAct1996.Visible = true;
-                                        hpl27LbrAct1996.Visible = true;
-                                        hpl27LbrAct1996.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl27LbrAct1996.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 28)
-                                    {
-                                        divContrLbrAct.Visible = true;
-                                        hpl28ContrLbrAct.Visible = true;
-                                        hpl28ContrLbrAct.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl28ContrLbrAct.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 29)
-                                    {
-                                        divContrLbrAct1979.Visible = true;
-                                        hpl29ContrLbrAct1979.Visible = true;
-                                        hpl29ContrLbrAct1979.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl29ContrLbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 30)
-                                    {
-                                        divConstrPermit.Visible = true;
-                                        hpl30ConstrPermit.Visible = true;
-                                        hpl30ConstrPermit.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl30ConstrPermit.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                    if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 31)
-                                    {
-                                        divBldngPlan.Visible = true;
-                                        hpl31BldngPlan.Visible = true;
-                                        hpl31BldngPlan.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
-                                        hpl31BldngPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                                    }
-                                }
-
-                            }
-
-                        }
-
-                        success.Visible = true;
-                        lblmsg.Text = "Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
                 }
             }
             catch (Exception ex)
@@ -649,6 +354,307 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
             catch (Exception ex) { }
+        }
+        public void Getofflineapprovals()
+        {
+            DataSet dsOffline = new DataSet();
+            dsOffline = objcfebal.GetCFEAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+            if (dsOffline.Tables.Count > 0)
+            {
+                if (dsOffline.Tables[0].Rows.Count > 0)
+                {
+                    btnNext.Enabled = false;
+                    divOffline.Visible = true;
+                    div2.Visible = true;
+                    for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "1")
+                            divPCB.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "2")
+                            divHazPCB.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "3")
+                            divSrvcCon.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "4")
+                            divEleCon.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "5")
+                            divFctryPlan.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "6")
+                            divDGsetNOC.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
+                            divFireSfty.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "8")
+                            divRSDSLic.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "9")
+                            divExplsvNOC.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "10")
+                            divPtrlNOC.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "11")
+                            divRdCtng.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "12")
+                            divNonEncmb.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "13")
+                            divProfTax.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "14")
+                            divElcInsp.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "15")
+                            divForstDist.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "16")
+                            divNonForstLand.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "17")
+                            divIrrgNOC.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "18")
+                            divRevNOC.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "19")
+                            divGrndWtrNOC.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "20")
+                            divNoWtrSplyCertfct.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "21")
+                            divPrmsntoDrawWtr.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "22")
+                            divMunicipalWatr.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "23")
+                            divUrbanWatr.Visible = true;
+
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
+                            divLbrAct1970.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "26")
+                            divLbrAct1979.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "27")
+                            divLbrAct1996.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "28")
+                            divContrLbrAct.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "29")
+                            divContrLbrAct1979.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "30")
+                            divConstrPermit.Visible = true;
+                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "31")
+                            divBldngPlan.Visible = true;
+
+                    }
+
+                    if (dsOffline.Tables[1].Rows.Count > 0)
+                    {
+                        divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false; div2.Visible = true;
+                        btnNext2.Visible = true;
+                        for (int i = 0; i < dsOffline.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC
+                            {
+                                divPCB.Visible = true;
+                                hpl1PCB.Visible = true;
+                                hpl1PCB.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 2)//PCB HAZ NOC
+                            {
+                                divHazPCB.Visible = true;
+                                hpl2HazPCB.Visible = true;
+                                hpl2HazPCB.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl2HazPCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 3)
+                            {
+                                divSrvcCon.Visible = true;
+                                hpl3SrvcCon.Visible = true;
+                                hpl3SrvcCon.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl3SrvcCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 4)
+                            {
+                                divEleCon.Visible = true;
+                                hpl4EleCon.Visible = true;
+                                hpl4EleCon.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl4EleCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 5)
+                            {
+                                divFctryPlan.Visible = true;
+                                hpl5FctryPlan.Visible = true;
+                                hpl5FctryPlan.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl5FctryPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 6)
+                            {
+                                divDGsetNOC.Visible = true;
+                                hpl6DGsetNOC.Visible = true;
+                                hpl6DGsetNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl6DGsetNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 7)
+                            {
+                                divFireSfty.Visible = true;
+                                hpl7FireSfty.Visible = true;
+                                hpl7FireSfty.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl7FireSfty.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 8)
+                            {
+                                divRSDSLic.Visible = true;
+                                hpl8RSDSLic.Visible = true;
+                                hpl8RSDSLic.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl8RSDSLic.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 9)
+                            {
+                                divExplsvNOC.Visible = true;
+                                hpl9ExplsvNOC.Visible = true;
+                                hpl9ExplsvNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl9ExplsvNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 10)
+                            {
+                                divPtrlNOC.Visible = true;
+                                hpl10PtrlNOC.Visible = true;
+                                hpl10PtrlNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl10PtrlNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 11)
+                            {
+                                divRdCtng.Visible = true;
+                                hpl11RdCtng.Visible = true;
+                                hpl11RdCtng.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl11RdCtng.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 12)
+                            {
+                                divNonEncmb.Visible = true;
+                                hpl12NonEncmb.Visible = true;
+                                hpl12NonEncmb.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl12NonEncmb.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 13)
+                            {
+                                divProfTax.Visible = true;
+                                hpl13ProfTax.Visible = true;
+                                hpl13ProfTax.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl13ProfTax.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 14)
+                            {
+                                divElcInsp.Visible = true;
+                                hpl14ElcInsp.Visible = true;
+                                hpl14ElcInsp.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl14ElcInsp.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 15)
+                            {
+                                divForstDist.Visible = true;
+                                hpl15ForstDist.Visible = true;
+                                hpl15ForstDist.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl15ForstDist.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 16)
+                            {
+                                divNonForstLand.Visible = true;
+                                hpl16NonForstLand.Visible = true;
+                                hpl16NonForstLand.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl16NonForstLand.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 17)
+                            {
+                                divIrrgNOC.Visible = true;
+                                hpl17IrrgNOC.Visible = true;
+                                hpl17IrrgNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl17IrrgNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 18)
+                            {
+                                divRevNOC.Visible = true;
+                                hpl18RevNOC.Visible = true;
+                                hpl18RevNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl18RevNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 19)
+                            {
+                                divGrndWtrNOC.Visible = true;
+                                hpl19GrndWtrNOC.Visible = true;
+                                hpl19GrndWtrNOC.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl19GrndWtrNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 20)
+                            {
+                                divNoWtrSplyCertfct.Visible = true;
+                                hpl20NoWtrSply.Visible = true;
+                                hpl20NoWtrSply.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl20NoWtrSply.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 21)
+                            {
+                                divPrmsntoDrawWtr.Visible = true;
+                                hpl21ToDrawWtr.Visible = true;
+                                hpl21ToDrawWtr.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl21ToDrawWtr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 22)
+                            {
+                                divMunicipalWatr.Visible = true;
+                                hpl22MunicipalWatr.Visible = true;
+                                hpl22MunicipalWatr.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl22MunicipalWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 23)
+                            {
+                                divUrbanWatr.Visible = true;
+                                hpl23UrbanWatr.Visible = true;
+                                hpl23UrbanWatr.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl23UrbanWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 25)
+                            {
+                                divLbrAct1970.Visible = true;
+                                hpl25LbrAct1970.Visible = true;
+                                hpl25LbrAct1970.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl25LbrAct1970.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 26)
+                            {
+                                divLbrAct1979.Visible = true;
+                                hpl26LbrAct1979.Visible = true;
+                                hpl26LbrAct1979.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl26LbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 27)
+                            {
+                                divLbrAct1996.Visible = true;
+                                hpl27LbrAct1996.Visible = true;
+                                hpl27LbrAct1996.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl27LbrAct1996.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 28)
+                            {
+                                divContrLbrAct.Visible = true;
+                                hpl28ContrLbrAct.Visible = true;
+                                hpl28ContrLbrAct.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl28ContrLbrAct.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 29)
+                            {
+                                divContrLbrAct1979.Visible = true;
+                                hpl29ContrLbrAct1979.Visible = true;
+                                hpl29ContrLbrAct1979.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl29ContrLbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 30)
+                            {
+                                divConstrPermit.Visible = true;
+                                hpl30ConstrPermit.Visible = true;
+                                hpl30ConstrPermit.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl30ConstrPermit.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 31)
+                            {
+                                divBldngPlan.Visible = true;
+                                hpl31BldngPlan.Visible = true;
+                                hpl31BldngPlan.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl31BldngPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
         }
         protected void btnClear_Click(object sender, EventArgs e)
         {

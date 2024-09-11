@@ -2,6 +2,7 @@
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace MeghalayaUIP.User.CFO
         decimal TotalFee, TotalFeeAmount;
         decimal amounts1;
         decimal amounts22 = 0;
-        string result;
+        string result, ErrorMsg = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,6 +53,7 @@ namespace MeghalayaUIP.User.CFO
                         if (Convert.ToString(Session["CFOUNITID"]) != "")
                         {
                             BindData();
+                            GetCFOofflineapprovals();
                         }
                         else
                         {
@@ -207,92 +209,326 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (grdApprovalsCFO.Rows.Count == count)
                 {
-                    DataSet dsOffline = new DataSet();
-                    dsOffline = objcfobal.GetCFOAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Session["CFOQID"].ToString(), "Y");
-                    if (dsOffline.Tables.Count > 0)
-                    {
-                        if (dsOffline.Tables[0].Rows.Count > 0)
-                        {
-                            btnNext.Enabled = false;
-                            divOffline.Visible = true;
-                            for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
-                            {
-                                if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "32")
-                                    divMigrantReg2020.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "33")
-                                    divManufactureReg.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "34")
-                                    divRenewalReg.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "35")
-                                    divBoilerReg.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "36")
-                                    divLICFactory.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "37")
-                                    divLICMIGRANTWORKMEN1979.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "38")
-                                    divLICLabourContractor1970.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "39")
-                                    divLicRetailDrug.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "40")
-                                    divLicRepairWeight.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "41")
-                                    divLicManuMeasure.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "42")
-                                    div42LicDealerWeight.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "43")
-                                    divIVSMeasure.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "44")
-                                    divFireSafeCert.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "45")
-                                    divExiseRetail.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "46")
-                                    divLicWholeDrug.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "47")
-                                    divBrandReg.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
-                                    divLicGrantRenew.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "49")
-                                    divLicManuDrug.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "50")
-                                    divLicManuDrugSpecifie.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "51")
-                                    divLicGrantRenewSch.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "52")
-                                    divLicManuVolumesera.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "53")
-                                    divProffessTax.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "54")
-                                    divPCB.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "55")
-                                    divOccupancyCert.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "56")
-                                    divBoilerDept.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "57")
-                                    divRegPipelineSteam.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "58")
-                                    divRegShopEst.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "59")
-                                    divLicGrantBusiness.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "60")
-                                    divLicIMFL.Visible = true;
-                                else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "61")
-                                    divSatateExcise.Visible = true;
+                    SetGridLabelValue();
+                    GetCFOofflineapprovals();
+                    success.Visible = true;
+                    lblmsg.Text = "Details Submitted Successfully";
+                    string message = "alert('" + lblmsg.Text + "')";
 
-                            }
-                        }
-
-                        success.Visible = true;
-                        lblmsg.Text = "Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+            }
+        }
+        public void GetCFOofflineapprovals()
+        {
+            try
+            {
+                DataSet dsOffline = new DataSet();
+                dsOffline = objcfobal.GetCFOAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Session["CFOQID"].ToString(), "Y");
+                if (dsOffline.Tables.Count > 0)
+                {
+                    if (dsOffline.Tables[0].Rows.Count > 0)
+                    {
+                        btnNext.Enabled = false;
+                        divOffline.Visible = true;
+                        div2.Visible = true;
+                        for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
+                        {
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "32")
+                                divMigrantReg2020.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "33")
+                                divManufactureReg.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "34")
+                                divRenewalReg.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "35")
+                                divBoilerReg.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "36")
+                                divLICFactory.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "37")
+                                divLICMIGRANTWORKMEN1979.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "38")
+                                divLICLabourContractor1970.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "39")
+                                divLicRetailDrug.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "40")
+                                divLicRepairWeight.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "41")
+                                divLicManuMeasure.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "42")
+                                div42LicDealerWeight.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "43")
+                                divIVSMeasure.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "44")
+                                divFireSafeCert.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "45")
+                                divExiseRetail.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "46")
+                                divLicWholeDrug.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "47")
+                                divBrandReg.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
+                                divLicGrantRenew.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "49")
+                                divLicManuDrug.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "50")
+                                divLicManuDrugSpecifie.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "51")
+                                divLicGrantRenewSch.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "52")
+                                divLicManuVolumesera.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "53")
+                                divProffessTax.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "54")
+                                divPCB.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "55")
+                                divOccupancyCert.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "56")
+                                divBoilerDept.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "57")
+                                divRegPipelineSteam.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "58")
+                                divRegShopEst.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "59")
+                                divLicGrantBusiness.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "60")
+                                divLicIMFL.Visible = true;
+                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "61")
+                                divSatateExcise.Visible = true;
+
+                        }
+                    }
+                    if (dsOffline.Tables[1].Rows.Count > 0)
+                    {
+                        divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false; div2.Visible = true;
+                        btnNext2.Visible = true;
+                        for (int i = 0; i < dsOffline.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i][""]) == 32)//Migrant Work
+                            {
+                                divMigrantReg2020.Visible = true;
+                                hpl32MigrantReg.Visible = true;
+                                hpl32MigrantReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl32MigrantReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i][""]) == 33)//ManuFacture Repaire
+                            {
+                                divManufactureReg.Visible = true;
+                                hpl33ManufactureReg.Visible = true;
+                                hpl33ManufactureReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl33ManufactureReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 34)//PCB HAZ NOC
+                            {
+                                divRenewalReg.Visible = true;
+                                hpl34RenewalReg.Visible = true;
+                                hpl34RenewalReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl34RenewalReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 35)
+                            {
+                                divBoilerReg.Visible = true;
+                                hpl35BoilerReg.Visible = true;
+                                hpl35BoilerReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl35BoilerReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 36)
+                            {
+                                divLICFactory.Visible = true;
+                                hpl36LICFactory.Visible = true;
+                                hpl36LICFactory.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl36LICFactory.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 37)
+                            {
+                                divLICMIGRANTWORKMEN1979.Visible = true;
+                                hpl37LICMIGRANTWORKMEN.Visible = true;
+                                hpl37LICMIGRANTWORKMEN.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl37LICMIGRANTWORKMEN.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 38)
+                            {
+                                divLICLabourContractor1970.Visible = true;
+                                hpl38LICLabourContractor.Visible = true;
+                                hpl38LICLabourContractor.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl38LICLabourContractor.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 39)
+                            {
+                                divLicRetailDrug.Visible = true;
+                                hpl39LicRetailDrug.Visible = true;
+                                hpl39LicRetailDrug.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl39LicRetailDrug.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 40)
+                            {
+                                divLicRepairWeight.Visible = true;
+                                hpl40LicRepairWeight.Visible = true;
+                                hpl40LicRepairWeight.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl40LicRepairWeight.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 41)
+                            {
+                                divLicManuMeasure.Visible = true;
+                                hpl41LicManuMeasure.Visible = true;
+                                hpl41LicManuMeasure.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl41LicManuMeasure.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 42)
+                            {
+                                div42LicDealerWeight.Visible = true;
+                                hpl42LicDealerWeight.Visible = true;
+                                hpl42LicDealerWeight.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl42LicDealerWeight.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 43)
+                            {
+                                divIVSMeasure.Visible = true;
+                                hpl43IVSMeasure.Visible = true;
+                                hpl43IVSMeasure.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl43IVSMeasure.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 44)
+                            {
+                                divFireSafeCert.Visible = true;
+                                hpl44FireSafeCert.Visible = true;
+                                hpl44FireSafeCert.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl44FireSafeCert.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 45)
+                            {
+                                divExiseRetail.Visible = true;
+                                hpl45ExiseRetail.Visible = true;
+                                hpl45ExiseRetail.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl45ExiseRetail.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 46)
+                            {
+                                divLicWholeDrug.Visible = true;
+                                hpl46LicWholeDrug.Visible = true;
+                                hpl46LicWholeDrug.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl46LicWholeDrug.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 47)
+                            {
+                                divBrandReg.Visible = true;
+                                hpl47BrandReg.Visible = true;
+                                hpl47BrandReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl47BrandReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 48)
+                            {
+                                divLicGrantRenew.Visible = true;
+                                hpl48LicGrantRenew.Visible = true;
+                                hpl48LicGrantRenew.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl48LicGrantRenew.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 49)
+                            {
+                                divLicManuDrug.Visible = true;
+                                hpl49LicManuDrug.Visible = true;
+                                hpl49LicManuDrug.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl49LicManuDrug.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 50)
+                            {
+                                divLicManuDrugSpecifie.Visible = true;
+                                hpl50LicManuDrugSpecifie.Visible = true;
+                                hpl50LicManuDrugSpecifie.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl50LicManuDrugSpecifie.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 51)
+                            {
+                                divLicGrantRenewSch.Visible = true;
+                                hpl51LicGrantRenewSch.Visible = true;
+                                hpl51LicGrantRenewSch.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl51LicGrantRenewSch.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 52)
+                            {
+                                divLicManuVolumesera.Visible = true;
+                                hpl52LicManuVolumesera.Visible = true;
+                                hpl52LicManuVolumesera.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl52LicManuVolumesera.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 53)
+                            {
+                                divProffessTax.Visible = true;
+                                hpl53ProffessTax.Visible = true;
+                                hpl53ProffessTax.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl53ProffessTax.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 54)
+                            {
+                                divPCB.Visible = true;
+                                hpl54PCB.Visible = true;
+                                hpl54PCB.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl54PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 55)
+                            {
+                                divOccupancyCert.Visible = true;
+                                hpl55OccupancyCert.Visible = true;
+                                hpl55OccupancyCert.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl55OccupancyCert.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 56)
+                            {
+                                divBoilerDept.Visible = true;
+                                hpl56BoilerDept.Visible = true;
+                                hpl56BoilerDept.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl56BoilerDept.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 57)
+                            {
+                                divRegPipelineSteam.Visible = true;
+                                hpl57RegPipelineSteam.Visible = true;
+                                hpl57RegPipelineSteam.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl57RegPipelineSteam.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 58)
+                            {
+                                divRegShopEst.Visible = true;
+                                hpl58RegShopEst.Visible = true;
+                                hpl58RegShopEst.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl58RegShopEst.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 59)
+                            {
+                                divLicGrantBusiness.Visible = true;
+                                hpl59LicGrantBusiness.Visible = true;
+                                hpl59LicGrantBusiness.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl59LicGrantBusiness.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 60)
+                            {
+                                divLicIMFL.Visible = true;
+                                hpl60LicIMFL.Visible = true;
+                                hpl60LicIMFL.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl60LicIMFL.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 61)
+                            {
+                                divSatateExcise.Visible = true;
+                                hpl61SatateExcise.Visible = true;
+                                hpl61SatateExcise.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                hpl61SatateExcise.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                            }
+                           
+
+                        }
+                    }
+
+                  
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
         protected void btnNext_Click(object sender, EventArgs e)
@@ -421,7 +657,7 @@ namespace MeghalayaUIP.User.CFO
                         grdApprovalsCFO.DataBind();
                         hdnQuesid.Value = Convert.ToString(Session["CFOQID"]);
                     }
-                    if (dsApprovals.Tables[1].Rows.Count > 0)
+                    if (dsApprovals.Tables[0].Rows.Count > 0 && dsApprovals.Tables[1].Rows.Count > 0)
                     {
                         divOffline.Visible = true; //btnNext.Enabled = false;
                         for (int i = 0; i < dsApprovals.Tables[1].Rows.Count; i++)
@@ -651,6 +887,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup32MigrantReg.HasFile)
                 {
@@ -677,6 +914,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalMIGRANTREGISTRATION";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtMigrant.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -709,6 +947,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 if (Attachment.PostedFile.ContentType != "application/pdf"
                      || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
@@ -717,6 +956,11 @@ namespace MeghalayaUIP.User.CFO
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
                         slno = slno + 1;
                     }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))
@@ -766,6 +1010,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalMANUFACTUREREGISTRATION";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtManufacture.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -825,7 +1070,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalRENEWALREGISTRATION";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtRegWorksService.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl34RenewalReg.Text = fup34RenewalReg.PostedFile.FileName;
@@ -884,6 +1130,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalBOILERREGISTER";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtRegBoiler.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -943,6 +1190,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICFACTORY";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtLicFactory.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1002,7 +1250,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICMIGRANTWORKMEN";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtLicWorkmen1979.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl37LICMIGRANTWORKMEN.Text = fup37LICMIGRANTWORKMEN.PostedFile.FileName;
@@ -1061,6 +1310,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICLABOURCONTRACTOR";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtLicLabour1970.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1120,7 +1370,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICRETAILSDRUG";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtLicRetailsDrug.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl39LicRetailDrug.Text = fup39LicRetailDrug.PostedFile.FileName;
@@ -1179,7 +1430,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICREPAIREWEIGHT";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtLicRepairers.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl40LicRepairWeight.Text = fup40LicRepairWeight.PostedFile.FileName;
@@ -1238,7 +1490,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICMANUFACTUREMEASURE";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtMeasuresLic.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl41LicManuMeasure.Text = fup41LicManuMeasure.PostedFile.FileName;
@@ -1297,6 +1550,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICENSEDEALERWEIGHT";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtLicDealer.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1356,6 +1610,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalMEASUREIV";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtWeightInstrument.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1415,7 +1670,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalFIRESAFECERTIFICATE";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtFiresaftey.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl44FireSafeCert.Text = fup44FireSafeCert.PostedFile.FileName;
@@ -1474,6 +1730,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalEXCISERETAIL";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtRetailPlant.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1533,6 +1790,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICWHOLEDRUG";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtWholeDrugLic.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1592,7 +1850,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalBRANGDREGISTRATION";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtBrandReg.Text;
+                      result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl47BrandReg.Text = fup47BrandReg.PostedFile.FileName;
@@ -1651,7 +1910,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICGRANTRENEWAL";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtDrugRenewal.Text;
+                      result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl48LicGrantRenew.Text = fup48LicGrantRenew.PostedFile.FileName;
@@ -1710,6 +1970,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICMANUFACTUREDRUG";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtLicManufacture.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1769,6 +2030,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICMANUFACTUREDRUG";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtLicLoanDrug.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1828,6 +2090,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICGRANTRENEWAL";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtDrugSale.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1887,6 +2150,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICMANUFACTUREVOLUME";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtGrantManu.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -1946,7 +2210,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalPROFFIENCYTAX";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtProfessionalTax.Text;
+                      result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl53ProffessTax.Text = fup53ProffessTax.PostedFile.FileName;
@@ -2005,6 +2270,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalPCB";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtPCB.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -2064,6 +2330,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalOCCUPANCYCERTIFICATE";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtCertificate.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -2123,6 +2390,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalBOILREDEPARTMENT";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtsteamDept.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -2182,7 +2450,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalREGISTERPIPLINE";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtBoilerSteam.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl57RegPipelineSteam.Text = fup57RegPipelineSteam.PostedFile.FileName;
@@ -2241,6 +2510,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalREDISTERSHOP";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtShopESt.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -2300,6 +2570,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICGRANTBUSINESS";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtGrantLic.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -2359,7 +2630,8 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalLICMFL";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        result = objcfobal.InsertCFOAttachments(objPCBNOC);
+                        objPCBNOC.ReferenceNo = txtLocalSale.Text;
+                       result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
                             hpl60LicIMFL.Text = fup60LicIMFL.PostedFile.FileName;
@@ -2418,6 +2690,7 @@ namespace MeghalayaUIP.User.CFO
                         objPCBNOC.FileDescription = "OfflineApprovalSTATEEXCISE";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
+                        objPCBNOC.ReferenceNo = txtExcise.Text;
                         result = objcfobal.InsertCFOAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -2462,6 +2735,20 @@ namespace MeghalayaUIP.User.CFO
             catch (Exception ex)
             { throw ex; }
         }
+
+        protected void btnNext2_Click(object sender, EventArgs e)
+        {
+            ErrorMsg = OfflineValidations();
+            if (ErrorMsg == "")
+                Response.Redirect("~/User/CFO/CFOIndustryDetails.aspx?next=N");
+            else
+            {
+                 string message = "alert('" + ErrorMsg + "')";
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                return;
+            }
+        }
+
         public static bool ValidateFileExtension(FileUpload Attachment)
         {
             try
@@ -2478,6 +2765,163 @@ namespace MeghalayaUIP.User.CFO
             catch (Exception ex)
             { throw ex; }
         }
+        public String OfflineValidations()
+        {
+            try
+            {
+                string errormsg = "";
+                int SlNo = 1;
+                if (divMigrantReg2020.Visible == true && (string.IsNullOrWhiteSpace(hpl32MigrantReg.Text) || hpl32MigrantReg.Text == "" || hpl32MigrantReg.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from The Meghalaya Identification, Registration of Migrant Workers Act, 2020  \\n";
+                }
+                if (divManufactureReg.Visible == true && (string.IsNullOrWhiteSpace(hpl33ManufactureReg.Text) || hpl33ManufactureReg.Text == "" || hpl33ManufactureReg.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Registration of Manufacturers / Repairers/Erectors of Boilers  \\n";
+                }
+                if (divRenewalReg.Visible == true && (string.IsNullOrWhiteSpace(hpl34RenewalReg.Text) || hpl34RenewalReg.Text == "" || hpl34RenewalReg.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Registration of Contractors for Works and services and Renewal  \\n";
+                }
+                if (divBoilerReg.Visible == true && (string.IsNullOrWhiteSpace(hpl35BoilerReg.Text) || hpl35BoilerReg.Text == "" || hpl35BoilerReg.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Registration of Boiler  \\n";
+                }
+                if (divLICFactory.Visible == true && (string.IsNullOrWhiteSpace(hpl36LICFactory.Text) || hpl36LICFactory.Text == "" || hpl36LICFactory.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from License to Work as a Factory  \\n";
+                }
+                if (divLICMIGRANTWORKMEN1979.Visible == true && (string.IsNullOrWhiteSpace(hpl37LICMIGRANTWORKMEN.Text) || hpl37LICMIGRANTWORKMEN.Text == "" || hpl37LICMIGRANTWORKMEN.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from License for Contractors under the Interstate Migrant Workmen Act 1979 \\n";
+                }
+                if (divLICLabourContractor1970.Visible == true && (string.IsNullOrWhiteSpace(hpl38LICLabourContractor.Text) || hpl38LICLabourContractor.Text == "" || hpl38LICLabourContractor.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from License for Contractors under the Contract Labour Act 1970 \\n";
+                }
+                if (divLicRetailDrug.Visible == true && (string.IsNullOrWhiteSpace(hpl39LicRetailDrug.Text) || hpl39LicRetailDrug.Text == "" || hpl39LicRetailDrug.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Licence for Retail and Wholesale Drug licence \\n";
+                }
+                if (divLicRepairWeight.Visible == true && (string.IsNullOrWhiteSpace(hpl40LicRepairWeight.Text) || hpl40LicRepairWeight.Text == "" || hpl40LicRepairWeight.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Licence as Repairers of Weights & Measures  \\n";
+                }
+                if (divLicManuMeasure.Visible == true && (string.IsNullOrWhiteSpace(hpl41LicManuMeasure.Text) || hpl41LicManuMeasure.Text == "" || hpl41LicManuMeasure.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Licence as Manufacturer of Weights & Measures \\n";
+                }
+                if (div42LicDealerWeight.Visible == true && (string.IsNullOrWhiteSpace(hpl42LicDealerWeight.Text) || hpl42LicDealerWeight.Text == "" || hpl42LicDealerWeight.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Licence as Dealers in Weights & Measures \\n";
+                }
+                if (divIVSMeasure.Visible == true && (string.IsNullOrWhiteSpace(hpl43IVSMeasure.Text) || hpl43IVSMeasure.Text == "" || hpl43IVSMeasure.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Initial Verification And Stamping of Weighing and Measuring Instrument \\n";
+                }
+                if (divFireSafeCert.Visible == true && (string.IsNullOrWhiteSpace(hpl44FireSafeCert.Text) || hpl44FireSafeCert.Text == "" || hpl44FireSafeCert.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Fire Safety Certificate \\n";
+                }
+                if (divExiseRetail.Visible == true && (string.IsNullOrWhiteSpace(hpl45ExiseRetail.Text) || hpl45ExiseRetail.Text == "" || hpl45ExiseRetail.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Excise License for Wholesale, Retail, Bottling, Distillery Plant \\n";
+                }
+                if (divLicWholeDrug.Visible == true && (string.IsNullOrWhiteSpace(hpl46LicWholeDrug.Text) || hpl46LicWholeDrug.Text == "" || hpl46LicWholeDrug.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Change of Constitution of Licence for Retail and Wholesale Drug licence \\n";
+                }
+                if (divBrandReg.Visible == true && (string.IsNullOrWhiteSpace(hpl47BrandReg.Text) || hpl47BrandReg.Text == "" || hpl47BrandReg.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Brand and Label Registration \\n";
+                }
+                if (divLicGrantRenew.Visible == true && (string.IsNullOrWhiteSpace(hpl48LicGrantRenew.Text) || hpl48LicGrantRenew.Text == "" || hpl48LicGrantRenew.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application For The Grant/Renewal Of License To Manufacture Drugs For Purpose Of Examination, Test Or Analysis \\n";
+                }
+                if (divLicManuDrug.Visible == true && (string.IsNullOrWhiteSpace(hpl49LicManuDrug.Text) || hpl49LicManuDrug.Text == "" || hpl49LicManuDrug.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application For The Grant Of Loan License To Manufacture For Sale Or For Distribution Of Drugs \\n";
+                }
+                if (divLicManuDrugSpecifie.Visible == true && (string.IsNullOrWhiteSpace(hpl50LicManuDrugSpecifie.Text) || hpl50LicManuDrugSpecifie.Text == "" || hpl50LicManuDrugSpecifie.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application For The Grant Of A Loan License To Manufacture For Sale Or For Distribution Of Drugs \\n";
+                }
+                if (divLicGrantRenewSch.Visible == true && (string.IsNullOrWhiteSpace(hpl51LicGrantRenewSch.Text) || hpl51LicGrantRenewSch.Text == "" || hpl51LicGrantRenewSch.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application For The Grant /Renewal Of License To Repack For Sale Or For Distribution Of Drugs \\n";
+                }
+                if (divLicManuVolumesera.Visible == true && (string.IsNullOrWhiteSpace(hpl52LicManuVolumesera.Text) || hpl52LicManuVolumesera.Text == "" || hpl52LicManuVolumesera.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application For Application For The Grant /Renewal Of License To Manufacture For Sale Or For Distribution Of Large Volume Parenterals/Sera And Vacciness \\n";
+                }
+                if (divProffessTax.Visible == true && (string.IsNullOrWhiteSpace(hpl53ProffessTax.Text) || hpl53ProffessTax.Text == "" || hpl53ProffessTax.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application For Application for Certificate of Enrollment of Professional Tax under the Meghalaya Professions \\n";
+                }
+                if (divPCB.Visible == true && (string.IsNullOrWhiteSpace(hpl54PCB.Text) || hpl54PCB.Text == "" || hpl54PCB.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application For CFO from Pollution Contorl Board  \\n";
+                }
+                if (divOccupancyCert.Visible == true && (string.IsNullOrWhiteSpace(hpl55OccupancyCert.Text) || hpl55OccupancyCert.Text == "" || hpl55OccupancyCert.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Occupancy Certificate  \\n";
+                }
+                if (divBoilerDept.Visible == true && (string.IsNullOrWhiteSpace(hpl56BoilerDept.Text) || hpl56BoilerDept.Text == "" || hpl56BoilerDept.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Boilers Steam Pipeline Erection Permission Certificate from Boilers Department \\n";
+                }
+                if (divRegPipelineSteam.Visible == true && (string.IsNullOrWhiteSpace(hpl57RegPipelineSteam.Text) || hpl57RegPipelineSteam.Text == "" || hpl57RegPipelineSteam.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Boilers Steam Pipeline Registration Number Certificate  \\n";
+                }
+                if (divRegShopEst.Visible == true && (string.IsNullOrWhiteSpace(hpl58RegShopEst.Text) || hpl58RegShopEst.Text == "" || hpl58RegShopEst.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Registration of Shops and Establishment - FORM - A \\n";
+                }
+                if (divLicGrantBusiness.Visible == true && (string.IsNullOrWhiteSpace(hpl59LicGrantBusiness.Text) || hpl59LicGrantBusiness.Text == "" || hpl59LicGrantBusiness.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from Application for Grant of Business License \\n";
+                }
+                if (divLicIMFL.Visible == true && (string.IsNullOrWhiteSpace(hpl60LicIMFL.Text) || hpl60LicIMFL.Text == "" || hpl60LicIMFL.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from License for Local Sale, Import and Export Permit of Spirit and Indian-Made Foreign Liquor (IMFL)  \\n";
+                }
+                if (divSatateExcise.Visible == true && (string.IsNullOrWhiteSpace(hpl61SatateExcise.Text) || hpl61SatateExcise.Text == "" || hpl61SatateExcise.Text == null))
+                {
+                    errormsg = errormsg + SlNo + "Please Upload Pre Operational Approval from State Excise - Excise Verification Certificate  \\n";
+                }
+
+                return errormsg;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void SetGridLabelValue()
+        {
+            try
+            {
+                int rowsIndex = grdApprovalsCFO.Rows.Count;
+
+                if (rowsIndex > 0)
+                {
+
+                    for (int i = 0; i < rowsIndex; i++)
+                    {
+                        CheckBox chkCheck = (CheckBox)grdApprovalsCFO.Rows[i].FindControl("ChkApproval");
+                        GridViewRow grdRwos = (GridViewRow)chkCheck.NamingContainer;
+                        if (chkCheck.Checked == true)
+                            grdRwos.Cells[6].Text = grdRwos.Cells[3].Text;
+                        else
+                            grdRwos.Cells[6].Text = "0";
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
 
     }
 }
