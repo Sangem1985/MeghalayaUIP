@@ -176,7 +176,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtPCBOARD" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt1PCB" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup1PCB" Width="300px" Font-Italic="true" Height="45px" />

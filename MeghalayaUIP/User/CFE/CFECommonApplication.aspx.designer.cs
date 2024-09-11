@@ -150,13 +150,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPCB;
 
         /// <summary>
-        /// txtPCBOARD control.
+        /// txt1PCB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPCBOARD;
+        protected global::System.Web.UI.WebControls.TextBox txt1PCB;
 
         /// <summary>
         /// fup1PCB control.

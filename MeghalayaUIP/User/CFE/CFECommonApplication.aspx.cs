@@ -363,7 +363,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 if (dsOffline.Tables[0].Rows.Count > 0)
                 {
-                    btnNext.Enabled = false;
+                    btnNext.Enabled = false; btnNext2.Visible = true;
                     divOffline.Visible = true;
                     div2.Visible = true;
                     for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
@@ -726,7 +726,7 @@ namespace MeghalayaUIP.User.CFE
                         objPCBNOC.FileDescription = "OfflineApprovalPCBNOC";
                         objPCBNOC.CreatedBy = hdnUserID.Value;
                         objPCBNOC.IPAddress = getclientIP();
-                        objPCBNOC.ReferenceNo = txtPCBOARD.Text;
+                        objPCBNOC.ReferenceNo = txt1PCB.Text;
                         result = objcfebal.InsertCFEAttachments(objPCBNOC);
                         if (result != "")
                         {
@@ -2569,123 +2569,158 @@ namespace MeghalayaUIP.User.CFE
             int SlNo = 1;
             if (divPCB.Visible == true && (string.IsNullOrWhiteSpace(hpl1PCB.Text) || hpl1PCB.Text == "" || hpl1PCB.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Pre Establishment Approval from Pollution Control Board  \\n";
+                errormsg = errormsg + SlNo + ". . Please Upload Pre Establishment Approval from Pollution Control Board  \\n";
+                SlNo = SlNo + 1;
+            }
+            if (divPCB.Visible == true && (string.IsNullOrWhiteSpace(hpl1PCB.Text) || hpl1PCB.Text == "" || hpl1PCB.Text == null))
+            {
+                errormsg = errormsg + SlNo + ". . Please Upload Pre Establishment Approval from Pollution Control Board  \\n";
+                SlNo = SlNo + 1;
             }
             if (divHazPCB.Visible == true && (string.IsNullOrWhiteSpace(hpl2HazPCB.Text) || hpl2HazPCB.Text == "" || hpl2HazPCB.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Authorization under the Hazardous and Other Waste (Management and Transboundary Movement) Rules 2016  \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Authorization under the Hazardous and Other Waste (Management and Transboundary Movement) Rules 2016  \\n";
+                SlNo = SlNo + 1;
             }
             if (divSrvcCon.Visible == true && (string.IsNullOrWhiteSpace(hpl3SrvcCon.Text) || hpl3SrvcCon.Text == "" || hpl3SrvcCon.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Service Connection Certificate \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Service Connection Certificate \\n";
+                SlNo = SlNo + 1;
             }
             if (divEleCon.Visible == true && (string.IsNullOrWhiteSpace(hpl4EleCon.Text) || hpl4EleCon.Text == "" || hpl4EleCon.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Obtaining Electricity Connection \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Obtaining Electricity Connection \\n";
+                SlNo = SlNo + 1;
             }
             if (divFctryPlan.Visible == true && (string.IsNullOrWhiteSpace(hpl5FctryPlan.Text) || hpl5FctryPlan.Text == "" || hpl5FctryPlan.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Factory Plan Approval \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Factory Plan Approval \\n";
+                SlNo = SlNo + 1;
             }
             if (divDGsetNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl6DGsetNOC.Text) || hpl6DGsetNOC.Text == "" || hpl6DGsetNOC.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload NOC DG Set \\n";
+                errormsg = errormsg + SlNo + ". Please Upload NOC DG Set \\n";
+                SlNo = SlNo + 1;
             }
             if (divFireSfty.Visible == true && (string.IsNullOrWhiteSpace(hpl7FireSfty.Text) || hpl7FireSfty.Text == "" || hpl7FireSfty.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Provisional Fire Safety Certificate \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Provisional Fire Safety Certificate \\n";
+                SlNo = SlNo + 1;
             }
             if (divRSDSLic.Visible == true && (string.IsNullOrWhiteSpace(hpl8RSDSLic.Text) || hpl8RSDSLic.Text == "" || hpl8RSDSLic.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Licence to store RS, DS  \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Licence to store RS, DS  \\n";
+                SlNo = SlNo + 1;
             }
             if (divExplsvNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl9ExplsvNOC.Text) || hpl9ExplsvNOC.Text == "" || hpl9ExplsvNOC.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload NOC required for setting up of Explosives Manufacturing, Storage, Sale, Transport\\n";
+                errormsg = errormsg + SlNo + ". Please Upload NOC required for setting up of Explosives Manufacturing, Storage, Sale, Transport\\n";
+                SlNo = SlNo + 1;
             }
             if (divPtrlNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl10PtrlNOC.Text) || hpl10PtrlNOC.Text == "" || hpl10PtrlNOC.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload NOC Required for Setting Up of Petroleum, Diesel & Naphtha Manufacturing, Storage, Sale, Transport\\n";
+                errormsg = errormsg + SlNo + ". Please Upload NOC Required for Setting Up of Petroleum, Diesel & Naphtha Manufacturing, Storage, Sale, Transport\\n";
+                SlNo = SlNo + 1;
             }
             if (divRdCtng.Visible == true && (string.IsNullOrWhiteSpace(hpl11RdCtng.Text) || hpl11RdCtng.Text == "" || hpl11RdCtng.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Road Cutting Permission Letter \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Road Cutting Permission Letter \\n";
+                SlNo = SlNo + 1;
             }
             if (divNonEncmb.Visible == true && (string.IsNullOrWhiteSpace(hpl12NonEncmb.Text) || hpl12NonEncmb.Text == "" || hpl12NonEncmb.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Non Encumbrance Certificate \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Non Encumbrance Certificate \\n";
+                SlNo = SlNo + 1;
             }
             if (divProfTax.Visible == true && (string.IsNullOrWhiteSpace(hpl13ProfTax.Text) || hpl13ProfTax.Text == "" || hpl13ProfTax.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Certificate of Registration of Professional Tax under the Meghalaya Professions Trades Callings and Employment Taxation Rules \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Certificate of Registration of Professional Tax under the Meghalaya Professions Trades Callings and Employment Taxation Rules \\n";
+                SlNo = SlNo + 1;
             }
             if (divElcInsp.Visible == true && (string.IsNullOrWhiteSpace(hpl14ElcInsp.Text) || hpl14ElcInsp.Text == "" || hpl14ElcInsp.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Electrical Drawing Approval from Electrical Inspectorate \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Electrical Drawing Approval from Electrical Inspectorate \\n";
+                SlNo = SlNo + 1;
             }
             if (divForstDist.Visible == true && (string.IsNullOrWhiteSpace(hpl15ForstDist.Text) || hpl15ForstDist.Text == "" || hpl15ForstDist.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Letter for distance from Forest \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Letter for distance from Forest \\n";
+                SlNo = SlNo + 1;
             }
             if (divNonForstLand.Visible == true && (string.IsNullOrWhiteSpace(hpl16NonForstLand.Text) || hpl16NonForstLand.Text == "" || hpl16NonForstLand.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Non-Forest Land Certificate \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Non-Forest Land Certificate \\n";
+                SlNo = SlNo + 1;
             }
             if (divIrrgNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl17IrrgNOC.Text) || hpl17IrrgNOC.Text == "" || hpl17IrrgNOC.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload FTL NOC for Change of Land use (Irrigation) \\n";
+                errormsg = errormsg + SlNo + ". Please Upload FTL NOC for Change of Land use (Irrigation) \\n";
+                SlNo = SlNo + 1;
             }
             if (divRevNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl18RevNOC.Text) || hpl18RevNOC.Text == "" || hpl18RevNOC.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload FTL NOC for Change of Land use (Revenue)\\n";
+                errormsg = errormsg + SlNo + ". Please Upload FTL NOC for Change of Land use (Revenue)\\n";
+                SlNo = SlNo + 1;
             }
             if (divGrndWtrNOC.Visible == true && (string.IsNullOrWhiteSpace(hpl19GrndWtrNOC.Text) || hpl19GrndWtrNOC.Text == "" || hpl19GrndWtrNOC.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload NoC for Ground Water Abstraction for Commercial Connection \\n";
+                errormsg = errormsg + SlNo + ". Please Upload NoC for Ground Water Abstraction for Commercial Connection \\n";
+                SlNo = SlNo + 1;
             }
             if (divNoWtrSplyCertfct.Visible == true && (string.IsNullOrWhiteSpace(hpl20NoWtrSply.Text) || hpl20NoWtrSply.Text == "" || hpl20NoWtrSply.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Certificate for non-availability of water supply from water supply agency\\n";
+                errormsg = errormsg + SlNo + ". Please Upload Certificate for non-availability of water supply from water supply agency\\n";
+                SlNo = SlNo + 1;
             }
             if (divPrmsntoDrawWtr.Visible == true && (string.IsNullOrWhiteSpace(hpl21ToDrawWtr.Text) || hpl21ToDrawWtr.Text == "" || hpl21ToDrawWtr.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Permission to Draw Water from River/Public Tanks \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Permission to Draw Water from River/Public Tanks \\n";
+                SlNo = SlNo + 1;
             }
             if (divMunicipalWatr.Visible == true && (string.IsNullOrWhiteSpace(hpl22MunicipalWatr.Text) || hpl22MunicipalWatr.Text == "" || hpl22MunicipalWatr.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Water Connection for the Municipal Area  \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Water Connection for the Municipal Area  \\n";
+                SlNo = SlNo + 1;
             }
             if (divUrbanWatr.Visible == true && (string.IsNullOrWhiteSpace(hpl23UrbanWatr.Text) || hpl23UrbanWatr.Text == "" || hpl23UrbanWatr.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Grant of Water Connection to Non Municipal urban areas  \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Grant of Water Connection to Non Municipal urban areas  \\n";
+                SlNo = SlNo + 1;
             }
             if (divLbrAct1970.Visible == true && (string.IsNullOrWhiteSpace(hpl25LbrAct1970.Text) || hpl25LbrAct1970.Text == "" || hpl25LbrAct1970.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Registration of Establishments/Principal Employer Employing Contract Labour Act 1970 \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Registration of Establishments/Principal Employer Employing Contract Labour Act 1970 \\n";
+                SlNo = SlNo + 1;
             }
             if (divLbrAct1979.Visible == true && (string.IsNullOrWhiteSpace(hpl26LbrAct1979.Text) || hpl26LbrAct1979.Text == "" || hpl26LbrAct1979.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Registration of establishment under the Interstate Migrant Workmen Act 1979 \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Registration of establishment under the Interstate Migrant Workmen Act 1979 \\n";
+                SlNo = SlNo + 1;
             }
             if (divLbrAct1996.Visible == true && (string.IsNullOrWhiteSpace(hpl27LbrAct1996.Text) || hpl27LbrAct1996.Text == "" || hpl27LbrAct1996.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Registration of Establishments employing Building Workers under the Building and Other Construction Work Act 1996  \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Registration of Establishments employing Building Workers under the Building and Other Construction Work Act 1996  \\n";
+                SlNo = SlNo + 1;
             }
             if (divContrLbrAct.Visible == true && (string.IsNullOrWhiteSpace(hpl28ContrLbrAct.Text) || hpl28ContrLbrAct.Text == "" || hpl28ContrLbrAct.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload License under Contract Labour Act (Contractor) \\n";
+                errormsg = errormsg + SlNo + ". Please Upload License under Contract Labour Act (Contractor) \\n";
+                SlNo = SlNo + 1;
             }
             if (divContrLbrAct1979.Visible == true && (string.IsNullOrWhiteSpace(hpl29ContrLbrAct1979.Text) || hpl29ContrLbrAct1979.Text == "" || hpl29ContrLbrAct1979.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Registration under Inter State Migrant Workman Act 1979 (For Contractor)  \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Registration under Inter State Migrant Workman Act 1979 (For Contractor)  \\n";
+                SlNo = SlNo + 1;
             }
             if (divConstrPermit.Visible == true && (string.IsNullOrWhiteSpace(hpl30ConstrPermit.Text) || hpl30ConstrPermit.Text == "" || hpl30ConstrPermit.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Construction Permit Approval \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Construction Permit Approval \\n";
+                SlNo = SlNo + 1;
             }
             if (divBldngPlan.Visible == true && (string.IsNullOrWhiteSpace(hpl31BldngPlan.Text) || hpl31BldngPlan.Text == "" || hpl31BldngPlan.Text == null))
             {
-                errormsg = errormsg + SlNo + "Please Upload Industrial Building Plan Approval \\n";
+                errormsg = errormsg + SlNo + ". Please Upload Industrial Building Plan Approval \\n";
+                SlNo = SlNo + 1;
             }
 
             return errormsg;
