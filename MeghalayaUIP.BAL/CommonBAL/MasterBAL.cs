@@ -203,6 +203,22 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.MISIIncentiveDashboard(fdate, tdate);
         }
+        public DataSet GetAmmendments(int DEPTID)
+        {
+            return objMasterDAL.GetAmmendments(DEPTID);
+        }
+        public string InsertAmmendmentsComments(Ammendmentvo ammendment)
+        {
+            return objMasterDAL.InsertAmmendmentsComments(ammendment);
+        }
+        public DataSet GetDepartmentSofAmmendments()
+        {
+            return objMasterDAL.GetDepartmentSofAmmendments();
+        }
+        public DataSet GetUserCommentsofAmmendmentsid(int ammendentid)
+        {
+            return objMasterDAL.GetUserCommentsofAmmendmentsid(ammendentid);
+        }
 
     }
 }

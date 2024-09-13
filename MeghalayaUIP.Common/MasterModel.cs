@@ -67,6 +67,11 @@ namespace MeghalayaUIP.Common
 
         public static string GetYearMaster = "USP_GETYEAR";
         public static string GetMonthMaster = "USP_GETMONTH";
+       //--------------------------///////////
+        public static string GetAmmendments = "USP_GET_AMMENDMENTS";
+        public static string InsertAmmendmentsComment = "USP_INSAMMENDMENTCOMMENTS";
+        public static string GetAmmendmentsDepartments = "USP_GETDEPTDEPARTMENTS";
+        public static string GetUserCommentsofAmmendments = "USP_GET_Comments_Ammendment_ID";
     }
     public class MasterCountry
     {
@@ -325,6 +330,87 @@ namespace MeghalayaUIP.Common
         public string MONTH_ID { get; set; }
         public string MONTH_NAME { get; set; }
     }
+    public class Ammendmentvo
+    {
+        public string Dept_ID
+        {
+            get;
+            set;
+        }
+
+        public string Dept_Name
+        {
+            get;
+            set;
+        }
+
+        public string Ammendment
+        {
+            get;
+            set;
+        }
+        public string Ammendment_Date
+        {
+            get;
+            set;
+        }
+        public string Ammendment_Path
+        {
+            get;
+            set;
+        }
+        public string UserName
+        {
+            get;
+            set;
+        }
+        public string District
+        {
+            get;
+            set;
+        }
+        public string MobileNo
+        {
+            get;
+            set;
+        }
+        public string MailId
+        {
+            get;
+            set;
+        }
+        public string Ammendment_Id
+        {
+            get;
+            set;
+        }
+        public string Comments
+        {
+            get;
+            set;
+        }
+        public string Created_By
+        {
+            get;
+            set;
+        }
+        public string Amm_FileName
+        {
+            get;
+            set;
+        }
+        public string Amm_Type
+        {
+            get;
+            set;
+        }
+        public string IPAddress
+        {
+            get;
+            set;
+        }
+    }
+
 
 
 }

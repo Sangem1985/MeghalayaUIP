@@ -435,10 +435,12 @@
     <Content Include="assets\assetsnew\js\wow.js" />
     <Content Include="BusinessRegulation.aspx" />
     <Content Include="CentralInspectionDashboard.aspx" />
+    <Content Include="CommentsonAmmendments.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Dashboarddrill.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
+    <Content Include="Dept\Ammendments.aspx" />
     <Content Include="Dept\CFE\CFEApplDeptdrill.aspx" />
     <Content Include="Dept\CFE\CFEApplDeptProcess.aspx" />
     <Content Include="Dept\CFE\CFEApplDeptView.aspx" />
@@ -618,6 +620,13 @@
     <Compile Include="CentralInspectionDashboard.aspx.designer.cs">
       <DependentUpon>CentralInspectionDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CommentsonAmmendments.aspx.cs">
+      <DependentUpon>CommentsonAmmendments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommentsonAmmendments.aspx.designer.cs">
+      <DependentUpon>CommentsonAmmendments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CommonClass\MGCommonClass.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -646,6 +655,13 @@
     </Compile>
     <Compile Include="Deptlogin.aspx.designer.cs">
       <DependentUpon>Deptlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Ammendments.aspx.cs">
+      <DependentUpon>Ammendments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Ammendments.aspx.designer.cs">
+      <DependentUpon>Ammendments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\CFE\CFEApplDeptdrill.aspx.cs">
       <DependentUpon>CFEApplDeptdrill.aspx</DependentUpon>

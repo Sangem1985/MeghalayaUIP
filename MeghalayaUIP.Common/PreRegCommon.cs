@@ -38,6 +38,11 @@ namespace MeghalayaUIP.Common
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGPROCESSQUERYACTION";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
+
+        /*---------------------------------------------------------------------*/
+        public static string GetUserAmmendments = "USP_GET_Comments_Ammendment_ID";
+        public static string GetAmmendments = "USP_GET_AMMENDMENTS";
+        public static string InsertDeptAmmendments = "USP_INS_DEPTAMMENDMENTS";
     }
     public class IndustryDetails
     {
@@ -239,5 +244,99 @@ namespace MeghalayaUIP.Common
         public string Idd_email { get; set; }
         public string Idd_phone { get; set; }
 
+    }
+    public class AmmendmentVo
+    {
+        public string Dept_ID
+        {
+            get;
+            set;
+        }
+
+        public string Dept_Name
+        {
+            get;
+            set;
+        }
+
+        public string Ammendment
+        {
+            get;
+            set;
+        }
+        public string Ammendment_Date
+        {
+            get;
+            set;
+        }
+        public string Ammendment_Path
+        {
+            get;
+            set;
+        }
+        public string UserName
+        {
+            get;
+            set;
+        }
+        public string District
+        {
+            get;
+            set;
+        }
+        public string MobileNo
+        {
+            get;
+            set;
+        }
+        public string MailId
+        {
+            get;
+            set;
+        }
+        public string Ammendment_Id
+        {
+            get;
+            set;
+        }
+        public string Comments
+        {
+            get;
+            set;
+        }
+        public string Created_By
+        {
+            get;
+            set;
+        }
+        public string Amm_FileName
+        {
+            get;
+            set;
+        }
+        public string Amm_Type
+        {
+            get;
+            set;
+        }
+        public string IPAddress { get; set; }
+    }
+    public class Deptcomments
+    {
+        public string DeptComments
+        {
+            get;
+            set;
+        }
+        public string id
+        {
+            get;
+            set;
+        }
+        public string Created_By
+        {
+            get;
+            set;
+        }
     }
 }

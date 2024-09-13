@@ -1477,7 +1477,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetInformationWizard(string module, string deptid,string sector)
+        public DataSet GetInformationWizard(string module, string deptid, string sector)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1496,7 +1496,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Parameters.AddWithValue("@MODULE", module);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", deptid);
                 da.SelectCommand.Parameters.AddWithValue("@SECTOR", sector);
-                
+
 
                 da.Fill(ds);
                 transaction.Commit();
@@ -1721,6 +1721,173 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+        public DataSet GetAmmendments(int DEPTID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetAmmendments, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetAmmendments;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                if (DEPTID != null && DEPTID != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@Department", Convert.ToInt32(DEPTID));
+                }
+
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+                    //   valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+                    // IDno = valid;
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+        public string InsertAmmendmentsComments(Ammendmentvo ammendment)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = MasterConstants.InsertAmmendmentsComment;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@USERNAME", ammendment.UserName);
+                com.Parameters.AddWithValue("@DISTRICTID", Convert.ToInt32(ammendment.District));
+                com.Parameters.AddWithValue("@MOBILENO", Convert.ToInt64(ammendment.MobileNo));
+                // com.Parameters.AddWithValue("@Ammendment_Date", ammendment.Ammendment_Date);
+              //  com.Parameters.AddWithValue("@AMMENDMENT_DATE", DateTime.ParseExact(ammendment.Ammendment_Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@MAILID", ammendment.MailId);
+                com.Parameters.AddWithValue("@COMMENTS", ammendment.Comments);
+                com.Parameters.AddWithValue("@DEPT_ID", Convert.ToInt32(ammendment.Dept_ID));
+                com.Parameters.AddWithValue("@AMMENDMENT_ID", Convert.ToInt32(ammendment.Ammendment_Id));
+                com.Parameters.AddWithValue("@CREATEDBYIP", ammendment.IPAddress);
+               // com.Parameters.AddWithValue("@Ammendment_Id", ammendment.Ammendment_Id);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+
+        }
+        public DataSet GetDepartmentSofAmmendments()
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetAmmendmentsDepartments, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetAmmendmentsDepartments;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;             
+
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+                 
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+        public DataSet GetUserCommentsofAmmendmentsid(int ammendentid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetUserCommentsofAmmendments, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetUserCommentsofAmmendments;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@AMMENDMENT_ID", Convert.ToInt32(ammendentid));
+
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
         }
     }
 }
