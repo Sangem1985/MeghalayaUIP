@@ -179,6 +179,30 @@ namespace MeghalayaUIP.User.CFE
                     txtMeggerRange.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEDG_MEGGERRANGE"]);
 
                 }
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 30)//
+                        {
+                            hypManufacture.Visible = true;
+                            hypManufacture.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypManufacture.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 31) //
+                        {
+                            hypTest.Visible = true;
+                            hypTest.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypTest.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 32) //
+                        {
+                            hypSingleline.Visible = true;
+                            hypSingleline.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypSingleline.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -294,7 +318,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                
+
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
@@ -391,7 +415,304 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
+        protected void btnowner_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupManufacture.HasFile)
+                {
+                    Error = validations(fupManufacture);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Manufacturer" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
 
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupManufacture.PostedFile.SaveAs(serverpath + "\\" + fupManufacture.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupManufacture.PostedFile.SaveAs(serverpath + "\\" + fupManufacture.PostedFile.FileName);
+                            }
+                        }
+                        
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "30";
+                        objManufacture.FilePath = serverpath + fupManufacture.PostedFile.FileName;
+                        objManufacture.FileName = fupManufacture.PostedFile.FileName;
+                        objManufacture.FileType = fupManufacture.PostedFile.ContentType;
+                        objManufacture.FileDescription = "Manufacturer Test Report of DG Set";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypManufacture.Text = fupManufacture.PostedFile.FileName;
+                            hypManufacture.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypManufacture.Target = "blank";
+                            message = "alert('" + "Manufacturer Test Report Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnLic_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupTest.HasFile)
+                {
+                    Error = validations(fupTest);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "TestReport" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupTest.PostedFile.SaveAs(serverpath + "\\" + fupTest.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupTest.PostedFile.SaveAs(serverpath + "\\" + fupTest.PostedFile.FileName);
+                            }
+                        }
+                       
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "31";
+                        objManufacture.FilePath = serverpath + fupTest.PostedFile.FileName;
+                        objManufacture.FileName = fupTest.PostedFile.FileName;
+                        objManufacture.FileType = fupTest.PostedFile.ContentType;
+                        objManufacture.FileDescription = "DG Set Test Report by Registered Contractor in Meghalaya";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypTest.Text = fupTest.PostedFile.FileName;
+                            hypTest.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypTest.Target = "blank";
+                            message = "alert('" + "Test Report by Registered Contractor in Meghalaya Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnElectrical_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupSingleline.HasFile)
+                {
+                    Error = validations(fupSingleline);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Singleline" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupSingleline.PostedFile.SaveAs(serverpath + "\\" + fupSingleline.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupSingleline.PostedFile.SaveAs(serverpath + "\\" + fupSingleline.PostedFile.FileName);
+                            }
+                        }
+
+
+                        CFEAttachments objManufacture = new CFEAttachments();
+                        objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objManufacture.MasterID = "32";
+                        objManufacture.FilePath = serverpath + fupSingleline.PostedFile.FileName;
+                        objManufacture.FileName = fupSingleline.PostedFile.FileName;
+                        objManufacture.FileType = fupSingleline.PostedFile.ContentType;
+                        objManufacture.FileDescription = "Single Line Diagram of DG Set";
+                        objManufacture.CreatedBy = hdnUserID.Value;
+                        objManufacture.IPAddress = getclientIP();
+                        result = objcfebal.InsertCFEAttachments(objManufacture);
+                        if (result != "")
+                        {
+                            hypSingleline.Text = fupSingleline.PostedFile.FileName;
+                            hypSingleline.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypSingleline.Target = "blank";
+                            message = "alert('" + "Single Line Diagram of DG Set Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
+            }
+        }
         public string Validations()
         {
             try
@@ -617,6 +938,22 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter megger Range\\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypManufacture.Text) || hypManufacture.Text == "" || hypManufacture.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Manufacturer Test Report \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTest.Text) || hypTest.Text == "" || hypTest.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Manufacturer Test Report \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypSingleline.Text) || hypSingleline.Text == "" || hypSingleline.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Manufacturer Test Report \\n";
+                    slno = slno + 1;
+                }
+
                 return errormsg;
             }
             catch (Exception ex)
@@ -654,7 +991,7 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
             }
 
-        }      
+        }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {

@@ -58,7 +58,7 @@
                                                         <asp:Button runat="server" ID="btnUpldAadhar" Text="Upload" OnClick="btnUpldAadhar_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hplAadhar" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
+                                                        <asp:HyperLink ID="hplAadhar" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,7 +77,7 @@
                                                         <asp:Button runat="server" ID="btnUpldEPIC" Text="Upload" OnClick="btnUpldEPIC_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hplEPIC" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
+                                                        <asp:HyperLink ID="hplEPIC" runat="server" Target="_blank" ></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>
@@ -96,7 +96,7 @@
                                                         <asp:Button runat="server" ID="btnUpldPhoto" Text="Upload" OnClick="btnUpldPhoto_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hplApplPhoto" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
+                                                        <asp:HyperLink ID="hplApplPhoto" runat="server" Target="_blank" ></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,7 +115,7 @@
                                                         <asp:Button runat="server" ID="btnUplLandDoc" Text="Upload" OnClick="btnUplLandDoc_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hplLandDoc" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
+                                                        <asp:HyperLink ID="hplLandDoc" runat="server" Target="_blank" ></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,7 +134,7 @@
                                                         <asp:Button runat="server" ID="btnUpldSitePlan" Text="Upload" OnClick="btnUpldSitePlan_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hplSitePlan" runat="server" Target="_blank" ForeColor="Black"></asp:HyperLink>
+                                                        <asp:HyperLink ID="hplSitePlan" runat="server" Target="_blank" ></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>

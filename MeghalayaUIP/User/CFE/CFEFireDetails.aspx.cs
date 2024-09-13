@@ -109,8 +109,8 @@ namespace MeghalayaUIP.User.CFE
                 ddlmandal.Items.Clear();
                 ddlvillage.Items.Clear();
 
-                List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();           
-              
+                List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
+
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -286,6 +286,9 @@ namespace MeghalayaUIP.User.CFE
                             txtdistancebuild.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCESOUTH"]);
                             txtstation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FIRESTATION"]);
                         }
+
+                        if (ds.Tables[0].Rows.Count > 0)
+                        { }
                     }
                 }
             }
@@ -337,12 +340,12 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }           
+        }
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -514,6 +517,19 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Distance from Nearest Station \\n";
                     slno = slno + 1;
                 }
+
+                if (string.IsNullOrEmpty(hypbuildingplan.Text) || hypbuildingplan.Text == "" || hypbuildingplan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Blueprint of Building i.e. Building Plan as per NBC \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypfireplan.Text) || hypfireplan.Text == "" || hypfireplan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Fire Lay out Plan \\n";
+                    slno = slno + 1;
+                }
+
+
                 //if (ddldistric.SelectedIndex == -1 || ddldistric.SelectedItem.Text == "--Select--")
                 //{
                 //    errormsg = errormsg + slno + ". Please Select Distric \\n";

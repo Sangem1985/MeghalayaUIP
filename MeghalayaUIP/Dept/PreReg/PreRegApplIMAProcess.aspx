@@ -88,7 +88,7 @@
             <li class="breadcrumb-item active" aria-current="page">Application Details</li>
         </ol>
     </nav>
-        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <div class="page-wrapper">
         <div class="content container-fluid">
@@ -345,14 +345,14 @@
                                                     <h4 class="card-title1 col-lg-12">Project Details</h4>
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label> Date of Commencement of Production/Operation</label>
+                                                            <label>Date of Commencement of Production/Operation</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblDateofcomm" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label> Nature of Activity</label>
+                                                            <label>Nature of Activity</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblNatureofAct" runat="server"></asp:Label>
@@ -364,20 +364,20 @@
 
                                                     <div class="col-md-12 row  mt-1 " style="padding: 0px 0px 0px 13px; text-align: left;" id="divManf1" runat="server" visible="false">
                                                         <div class="col-md-2">
-                                                            <label> Main Manufacturing Activity</label>
+                                                            <label>Main Manufacturing Activity</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblMainmanuf" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label>  Main Raw-Materials</label>
+                                                            <label>Main Raw-Materials</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna>
                                                             <asp:Label ID="lblmainRM" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Production No</label>
+                                                            <label>Production No</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblProdNo" runat="server"></asp:Label>
@@ -386,21 +386,21 @@
                                                     <div class="col-md-12 row  mt-1 " style="padding: 0px 0px 0px 13px; text-align: left;" id="divManf2" runat="server" visible="false">
 
                                                         <div class="col-md-2">
-                                                            <label> Product to be Manufactured</label>
+                                                            <label>Product to be Manufactured</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna>
                                                             <asp:Label ID="lblmanufProdct" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Annual Capacity of Manufacturing Product</label>
+                                                            <label>Annual Capacity of Manufacturing Product</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblAnnualCap" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label> Unit of	Measurement of Annual Capacity</label>
+                                                            <label>Unit of	Measurement of Annual Capacity</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblunitofmeasure" runat="server"></asp:Label>
@@ -409,21 +409,21 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" id="divService" runat="server" visible="false">
                                                         <div class="col-md-2">
-                                                            <label> Main Service Activity</label>
+                                                            <label>Main Service Activity</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna>
                                                             <asp:Label ID="lblMainSrvc" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Service to be Provided</label>
+                                                            <label>Service to be Provided</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblSrvcProvdng" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label> Service No.</label>
+                                                            <label>Service No.</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblSrvcNo" runat="server"></asp:Label>
@@ -432,20 +432,20 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label> Sector</label>
+                                                            <label>Sector</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblSector" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Line Of Activity</label>
+                                                            <label>Line Of Activity</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblLOA" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label> PCB Category</label>
+                                                            <label>PCB Category</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblPCBcatogry" runat="server"></asp:Label>
@@ -454,19 +454,19 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label> Details of Waste / Effluent to be generated</label>
+                                                            <label>Details of Waste / Effluent to be generated</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblwastedtls" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Details of Hazardous Waste to be generated</label>
+                                                            <label>Details of Hazardous Waste to be generated</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblhazdtls" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Estimated Project Cost (INR)</label>
+                                                            <label>Estimated Project Cost (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblEstProjcost" runat="server"></asp:Label>
@@ -474,20 +474,20 @@
                                                     </div>
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label>  Plant & Machinery (INR)</label>
+                                                            <label>Plant & Machinery (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblPMCost" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Investment in Fixed Capital (INR)</label>
+                                                            <label>Investment in Fixed Capital (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblIFC" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label> Durable Fixed Assets (INR)</label>
+                                                            <label>Durable Fixed Assets (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblDFA" runat="server"></asp:Label>
@@ -499,19 +499,19 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label>  Working Capital (INR)</label>
+                                                            <label>Working Capital (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWorkingCapital" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Land Area (in Sq.ft)</label>
+                                                            <label>Land Area (in Sq.ft)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lbllandArea" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Land Value (INR)</label>
+                                                            <label>Land Value (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblLandValue" runat="server"></asp:Label>
@@ -520,20 +520,20 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label> Area of Building / Shed (Sq. m)</label>
+                                                            <label>Area of Building / Shed (Sq. m)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblBuildingArea" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Value of Building / Shed (INR)</label>
+                                                            <label>Value of Building / Shed (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna>
                                                             <asp:Label ID="lblBuldingValue" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Civil Construction</label>
+                                                            <label>Civil Construction</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcivilConstr" runat="server"></asp:Label>
@@ -542,20 +542,20 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label> Power Required (KV)</label>
+                                                            <label>Power Required (KV)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblPowerReq" runat="server"></asp:Label>
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label>  Value of Power (INR)</label>
+                                                            <label>Value of Power (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblElectricityValue" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label> Water required (KL/D)</label>
+                                                            <label>Water required (KL/D)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWaterReq" runat="server"></asp:Label>
@@ -564,7 +564,7 @@
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label> Water Value (INR)</label>
+                                                            <label>Water Value (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWaterValue" runat="server"></asp:Label>
@@ -969,40 +969,41 @@
                                 aria-labelledby="headingSeven" aria-expanded="false">
 
                                 <div class="card">
-                                    <asp:GridView ID="grdQueryRaised" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" CssClass="table-bordered mb-0 GRD"
-                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
-                                        <RowStyle />
-                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                        <AlternatingRowStyle BackColor="LightGray" />
-                                        <Columns>
-                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                                <ItemStyle HorizontalAlign="Center" />
-                                                <ItemTemplate>
-                                                    <%# Container.DataItemIndex + 1%>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="DepQID" Visible="false">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="UNIT ID">
-                                                <ItemStyle HorizontalAlign="Center" />
-                                                <ItemTemplate>
-                                                    <asp:Label ID="lblUNITID" runat="server" Text='<%#Eval("UNITID")%>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
-                                            <%--<asp:TemplateField HeaderText="Response">
+                                    
+                                        <asp:GridView ID="grdQueryRaised" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" CssClass="table-bordered mb-0 GRD"
+                                            GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                            <RowStyle />
+                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                            <AlternatingRowStyle BackColor="LightGray" />
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    <ItemTemplate>
+                                                        <%# Container.DataItemIndex + 1%>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="DepQID" Visible="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="UNIT ID">
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblUNITID" runat="server" Text='<%#Eval("UNITID")%>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
+                                                <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
+                                                <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
+                                                <%--<asp:TemplateField HeaderText="Response">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="100px" Width="250px" runat="server"></asp:TextBox>
                                                     <br />
@@ -1010,58 +1011,54 @@
                                                     <asp:FileUpload ID="FileUploadquery" runat="server" class="btn btn-success" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>--%>
-                                            <asp:TemplateField HeaderText="Select Action">
-                                                <ItemTemplate>
-                                                    <asp:DropDownList ID="ddlQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlQueryAction_SelectedIndexChanged">
-                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="Send Response to COMMITTEE Officer" Value="12"></asp:ListItem>
-                                                        <asp:ListItem Text="Forward Query to Applicant" Value="15"></asp:ListItem>
-                                                        <asp:ListItem Text="Forward Query to Departments" Value="13"></asp:ListItem>
-                                                    </asp:DropDownList>
+                                                <asp:TemplateField HeaderText="Select Action">
+                                                    <ItemTemplate>
+                                                        <asp:DropDownList ID="ddlQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlQueryAction_SelectedIndexChanged">
+                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                            <asp:ListItem Text="Send Response to COMMITTEE Officer" Value="12"></asp:ListItem>
+                                                            <asp:ListItem Text="Forward Query to Applicant" Value="15"></asp:ListItem>
+                                                            <asp:ListItem Text="Forward Query to Departments" Value="13"></asp:ListItem>
+                                                        </asp:DropDownList>
 
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                            </Columns>
+                                        </asp:GridView>
+
+                                        <table id="tblcomqury" runat="server" visible="false" class="table-bordered mb-10">
+                                            <tr id="trIMAResponse" runat="server" visible="false">
+                                                <td style="width: 200px">Enter Response
+                                                </td>
+                                                <td  colspan="2">
+                                                    <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                </td>                                                
+                                                <td style="width: 180px">
+                                                    Upload File if any:  <br />
+                                                    <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
+                                                   
+                                                    <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
+                                                </td>
+                                                <td style="width: 110px">
+                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                                </td>
+
+                                            </tr>
+                                            <tr id="trComQrytoAppl" runat="server" visible="false">
+                                                <td style="width: 200px; padding-top: 20px; align-items: center; text-align: center;">Enter Additional Query
+                                                </td>
+                                                <td colspan="4" style="padding-left: 20px; padding-top: 20px; align-items: left; text-align:left">
+                                                    <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="600px" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center" colspan="5">
+                                                    <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    
                                 </div>
-                                <table class="table-responsive" id="tblcomqury" runat="server" visible="false" style="width: 100%; align-items: center; text-align: center;">
-                                    <tr id="trIMAResponse" runat="server" visible="false">
-                                        <td style="width: 150px">Enter Response
-                                        </td>
-                                        <td>
-                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 350px; margin-top: 10px;" onkeypress="return validateNameInput(event)"></asp:TextBox>
-                                        </td>
-                                        <td>Upload File if any:</td>
-                                        <td>
-                                            <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
-                                            <br />
-                                            <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
-                                        </td>
-                                        <td>
-                                            <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
-                                        </td>
-                                    </tr>
-                                    <tr id="trComQrytoAppl" runat="server" visible="false">
-                                        <td style="width: 200px">Enter Additional Query
-                                        </td>
-                                        <td style="width: 370px">
-                                            <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="350px" onkeypress="return validateNameInput(event)"></asp:TextBox>
-                                        </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
 
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td style="text-align: center">
-                                            <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
-                                        </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </table>
                             </div>
                         </div>
                         <div class="panel panel-default" id="verifypanel" runat="server" visible="true">
@@ -1100,7 +1097,6 @@
                                                     <asp:Label runat="server" ID="lbl_Name1"></asp:Label></td>
                                                 <td>
                                                     <asp:Label ID="lblunitname1" runat="server"></asp:Label>
-                                                    <%--textarea rows="2" cols="15" class="border-0">TYRES PRIVATE LIMITED UNIT II</textarea>--%>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lblApplNo" runat="server"></asp:Label></td>
@@ -1168,10 +1164,15 @@
                                                                             <HeaderStyle HorizontalAlign="Center" />
                                                                         </asp:TemplateField>
                                                                         <asp:BoundField HeaderText="Department Name" DataField="DEPTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                        <asp:BoundField HeaderText="Department ID" DataField="DEPTID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:TemplateField Visible="false">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblDEPTID" runat="server" Text='<%#Eval("DEPTID") %>' Visible="false"></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:BoundField HeaderText="Department ID" DataField="DEPTID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                                         <asp:BoundField HeaderText="Query Description" DataField="QUERYDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                        <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                                        <asp:BoundField HeaderText="INVESTER ID" DataField="INVESTERID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="INVESTER ID" DataField="INVESTERID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                                         <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
                                                                     </Columns>

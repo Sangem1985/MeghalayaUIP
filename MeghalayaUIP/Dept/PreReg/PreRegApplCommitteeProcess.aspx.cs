@@ -26,7 +26,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 success.Visible = false;
                 Failure.Visible = false;
-
+                MaintainScrollPositionOnPostBack = true;
                 var ObjUserInfo = new DeptUserInfo();
                 if (Session["DeptUserInfo"] != null)
                 {
@@ -79,7 +79,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                         lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
                         lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                     
+
                         lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                         lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
@@ -249,6 +249,54 @@ namespace MeghalayaUIP.Dept.PreReg
 
             Response.Redirect(hplview.Text);
         }
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlStatus.SelectedValue != "0")
+                {
+                    if (ddlStatus.SelectedValue == "10") //--approve
+                    {
+                        tblaction.Visible = true; lblaction.Text = "Enter Remarks : "; trcommvalues.Visible = true; txtRequest.Visible = true; txtRequest.Text = "";
+                        lblApplLandArea.Text = lbllandArea.Text;
+                        lblApplPowerReq.Text = lblPowerReq.Text;
+                        lblApplWaterReq.Text = lblWaterReq.Text;
+                        lblApplHazWaste.Text = lblhazdtls.Text;
+                        lblApplWastedtls.Text = lblwastedtls.Text;
+
+                        txtQuery.Visible = false; txtQuery.Text = "";
+                    }
+                    else if (ddlStatus.SelectedValue == "9") //query
+                    {
+                        tblaction.Visible = true; lblaction.Text = "Enter Query Description : "; txtQuery.Visible = true;
+
+                        trcommvalues.Visible = false; txtDeptLandArea.Text = ""; txtDeptPower.Text = ""; txtDeptWater.Text = ""; txtDeptWastedtls.Text = ""; txtHazWaste.Text = "";
+                        txtRequest.Visible = false; txtRequest.Text = "";
+                    }
+                    else if (ddlStatus.SelectedValue == "11") //reject
+                    {
+                        tblaction.Visible = true; lblaction.Text = "Enter Rejection Remarks : "; txtRequest.Visible = true; txtRequest.Text = "";
+
+                        txtQuery.Visible = false; txtQuery.Text = "";
+                        trcommvalues.Visible = false; txtDeptLandArea.Text = ""; txtDeptPower.Text = ""; txtDeptWater.Text = ""; txtDeptWastedtls.Text = ""; txtHazWaste.Text = "";
+
+                    }
+                }
+                else
+                {
+                    tblaction.Visible = false; txtRequest.Text = ""; txtQuery.Text = "";
+                    txtDeptLandArea.Text = ""; txtDeptPower.Text = ""; txtDeptWater.Text = ""; txtDeptWastedtls.Text = ""; txtHazWaste.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+
+
+        }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -361,58 +409,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }
-        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (ddlStatus.SelectedValue == "10") //--approve
-                {
-                    tblaction.Visible = true;
-                    trcommvalues.Visible = true;
-                    txtQuery.Visible = false;
-                    lblaction.Text = "Remarks if any: ";
-
-                    lblApplLandArea.Text = lbllandArea.Text;
-
-                    lblApplPowerReq.Text = lblPowerReq.Text;
-
-                    lblApplWaterReq.Text = lblWaterReq.Text;
-
-                    lblApplHazWaste.Text = lblhazdtls.Text;
-
-                    lblApplWastedtls.Text = lblwastedtls.Text;
-
-                }
-                else if (ddlStatus.SelectedValue == "9") //query
-                {
-                    tblaction.Visible = true;
-                    trcommvalues.Visible = false;
-                    txtRequest.Visible = false;
-                    txtQuery.Visible = true;
-                    lblaction.Text = "Enter Query Description ";
-
-                }
-                else if (ddlStatus.SelectedValue == "11") //reject
-                {
-                    tblaction.Visible = true;
-                    txtRequest.Visible = true;
-                    txtQuery.Visible = false;
-                    trcommvalues.Visible = false;
-                    lblaction.Text = "Enter Rejection Remarks ";
-
-                }
-                else
-                { tblaction.Visible = false; }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-            }
-
-
         }
 
         public void AddSelect(DropDownList ddl)

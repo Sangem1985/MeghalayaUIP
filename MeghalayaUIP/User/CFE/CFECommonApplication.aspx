@@ -176,7 +176,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt1PCB" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt1PCB" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup1PCB" Width="300px" Font-Italic="true" Height="45px" />
@@ -185,7 +185,8 @@
                                                 <asp:Button runat="server" ID="btnUpld1PCB" Text="Upload" OnClick="btnUpld1PCB_Click" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:HyperLink ID="hpl1PCB" runat="server" Target="_blank"></asp:HyperLink>
+                                                <asp:HyperLink ID="hpl1PCB" ToolTip=" " runat="server" Target="_blank"  onmouseover="return false;" onmouseout="window.status=''; return true;" ></asp:HyperLink>
+                                               
                                             </div>
 
                                         </div>
@@ -200,7 +201,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="TextBox26" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt2HazPCB" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup2HazPCB" Width="300px" Font-Italic="true" Height="45px" />
@@ -224,7 +225,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtservicecon" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt3SrvcCon" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup3SrvcCon" Width="300px" Font-Italic="true" Height="45px" />
@@ -248,7 +249,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtElectricitycon" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt4EleCon" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup4EleCon" Width="300px" Font-Italic="true" Height="45px" />
@@ -272,7 +273,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtFactoryPlan" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt5FctryPlan" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup5FctryPlan" Width="300px" Font-Italic="true" Height="45px" />
@@ -296,7 +297,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtNOCDG" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt6DGsetNOC" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup6DGsetNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -320,7 +321,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtFireSaftey" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt7FireSfty" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup7FireSfty" Width="300px" Font-Italic="true" Height="45px" />
@@ -344,7 +345,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtLicStore" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt8RSDSLic" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup8RSDSLic" Width="300px" Font-Italic="true" Height="45px" />
@@ -368,7 +369,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtExplosive" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt9ExplsvNOC" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup9ExplsvNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -392,7 +393,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtDieselNoc" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt10PtrlNOC" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup10PtrlNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -416,7 +417,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtRoadCut" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt11RdCtng" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup11RdCtng" Width="300px" Font-Italic="true" Height="45px" />
@@ -440,7 +441,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtNOnEncumb" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt12NonEncmb" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-1 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup12NonEncmb" Width="300px" Font-Italic="true" Height="45px" />
@@ -464,7 +465,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtproftax" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt13ProfTax" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup13ProfTax" Width="300px" Font-Italic="true" Height="45px" />
@@ -488,7 +489,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtDrawingApproval" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt14ElcInsp" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup14ElcInsp" Width="300px" Font-Italic="true" Height="45px" />
@@ -512,7 +513,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtDistanceofforest" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt15ForstDist" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup15ForstDist" Width="300px" Font-Italic="true" Height="45px" />
@@ -536,7 +537,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtNonForestLand" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt16NonForstLand" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup16NonForstLand" Width="300px" Font-Italic="true" Height="45px" />
@@ -560,7 +561,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtFTLNOC" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt17IrrgNOC" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup17IrrgNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -584,7 +585,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtFTLLand" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt18RevNOC" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup18RevNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -608,7 +609,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtNOCGround" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt19GrndWtrNOC" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup19GrndWtrNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -632,7 +633,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtwateragency" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt20NoWtrSply" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup20NoWtrSply" Width="300px" Font-Italic="true" Height="45px" />
@@ -656,7 +657,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtRiverTank" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt21ToDrawWtr" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup21ToDrawWtr" Width="300px" Font-Italic="true" Height="45px" />
@@ -680,7 +681,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtMuncipal" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt22MunicipalWatr" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup22MunicipalWatr" Width="300px" Font-Italic="true" Height="45px" />
@@ -704,7 +705,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtwaterConNON" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt23UrbanWatr" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup23UrbanWatr" Width="300px" Font-Italic="true" Height="45px" />
@@ -728,7 +729,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtRegContractLabour" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt25LbrAct1970" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup25LbrAct1970" Width="300px" Font-Italic="true" Height="45px" />
@@ -752,7 +753,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtRegMigrantworkmen" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt26LbrAct1979" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup26LbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
@@ -776,7 +777,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtRegBuilding" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt27LbrAct1996" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup27LbrAct1996" Width="300px" Font-Italic="true" Height="45px" />
@@ -800,7 +801,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtLicLabourACT" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt28ContrLbrAct" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup28ContrLbrAct" Width="300px" Font-Italic="true" Height="45px" />
@@ -824,7 +825,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txtReference" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txt29ContrLbrAct1979" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup29ContrLbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
@@ -859,7 +860,7 @@
                                                     :
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
-                                                    <asp:TextBox ID="txtPermitApproval" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txt30ConstrPermit" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
                                                     <asp:FileUpload runat="server" ID="fup30ConstrPermit" Width="300px" Font-Italic="true" Height="45px" />
@@ -883,7 +884,7 @@
                                                     :
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
-                                                    <asp:TextBox ID="txtIndustrialPlans" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txt31BldngPlan" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
                                                     <asp:FileUpload runat="server" ID="fup31BldngPlan" Width="300px" Font-Italic="true" Height="45px" />

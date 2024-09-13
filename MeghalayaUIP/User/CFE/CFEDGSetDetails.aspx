@@ -486,8 +486,59 @@
                                             </div>
                                         </div>
 
-                                          
 
+                                        <h4 class="card-title ml-3">Upload Below Documents</h4>
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">Manufacturer Test Report *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupManufacture" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnowner" OnClick="btnowner_Click" class="btn btn-rounded btn-dark mb-4" />
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex">
+                                                        <asp:HyperLink ID="hypManufacture" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">Test Report by Registered Contractor in Meghalaya *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupTest" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnLic" OnClick="btnLic_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex">
+                                                        <asp:HyperLink ID="hypTest" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">Single Line Diagram of DG Set  *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupSingleline" runat="server" />
+                                                        </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnElectrical" OnClick="btnElectrical_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex">
+                                                        <asp:HyperLink ID="hypSingleline" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="col-md-12 text-right mb-3">
                                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
@@ -509,6 +560,11 @@
                     </div>
                 </ProgressTemplate>
             </asp:UpdateProgress>
-        </ContentTemplate>       
+        </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnowner" />
+            <asp:PostBackTrigger ControlID="btnLic" />
+            <asp:PostBackTrigger ControlID="btnElectrical" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

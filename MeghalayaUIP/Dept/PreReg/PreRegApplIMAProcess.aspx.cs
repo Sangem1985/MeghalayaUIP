@@ -29,7 +29,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 success.Visible = false;
                 Failure.Visible = false;
-
+                MaintainScrollPositionOnPostBack = true;
                 var ObjUserInfo = new DeptUserInfo();
                 if (Session["DeptUserInfo"] != null)
                 {
@@ -300,6 +300,111 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                ListItem li = new ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                lblmsg.Text = ex.Message;
+                lblmsg.CssClass = "errormsg";
+            }
+        }
+
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlStatus.SelectedValue != "0")
+                {
+
+                    if (ddlStatus.SelectedValue == "8") //Approve & Forward to Committee
+                    {
+                        btnSubmit.Visible = true;
+                        tdaction.Visible = true;
+
+                        tdRemarks.Visible = true;
+                        tdRemarksTxtbx.Visible = true;
+                        txtRemarks.Focus();
+
+
+                        tdApplQuery.Visible = false;
+                        tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
+
+                        tdDeptQuery.Visible = false;
+                        btnQuery.Visible = false;
+                        ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                        grdDeptQueries.DataSource = null; grdDeptQueries.DataBind();
+
+                    }
+                    else if (ddlStatus.SelectedValue == "4") //Raise Query to Applicant
+                    {
+                        btnSubmit.Visible = true;
+                        tdaction.Visible = true;
+
+                        tdApplQuery.Visible = true;
+                        tdApplQueryTxtbx.Visible = true;
+                        txtApplQuery.Focus();
+
+
+                        tdRemarks.Visible = false;
+                        tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
+
+                        tdDeptQuery.Visible = false;
+                        btnQuery.Visible = false;
+                        ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                        grdDeptQueries.DataSource = null; grdDeptQueries.DataBind();
+                    }
+                    else if (ddlStatus.SelectedValue == "6") //Raise Query to Departments
+                    {
+                        tdDeptQuery.Visible = true;
+                        btnQuery.Visible = true;
+
+                        btnSubmit.Visible = false;
+                        tdaction.Visible = false;
+
+                        tdApplQuery.Visible = false;
+                        tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
+
+                        tdRemarks.Visible = false;
+                        tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
+                    }
+                }
+                else
+                {
+                    btnSubmit.Visible = true;
+                    tdaction.Visible = true;
+
+                    tdRemarks.Visible = false;
+                    tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
+
+                    tdApplQuery.Visible = false;
+                    tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
+
+                    tdDeptQuery.Visible = false;
+                    btnQuery.Visible = false;
+                    ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                    grdDeptQueries.DataSource = null; grdDeptQueries.DataBind(); btnQuery.Enabled = false;
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -311,8 +416,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
+                    }                   
                 }
                 if (ddlStatus.SelectedValue == "8" || ddlStatus.SelectedValue == "4")
                 {
@@ -373,99 +477,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
             }
         }
-        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (ddlStatus.SelectedValue == "8")
-                {
-                    tdRemarks.Visible = true;
-                    tdRemarksTxtbx.Visible = true;
-                    txtRemarks.Focus();
-                    btnSubmit.Visible = true;
-                    tdaction.Visible = true;
-
-                    tdApplQuery.Visible = false;
-                    tdApplQueryTxtbx.Visible = false;
-                    tdDeptQuery.Visible = false;
-                    btnQuery.Visible = false;
-
-                }
-                else if (ddlStatus.SelectedValue == "4")
-                {
-                    tdApplQuery.Visible = true;
-                    tdApplQueryTxtbx.Visible = true;
-                    txtApplQuery.Focus();
-                    btnSubmit.Visible = true;
-                    tdaction.Visible = true;
-
-                    tdRemarks.Visible = false;
-                    tdRemarksTxtbx.Visible = false;
-                    tdDeptQuery.Visible = false;
-                    btnQuery.Visible = false;
-                }
-                else if (ddlStatus.SelectedValue == "6")
-                {
-                    tdDeptQuery.Visible = true;
-                    btnQuery.Visible = true;
-
-                    tdApplQuery.Visible = false;
-                    tdApplQueryTxtbx.Visible = false;
-                    btnSubmit.Visible = false;
-                    tdaction.Visible = false;
-                    tdRemarks.Visible = false;
-                    tdRemarksTxtbx.Visible = false;
-                }
-                else if (ddlStatus.SelectedValue == "0")
-                {
-                    tdDeptQuery.Visible = false;
-                }
-
-
-
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-
-
-        }
-        public void AddSelect(DropDownList ddl)
-        {
-            try
-            {
-                ListItem li = new ListItem();
-                li.Text = "--Select--";
-                li.Value = "0";
-                ddl.Items.Insert(0, li);
-            }
-            catch (Exception ex)
-            {
-                lblmsg.Text = ex.Message;
-                lblmsg.CssClass = "errormsg";
-            }
-        }
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
         protected void btnAddDeptQry_Click(object sender, EventArgs e)
         {
             try
@@ -475,7 +486,6 @@ namespace MeghalayaUIP.Dept.PreReg
                     Failure.Visible = true; string Error = "";
                     if (ddldepartment.SelectedItem.Text == "--Select--")
                     {
-                        // lblmsg0.Text = "Please Select Department";
                         Error = "Please Select Department";
                     }
                     if (txtDeptQuery.Text == "" || string.IsNullOrEmpty(txtDeptQuery.Text) || txtDeptQuery.Text == null)
@@ -484,7 +494,6 @@ namespace MeghalayaUIP.Dept.PreReg
                         Error = Error + "\\n Please Enter Query Description";
 
                     }
-                    ////  lblmsg0.Text = Error;
                     string message = "alert('" + Error + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
@@ -554,6 +563,85 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grdDeptQueries.Rows.Count > 0)
+                {
+                    PreRegDtls PreRegDtlsVo = new PreRegDtls();
+                    foreach (GridViewRow gvrow in grdDeptQueries.Rows)
+                    {
+                        Label lblDeptID = (Label)gvrow.FindControl("lblDEPTID");
+                        //TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
+                        PreRegDtlsVo.DeptDesc = gvrow.Cells[1].Text;
+                        PreRegDtlsVo.QuerytoDeptID = lblDeptID.Text;
+
+                        //PreRegDtlsVo.QuerytoDeptID = gvrow.Cells[2].Text;
+
+                        PreRegDtlsVo.Remarks = gvrow.Cells[3].Text;
+                        PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
+                        PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
+
+                        PreRegDtlsVo.UserID = hdnUserID.Value;
+                        PreRegDtlsVo.IPAddress = getclientIP();
+                        if (QueryResondpanel.Visible == true)
+                        {
+                            PreRegDtlsVo.QueryID = Convert.ToString(ViewState["COMMQID"]);
+                            PreRegDtlsVo.status = 13;
+                        }
+                        else
+                        {
+                            if (ddlStatus != null)
+                                PreRegDtlsVo.status = Convert.ToInt32(ddlStatus.SelectedValue);
+                        }
+                        string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
+                    }
+                    btnQuery.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                    return;
+                }
+                else 
+                {
+                    lblmsg0.Text = "Please Select Department and Enter Query Description, then click on Add Query";
+                    Failure.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/PreReg/PreRegApplIMAView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
         protected void ddlQueryAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -572,82 +660,49 @@ namespace MeghalayaUIP.Dept.PreReg
 
                     if (ddlqryaction.SelectedValue == "12") //12 IMA Replied to Committee Query
                     {
-                        verifypanel.Visible = false;
                         tblcomqury.Visible = true;
                         trIMAResponse.Visible = true;
-                        trComQrytoAppl.Visible = false;
 
+                        verifypanel.Visible = false;
+                        trComQrytoAppl.Visible = false; txtComQrytoAppl.Text = "";
+                        ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                        grdDeptQueries.DataSource = null; grdDeptQueries.DataBind(); btnQuery.Enabled = false;
                     }
                     else if (ddlqryaction.SelectedValue == "13") //13	IMA Forwarded Committee Query to Department
                     {
                         verifypanel.Visible = true;
-                        headingSix.Visible = false;
-                        trVrfyhdng.Visible = false;
-                        trVrfydtls.Visible = false;
                         tdDeptQuery.Visible = true;
                         btnQuery.Visible = true;
-                        tblcomqury.Visible = false;
+
+                        headingSix.Visible = false;
+                        trVrfyhdng.Visible = false;
+                        trVrfydtls.Visible = false;                       
+                        tblcomqury.Visible = false; txtComQrytoAppl.Text = ""; txtIMAResponse.Text = ""; hplAttachment.Visible = false;
                     }
                     else if (ddlqryaction.SelectedValue == "15") //15	IMA Forwarded Committee Query to Applicant
-                    {
-                        verifypanel.Visible = false;
+                    {                        
                         tblcomqury.Visible = true;
-                        trIMAResponse.Visible = false;
                         trComQrytoAppl.Visible = true;
+
+                        verifypanel.Visible = false;
+                        trIMAResponse.Visible = false; txtIMAResponse.Text = ""; hplAttachment.Visible = false;
+                        ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                        grdDeptQueries.DataSource = null; grdDeptQueries.DataBind(); btnQuery.Enabled = false;
+
                     }
                 }
                 else
                 {
+                   
+                    tblcomqury.Visible = false; txtComQrytoAppl.Text = ""; txtIMAResponse.Text = "";
                     verifypanel.Visible = false;
-                    tblcomqury.Visible = false;
+                    ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                    grdDeptQueries.DataSource = null; grdDeptQueries.DataBind(); btnQuery.Enabled = false;
                 }
             }
             catch (Exception ex)
             { }
         }
-        protected void btnQuery_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                PreRegDtls PreRegDtlsVo = new PreRegDtls();
-                foreach (GridViewRow gvrow in grdDeptQueries.Rows)
-                {
-                    // DropDownList ddldepartment = (DropDownList)gvrow.FindControl("ddldepartment");
-                    //TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
-                    PreRegDtlsVo.DeptDesc = gvrow.Cells[1].Text;
-                    PreRegDtlsVo.QuerytoDeptID = gvrow.Cells[2].Text;
-
-                    PreRegDtlsVo.Remarks = gvrow.Cells[3].Text;
-                    PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
-                    PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
-
-                    PreRegDtlsVo.UserID = hdnUserID.Value;
-                    PreRegDtlsVo.IPAddress = getclientIP();
-                    if (QueryResondpanel.Visible == true)
-                    {
-                        PreRegDtlsVo.QueryID = Convert.ToString(ViewState["COMMQID"]);
-                        PreRegDtlsVo.status = 13;
-                    }
-                    else
-                    {
-                        if (ddlStatus != null)
-                            PreRegDtlsVo.status = Convert.ToInt32(ddlStatus.SelectedValue);
-                    }
-                    string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
-                }
-                btnQuery.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
-                return;
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
         protected void btnSubmit2_Click(object sender, EventArgs e)
         {
             var ObjUserInfo = new DeptUserInfo();
@@ -702,20 +757,6 @@ namespace MeghalayaUIP.Dept.PreReg
             }
 
         }
-
-
-        protected void lbtnBack_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("~/Dept/PreReg/PreRegApplIMAView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
         protected void btnUpldAttachment_Click(object sender, EventArgs e)
         {
             try
@@ -887,7 +928,6 @@ namespace MeghalayaUIP.Dept.PreReg
             catch (Exception ex)
             { throw ex; }
         }
-
         public void DeleteFile(string strFileName)
         {
             if (strFileName.Trim().Length > 0)
@@ -899,5 +939,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
             }
         }
+
     }
 }
