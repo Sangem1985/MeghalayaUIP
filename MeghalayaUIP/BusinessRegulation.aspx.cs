@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MeghalayaUIP
 {
@@ -16,77 +18,44 @@ namespace MeghalayaUIP
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["DeptUserInfo"] != null)
+            try
             {
-                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                {
-                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                }
-                // username = ObjUserInfo.UserName;
-
-                if (hdnUserID.Value == "")
-                {
-                    hdnUserID.Value = ObjUserInfo.UserID;
-                }
-                              
 
                 Page.MaintainScrollPositionOnPostBack = true;
                 Failure.Visible = false;
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                    DataSet ds1 = mstrBAL.GetAmmendments(0);/*this obj is referring to some class in which GetRecord method is present which return the record from database. You can write your //own class and method.*/
-                    string s1;
-                    s1 = "<table><tr><td>";
-
-                    for (int i = 0; i < ds1.Tables[0].Rows.Count; i++)
+                    DataSet ds1 = mstrBAL.GetAmmendments(0);
+                    if (ds1.Tables.Count > 0)
                     {
-                        string filepath, filepath2, filepath3;
-                        filepath = ds1.Tables[0].Rows[i]["LINK"].ToString();
-                        filepath2 = filepath.Replace(@"\", @"/");
-                        filepath3 = filepath2.Replace(@"D:/TS-iPASSFinal/", "https://ipass.telangana.gov.in/");
-                        // filepath3 = filepath2.Replace(@"C:/Users/admin/Desktop/TSIPASS01042017/TSIPASS/", "");
-                        filepath3 = filepath3.Replace(@" ", @"%20");
-                        string Urloffile = "CommentsonAmmendments.aspx?filename=" + filepath3 + "&deptid=" + ds1.Tables[0].Rows[i]["DEPT_ID"].ToString() + "&Amdid=" + ds1.Tables[0].Rows[i]["AMMENDMENT_ID"].ToString();
-
-                        s1 += "<a href=" + Urloffile + " target=" + "_blank style=font-family: fantasy; font-size:larger; font-weight:bold; font-style: normal; color: #8B0000>"
-                           + ds1.Tables[0].Rows[i]["Slno"].ToString() + "&nbsp" + ds1.Tables[0].Rows[i]["SCROLLTEXT"].ToString() + "</a></td>";
-                        s1 += "<br/>";
-
-                    }
-                    s1 += "</tr></table>";
-                    lt1.Text = s1.ToString();
-                    if (ds1 != null && ds1.Tables.Count > 1 && ds1.Tables[1].Rows.Count > 0)
-                    {
-                        string s2;
-                        s2 = "<table><tr><td>";
-
-                        for (int i = 0; i < ds1.Tables[1].Rows.Count; i++)
+                        if (ds1.Tables[0].Rows.Count > 0)
                         {
-                            string filepath, filepath2, filepath3;
-                            filepath = ds1.Tables[1].Rows[i]["LINK"].ToString();
-                            filepath2 = filepath.Replace(@"\", @"/");
-                            filepath3 = filepath2.Replace(@"D:/TS-iPASSFinal/", "https://ipass.telangana.gov.in/");
-                            // filepath3 = filepath2.Replace(@"C:/Users/admin/Desktop/TSIPASS01042017/TSIPASS/", "");
-
-                            filepath3 = filepath3.Replace(@" ", @"%20");
-                            string Urloffile = "CommentsonAmmendments.aspx?filename=" + filepath3 + "&deptid=" + ds1.Tables[1].Rows[i]["DEPT_ID"].ToString() + "&Amdid=" + ds1.Tables[1].Rows[i]["OLD_AMMENDMENTID"].ToString();
-
-                            s2 += "<a href=" + Urloffile + " target=" + "_blank style=font-family: fantasy; font-size:larger; font-weight:bold; font-style: normal; color: #8B0000>"
-                              + ds1.Tables[1].Rows[i]["Slno"].ToString() + "&nbsp" + ds1.Tables[1].Rows[i]["SCROLLTEXT"].ToString() + "</a></td>";
-                            s2 += "<br/>";
+                            grdDraft.DataSource = ds1.Tables[0];
+                            grdDraft.DataBind();
                         }
-                        s2 += "</tr></table>";
-                        lt2.Text = s2.ToString();
                     }
                 }
             }
-            else
-            {
-                //Response.Redirect("~/DeptLogin.aspx");
-            }
-        }
+            catch (Exception ex) { }
 
+
+        }
+        protected void linkDraft_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton link = (LinkButton)sender;
+                GridViewRow row = (GridViewRow)link.NamingContainer;
+                Label lblAmmndmntID = (Label)row.FindControl("lblAmndmntID");
+                Label lblDraftPath = (Label)row.FindControl("lblDraftPath");
+
+
+                if ((lblAmmndmntID != null || lblAmmndmntID.Text != "") && (lblDraftPath != null || lblDraftPath.Text != ""))
+                    Response.Redirect("~/CommentsonAmmendments.aspx?AmmndmntID =" + lblAmmndmntID.Text + "&Filepath=" + lblDraftPath.Text);
+            }
+            catch (Exception ex) { }
+        }
         protected void btnComments_Click(object sender, EventArgs e)
         {
             BindDistricts(ddlDistrict);
@@ -122,8 +91,8 @@ namespace MeghalayaUIP
             try
             {
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                string strmode = string.Empty;              
-                strmode = "";              
+                string strmode = string.Empty;
+                strmode = "";
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {

@@ -20,10 +20,10 @@ namespace MeghalayaUIP
                 {
                     if (Request.QueryString.Count > 0)
                     {
-                        IframePanel.Attributes["src"] = Request.QueryString[0];
+                        IframePanel.Attributes["src"] = Request.QueryString[1];
 
                         DataSet ds = new DataSet();
-                        ds = mstrBAL.GetUserCommentsofAmmendmentsid(Convert.ToInt32(Request.QueryString[2].ToString()));
+                        ds = mstrBAL.GetUserCommentsofAmmendmentsid(Convert.ToInt32(Request.QueryString[0].ToString()));
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                         {
                             gvComments.DataSource = ds.Tables[0];
