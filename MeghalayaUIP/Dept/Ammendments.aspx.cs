@@ -83,7 +83,7 @@ namespace MeghalayaUIP.Dept
 
                     ddlAmendment.Items.Clear();
                   
-                    DataSet ds1 = indstregBAL.GetAmmendments(9);
+                    DataSet ds1 = mstrBAL.GetAmmendments(9);
                     if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
                     {
                         ddlAmendment.DataSource = ds1.Tables[0];
@@ -139,7 +139,7 @@ namespace MeghalayaUIP.Dept
             {
                
                 DataSet ds = new DataSet();
-                ds = indstregBAL.GetUserCommentsofAmmendmentsid(Convert.ToInt32(ddlAmendment.SelectedValue));
+                ds = mstrBAL.GetUserCommentsofAmmendmentsid(Convert.ToInt32(ddlAmendment.SelectedValue));
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     gvComments.DataSource = ds.Tables[0];
@@ -245,7 +245,7 @@ namespace MeghalayaUIP.Dept
                                         }
                                     }
                                 }
-                                indstregBAL.InsertDeptAmmendments(ammendment, lstformvo);
+                                mstrBAL.InsertDeptAmmendments(ammendment, lstformvo);
                                                                 
                                
                                 lblresult.Text = "<font color='green'>Attachment Successfully Added..!</font>";                              

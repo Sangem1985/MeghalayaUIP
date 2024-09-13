@@ -105,18 +105,7 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.GetIntentInvestDashBoard();
         }
-        public DataSet GetUserCommentsofAmmendmentsid(int ammendentid)
-        {
-            return IRD.GetUserCommentsofAmmendmentsid(ammendentid);
-        }
-        public DataSet GetAmmendments(int DEPTID)
-        {
-            return IRD.GetAmmendments(DEPTID);
-        }
-        public string InsertDeptAmmendments(AmmendmentVo ammendment, List<Deptcomments> lstformvo)
-        {
-            return IRD.InsertDeptAmmendments(ammendment, lstformvo);
-        }
+      
 
     }
 
