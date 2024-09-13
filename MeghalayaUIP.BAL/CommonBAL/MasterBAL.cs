@@ -219,6 +219,18 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetUserCommentsofAmmendmentsid(ammendentid);
         }
+        //public DataSet GetUserCommentsofAmmendmentsid(int ammendentid)
+        //{
+        //    return objMasterDAL.GetUserCommentsofAmmendmentsid(ammendentid);
+        //}      
+        public string InsertDeptAmmendments(AmmendmentVo ammendment, List<Deptcomments> lstformvo)
+        {
+            return objMasterDAL.InsertDeptAmmendments(ammendment, lstformvo);
+        }
+        public DataSet GetAmmendamentFullName()
+        {
+            return objMasterDAL.GetAmmendamentFullName();
+        }
 
     }
 }

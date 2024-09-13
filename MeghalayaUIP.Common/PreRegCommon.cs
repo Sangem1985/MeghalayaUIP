@@ -40,9 +40,7 @@ namespace MeghalayaUIP.Common
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
 
         /*---------------------------------------------------------------------*/
-        public static string GetUserAmmendments = "USP_GET_Comments_Ammendment_ID";
-        public static string GetAmmendments = "USP_GET_AMMENDMENTS";
-        public static string InsertDeptAmmendments = "USP_INS_DEPTAMMENDMENTS";
+       
     }
     public class IndustryDetails
     {

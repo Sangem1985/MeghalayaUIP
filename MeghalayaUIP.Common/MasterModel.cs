@@ -67,11 +67,16 @@ namespace MeghalayaUIP.Common
 
         public static string GetYearMaster = "USP_GETYEAR";
         public static string GetMonthMaster = "USP_GETMONTH";
-       //--------------------------///////////
+        //--------------------------///////////
+        public static string GetUserAmmendments = "USP_GET_Comments_Ammendment_ID";
         public static string GetAmmendments = "USP_GET_AMMENDMENTS";
+        public static string InsertDeptAmmendments = "USP_INS_DEPTAMMENDMENTS";
+
+       // public static string GetAmmendments = "USP_GET_AMMENDMENTS";
         public static string InsertAmmendmentsComment = "USP_INSAMMENDMENTCOMMENTS";
         public static string GetAmmendmentsDepartments = "USP_GETDEPTDEPARTMENTS";
         public static string GetUserCommentsofAmmendments = "USP_GET_Comments_Ammendment_ID";
+        public static string GetAmmendamentFullName = "GETAMMENDMENTDEPARTMENTDET";
     }
     public class MasterCountry
     {

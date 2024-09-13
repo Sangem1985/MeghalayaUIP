@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="AckSlip.aspx" />
     <Content Include="Agri-Horti.aspx" />
+    <Content Include="AmmendmentsFinal.aspx" />
     <Content Include="assets\admin\css\accordion.css" />
     <Content Include="assets\admin\css\animate.css" />
     <Content Include="assets\admin\css\bootstrap-datetimepicker.min.css" />
@@ -605,6 +606,13 @@
     </Compile>
     <Compile Include="Agri-Horti.aspx.designer.cs">
       <DependentUpon>Agri-Horti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AmmendmentsFinal.aspx.cs">
+      <DependentUpon>AmmendmentsFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AmmendmentsFinal.aspx.designer.cs">
+      <DependentUpon>AmmendmentsFinal.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusinessRegulation.aspx.cs">
       <DependentUpon>BusinessRegulation.aspx</DependentUpon>
