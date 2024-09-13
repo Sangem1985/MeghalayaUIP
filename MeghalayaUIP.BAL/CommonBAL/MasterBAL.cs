@@ -227,9 +227,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.InsertDeptAmmendments(ammendment, lstformvo);
         }
-        public DataSet GetAmmendamentFullName()
+        public DataSet GetAmmendamentFullName(string AmmendementID)
         {
-            return objMasterDAL.GetAmmendamentFullName();
+            return objMasterDAL.GetAmmendamentFullName( AmmendementID);
         }
 
     }

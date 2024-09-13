@@ -83,7 +83,7 @@
                                                                                 <asp:Panel ID="Panel1" runat="server" BackColor="#FFFFCC" BorderStyle="Inset"
                                                                                     BorderWidth="3" Width="600px">
                                                                                     <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()"
-                                                                                        scrolldelay="150" style="height: 300px;">
+                                                                                        scrolldelay="120" style="height: 300px;">
                                                                                         <asp:GridView ID="grdDraft" runat="server" AutoGenerateColumns="False" CellPadding="4"
                                                                                             CssClass="GRD table-hover" ForeColor="#333333" Width="100%" ShowFooter="false">
                                                                                             <rowstyle cssclass="GRDITEM" horizontalalign="left" />

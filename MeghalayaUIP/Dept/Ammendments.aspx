@@ -25,7 +25,6 @@
                     <div class="col-md-12 ">
                         <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                            <asp:Label ID="Label1" runat="server"></asp:Label>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
                         </div>
@@ -45,9 +44,6 @@
                         <div class="row" align="center">
                             <div class="col-lg-12">
                                 <div class="panel panel-primary">
-
-                                    <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>--%>
                                     <div class="panel-body">
                                         <table style="vertical-align: top; text-align: center;" cellpadding="5" cellspacing="10"
                                             width="100%">
@@ -96,7 +92,7 @@
                                                 <td style="padding: 5px; margin: 5px; text-align: left;">
                                                     <asp:TextBox ID="txtAmendmentDate" runat="server" class="form-control txtbox" Height="28px" Width="180px" MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
                                                     <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtAmendmentDate"></cc1:CalendarExtender>
-                                                 
+
                                                 </td>
                                             </tr>
                                             <tr>
@@ -110,14 +106,14 @@
                                                 </td>
 
                                                 <td colspan="2" align="left" style="text-align: left">
-                                                    <asp:FileUpload ID="FileUpload1" runat="server" CssClass="CS"
+                                                    <asp:FileUpload ID="fupRegulation" runat="server" CssClass="CS"
                                                         Height="28px" /><font
                                                             color="red"><strong>(Upload only PDF files)</strong></font>
 
                                                     <%-- <asp:HyperLink ID="lblFileName" runat="server" CssClass="LBLBLACK" Width="165px"
                                         Target="_blank">[lblFileName]</asp:HyperLink>--%>
                                                     <br />
-                                                    <asp:Label ID="Label444" runat="server" Visible="true" Font-Bold="true" Font-Size="Large"></asp:Label>
+                                                    <asp:Label ID="lblDraftReg" runat="server" Visible="true" Font-Bold="true" Font-Size="Large"></asp:Label>
 
                                                 </td>
                                             </tr>
@@ -129,9 +125,6 @@
                                                 <td colspan="2" align="left" style="text-align: left">
                                                     <asp:FileUpload ID="FileUpload2" runat="server" CssClass="CS"
                                                         Height="28px" />
-
-                                                    <%-- <asp:HyperLink ID="lblFileName" runat="server" CssClass="LBLBLACK" Width="165px"
-                                        Target="_blank">[lblFileName]</asp:HyperLink>--%>
                                                     <br />
                                                     <asp:Label ID="Label3" runat="server" Visible="true" Font-Bold="true" Font-Size="Large"></asp:Label>
                                                 </td>
@@ -209,8 +202,8 @@
                                                 <td colspan="3" align="center" style="text-align: center;">
 
 
-                                                    <asp:Button ID="BtnSave3" runat="server" CssClass="btn btn-xs btn-warning"
-                                                        Height="28px" TabIndex="10" Text="Upload"
+                                                    <asp:Button ID="BtnSave3" runat="server" CssClass="btn btn-xs btn-success"
+                                                        Height="28px" TabIndex="10" Text="Submit"
                                                         Width="116px" OnClick="BtnSave3_Click" />
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                                                             <asp:Button ID="BTNcLEAR" runat="server" CssClass="btn btn-xs btn-warning"
@@ -219,31 +212,7 @@
                                                 </td>
 
                                             </tr>
-                                            <%--<tr id="Tr1" runat="server">
-                                <td colspan="4" align="center" style="padding-right: 5px; padding-left: 5px; padding-bottom: 5px; vertical-align: middle; padding-top: 5px; text-align: center"
-                                    valign="middle">
-                                    <asp:Label ID="lblresult" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="11px"
-                                        ForeColor="Green" Style="position: static"></asp:Label>
-                                </td>
-                            </tr>--%>
-                                            <tr id="Tr1" runat="server">
-                                                <td colspan="3" align="center" style="padding-right: 5px; padding-left: 5px; padding-bottom: 5px; vertical-align: middle; padding-top: 5px; text-align: center"
-                                                    valign="middle">
-                                                    <div id="Div1" runat="server" visible="false" class="alert alert-success">
-                                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong><asp:Label ID="lblresult" runat="server"></asp:Label>
-                                                    </div>
-                                                    <div id="Div2" runat="server" visible="false" class="alert alert-danger">
-                                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
-                                                        <asp:Label ID="lblerrMsg" runat="server"></asp:Label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <%--<tr runat="server" id="Reject">
-                                <td colspan="4" align="center" style="padding: 5px; vertical-align: middle; text-align: center"
-                                    valign="middle">
-                                    <asp:Label ID="lblerrMsg" runat="server" Font-Bold="True" ForeColor="Red" Width="270px"></asp:Label>
-                                </td>
-                            </tr>--%>
+
                                             <tr colspan="4" runat="server" id="Close">
                                                 <td align="center" style="padding: 5px; vertical-align: middle; text-align: center"
                                                     valign="middle">

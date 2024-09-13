@@ -2025,7 +2025,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return Result;
         }
-        public DataSet GetAmmendamentFullName()
+        public DataSet GetAmmendamentFullName(string AmmendementID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2039,6 +2039,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da = new SqlDataAdapter(MasterConstants.GetAmmendamentFullName, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.CommandText = MasterConstants.GetAmmendamentFullName;
+                da.SelectCommand.Parameters.AddWithValue("@AmmendementID", Convert.ToInt32(AmmendementID));
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
