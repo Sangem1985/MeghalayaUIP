@@ -449,7 +449,7 @@ namespace MeghalayaUIP.User.CFE
                                 fupManufacture.PostedFile.SaveAs(serverpath + "\\" + fupManufacture.PostedFile.FileName);
                             }
                         }
-                        
+
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
@@ -524,7 +524,7 @@ namespace MeghalayaUIP.User.CFE
                                 fupTest.PostedFile.SaveAs(serverpath + "\\" + fupTest.PostedFile.FileName);
                             }
                         }
-                       
+
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
@@ -644,26 +644,24 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+
                 return Error;
             }
             catch (Exception ex)

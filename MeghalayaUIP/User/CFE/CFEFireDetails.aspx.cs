@@ -76,8 +76,8 @@ namespace MeghalayaUIP.User.CFE
                         if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
                         {
                             BindDistricts();
-                            BINDDATA();
                             BindBuildingType();
+                            BINDDATA();
                         }
 
                     }
@@ -287,8 +287,24 @@ namespace MeghalayaUIP.User.CFE
                             txtstation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FIRESTATION"]);
                         }
 
-                        if (ds.Tables[0].Rows.Count > 0)
-                        { }
+                        if (ds.Tables[2].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                            {
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 37)//
+                                {
+                                    hypbuildingplan.Visible = true;
+                                    hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                    hypbuildingplan.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 38) //
+                                {
+                                    hypfireplan.Visible = true;
+                                    hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                    hypfireplan.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -601,7 +617,23 @@ namespace MeghalayaUIP.User.CFE
                             Directory.CreateDirectory(serverpath);
 
                         }
-                        fupBuildingplan.PostedFile.SaveAs(serverpath + "\\" + fupBuildingplan.PostedFile.FileName);
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupBuildingplan.PostedFile.SaveAs(serverpath + "\\" + fupBuildingplan.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupBuildingplan.PostedFile.SaveAs(serverpath + "\\" + fupBuildingplan.PostedFile.FileName);
+                            }
+                        }
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
@@ -617,7 +649,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypbuildingplan.Text = fupBuildingplan.PostedFile.FileName;
-                            hypbuildingplan.NavigateUrl = serverpath;
+                            hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypbuildingplan.Target = "blank";
                             message = "alert('" + "Blueprint of Building i.e. Building Plan as per NBC Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -659,7 +691,23 @@ namespace MeghalayaUIP.User.CFE
                             Directory.CreateDirectory(serverpath);
 
                         }
-                        fupfireplan.PostedFile.SaveAs(serverpath + "\\" + fupfireplan.PostedFile.FileName);
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupfireplan.PostedFile.SaveAs(serverpath + "\\" + fupfireplan.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupfireplan.PostedFile.SaveAs(serverpath + "\\" + fupfireplan.PostedFile.FileName);
+                            }
+                        }
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
@@ -675,7 +723,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypfireplan.Text = fupfireplan.PostedFile.FileName;
-                            hypfireplan.NavigateUrl = serverpath;
+                            hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypfireplan.Target = "blank";
                             message = "alert('" + "Fire Lay out Plan Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -705,26 +753,23 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+
                 return Error;
             }
             catch (Exception ex)
