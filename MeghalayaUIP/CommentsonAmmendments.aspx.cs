@@ -83,7 +83,7 @@ namespace MeghalayaUIP
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BussinessRegulation.aspx");
+            Response.Redirect("~/BussinessRegulation.aspx");
         }
         public void AddSelect(DropDownList ddl)
         {
