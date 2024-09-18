@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -129,6 +130,43 @@ namespace MeghalayaUIP.User.CFE
                         txtFrontage.Text = ds.Tables[0].Rows[0]["CFEPD_FRONTAGE"].ToString();
                         txtDepth.Text = ds.Tables[0].Rows[0]["CFEPD_DEPTH"].ToString();
                     }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 43)
+                            {
+                                hypPCB.Visible = true;
+                                hypPCB.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 44)
+                            {
+                                hypNocFire.Visible = true;
+                                hypNocFire.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypNocFire.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 45)
+                            {
+                                //  hypfireplan.Visible = true;
+                                hypNHAI.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypNHAI.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 46)
+                            {
+                                hypHighway.Visible = true;
+                                hypHighway.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypHighway.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 47)
+                            {
+                                hypIntent.Visible = true;
+                                hypIntent.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypIntent.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -274,7 +312,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                
+
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
@@ -415,6 +453,31 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Depth\\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypNHAI.Text) || hypNHAI.Text == "" || hypNHAI.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NOC from National Highways Authority of India (NHAI) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypHighway.Text) || hypHighway.Text == "" || hypHighway.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NOC from concerned Executive Engineer (PWD –Roads) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypIntent.Text) || hypIntent.Text == "" || hypIntent.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Letter of Intent \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypPCB.Text) || hypPCB.Text == "" || hypPCB.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NoC from Meghalaya State Pollution Control Board \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypNocFire.Text) || hypNocFire.Text == "" || hypNocFire.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NoC from Fire Department \\n";
+                    slno = slno + 1;
+                }
                 return errormsg;
             }
             catch (Exception ex)
@@ -486,7 +549,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypPCB.Text = fupPCB.PostedFile.FileName;
-                            hypPCB.NavigateUrl = serverpath;
+                            hypPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypPCB.Target = "blank";
                             message = "alert('" + "NoC from Meghalaya State Pollution Control Board Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -544,7 +607,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypNocFire.Text = fupNocFire.PostedFile.FileName;
-                            hypNocFire.NavigateUrl = serverpath;
+                            hypNocFire.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypNocFire.Target = "blank";
                             message = "alert('" + "NoC from Fire Department Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -602,7 +665,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypNHAI.Text = fupNHAI.PostedFile.FileName;
-                            hypNHAI.NavigateUrl = serverpath;
+                            hypNHAI.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypNHAI.Target = "blank";
                             message = "alert('" + "NOC from National Highways Authority of India (NHAI) Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -660,7 +723,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypHighway.Text = fupHighway.PostedFile.FileName;
-                            hypHighway.NavigateUrl = serverpath;
+                            hypHighway.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypHighway.Target = "blank";
                             message = "alert('" + "NOC from concerned Executive Engineer (PWD –Roads) Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -718,7 +781,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypIntent.Text = fupIntent.PostedFile.FileName;
-                            hypIntent.NavigateUrl = serverpath;
+                            hypIntent.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypIntent.Target = "blank";
                             message = "alert('" + "Letter of Intent Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -747,27 +810,33 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                //  }
                 return Error;
             }
             catch (Exception ex)
@@ -805,7 +874,7 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             { throw ex; }
-        }      
+        }
 
         public void DeleteFile(string strFileName)
         {

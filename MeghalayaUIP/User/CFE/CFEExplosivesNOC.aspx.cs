@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -106,6 +107,36 @@ namespace MeghalayaUIP.User.CFE
                         GVEXPLOSIVE.DataSource = ds.Tables[1];
                         GVEXPLOSIVE.DataBind();
                         GVEXPLOSIVE.Visible = true;
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 39)
+                            {
+                                hypNocHeadman.Visible = true;
+                                hypNocHeadman.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypNocHeadman.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 40)
+                            {
+                                hypfireDepartment.Visible = true;
+                                hypfireDepartment.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypfireDepartment.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 41)
+                            {
+                                hypsite.Visible = true;
+                                hypsite.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypsite.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 42)
+                            {
+                                hypExplosives.Visible = true;
+                                hypExplosives.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypExplosives.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                        }
                     }
                 }
             }
@@ -345,6 +376,26 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Explosive GridView Details\\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypNocHeadman.Text) || hypNocHeadman.Text == "" || hypNocHeadman.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NOC from Headman for proposed site for rural areas and NOC from Local Authority \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypfireDepartment.Text) || hypfireDepartment.Text == "" || hypfireDepartment.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Clearance certificate from Fire Department \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypsite.Text) || hypsite.Text == "" || hypsite.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Site layout \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypExplosives.Text) || hypExplosives.Text == "" || hypExplosives.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Clearance from Deputy Controller of Explosives \\n";
+                    slno = slno + 1;
+                }
                 return errormsg;
             }
             catch (Exception ex)
@@ -443,7 +494,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypNocHeadman.Text = fupNocHeadman.PostedFile.FileName;
-                            hypNocHeadman.NavigateUrl = serverpath;
+                            hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypNocHeadman.Target = "blank";
                             message = "alert('" + "NOC from Headman for proposed site for rural areas and NOC from Local Authority for urban areas Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -501,7 +552,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypfireDepartment.Text = fupFireDepartment.PostedFile.FileName;
-                            hypfireDepartment.NavigateUrl = serverpath;
+                            hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypfireDepartment.Target = "blank";
                             message = "alert('" + "Clearance certificate from Fire Department Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -559,7 +610,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypsite.Text = fupsite.PostedFile.FileName;
-                            hypsite.NavigateUrl = serverpath;
+                            hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypsite.Target = "blank";
                             message = "alert('" + "Details of site where explosives will be used and distance of site of use from the storage premises (Site layout) Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -617,7 +668,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypExplosives.Text = fupExplosives.PostedFile.FileName;
-                            hypExplosives.NavigateUrl = serverpath;
+                            hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypExplosives.Target = "blank";
                             message = "alert('" + "Clearance from Deputy Controller of Explosives Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -646,27 +697,33 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                //}
                 return Error;
             }
             catch (Exception ex)

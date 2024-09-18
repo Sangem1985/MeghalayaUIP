@@ -3,6 +3,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace MeghalayaUIP.User.CFO
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL bal = new CFOBAL();
         UserInfo ObjUserInfo;
-        string UnitID, Errormsg = "",result="";
+        string UnitID, Errormsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -408,6 +409,86 @@ namespace MeghalayaUIP.User.CFO
                 if (GvLiquor.Rows.Count <= 0)
                 {
                     errormsg = errormsg + slno + ". Please enter Brand Details \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTribal.Text) || hypTribal.Text == "" || hypTribal.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Noc From Local Area Authority Provisional Recognition \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypQualification.Text) || hypQualification.Text == "" || hypQualification.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NoC from: a. Municipal Board (if within municipal area)  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypSpecimen.Text) || hypSpecimen.Text == "" || hypSpecimen.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Professional tax clearance certificate  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypHeadman.Text) || hypHeadman.Text == "" || hypHeadman.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Sales tax clearance Certificate \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTenancy.Text) || hypTenancy.Text == "" || hypTenancy.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Income tax return for last three year  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypRegistration.Text) || hypRegistration.Text == "" || hypRegistration.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Financial Capacity Certificate \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypPharmacist.Text) || hypPharmacist.Text == "" || hypPharmacist.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Age Proof (Birth Certificate/ School leaving Certificate) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypQualificationcertificate.Text) || hypQualificationcertificate.Text == "" || hypQualificationcertificate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Educational Qualification Certificates  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypsiteplan.Text) || hypsiteplan.Text == "" || hypsiteplan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Marriage Certificate (If Married)  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypCompetentperson.Text) || hypCompetentperson.Text == "" || hypCompetentperson.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Scheduled Tribe/ Caste Certificate \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hyppharmacistlist.Text) || hyppharmacistlist.Text == "" || hyppharmacistlist.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Trade Licence/ Factories Licence \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypundertaking1.Text) || hypundertaking1.Text == "" || hypundertaking1.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Non-Encumbrance Certificate    \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypundertaking2.Text) || hypundertaking2.Text == "" || hypundertaking2.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Excise licence held individually/jointly for one/multiple shop  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypstaff.Text) || hypstaff.Text == "" || hypstaff.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Excise licence held by direct family member  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypagencyClearance.Text) || hypagencyClearance.Text == "" || hypagencyClearance.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Single Window Agency Clearance   \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypProjectReport.Text) || hypProjectReport.Text == "" || hypProjectReport.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Detailed Project Report   \\n";
                     slno = slno + 1;
                 }
 
@@ -1473,27 +1554,33 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)

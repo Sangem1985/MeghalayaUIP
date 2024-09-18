@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -160,6 +161,26 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter South \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypownership.Text) || hypownership.Text == "" || hypownership.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Proof of ownership of land \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypland.Text) || hypland.Text == "" || hypland.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Rough map of the concerned land \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypNOCLand.Text) || hypNOCLand.Text == "" || hypNOCLand.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NoC from the concerned Autonomous District Council for land \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypforestdfo.Text) || hypforestdfo.Text == "" || hypforestdfo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Distance from Forest Certificate from DFO \\n";
+                    slno = slno + 1;
+                }
 
 
                 return errormsg;
@@ -222,9 +243,35 @@ namespace MeghalayaUIP.User.CFE
                     txtWest.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_WEST"]);
                     txtSouth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SOUTH"]);
                 }
-                else
+                if (ds.Tables[2].Rows.Count > 0)
                 {
-
+                    for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 33)
+                        {
+                            hypownership.Visible = true;
+                            hypownership.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypownership.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 34)
+                        {
+                            hypland.Visible = true;
+                            hypland.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypland.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 35)
+                        {
+                            hypNOCLand.Visible = true;
+                            hypNOCLand.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypNOCLand.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 36)
+                        {
+                            hypforestdfo.Visible = true;
+                            hypforestdfo.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypforestdfo.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                    }
                 }
 
             }
@@ -448,7 +495,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypownership.Text = fupOwnership.PostedFile.FileName;
-                            hypownership.NavigateUrl = serverpath;
+                            hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypownership.Target = "blank";
                             message = "alert('" + "Lease deed or Agreement of Sale or any related Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -506,7 +553,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypland.Text = fupland.PostedFile.FileName;
-                            hypland.NavigateUrl = serverpath;
+                            hypland.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypland.Target = "blank";
                             message = "alert('" + "Rough map of the concerned land Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -564,7 +611,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypNOCLand.Text = fupNOCLand.PostedFile.FileName;
-                            hypNOCLand.NavigateUrl = serverpath;
+                            hypNOCLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypNOCLand.Target = "blank";
                             message = "alert('" + "NoC from the concerned Autonomous District Council for land use Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -622,7 +669,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypforestdfo.Text = fupForestDFO.PostedFile.FileName;
-                            hypforestdfo.NavigateUrl = serverpath;
+                            hypforestdfo.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypforestdfo.Target = "blank";
                             message = "alert('" + "Distance from Forest Certificate from DFO (Wild-life) Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -651,6 +698,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 if (Attachment.PostedFile.ContentType != "application/pdf"
                      || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
@@ -659,6 +707,11 @@ namespace MeghalayaUIP.User.CFE
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
                         slno = slno + 1;
                     }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))

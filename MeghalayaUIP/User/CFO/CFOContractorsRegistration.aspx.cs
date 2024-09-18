@@ -3,6 +3,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -235,6 +236,46 @@ namespace MeghalayaUIP.User.CFO
                 if (string.IsNullOrEmpty(txtContractor.Text) || txtContractor.Text == "" || txtContractor.Text == null)
                 {
                     ErrorMsg = ErrorMsg + slno + ". Please Enter Date from which working as contractor\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTaxClearance.Text) || hypTaxClearance.Text == "" || hypTaxClearance.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload Tax Clearance Certificate on Professional Tax \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypGSTREG.Text) || hypGSTREG.Text == "" || hypGSTREG.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload GST Registration \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypLabourLic.Text) || hypLabourLic.Text == "" || hypLabourLic.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload Certificate of Labour License\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTribals.Text) || hypTribals.Text == "" || hypTribals.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload Balance sheets for last three financial years \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTradeLic.Text) || hypTradeLic.Text == "" || hypTradeLic.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload Trading license In case of SC, ST and OBC \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypCastefirms.Text) || hypCastefirms.Text == "" || hypCastefirms.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload Caste certificate In case of firms \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypattorney.Text) || hypattorney.Text == "" || hypattorney.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload Power of attorney In case of renewals \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypLastissued.Text) || hypLastissued.Text == "" || hypLastissued.Text == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please upload  Last issued \\n";
                     slno = slno + 1;
                 }
 
@@ -756,27 +797,33 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)

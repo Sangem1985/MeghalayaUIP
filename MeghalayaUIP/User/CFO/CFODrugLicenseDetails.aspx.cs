@@ -3,6 +3,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -183,7 +184,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-               
+
                 ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
@@ -399,6 +400,76 @@ namespace MeghalayaUIP.User.CFO
                 //    errormsg = errormsg + slno + ". Please Enter Drug\\n";
                 //    slno = slno + 1;
                 //}
+                if (string.IsNullOrEmpty(hypTribal.Text) || hypTribal.Text == "" || hypTribal.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload ST Certificate/Trading License in case of Non Tribal \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypQualification.Text) || hypQualification.Text == "" || hypQualification.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Qualification Certificate of new proprietor  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypSpecimen.Text) || hypSpecimen.Text == "" || hypSpecimen.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Specimen signature of new proprietor \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypHeadman.Text) || hypHeadman.Text == "" || hypHeadman.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NOC from Local Headman/Municipal/Cantonment Board \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTenancy.Text) || hypTenancy.Text == "" || hypTenancy.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Tenancy agreement \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypRegistration.Text) || hypRegistration.Text == "" || hypRegistration.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Up to Date Registration of Pharmacist \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypPharmacist.Text) || hypPharmacist.Text == "" || hypPharmacist.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Specimen Signature of Pharmacist \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypQualificationcertificate.Text) || hypQualificationcertificate.Text == "" || hypQualificationcertificate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Qualification Certificate of Pharmacist  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypsiteplan.Text) || hypsiteplan.Text == "" || hypsiteplan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Key and Site Plan \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypCompetentperson.Text) || hypCompetentperson.Text == "" || hypCompetentperson.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Specimen Signature of pharmacist/ Competent person \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hyppharmacistlist.Text) || hyppharmacistlist.Text == "" || hyppharmacistlist.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Qualification Certificate of pharmacist/ Competent person \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypundertaking1.Text) || hypundertaking1.Text == "" || hypundertaking1.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Undertaking I  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypundertaking2.Text) || hypundertaking2.Text == "" || hypundertaking2.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Undertaking II  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypstaff.Text) || hypstaff.Text == "" || hypstaff.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Staff List  \\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
             }
@@ -682,7 +753,7 @@ namespace MeghalayaUIP.User.CFO
                     if (Error == "")
                     {
                         string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "License in case of Non Tribal of new proprietor" + "\\");
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "License in case of Non Tribal" + "\\");
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1501,27 +1572,33 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)

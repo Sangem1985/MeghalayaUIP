@@ -1167,7 +1167,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm5.Text = fupForm5.PostedFile.FileName;
-                            hplForm5.NavigateUrl = serverpath;
+                            hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath; 
                             hplForm5.Target = "blank";
                             message = "alert('" + "Form5 Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1224,7 +1224,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm8.Text = fupForm8.PostedFile.FileName;
-                            hplForm8.NavigateUrl = serverpath;
+                            hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objLandDoc.FilePath; 
                             hplForm8.Target = "blank";
                             message = "alert('" + "Form 8 Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);

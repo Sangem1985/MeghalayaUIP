@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -76,8 +77,9 @@ namespace MeghalayaUIP.User.CFE
                         if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
                         {
                             BindDistricts();
-                            BINDDATA();
                             BindBuildingType();
+                            BINDDATA();
+                           
                         }
 
                     }
@@ -287,8 +289,25 @@ namespace MeghalayaUIP.User.CFE
                             txtstation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FIRESTATION"]);
                         }
 
-                        if (ds.Tables[0].Rows.Count > 0)
-                        { }
+                        if (ds.Tables[2].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                            {
+                                if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 37)
+                                {
+                                  //  hypbuildingplan.Visible = true;
+                                    hypbuildingplan.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                    hypbuildingplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 38)
+                                {
+                                  //  hypfireplan.Visible = true;
+                                    hypfireplan.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                    hypfireplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                                }
+                            }
+
+                        }
                     }
                 }
             }
@@ -617,7 +636,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypbuildingplan.Text = fupBuildingplan.PostedFile.FileName;
-                            hypbuildingplan.NavigateUrl = serverpath;
+                            hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath; 
                             hypbuildingplan.Target = "blank";
                             message = "alert('" + "Blueprint of Building i.e. Building Plan as per NBC Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -675,7 +694,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypfireplan.Text = fupfireplan.PostedFile.FileName;
-                            hypfireplan.NavigateUrl = serverpath;
+                            hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
                             hypfireplan.Target = "blank";
                             message = "alert('" + "Fire Lay out Plan Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -704,27 +723,33 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)
