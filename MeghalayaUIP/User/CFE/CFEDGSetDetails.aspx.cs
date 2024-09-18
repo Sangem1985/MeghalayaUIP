@@ -646,29 +646,26 @@ namespace MeghalayaUIP.User.CFE
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
 
-
-                if (Attachment.PostedFile.ContentType != "application/pdf")
-                {
-                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                    slno = slno + 1;
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
-                {
-                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
-                    slno = slno + 1;
-                }
-                if (!ValidateFileName(Attachment.PostedFile.FileName))
-                {
-                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                    slno = slno + 1;
-                }
-                else if (!ValidateFileExtension(Attachment))
-                {
-                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                    slno = slno + 1;
-                }
-
                 return Error;
             }
             catch (Exception ex)

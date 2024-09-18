@@ -1,4 +1,5 @@
-﻿using MeghalayaUIP.BAL.CommonBAL;
+﻿using AjaxControlToolkit.Bundling;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.WebRequestMethods;
 
 namespace MeghalayaUIP
 {
@@ -18,40 +20,30 @@ namespace MeghalayaUIP
         {
             try
             {
-                BindDistricts(ddlDistrict);
-                trComments.Visible = true;
-                DataSet dsdepts = new DataSet();
-                //  dsdepts = Gen.GetDepartmentSofAmmendments();
-                dsdepts = mstrBAL.GetAmmendamentFullName();
-                if (dsdepts != null && dsdepts.Tables.Count > 0 && dsdepts.Tables[0].Rows.Count > 0)
-                {
-                    //ddlDepartments.DataSource = dsdepts.Tables[0];
-                    //ddlDepartments.DataTextField = "Dept_Name";
-                    //ddlDepartments.DataValueField = "Dept_Id";
-                    //ddlDepartments.DataBind();
-                    //AddSelect(ddlDepartments);
-
-                    ddlDepartments.DataSource = dsdepts.Tables[0];
-                    ddlDepartments.DataValueField = "TMD_DEPTID";
-                    ddlDepartments.DataTextField = "TMD_DeptName";
-                    ddlDepartments.DataBind();
-                    ddlDepartments.Items.Insert(0, "--Select--");
-                    AddSelect(ddlDepartments);
-                }
-
-
-
-
-               // string Deptid = "";
                 if (Request.QueryString.Count > 0)
                 {
-                    ddlAmendment.SelectedValue = Request.QueryString[0];
-                    IframePanel.Attributes["src"] = Request.QueryString[1];
-                  //  ddlDepartments.SelectedValue = Request.QueryString[1];
-                  //  ddlDepartments_SelectedIndexChanged(sender, e);                  
-                    ddlDepartments.Enabled = false;
-                    ddlAmendment.Enabled = false;
+                    if (!IsPostBack)
+                    {
+                        BindDistricts(ddlDistrict);
+                        trComments.Visible = true;
+                        DataSet dsdepts = new DataSet();
+                        dsdepts = mstrBAL.GetAmmendamentFullName(Request.QueryString[0]);
+                        if (dsdepts != null && dsdepts.Tables.Count > 0 && dsdepts.Tables[0].Rows.Count > 0)
+                        {
+                            lblAmendment.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_NAME"]);
+                            lblDepatname.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
+                            lblAmendmentID.Text = Convert.ToString(Request.QueryString[0]);
+                            lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
+                            string filepath = "https://localhost:44379/" + Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/");
+                            // IframePanel.Attributes["src"] = Request.QueryString[1];
+                            filepath = "https://localhost:44379/Ammendments/12/Draft/13092024055025//Blank2.pdf";
+                            IframePanel.Attributes.Add("src", filepath);
+                        }
+                    }
+
                 }
+                else
+                { Response.Redirect("~/BusinessRegulation.aspx"); }
             }
             catch (Exception ex)
             {
@@ -60,33 +52,11 @@ namespace MeghalayaUIP
             }
         }
 
-        protected void ddlDepartments_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlAmendment.Items.Clear();
-                int DEPTID = Convert.ToInt32(ddlDepartments.SelectedValue);
-                DataSet ds1 = mstrBAL.GetAmmendments(DEPTID);
-                if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
-                {
-                    ddlAmendment.DataSource = ds1.Tables[0];
-                    ddlAmendment.DataTextField = "AMMENDMENT_NAME";
-                    ddlAmendment.DataValueField = "AMMENDMENT_ID";
-                    ddlAmendment.DataBind();
-                }
-                AddSelect(ddlAmendment);
 
-            }
-            catch (Exception ex)
-            {
-                lblerrMsg.Text = ex.Message;
-                lblerrMsg.CssClass = "errormsg";
-            }
-        }
 
         protected void btnviewcomments_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Dept/Ammendments.aspx?filename=" + ddlAmendment.SelectedValue);
+            Response.Redirect("~/Dept/Ammendments.aspx?filename=" + lblAmendmentID.Text);
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -96,13 +66,13 @@ namespace MeghalayaUIP
             ammendment.District = ddlDistrict.SelectedValue;
             ammendment.MobileNo = txtMobileNo.Text;
             ammendment.MailId = txtEmailId.Text;
-            ammendment.Dept_ID = ddlDepartments.SelectedValue;
-            ammendment.Ammendment_Id = ddlAmendment.SelectedValue;
+            ammendment.Dept_ID = lblDeptID.Text;
+            ammendment.Ammendment_Id = lblAmendmentID.Text;
             ammendment.Comments = txtComments.Text;
             //  ammendment.Created_By = "";
             ammendment.IPAddress = getclientIP();
-              //int VALID = 0;
-              Result = mstrBAL.InsertAmmendmentsComments(ammendment);
+            //int VALID = 0;
+            Result = mstrBAL.InsertAmmendmentsComments(ammendment);
             if (Result != "")
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "alertMsg", "alert('Comments Saved Successfully');" + "window.location='UseCommentsOnAmmendments.aspx';", true);
@@ -113,7 +83,7 @@ namespace MeghalayaUIP
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BussinessRegulation.aspx");
+            Response.Redirect("~/BussinessRegulation.aspx");
         }
         public void AddSelect(DropDownList ddl)
         {
@@ -153,7 +123,7 @@ namespace MeghalayaUIP
                     ddlDistrict.DataBind();
                 }
                 AddSelect(ddlDistrict);
-              
+
             }
             catch (Exception ex)
             {

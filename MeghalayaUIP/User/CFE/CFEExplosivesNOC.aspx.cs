@@ -108,36 +108,6 @@ namespace MeghalayaUIP.User.CFE
                         GVEXPLOSIVE.DataBind();
                         GVEXPLOSIVE.Visible = true;
                     }
-                    if (ds.Tables[2].Rows.Count > 0)
-                    {
-                        for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
-                        {
-                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 39)
-                            {
-                                hypNocHeadman.Visible = true;
-                                hypNocHeadman.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
-                                hypNocHeadman.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                            }
-                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 40)
-                            {
-                                hypfireDepartment.Visible = true;
-                                hypfireDepartment.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
-                                hypfireDepartment.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                            }
-                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 41)
-                            {
-                                hypsite.Visible = true;
-                                hypsite.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
-                                hypsite.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                            }
-                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 42)
-                            {
-                                hypExplosives.Visible = true;
-                                hypExplosives.NavigateUrl = Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
-                                hypExplosives.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                            }
-                        }
-                    }
                 }
             }
             catch (Exception ex)
@@ -478,7 +448,23 @@ namespace MeghalayaUIP.User.CFE
                             Directory.CreateDirectory(serverpath);
 
                         }
-                        fupNocHeadman.PostedFile.SaveAs(serverpath + "\\" + fupNocHeadman.PostedFile.FileName);
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupNocHeadman.PostedFile.SaveAs(serverpath + "\\" + fupNocHeadman.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupNocHeadman.PostedFile.SaveAs(serverpath + "\\" + fupNocHeadman.PostedFile.FileName);
+                            }
+                        }
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
@@ -536,7 +522,23 @@ namespace MeghalayaUIP.User.CFE
                             Directory.CreateDirectory(serverpath);
 
                         }
-                        fupFireDepartment.PostedFile.SaveAs(serverpath + "\\" + fupFireDepartment.PostedFile.FileName);
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupFireDepartment.PostedFile.SaveAs(serverpath + "\\" + fupFireDepartment.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupFireDepartment.PostedFile.SaveAs(serverpath + "\\" + fupFireDepartment.PostedFile.FileName);
+                            }
+                        }
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
@@ -594,7 +596,23 @@ namespace MeghalayaUIP.User.CFE
                             Directory.CreateDirectory(serverpath);
 
                         }
-                        fupsite.PostedFile.SaveAs(serverpath + "\\" + fupsite.PostedFile.FileName);
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupsite.PostedFile.SaveAs(serverpath + "\\" + fupsite.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupsite.PostedFile.SaveAs(serverpath + "\\" + fupsite.PostedFile.FileName);
+                            }
+                        }
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
@@ -652,7 +670,23 @@ namespace MeghalayaUIP.User.CFE
                             Directory.CreateDirectory(serverpath);
 
                         }
-                        fupExplosives.PostedFile.SaveAs(serverpath + "\\" + fupExplosives.PostedFile.FileName);
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupExplosives.PostedFile.SaveAs(serverpath + "\\" + fupExplosives.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupExplosives.PostedFile.SaveAs(serverpath + "\\" + fupExplosives.PostedFile.FileName);
+                            }
+                        }
 
                         CFEAttachments objManufacture = new CFEAttachments();
                         objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
