@@ -354,7 +354,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTaxClearance.Text = fupTaxClearance.PostedFile.FileName;
-                            hypTaxClearance.NavigateUrl = serverpath;
+                            hypTaxClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypTaxClearance.Target = "blank";
                             message = "alert('" + "Tax Clearance Certificate on Professional Tax Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -413,7 +413,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypGSTREG.Text = fupGSTREG.PostedFile.FileName;
-                            hypGSTREG.NavigateUrl = serverpath;
+                            hypGSTREG.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypGSTREG.Target = "blank";
                             message = "alert('" + "GST Registration Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -472,7 +472,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypLabourLic.Text = fupLabourLic.PostedFile.FileName;
-                            hypLabourLic.NavigateUrl = serverpath;
+                            hypLabourLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypLabourLic.Target = "blank";
                             message = "alert('" + "Certificate of Labour License Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -531,7 +531,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTribals.Text = fupTribals.PostedFile.FileName;
-                            hypTribals.NavigateUrl = serverpath;
+                            hypTribals.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypTribals.Target = "blank";
                             message = "alert('" + "Balance sheets for last three financial years, certified by CA In case of non-Tribals Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -590,7 +590,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTradeLic.Text = fupTradeLic.PostedFile.FileName;
-                            hypTradeLic.NavigateUrl = serverpath;
+                            hypTradeLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypTradeLic.Target = "blank";
                             message = "alert('" + "Trading license In case of SC, ST and OBC Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -649,7 +649,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypCastefirms.Text = fupCastefirms.PostedFile.FileName;
-                            hypCastefirms.NavigateUrl = serverpath;
+                            hypCastefirms.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypCastefirms.Target = "blank";
                             message = "alert('" + "Caste certificate In case of firms Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -708,7 +708,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypattorney.Text = fupattorney.PostedFile.FileName;
-                            hypattorney.NavigateUrl = serverpath;
+                            hypattorney.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypattorney.Target = "blank";
                             message = "alert('" + "Power of attorney In case  Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -767,7 +767,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypLastissued.Text = fupLastissued.PostedFile.FileName;
-                            hypLastissued.NavigateUrl = serverpath;
+                            hypLastissued.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hypLastissued.Target = "blank";
                             message = "alert('" + "Last issued Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
