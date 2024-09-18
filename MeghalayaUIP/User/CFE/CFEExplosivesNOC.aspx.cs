@@ -108,6 +108,36 @@ namespace MeghalayaUIP.User.CFE
                         GVEXPLOSIVE.DataBind();
                         GVEXPLOSIVE.Visible = true;
                     }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 39)
+                            {
+                                hypNocHeadman.Visible = true;
+                                hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypNocHeadman.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 40)
+                            {
+                                hypfireDepartment.Visible = true;
+                                hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypfireDepartment.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 41)
+                            {
+                                hypsite.Visible = true;
+                                hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypsite.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 42)
+                            {
+                                hypExplosives.Visible = true;
+                                hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypExplosives.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)

@@ -655,6 +655,11 @@ namespace MeghalayaUIP.User.CFE
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
                         slno = slno + 1;
                     }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                        slno = slno + 1;
+                    }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))
                     {
                         Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
