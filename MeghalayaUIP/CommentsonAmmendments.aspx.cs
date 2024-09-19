@@ -20,9 +20,10 @@ namespace MeghalayaUIP
         {
             try
             {
-                if (Request.QueryString.Count > 0)
+
+                if (!IsPostBack)
                 {
-                    if (!IsPostBack)
+                    if (Request.QueryString.Count > 0)
                     {
                         BindDistricts(ddlDistrict);
                         trComments.Visible = true;
@@ -36,14 +37,22 @@ namespace MeghalayaUIP
                             lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
                             string filepath = "https://localhost:44379/" + Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/");
                             // IframePanel.Attributes["src"] = Request.QueryString[1];
-                            filepath = "https://localhost:44379/Ammendments/12/Draft/13092024055025//Blank2.pdf";
-                            IframePanel.Attributes.Add("src", filepath);
+                            filepath = "~/Ammendments/12/Draft/13092024055025//Blank2.pdf";
+                            IframePanel.Attributes["src"] = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/").Replace(@"D:/InvestMegha/MeghalayaUIP/", @"~/");
+
+                            // IframePanel.Attributes.Add("src", filepath);
+                        }
+                        if (dsdepts != null && dsdepts.Tables.Count > 1 && dsdepts.Tables[1].Rows.Count > 0)
+                        {
+                            grdComments.DataSource = dsdepts.Tables[1];
+                            grdComments.DataBind();
                         }
                     }
-
+                    else
+                    {
+                        Response.Redirect("~/BusinessRegulation.aspx");
+                    }
                 }
-                else
-                { Response.Redirect("~/BusinessRegulation.aspx"); }
             }
             catch (Exception ex)
             {
@@ -56,7 +65,14 @@ namespace MeghalayaUIP
 
         protected void btnviewcomments_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Dept/Ammendments.aspx?filename=" + lblAmendmentID.Text);
+            DataSet dsdepts = new DataSet();
+            dsdepts = mstrBAL.GetAmmendamentFullName(lblAmendmentID.Text);
+            if (dsdepts != null && dsdepts.Tables.Count > 1 && dsdepts.Tables[1].Rows.Count > 0)
+            {
+                grdComments.Visible = true;
+                grdComments.DataSource = dsdepts.Tables[1];
+                grdComments.DataBind();
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

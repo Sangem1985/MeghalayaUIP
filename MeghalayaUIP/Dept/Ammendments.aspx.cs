@@ -31,13 +31,10 @@ namespace MeghalayaUIP.Dept
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
-                    // username = ObjUserInfo.UserName;
-
                     if (hdnUserID.Value == "")
                     {
                         hdnUserID.Value = ObjUserInfo.UserID;
                     }
-
                     if (hdnDeptid.Value == "")
                     {
                         hdnDeptid.Value = ObjUserInfo.Deptid;
@@ -48,7 +45,7 @@ namespace MeghalayaUIP.Dept
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        // BindData();
+                        bindAmmendments();
                     }
                 }
                 else
@@ -68,33 +65,28 @@ namespace MeghalayaUIP.Dept
         {
             try
             {
-                if (ddlamendmenttype.SelectedItem.Text == "Draft")
+                if (ddlamendmenttype.SelectedValue != "0")
                 {
-                    lblammentname.Text = "Draft Regulation";
-                    lblamendentdate.Text = "Draft Regulation Date";
-                    lblamendentupload.Text = "Draft Regulation Upload";
-                    tramendentype.Visible = false;
-                    tramentext.Visible = true;
-                }
-                else if (ddlamendmenttype.SelectedItem.Text == "Final")
-                {
-                    tramendenname.Visible = true;
-                    tramentext.Visible = false;
-                    lblamendentdate.Text = "Final Regulation Date";
-                    lblamendentupload.Text = "Final Regulation Upload";
-
-
-                    ddlAmendment.Items.Clear();
-
-                    DataSet ds1 = mstrBAL.GetAmmendments(9);
-                    if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+                    trAmndName.Visible = true;
+                    if (ddlamendmenttype.SelectedItem.Text == "Draft")
                     {
-                        ddlAmendment.DataSource = ds1.Tables[0];
-                        ddlAmendment.DataTextField = "AMMENDMENT";
-                        ddlAmendment.DataValueField = "AMMENDMENT_ID";
-                        ddlAmendment.DataBind();
+                        lblamendentdate.Text = "Draft Regulation Date";
+                        lblamendentupload.Text = "Upload Draft Regulation ";
+                        ddlAmendment.Visible = false; txtAmendmentName.Visible = true;
+
                     }
-                    AddSelect(ddlAmendment);
+                    else if (ddlamendmenttype.SelectedItem.Text == "Final")
+                    {
+                        lblamendentdate.Text = "Final Regulation Date";
+                        lblamendentupload.Text = "Upload Final Regulation ";
+                        txtAmendmentName.Visible = false; ddlAmendment.Visible = true;
+                    }
+                }
+                else
+                {
+                    txtAmendmentName.Visible = false;
+                    ddlAmendment.Visible = false;
+                    trAmndName.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -102,7 +94,20 @@ namespace MeghalayaUIP.Dept
                 lblmsg0.Text = ex.Message;
             }
         }
+        public void bindAmmendments()
+        {
+            ddlAmendment.Items.Clear();
 
+            DataSet ds1 = mstrBAL.GetAmmendments(Convert.ToInt32(hdnDeptid.Value));
+            if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+            {
+                ddlAmendment.DataSource = ds1.Tables[0];
+                ddlAmendment.DataTextField = "AMMENDMENT_NAME";
+                ddlAmendment.DataValueField = "Ammendment_Id";
+                ddlAmendment.DataBind();
+            }
+            AddSelect(ddlAmendment);
+        }
         public void AddSelect(DropDownList ddl)
         {
             try
