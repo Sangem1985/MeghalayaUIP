@@ -18,9 +18,9 @@
                         <div class="row mt-2">
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-3" id="Ammendments" runat="server" visible="false">
-                                    <div class="card-counter primary">
+                                    <div class="card-counter primary first">
                                         <asp:LinkButton runat="server" ID="lblAmmendment" OnClick="lblAmmendment_Click">
-									<img src="../../assets/admin/img/prl.png" alt="logo">
+									<i class="fi fi-tr-file-edit"></i>
 									<span class="count-numbers">Ammendments</span>
 									<span class="count-name"></span>
                                         </asp:LinkButton>
@@ -28,9 +28,9 @@
                                 </div>
 
                                   <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
-                                    <div class="card-counter primarydashboard1">
+                                    <div class="card-counter danger First">
                                         <asp:LinkButton ID="lnkIntent" runat="server" OnClick="lnkIntent_Click">
-									<i class="fa fa-user-plus"></i>
+									<i class="fi fi-tr-invest"></i>
 									<span class="count-numbers">Intent to Invest</span>
 									<span class="count-name"></span>
                                         </asp:LinkButton>
@@ -40,7 +40,7 @@
                                 <div class="col-md-3" id="Grievance" runat="server" visible="true">
                                     <div class="card-counter success">
                                         <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click">
-                                    <img src="../../assets/admin/img/inc.png" alt="logo">
+                                    <i class="fi fi-tr-person-circle-question"></i>
                                     <span class="count-numbers">Grievance</span>
                                     <span class="count-name"></span>
                                         </asp:LinkButton>
@@ -71,9 +71,9 @@
                                 </div>
 
                                 <div class="col-md-3" id="Renewal" runat="server" visible="false">
-                                    <div class="card-counter danger">
+                                    <div class="card-counter danger First">
                                         <asp:LinkButton runat="server" ID="lnkrenewal" OnClick="lnkrenewal_Click">
-                                     <img src="../../assets/admin/img/poa.png" alt="logo">
+                                     <img src="../../assets/admin/img/inc.png" alt="logo">
                                     <span class="count-numbers">Renewal<br /> Approval</span>
                                     <span class="count-name"></span>
                                         </asp:LinkButton>
@@ -86,7 +86,7 @@
                                 <div class="col-md-3" id="prereg" runat="server" visible="false">
                                     <div class="card-counter info">
                                         <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
-									<i class="fa fa-users"></i>
+									<i class="fi fi-tr-clipboard-list"></i>
 									<span class="count-numbers">Registration under<br /> MIIPP 2024</span>
 									<span class="count-name">(Principle approval)</span>
                                         </asp:LinkButton>
@@ -94,9 +94,9 @@
                                 </div>
 
                                 <div class="col-md-3" id="Land" runat="server" visible="false">
-                                    <div class="card-counter info">
+                                    <div class="card-counter primary">
                                         <asp:LinkButton ID="lnkLandAllotment" runat="server" OnClick="lnkLandAllotment_Click">
-									<i class="fa fa-users"></i>
+									<i class="fi fi-tr-land-layer-location"></i>
 									<span class="count-numbers">Land Allotment</span>
 									<span class="count-name"></span>
                                         </asp:LinkButton>
