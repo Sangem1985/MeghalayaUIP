@@ -124,11 +124,46 @@
                                                                                 </asp:Panel>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:Panel ID="Panel2" runat="server" BackColor="#FFFFCC" BorderStyle="Inset"
+                                                                                <asp:Panel ID="Panel3" runat="server" BackColor="#FFFFCC" BorderStyle="Inset"
                                                                                     BorderWidth="3" Width="600px">
                                                                                     <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()"
-                                                                                        scrolldelay="150" style="height: 300px;">
-                                                                                        <asp:Literal ID="lt2" runat="server"></asp:Literal>
+                                                                                        scrolldelay="120" style="height: 300px;">
+                                                                                        <asp:GridView ID="grdFinal" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                                                                            CssClass="GRD table-hover" ForeColor="#333333" Width="100%" ShowFooter="false">
+                                                                                            <rowstyle cssclass="GRDITEM" horizontalalign="left" />
+                                                                                            <headerstyle cssclass="GRDHEADER" font-bold="True" forecolor="White" horizontalalign="Center" />
+                                                                                            <columns>
+                                                                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="">
+                                                                                                    <itemtemplate>
+                                                                                                        <%# Container.DataItemIndex + 1%>
+                                                                                                    </itemtemplate>
+                                                                                                    <headerstyle horizontalalign="Center" />
+                                                                                                    <itemstyle width="50px" />
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="">
+                                                                                                    <itemtemplate>
+                                                                                                        <asp:LinkButton runat="server" id="LinkButton1" Text='<%#Eval("AMMENDMENT_NAME") %>' OnClick="linkDraft_Click"></asp:LinkButton>
+                                                                                                    </itemtemplate>
+                                                                                                    <itemstyle horizontalalign="left" />
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Amndmt ID" visible="false">
+                                                                                                    <itemtemplate>
+                                                                                                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("AMMENDMENT_ID") %>'></asp:Label>
+                                                                                                        <itemstyle horizontalalign="Center" width="140px" />
+                                                                                                    </itemtemplate>
+                                                                                                    <itemstyle horizontalalign="Center" width="140px" />
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Amndmt ID" visible="false">
+                                                                                                    <itemtemplate>
+                                                                                                        <asp:Label ID="Label3" runat="server" Text='<%#Eval("LINK") %>'></asp:Label>
+                                                                                                        <itemstyle horizontalalign="Center" width="140px" />
+                                                                                                    </itemtemplate>
+                                                                                                    <itemstyle horizontalalign="Center" width="140px" />
+                                                                                                </asp:TemplateField>
+
+                                                                                            </columns>
+                                                                                        </asp:GridView>
+                                                                                        <%--<asp:Literal ID="lt1" runat="server"></asp:Literal>--%>
                                                                                     </marquee>
                                                                                 </asp:Panel>
                                                                             </td>

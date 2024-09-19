@@ -2002,7 +2002,11 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.Parameters.AddWithValue("@AMMENDMENT_FILENAME", ammendment.Amm_FileName);
                 com.Parameters.AddWithValue("@AMENDMENT_TYPE", ammendment.Amm_Type);
                 com.Parameters.AddWithValue("@CREATEDBYIP", ammendment.IPAddress);
-                // com.Parameters.AddWithValue("@Ammendment_Id", ammendment.Ammendment_Id);
+                if (ammendment.Ammendment_Id != null && ammendment.Ammendment_Id != "0")
+                {
+                    com.Parameters.AddWithValue("@AMMENDMENT_ID", ammendment.Ammendment_Id);
+                }
+               
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);

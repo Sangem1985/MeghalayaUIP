@@ -226,7 +226,7 @@ namespace MeghalayaUIP.Dept
 
                         AmmendmentVo ammendment = new AmmendmentVo();
                         ammendment.Ammendment = txtAmendmentName.Text;
-                        if (ddlamendmenttype.SelectedValue == "2")
+                        if (ddlamendmenttype.SelectedValue == "Final")
                         {
                             ammendment.Ammendment = ddlAmendment.SelectedItem.Text;
                             ammendment.Ammendment_Id = ddlAmendment.SelectedValue;
@@ -242,7 +242,7 @@ namespace MeghalayaUIP.Dept
                         ammendment.Amm_Type = ddlamendmenttype.SelectedValue;
                         List<Deptcomments> lstformvo = new List<Deptcomments>();
                         lstformvo.Clear();
-                        if (ddlamendmenttype.SelectedValue == "2")
+                        if (ddlamendmenttype.SelectedValue == "Final")
                         {
                             foreach (GridViewRow gvrow in gvComments.Rows)
                             {
@@ -368,5 +368,18 @@ namespace MeghalayaUIP.Dept
             Response.Redirect("Ammendments.aspx");
         }
 
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
+        }
     }
 }

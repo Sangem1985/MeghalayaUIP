@@ -18,7 +18,7 @@
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="card-title mt-1"><b>Departments Ammendments</b></h4>
                         <div class="col-md-1">
-                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
                                                         </td>
                                                     </tr>
 
-                                                    <tr Visible="false" id="trAmndName" runat="server">
+                                                    <tr visible="false" id="trAmndName" runat="server">
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">Regulation Name</td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
                                                             <asp:DropDownList ID="ddlAmendment" runat="server" Visible="false" class="form-control txtbox" Height="33px" Width="180px" OnSelectedIndexChanged="ddlAmendment_SelectedIndexChanged" AutoPostBack="true">
@@ -71,7 +71,7 @@
                                                                 Height="28px" MaxLength="200" TabIndex="1"></asp:TextBox>
                                                         </td>
                                                         <td align="left" style="width: 10px">&nbsp;</td>
-                                                    </tr>                                                    
+                                                    </tr>
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
                                                             <asp:Label ID="lblamendentdate" runat="server" Text="Regulation Date"></asp:Label>
@@ -92,7 +92,7 @@
                                                             <asp:Label ID="lblDraftReg" runat="server" Visible="true" Font-Bold="true" Font-Size="Large"></asp:Label>
                                                         </td>
                                                     </tr>
-                                                    
+
                                                     <tr id="trusercomments" runat="server" visible="false" align="center">
                                                         <td colspan="5">
                                                             <asp:GridView Width="100%" ID="gvComments" runat="server" AutoGenerateColumns="false" border="3" CellPadding="4" CellSpacing="1">
@@ -105,7 +105,7 @@
                                                                             <asp:Label ID="lblSl" runat="server" Text="<%#Container.DataItemIndex+1 %>"></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                     <asp:TemplateField HeaderText="Ammendment">
+                                                                    <asp:TemplateField HeaderText="Ammendment">
                                                                         <ItemTemplate>
                                                                             <asp:Label ID="lblAmmendment" runat="server" Text='<%# Bind("[AMMENDMENT_NAME]") %>'></asp:Label>
                                                                         </ItemTemplate>
@@ -135,7 +135,7 @@
                                                                         </ItemTemplate>
                                                                         <ItemStyle CssClass="scroll_td" />
                                                                     </asp:TemplateField>
-                                                                   
+
                                                                     <asp:TemplateField HeaderText="User Comments">
                                                                         <ItemTemplate>
                                                                             <asp:Label ID="lblusrcomm" runat="server" Text='<%# Bind("[User Comments]") %>'></asp:Label>
@@ -220,5 +220,8 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="BtnSave3" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

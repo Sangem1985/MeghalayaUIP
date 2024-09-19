@@ -15,6 +15,24 @@ namespace MeghalayaUIP.Dept.Dashboard
     {
 
         /// <summary>
+        /// Ammendments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Ammendments;
+
+        /// <summary>
+        /// lblAmmendment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAmmendment;
+
+        /// <summary>
         /// intenttoinvest control.
         /// </summary>
         /// <remarks>
@@ -33,22 +51,22 @@ namespace MeghalayaUIP.Dept.Dashboard
         protected global::System.Web.UI.WebControls.LinkButton lnkIntent;
 
         /// <summary>
-        /// prereg control.
+        /// Grievance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl prereg;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grievance;
 
         /// <summary>
-        /// linkPreReg control.
+        /// linkGrievance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkPreReg;
+        protected global::System.Web.UI.WebControls.LinkButton linkGrievance;
 
         /// <summary>
         /// Preestablishment control.
@@ -87,24 +105,6 @@ namespace MeghalayaUIP.Dept.Dashboard
         protected global::System.Web.UI.WebControls.LinkButton linkCFO;
 
         /// <summary>
-        /// Grievance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grievance;
-
-        /// <summary>
-        /// linkGrievance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkGrievance;
-
-        /// <summary>
         /// Renewal control.
         /// </summary>
         /// <remarks>
@@ -121,6 +121,24 @@ namespace MeghalayaUIP.Dept.Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkrenewal;
+
+        /// <summary>
+        /// prereg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl prereg;
+
+        /// <summary>
+        /// linkPreReg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkPreReg;
 
         /// <summary>
         /// Land control.

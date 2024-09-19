@@ -26,6 +26,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     prereg.Visible = true;
                     Land.Visible = true;
                     Preestablishment.Visible = false;
+                    Ammendments.Visible = true;
 
                 }
                 else if (ObjUserInfo.Roleid == "4")
@@ -34,6 +35,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     prereg.Visible = true;
                     Land.Visible = true;
                     Preestablishment.Visible = false;
+                    Ammendments.Visible = true;
                 }
                 else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
                 {
@@ -41,6 +43,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     prereg.Visible = true;
                     Preestablishment.Visible = false;
                     Land.Visible = false;
+                    Ammendments.Visible = false;
                 }
                 else if (ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "9")
                 {
@@ -50,7 +53,13 @@ namespace MeghalayaUIP.Dept.Dashboard
                     PreOperational.Visible = true;
                     Renewal.Visible = true;
                     Land.Visible = false;
-                }
+                    if (ObjUserInfo.Roleid == "8")
+                    {
+                        Ammendments.Visible = true;
+                    }
+                    
+                    
+                }                
                 else
                 {
                     intenttoinvest.Visible = false;
@@ -135,6 +144,16 @@ namespace MeghalayaUIP.Dept.Dashboard
             {
                 Land.Visible = true;
                 string url = "~/Dept/LA/LADeptdashboard.aspx";
+                Response.Redirect(url);
+            }
+        }
+
+        protected void lblAmmendment_Click(object sender, EventArgs e)
+        {
+            if(ObjUserInfo.Roleid=="1" || ObjUserInfo.Roleid == "4" ||  ObjUserInfo.Roleid == "8")
+            {
+                Ammendments.Visible = true;
+                string url = "~/Dept/Ammendments.aspx";
                 Response.Redirect(url);
             }
         }

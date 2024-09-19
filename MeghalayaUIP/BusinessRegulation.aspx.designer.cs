@@ -105,22 +105,22 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.GridView grdDraft;
 
         /// <summary>
-        /// Panel2 control.
+        /// Panel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.WebControls.Panel Panel3;
 
         /// <summary>
-        /// lt2 control.
+        /// grdFinal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lt2;
+        protected global::System.Web.UI.WebControls.GridView grdFinal;
 
         /// <summary>
         /// ddd control.

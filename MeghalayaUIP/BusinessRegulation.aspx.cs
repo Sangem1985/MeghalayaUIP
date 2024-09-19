@@ -34,6 +34,11 @@ namespace MeghalayaUIP
                             grdDraft.DataSource = ds1.Tables[0];
                             grdDraft.DataBind();
                         }
+                        if (ds1.Tables[1].Rows.Count > 0)
+                        {
+                            grdFinal.DataSource = ds1.Tables[1];
+                            grdFinal.DataBind();
+                        }
                     }
                 }
             }
