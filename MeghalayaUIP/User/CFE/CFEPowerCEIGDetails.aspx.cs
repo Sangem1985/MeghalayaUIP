@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -375,49 +376,49 @@ namespace MeghalayaUIP.User.CFE
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 22)
                                 {
                                     hypowner.Visible = true;
-                                    hypowner.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypowner.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypowner.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 23)
                                 {
                                     hypLic.Visible = true;
-                                    hypLic.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypLic.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 24)
                                 {
                                     hypElectrical.Visible = true;
-                                    hypElectrical.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypElectrical.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypElectrical.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 25)
                                 {
                                     hypdiscoms.Visible = true;
-                                    hypdiscoms.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypdiscoms.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypdiscoms.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 26)
                                 {
                                     hypenergy.Visible = true;
-                                    hypenergy.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypenergy.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypenergy.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 27)
                                 {
                                     hypplan.Visible = true;
-                                    hypplan.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypplan.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 28)
                                 {
                                     hypDraw.Visible = true;
-                                    hypDraw.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypDraw.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypDraw.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 29)
                                 {
                                     hypEarth.Visible = true;
-                                    hypEarth.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hypEarth.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hypEarth.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                             }
@@ -536,7 +537,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypowner.Text = fupoWNER.PostedFile.FileName;
-                            hypowner.NavigateUrl = serverpath;
+                            hypowner.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objOwner.FilePath;
                             hypowner.Target = "blank";
                             message = "alert('" + "Agreement letter between Contractor Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -593,7 +594,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypLic.Text = fupLic.PostedFile.FileName;
-                            hypLic.NavigateUrl = serverpath;
+                            hypLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath; 
                             hypLic.Target = "blank";
                             message = "alert('" + "Contractor License Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -650,7 +651,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypElectrical.Text = fupElectrical.PostedFile.FileName;
-                            hypElectrical.NavigateUrl = serverpath;
+                            hypElectrical.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath;
                             hypElectrical.Target = "blank";
                             message = "alert('" + "Contractor/Project electrical supervisor permit Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -707,7 +708,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypdiscoms.Text = fupdiscoms.PostedFile.FileName;
-                            hypdiscoms.NavigateUrl = serverpath;
+                            hypdiscoms.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath; 
                             hypdiscoms.Target = "blank";
                             message = "alert('" + "Feasibility report from the DISCOMS Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -764,7 +765,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypenergy.Text = fupenergy.PostedFile.FileName;
-                            hypenergy.NavigateUrl = serverpath;
+                            hypenergy.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath; 
                             hypenergy.Target = "blank";
                             message = "alert('" + "Electrical Single line diagram Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -821,7 +822,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypplan.Text = fupPlan.PostedFile.FileName;
-                            hypplan.NavigateUrl = serverpath;
+                            hypplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath; 
                             hypplan.Target = "blank";
                             message = "alert('" + "structural layout showing plan Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -878,7 +879,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypDraw.Text = fupDraw.PostedFile.FileName;
-                            hypDraw.NavigateUrl = serverpath;
+                            hypDraw.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath; 
                             hypDraw.Target = "blank";
                             message = "alert('" + "General arrangement of the equipment drawing showing the location Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -935,7 +936,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypEarth.Text = fupEarth.PostedFile.FileName;
-                            hypEarth.NavigateUrl = serverpath;
+                            hypEarth.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath;
                             hypEarth.Target = "blank";
                             message = "alert('" + "The earthing layout diagram Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -963,27 +964,33 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)
@@ -1162,7 +1169,7 @@ namespace MeghalayaUIP.User.CFE
                         slno = slno + 1;
                     }
                 }
-              
+
                 if (ddlLocFactory.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Location of Factory \\n";

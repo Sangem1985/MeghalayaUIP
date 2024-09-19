@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -581,24 +582,28 @@ namespace MeghalayaUIP.User.CFE
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 1)//Aadhar
                                 {
                                     hplForm5.Visible = true;
-                                    hplForm5.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hplForm5.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplLicgrant.Visible = true;
-                                    hplLicgrant.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hplLicgrant.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplForm8.Visible = true;
-                                    hplForm8.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hplForm8.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplForm10.Visible = true;
-                                    hplForm10.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hplForm10.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplCrimeForm10.Visible = true;
-                                    hplCrimeForm10.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                     hplCrimeForm10.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+
+                                    hplEmployer.Visible = true;
+                                    hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplEmployer.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                             }
 
@@ -910,7 +915,7 @@ namespace MeghalayaUIP.User.CFE
                     txtNameAddress.Text = "";
                     txtLocation.Text = "";
                     ddlMaximumNo.ClearSelection();
-                    txtContactWork.Text="";
+                    txtContactWork.Text = "";
                     txtEstimated.Text = "";
                     txtDateWork.Text = "";
                     txtEmployeeLabour.Text = "";
@@ -1065,7 +1070,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplLicgrant.Text = fupLicgrant.PostedFile.FileName;
-                            hplLicgrant.NavigateUrl = serverpath;
+                            hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
                             hplLicgrant.Target = "blank";
                             message = "alert('" + "License Grant Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1093,27 +1098,33 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)
@@ -1167,7 +1178,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm5.Text = fupForm5.PostedFile.FileName;
-                            hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath; 
+                            hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath;
                             hplForm5.Target = "blank";
                             message = "alert('" + "Form5 Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1224,7 +1235,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm8.Text = fupForm8.PostedFile.FileName;
-                            hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objLandDoc.FilePath; 
+                            hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objLandDoc.FilePath;
                             hplForm8.Target = "blank";
                             message = "alert('" + "Form 8 Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1282,7 +1293,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm10.Text = fupForm10.PostedFile.FileName;
-                            hplForm10.NavigateUrl = serverpath;
+                            hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objSitePlan.FilePath; 
                             hplForm10.Target = "blank";
                             message = "alert('" + "Form 10 Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1340,7 +1351,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplCrimeForm10.Text = fupCrimeForm10.PostedFile.FileName;
-                            hplCrimeForm10.NavigateUrl = serverpath;
+                            hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objSitePlan.FilePath; 
                             hplCrimeForm10.Target = "blank";
                             message = "alert('" + "Residence and Criminal antecedents issued by District Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1398,7 +1409,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplEmployer.Text = fupemployer.PostedFile.FileName;
-                            hplEmployer.NavigateUrl = serverpath;
+                            hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objSitePlan.FilePath; 
                             hplEmployer.Target = "blank";
                             message = "alert('" + "Principle Employer Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1893,6 +1904,37 @@ namespace MeghalayaUIP.User.CFE
                     }
                 }
                 else { divMigrLabr.Visible = false; }
+
+                if (string.IsNullOrEmpty(hplLicgrant.Text) || hplLicgrant.Text == "" || hplLicgrant.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Trading / business license granted by the respective District Council \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplForm5.Text) || hplForm5.Text == "" || hplForm5.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Form-V Certificate \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplForm8.Text) || hplForm8.Text == "" || hplForm8.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Form VIII  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplForm10.Text) || hplForm10.Text == "" || hplForm10.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Form X affixed with epic and photograph of all the workmen \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplCrimeForm10.Text) || hplCrimeForm10.Text == "" || hplCrimeForm10.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Proof of Residence and Criminal antecedents issued by District Magistrates/Additional \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hplEmployer.Text) || hplEmployer.Text == "" || hplEmployer.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Registration of establishment of the principal employer \\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
             }

@@ -286,9 +286,25 @@ namespace MeghalayaUIP.User.CFE
                             txtdistancebuild.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCESOUTH"]);
                             txtstation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FIRESTATION"]);
                         }
+                        if (ds.Tables[2].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                            {
+                                if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 37)
+                                {
+                                    hypbuildingplan.Visible = true;
+                                    hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                    hypbuildingplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                                }
+                                if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 38)
+                                {
+                                    hypfireplan.Visible = true;
+                                    hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                    hypfireplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                                }
 
-                        if (ds.Tables[0].Rows.Count > 0)
-                        { }
+                            }
+                        }
                     }
                 }
             }
@@ -738,26 +754,31 @@ namespace MeghalayaUIP.User.CFE
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)

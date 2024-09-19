@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -290,6 +291,21 @@ namespace MeghalayaUIP.User.CFE
                     ddlDiameter.SelectedItem.Text = ds.Tables[0].Rows[0]["CFEWD_DOMESTIC"].ToString();
                     ddlDN.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_BULK"].ToString();
                 }
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 48)//
+                        {
+                            hypSketch.Visible = true;
+                            hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypSketch.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                      
+                    }
+
+
+                }
             }
             catch (Exception ex)
             {
@@ -539,6 +555,11 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select type connection \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypSketch.Text) || hypSketch.Text == "" || hypSketch.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Route Sketch Map \\n";
+                    slno = slno + 1;
+                }
                 return errormsg;
             }
             catch (Exception ex)
@@ -610,7 +631,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypSketch.Text = fupSketch.PostedFile.FileName;
-                            hypSketch.NavigateUrl = serverpath;
+                            hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath; 
                             hypSketch.Target = "blank";
                             message = "alert('" + "Route Sketch Map Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -639,6 +660,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 if (Attachment.PostedFile.ContentType != "application/pdf"
                      || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
@@ -647,6 +669,11 @@ namespace MeghalayaUIP.User.CFE
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
                         slno = slno + 1;
                     }
                     if (!ValidateFileName(Attachment.PostedFile.FileName))

@@ -137,31 +137,31 @@ namespace MeghalayaUIP.User.CFE
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 43)
                             {
                                 hypPCB.Visible = true;
-                                hypPCB.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                 hypPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 44)
                             {
                                 hypNocFire.Visible = true;
-                                hypNocFire.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypNocFire.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                 hypNocFire.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 45)
                             {
                                 //  hypfireplan.Visible = true;
-                                hypNHAI.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypNHAI.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                 hypNHAI.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 46)
                             {
                                 hypHighway.Visible = true;
-                                hypHighway.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypHighway.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                 hypHighway.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 47)
                             {
                                 hypIntent.Visible = true;
-                                hypIntent.NavigateUrl = Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                hypIntent.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
                                 hypIntent.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                             }
                         }

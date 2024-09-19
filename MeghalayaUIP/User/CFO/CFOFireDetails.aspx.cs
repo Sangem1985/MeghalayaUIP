@@ -3,6 +3,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -105,6 +106,49 @@ namespace MeghalayaUIP.User.CFO
                     txtDistSouth.Text = ds.Tables[1].Rows[0]["CFOFD_DISTANCESOUTH"].ToString();
                     txtFire.Text = ds.Tables[1].Rows[0]["CFOFD_FIRESTATION"].ToString();
                 }
+                if (ds.Tables[5].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[5].Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 99)
+                        {
+                            hypFireLayout.Visible = true;
+                            hypFireLayout.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypFireLayout.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 100)
+                        {
+                            hypFireCertificate.Visible = true;
+                            hypFireCertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypFireCertificate.Text = Convert.ToString(ds.Tables[5].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[5].Rows[i]["CFOA_MASTERAID"]) == 101)
+                        {
+                            hypBuildingplan.Visible = true;
+                            hypBuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypBuildingplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 102)
+                        {
+                            hypElectricalinstall.Visible = true;
+                            hypElectricalinstall.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypElectricalinstall.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 103)
+                        {
+                            hypFireSaftey.Visible = true;
+                            hypFireSaftey.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypFireSaftey.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 104)
+                        {
+                            hypPreconNOC.Visible = true;
+                            hypPreconNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypPreconNOC.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -118,9 +162,9 @@ namespace MeghalayaUIP.User.CFO
 
             try
             {
-                
+
                 ErrorMsg = Validations();
-                if(ErrorMsg == "")
+                if (ErrorMsg == "")
                 {
                     HOMEDEPARTMENT ObjCFOFireDepartment = new HOMEDEPARTMENT();
 
@@ -290,6 +334,36 @@ namespace MeghalayaUIP.User.CFO
                 if (string.IsNullOrEmpty(txtFire.Text) || txtFire.Text == "" || txtFire.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter FireStation\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypFireLayout.Text) || hypFireLayout.Text == "" || hypFireLayout.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Fire Layout Plan \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypFireCertificate.Text) || hypFireCertificate.Text == "" || hypFireCertificate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Fire Safety Certificate  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypBuildingplan.Text) || hypBuildingplan.Text == "" || hypBuildingplan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Building plan  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypElectricalinstall.Text) || hypElectricalinstall.Text == "" || hypElectricalinstall.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Certificate from the authorized /competent authority certifying that all the Electrical Installations  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypFireSaftey.Text) || hypFireSaftey.Text == "" || hypFireSaftey.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Declaration with Undertaking that all Fire Safety Measures implemented and installed  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypPreconNOC.Text) || hypPreconNOC.Text == "" || hypPreconNOC.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Pre Construction NOC  \\n";
                     slno = slno + 1;
                 }
                 return errormsg;
@@ -486,7 +560,7 @@ namespace MeghalayaUIP.User.CFO
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
-           // Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
+            // Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
@@ -500,7 +574,7 @@ namespace MeghalayaUIP.User.CFO
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
-          //  Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
+            //  Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
         }
 
         protected void btnFireLayout_Click(object sender, EventArgs e)
@@ -525,7 +599,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "50";
+                        objAadhar.MasterID = "99";
                         objAadhar.FilePath = serverpath + fupFireLayout.PostedFile.FileName;
                         objAadhar.FileName = fupFireLayout.PostedFile.FileName;
                         objAadhar.FileType = fupFireLayout.PostedFile.ContentType;
@@ -536,7 +610,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypFireLayout.Text = fupFireLayout.PostedFile.FileName;
-                            hypFireLayout.NavigateUrl = serverpath;
+                            hypFireLayout.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypFireLayout.Target = "blank";
                             message = "alert('" + "Fire Layout Plan Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -584,7 +658,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "51";
+                        objAadhar.MasterID = "100";
                         objAadhar.FilePath = serverpath + fupFireCertificate.PostedFile.FileName;
                         objAadhar.FileName = fupFireCertificate.PostedFile.FileName;
                         objAadhar.FileType = fupFireCertificate.PostedFile.ContentType;
@@ -595,7 +669,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypFireCertificate.Text = fupFireCertificate.PostedFile.FileName;
-                            hypFireCertificate.NavigateUrl = serverpath;
+                            hypFireCertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypFireCertificate.Target = "blank";
                             message = "alert('" + "Fire Safety Certificate Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -643,7 +717,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "52";
+                        objAadhar.MasterID = "101";
                         objAadhar.FilePath = serverpath + fupBuildingplan.PostedFile.FileName;
                         objAadhar.FileName = fupBuildingplan.PostedFile.FileName;
                         objAadhar.FileType = fupBuildingplan.PostedFile.ContentType;
@@ -654,7 +728,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypBuildingplan.Text = fupBuildingplan.PostedFile.FileName;
-                            hypBuildingplan.NavigateUrl = serverpath;
+                            hypBuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypBuildingplan.Target = "blank";
                             message = "alert('" + "Building plan Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -702,7 +776,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "53";
+                        objAadhar.MasterID = "102";
                         objAadhar.FilePath = serverpath + fupElectricalinstall.PostedFile.FileName;
                         objAadhar.FileName = fupElectricalinstall.PostedFile.FileName;
                         objAadhar.FileType = fupElectricalinstall.PostedFile.ContentType;
@@ -713,7 +787,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypElectricalinstall.Text = fupElectricalinstall.PostedFile.FileName;
-                            hypElectricalinstall.NavigateUrl = serverpath;
+                            hypElectricalinstall.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypElectricalinstall.Target = "blank";
                             message = "alert('" + "Certificate from the authorized Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -761,7 +835,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "54";
+                        objAadhar.MasterID = "103";
                         objAadhar.FilePath = serverpath + fupFireSaftey.PostedFile.FileName;
                         objAadhar.FileName = fupFireSaftey.PostedFile.FileName;
                         objAadhar.FileType = fupFireSaftey.PostedFile.ContentType;
@@ -772,7 +846,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypFireSaftey.Text = fupFireSaftey.PostedFile.FileName;
-                            hypFireSaftey.NavigateUrl = serverpath;
+                            hypFireSaftey.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypFireSaftey.Target = "blank";
                             message = "alert('" + "Fire Safety Measures implemented and installed Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -820,7 +894,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "104";
                         objAadhar.FilePath = serverpath + fupPreconNOC.PostedFile.FileName;
                         objAadhar.FileName = fupPreconNOC.PostedFile.FileName;
                         objAadhar.FileType = fupPreconNOC.PostedFile.ContentType;
@@ -831,7 +905,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypPreconNOC.Text = fupPreconNOC.PostedFile.FileName;
-                            hypPreconNOC.NavigateUrl = serverpath;
+                            hypPreconNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypPreconNOC.Target = "blank";
                             message = "alert('" + "Pre Construction NOC  Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -861,27 +935,33 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
                 }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                //}
                 return Error;
             }
             catch (Exception ex)

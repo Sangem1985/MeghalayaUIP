@@ -55,8 +55,6 @@ namespace MeghalayaUIP.Dept
                 Failure.Visible = true;
                 throw ex;
             }
-
-
         }
         public void BindData()
         {

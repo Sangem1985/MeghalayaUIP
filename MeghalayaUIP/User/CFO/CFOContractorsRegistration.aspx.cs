@@ -95,7 +95,60 @@ namespace MeghalayaUIP.User.CFO
                     txtContractor.Text = ds.Tables[1].Rows[0]["CFOWC_CONTRSTARTDATE"].ToString();
                 }
 
-
+                if (ds.Tables[2].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 61)
+                        {
+                            hypTaxClearance.Visible = true;
+                            hypTaxClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypTaxClearance.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 62)
+                        {
+                            hypGSTREG.Visible = true;
+                            hypGSTREG.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypGSTREG.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 63)
+                        {
+                            hypLabourLic.Visible = true;
+                            hypLabourLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypLabourLic.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 64)
+                        {
+                            hypTribals.Visible = true;
+                            hypTribals.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypTribals.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 65)
+                        {
+                            hypTradeLic.Visible = true;
+                            hypTradeLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypTradeLic.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 66)
+                        {
+                            hypCastefirms.Visible = true;
+                            hypCastefirms.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypCastefirms.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 67)
+                        {
+                            hypattorney.Visible = true;
+                            hypattorney.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypattorney.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 68)
+                        {
+                            hypLastissued.Visible = true;
+                            hypLastissued.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypLastissued.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
+                        }
+                    }
+                }
 
 
             }
@@ -343,7 +396,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "61";
                         objAadhar.FilePath = serverpath + fupTaxClearance.PostedFile.FileName;
                         objAadhar.FileName = fupTaxClearance.PostedFile.FileName;
                         objAadhar.FileType = fupTaxClearance.PostedFile.ContentType;
@@ -354,7 +407,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTaxClearance.Text = fupTaxClearance.PostedFile.FileName;
-                            hypTaxClearance.NavigateUrl = serverpath;
+                            hypTaxClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypTaxClearance.Target = "blank";
                             message = "alert('" + "Tax Clearance Certificate on Professional Tax Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -402,7 +455,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "62";
                         objAadhar.FilePath = serverpath + fupGSTREG.PostedFile.FileName;
                         objAadhar.FileName = fupGSTREG.PostedFile.FileName;
                         objAadhar.FileType = fupGSTREG.PostedFile.ContentType;
@@ -413,7 +466,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypGSTREG.Text = fupGSTREG.PostedFile.FileName;
-                            hypGSTREG.NavigateUrl = serverpath;
+                            hypGSTREG.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypGSTREG.Target = "blank";
                             message = "alert('" + "GST Registration Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -461,7 +514,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "63";
                         objAadhar.FilePath = serverpath + fupLabourLic.PostedFile.FileName;
                         objAadhar.FileName = fupLabourLic.PostedFile.FileName;
                         objAadhar.FileType = fupLabourLic.PostedFile.ContentType;
@@ -472,7 +525,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypLabourLic.Text = fupLabourLic.PostedFile.FileName;
-                            hypLabourLic.NavigateUrl = serverpath;
+                            hypLabourLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypLabourLic.Target = "blank";
                             message = "alert('" + "Certificate of Labour License Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -520,7 +573,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "64";
                         objAadhar.FilePath = serverpath + fupTribals.PostedFile.FileName;
                         objAadhar.FileName = fupTribals.PostedFile.FileName;
                         objAadhar.FileType = fupTribals.PostedFile.ContentType;
@@ -531,7 +584,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTribals.Text = fupTribals.PostedFile.FileName;
-                            hypTribals.NavigateUrl = serverpath;
+                            hypTribals.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypTribals.Target = "blank";
                             message = "alert('" + "Balance sheets for last three financial years, certified by CA In case of non-Tribals Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -579,7 +632,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "65";
                         objAadhar.FilePath = serverpath + fupTradeLic.PostedFile.FileName;
                         objAadhar.FileName = fupTradeLic.PostedFile.FileName;
                         objAadhar.FileType = fupTradeLic.PostedFile.ContentType;
@@ -590,7 +643,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTradeLic.Text = fupTradeLic.PostedFile.FileName;
-                            hypTradeLic.NavigateUrl = serverpath;
+                            hypTradeLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypTradeLic.Target = "blank";
                             message = "alert('" + "Trading license In case of SC, ST and OBC Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -638,7 +691,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "66";
                         objAadhar.FilePath = serverpath + fupCastefirms.PostedFile.FileName;
                         objAadhar.FileName = fupCastefirms.PostedFile.FileName;
                         objAadhar.FileType = fupCastefirms.PostedFile.ContentType;
@@ -649,7 +702,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypCastefirms.Text = fupCastefirms.PostedFile.FileName;
-                            hypCastefirms.NavigateUrl = serverpath;
+                            hypCastefirms.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypCastefirms.Target = "blank";
                             message = "alert('" + "Caste certificate In case of firms Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -697,7 +750,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "67";
                         objAadhar.FilePath = serverpath + fupattorney.PostedFile.FileName;
                         objAadhar.FileName = fupattorney.PostedFile.FileName;
                         objAadhar.FileType = fupattorney.PostedFile.ContentType;
@@ -708,7 +761,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypattorney.Text = fupattorney.PostedFile.FileName;
-                            hypattorney.NavigateUrl = serverpath;
+                            hypattorney.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypattorney.Target = "blank";
                             message = "alert('" + "Power of attorney In case  Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -756,7 +809,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "55";
+                        objAadhar.MasterID = "68";
                         objAadhar.FilePath = serverpath + fupLastissued.PostedFile.FileName;
                         objAadhar.FileName = fupLastissued.PostedFile.FileName;
                         objAadhar.FileType = fupLastissued.PostedFile.ContentType;
@@ -767,7 +820,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypLastissued.Text = fupLastissued.PostedFile.FileName;
-                            hypLastissued.NavigateUrl = serverpath;
+                            hypLastissued.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath;
                             hypLastissued.Target = "blank";
                             message = "alert('" + "Last issued Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
