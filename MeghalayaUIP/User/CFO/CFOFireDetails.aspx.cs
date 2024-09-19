@@ -110,37 +110,37 @@ namespace MeghalayaUIP.User.CFO
                 {
                     for (int i = 0; i < ds.Tables[5].Rows.Count; i++)
                     {
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 97)
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 99)
                         {
                             hypFireLayout.Visible = true;
                             hypFireLayout.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
                             hypFireLayout.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 98)
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 100)
                         {
                             hypFireCertificate.Visible = true;
                             hypFireCertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
                             hypFireCertificate.Text = Convert.ToString(ds.Tables[5].Rows[i]["CFOA_FILENAME"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[5].Rows[i]["CFOA_MASTERAID"]) == 99)
+                        if (Convert.ToInt32(ds.Tables[5].Rows[i]["CFOA_MASTERAID"]) == 101)
                         {
                             hypBuildingplan.Visible = true;
                             hypBuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
                             hypBuildingplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 100)
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 102)
                         {
                             hypElectricalinstall.Visible = true;
                             hypElectricalinstall.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
                             hypElectricalinstall.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 101)
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 103)
                         {
                             hypFireSaftey.Visible = true;
                             hypFireSaftey.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
                             hypFireSaftey.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 102)
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 104)
                         {
                             hypPreconNOC.Visible = true;
                             hypPreconNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
@@ -599,7 +599,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "97";
+                        objAadhar.MasterID = "99";
                         objAadhar.FilePath = serverpath + fupFireLayout.PostedFile.FileName;
                         objAadhar.FileName = fupFireLayout.PostedFile.FileName;
                         objAadhar.FileType = fupFireLayout.PostedFile.ContentType;
@@ -658,7 +658,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "98";
+                        objAadhar.MasterID = "100";
                         objAadhar.FilePath = serverpath + fupFireCertificate.PostedFile.FileName;
                         objAadhar.FileName = fupFireCertificate.PostedFile.FileName;
                         objAadhar.FileType = fupFireCertificate.PostedFile.ContentType;
@@ -717,7 +717,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "99";
+                        objAadhar.MasterID = "101";
                         objAadhar.FilePath = serverpath + fupBuildingplan.PostedFile.FileName;
                         objAadhar.FileName = fupBuildingplan.PostedFile.FileName;
                         objAadhar.FileType = fupBuildingplan.PostedFile.ContentType;
@@ -776,7 +776,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "100";
+                        objAadhar.MasterID = "102";
                         objAadhar.FilePath = serverpath + fupElectricalinstall.PostedFile.FileName;
                         objAadhar.FileName = fupElectricalinstall.PostedFile.FileName;
                         objAadhar.FileType = fupElectricalinstall.PostedFile.ContentType;
@@ -835,7 +835,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "101";
+                        objAadhar.MasterID = "103";
                         objAadhar.FilePath = serverpath + fupFireSaftey.PostedFile.FileName;
                         objAadhar.FileName = fupFireSaftey.PostedFile.FileName;
                         objAadhar.FileType = fupFireSaftey.PostedFile.ContentType;
@@ -894,7 +894,7 @@ namespace MeghalayaUIP.User.CFO
                         CFOAttachments objAadhar = new CFOAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["CFOUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["CFOQID"]);
-                        objAadhar.MasterID = "102";
+                        objAadhar.MasterID = "104";
                         objAadhar.FilePath = serverpath + fupPreconNOC.PostedFile.FileName;
                         objAadhar.FileName = fupPreconNOC.PostedFile.FileName;
                         objAadhar.FileType = fupPreconNOC.PostedFile.ContentType;
