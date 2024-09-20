@@ -476,6 +476,8 @@
     <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptView.aspx" />
     <Content Include="Dept\Renewal\RENDeptDashboard.aspx" />
+    <Content Include="Dept\Reports\IRDistWiseReport.aspx" />
+    <Content Include="Dept\Reports\IRDistWiseReportDrillDown.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -919,6 +921,20 @@
     </Compile>
     <Compile Include="Dept\Renewal\RENDeptDashboard.aspx.designer.cs">
       <DependentUpon>RENDeptDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\IRDistWiseReport.aspx.cs">
+      <DependentUpon>IRDistWiseReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\IRDistWiseReport.aspx.designer.cs">
+      <DependentUpon>IRDistWiseReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\IRDistWiseReportDrillDown.aspx.cs">
+      <DependentUpon>IRDistWiseReportDrillDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\IRDistWiseReportDrillDown.aspx.designer.cs">
+      <DependentUpon>IRDistWiseReportDrillDown.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>
