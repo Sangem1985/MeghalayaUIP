@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="IRDistWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.IRDistWiseReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="IRDistWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.IRDistWiseReport" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -23,6 +23,20 @@
             transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
     </style>
+    <style type="text/css">
+        .ui-datepicker {
+            font-size: 8pt !important;
+            padding: 0.2em 0.2em 0;
+            width: 250px;
+            color: Black;
+            z-index: 9999 !important;
+        }
+
+        select {
+            color: Black !important;
+        }
+    </style>
+ 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -42,19 +56,20 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <%-- <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
-                            <li class="breadcrumb-item">Services</li>
-                            <li class="breadcrumb-item active" aria-current="page">Information Wizard</li>
-                        </ol>
-                    </nav>--%>
 
                                             <h3>District Wise Reports</h3>
                                             <div class="card">
                                                 <div class="card-body justify-content-center " align="justify">
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" style="text-align: center">
+                                                                <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
+                                                                    <asp:Label ID="lblHeading" runat="server" Visible="false">DistrictWiseReports</asp:Label>
+                                                                    <a id="Button2" href="#" onserverclick="Button2_ServerClick"
+                                                                        runat="server">  <img src="../../assets/admin/img/pdf-icon.png" width="20px;" height="20px;" style="float: right" alt="PDF" /></a>
+                                                                    <a id="Button1" href="#" onserverclick="Button1_ServerClick" runat="server">  <img src="../../assets/admin/img/Excel-icon.png" width="20px;" height="20px;" style="float: right;" alt="Excel" /></a></h2>
+                                                            </div>                                                        
+                                                          <div class="col-md-12 d-flex">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">District :</label>
@@ -111,10 +126,12 @@
                                                             </div>
                                                         </div>
 
+                                                            <div id="GridPrint" runat="server">
+                                                          <div id="divPrint1" runat="server">
                                                         <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                          BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333" 
                                                             GridLines="None" OnRowDataBound="GVDistrictWise_RowDataBound" ShowFooter="true"
-                                                            Width="100%" EnableModelValidation="True">
+                                                              Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
@@ -124,13 +141,13 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                   <asp:TemplateField HeaderText="Districtid" Visible="false">
-                                                                        <ItemTemplate>
-                                                                            <asp:Label ID="lblDistrictid" runat="server" Text='<%#Eval("DISTRICID") %>'></asp:Label>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-                                                                 <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />
-                                                              <%--  <asp:TemplateField HeaderText="District">
+                                                                <asp:TemplateField HeaderText="Districtid" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblDistrictid" runat="server" Text='<%#Eval("DISTRICID") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />
+                                                                <%--  <asp:TemplateField HeaderText="District">
                                                                     <ItemTemplate>
                                                                         <asp:LinkButton runat="server" ID="lblBeyonReport" Text='<%#Eval("DISTRICTNAME") %>' />
                                                                     </ItemTemplate>
@@ -183,15 +200,17 @@
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                             <AlternatingRowStyle BackColor="White" />
                                                         </asp:GridView>
-
+                                                              </div>
+                                                                </div>
                                                     </div>
-                                                   <%-- <div id="DivFooter" runat="server">
+                                                    <%-- <div id="DivFooter" runat="server">
                                                         <div>
                                                             <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
                                                                 <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>--%>
+                                                        <div><asp:Label ID="label" runat="server"></asp:Label></div>
                                                 </div>
                                             </div>
                                             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
