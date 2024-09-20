@@ -73,7 +73,7 @@ namespace MeghalayaUIP.Dept
                         lblamendentdate.Text = "Draft Regulation Date";
                         lblamendentupload.Text = "Upload Draft Regulation ";
                         ddlAmendment.Visible = false; txtAmendmentName.Visible = true;
-
+                        trusercomments.Visible = false;
                     }
                     else if (ddlamendmenttype.SelectedItem.Text == "Final")
                     {
@@ -87,6 +87,7 @@ namespace MeghalayaUIP.Dept
                     txtAmendmentName.Visible = false;
                     ddlAmendment.Visible = false;
                     trAmndName.Visible = false;
+                    trusercomments.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -251,7 +252,7 @@ namespace MeghalayaUIP.Dept
 
                                 fromvo.DeptComments = ((TextBox)gvrow.FindControl("lbldeptcoments")).Text.ToString().Trim().TrimStart();
                                 fromvo.id = ((Label)gvrow.FindControl("lblamdid")).Text.ToString();
-                                fromvo.Created_By = Session["uid"].ToString();
+                                fromvo.Created_By = hdnUserID.Value;
                                 if (fromvo.DeptComments != "")
                                 {
                                     lstformvo.Add(fromvo);
@@ -376,7 +377,7 @@ namespace MeghalayaUIP.Dept
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
+                lblmsg0.Text = ex.Message;                
                 Failure.Visible = true;
                 //throw ex;
             }
