@@ -51,22 +51,22 @@ namespace MeghalayaUIP.Dept.Reports
         protected global::System.Web.UI.WebControls.Label lblHeading;
 
         /// <summary>
-        /// Button2 control.
+        /// btnPdf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Button2;
+        protected global::System.Web.UI.WebControls.ImageButton btnPdf;
 
         /// <summary>
-        /// Button1 control.
+        /// btnExcel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Button1;
+        protected global::System.Web.UI.WebControls.ImageButton btnExcel;
 
         /// <summary>
         /// ddldistrict control.
