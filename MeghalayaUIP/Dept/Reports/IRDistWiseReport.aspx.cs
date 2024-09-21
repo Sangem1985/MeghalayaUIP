@@ -270,7 +270,7 @@ namespace MeghalayaUIP.Dept.Reports
 
                             // Send the generated PDF to the client browser
                             Response.ContentType = "application/pdf";
-                            Response.AddHeader("content-disposition", "attachment;filename=R1.1 Abstract -Financial Year wise " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.AddHeader("content-disposition", "attachment;filename=District Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
                             Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
                             // Write the PDF from memory stream to the Response OutputStream
@@ -298,5 +298,11 @@ namespace MeghalayaUIP.Dept.Reports
             ExportToExcel();
 
         }
+        public void PDFMAIN()
+        {
+
+        }
+
+
     }
 }

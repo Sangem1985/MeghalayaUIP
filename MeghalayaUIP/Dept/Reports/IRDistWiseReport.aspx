@@ -136,7 +136,7 @@
                                                                 <div id="divPrint1" runat="server">
                                                                     <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
-                                                                        GridLines="None" OnRowDataBound="GVDistrictWise_RowDataBound" ShowFooter="true"
+                                                                        GridLines="Both" OnRowDataBound="GVDistrictWise_RowDataBound" ShowFooter="true" 
                                                                         Width="100%" EnableModelValidation="True">
                                                                         <RowStyle />
                                                                         <Columns>
