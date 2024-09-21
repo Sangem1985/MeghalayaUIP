@@ -170,17 +170,20 @@
                                                         </asp:RadioButtonList>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="col-md-4">
+                                            </div>                                            
+                                        </div>
+                                         <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Photograph of the Proprietor/ Managing Partner/ Kartha/ Managing Director *</label>
-                                                    <div class="col-lg-6">
-                                                        <asp:FileUpload ID="fupDPR" runat="server" />
-                                                        <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lbldpr" runat="server" />
+                                                    <label class="col-lg-4 col-form-label">Photograph of the Proprietor/ Managing Partner/ Kartha/ Managing Director *</label>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupDirector" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload DPR" runat="server" ID="btndpr" OnClick="btndpr_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                        <input class="form-control" type="file" id="formFile"><i class="fi fi-br-circle-camera"></i>
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex">
+                                                        <asp:HyperLink ID="hypDirector" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>

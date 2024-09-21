@@ -153,13 +153,16 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Passport Size Photograph of Individual/Authorized Representative *</label>
-                                                    <div class="col-lg-6">
-                                                        <asp:FileUpload ID="fupDPR" runat="server" />
-                                                        <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
-                                                        <asp:Label ID="lbldpr" runat="server" />
-                                                        <asp:Button Text="Upload DPR" runat="server" ID="btndpr" OnClick="btndpr_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                        <input class="form-control" type="file" id="formFile"><i class="fi fi-br-circle-camera"></i>
+                                                    <div class="col-lg-3 d-flex">
+                                                        <asp:FileUpload ID="fupPhoto" runat="server" />
                                                     </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btndpr" OnClick="btndpr_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex">
+                                                        <asp:HyperLink ID="hypPhoto" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>

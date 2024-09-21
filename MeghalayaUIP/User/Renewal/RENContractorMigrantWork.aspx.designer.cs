@@ -177,6 +177,33 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtFather;
 
         /// <summary>
+        /// fupContractors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupContractors;
+
+        /// <summary>
+        /// btndpr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btndpr;
+
+        /// <summary>
+        /// hypContractors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hypContractors;
+
+        /// <summary>
         /// ddlStatedt control.
         /// </summary>
         /// <remarks>

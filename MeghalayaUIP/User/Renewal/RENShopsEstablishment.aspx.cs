@@ -4,9 +4,11 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -712,6 +714,16 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Select other office/godown/warehouse attached to this establishment situated \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypEmployeelist.Text) || hypEmployeelist.Text == "" || hypEmployeelist.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Employee List Only.....! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypEmployer.Text) || hypEmployer.Text == "" || hypEmployer.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Photo of the Employer.....! \\n";
+                    slno = slno + 1;
+                }
                 return errormsg;
             }
             catch (Exception ex)
@@ -724,102 +736,72 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                if (Convert.ToString(ViewState["UnitID"]) != "")
+
+                string Error = ""; string message = ""; string result = "";
+                if (fupEmployeelist.HasFile)
                 {
-                    string newPath = "";
-                    string sFileDir = Server.MapPath("~\\RenewalsAttachments");
-                    if (fupphoto.HasFile)
+                    Error = validations(fupEmployeelist);
+                    if (Error == "")
                     {
-                        if ((fupphoto.PostedFile != null) && (fupphoto.PostedFile.ContentLength > 0))
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\RenewalsAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["RENQID"]) + "\\" + "Employee List Only" + "\\");
+                        if (!Directory.Exists(serverpath))
                         {
-                            string sFileName = System.IO.Path.GetFileName(fupphoto.PostedFile.FileName);
-                            try
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupEmployeelist.PostedFile.SaveAs(serverpath + "\\" + fupEmployeelist.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
                             {
+                                string[] Files = Directory.GetFiles(serverpath);
 
-
-                                string[] fileType = fupphoto.PostedFile.FileName.Split('.');
-                                int i = fileType.Length;
-                                if (fileType[i - 1].ToUpper().Trim() == "DOC" || fileType[i - 1].ToUpper().Trim() == "DOCX" || fileType[i - 1].ToUpper().Trim() == "PDF")
+                                foreach (string file in Files)
                                 {
-                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, ViewState["UnitID"].ToString() + "\\DPR");
-
-                                    if (!Directory.Exists(newPath))
-                                        System.IO.Directory.CreateDirectory(newPath);
-
-                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
-                                    int count = dir.GetFiles().Length;
-                                    if (count == 0)
-                                        fupphoto.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                    else
-                                    {
-                                        if (count == 1)
-                                        {
-                                            string[] Files = Directory.GetFiles(newPath);
-
-                                            foreach (string file in Files)
-                                            {
-                                                File.Delete(file);
-                                            }
-                                            fupphoto.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                        }
-                                    }
-                                    RenShopsEstablishment ObjRenShopEst = new RenShopsEstablishment();
-
-                                    ObjRenShopEst.UnitId = ViewState["UnitID"].ToString();
-                                    ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                                    ObjRenShopEst.FileType = fileType[i - 1].ToUpper().ToString();
-                                    ObjRenShopEst.FileName = sFileName.ToString();
-                                    ObjRenShopEst.Filepath = newPath.ToString();
-                                    ObjRenShopEst.FileDescription = "DPR";
-                                    ObjRenShopEst.Deptid = "0";
-                                    ObjRenShopEst.ApprovalId = "0";
-
-                                    int result = 0;
-                                    result = objRenbal.InsertAttachmentsRenewal(ObjRenShopEst);
-
-                                    if (result > 0)
-                                    {
-                                        lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
-                                        lbldpr.Text = fupphoto.FileName;
-                                        success.Visible = true;
-                                        Failure.Visible = false;
-                                    }
-                                    else
-                                    {
-                                        lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
-                                        success.Visible = false;
-                                        Failure.Visible = true;
-                                    }
+                                    File.Delete(file);
                                 }
-                                else
-                                {
-                                    lblmsg0.Text = "<font color='red'>Upload Doc,or Docx files only..!</font>";
-                                    success.Visible = false;
-                                    Failure.Visible = true;
-                                }
+                                fupEmployeelist.PostedFile.SaveAs(serverpath + "\\" + fupEmployeelist.PostedFile.FileName);
                             }
-                            catch (Exception)//in case of an error
-                            {
+                        }
 
-                                DeleteFile(newPath + "\\" + sFileName);
-                            }
+
+                        RenAttachments objRenAttachments = new RenAttachments();
+                        objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                        objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
+                        objRenAttachments.MasterID = "135";
+                        objRenAttachments.FilePath = serverpath + fupEmployeelist.PostedFile.FileName;
+                        objRenAttachments.FileName = fupEmployeelist.PostedFile.FileName;
+                        objRenAttachments.FileType = fupEmployeelist.PostedFile.ContentType;
+                        objRenAttachments.FileDescription = "Employee List Only";
+                        objRenAttachments.CreatedBy = hdnUserID.Value;
+                        objRenAttachments.IPAddress = getclientIP();
+                        result = objRenbal.InsertAttachmentsRenewal(objRenAttachments);
+                        if (result != "")
+                        {
+                            hypEmployeelist.Text = fupEmployeelist.PostedFile.FileName;
+                            hypEmployeelist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRenAttachments.FilePath;
+                            hypEmployeelist.Target = "blank";
+                            message = "alert('" + "Employee List Only Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
                     else
                     {
-                        lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
-                        success.Visible = false;
-                        Failure.Visible = true;
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
                 else
                 {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "Please Fill Basic Details";
-                    string message = "alert('" + "Please Fill Basic Details First and then Upload DPR " + "')";
+                    message = "alert('" + "Please Upload Document" + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
                 }
+
+                             
             }
             catch (Exception ex)
             {
@@ -843,102 +825,72 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                if (Convert.ToString(ViewState["UnitID"]) != "")
+
+
+                string Error = ""; string message = "";string result = "";
+                if (fupEmployer.HasFile)
                 {
-                    string newPath = "";
-                    string sFileDir = Server.MapPath("~\\RenewalsAttachments");
-                    if (fupphoto.HasFile)
+                    Error = validations(fupEmployer);
+                    if (Error == "")
                     {
-                        if ((fupphoto.PostedFile != null) && (fupphoto.PostedFile.ContentLength > 0))
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\RenewalsAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["RENQID"]) + "\\" + "Photo of the Employer" + "\\");
+                        if (!Directory.Exists(serverpath))
                         {
-                            string sFileName = System.IO.Path.GetFileName(fupphoto.PostedFile.FileName);
-                            try
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupEmployer.PostedFile.SaveAs(serverpath + "\\" + fupEmployer.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
                             {
+                                string[] Files = Directory.GetFiles(serverpath);
 
-
-                                string[] fileType = fupphoto.PostedFile.FileName.Split('.');
-                                int i = fileType.Length;
-                                if (fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" || fileType[i - 1].ToUpper().Trim() == "JPEG" || fileType[i - 1].ToUpper().Trim() == "PNG")
+                                foreach (string file in Files)
                                 {
-                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value, ViewState["UnitID"].ToString() + "\\DPR");
-
-                                    if (!Directory.Exists(newPath))
-                                        System.IO.Directory.CreateDirectory(newPath);
-
-                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
-                                    int count = dir.GetFiles().Length;
-                                    if (count == 0)
-                                        fupphoto.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                    else
-                                    {
-                                        if (count == 1)
-                                        {
-                                            string[] Files = Directory.GetFiles(newPath);
-
-                                            foreach (string file in Files)
-                                            {
-                                                File.Delete(file);
-                                            }
-                                            fupphoto.PostedFile.SaveAs(newPath + "\\" + sFileName);
-                                        }
-                                    }
-                                    RenShopsEstablishment ObjRenShopEst = new RenShopsEstablishment();
-
-                                    ObjRenShopEst.UnitId = ViewState["UnitID"].ToString();
-                                    ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                                    ObjRenShopEst.FileType = fileType[i - 1].ToUpper().ToString();
-                                    ObjRenShopEst.FileName = sFileName.ToString();
-                                    ObjRenShopEst.Filepath = newPath.ToString();
-                                    ObjRenShopEst.FileDescription = "DPR";
-                                    ObjRenShopEst.Deptid = "0";
-                                    ObjRenShopEst.ApprovalId = "0";
-
-                                    int result = 0;
-                                    result = objRenbal.InsertAttachmentsRenewal(ObjRenShopEst);
-
-                                    if (result > 0)
-                                    {
-                                        lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
-                                        lblphoto.Text = fupphoto.FileName;
-                                        success.Visible = true;
-                                        Failure.Visible = false;
-                                    }
-                                    else
-                                    {
-                                        lblmsg0.Text = "<font color='red'>Attachment Added Failed..!</font>";
-                                        success.Visible = false;
-                                        Failure.Visible = true;
-                                    }
+                                    File.Delete(file);
                                 }
-                                else
-                                {
-                                    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG, ZIP or RAR files only..!</font>";
-                                    success.Visible = false;
-                                    Failure.Visible = true;
-                                }
+                                fupEmployer.PostedFile.SaveAs(serverpath + "\\" + fupEmployer.PostedFile.FileName);
                             }
-                            catch (Exception)//in case of an error
-                            {
+                        }
 
-                                DeleteFile(newPath + "\\" + sFileName);
-                            }
+
+                        RenAttachments objRenAttachments = new RenAttachments();
+                        objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                        objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
+                        objRenAttachments.MasterID = "134";
+                        objRenAttachments.FilePath = serverpath + fupEmployer.PostedFile.FileName;
+                        objRenAttachments.FileName = fupEmployer.PostedFile.FileName;
+                        objRenAttachments.FileType = fupEmployer.PostedFile.ContentType;
+                        objRenAttachments.FileDescription = "Photo of the Employer/Proprietor";
+                        objRenAttachments.CreatedBy = hdnUserID.Value;
+                        objRenAttachments.IPAddress = getclientIP();
+                        result = objRenbal.InsertAttachmentsRenewal(objRenAttachments);
+                        if (result != "")
+                        {
+                            hypEmployer.Text = fupEmployer.PostedFile.FileName;
+                            hypEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRenAttachments.FilePath;
+                            hypEmployer.Target = "blank";
+                            message = "alert('" + "Photo of the Employer/Proprietor Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
                     else
                     {
-                        lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
-                        success.Visible = false;
-                        Failure.Visible = true;
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
                 else
                 {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "Please Fill Basic Details";
-                    string message = "alert('" + "Please Fill Basic Details First and then Upload DPR " + "')";
+                    message = "alert('" + "Please Upload Document" + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
                 }
+
             }
             catch (Exception ex)
             {
@@ -1423,6 +1375,75 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }

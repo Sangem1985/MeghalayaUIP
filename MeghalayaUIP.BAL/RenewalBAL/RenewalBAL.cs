@@ -92,9 +92,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.INSERTRENTRenLabourEstablishmentDetails(ObjRenShopEst);
         }
-        public int InsertAttachmentsRenewal(RenShopsEstablishment ObjRenShopEst)
+        public string InsertAttachmentsRenewal(RenAttachments objRenAttachments)
         {
-            return objRENDAL.InsertAttachmentsRenewal(ObjRenShopEst);
+            return objRENDAL.InsertAttachmentsRenewal(objRenAttachments);
         }
         public DataSet GetRenShposEstablishmentLabourDetails(string userid, string UnitID)
         {

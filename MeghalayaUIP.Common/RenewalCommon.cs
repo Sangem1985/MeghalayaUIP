@@ -333,12 +333,7 @@ namespace MeghalayaUIP.Common
         public string RELATIONSHIP { get; set; }
 
 
-        public string Filepath { get; set; }
-        public string FileName { get; set; }
-        public string FileType { get; set; }
-        public string FileDescription { get; set; }
-        public string Deptid { get; set; }
-        public string ApprovalId { get; set; }
+     
 
         public string NAME_PROPERTIE { get; set; }
         public string COMMUNITIONADDRESS { get; set; }
@@ -353,6 +348,23 @@ namespace MeghalayaUIP.Common
         public string NAMEDIRECTOR { get; set; }
         public string LIMITEDADDRESS { get; set; }
 
+    }
+    public class RenAttachments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string FileDescription { get; set; }
+        public string FileType { get; set; }
+        public string MasterID { get; set; }
+        public string QueryID { get; set; }
+        public string ReferenceNo { get; set; }
     }
     public class RenApplicationDetails
     {
