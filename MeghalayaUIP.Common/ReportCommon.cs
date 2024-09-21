@@ -9,5 +9,6 @@ namespace MeghalayaUIP.Common
     public class ReportCommon
     {
         public static string GetDistrictWiseReports = "USP_INSDISTRICTWISEREPORTS";
+        public static string GetDistrictReports = "USP_DRILLDOWNDISTRICTREPORT";
     }
 }

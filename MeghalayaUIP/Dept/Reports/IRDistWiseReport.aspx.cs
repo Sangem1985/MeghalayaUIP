@@ -27,8 +27,7 @@ namespace MeghalayaUIP.Dept.Reports
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                FillGridData();
+            {               
                 BindDistricts();
             }
         }
@@ -109,6 +108,13 @@ namespace MeghalayaUIP.Dept.Reports
                 throw ex;
             }
         }
+
+        protected void btnsubmit_Click(object sender, EventArgs e)
+        {
+            FillGridData();
+            divPrint1.Visible = true;
+        }
+
         protected void GVDistrictWise_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -146,25 +152,25 @@ namespace MeghalayaUIP.Dept.Reports
                 LinkButton lnkCommQuery = (LinkButton)e.Row.FindControl("lblCommQuery");
 
                 if (lnkTotal.Text != "0")
-                    lnkTotal.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkTotal.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkPending.Text != "0")
-                    lnkPending.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkPending.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkQuery.Text != "0")
-                    lnkQuery.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkQuery.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Query" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkcommpending.Text != "0")
-                    lnkcommpending.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkcommpending.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=commpending" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkApproved.Text != "0")
-                    lnkApproved.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkApproved.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Approved" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkRejected.Text != "0")
-                    lnkRejected.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkRejected.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Rejected" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkCommQuery.Text != "0")
-                    lnkCommQuery.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkCommQuery.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=CommQuery" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
@@ -183,7 +189,7 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[2].Text = "Total";
                 LinkButton Total = new LinkButton();
                 Total.ForeColor = System.Drawing.Color.Blue;
-                Total.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + district + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                Total.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + district + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
                 Total.Text = TotalAppl.ToString();
                 e.Row.Cells[3].Text = TotalAppl.ToString();
                 e.Row.Cells[3].Controls.Add(Total);
@@ -202,28 +208,7 @@ namespace MeghalayaUIP.Dept.Reports
         {
             try
             {
-                //Response.Clear();
-                //Response.Buffer = true;
-                //string FileName = lblHeading.Text;
-                //FileName = FileName.Replace(" ", "");
-                //Response.AddHeader("content-disposition", "attachment;filename=" + FileName + DateTime.Now.ToString("MM/dd/yyyy") + ".xls");
-                //Response.Charset = "";
-                //Response.ContentType = "application/vnd.ms-excel";
-                //using (StringWriter sw = new StringWriter())
-                //{
-
-                //    GVDistrictWise.Style["width"] = "680px";
-                //    HtmlTextWriter hw = new HtmlTextWriter(sw);
-                //    GVDistrictWise.RenderControl(hw);
-                //    string label1text = label.Text;
-                //    string headerTable = @"<table width='100%' class='TestCssStyle'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label1text + "</h4></td></td></tr></table>";
-                //    HttpContext.Current.Response.Write(headerTable);
-                //    Response.Output.Write(sw.ToString());
-                //    Response.Flush();
-                //    Response.End();
-                //}
-
-
+                
                 Response.Clear();
                 Response.Buffer = true;
                 Response.AddHeader("content-disposition", "attachment;filename=District wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".xls");

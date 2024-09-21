@@ -27,6 +27,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     Land.Visible = true;
                     Preestablishment.Visible = false;
                     Ammendments.Visible = true;
+                    Report.Visible = true;
 
                 }
                 else if (ObjUserInfo.Roleid == "4")
@@ -36,6 +37,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     Land.Visible = true;
                     Preestablishment.Visible = false;
                     Ammendments.Visible = true;
+                    Report.Visible = true;
                 }
                 else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
                 {
@@ -44,6 +46,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     Preestablishment.Visible = false;
                     Land.Visible = false;
                     Ammendments.Visible = false;
+                    Report.Visible = false;
                 }
                 else if (ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "9")
                 {
@@ -53,6 +56,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     PreOperational.Visible = true;
                     Renewal.Visible = true;
                     Land.Visible = false;
+                    Report.Visible = false;
                     if (ObjUserInfo.Roleid == "8")
                     {
                         Ammendments.Visible = true;
@@ -154,6 +158,16 @@ namespace MeghalayaUIP.Dept.Dashboard
             {
                 Ammendments.Visible = true;
                 string url = "~/Dept/Ammendments.aspx";
+                Response.Redirect(url);
+            }
+        }
+
+        protected void lnkReport_Click(object sender, EventArgs e)
+        {
+            if (ObjUserInfo.Roleid=="4" || ObjUserInfo.Roleid=="1")
+            {
+                Report.Visible = true;
+                string url = "~/Dept/Reports/IRDistWiseReport.aspx";
                 Response.Redirect(url);
             }
         }
