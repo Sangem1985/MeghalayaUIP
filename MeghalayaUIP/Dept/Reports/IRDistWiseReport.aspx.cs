@@ -202,27 +202,44 @@ namespace MeghalayaUIP.Dept.Reports
         {
             try
             {
+                //Response.Clear();
+                //Response.Buffer = true;
+                //string FileName = lblHeading.Text;
+                //FileName = FileName.Replace(" ", "");
+                //Response.AddHeader("content-disposition", "attachment;filename=" + FileName + DateTime.Now.ToString("MM/dd/yyyy") + ".xls");
+                //Response.Charset = "";
+                //Response.ContentType = "application/vnd.ms-excel";
+                //using (StringWriter sw = new StringWriter())
+                //{
+
+                //    GVDistrictWise.Style["width"] = "680px";
+                //    HtmlTextWriter hw = new HtmlTextWriter(sw);
+                //    GVDistrictWise.RenderControl(hw);
+                //    string label1text = label.Text;
+                //    string headerTable = @"<table width='100%' class='TestCssStyle'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label1text + "</h4></td></td></tr></table>";
+                //    HttpContext.Current.Response.Write(headerTable);
+                //    Response.Output.Write(sw.ToString());
+                //    Response.Flush();
+                //    Response.End();
+                //}
+
+
                 Response.Clear();
                 Response.Buffer = true;
-                string FileName = lblHeading.Text;
-                FileName = FileName.Replace(" ", "");
-                Response.AddHeader("content-disposition", "attachment;filename=" + FileName + DateTime.Now.ToString("MM/dd/yyyy") + ".xls");
+                Response.AddHeader("content-disposition", "attachment;filename=District wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".xls");
                 Response.Charset = "";
                 Response.ContentType = "application/vnd.ms-excel";
                 using (StringWriter sw = new StringWriter())
                 {
-
                     GVDistrictWise.Style["width"] = "680px";
                     HtmlTextWriter hw = new HtmlTextWriter(sw);
                     GVDistrictWise.RenderControl(hw);
-                    string label1text = label.Text;
-                    string headerTable = @"<table width='100%' class='TestCssStyle'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label1text + "</h4></td></td></tr></table>";
+                    string headerTable = @"<table width='100%'  class='table-bordered mb-0 GRD'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label + "</h4></td></td></tr></table>";
                     HttpContext.Current.Response.Write(headerTable);
                     Response.Output.Write(sw.ToString());
                     Response.Flush();
                     Response.End();
                 }
-
             }
             catch (Exception e)
             {
@@ -298,11 +315,6 @@ namespace MeghalayaUIP.Dept.Reports
             ExportToExcel();
 
         }
-        public void PDFMAIN()
-        {
-
-        }
-
-
+       
     }
 }
