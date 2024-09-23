@@ -57,17 +57,16 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-12">
-
                                             <h3>District Wise Reports</h3>
                                             <div class="card">
                                                 <div class="card-body justify-content-center " align="justify">
-                                                    <div class="row">
+                                                  <%--  <div class="row">--%>
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading" style="text-align: center">
                                                                 <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
-                                                                    <asp:Label ID="lblHeading" runat="server" Visible="false">DistrictWiseReports</asp:Label></h2>
-                                                                <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" OnClick="btnPdf_Click" />
-                                                                <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" OnClick="btnExcel_Click" />
+                                                                    <asp:Label ID="lblHeading" runat="server" Visible="false">DistrictWiseReports</asp:Label>
+                                                                    <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" OnClick="btnPdf_Click" />
+                                                                    <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
 
                                                                 <%-- <a id="Button2" href="#" onserverclick="Button2_ServerClick"
                                                                         runat="server">
@@ -75,7 +74,7 @@
                                                                     <a id="Button1" href="#" onserverclick="Button1_ServerClick" runat="server">
                                                                         <img src="../../assets/admin/img/Excel-icon.png" width="20px;" height="20px;" style="float: right;" alt="Excel" /></a>--%>
                                                             </div>
-                                                            <div class="col-md-12 d-flex">
+                                                            <div class="col-md-12 d-flex justify-content-center align-items-center">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label class="col-lg-12 col-form-label">District :</label>
@@ -103,7 +102,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-12 d-flex">
+                                                            <div class="col-md-12 d-flex justify-content-center align-items-center">
 
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
@@ -128,98 +127,99 @@
                                                             </div>
                                                             <div class="col-md-12 float-left ">
                                                                 <div class="form-group row justify-content-center" style="padding: 20px">
-                                                                    <asp:Button ID="btnsubmit" runat="server" Text="Submit" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                                    <asp:Button ID="btnsubmit" runat="server" Text="Submit" OnClick="btnsubmit_Click" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                                                 </div>
                                                             </div>
 
-                                                            <div id="GridPrint" runat="server">
-                                                                <div id="divPrint1" runat="server">
-                                                                    <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
-                                                                        GridLines="Both" OnRowDataBound="GVDistrictWise_RowDataBound" ShowFooter="true" 
-                                                                        Width="100%" EnableModelValidation="True">
-                                                                        <RowStyle />
-                                                                        <Columns>
-                                                                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
-                                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                                <ItemStyle HorizontalAlign="Left" />
-                                                                                <ItemTemplate>
-                                                                                    <%# Container.DataItemIndex + 1%>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Districtid" Visible="false">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblDistrictid" runat="server" Text='<%#Eval("DISTRICID") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />
-                                                                            <%--  <asp:TemplateField HeaderText="District">
+
+                                                            <div id="divPrint1" runat="server" visible="false">
+                                                                <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
+                                                                    GridLines="Both" OnRowDataBound="GVDistrictWise_RowDataBound" ShowFooter="true"
+                                                                    Width="100%" EnableModelValidation="True">
+                                                                    <RowStyle />
+                                                                    <Columns>
+                                                                        <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
+                                                                            <ItemTemplate>
+                                                                                <%# Container.DataItemIndex + 1%>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Districtid" Visible="false">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblDistrictid" runat="server" Text='<%#Eval("DISTRICID") %>'></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />
+                                                                        <%--  <asp:TemplateField HeaderText="District">
                                                                     <ItemTemplate>
                                                                         <asp:LinkButton runat="server" ID="lblBeyonReport" Text='<%#Eval("DISTRICTNAME") %>' />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>--%>
-                                                                            <asp:TemplateField HeaderText="Total Applications">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" ID="lblTotal" Text='<%#Eval("TOTALAPPL") %>' />
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="IMA Pending">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" ID="lblPending" Text='<%#Eval("IMAPENDING") %>' />
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="IMA QueryRaised">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" ID="lblQueryRaised" Text='<%#Eval("IMAQUERYRAISED") %>' />
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Committee Pending">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" ID="lblCommPending" Text='<%#Eval("COMMPENDING") %>' />
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Committee Approved">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" ID="lblCommApproved" Text='<%#Eval("COMMAPPROVED") %>' />
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Committee Rejected">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" ID="lblCommRejected" Text='<%#Eval("COMMREJECTED") %>' />
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="CommitteeQuery">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" ID="lblCommQuery" Text='<%#Eval("COMMQUERY") %>' />
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Total Applications">
+                                                                            <ItemTemplate>
+                                                                                <asp:LinkButton runat="server" ID="lblTotal" Text='<%#Eval("TOTALAPPL") %>' />
+                                                                            </ItemTemplate>
+                                                                            <ItemStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="IMA Pending">
+                                                                            <ItemTemplate>
+                                                                                <asp:LinkButton runat="server" ID="lblPending" Text='<%#Eval("IMAPENDING") %>' />
+                                                                            </ItemTemplate>
+                                                                            <ItemStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="IMA QueryRaised">
+                                                                            <ItemTemplate>
+                                                                                <asp:LinkButton runat="server" ID="lblQueryRaised" Text='<%#Eval("IMAQUERYRAISED") %>' />
+                                                                            </ItemTemplate>
+                                                                            <ItemStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Committee Pending">
+                                                                            <ItemTemplate>
+                                                                                <asp:LinkButton runat="server" ID="lblCommPending" Text='<%#Eval("COMMPENDING") %>' />
+                                                                            </ItemTemplate>
+                                                                            <ItemStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Committee Approved">
+                                                                            <ItemTemplate>
+                                                                                <asp:LinkButton runat="server" ID="lblCommApproved" Text='<%#Eval("COMMAPPROVED") %>' />
+                                                                            </ItemTemplate>
+                                                                            <ItemStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Committee Rejected">
+                                                                            <ItemTemplate>
+                                                                                <asp:LinkButton runat="server" ID="lblCommRejected" Text='<%#Eval("COMMREJECTED") %>' />
+                                                                            </ItemTemplate>
+                                                                            <ItemStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="CommitteeQuery">
+                                                                            <ItemTemplate>
+                                                                                <asp:LinkButton runat="server" ID="lblCommQuery" Text='<%#Eval("COMMQUERY") %>' />
+                                                                            </ItemTemplate>
+                                                                            <ItemStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
 
-                                                                        </Columns>
-                                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                                        <AlternatingRowStyle BackColor="White" />
-                                                                    </asp:GridView>
-                                                                </div>
+                                                                    </Columns>
+                                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                                    <AlternatingRowStyle BackColor="White" />
+                                                                </asp:GridView>
                                                             </div>
-                                                        </div>
-                                                        <%-- <div id="DivFooter" runat="server">
+
+
+                                                            <%-- <div id="DivFooter" runat="server">
                                                         <div>
                                                             <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
                                                                 <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>--%>
-                                                        <div>
-                                                            <asp:Label ID="label" runat="server"></asp:Label>
+                                                            <div>
+                                                                <asp:Label ID="label" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                  <%--  </div>--%>
                                                 </div>
                                                 <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
                                                     <ProgressTemplate>

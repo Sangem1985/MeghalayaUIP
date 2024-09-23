@@ -110,7 +110,7 @@
                                                                 <div class="col-md-12 d-flex">
                                                                     <div class="col-md-4">
                                                                         <div class="form-group row">
-                                                                            <label class="col-lg-6 col-form-label">4. Company Proposal <span class="star">*</span><span class="star">*</span></label>
+                                                                            <label class="col-lg-6 col-form-label">4. Company Proposal <span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
                                                                                 <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control" Enabled="false">
                                                                                     <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
@@ -288,7 +288,7 @@
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
-                                                                            <label class="col-lg-6 col-form-label">2. Value of Land as per saleDeed(In INR)<span class="star">*</span></label>
+                                                                            <label class="col-lg-6 col-form-label">2. Value of Land as per sale Deed(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
                                                                                 <asp:TextBox ID="txtLandValue" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16"></asp:TextBox>
                                                                             </div>

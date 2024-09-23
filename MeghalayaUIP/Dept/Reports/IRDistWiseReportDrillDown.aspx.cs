@@ -12,24 +12,43 @@ namespace MeghalayaUIP.Dept.Reports
     public partial class IRDistWiseReportDrillDown : System.Web.UI.Page
     {
         ReportBAL Objreport = new ReportBAL();
-        string Distid,FromDate, ToDate, EntType;
+        string Distid,FromDate, ToDate, ViewType;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString.Count > 0)
+            if (!IsPostBack)
             {
-                Distid = Convert.ToString(Request.QueryString[0]);
-                FromDate = Convert.ToString(Request.QueryString[1]);
-                ToDate = Convert.ToString(Request.QueryString[2]);
-                EntType = Convert.ToString(Request.QueryString[3]);
-
+                BindDistrictWiseReport();
             }
         }
         protected void BindDistrictWiseReport()
         {
             try
             {
-                DataSet ds = new DataSet();
-              //  ds = Objreport.DistrictReport();
+                if (Request.QueryString.Count > 0)
+                {
+                    Distid = Convert.ToString(Request.QueryString[0]);
+                    FromDate = Convert.ToString(Request.QueryString[1]);
+                    ToDate = Convert.ToString(Request.QueryString[2]);
+                    ViewType = Convert.ToString(Request.QueryString[3]);
+
+                    DataSet ds = new DataSet();
+
+                     ds = Objreport.DistrictReport(Distid,FromDate,ToDate,ViewType);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        GVDistWise.DataSource = ds.Tables[0];
+                        GVDistWise.DataBind();
+                        lblname.Visible = true;
+                        lblname.InnerText = " " + FromDate+" " + " " + "In" +" "+ " " + ToDate;
+                    }
+                    else
+                    {
+                        GVDistWise.DataSource = null;
+                        GVDistWise.DataBind();
+                    }
+                }
+
+
 
             }
             catch(Exception ex)
