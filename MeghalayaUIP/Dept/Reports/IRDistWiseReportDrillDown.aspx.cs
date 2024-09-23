@@ -38,6 +38,8 @@ namespace MeghalayaUIP.Dept.Reports
                     {
                         GVDistWise.DataSource = ds.Tables[0];
                         GVDistWise.DataBind();
+                        lblname.Visible = true;
+                        lblname.InnerText = " " + FromDate+" " + " " + "In" +" "+ " " + ToDate;
                     }
                     else
                     {

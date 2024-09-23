@@ -285,11 +285,13 @@ namespace MeghalayaUIP.User.CFE
                     {
                         cnt = cnt + 1;
                     }
+                   
                 }
                 if (cnt <= 1)
                 {
+                    SetGridLabelValue();
                     Failure.Visible = true;
-                    lblmsg0.Text = "Please Select Atleaset one Department for Approval";
+                    lblmsg0.Text = "Please Select Atleast one Department for Approval";
                     lblmsg0.Visible = true;
                     return;
                 }
@@ -319,8 +321,7 @@ namespace MeghalayaUIP.User.CFE
 
                 }
                 if (grdApprovals.Rows.Count == count)
-                {
-                    SetGridLabelValue();
+                {                    
                     Getofflineapprovals();
                     success.Visible = true;
                     lblmsg.Text = "Details Submitted Successfully";

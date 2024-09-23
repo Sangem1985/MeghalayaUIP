@@ -12,11 +12,11 @@
     </nav>--%>
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid">           
-            <div class="card" id="Applications" runat="server" visible="false">
+           <%-- <div class="card" id="Applications" runat="server" visible="false">--%>
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title mt-1"><b>Welcome to Dashboard </b></h4>
+                    <h4 class="card-title mt-1"><b>District Wise Reports </b></h4>
                     <h4 class="card-title mt-1">
-                        <label id="unitname" runat="server"></label>
+                        <label id="lblname" runat="server" visible="false"></label>
                     </h4>
                 </div>
 
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </section>
-            </div>
+            <%--</div>--%>
 
         </div>
     </div>

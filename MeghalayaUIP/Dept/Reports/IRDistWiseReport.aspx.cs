@@ -152,7 +152,7 @@ namespace MeghalayaUIP.Dept.Reports
                 LinkButton lnkCommQuery = (LinkButton)e.Row.FindControl("lblCommQuery");
 
                 if (lnkTotal.Text != "0")
-                    lnkTotal.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkPending.Text != "0")
                     lnkPending.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;

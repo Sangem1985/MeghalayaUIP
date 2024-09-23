@@ -1085,7 +1085,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select AProposed Location Mandal \\n";
+                    errormsg = errormsg + slno + ". Please Select Proposed Location Mandal \\n";
                     slno = slno + 1;
                 }
                 if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
@@ -1293,6 +1293,31 @@ namespace MeghalayaUIP.User.CFE
                 if (rblborewell.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Whether You have Existing borewell in proposed factory Location or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblNocGroundWater.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Require NoC for Ground  or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblwatersupply.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Require Certificate for non - availability of water supply from water supply agency or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblRiverTanks.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Require Permission to Draw Water from River/Public Tanks or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblMunicipal.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Require Water Connection for the Municipal Area or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblGrantwater.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Required Grant of Water Connection to Non Municipal urban or not \\n";
                     slno = slno + 1;
                 }
                 if (rblLbrAct1970.SelectedIndex == -1)
