@@ -1008,3 +1008,24 @@ section#dashboardcount .col-lg-2 {
     width: 20% !important;
     min-width: 20%;
 }
+div#ContentPlaceHolder1_Failure {
+    margin-top: 25px;
+}
+.page-wrapper.IIMADB i.fi {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    font-size: 50px;
+    opacity: 0.3;
+    color: #fff;
+    font-weight: 600;
+}
+.page-wrapper.LADB i.fi {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    font-size: 50px;
+    opacity: 0.3;
+    color: #fff;
+    font-weight: 600;
+}
