@@ -373,6 +373,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         tdRemarks.Visible = false;
                         tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
+                        grdDeptQueries.DataSource = null; grdDeptQueries.DataBind();
                     }
                 }
                 else

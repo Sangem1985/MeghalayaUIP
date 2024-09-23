@@ -39,6 +39,7 @@ namespace MeghalayaUIP
                             grdFinal.DataSource = ds1.Tables[1];
                             grdFinal.DataBind();
                         }
+                        LBLDATETIME.Text =DateTime.Now.AddHours(-1).ToString();
                     }
                 }
             }
@@ -57,25 +58,11 @@ namespace MeghalayaUIP
 
 
                 if ((lblAmmndmntID != null || lblAmmndmntID.Text != "") && (lblDraftPath != null || lblDraftPath.Text != ""))
-                    Response.Redirect("~/CommentsonAmmendments.aspx?AmmndmntID =" + lblAmmndmntID.Text + "&Filepath=" + lblDraftPath.Text);
+                    Response.Redirect("~/CommentsonAmmendments.aspx?AmmndmntID =" + lblAmmndmntID.Text + "&Filepath=" + lblDraftPath.Text+"&Type=Draft");
             }
             catch (Exception ex) { }
         }
-        protected void btnComments_Click(object sender, EventArgs e)
-        {
-            BindDistricts(ddlDistrict);
-            trComments.Visible = true;
-            DataSet dsdepts = new DataSet();
-            dsdepts = mstrBAL.GetDepartmentSofAmmendments();
-            if (dsdepts != null && dsdepts.Tables.Count > 0 && dsdepts.Tables[0].Rows.Count > 0)
-            {
-                ddlDepartments.DataSource = dsdepts.Tables[0];
-                ddlDepartments.DataTextField = "TMD_DeptName";
-                ddlDepartments.DataValueField = "TMD_DEPTID";
-                ddlDepartments.DataBind();
-                AddSelect(ddlDepartments);
-            }
-        }
+      
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -114,78 +101,12 @@ namespace MeghalayaUIP
                     ddlDistrict.DataBind();
                 }
                 AddSelect(ddlDistrict);
-                //DataSet dsd = new DataSet();
-                //ddlDistrict.Items.Clear();
-                //List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                //objDistrictModel = mstrBAL.GetDistrcits();
-                //dsd = objDistrictModel
-                //if (dsd != null && dsd.Tables.Count > 0 && dsd.Tables[0].Rows.Count > 0)
-                //{
-                //    ddlDistrict.DataSource = dsd.Tables[0];
-                //    ddlDistrict.DataValueField = "District_Id";
-                //    ddlDistrict.DataTextField = "District_Name";
-                //    ddlDistrict.DataBind();
-                //    ddlDistrict.Items.Insert(0, "--District--");
-                //}
-                //else
-                //{
-                //    ddlDistrict.Items.Insert(0, "--District--");
-                //}
+              
             }
             catch (Exception ex)
             {
-                lblerrMsg.Text = ex.Message;
-                lblerrMsg.CssClass = "errormsg";
+               
             }
-        }
-
-        protected void ddlDepartments_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlAmendment.Items.Clear();
-                int DEPTID = Convert.ToInt32(ddlDepartments.SelectedValue);
-                DataSet ds1 = mstrBAL.GetAmmendments(DEPTID);
-                if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
-                {
-                    ddlAmendment.DataSource = ds1.Tables[0];
-                    ddlAmendment.DataTextField = "AMMENDMENT_NAME";
-                    ddlAmendment.DataValueField = "AMMENDMENT_ID";
-                    ddlAmendment.DataBind();
-                }
-                AddSelect(ddlAmendment);
-
-            }
-            catch (Exception ex)
-            {
-                lblerrMsg.Text = ex.Message;
-                lblerrMsg.CssClass = "errormsg";
-            }
-        }
-
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
-            Ammendmentvo ammendment = new Ammendmentvo();
-            ammendment.UserName = txtUserName.Text;
-            ammendment.District = ddlDistrict.SelectedValue;
-            ammendment.MobileNo = txtMobileNo.Text;
-            ammendment.MailId = txtEmailId.Text;
-            ammendment.Dept_ID = ddlDepartments.SelectedValue;
-            ammendment.Ammendment_Id = ddlAmendment.SelectedValue;
-            ammendment.Comments = txtComments.Text;
-            ammendment.IPAddress = getclientIP();
-            string Result = "";
-            Result = mstrBAL.InsertAmmendmentsComments(ammendment);
-            if (Result != "")
-            {
-                lblresult.Text = "Comments Saved Successfully";
-                lblresult.Visible = true;
-            }
-        }
-
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("BusinessRegulation.aspx");
         }
         public static string getclientIP()
         {
@@ -203,6 +124,23 @@ namespace MeghalayaUIP
             }
 
             return result;
+        }
+
+        protected void linkFinal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton link = (LinkButton)sender;
+                GridViewRow row = (GridViewRow)link.NamingContainer;
+                Label lblAmmndmntID = (Label)row.FindControl("lblAmndmntID");
+                Label lblFinalPath = (Label)row.FindControl("lblFinalPath");
+
+
+                if ((lblAmmndmntID != null || lblAmmndmntID.Text != "") && (lblFinalPath != null || lblFinalPath.Text != ""))
+                    Response.Redirect("~/CommentsonAmmendments.aspx?AmmndmntID =" + lblAmmndmntID.Text + "&Filepath=" + lblFinalPath.Text + "&Type=Final");
+            }
+            catch (Exception ex) { }
+
         }
     }
 }

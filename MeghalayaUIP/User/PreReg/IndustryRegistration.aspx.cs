@@ -1266,9 +1266,6 @@ namespace MeghalayaUIP.User.PreReg
         }
         public int SaveBasicDetails()
         {
-
-
-
             IndustryDetails ID = new IndustryDetails();
             if (Convert.ToString(ViewState["UnitID"]) != "")
             { ID.UnitID = Convert.ToString(ViewState["UnitID"]); }
@@ -1477,7 +1474,7 @@ namespace MeghalayaUIP.User.PreReg
                             string.IsNullOrEmpty(txtYear4.Text) || txtYear4.Text == "" || txtYear4.Text == null || txtYear4.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear4.Text, @"^0+(\.0+)?$") ||
                             string.IsNullOrEmpty(txtYear5.Text) || txtYear5.Text == "" || txtYear5.Text == null || txtYear5.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear5.Text, @"^0+(\.0+)?$"))
                         {
-                            errormsg = errormsg + lblIBPID.Text + ".Please Enter all details of " + lblItem.Text + "\\n";
+                            errormsg = errormsg + lblIBPID.Text + ".Please Enter all details of " + lblItem.Text + " \\n ";
                             slno = slno + 1;
                         }
 

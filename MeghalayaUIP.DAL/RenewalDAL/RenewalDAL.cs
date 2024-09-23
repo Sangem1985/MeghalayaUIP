@@ -1095,46 +1095,47 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public int InsertAttachmentsRenewal(RenShopsEstablishment ObjRenShopEst)
+        public string InsertAttachmentsRenewal(RenAttachments objRenAttachments)
         {
-            int valid = 0;
-
+            string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
-            //SqlTransaction transaction = null;
-            connection.Open();
-            //transaction = connection.BeginTransaction();
+            SqlTransaction transaction = null;
             try
             {
-                SqlParameter[] p = new SqlParameter[] {
-         new SqlParameter("@REN_UNITID",SqlDbType.Structured),
-         new SqlParameter("@REN_INVESTORID",SqlDbType.Structured),
-        new SqlParameter("@REN_FILETYPE",SqlDbType.Structured),
-        new SqlParameter("@REN_FILEPATH",SqlDbType.Structured),
-        new SqlParameter("@REN_FILENAME",SqlDbType.Structured),
-        new SqlParameter("@REN_FILEDESCRIPTION",SqlDbType.Structured),
-        new SqlParameter("@REN_DEPTID",SqlDbType.Structured),
-        new SqlParameter("@REN_APPROVALID",SqlDbType.Structured),
-        };
+                connection.Open();
+                transaction = connection.BeginTransaction();
 
-                p[0].Value = ObjRenShopEst.UnitId;
-                p[1].Value = ObjRenShopEst.CreatedBy;
-                p[2].Value = ObjRenShopEst.FileType;
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertAttachmentDetails;
 
-                p[3].Value = ObjRenShopEst.Filepath;
-                p[4].Value = ObjRenShopEst.FileName;
-                p[5].Value = ObjRenShopEst.FileDescription;
-                p[6].Value = ObjRenShopEst.Deptid;
-                p[7].Value = ObjRenShopEst.ApprovalId;
-                string A = "";
-                A = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, RENConstants.InsertAttachmentDetails, p));
-                valid = Convert.ToInt16(A);
-                //transaction.Commit();
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@REN_UNITID", Convert.ToInt32(objRenAttachments.UNITID));
+                com.Parameters.AddWithValue("@REN_INVESTORID", Convert.ToInt32(objRenAttachments.Questionnareid));
+                com.Parameters.AddWithValue("@CFEA_QUERYID", objRenAttachments.QueryID);
+                com.Parameters.AddWithValue("@CFEA_MASTERAID", objRenAttachments.MasterID);
+                com.Parameters.AddWithValue("@REN_FILEPATH", objRenAttachments.FilePath);
+                com.Parameters.AddWithValue("@REN_FILENAME", objRenAttachments.FileName);
+                com.Parameters.AddWithValue("@REN_FILETYPE", objRenAttachments.FileType);
+                com.Parameters.AddWithValue("@REN_FILEDESCRIPTION", objRenAttachments.FileDescription);
+                com.Parameters.AddWithValue("@REN_DEPTID", objRenAttachments.DeptID);
+                com.Parameters.AddWithValue("@REN_APPROVALID", objRenAttachments.ApprovalID);
+                com.Parameters.AddWithValue("@CFEA_CREATEDBY", Convert.ToInt32(objRenAttachments.CreatedBy));
+                com.Parameters.AddWithValue("@CFEA_CREATEDBYIP", objRenAttachments.IPAddress);
+              
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
                 connection.Close();
-            }
 
+            }
             catch (Exception ex)
             {
-                // transaction.Rollback();
                 throw ex;
             }
             finally
@@ -1142,7 +1143,56 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Close();
                 connection.Dispose();
             }
-            return valid;
+            return Result;
+
+
+
+        //    int valid = 0;
+
+        //    SqlConnection connection = new SqlConnection(connstr);
+        //    //SqlTransaction transaction = null;
+        //    connection.Open();
+        //    //transaction = connection.BeginTransaction();
+        //    try
+        //    {
+        //        SqlParameter[] p = new SqlParameter[] {
+        // new SqlParameter("@REN_UNITID",SqlDbType.Structured),
+        // new SqlParameter("@REN_INVESTORID",SqlDbType.Structured),
+        //new SqlParameter("@REN_FILETYPE",SqlDbType.Structured),
+        //new SqlParameter("@REN_FILEPATH",SqlDbType.Structured),
+        //new SqlParameter("@REN_FILENAME",SqlDbType.Structured),
+        //new SqlParameter("@REN_FILEDESCRIPTION",SqlDbType.Structured),
+        //new SqlParameter("@REN_DEPTID",SqlDbType.Structured),
+        //new SqlParameter("@REN_APPROVALID",SqlDbType.Structured),
+        //};
+
+        //        p[0].Value = ObjRenShopEst.UnitId;
+        //        p[1].Value = ObjRenShopEst.CreatedBy;
+        //        p[2].Value = ObjRenShopEst.FileType;
+
+        //        p[3].Value = ObjRenShopEst.Filepath;
+        //        p[4].Value = ObjRenShopEst.FileName;
+        //        p[5].Value = ObjRenShopEst.FileDescription;
+        //        p[6].Value = ObjRenShopEst.Deptid;
+        //        p[7].Value = ObjRenShopEst.ApprovalId;
+        //        string A = "";
+        //        A = Convert.ToString(SqlHelper.ExecuteNonQuery(connection, RENConstants.InsertAttachmentDetails, p));
+        //        valid = Convert.ToInt16(A);
+        //        //transaction.Commit();
+        //        connection.Close();
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        // transaction.Rollback();
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //        connection.Dispose();
+        //    }
+        //    return valid;
         }
         public DataSet GetRenShposEstablishmentLabourDetails(string userid, string UnitID)
         {

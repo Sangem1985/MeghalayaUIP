@@ -30,17 +30,28 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="auto-style1">Comments on Draft Ammendments</h4>
+                                <h4>
+                                    <asp:Label runat="server" ID="lblheading">Comments on Draft Ammendments</asp:Label></h4>
                             </div>
                             <div class="card-body">
                                 <table style="width: 100%; padding-top: 5px">
                                     <tr>
-                                        <td style="width: 250px; border: 2px solid">
+                                        <td style="width: 500px; border: 2px solid">
+                                            <asp:Panel runat="server" ID="Panel1">
+                                                <iframe runat="server" id="IframePanel" width="500px" height="700px"></iframe>
+                                            </asp:Panel>
+                                        </td>
+                                        <td style="width: 250px; border: 2px solid; vertical-align: top" id="tdComments" runat="server">
                                             <asp:Panel runat="server" ID="Panel2">
                                                 <table style="text-align: center; width: 100%" align="center">
-                                                    <tr runat="server" id="trComments" visible="false">
-                                                        <td>
+                                                    <tr>
+                                                        <td style="padding-top: 20px">
                                                             <table cellpadding="4" cellspacing="5" align="center">
+                                                                <tr>
+                                                                    <td colspan="5">
+                                                                        <b>Please Fille the details to give comments on this Ammendment/Regulation:</b>
+                                                                    </td>
+                                                                </tr>
                                                                 <tr>
                                                                     <td style="padding: 5px; margin: 5px; text-align: left;">Department:
                                                                     </td>
@@ -147,68 +158,66 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="text-align: center;" align="center">
-                                                            <table style="width: 100%">
-                                                                <tr id="Tr1" runat="server">
-                                                                    <td align="center" style="padding-right: 5px; padding-left: 5px; padding-bottom: 5px; vertical-align: middle; padding-top: 5px; text-align: center"
-                                                                        valign="middle">
-                                                                        <asp:Label ID="lblresult" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="11px"
-                                                                            ForeColor="Green" Style="position: static"></asp:Label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr runat="server" id="Reject">
-                                                                    <td align="center" style="padding: 5px; vertical-align: middle; text-align: center"
-                                                                        valign="middle">
-                                                                        <asp:Label ID="lblerrMsg" runat="server" Font-Bold="True" ForeColor="Red" Width="270px"></asp:Label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr runat="server" id="Close">
-                                                                    <td align="center" style="padding: 5px; vertical-align: middle; text-align: center"
-                                                                        valign="middle">
-                                                                        <asp:Label ID="lblStatus" runat="server" Font-Bold="True" ForeColor="Red" Width="272px"></asp:Label>
-                                                                        <%--<a target="_blank" style="font-family: fantasy; font-size: larger; font-weight: bold; font-style: normal; color: #8B0000; text-underline-position: auto">AAAA</a>--%>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
+                                                        <td style="text-align: center;" align="center" colspan="6">
+                                                            <asp:Label ID="lblresult" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="Green"></asp:Label>
+                                                            <asp:Label ID="lblerrMsg" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
+
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </asp:Panel>
                                             <%--</asp:Panel>--%>
                                         </td>
-                                        <td style="width: 500px; border: 2px solid">
-                                            <asp:Panel runat="server" ID="Panel1">
-                                                <iframe runat="server" id="IframePanel" width="500px" height="700px"></iframe>
-                                            </asp:Panel>
-                                        </td>
-                                        <%--<td>
-                                                            <asp:Label runat="server" Width="50px" ID="lblwidth" Visible="false"></asp:Label>
-                                                        </td>--%>
+                                        <%--<td style="width: 500px; border: 2px solid; vertical-align: top; text-align: center;" align="center" runat="server" id="tdFinalComments">Comments On this Ammendment:
+                                            <asp:GridView ID="grdFinalComments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                BorderStyle="Solid" BorderWidth="1px" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
+                                                GridLines="None" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
+                                                Width="135%" EnableModelValidation="True" Visible="false">
+                                                <HeaderStyle BackColor="#3366cc" />
+                                                <RowStyle BackColor="#ffffff" />
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Sl.No." HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20px">
+                                                        <ItemTemplate>
+                                                            <%#Container.DataItemIndex+1 %>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:BoundField HeaderText="User Name" DataField="USERNAME" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="District" DataField="DistrictName" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Mobile No." DataField="MOBILENO" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Mail Id" DataField="MAILID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Comments" DataField="COMMENTS" ItemStyle-Width="200px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Comments Date" DataField="CREATEDDATE" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+
+                                                </Columns>
+                                            </asp:GridView>
+                                        </td>--%>
                                     </tr>
                                 </table>
                                 <br />
                                 <table>
                                     <tr>
                                         <td>
+                                            <asp:Label runat="server" ID="lblNocomments" ForeColor="Red" Visible="false"></asp:Label>
+
                                             <asp:GridView ID="grdComments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px"  CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
-                                                GridLines="None"  AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
+                                                BorderStyle="Solid" BorderWidth="1px" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
+                                                GridLines="None" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
                                                 Width="135%" EnableModelValidation="True" Visible="false">
                                                 <HeaderStyle BackColor="#3366cc" />
                                                 <RowStyle BackColor="#ffffff" />
                                                 <Columns>
-                                                    <asp:TemplateField HeaderText="Sl.No." HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20px" >
-                                                        <ItemTemplate >
+                                                    <asp:TemplateField HeaderText="Sl.No." HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20px">
+                                                        <ItemTemplate>
                                                             <%#Container.DataItemIndex+1 %>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="User Name" DataField="USERNAME" ItemStyle-Width="100px"  ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText"  />
-                                                    <asp:BoundField HeaderText="District" DataField="DistrictName" ItemStyle-Width="100px"  ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Mobile No." DataField="MOBILENO" ItemStyle-Width="60px"  ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText"  />
-                                                    <asp:BoundField HeaderText="Mail Id" DataField="MAILID" ItemStyle-Width="80px"  ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Comments" DataField="COMMENTS" ItemStyle-Width="200px"  ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Comments Date" DataField="CREATEDDATE" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Width="80px"  ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                                
+                                                    <asp:BoundField HeaderText="User Name" DataField="USERNAME" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="District" DataField="DistrictName" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Mobile No." DataField="MOBILENO" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Mail Id" DataField="MAILID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Comments" DataField="COMMENTS" ItemStyle-Width="200px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Comments Date" DataField="CREATEDDATE" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+
                                                 </Columns>
                                             </asp:GridView>
                                         </td>

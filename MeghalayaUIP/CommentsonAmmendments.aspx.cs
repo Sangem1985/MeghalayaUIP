@@ -25,28 +25,8 @@ namespace MeghalayaUIP
                 {
                     if (Request.QueryString.Count > 0)
                     {
-                        BindDistricts(ddlDistrict);
-                        trComments.Visible = true;
-                        DataSet dsdepts = new DataSet();
-                        dsdepts = mstrBAL.GetAmmendamentFullName(Request.QueryString[0]);
-                        if (dsdepts != null && dsdepts.Tables.Count > 0 && dsdepts.Tables[0].Rows.Count > 0)
-                        {
-                            lblAmendment.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_NAME"]);
-                            lblDepatname.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
-                            lblAmendmentID.Text = Convert.ToString(Request.QueryString[0]);
-                            lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
-                            string filepath = "https://localhost:44379/" + Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/");
-                            // IframePanel.Attributes["src"] = Request.QueryString[1];
-                            filepath = "~/Ammendments/12/Draft/13092024055025//Blank2.pdf";
-                            IframePanel.Attributes["src"] = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/").Replace(@"D:/InvestMegha/MeghalayaUIP/", @"~/");
 
-                            // IframePanel.Attributes.Add("src", filepath);
-                        }
-                        if (dsdepts != null && dsdepts.Tables.Count > 1 && dsdepts.Tables[1].Rows.Count > 0)
-                        {
-                            grdComments.DataSource = dsdepts.Tables[1];
-                            grdComments.DataBind();
-                        }
+                        BindData();
                     }
                     else
                     {
@@ -61,7 +41,37 @@ namespace MeghalayaUIP
             }
         }
 
+        public void BindData()
+        {
+            DataSet dsdepts = new DataSet();
+            dsdepts = mstrBAL.GetAmmendamentFullName(Request.QueryString[0]);
+            if (dsdepts != null && dsdepts.Tables.Count > 0 && dsdepts.Tables[0].Rows.Count > 0)
+            {
+                lblAmendment.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_NAME"]);
+                lblDepatname.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
+                lblAmendmentID.Text = Convert.ToString(Request.QueryString[0]);
+                lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
+                IframePanel.Attributes["src"] = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/").Replace(@"D:/InvestMegha/MeghalayaUIP/", @"~/");
+            }
+            if (dsdepts != null && dsdepts.Tables.Count > 1 && dsdepts.Tables[1].Rows.Count > 0)
+            {
+                lblNocomments.Text = "Comments on this Ammendment:"; lblNocomments.ForeColor = System.Drawing.Color.Green;
+                grdComments.DataSource = dsdepts.Tables[1];
+                grdComments.DataBind();
+            }
+            else { lblNocomments.Text = "There are no Comments on this Ammendment"; }
+            if (Request.QueryString["Type"] == "Final")
+            {
+                grdComments.Visible = true; lblNocomments.Visible = true;
+                lblheading.Text = "Final Ammendment ";
+                tdComments.Visible = false;
 
+            }
+            else if (Request.QueryString["Type"] == "Draft")
+            {
+                BindDistricts(ddlDistrict);
+            }
+        }
 
         protected void btnviewcomments_Click(object sender, EventArgs e)
         {
@@ -73,6 +83,8 @@ namespace MeghalayaUIP
                 grdComments.DataSource = dsdepts.Tables[1];
                 grdComments.DataBind();
             }
+            else
+            { lblerrMsg.Text = "There are no comments on this Ammendment"; }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -99,7 +111,7 @@ namespace MeghalayaUIP
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/BussinessRegulation.aspx");
+            Response.Redirect("~/BusinessRegulation.aspx");
         }
         public void AddSelect(DropDownList ddl)
         {

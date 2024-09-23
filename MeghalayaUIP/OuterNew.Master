@@ -312,7 +312,7 @@
                                                 </li>
                                                 <li class="dropdown"><a href="#">Investment opportunities <i class="fi fi-br-chevron-double-down"></i></a>
                                                     <ul>
-                                                        <li><a href="Documents/Meghalaya%20Next%20Vision%202028.pdf" target="_blank">Meghalaya Next Vision
+                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/InvestMegha/MeghalayaUIP/Documents/Meghalaya%20Next%20Vision%202028.pdf', '_blank'); return false;">Meghalaya Next Vision
                                                 2028</a></li>
 
 

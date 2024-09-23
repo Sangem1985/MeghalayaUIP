@@ -4,8 +4,11 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,7 +19,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg = "", result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -894,6 +897,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Date of certificate of registration \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypContractors.Text) || hypContractors.Text == "" || hypContractors.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Contractor's Photo \\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
 
@@ -1057,6 +1065,81 @@ namespace MeghalayaUIP.User.Renewal
             }
         }
 
+        protected void btndpr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupContractors.HasFile)
+                {
+                    Error = validations(fupContractors);
+                    if (Error == "")
+                    {
+                        string serverpath = HttpContext.Current.Server.MapPath("~\\RenewalsAttachments\\" + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["RENQID"]) + "\\" + "Contractor's Photo" + "\\");
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupContractors.PostedFile.SaveAs(serverpath + "\\" + fupContractors.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupContractors.PostedFile.SaveAs(serverpath + "\\" + fupContractors.PostedFile.FileName);
+                            }
+                        }
+
+
+                        RenAttachments objRenAttachments = new RenAttachments();
+                        objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                        objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
+                        objRenAttachments.MasterID = "133";
+                        objRenAttachments.FilePath = serverpath + fupContractors.PostedFile.FileName;
+                        objRenAttachments.FileName = fupContractors.PostedFile.FileName;
+                        objRenAttachments.FileType = fupContractors.PostedFile.ContentType;
+                        objRenAttachments.FileDescription = "Upload Contractor's Photo";
+                        objRenAttachments.CreatedBy = hdnUserID.Value;
+                        objRenAttachments.IPAddress = getclientIP();
+                        result = objRenbal.InsertAttachmentsRenewal(objRenAttachments);
+                        if (result != "")
+                        {
+                            hypContractors.Text = fupContractors.PostedFile.FileName;
+                            hypContractors.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRenAttachments.FilePath;
+                            hypContractors.Target = "blank";
+                            message = "alert('" + "Contractor's Photo Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {
             try
@@ -1069,6 +1152,75 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+                if (Attachment.PostedFile.ContentType != "application/pdf"
+                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                {
+
+                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                    {
+                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(Attachment.PostedFile.FileName))
+                    {
+                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    else if (!ValidateFileExtension(Attachment))
+                    {
+                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                        slno = slno + 1;
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }

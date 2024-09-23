@@ -195,31 +195,13 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.RadioButtonList rblOwned;
 
         /// <summary>
-        /// fupDPR control.
+        /// fupDirector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupDPR;
-
-        /// <summary>
-        /// hypdpr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hypdpr;
-
-        /// <summary>
-        /// lbldpr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldpr;
+        protected global::System.Web.UI.WebControls.FileUpload fupDirector;
 
         /// <summary>
         /// btndpr control.
@@ -229,6 +211,15 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btndpr;
+
+        /// <summary>
+        /// hypDirector control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hypDirector;
 
         /// <summary>
         /// ddlDistrict control.
