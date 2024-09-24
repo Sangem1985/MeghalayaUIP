@@ -203,24 +203,28 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "N")
                         {
+
                             ((CheckBox)row1.FindControl("ChkApproval")).Checked = true;
+                            chkCheck.Enabled = true;
 
                             if (((CheckBox)row1.FindControl("ChkApproval")).Checked)
                             {
                                 row1.Cells[6].Text = row1.Cells[3].Text;
                                 amount = amount + Convert.ToDecimal(row1.Cells[6].Text);
+                                //chkCheck.Checked = true;
+                                //chkCheck.Enabled = true;
                             }
                             else
                             { /*if (row1.Cells[6].Text != "")*/
                                 row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
-                                chkCheck.Enabled = true;
                             }
                         }
                         else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
                         {
+
                             row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
-                            chkCheck.Enabled = false;
                             chkCheck.Checked = false;
+                            chkCheck.Enabled = false;
                         }
                     }
                     grdApprovals.FooterRow.Cells[6].Text = amount.ToString();
@@ -251,6 +255,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 else /*if (row1.Cells[6].Text != "")*/
                     row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
+
             }
             int Rowindex = row.RowIndex;
             int totalRowindex = grdApprovals.Rows.Count;
@@ -285,9 +290,9 @@ namespace MeghalayaUIP.User.CFE
                     {
                         cnt = cnt + 1;
                     }
-                   
+
                 }
-                if (cnt <= 1)
+                if (cnt == 0)
                 {
                     SetGridLabelValue();
                     Failure.Visible = true;
@@ -321,7 +326,7 @@ namespace MeghalayaUIP.User.CFE
 
                 }
                 if (grdApprovals.Rows.Count == count)
-                {                    
+                {
                     Getofflineapprovals();
                     success.Visible = true;
                     lblmsg.Text = "Details Submitted Successfully";
@@ -375,65 +380,126 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "1")
                             divPCB.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "2")
-                            divHazPCB.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "3")
-                            divSrvcCon.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "4")
-                            divEleCon.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "5")
-                            divFctryPlan.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "6")
-                            divDGsetNOC.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
-                            divFireSfty.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "8")
-                            divRSDSLic.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "9")
-                            divExplsvNOC.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "10")
-                            divPtrlNOC.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "11")
-                            divRdCtng.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "12")
-                            divNonEncmb.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "13")
-                            divProfTax.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "14")
-                            divElcInsp.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "15")
-                            divForstDist.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "16")
-                            divNonForstLand.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "17")
-                            divIrrgNOC.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "18")
-                            divRevNOC.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "19")
-                            divGrndWtrNOC.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "20")
-                            divNoWtrSplyCertfct.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "21")
-                            divPrmsntoDrawWtr.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "22")
-                            divMunicipalWatr.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "23")
-                            divUrbanWatr.Visible = true;
+                        else
+                            divPCB.Visible = false;
 
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "2")
+                            divHazPCB.Visible = true;
+                        else
+                            divHazPCB.Visible = false;
+
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "3")
+                            divSrvcCon.Visible = true;
+                        else
+                            divSrvcCon.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "4")
+                            divEleCon.Visible = true;
+                        else
+                            divEleCon.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "5")
+                            divFctryPlan.Visible = true;
+                        else
+                            divFctryPlan.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "6")
+                            divDGsetNOC.Visible = true;
+                        else
+                            divDGsetNOC.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
+                            divFireSfty.Visible = true;
+                        else
+                            divFireSfty.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "8")
+                            divRSDSLic.Visible = true;
+                        else
+                            divRSDSLic.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "9")
+                            divExplsvNOC.Visible = true;
+                        else
+                            divExplsvNOC.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "10")
+                            divPtrlNOC.Visible = true;
+                        else
+                            divPtrlNOC.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "11")
+                            divRdCtng.Visible = true;
+                        else
+                            divRdCtng.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "12")
+                            divNonEncmb.Visible = true;
+                        else
+                            divNonEncmb.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "13")
+                            divProfTax.Visible = true;
+                        else
+                            divProfTax.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "14")
+                            divElcInsp.Visible = true;
+                        else
+                            divElcInsp.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "15")
+                            divForstDist.Visible = true;
+                        else
+                            divForstDist.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "16")
+                            divNonForstLand.Visible = true;
+                        else
+                            divNonForstLand.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "17")
+                            divIrrgNOC.Visible = true;
+                        else
+                            divIrrgNOC.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "18")
+                            divRevNOC.Visible = true;
+                        else
+                            divRevNOC.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "19")
+                            divGrndWtrNOC.Visible = true;
+                        else
+                            divGrndWtrNOC.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "20")
+                            divNoWtrSplyCertfct.Visible = true;
+                        else
+                            divNoWtrSplyCertfct.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "21")
+                            divPrmsntoDrawWtr.Visible = true;
+                        else
+                            divPrmsntoDrawWtr.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "22")
+                            divMunicipalWatr.Visible = true;
+                        else
+                            divMunicipalWatr.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "23")
+                            divUrbanWatr.Visible = true;
+                        else
+                            divUrbanWatr.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
                             divLbrAct1970.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "26")
+                        else
+                            divLbrAct1970.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "26")
                             divLbrAct1979.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "27")
+                        else
+                            divLbrAct1979.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "27")
                             divLbrAct1996.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "28")
+                        else
+                            divLbrAct1996.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "28")
                             divContrLbrAct.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "29")
+                        else
+                            divContrLbrAct.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "29")
                             divContrLbrAct1979.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "30")
+                        else
+                            divContrLbrAct1979.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "30")
                             divConstrPermit.Visible = true;
-                        else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "31")
+                        else
+                            divConstrPermit.Visible = false;
+                        if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "31")
                             divBldngPlan.Visible = true;
+                        else
+                            divBldngPlan.Visible = false;
 
                     }
 
