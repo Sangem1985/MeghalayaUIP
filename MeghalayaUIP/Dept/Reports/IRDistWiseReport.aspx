@@ -80,7 +80,7 @@
                                                                         <label class="col-lg-12 col-form-label">District :</label>
                                                                         <div class="col-lg-12 d-flex">
                                                                             <asp:DropDownList ID="ddldistrict" runat="server" class=" form-control" OnSelectedIndexChanged="ddldistrict_SelectedIndexChanged" AutoPostBack="true">
-                                                                                <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                                <asp:ListItem Value="0">--ALL--</asp:ListItem>
                                                                             </asp:DropDownList>
                                                                         </div>
                                                                     </div>
@@ -90,7 +90,7 @@
                                                                         <label class="col-lg-12 col-form-label">Type of Enterprise : </label>
                                                                         <div class="col-lg-12 d-flex">
                                                                             <asp:DropDownList ID="ddlEnterPriseType" runat="server" class=" form-control">
-                                                                                <asp:ListItem Value="--Select--">--Select--</asp:ListItem>
+                                                                                <asp:ListItem Value="--Select--">--ALL--</asp:ListItem>
                                                                                 <asp:ListItem Value="Micro">Micro</asp:ListItem>
                                                                                 <asp:ListItem Value="Small">Small</asp:ListItem>
                                                                                 <asp:ListItem Value="Medium">Medium</asp:ListItem>
