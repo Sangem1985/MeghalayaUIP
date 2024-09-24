@@ -8,7 +8,7 @@
             <li class="breadcrumb-item active" aria-current="page">Land Application</li>
         </ol>
     </nav>
-    <div class="page-wrapper" style="margin: 10px 0px !important;">
+    <div class="page-wrapper LADB" style="margin: 10px 0px !important;">
         <div class="container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b></b></h4>               

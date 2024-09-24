@@ -9,7 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Industry Registrations</li>
         </ol>
     </nav>
-    <div class="page-wrapper" style="margin: 10px 0px !important;">
+    <div class="page-wrapper IIMADB" style="margin: 10px 0px !important;">
         <div class="container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b></b></h4>
@@ -32,8 +32,8 @@
                                 <span aria-hidden="true">×</span></button>
                         </div>
                     </div>
-                    <div class="col-md-12 ">
-                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                    <div class="col-md-12">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show mt-3" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

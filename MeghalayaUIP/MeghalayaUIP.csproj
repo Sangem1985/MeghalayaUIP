@@ -1185,6 +1185,9 @@
     <Compile Include="OuterNew.Master.designer.cs">
       <DependentUpon>OuterNew.Master</DependentUpon>
     </Compile>
+    <Compile Include="PdfFile.ashx.cs">
+      <DependentUpon>PdfFile.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Power.aspx.cs">
       <DependentUpon>Power.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2257,6 +2260,7 @@
     <None Include="packages.config" />
     <Content Include="User\user.Master" />
     <Content Include="User\Dashboard\ServePdfFile.ashx" />
+    <Content Include="PdfFile.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
