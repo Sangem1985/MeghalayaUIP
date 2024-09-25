@@ -1461,12 +1461,13 @@ namespace MeghalayaUIP.User.CFE
                 objCFEQ.EnterpriseCategory = lblEntCategory.Text;
                 if (lblPCBCategory.Text.Trim() != "White")
                 {
+                   // decimal PMCost  = Convert.ToDecimal();
                     objCFEQ.Investment = txtPMCost.Text;
                     objCFEQ.PCBCategory = lblPCBCategory.Text;
                     objCFEQ.ApprovalID = "1";
                     dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                    dtApprReq.Merge(dtPCB);                   
-                  
+                    dtApprReq.Merge(dtPCB);
+                   
                 }
                 if (ddlPowerReq.SelectedValue != "")
                 {
@@ -1652,12 +1653,12 @@ namespace MeghalayaUIP.User.CFE
                 {
                     decimal Fee = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Fee"));
                     TotalFee = TotalFee + Fee;
-                    e.Row.Cells[3].Text = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Fee")).ToString("#,##0");
+                    e.Row.Cells[3].Text = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Fee")).ToString();
                 }
                 if ((e.Row.RowType == DataControlRowType.Footer))
                 {
                     e.Row.Cells[2].Text = "Total Fee";
-                    e.Row.Cells[3].Text = TotalFee.ToString("#,##0");
+                    e.Row.Cells[3].Text = TotalFee.ToString();
                 }
             }
             catch (Exception ex)

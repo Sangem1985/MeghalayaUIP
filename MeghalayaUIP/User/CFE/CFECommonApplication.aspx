@@ -443,10 +443,10 @@
                                             <div class="col-lg-2 d-flex">
                                                 <asp:TextBox ID="txt12NonEncmb" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>
                                             </div>
-                                            <div class="col-lg-1 d-flex">
+                                            <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup12NonEncmb" Width="300px" Font-Italic="true" Height="45px" />
                                             </div>
-                                            <div class="col-lg-2 d-flex">
+                                            <div class="col-lg-1 d-flex">
                                                 <asp:Button runat="server" ID="btnUpld12NonEncmb" OnClick="btnUpld12NonEncmb_Click" Text="Upload" class="btn btn-info btn-lg" Height="40px" Width="150px" />
                                             </div>
                                             <div class="col-lg-1 d-flex">

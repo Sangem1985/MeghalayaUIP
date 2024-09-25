@@ -32,7 +32,7 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@DISTRICT", Convert.ToInt32(District));
+                da.SelectCommand.Parameters.AddWithValue("@DISTRICT", District);
                 da.SelectCommand.Parameters.AddWithValue("@ENTTYPE", EntType);
                 if (Formdate != null && Formdate != "")
                 {

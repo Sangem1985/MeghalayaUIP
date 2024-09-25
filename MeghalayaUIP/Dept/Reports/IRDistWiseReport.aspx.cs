@@ -29,11 +29,14 @@ namespace MeghalayaUIP.Dept.Reports
             if (!IsPostBack)
             {               
                 BindDistricts();
+                //txtFormDate.Text = "01-06-2024";
+                //txtToDate.Text = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
+                btnsubmit_Click(sender, e);
             }
         }
         protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
         protected void BindDistricts()
         {
@@ -74,8 +77,8 @@ namespace MeghalayaUIP.Dept.Reports
             try
             {
                 System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
-                li.Text = "--Select--";
-                li.Value = "0";
+                li.Text = "--ALL--";
+                li.Value = "%";
                 ddl.Items.Insert(0, li);
             }
             catch (Exception ex)
@@ -151,48 +154,55 @@ namespace MeghalayaUIP.Dept.Reports
                 LinkButton lnkRejected = (LinkButton)e.Row.FindControl("lblCommRejected");
                 LinkButton lnkCommQuery = (LinkButton)e.Row.FindControl("lblCommQuery");
 
+                string districtname = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DISTRICTNAME")).Trim();
+
                 if (lnkTotal.Text != "0")
-                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" +"&District="+ districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkPending.Text != "0")
-                    lnkPending.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkPending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkQuery.Text != "0")
-                    lnkQuery.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Query" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Query" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkcommpending.Text != "0")
-                    lnkcommpending.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=commpending" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkcommpending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=commpending" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkApproved.Text != "0")
-                    lnkApproved.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Approved" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkApproved.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Approved" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkRejected.Text != "0")
-                    lnkRejected.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Rejected" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkRejected.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Rejected" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkCommQuery.Text != "0")
-                    lnkCommQuery.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=CommQuery" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkCommQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=CommQuery" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
-                string district;
+                string districtname = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DISTRICTNAME")).Trim();
 
-                if (ddldistrict.SelectedItem.Text == "" || ddldistrict.SelectedItem.Text == null || ddldistrict.SelectedItem.Text == "--Select--" || ddldistrict.SelectedValue == "0")
+                if (ddldistrict.SelectedItem.Text == "" || ddldistrict.SelectedItem.Text == null || ddldistrict.SelectedItem.Text == "--ALL--" || ddldistrict.SelectedValue == "0")
                 {
-                    district = "%";
+                    districtname = "%";
                 }
                 else
                 {
-                    district = ddldistrict.SelectedItem.Text;
+                    districtname = ddldistrict.SelectedItem.Text;
                 }
 
                 e.Row.Font.Bold = true;
                 e.Row.Cells[2].Text = "Total";
+
                 LinkButton Total = new LinkButton();
                 Total.ForeColor = System.Drawing.Color.Blue;
-                Total.PostBackUrl = "~/IRDistWiseReportDrillDown.aspx?Distid=" + district + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType" + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                if(Total.Text !="0")
+                {
+                    Total.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                }                
                 Total.Text = TotalAppl.ToString();
                 e.Row.Cells[3].Text = TotalAppl.ToString();
                 e.Row.Cells[3].Controls.Add(Total);
+
                 e.Row.Cells[4].Text = ImaPending.ToString();
                 e.Row.Cells[5].Text = ImaQuery.ToString();
                 e.Row.Cells[6].Text = CommPending.ToString();

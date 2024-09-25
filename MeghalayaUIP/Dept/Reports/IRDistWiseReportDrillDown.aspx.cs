@@ -12,7 +12,7 @@ namespace MeghalayaUIP.Dept.Reports
     public partial class IRDistWiseReportDrillDown : System.Web.UI.Page
     {
         ReportBAL Objreport = new ReportBAL();
-        string Distid,FromDate, ToDate, ViewType;
+        string Distid,FromDate, ToDate, ViewType,DIstrictname;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,6 +30,7 @@ namespace MeghalayaUIP.Dept.Reports
                     FromDate = Convert.ToString(Request.QueryString[1]);
                     ToDate = Convert.ToString(Request.QueryString[2]);
                     ViewType = Convert.ToString(Request.QueryString[3]);
+                    DIstrictname = Convert.ToString(Request.QueryString[4]);
 
                     DataSet ds = new DataSet();
 
@@ -38,8 +39,12 @@ namespace MeghalayaUIP.Dept.Reports
                     {
                         GVDistWise.DataSource = ds.Tables[0];
                         GVDistWise.DataBind();
-                        lblname.Visible = true;
-                        lblname.InnerText = " " + FromDate+" " + " " + "In" +" "+ " " + ToDate;
+                        lblStatus.Visible = true;
+                        lblStatus.InnerText = DIstrictname+" "+" " +"&"+ " " +" "+ FromDate+" " + " " + "In" +" "+ " " + ToDate;
+                        if (DIstrictname == "%")
+                        {
+                            lblStatus.InnerText = "All Districts";
+                        }
                     }
                     else
                     {
@@ -47,8 +52,6 @@ namespace MeghalayaUIP.Dept.Reports
                         GVDistWise.DataBind();
                     }
                 }
-
-
 
             }
             catch(Exception ex)

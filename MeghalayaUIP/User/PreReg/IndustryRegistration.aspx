@@ -843,7 +843,7 @@
                                                                                 <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="42%" HeaderStyle-HorizontalAlign="left">
+                                                                        <asp:TemplateField HeaderText="Item Description" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                             <ItemTemplate>
                                                                                 <itemstyle horizontalalign="Center" />
                                                                                 <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
