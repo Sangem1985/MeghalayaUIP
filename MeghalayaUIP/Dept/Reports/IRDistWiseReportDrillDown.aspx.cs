@@ -13,6 +13,21 @@ namespace MeghalayaUIP.Dept.Reports
     {
         ReportBAL Objreport = new ReportBAL();
         string Distid,FromDate, ToDate, ViewType,DIstrictname;
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Reports/IRDistWiseReport.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                //throw ex;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

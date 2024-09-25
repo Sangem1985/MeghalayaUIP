@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         i.fi.fi-br-circle-camera {
             font-size: 32px;
@@ -60,7 +61,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Previous License Number*</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,7 +103,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Shop/Business Establishment *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNameBusiness" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameBusiness" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -123,7 +124,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Individual/authorized representative *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtIndividualName" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtIndividualName" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,7 +136,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mobile Number *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" Type="text" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,7 +144,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">E-Mail Id *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" Type="text" onblur="validateEmail(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +179,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Address of the establishment *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtAddress" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddress" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +188,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nature of Business  *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtNatureBusiness" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNatureBusiness" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>

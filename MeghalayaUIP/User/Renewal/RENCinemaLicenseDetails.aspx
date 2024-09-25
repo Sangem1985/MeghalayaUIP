@@ -91,7 +91,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Establishment Cinema *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEstName" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEstName" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

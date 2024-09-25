@@ -714,16 +714,16 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Select other office/godown/warehouse attached to this establishment situated \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hypEmployeelist.Text) || hypEmployeelist.Text == "" || hypEmployeelist.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Employee List Only.....! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypEmployer.Text) || hypEmployer.Text == "" || hypEmployer.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Photo of the Employer.....! \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(hypEmployeelist.Text) || hypEmployeelist.Text == "" || hypEmployeelist.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Employee List Only.....! \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(hypEmployer.Text) || hypEmployer.Text == "" || hypEmployer.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Photo of the Employer.....! \\n";
+                //    slno = slno + 1;
+                //}
                 return errormsg;
             }
             catch (Exception ex)
@@ -1353,7 +1353,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 btnsave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/Renewal/ContractorMigrantWork.aspx?Next=" + "N");
+                    Response.Redirect("~/User/Renewal/RENContractorMigrantWork.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {
