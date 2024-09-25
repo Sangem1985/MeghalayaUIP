@@ -20826,3 +20826,102 @@ div#bottombox a, div#bottombox1 a {
 .main-header.style-six .header-top .header-info li a:hover, .main-header.style-six .header-top .header-nav li a:hover {
     color: #cef9ff !important;
 }
+
+
+/*Mobile Media querys*/
+/* Small phones (up to 320px) */
+@media only screen and (max-width: 320px) {
+    .main-header.style-six .header-upper {
+        height: 110px;
+    }
+    .main-header.style-four .header-bottom .outer-container .nav-outer {
+        background: none;
+    }
+    ul.header-info.pull-left {
+        width: 40% !important;
+    }
+    img.imgright {
+        display: none;
+    }
+    .testimonial-style-five .owl-carousel {
+        width: 100%;
+        height: 289px;
+        margin-left: 140px;
+    }
+}
+
+/* Regular phones (up to 480px) */
+@media only screen and (max-width: 480px) {
+    .main-header.style-six .header-upper {
+        height: 110px;
+    }
+    .main-header.style-four .header-bottom .outer-container .nav-outer {
+        background: none;
+    }
+    ul.header-info.pull-left {
+        width: 40% !important;
+    }
+    img.imgright {
+        display: none;
+    }
+    .testimonial-style-five .owl-carousel {
+        width: 100%;
+        height: 289px;
+        margin-left: 140px;
+    }
+}
+
+/* Medium devices (up to 768px) */
+@media only screen and (max-width: 768px) {
+    .main-header.style-six .header-upper {
+        height: 110px;
+    }
+    .main-header.style-four .header-bottom .outer-container .nav-outer {
+        background: none;
+    }
+    ul.header-info.pull-left {
+        width: 40% !important;
+    }
+    img.imgright {
+        display: none;
+    }
+    .testimonial-style-five .owl-carousel {
+        width: 100%;
+        height: 289px;
+        margin-left: 140px;
+    }
+}
+
+/* Large devices (up to 1024px) */
+@media only screen and (max-width: 1024px) {
+    .main-header.style-six .header-upper {
+        height: 110px;
+    }
+    .main-header.style-four .header-bottom .outer-container .nav-outer {
+        background: none;
+    }
+    ul.header-info.pull-left {
+        width: 40% !important;
+    }
+    img.imgright {
+        display: none;
+    }
+    .testimonial-style-five .owl-carousel {
+        width: 100%;
+        height: 289px;
+        margin-left: 140px;
+    }
+}
+
+/* Extra-large devices (above 1024px) */
+@media only screen and (min-width: 1025px) {
+    .main-header.style-six .header-upper {
+        height: 110px;
+    }
+    .main-header.style-four .header-bottom .outer-container .nav-outer{
+        background:none;
+    }
+    ul.header-info.pull-left {
+        width: 40% !important;
+    }
+}
