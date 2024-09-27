@@ -80,7 +80,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         gvPreRegApproved.DataSource = null;
                         gvPreRegApproved.DataBind();
-
+                        lblHdng.Text = "";
                     }                    
                 }
             }

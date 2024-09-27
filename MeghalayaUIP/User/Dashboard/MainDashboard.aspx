@@ -29,8 +29,8 @@
                         <h4 style="display: flex; align-items: center;">
                             <asp:Label ID="lblunitname" runat="server"></asp:Label>
                             &nbsp;&nbsp;
-                            <asp:Label ID="lblinterest" runat="server">Interested in Starting a New Investment? Get Started</asp:Label></h4>
-                        <h4><a href="../PreReg/IndustryRegistration.aspx"><span class="badge rounded-pill bg-dark text-sm p-2" style="font-size: 16px; color: #fff; background: #033260 !important; display: flex; align-items: center;"><i class="fi fi-tr-bullseye-arrow"></i>&nbsp; New Project</span></a></h4>
+                            <asp:Label ID="lblinterest" runat="server">Interested in starting a new project or working on an existing project?</asp:Label></h4>
+                        <h4><a href="../PreReg/IndustryRegistration.aspx"><span class="badge rounded-pill bg-dark text-sm p-2" style="font-size: 16px; color: #fff; background: #033260 !important; display: flex; align-items: center;"><i class="fi fi-tr-bullseye-arrow"></i>&nbsp; Click Here</span></a></h4>
 
                     </div>
                     <div class="card item1" style="width: 13rem;" id="divfuture" runat="server" visible="false">

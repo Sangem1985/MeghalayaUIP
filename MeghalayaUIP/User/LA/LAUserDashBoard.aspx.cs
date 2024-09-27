@@ -72,8 +72,6 @@ namespace MeghalayaUIP.User.LA
                     }
                     else
                     {
-                        lblmsg0.Text = "Approval for Registration Under MIIPP is under Process ";
-                        Failure.Visible = true;
                         gvPreRegApproved.DataSource = null;
                         gvPreRegApproved.DataBind();
                     }
@@ -215,7 +213,7 @@ namespace MeghalayaUIP.User.LA
                     Label lblLandQuesnrID = (Label)e.Row.FindControl("lblLAQID");
                     Label lblUnitId = (Label)e.Row.FindControl("lblUNITID");
                     Label lblApplStatus = (Label)e.Row.FindControl("lblAPPLSTATUS");
-                    
+
                     LinkButton linkQryRaised = (LinkButton)e.Row.FindControl("hplQueryRaised");
 
                     if (linkQryRaised.Text != "0")

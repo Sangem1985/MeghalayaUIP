@@ -205,26 +205,27 @@ namespace MeghalayaUIP.User.CFE
                         {
 
                             ((CheckBox)row1.FindControl("ChkApproval")).Checked = true;
-                            chkCheck.Enabled = true;
+                            ((CheckBox)row1.FindControl("ChkApproval")).Enabled = true;
+                            //chkCheck.Enabled = true;
 
                             if (((CheckBox)row1.FindControl("ChkApproval")).Checked)
                             {
                                 row1.Cells[6].Text = row1.Cells[3].Text;
                                 amount = amount + Convert.ToDecimal(row1.Cells[6].Text);
-                                //chkCheck.Checked = true;
-                                //chkCheck.Enabled = true;
+
                             }
                             else
-                            { /*if (row1.Cells[6].Text != "")*/
+                            {
                                 row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
                             }
                         }
                         else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
                         {
-
+                            //chkCheck.Checked = false;
+                            // chkCheck.Enabled = false;
+                            ((CheckBox)row1.FindControl("ChkApproval")).Checked = false;
+                            ((CheckBox)row1.FindControl("ChkApproval")).Enabled = false;
                             row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
-                            chkCheck.Checked = false;
-                            chkCheck.Enabled = false;
                         }
                     }
                     grdApprovals.FooterRow.Cells[6].Text = amount.ToString();

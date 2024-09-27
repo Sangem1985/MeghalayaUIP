@@ -140,6 +140,13 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                             </Columns>
+                            <EmptyDataTemplate>
+                                <div style="text-align: center; padding: 20px;">
+                                    <div align="center" style="text-align: center; padding: 20px;">
+                                        <b>There are no Registered Units Under MIIPP, Please  <a href="../PreReg/IndustryRegistration.aspx" style="font-size: 20px; font-family: 'Bookman Old Style'">Click Here </a>to start Industry Registration.</b>
+                                    </div>
+                                </div>
+                            </EmptyDataTemplate>
                         </asp:GridView>
 
                     </div>

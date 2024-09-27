@@ -142,7 +142,7 @@
                             </Columns>
                             <EmptyDataTemplate>
                                 <div align="center" style="text-align: center; padding: 20px;">
-                                    There are no Registered Units Under MIIPP
+                                    <b>There are no Registered Units Under MIIPP, Please  <a href="../PreReg/IndustryRegistration.aspx" style="font-size:20px; font-family:'Bookman Old Style'" >Click Here </a> to start Industry Registration.</b> 
                                 </div>
                             </EmptyDataTemplate>
                         </asp:GridView>
