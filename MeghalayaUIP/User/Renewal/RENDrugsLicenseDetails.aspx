@@ -98,7 +98,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Please specify license no *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtSpecifyLicNo" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSpecifyLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -153,7 +153,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtnames" runat="server" class="form-control" Type="text" onkeypress="return Names(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtnames" runat="server" class="form-control" Type="text" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -161,7 +161,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Qualification *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtqualifies" runat="server" class="form-control" Type="text" onkeypress="return Names(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtqualifies" runat="server" class="form-control" Type="text" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -417,7 +417,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtnamesEmp" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtnamesEmp" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -425,7 +425,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Qualification *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtQualification" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtQualification" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -433,7 +433,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Experience(Years)*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtExperience" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtExperience" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -477,7 +477,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtNameTest" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtNameTest" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -485,7 +485,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Qualification *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtQualifyTest" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtQualifyTest" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -493,7 +493,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Experience(Years)*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtExperienceTest" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtExperienceTest" runat="server" class="form-control" onkeypress="return NumberOnly()"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -536,7 +536,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Drug  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtNameDrug" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtNameDrug" runat="server" class="form-control" onkeypress="return Names(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

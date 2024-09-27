@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         .SO {
             width: 100%;
@@ -67,7 +68,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">License No for which renewal is required *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,7 +111,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Establishment *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txttradeLic" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txttradeLic" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -132,7 +133,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Applicant's Name *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtApplicantName" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtApplicantName" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -145,7 +146,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mobile Number *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" TextMode="MultiLine" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -155,15 +156,15 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">E-Mail Id *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" TextMode="MultiLine" onblur="validateEmail(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
                                             </div>
-                                           
+
                                         </div>
 
-                                           <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Photo of the Employer/Proprietor /Partner *</label>
@@ -190,7 +191,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Proprietor  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtProprtie" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtProprtie" runat="server" class="form-control" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
 
                                                         </div>
                                                     </div>
@@ -199,7 +200,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Communication Address *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtcommonAddress" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                            <asp:TextBox ID="txtcommonAddress" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
                                                         </div>
                                                     </div>
@@ -224,7 +225,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Community(Others) *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtOther" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                            <asp:TextBox ID="txtOther" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -265,7 +266,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Partner  *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtPartner" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                            <asp:TextBox ID="txtPartner" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -317,7 +318,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Director  *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtNameDirect" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                            <asp:TextBox ID="txtNameDirect" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -368,7 +369,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Manager /Agent/other person acting in the general management *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNameAgent" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameAgent" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -377,7 +378,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Address of the Manager/Agent *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAddressAgent" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddressAgent" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -400,7 +401,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nature of Business *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNature" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNature" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -438,27 +439,27 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Number of employees *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEMPNo" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEMPNo" runat="server" class="form-control" Type="text" onkeypress="return PhoneNumberOnly(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
                                             </div>
 
-                                             <div class="col-md-12">
+                                            <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Employee List Only .doc .docx format allowed(<a href="#">Download Sample Format</a>) *</label>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupEmployeelist" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                       <asp:Button Text="Upload" runat="server" ID="btndpr" OnClick="btndpr_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btndpr" OnClick="btndpr_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:HyperLink ID="hypEmployeelist" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>
-                                                                                     
+
                                         </div>
 
                                         <div class="col-md-12 d-flex">
@@ -507,7 +508,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Locality *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtlocate" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtlocate" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -516,7 +517,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Pincode *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpin" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpin" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -525,7 +526,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nearest Landmark *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandmark" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandmark" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return Address(event)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -591,7 +592,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Locality *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLocal" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                            <asp:TextBox ID="txtLocal" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
                                                         </div>
                                                     </div>
@@ -600,7 +601,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Pincode  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtpincode" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                            <asp:TextBox ID="txtpincode" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)"></asp:TextBox>
 
                                                         </div>
                                                     </div>
@@ -649,7 +650,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" Type="text" onkeypress="return Names()" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -671,7 +672,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Age *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAge" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAge" runat="server" class="form-control" Type="text" MaxLength="2" onkeypress="return PhoneNumberOnly(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>

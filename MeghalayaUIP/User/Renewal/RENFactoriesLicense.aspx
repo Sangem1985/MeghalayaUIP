@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         .SO {
             width: 100%;
@@ -67,7 +67,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Full name of the factory *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtFullName" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFullName" runat="server" class="form-control" Type="text" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -75,7 +75,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Factory license Number *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,7 +99,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Latest Renewal No *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtRenewalNo" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRenewalNo" runat="server" class="form-control" Type="text" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,7 +120,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Lisence Valid Upto Year *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLICValidYear" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLICValidYear" runat="server" class="form-control" Type="text" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -140,7 +140,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Carried on in the factory during the last 12 months (in the case of all factories already in existence) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txttradeLic12" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txttradeLic12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -149,7 +149,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">To be carried on the factory during the next 12 months (in the case of all factories)  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtfactorymonths12" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtfactorymonths12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -162,7 +162,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Names of the principal products manufactured during the last 12 months  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtmanufacture12" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtmanufacture12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -171,7 +171,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Values of the principal products manufactured during the last 12 months *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtproductManufacture12" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtproductManufacture12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -199,7 +199,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Maximum number of workers employed on any one day during the last 12 months *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMaxEmp12" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMaxEmp12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -212,7 +212,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Number of workers to be ordinarily employed in the factory  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtFactoryEmpWorker" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFactoryEmpWorker" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -278,7 +278,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Full name of the person who shall be the manager of the factory for the purpose of the Act *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtFullNamefactory" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFullNamefactory" runat="server" class="form-control" Type="text" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -287,7 +287,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Residential address of the person who shall be the manager of the factory for the purpose of the Act *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtaddress" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtaddress" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -300,7 +300,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Full name of the owner of the premises of the building (including the precincts thereof) refer to section 93 *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtsection93" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtsection93" runat="server" class="form-control" Type="text" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -309,7 +309,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Residential address of the owner of the premises of the building (including the precincts thereof) refer to section 93 *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtaddressdection93" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtaddressdection93" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -321,7 +321,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Full name of the occupier *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="NameOccupier" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="NameOccupier" runat="server" class="form-control" Type="text" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -330,7 +330,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Residential address of the occupier *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAddressOccupier" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddressOccupier" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -370,7 +370,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of proprietor *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtproprietor" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtproprietor" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -379,7 +379,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Directors *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDirectors" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDirectors" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -415,7 +415,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Chief Administrative Head *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtChiefHead" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtChiefHead" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -424,7 +424,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Managing Agents *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMangingAgent" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMangingAgent" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -452,7 +452,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Reference number of approval of the plant for site whether for old or new building and for construction or extension of the factory by the state Government/Chief Inspector(1)  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtapprovalbuilding" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtapprovalbuilding" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -477,7 +477,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Reference number of approval of the arrangements, if any , made for the disposal of trade waste and effluents and the name of the authority granting such approval.(2)  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtapprovalnumber" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtapprovalnumber" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
