@@ -9,7 +9,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
-                            <li class="breadcrumb-item">Service</li>
+                            <li class="breadcrumb-item">Resources</li>
                             <li class="breadcrumb-item active" aria-current="page">Notifications</li>
                         </ol>
                     </nav>
