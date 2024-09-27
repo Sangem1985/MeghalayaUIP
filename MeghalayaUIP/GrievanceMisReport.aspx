@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 d-flex">
-                                    <div class="col-md-6" style="margin-top: 4px;">Tepy of Report :</div>
+                                    <div class="col-md-6" style="margin-top: 4px;">Type of Report :</div>
                                     <div class="col-md-6">
                                         <asp:DropDownList ID="ddlType" runat="server" class=" form-control">
                                             <asp:ListItem Value="G" Selected="True">Grievance</asp:ListItem>

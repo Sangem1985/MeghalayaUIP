@@ -19,6 +19,9 @@
                 <h4 class="card-title mt-1">
                     <label id="lblStatus" runat="server" visible="false"></label>
                 </h4>
+                <div class="col-md-1">
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                </div>
             </div>
 
             <div>
@@ -67,13 +70,12 @@
                                 <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%" />
                                 <asp:BoundField HeaderText="Enterprise" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" Visible="false" />
                                 <asp:BoundField HeaderText="Status" DataField="STATUS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
-                               <%-- <asp:TemplateField HeaderText="View">
+                                <%-- <asp:TemplateField HeaderText="View">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lnkButton" runat="server" Text='<%# Eval("") %>'></asp:LinkButton>
                                     </ItemTemplate>
                                     <HeaderStyle HorizontalAlign="Left" />
                                 </asp:TemplateField>--%>
-                          
                             </Columns>
                         </asp:GridView>
                     </div>

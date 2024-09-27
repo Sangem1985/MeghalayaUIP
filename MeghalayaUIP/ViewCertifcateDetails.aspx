@@ -35,7 +35,7 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h4 class="card-title">View Certifcate Details</h4>
+                                            <h4 class="card-title">View Certificate Details</h4>
                                         </div>
                    <div class="card-body">
 
@@ -48,7 +48,7 @@
                                 <asp:ListItem Value="0" Selected="True">Select Application</asp:ListItem>
                                 <asp:ListItem Value="1">CFE</asp:ListItem>
                                 <asp:ListItem Value="2">CFO</asp:ListItem>
-                                <asp:ListItem Value="3">Renewls</asp:ListItem>
+                                <asp:ListItem Value="3">Renewals</asp:ListItem>
                             </asp:DropDownList>
                                                             </div>
                                                         </div>
