@@ -104,9 +104,9 @@
                                 </div>
 
                                    <div class="col-md-3" id="Report" runat="server" visible="false">
-                                    <div class="card-counter primary first">
+                                    <div class="card-counter primary Reports">
                                         <asp:LinkButton runat="server" ID="lnkReport" OnClick="lnkReport_Click">
-									<i class="fi fi-tr-file-edit"></i>
+									<i class="fi fi-tr-newspaper"></i>
 									<span class="count-numbers">Reports</span>
 									<span class="count-name"></span>
                                         </asp:LinkButton>

@@ -17,7 +17,9 @@ top: 47px;
 
 
 
-
+.card-counter.primary.Reports {
+    background-image: linear-gradient(to right, #ca42e1 0%, #711481 51%, #610870 100%);
+}
 
 .modal-body button.btn.btn-primary {
     

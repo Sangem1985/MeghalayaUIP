@@ -121,7 +121,7 @@
                             </div>
 
                             <div class="text">
-                                <button class="button-box"><a href="Documents/Incentive Package Demo 27082024.pdf" target="_blank" style="color: #164976">Click Here !</a></button>
+                                <button class="button-box"><a href="Documents/Incentive Package Demo 027082024.pdf" target="_blank" style="color: #164976">Click Here !</a></button>
 
                             </div>
 
@@ -247,7 +247,7 @@
                                     <span style="color: #b6fff8;" class="colorchangerd">Register on<br />
                                         UNNATI Portal</span>
 
-                                    Fill <span style="color: #b6fff8;" class="colorchangerd">Registration form</span> on Invest Meghalaya Poral
+                                    and <span style="color: #b6fff8;" class="colorchangerd">Invest Meghalaya</span> Portal
                             
                             
                                 </p>
@@ -840,7 +840,7 @@
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i>Investors Desk
+            <i class="fi fi-tr-admin-alt"></i> Investor Desk
         </button>
     </div>
 

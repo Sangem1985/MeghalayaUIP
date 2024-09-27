@@ -387,7 +387,7 @@
                                                     <ul>
                                                         <li><a href="SingleWindowPortalDashboard.aspx">Single Window Dashboard</a></li>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
-                                                        <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grivance Timelines</a></li>
+                                                        <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
 
                                                     </ul>
                                                 </li>
