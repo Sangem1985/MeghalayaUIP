@@ -150,11 +150,40 @@
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <ItemStyle Width="5%" />
                                         </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Deptid" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDeptid" runat="server" Text='<%#Eval("DEPT_ID") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:BoundField ItemStyle-Width="1028px" DataField="DEPT_NAME" HeaderText="Department Name" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="TOTALAPPLICATIONSRCVD" HeaderText="Total Received" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
+                                        <%-- <asp:BoundField ItemStyle-Width="400px" DataField="TOTALAPPLICATIONSRCVD" HeaderText="Total Received" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
                                         <asp:BoundField ItemStyle-Width="400px" DataField="PENDING" HeaderText="Pending" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
                                         <asp:BoundField ItemStyle-Width="400px" DataField="REDRESS" HeaderText="Redressed" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="REJECT" HeaderText="Rejected" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
+                                        <asp:BoundField ItemStyle-Width="400px" DataField="REJECT" HeaderText="Rejected" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />--%>
+                                        <asp:TemplateField HeaderText="Total Received">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblTotal" Text='<%#Eval("TOTALAPPLICATIONSRCVD") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Pending">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblPending" Text='<%#Eval("PENDING") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Redressed">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblRedressed" Text='<%#Eval("REDRESS") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Rejected">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblRejected" Text='<%#Eval("REJECT") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                             </div>

@@ -77,6 +77,7 @@ namespace MeghalayaUIP.Common
         public static string GetAmmendmentsDepartments = "USP_GETDEPTDEPARTMENTS";
         public static string GetUserCommentsofAmmendments = "USP_GET_Comments_Ammendment_ID";
         public static string GetAmmendamentFullName = "GETAMMENDMENTDEPARTMENTDET";
+        public static string GetGrievanceMisReportDrilldown = "USP_GET_GRIEVANCEMIS_REPORTDRILLDOWN";
     }
     public class MasterCountry
     {

@@ -231,6 +231,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetAmmendamentFullName( AmmendementID);
         }
+        public DataSet GetGrievanceMisReportDrilldiwn(string Deptid, string FromDate, string ToDate, string ViewType,string Status)
+        {
+            return objMasterDAL.GetGrievanceMisReportDrilldiwn(Deptid, FromDate, ToDate, ViewType, Status);
+        }
 
     }
 }

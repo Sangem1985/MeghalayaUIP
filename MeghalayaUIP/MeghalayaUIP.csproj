@@ -592,6 +592,7 @@
     <Content Include="Faq.aspx" />
     <Content Include="forgot-password.aspx" />
     <Content Include="GrievanceMisReport.aspx" />
+    <Content Include="GrievanceMisReportDrilldown.aspx" />
     <Content Include="GrievanceQueryHandleEODBDashboard.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="HomeNew.aspx" />
@@ -1079,6 +1080,13 @@
     </Compile>
     <Compile Include="GrievanceMisReport.aspx.designer.cs">
       <DependentUpon>GrievanceMisReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GrievanceMisReportDrilldown.aspx.cs">
+      <DependentUpon>GrievanceMisReportDrilldown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GrievanceMisReportDrilldown.aspx.designer.cs">
+      <DependentUpon>GrievanceMisReportDrilldown.aspx</DependentUpon>
     </Compile>
     <Compile Include="GrievanceQueryHandleEODBDashboard.aspx.cs">
       <DependentUpon>GrievanceQueryHandleEODBDashboard.aspx</DependentUpon>

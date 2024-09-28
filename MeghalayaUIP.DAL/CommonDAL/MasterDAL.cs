@@ -2006,7 +2006,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 {
                     com.Parameters.AddWithValue("@AMMENDMENT_ID", ammendment.Ammendment_Id);
                 }
-               
+
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -2065,6 +2065,52 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
             return ds;
+        }
+        public DataSet GetGrievanceMisReportDrilldiwn(string Deptid, string FromDate, string ToDate, string ViewType,string Status)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetGrievanceMisReportDrilldown, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetGrievanceMisReportDrilldown;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Deptid);
+                if (FromDate != null && FromDate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                   // da.SelectCommand.Parameters.AddWithValue("@FDATE", FromDate);
+                }
+                if (ToDate != null && ToDate != "")
+                {
+                    //da.SelectCommand.Parameters.AddWithValue("@TDATE", ToDate);
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(ToDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+
+                da.SelectCommand.Parameters.AddWithValue("@STATUS", Status);
+                da.SelectCommand.Parameters.AddWithValue("@TYPE", ViewType);
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
     }
 }
