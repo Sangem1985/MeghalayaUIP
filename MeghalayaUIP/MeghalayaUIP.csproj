@@ -585,6 +585,8 @@
     <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptView.aspx" />
     <Content Include="Dept\Renewal\RENDeptDashboard.aspx" />
+    <Content Include="Dept\Reports\CFEDeptWiseReport.aspx" />
+    <Content Include="Dept\Reports\CFEDeptWiseReportDrilldown.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReport.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReportDrillDown.aspx" />
     <Content Include="EODB.aspx" />
@@ -1031,6 +1033,20 @@
     </Compile>
     <Compile Include="Dept\Renewal\RENDeptDashboard.aspx.designer.cs">
       <DependentUpon>RENDeptDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\CFEDeptWiseReport.aspx.cs">
+      <DependentUpon>CFEDeptWiseReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\CFEDeptWiseReport.aspx.designer.cs">
+      <DependentUpon>CFEDeptWiseReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\CFEDeptWiseReportDrilldown.aspx.cs">
+      <DependentUpon>CFEDeptWiseReportDrilldown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\CFEDeptWiseReportDrilldown.aspx.designer.cs">
+      <DependentUpon>CFEDeptWiseReportDrilldown.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Reports\IRDistWiseReport.aspx.cs">
       <DependentUpon>IRDistWiseReport.aspx</DependentUpon>

@@ -20,5 +20,9 @@ namespace MeghalayaUIP.BAL.ReportBAL
         {
             return reportDAL.DistrictReport(Distid, FromDate, ToDate, ViewType);
         }
+        public DataSet CFEDeptWiseReport(string Department, string Formdate, string Todate)
+        {
+            return reportDAL.CFEDeptWiseReport(Department, Formdate, Todate);
+        }
     }
 }
