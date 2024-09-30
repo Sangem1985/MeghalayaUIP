@@ -17,6 +17,7 @@ namespace MeghalayaUIP.Dept.PreReg
     {
         PreRegBAL PreBAL = new PreRegBAL();
         PreRegDtls prd = new PreRegDtls();
+        SMSandMail smsMail = new SMSandMail();
         DropDownList ddldepartment;
         DataTable dt = new DataTable();
         List<PreRegDtls> lstPreRegDtlsVo = new List<PreRegDtls>();
@@ -381,6 +382,10 @@ namespace MeghalayaUIP.Dept.PreReg
 
                     if (ddlStatus.SelectedValue == "10" || ddlStatus.SelectedValue == "11")
                     {
+                        if (ddlStatus.SelectedValue == "10")
+                        {
+                            smsMail.SendSms(Session["UNITID"].ToString(), Session["INVESTERID"].ToString(), "1407172584995587854", "APPROVED", "");
+                        }
                         verifypanel.Visible = false;
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         //BindaApplicatinDetails();
@@ -390,6 +395,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     else if (ddlStatus.SelectedValue == "9")
                     {
                         verifypanel.Visible = false;
+                        smsMail.SendSms(Session["UNITID"].ToString(), Session["INVESTERID"].ToString(), "1407172584984491814", "QUERIED", "");
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         //BindaApplicatinDetails();
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplCommitteeDashBoard.aspx'", true);
