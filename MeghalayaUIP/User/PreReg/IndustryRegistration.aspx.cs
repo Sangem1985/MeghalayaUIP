@@ -17,6 +17,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Web.Services.Description;
 using System.Configuration;
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
+using System.Web.Mail;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -27,6 +28,7 @@ namespace MeghalayaUIP.User.PreReg
         readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
         PreRegBAL indstregBAL = new PreRegBAL();
+        SMSandMail smsMail = new SMSandMail();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -2793,8 +2795,9 @@ namespace MeghalayaUIP.User.PreReg
                     // dt.Columns.Remove("IDD_COUNTRYName");
                     result = indstregBAL.InsertIndustryRegDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
                     if (result != "")
-                    {
+                    {   
                         string unitid = Convert.ToString(ViewState["UnitID"]);
+                        smsMail.SendSms(unitid, hdnUserID.Value.ToString(), "1407172584852269031", "REG", "");
 
                         success.Visible = true;
                         btnSave3.Enabled = false;

@@ -27,7 +27,8 @@ namespace MeghalayaUIP
             {
                 BindDepartments();
                 Binddata();
-                /*smsMail.SendEmail("1001", "1002", "Dash", "Board");*/
+                /*smsMail.SendEmail("1001", "1002", "Dash", "Board");
+                smsMail.SendSms("1033", "1011", "1407172584852269031", "REG","");*/
             }
         }
         public void Binddata()

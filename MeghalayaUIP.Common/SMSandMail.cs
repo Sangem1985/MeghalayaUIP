@@ -12,6 +12,8 @@ using System.Web;
 using System.Security.Cryptography;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
+using System.Web.UI;
+using System.Xml;
 
 namespace MeghalayaUIP.Common
 {
@@ -32,13 +34,14 @@ namespace MeghalayaUIP.Common
                     {
                         try
                         {
-                            msg = SendSingleSMS(ds.Tables[0].Rows[i]["MOBILENUMBER"].ToString(), ds.Tables[0].Rows[i]["SMSText"].ToString(), TemplateId);
-                            if (msg == "SUCCESS")
-                            {
+                            msg = SendSingleSMS(ds.Tables[0].Rows[i]["MOBILENUMBER"].ToString(), ds.Tables[0].Rows[i]["SMSTEXT"].ToString(), ds.Tables[0].Rows[i]["TEMPLATEID"].ToString());
+                            /*if (msg == "SUCCESS")
+                            {*/
                                 string strTo = ds.Tables[0].Rows[i]["MOBILENUMBER"].ToString();
-                                string strMessage = ds.Tables[0].Rows[i]["SMSText"].ToString();
-                                SMSANDMAILDetails(strTo, strMessage, UnitId,InvestorId,transaction, Module, "SMS");
-                            }
+                                string strMessage = ds.Tables[0].Rows[i]["SMSTEXT"].ToString();
+                                string Template = ds.Tables[0].Rows[i]["TEMPLATEID"].ToString();
+                                SMSANDMAILDetails(strTo, strMessage, UnitId, InvestorId, transaction, Module, Template, msg, "SMS");
+                            /*}*/
                         }
                         catch (Exception ex)
                         {
@@ -125,7 +128,7 @@ namespace MeghalayaUIP.Common
 
             }
         }
-        public void SMSANDMAILDetails(string MobileNo, string SMSText, string UnitId, string InvestorId, string transaction, string Module, string Mode)
+        public void SMSANDMAILDetails(string MobileNo, string SMSText, string UnitId, string InvestorId, string transaction, string Module, string Template, string msg, string Mode)
         {
             SqlConnection Scon = new SqlConnection(connstr);
             Scon.Open();
@@ -135,12 +138,13 @@ namespace MeghalayaUIP.Common
             try
             {
                 cmd.Connection = Scon;
-                cmd.Parameters.AddWithValue("@MOBILENO", Convert.ToString(MobileNo));
+                cmd.Parameters.AddWithValue("@MOBILENO_EMAIL", Convert.ToString(MobileNo));
                 cmd.Parameters.AddWithValue("@SMSTEXT", Convert.ToString(SMSText));
                 cmd.Parameters.AddWithValue("@UNITID", Convert.ToString(UnitId));
                 cmd.Parameters.AddWithValue("@INVESTORID", Convert.ToString(InvestorId));
-                cmd.Parameters.AddWithValue("@TRANSACTION", Convert.ToString(transaction));
-                cmd.Parameters.AddWithValue("@MODULE", Convert.ToString(Module));
+                cmd.Parameters.AddWithValue("@MODULE", Convert.ToString(transaction));
+                cmd.Parameters.AddWithValue("@SERVERRESPONSE", Convert.ToString(msg));
+                cmd.Parameters.AddWithValue("@TEMPLATEID", Convert.ToString(Template));
                 cmd.Parameters.AddWithValue("@MODE", Convert.ToString(Mode));
                 cmd.ExecuteNonQuery();
                 Scon.Dispose();
@@ -157,10 +161,10 @@ namespace MeghalayaUIP.Common
         }
         public String SendSingleSMS(String mobileNo, String message, string templID)
         {
-            String username = "MIPASS";
-            String password = "XXXXX";
-            String senderid = "IPASS";
-            String secureKey = "XXXX";
+            String username = "IMA2024";
+            String password = "IMA@Megha@2024";
+            String senderid = "IMAMEG";
+            String secureKey = "55040f3c-c20d-4351-bb39-f2146f39f69d";
             string strSMSAPIURL = System.Configuration.ConfigurationManager.AppSettings["SmsURL"];
             /*Latest Generated Secure Key*/
 
@@ -251,8 +255,8 @@ namespace MeghalayaUIP.Common
                     EmailSend = "Y";
 
                     try
-                    {
-                        SMSANDMAILDetails(strTo, EmailText, UnitId, InvestorId, transaction, Module, "Email");
+                    {   
+                        SMSANDMAILDetails(strTo, EmailText, UnitId, InvestorId, transaction, Module,"","","Email");
                     }
                     catch (Exception ex)
                     {
