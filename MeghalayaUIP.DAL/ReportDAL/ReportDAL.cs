@@ -164,5 +164,79 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 throw ex;
             }
         }
+        public DataSet CFODeptWiseReport(string Department, string Formdate, string Todate)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(ReportCommon.GetCFODeptReport, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = ReportCommon.GetCFODeptReport;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Department);
+                if (Formdate != null && Formdate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (Todate != null && Todate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataSet CFODeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(ReportCommon.GetCFODeptWiseReportDrill, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = ReportCommon.GetCFODeptWiseReportDrill;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Departid);
+                if (Formdate != null && Formdate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (Todate != null && Todate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+
+
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="CFEDeptWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.CFEDeptWiseReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="CFODeptWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.CFODeptWiseReport" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -46,6 +46,7 @@
         }
     </style>
 
+
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="false" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -62,21 +63,21 @@
                                             <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
                                             <li class="breadcrumb-item">Department</li>
                                             <li class="breadcrumb-item">Reports</li>
-                                            <li class="breadcrumb-item active" aria-current="page">CFE Department Wise Report</li>
+                                            <li class="breadcrumb-item active" aria-current="page">CFO Department Wise Report</li>
                                         </ol>
                                     </nav>
                                     <section class="innerpages">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <h3>CFEDepartmentWiseReport</h3>
+                                                    <h3>CFO Department Wise Report</h3>
                                                     <div class="card">
                                                         <div class="card-body justify-content-center " align="justify">
                                                             <%--  <div class="row">--%>
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading" style="text-align: center">
                                                                     <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
-                                                                        <asp:Label ID="lblHeading" runat="server" Visible="false">CFE Department Wise Report</asp:Label>
+                                                                        <asp:Label ID="lblHeading" runat="server" Visible="false"></asp:Label>
                                                                         <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" OnClick="btnPdf_Click" />
                                                                         <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
 
@@ -95,7 +96,7 @@
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div class="form-group">
-                                                                            <label class="col-lg-4 col-form-label">From Date:</label>
+                                                                            <label class="col-lg-5 col-form-label">From Date:</label>
                                                                             <div class="col-lg-7 d-flex">
                                                                                 <asp:TextBox runat="server" ID="txtFormDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                                 <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtFormDate"></cc1:CalendarExtender>
@@ -119,16 +120,19 @@
                                                                 </div>
                                                                 <div class="col-md-12 float-left ">
                                                                     <div class="form-group row justify-content-center" style="padding: 20px">
-                                                                        <asp:Button ID="btnsubmit" runat="server" Text="Submit" OnClick="btnsubmit_Click" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                                        <asp:Button ID="btnsubmit" runat="server" OnClick="btnsubmit_Click" Text="Submit" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                                                     </div>
                                                                 </div>
 
 
                                                                 <div id="divPrint1" runat="server" visible="false">
-                                                                    <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                                    <asp:GridView ID="GVCFOReport" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
-                                                                        GridLines="Both" ShowFooter="true" OnRowCreated="GVDistrictWise_RowCreated" OnRowDataBound="GVDistrictWise_RowDataBound"
+                                                                        GridLines="Both" ShowFooter="true" OnRowCreated="GVCFOReport_RowCreated" OnRowDataBound="GVCFOReport_RowDataBound"
                                                                         Width="100%" EnableModelValidation="True">
+                                                                        <AlternatingRowStyle Font-Underline="false" CssClass="text-center" />
+                                                                        <FooterStyle HorizontalAlign="Center" Font-Underline="false" Font-Bold="true" CssClass="text-center" />
+                                                                      <%--  <itemstyle font-underline="false" horizontalalign="Center" cssclass="text-center" />--%>
                                                                         <RowStyle />
                                                                         <Columns>
                                                                             <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
@@ -250,5 +254,4 @@
             </section>
         </ContentTemplate>
     </asp:UpdatePanel>
-
 </asp:Content>

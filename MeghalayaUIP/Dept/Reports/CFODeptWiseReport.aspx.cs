@@ -1,6 +1,4 @@
 ﻿using iText.Kernel.Geom;
-using iText.Kernel.Pdf;
-using iTextSharp.tool.xml;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
@@ -9,26 +7,21 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using iTextSharp.text.html.simpleparser;
-using iTextSharp.text;
-using PageSize = iTextSharp.text.PageSize;
 using Document = iTextSharp.text.Document;
-
+using PageSize = iTextSharp.text.PageSize;
 
 namespace MeghalayaUIP.Dept.Reports
 {
-    public partial class CFEDeptWiseReport : System.Web.UI.Page
+    public partial class CFODeptWiseReport : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
         ReportBAL reportsBAL = new ReportBAL();
 
         int ApprovalsApplied, QueryRaised, BeforeDate, AfterDate, PreRejected, Paymentpending, ScrutinyCompleted, Before, After, DeptApproved, Rejected;
-
+              
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -78,23 +71,22 @@ namespace MeghalayaUIP.Dept.Reports
                 throw ex;
             }
         }
-        public void BindGridData()
+        public void BindCFoDeptReports()
         {
             try
             {
                 DataSet ds = new DataSet();
-                ds = reportsBAL.CFEDeptWiseReport(ddldepartment.SelectedValue, txtFormDate.Text, txtToDate.Text);
+                ds = reportsBAL.CFODeptWiseReport(ddldepartment.SelectedValue, txtFormDate.Text, txtToDate.Text);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    GVDistrictWise.DataSource = ds.Tables[0];
-                    GVDistrictWise.DataBind();
+                    GVCFOReport.DataSource = ds.Tables[0];
+                    GVCFOReport.DataBind();
                 }
                 else
                 {
-                    GVDistrictWise.DataSource = null;
-                    GVDistrictWise.DataBind();
+                    GVCFOReport.DataSource = null;
+                    GVCFOReport.DataBind();
                 }
-
             }
             catch (Exception ex)
             {
@@ -104,18 +96,19 @@ namespace MeghalayaUIP.Dept.Reports
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            BindGridData();
+            BindCFoDeptReports();
             divPrint1.Visible = true;
         }
 
-        protected void GVDistrictWise_RowCreated(object sender, GridViewRowEventArgs e)
+        protected void GVCFOReport_RowCreated(object sender, GridViewRowEventArgs e)
         {
+
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 GridViewRow gvHeaderRow = e.Row;
                 GridViewRow gvHeaderRowCopy = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Insert);
 
-                this.GVDistrictWise.Controls[0].Controls.AddAt(0, gvHeaderRowCopy);
+                this.GVCFOReport.Controls[0].Controls.AddAt(0, gvHeaderRowCopy);
 
                 int headerCellCount = gvHeaderRow.Cells.Count;
                 int cellIndex = 0;
@@ -148,7 +141,7 @@ namespace MeghalayaUIP.Dept.Reports
             }
         }
 
-        protected void GVDistrictWise_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void GVCFOReport_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -201,40 +194,39 @@ namespace MeghalayaUIP.Dept.Reports
                 string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
 
                 if (lnkApplied.Text != "0")
-                    lnkApplied.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkApplied.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Approval";
 
                 if (lnkQueryRaised.Text != "0")
-                    lnkQueryRaised.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkQueryRaised.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=QueryRaised";
 
                 if (lnkScBeforeDate.Text != "0")
-                    lnkScBeforeDate.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkScBeforeDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=BeforeDue";
 
                 if (lnkScAfterDate.Text != "0")
-                    lnkScAfterDate.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkScAfterDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=AfterDue";
 
                 if (lnkScrRejected.Text != "0")
-                    lnkScrRejected.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkScrRejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=ScrutinyReject";
 
                 if (lnkPaymentPending.Text != "0")
-                    lnkPaymentPending.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkPaymentPending.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=PaymentPending";
 
                 if (lnkScCompleted.Text != "0")
-                    lnkScCompleted.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkScCompleted.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=ScrutinyCompleted";
 
                 if (lnkBeforeApprovalDate.Text != "0")
-                    lnkBeforeApprovalDate.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkBeforeApprovalDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=BeforeDueDate";
 
                 if (lnkApprovalDate.Text != "0")
-                    lnkApprovalDate.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkApprovalDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=AfterDueDate";
 
                 if (lnkDeptApproved.Text != "0")
-                    lnkDeptApproved.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkDeptApproved.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=DeptApproved";
 
                 if (lnkRejected.Text != "0")
-                    lnkRejected.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    lnkRejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Reject";
 
-
-                lnkApplied.ForeColor = System.Drawing.Color.Black;
+                 lnkApplied.ForeColor = System.Drawing.Color.Black;
                 lnkQueryRaised.ForeColor = System.Drawing.Color.Black;
                 lnkScrRejected.ForeColor = System.Drawing.Color.Black;
                 lnkScBeforeDate.ForeColor = System.Drawing.Color.Black;
@@ -245,22 +237,21 @@ namespace MeghalayaUIP.Dept.Reports
                 lnkApprovalDate.ForeColor = System.Drawing.Color.Black;
                 lnkDeptApproved.ForeColor = System.Drawing.Color.Black;
                 lnkRejected.ForeColor = System.Drawing.Color.Black;
-
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
                 string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
-                string Deptid = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPT_ID")).Trim();
+                string DeptId = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPT_ID")).Trim();
 
                 if (ddldepartment.SelectedItem.Text == "" || ddldepartment.SelectedItem.Text == null || ddldepartment.SelectedItem.Text == "--ALL--" || ddldepartment.SelectedValue == "0")
                 {
                     Department = "%";
-                    Deptid = "%";
+                    DeptId = "%";
                 }
                 else
                 {
                     Department = ddldepartment.SelectedItem.Text;
-                    Deptid = ddldepartment.SelectedValue;
+                    DeptId = ddldepartment.SelectedValue;
                 }
 
                 e.Row.Font.Bold = true;
@@ -269,7 +260,7 @@ namespace MeghalayaUIP.Dept.Reports
                 Total.ForeColor = System.Drawing.Color.Black;
                 if (Total.Text != "0")
                 {
-                    Total.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + Deptid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    Total.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
                 }
                 Total.Text = ApprovalsApplied.ToString();
                 e.Row.Cells[3].Text = ApprovalsApplied.ToString();
@@ -287,7 +278,6 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[13].Text = Rejected.ToString();
             }
         }
-
         protected void ExportToExcel()
         {
             try
@@ -300,9 +290,9 @@ namespace MeghalayaUIP.Dept.Reports
                 Response.ContentType = "application/vnd.ms-excel";
                 using (StringWriter sw = new StringWriter())
                 {
-                    GVDistrictWise.Style["width"] = "680px";
+                    GVCFOReport.Style["width"] = "680px";
                     HtmlTextWriter hw = new HtmlTextWriter(sw);
-                    GVDistrictWise.RenderControl(hw);
+                    GVCFOReport.RenderControl(hw);
                     string headerTable = @"<table width='100%'  class='table-bordered mb-0 GRD'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label + "</h4></td></td></tr></table>";
                     HttpContext.Current.Response.Write(headerTable);
                     Response.Output.Write(sw.ToString());
@@ -319,9 +309,12 @@ namespace MeghalayaUIP.Dept.Reports
         {
 
         }
-        private void ExportGridToPDF()
+        protected void btnExcel_Click(object sender, ImageClickEventArgs e)
         {
-
+            ExportToExcel();
+        }
+        protected void btnPdf_Click(object sender, ImageClickEventArgs e)
+        {
             try
             {
                 using (MemoryStream memoryStream = new MemoryStream())
@@ -331,11 +324,11 @@ namespace MeghalayaUIP.Dept.Reports
                         using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                         {
 
-                            GVDistrictWise.AllowPaging = false;
-                            this.BindGridData();
-                            GVDistrictWise.HeaderRow.ForeColor = System.Drawing.Color.Black;
-                            GVDistrictWise.FooterRow.Visible = false;
-                            GVDistrictWise.RenderControl(hw);
+                            GVCFOReport.AllowPaging = false;
+                            this.BindDepartments();
+                            GVCFOReport.HeaderRow.ForeColor = System.Drawing.Color.Black;
+                            GVCFOReport.FooterRow.Visible = false;
+                            GVCFOReport.RenderControl(hw);
 
                             string htmlContent = sw.ToString();
 
@@ -355,7 +348,7 @@ namespace MeghalayaUIP.Dept.Reports
 
                             // Send the generated PDF to the client browser
                             Response.ContentType = "application/pdf";
-                            Response.AddHeader("content-disposition", "attachment;filename=CFEDeptWiseReport " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.AddHeader("content-disposition", "attachment;filename=CFODeptWiseReport " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
                             Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
                             // Write the PDF from memory stream to the Response OutputStream
@@ -368,18 +361,8 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                // Log the exception
-                // Handle the error and provide feedback
-            }
-        }
-        protected void btnExcel_Click(object sender, ImageClickEventArgs e)
-        {
-            ExportToExcel();
-        }
 
-        protected void btnPdf_Click(object sender, ImageClickEventArgs e)
-        {
-            ExportGridToPDF();
+            }
         }
 
     }
