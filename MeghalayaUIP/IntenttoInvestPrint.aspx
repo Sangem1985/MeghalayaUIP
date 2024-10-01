@@ -85,6 +85,16 @@
             background-position: top;
         }
     </style>
+    <style>
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -650px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -127,6 +137,13 @@
 
             <!-- Page Wrapper -->
             <div id="bodypart">
+                <div class="card-header d-flex justify-content-between">
+                    <h4 class="card-title mt-1"><b>Intent To Invest Application Details: </b></h4>
+
+                    <div class="col-md-1">
+                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    </div>
+                </div>
 
                 <div class="row">
 
@@ -404,7 +421,7 @@
 
 
             </div>
-            <div class="col-md-12" style="text-align: end;">
+            <div class="col-md-12 d-flex justify-content-center align-items-center" style="text-align: end;">
 
                 <button id="btnPrint" onclick="window.print()" class="btn btn-dark text-white" style="width: 110px; height: 40px; border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
                     type="button">

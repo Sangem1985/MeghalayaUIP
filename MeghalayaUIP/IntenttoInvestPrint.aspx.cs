@@ -95,5 +95,18 @@ namespace MeghalayaUIP
             }
 
         }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/IntenttoInvestDashboard.aspx");
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
     }
 }
