@@ -591,6 +591,7 @@
     <Content Include="Dept\Reports\CFODeptWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReport.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReportDrillDown.aspx" />
+    <Content Include="Dept\Reports\RENDeptWiseReport.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -1077,6 +1078,13 @@
     </Compile>
     <Compile Include="Dept\Reports\IRDistWiseReportDrillDown.aspx.designer.cs">
       <DependentUpon>IRDistWiseReportDrillDown.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\RENDeptWiseReport.aspx.cs">
+      <DependentUpon>RENDeptWiseReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\RENDeptWiseReport.aspx.designer.cs">
+      <DependentUpon>RENDeptWiseReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>
