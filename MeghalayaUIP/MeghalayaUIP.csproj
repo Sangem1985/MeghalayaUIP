@@ -587,8 +587,11 @@
     <Content Include="Dept\Renewal\RENDeptDashboard.aspx" />
     <Content Include="Dept\Reports\CFEDeptWiseReport.aspx" />
     <Content Include="Dept\Reports\CFEDeptWiseReportDrilldown.aspx" />
+    <Content Include="Dept\Reports\CFODeptWiseReport.aspx" />
+    <Content Include="Dept\Reports\CFODeptWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReport.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReportDrillDown.aspx" />
+    <Content Include="Dept\Reports\RENDeptWiseReport.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -1048,6 +1051,20 @@
     <Compile Include="Dept\Reports\CFEDeptWiseReportDrilldown.aspx.designer.cs">
       <DependentUpon>CFEDeptWiseReportDrilldown.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dept\Reports\CFODeptWiseReport.aspx.cs">
+      <DependentUpon>CFODeptWiseReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\CFODeptWiseReport.aspx.designer.cs">
+      <DependentUpon>CFODeptWiseReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\CFODeptWiseReportDrillDown.aspx.cs">
+      <DependentUpon>CFODeptWiseReportDrillDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\CFODeptWiseReportDrillDown.aspx.designer.cs">
+      <DependentUpon>CFODeptWiseReportDrillDown.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dept\Reports\IRDistWiseReport.aspx.cs">
       <DependentUpon>IRDistWiseReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1061,6 +1078,13 @@
     </Compile>
     <Compile Include="Dept\Reports\IRDistWiseReportDrillDown.aspx.designer.cs">
       <DependentUpon>IRDistWiseReportDrillDown.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\RENDeptWiseReport.aspx.cs">
+      <DependentUpon>RENDeptWiseReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\RENDeptWiseReport.aspx.designer.cs">
+      <DependentUpon>RENDeptWiseReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>

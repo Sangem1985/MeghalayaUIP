@@ -28,5 +28,17 @@ namespace MeghalayaUIP.BAL.ReportBAL
         {
             return reportDAL.CFEDeptwiseReportDrilldown(Departid, Formdate, Todate);
         }
+        public DataSet CFODeptWiseReport(string Department, string Formdate, string Todate)
+        {
+            return reportDAL.CFODeptWiseReport(Department, Formdate, Todate);
+        }
+        public DataSet CFODeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        {
+            return reportDAL.CFODeptwiseReportDrilldown(Departid, Formdate, Todate);
+        }
+        public DataSet RENDeptWiseReport(string Department, string Formdate, string Todate)
+        {
+            return reportDAL.RENDeptWiseReport(Department, Formdate, Todate);
+        }
     }
 }

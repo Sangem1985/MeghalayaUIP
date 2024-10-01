@@ -44,7 +44,15 @@
             color: Black !important;
         }
     </style>
-
+    <style>
+        .col-md-12 {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding-right: inherit;
+            padding-left: inherit;
+        }
+    </style>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"  />
 
@@ -124,127 +132,142 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
-                                                    </div>
-                                                    <div class="col-md-12 d-flex justify-content-center align-items-center ">
-                                                        <div class="col-md-3 align-items-center" style="padding: 20px">
-                                                            <asp:Button ID="btnsubmit" runat="server" Text="Submit" OnClick="btnsubmit_Click" ValidationGroup="Search"
-                                                                class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                        <div class="col-md-12 d-flex justify-content-center align-items-center">
+
+                                                         
                                                         </div>
-                                                    </div>
+                                                        <div class="col-md-12 float-left ">
+                                                            <div class="form-group row justify-content-center" style="padding: 20px">
+                                                                <asp:Button ID="btnsubmit" runat="server" Text="Submit" OnClick="btnsubmit_Click" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                            </div>
+                                                        </div>
 
-                                                    <%--CssClass="table-bordered mb-0 GRD;"--%>
-                                                    <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                        BorderStyle="Solid" BorderWidth="2px" CellPadding="4"  ForeColor="#333333"
-                                                        GridLines="Both"  ShowFooter="true" OnRowCreated="GVDistrictWise_RowCreated" OnRowDataBound="GVDistrictWise_RowDataBound"
-                                                        Width="100%" EnableModelValidation="True">
-                                                        <RowStyle Height="40px" Font-Bold="True"  />
-                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White"  />
-                                                        <AlternatingRowStyle BackColor="LightGray" Height="40px" />
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Left" />
-                                                                <ItemTemplate>
-                                                                    <%# Container.DataItemIndex + 1%>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="DepartmentId" Visible="false">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblDepartmentid" runat="server" Text='<%#Eval("DEPT_ID") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="Department" ItemStyle-HorizontalAlign="Left" />
 
-                                                            <asp:TemplateField HeaderText="Approvals Applied">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblApprovalApplied" Text='<%#Eval("APPROVALIS_APPLIED") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Query Raised">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblQueryRaised" Text='<%#Eval("QUERY_RAISED") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Before Due Date">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblScrutinyBeforeDate" Text='<%#Eval("SCRUTINY_BEFOREDUEDATE") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="After Due Date">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblScrutinyAfterDate" Text='<%#Eval("SCRUTINY_AFTERDUEDATE") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="PreScrutiny Rejected">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblPreRejected" Text='<%#Eval("PRESCRUTINY_REJECTED") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Scrutiny Completed Additional Payment Pending">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblPaymentPending" Text='<%#Eval("PAYMENT_PENDING") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Scrutiny Completed">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblScrutinyCompleted" Text='<%#Eval("SCRUTINY_COMPLETED") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Before Due Date">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblApprovalBeforeDate" Text='<%#Eval("APPROVALUNDER_PROCESSBEFOREDATE") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="After Due Date">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblApprovalDate" Text='<%#Eval("APPROVALUNDER_PROCESSAFTERDATE") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Department Approved">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblDepatApproved" Text='<%#Eval("DEPARTMENT_APPROVED") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Rejected">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblRejected" Text='<%#Eval("REJECTED") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
+                                                        <div id="divPrint1" runat="server" visible="false">
+                                                            <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
+                                                                GridLines="Both" ShowFooter="true" OnRowCreated="GVDistrictWise_RowCreated" OnRowDataBound="GVDistrictWise_RowDataBound"
+                                                                Width="100%" EnableModelValidation="True">
+                                                                <RowStyle />
+                                                                <Columns>
+                                                                    <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Left" />
+                                                                        <ItemTemplate>
+                                                                            <%# Container.DataItemIndex + 1%>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="DepartmentId" Visible="false">
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="lblDepartmentid" runat="server" Text='<%#Eval("DEPT_ID") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="Department" ItemStyle-HorizontalAlign="Left" />
+                                                                 
+                                                                    <asp:TemplateField HeaderText="Approvals Applied">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblApprovalApplied" Text='<%#Eval("APPROVALIS_APPLIED") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Query Raised">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblQueryRaised" Text='<%#Eval("QUERY_RAISED") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Before Due Date">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblScrutinyBeforeDate" Text='<%#Eval("SCRUTINY_BEFOREDUEDATE") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="After Due Date">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblScrutinyAfterDate" Text='<%#Eval("SCRUTINY_AFTERDUEDATE") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                      <asp:TemplateField HeaderText="PreScrutiny Rejected">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblPreRejected" Text='<%#Eval("PRESCRUTINY_REJECTED") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Scrutiny-Completed Additional-Payment Pending">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblPaymentPending" Text='<%#Eval("PAYMENT_PENDING") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Scrutiny-Completed">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblScrutinyCompleted" Text='<%#Eval("SCRUTINY_COMPLETED") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Before Due Date">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblApprovalBeforeDate" Text='<%#Eval("APPROVALUNDER_PROCESSBEFOREDATE") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                      <asp:TemplateField HeaderText="After Due Date">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblApprovalDate" Text='<%#Eval("APPROVALUNDER_PROCESSAFTERDATE") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                      <asp:TemplateField HeaderText="Department-Approved">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblDepatApproved" Text='<%#Eval("DEPARTMENT_APPROVED") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
+                                                                     <asp:TemplateField HeaderText="Rejected">
+                                                                        <ItemTemplate>
+                                                                            <asp:LinkButton runat="server" ID="lblRejected" Text='<%#Eval("REJECTED") %>' />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
 
-                                                        </Columns>
-                                                       
-                                                    </asp:GridView>
-
-                                                </div>
+                                                                </Columns>
+                                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                                <AlternatingRowStyle BackColor="White" />
+                                                            </asp:GridView>
+                                                        </div>
 
                                             </div>
 
+                                                        <%-- <div id="DivFooter" runat="server">
+                                                        <div>
+                                                            <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                                                                <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                    </div>--%>
+                                                        <div>
+                                                            <asp:Label ID="label" runat="server"></asp:Label>
+                                                        </div>
+                                                    </div>
+                                                    <%--  </div>--%>
+                                                </div>
+                                                <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                                                    <ProgressTemplate>
+                                                        <div class="update">
+                                                        </div>
+                                                    </ProgressTemplate>
+                                                </asp:UpdateProgress>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                            </section>
                         </div>
                     </div>
-                </div>
-            </div>
-            <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                <ProgressTemplate>
-                    <div class="update">
                     </div>
-                </ProgressTemplate>
-            </asp:UpdateProgress>
+                    </div>
+                </div>
+            </section>
         </ContentTemplate>
     </asp:UpdatePanel>
 
