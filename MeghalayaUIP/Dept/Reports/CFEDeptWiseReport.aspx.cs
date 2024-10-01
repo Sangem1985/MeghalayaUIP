@@ -1,13 +1,24 @@
-﻿using MeghalayaUIP.BAL.CommonBAL;
+﻿using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iTextSharp.tool.xml;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text;
+using PageSize = iTextSharp.text.PageSize;
+using Document = iTextSharp.text.Document;
+
 
 namespace MeghalayaUIP.Dept.Reports
 {
@@ -17,11 +28,13 @@ namespace MeghalayaUIP.Dept.Reports
         ReportBAL reportsBAL = new ReportBAL();
 
         int ApprovalsApplied, QueryRaised, BeforeDate, AfterDate,PreRejected, Paymentpending, ScrutinyCompleted, Before, After, DeptApproved, Rejected;
+             
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 BindDepartments();
+                btnsubmit_Click(sender, e);
             }
         }
         protected void BindDepartments()
@@ -233,43 +246,139 @@ namespace MeghalayaUIP.Dept.Reports
                 lnkApprovalDate.ForeColor = System.Drawing.Color.Black;
                 lnkDeptApproved.ForeColor = System.Drawing.Color.Black;
                 lnkRejected.ForeColor = System.Drawing.Color.Black;
-                if (e.Row.RowType == DataControlRowType.Footer)
+
+            }
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                  string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
+
+                if (ddldepartment.SelectedItem.Text == "" || ddldepartment.SelectedItem.Text == null || ddldepartment.SelectedItem.Text == "--ALL--" || ddldepartment.SelectedValue == "0")
                 {
-                  //  string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
-
-                    if (ddldepartment.SelectedItem.Text == "" || ddldepartment.SelectedItem.Text == null || ddldepartment.SelectedItem.Text == "--ALL--" || ddldepartment.SelectedValue == "0")
-                    {
-                        Department = "%";
-                    }
-                    else
-                    {
-                        Department = ddldepartment.SelectedItem.Text;
-                    }
-
-                    e.Row.Font.Bold = true;
-                    e.Row.Cells[2].Text = "Total";
-                    LinkButton Total = new LinkButton();
-                    Total.ForeColor = System.Drawing.Color.Black;
-                    if (Total.Text != "0")
-                    {
-                        Total.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + Department + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
-                    }
-                    Total.Text = ApprovalsApplied.ToString();
-                    e.Row.Cells[3].Text = ApprovalsApplied.ToString();
-                    e.Row.Cells[3].Controls.Add(Total);
-
-                    e.Row.Cells[4].Text = QueryRaised.ToString();
-                    e.Row.Cells[5].Text = BeforeDate.ToString();
-                    e.Row.Cells[6].Text = AfterDate.ToString();
-                    e.Row.Cells[7].Text = PreRejected.ToString();
-                    e.Row.Cells[8].Text = Paymentpending.ToString();
-                    e.Row.Cells[9].Text = ScrutinyCompleted.ToString();
-                    e.Row.Cells[10].Text = Before.ToString();
-                    e.Row.Cells[11].Text = After.ToString();
-                    e.Row.Cells[12].Text = DeptApproved.ToString();
-                    e.Row.Cells[13].Text = Rejected.ToString();
+                    Department = "%";
                 }
+                else
+                {
+                    Department = ddldepartment.SelectedItem.Text;
+                }
+
+                e.Row.Font.Bold = true;
+                e.Row.Cells[2].Text = "Total";
+                LinkButton Total = new LinkButton();
+                Total.ForeColor = System.Drawing.Color.Black;
+                if (Total.Text != "0")
+                {
+                    Total.PostBackUrl = "CFEDeptWiseReportDrilldown.aspx?Deptid=" + Department + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                }
+                Total.Text = ApprovalsApplied.ToString();
+                e.Row.Cells[3].Text = ApprovalsApplied.ToString();
+                e.Row.Cells[3].Controls.Add(Total);
+
+                e.Row.Cells[4].Text = QueryRaised.ToString();
+                e.Row.Cells[5].Text = BeforeDate.ToString();
+                e.Row.Cells[6].Text = AfterDate.ToString();
+                e.Row.Cells[7].Text = PreRejected.ToString();
+                e.Row.Cells[8].Text = Paymentpending.ToString();
+                e.Row.Cells[9].Text = ScrutinyCompleted.ToString();
+                e.Row.Cells[10].Text = Before.ToString();
+                e.Row.Cells[11].Text = After.ToString();
+                e.Row.Cells[12].Text = DeptApproved.ToString();
+                e.Row.Cells[13].Text = Rejected.ToString();
             }
         }
+      
+        protected void ExportToExcel()
+        {
+            try
+            {
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment;filename=CFE Dept wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".xls");
+                Response.Charset = "";
+                Response.ContentType = "application/vnd.ms-excel";
+                using (StringWriter sw = new StringWriter())
+                {
+                    GVDistrictWise.Style["width"] = "680px";
+                    HtmlTextWriter hw = new HtmlTextWriter(sw);
+                    GVDistrictWise.RenderControl(hw);
+                    string headerTable = @"<table width='100%'  class='table-bordered mb-0 GRD'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label + "</h4></td></td></tr></table>";
+                    HttpContext.Current.Response.Write(headerTable);
+                    Response.Output.Write(sw.ToString());
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+            catch (Exception e)
+            {
+                //throw e;
+            }
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
+        }
+        private void ExportGridToPDF()
+        {
+
+            try
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (StringWriter sw = new StringWriter())
+                    {
+                        using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                        {
+                           
+                            GVDistrictWise.AllowPaging = false;
+                            this.BindGridData(); 
+                            GVDistrictWise.HeaderRow.ForeColor = System.Drawing.Color.Black;
+                            GVDistrictWise.FooterRow.Visible = false;
+                            GVDistrictWise.RenderControl(hw);
+
+                            string htmlContent = sw.ToString();
+                                                       
+                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+
+                          
+                          //  PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+
+                            pdfDoc.Open();
+                                                       
+                            using (StringReader sr = new StringReader(htmlContent))
+                            {
+                               // XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                            }
+
+                            pdfDoc.Close();
+
+                            // Send the generated PDF to the client browser
+                            Response.ContentType = "application/pdf";
+                            Response.AddHeader("content-disposition", "attachment;filename=CFEDeptWiseReport " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+
+                            // Write the PDF from memory stream to the Response OutputStream
+                            Response.OutputStream.Write(memoryStream.GetBuffer(), 0, memoryStream.GetBuffer().Length);
+                            Response.Flush();
+                            Response.End();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // Handle the error and provide feedback
+            }
+        }
+        protected void btnExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            ExportToExcel();
+        }
+
+        protected void btnPdf_Click(object sender, ImageClickEventArgs e)
+        {
+            ExportGridToPDF();
+        }
+
     }
 }

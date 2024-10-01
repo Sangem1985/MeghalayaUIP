@@ -69,8 +69,8 @@
                                                         <div class="panel-heading" style="text-align: center">
                                                             <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
                                                                 <asp:Label ID="lblHeading" runat="server" Visible="false">DistrictWiseReports</asp:Label>
-                                                                <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" />
-                                                                <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" /></h2>
+                                                                <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" OnClick="btnPdf_Click" />
+                                                                <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
 
                                                          
                                                         </div>
