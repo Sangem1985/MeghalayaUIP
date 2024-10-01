@@ -199,8 +199,6 @@
                                                 <asp:HiddenField ID="hdfID" runat="server" />
                                                 <br />
                                                 <asp:HiddenField ID="hdfFlagID" runat="server" />
-                                                <%-- </ContentTemplate>
-                            </asp:UpdatePanel>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -208,9 +206,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">

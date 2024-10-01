@@ -105,7 +105,7 @@ namespace MeghalayaUIP.Dept.Reports
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             BindGridData();
-            divPrint1.Visible = true;
+            //divPrint1.Visible = true;
         }
 
         protected void GVDistrictWise_RowCreated(object sender, GridViewRowEventArgs e)
@@ -301,7 +301,7 @@ namespace MeghalayaUIP.Dept.Reports
                     GVDistrictWise.Style["width"] = "680px";
                     HtmlTextWriter hw = new HtmlTextWriter(sw);
                     GVDistrictWise.RenderControl(hw);
-                    string headerTable = @"<table width='100%'  class='table-bordered mb-0 GRD'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label + "</h4></td></td></tr></table>";
+                    string headerTable = @"<table width='100%'  class='table-bordered mb-0 GRD'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + "</h4></td></td></tr></table>";
                     HttpContext.Current.Response.Write(headerTable);
                     Response.Output.Write(sw.ToString());
                     Response.Flush();
