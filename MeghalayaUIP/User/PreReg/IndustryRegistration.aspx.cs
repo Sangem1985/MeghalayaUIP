@@ -2484,7 +2484,8 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     string Error = ""; string message = "";
                     string newPath = "";
-                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                    string sFileDir =  ConfigurationManager.AppSettings["PreRegAttachments"];
+                    //Server.MapPath("~\\PreRegAttachments");
                     if (fupDPR.HasFile)
                     {
                         Error = validations(fupDPR);
@@ -2582,7 +2583,8 @@ namespace MeghalayaUIP.User.PreReg
                         Error = validations(fupBankAppraisal);
                         if (Error == "")
                         {
-                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
+                            string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                            string serverpath = sFileDir + hdnUserID.Value + "\\"
                              + ViewState["UnitID"].ToString() + "\\" + "BankAppraisal" + "\\");
                             if (!Directory.Exists(serverpath))
                             {
