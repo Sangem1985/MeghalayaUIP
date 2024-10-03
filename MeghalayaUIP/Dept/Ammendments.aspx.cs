@@ -214,8 +214,9 @@ namespace MeghalayaUIP.Dept
                 {
                     try
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\Ammendments\\" + hdnDeptid.Value + "\\"
-                            + ddlamendmenttype.SelectedValue + "\\" + System.DateTime.Now.ToString("ddMMyyyyhhmmss") + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["Ammendments"];
+                        string serverpath = sFileDir + hdnDeptid.Value + "\\"
+                            + ddlamendmenttype.SelectedValue + "\\" + System.DateTime.Now.ToString("ddMMyyyyhhmmss") + "\\";
 
 
                         if (!Directory.Exists(serverpath))

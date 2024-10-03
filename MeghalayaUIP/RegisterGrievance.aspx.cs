@@ -3,6 +3,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -252,8 +253,8 @@ namespace MeghalayaUIP
                 if (ErrorMsg == "")
                 {
                     string newPath = "";
-                    string sFileDir = Server.MapPath("~\\GrievanceAttachments");
-
+                    string sFileDir = ConfigurationManager.AppSettings["GrievanceAttachments"];
+                   
                     if (FileUpload.HasFile)
                     {
                         if ((FileUpload.PostedFile != null) && (FileUpload.PostedFile.ContentLength > 0))

@@ -2,6 +2,7 @@
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -55,7 +56,7 @@ namespace MeghalayaUIP.User.HelpDesk
                 if (ErrorMsg == "")
                 {
                     string newPath = "";
-                    string sFileDir = Server.MapPath("~\\HelpDeskAttachment");
+                    string sFileDir = ConfigurationManager.AppSettings["HelpDeskAttachment"];
                     if (FileUpload.HasFile)
                     {
                         if ((FileUpload.PostedFile != null) && (FileUpload.PostedFile.ContentLength > 0))
