@@ -849,8 +849,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupLetter);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Letter of Consent from the Manufacturer" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Letter of Consent from the Manufacturer" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -908,8 +909,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupWeight);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Manufacturing Licence if you intend to import weights & measures" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Manufacturing Licence if you intend to import weights & measures" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -967,8 +969,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupWeightdeal);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Model Approval Certificate of weights and measures" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Model Approval Certificate of weights and measures" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1026,8 +1029,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupLease);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Documentary proof of ownership / Lease agreement" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Documentary proof of ownership / Lease agreement" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1085,8 +1089,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupGSTReg);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "GST Registration Certificate" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "GST Registration Certificate" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1144,8 +1149,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupTax);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Professional Tax Certificate" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Professional Tax Certificate" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1203,8 +1209,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupLabour);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Labour Licence" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Labour Licence" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1262,8 +1269,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupADC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Trade Licence from respective ADC in case of Non Tribal" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Trade Licence from respective ADC in case of Non Tribal" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);

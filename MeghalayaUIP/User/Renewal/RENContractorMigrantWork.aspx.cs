@@ -1075,8 +1075,9 @@ namespace MeghalayaUIP.User.Renewal
                     Error = validations(fupContractors);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\RenewalsAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["RENQID"]) + "\\" + "Contractor's Photo" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["RENAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["RENQID"]) + "\\" + "Contractor's Photo" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);

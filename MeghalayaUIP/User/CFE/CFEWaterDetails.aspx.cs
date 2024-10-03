@@ -608,8 +608,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupSketch);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Route Sketch Map" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Route Sketch Map" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);

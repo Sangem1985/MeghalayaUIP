@@ -145,8 +145,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupAadhar);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Aadhar" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Aadhar" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -221,8 +222,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupEPIC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "EPIC" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "EPIC" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -296,8 +298,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupApplPhoto);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Applicant Photo" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Applicant Photo" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -372,8 +375,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupLandDoc);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Land Document" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Land Document" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -448,8 +452,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupSitePlan);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Site Plan" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Site Plan" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);

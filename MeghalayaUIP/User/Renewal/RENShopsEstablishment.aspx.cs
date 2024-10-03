@@ -743,8 +743,9 @@ namespace MeghalayaUIP.User.Renewal
                     Error = validations(fupEmployeelist);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\RenewalsAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["RENQID"]) + "\\" + "Employee List Only" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["RENAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["RENQID"]) + "\\" + "Employee List Only" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -833,8 +834,9 @@ namespace MeghalayaUIP.User.Renewal
                     Error = validations(fupEmployer);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\RenewalsAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["RENQID"]) + "\\" + "Photo of the Employer" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["RENAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["RENQID"]) + "\\" + "Photo of the Employer" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);

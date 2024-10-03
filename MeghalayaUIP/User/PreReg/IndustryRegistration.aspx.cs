@@ -2052,8 +2052,9 @@ namespace MeghalayaUIP.User.PreReg
                         Error = validations(fupcompanyregistration);
                         if (Error == "")
                         {
-                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                             + ViewState["UnitID"].ToString() + "\\" + "CompanyRegistration" + "\\");
+                            string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                            string serverpath = sFileDir + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "CompanyRegistration" + "\\";
                             if (!Directory.Exists(serverpath))
                             {
                                 Directory.CreateDirectory(serverpath);
@@ -2139,8 +2140,9 @@ namespace MeghalayaUIP.User.PreReg
                         Error = validations(fupUdyam);
                         if (Error == "")
                         {
-                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                             + ViewState["UnitID"].ToString() + "\\" + "UdyamRegistration" + "\\");
+                            string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                            string serverpath = sFileDir + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "UdyamRegistration" + "\\";
                             if (!Directory.Exists(serverpath))
                             {
                                 Directory.CreateDirectory(serverpath);
@@ -2227,8 +2229,9 @@ namespace MeghalayaUIP.User.PreReg
                         Error = validations(fupCIN);
                         if (Error == "")
                         {
-                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                             + ViewState["UnitID"].ToString() + "\\" + "CIN" + "\\");
+                            string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                            string serverpath = sFileDir + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "CIN" + "\\";
                             if (!Directory.Exists(serverpath))
                             {
                                 Directory.CreateDirectory(serverpath);
@@ -2314,8 +2317,9 @@ namespace MeghalayaUIP.User.PreReg
                         Error = validations(fupGSTIN);
                         if (Error == "")
                         {
-                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                             + ViewState["UnitID"].ToString() + "\\" + "GSTIN" + "\\");
+                            string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                            string serverpath = sFileDir + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "GSTIN" + "\\";
                             if (!Directory.Exists(serverpath))
                             {
                                 Directory.CreateDirectory(serverpath);
@@ -2396,13 +2400,17 @@ namespace MeghalayaUIP.User.PreReg
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
                     string Error = ""; string message = "";
+                   
                     if (fupPAN.HasFile)
                     {
                         Error = validations(fupPAN);
                         if (Error == "")
                         {
-                            string serverpath = HttpContext.Current.Server.MapPath("~\\PreRegAttachments\\" + hdnUserID.Value + "\\"
-                             + ViewState["UnitID"].ToString() + "\\" + "PAN" + "\\");
+                            string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                            string serverpath = sFileDir + hdnUserID.Value + "\\"
+                             + ViewState["UnitID"].ToString() + "\\" + "PAN" + "\\";
+
+                           
                             if (!Directory.Exists(serverpath))
                             {
                                 Directory.CreateDirectory(serverpath);
@@ -2585,7 +2593,7 @@ namespace MeghalayaUIP.User.PreReg
                         {
                             string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
                             string serverpath = sFileDir + hdnUserID.Value + "\\"
-                             + ViewState["UnitID"].ToString() + "\\" + "BankAppraisal" + "\\");
+                             + ViewState["UnitID"].ToString() + "\\" + "BankAppraisal" + "\\";
                             if (!Directory.Exists(serverpath))
                             {
                                 Directory.CreateDirectory(serverpath);

@@ -1047,8 +1047,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupLicgrant);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnUserID.Value + "\\" + "License Grant" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnUserID.Value + "\\" + "License Grant" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1155,8 +1156,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupForm5);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnUserID.Value + "\\" + "Form5" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnUserID.Value + "\\" + "Form5" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1212,8 +1214,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupForm8);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnUserID.Value + "\\" + "Form 8" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnUserID.Value + "\\" + "Form 8" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1270,8 +1273,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupForm10);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                        + hdnUserID.Value + "\\" + "Form 10" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + hdnUserID.Value + "\\" + "Form 10" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1328,8 +1332,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupCrimeForm10);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                        + hdnUserID.Value + "\\" + "Criminal Issues" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + hdnUserID.Value + "\\" + "Criminal Issues" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1386,8 +1391,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupemployer);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                        + hdnUserID.Value + "\\" + "Employer" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + hdnUserID.Value + "\\" + "Employer" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
