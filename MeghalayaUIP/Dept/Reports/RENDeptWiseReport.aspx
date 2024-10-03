@@ -128,7 +128,7 @@
                                                                 <div id="divPrint1" runat="server" visible="false">
                                                                     <asp:GridView ID="GVRENReport" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
-                                                                        GridLines="Both" ShowFooter="true"
+                                                                        GridLines="Both" ShowFooter="true" Font-Bold="true" OnRowDataBound="GVRENReport_RowDataBound"
                                                                         Width="100%" EnableModelValidation="True">
                                                                         <AlternatingRowStyle Font-Underline="false" CssClass="text-center" />
                                                                         <FooterStyle HorizontalAlign="Center" Font-Underline="false" Font-Bold="true" CssClass="text-center" />
@@ -147,7 +147,7 @@
                                                                                     <asp:Label ID="lblDepartmentid" runat="server" Text='<%#Eval("DEPT_ID") %>'></asp:Label>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
-                                                                            <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="Department" ItemStyle-HorizontalAlign="Left" />
+                                                                            <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="Department" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="50px" HeaderStyle-Width="30px" />
 
                                                                             <asp:TemplateField HeaderText="Approvals Applied">
                                                                                 <ItemTemplate>
