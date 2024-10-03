@@ -130,9 +130,9 @@
                                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
                                                                         GridLines="Both" ShowFooter="true" Font-Bold="true" OnRowDataBound="GVRENReport_RowDataBound"
                                                                         Width="100%" EnableModelValidation="True">
-                                                                        <AlternatingRowStyle Font-Underline="false" CssClass="text-center" />
-                                                                        <FooterStyle HorizontalAlign="Center" Font-Underline="false" Font-Bold="true" CssClass="text-center" />
-                                                                        <%--  <itemstyle font-underline="false" horizontalalign="Center" cssclass="text-center" />--%>
+                                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
+                                                                        <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
+                                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                                         <RowStyle />
                                                                         <Columns>
                                                                             <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">

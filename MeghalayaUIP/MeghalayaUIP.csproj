@@ -617,6 +617,7 @@
     <Content Include="RegisterGrievance.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
+    <Content Include="RTIACT.aspx" />
     <Content Include="SingleWindowPortalDashboard.aspx" />
     <Content Include="stateprofile.aspx" />
     <Content Include="StateProfileNew.aspx" />
@@ -1272,6 +1273,13 @@
     </Compile>
     <Compile Include="RenewalServices.aspx.designer.cs">
       <DependentUpon>RenewalServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RTIACT.aspx.cs">
+      <DependentUpon>RTIACT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RTIACT.aspx.designer.cs">
+      <DependentUpon>RTIACT.aspx</DependentUpon>
     </Compile>
     <Compile Include="SingleWindowPortalDashboard.aspx.cs">
       <DependentUpon>SingleWindowPortalDashboard.aspx</DependentUpon>
@@ -2313,6 +2321,15 @@
     <Content Include="Dept\Dashboard\DeptServePdfFile.ashx" />
     <Content Include="Documents\Decriminalizationlist.xlsx" />
     <Content Include="Documents\Decriminalization list %281%29 %281%29.pdf" />
+    <Content Include="assets\RTIACT\1. District Investment Committeee Notification No.PLR-22-2024-109 dated 14.03.2024_0001.pdf" />
+    <Content Include="assets\RTIACT\1. Notification of CAO.pdf" />
+    <Content Include="assets\RTIACT\2. Governing Council Notification No.PLR-22-2024-100 dated 14.03.2024_0001.pdf" />
+    <Content Include="assets\RTIACT\3. HPC Notification No.PLR-22-2024-103 dated 14.03.2024_0001.pdf" />
+    <Content Include="assets\RTIACT\4. State Investment Committee Notification No.PLR-22-2024-106 dated 14.03.2024_0001.pdf" />
+    <Content Include="assets\RTIACT\Additional and Jt CEO Notification IMA %281%29.pdf" />
+    <Content Include="assets\RTIACT\Additional and Jt CEO Notification IMA.pdf" />
+    <Content Include="assets\RTIACT\CEO Notification.pdf" />
+    <Content Include="assets\RTIACT\MSIPF Act 2024.pdf" />
     <None Include="packages.config" />
     <Content Include="User\user.Master" />
     <Content Include="User\Dashboard\ServePdfFile.ashx" />
