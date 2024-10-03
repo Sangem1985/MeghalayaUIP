@@ -198,12 +198,15 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
 
                                 </li>
                                 <li class="nav-item">
-                                    <%--<a class="nav-link" href="../CFE/CFEUserDashboard.aspx">Pre-Establishment</a>--%>
-                                    <asp:LinkButton ID="linkCFEDashbrd" runat="server" OnClick="linkCFEDashbrd_Click" class="nav-link"><i class="fi fi-br-form"></i> Pre-Establishment </asp:LinkButton>
+                                    <%--<a class="nav-link" href="../CFE/CFEUserDashboard.aspx">Pre-Establishment</a>--%> 
+                                    <%--OnClick="linkCFEDashbrd_Click"
+                                        OnClick="LinkCFODashBoard_Click"
+                                        OnClick="LinkRENDashBoard_Click"--%>
+                                    <asp:LinkButton ID="linkCFEDashbrd" runat="server"  class="nav-link"><i class="fi fi-br-form"></i> Pre-Establishment </asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="LinkCFODashBoard" runat="server" OnClick="LinkCFODashBoard_Click" class="nav-link"><i class="fi fi-br-operation"></i> Pre-Operational </asp:LinkButton>
+                                    <asp:LinkButton ID="LinkCFODashBoard" runat="server"  class="nav-link"><i class="fi fi-br-operation"></i> Pre-Operational </asp:LinkButton>
 
                                 </li>
                                 <li class="nav-item">
@@ -212,7 +215,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                 </li>
                                 <li class="nav-item">
                                     <%-- <a class="nav-link" href="#"><i class="fi fi-br-function-process"></i>Renewals</a>--%>
-                                    <asp:LinkButton ID="LinkRENDashBoard" runat="server" OnClick="LinkRENDashBoard_Click" class="nav-link"><i class="fi fi-br-function-process"></i> Renewals </asp:LinkButton>
+                                    <asp:LinkButton ID="LinkRENDashBoard" runat="server"  class="nav-link"><i class="fi fi-br-function-process"></i> Renewals </asp:LinkButton>
                                 </li>
                                
                                 
