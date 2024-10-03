@@ -76,8 +76,8 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
-                                                                <label class="col-lg-6 col-form-label">From Date:</label>
-                                                                <div class="col-lg-8 d-flex">
+                                                                <label class="col-lg-5 col-form-label">From Date:</label>
+                                                                <div class="col-lg-7 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtFormDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                     <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtFormDate"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>
@@ -86,8 +86,8 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
-                                                                <label class="col-lg-6 col-form-label">To Date: </label>
-                                                                <div class="col-lg-8 d-flex">
+                                                                <label class="col-lg-4 col-form-label">To Date: </label>
+                                                                <div class="col-lg-7 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtToDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                     <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtToDate"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>

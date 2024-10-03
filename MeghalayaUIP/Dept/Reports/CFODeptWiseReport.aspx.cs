@@ -30,6 +30,12 @@ namespace MeghalayaUIP.Dept.Reports
                 btnsubmit_Click(sender, e);
             }
         }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void BindDepartments()
         {
             try
@@ -97,7 +103,7 @@ namespace MeghalayaUIP.Dept.Reports
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             BindCFoDeptReports();
-            divPrint1.Visible = true;
+           // divPrint1.Visible = true;
         }
 
         protected void GVCFOReport_RowCreated(object sender, GridViewRowEventArgs e)
@@ -260,7 +266,7 @@ namespace MeghalayaUIP.Dept.Reports
                 Total.ForeColor = System.Drawing.Color.Black;
                 if (Total.Text != "0")
                 {
-                    Total.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                    Total.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text+ "&ViewType=Total";
                 }
                 Total.Text = ApprovalsApplied.ToString();
                 e.Row.Cells[3].Text = ApprovalsApplied.ToString();

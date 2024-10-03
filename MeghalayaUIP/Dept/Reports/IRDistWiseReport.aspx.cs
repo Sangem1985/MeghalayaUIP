@@ -27,7 +27,7 @@ namespace MeghalayaUIP.Dept.Reports
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {               
+            {
                 BindDistricts();
                 //txtFormDate.Text = "01-06-2024";
                 //txtToDate.Text = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
@@ -36,7 +36,7 @@ namespace MeghalayaUIP.Dept.Reports
         }
         protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
         protected void BindDistricts()
         {
@@ -115,7 +115,12 @@ namespace MeghalayaUIP.Dept.Reports
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             FillGridData();
-            divPrint1.Visible = true;
+
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+
         }
 
         protected void GVDistrictWise_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -157,7 +162,7 @@ namespace MeghalayaUIP.Dept.Reports
                 string districtname = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DISTRICTNAME")).Trim();
 
                 if (lnkTotal.Text != "0")
-                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" +"&District="+ districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkPending.Text != "0")
                     lnkPending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
@@ -176,6 +181,14 @@ namespace MeghalayaUIP.Dept.Reports
 
                 if (lnkCommQuery.Text != "0")
                     lnkCommQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=CommQuery" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+
+                lnkTotal.ForeColor = System.Drawing.Color.Black;
+                lnkPending.ForeColor = System.Drawing.Color.Black;
+                lnkQuery.ForeColor = System.Drawing.Color.Black;
+                lnkcommpending.ForeColor = System.Drawing.Color.Black;
+                lnkApproved.ForeColor = System.Drawing.Color.Black;
+                lnkRejected.ForeColor = System.Drawing.Color.Black;
+                lnkCommQuery.ForeColor = System.Drawing.Color.Black;
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
@@ -195,10 +208,10 @@ namespace MeghalayaUIP.Dept.Reports
 
                 LinkButton Total = new LinkButton();
                 Total.ForeColor = System.Drawing.Color.Blue;
-                if(Total.Text !="0")
+                if (Total.Text != "0")
                 {
                     Total.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
-                }                
+                }
                 Total.Text = TotalAppl.ToString();
                 e.Row.Cells[3].Text = TotalAppl.ToString();
                 e.Row.Cells[3].Controls.Add(Total);
@@ -218,7 +231,7 @@ namespace MeghalayaUIP.Dept.Reports
         {
             try
             {
-                
+
                 Response.Clear();
                 Response.Buffer = true;
                 Response.AddHeader("content-disposition", "attachment;filename=District wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".xls");
@@ -310,6 +323,6 @@ namespace MeghalayaUIP.Dept.Reports
             ExportToExcel();
 
         }
-       
+
     }
 }
