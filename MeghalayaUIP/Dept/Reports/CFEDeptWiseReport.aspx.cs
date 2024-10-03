@@ -64,6 +64,12 @@ namespace MeghalayaUIP.Dept.Reports
                 throw ex;
             }
         }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void AddSelect(DropDownList ddl)
         {
             try
