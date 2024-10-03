@@ -16,6 +16,19 @@ namespace MeghalayaUIP.Dept.Reports
         MasterBAL mstrBAL = new MasterBAL();
         ReportBAL reportsBAL = new ReportBAL();
         int ApprovalsApplied, QueryRaised, BeforeDate, AfterDate, PreRejected, Paymentpending, ScrutinyCompleted, Before, After, DeptApproved, Rejected;
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("");
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -91,7 +104,7 @@ namespace MeghalayaUIP.Dept.Reports
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             BindRENDeptReports();
-            divPrint1.Visible = true;
+           // divPrint1.Visible = true;
         }
 
         protected void GVRENReport_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -147,37 +160,37 @@ namespace MeghalayaUIP.Dept.Reports
                 string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
 
                 if (lnkApplied.Text != "0")
-                    lnkApplied.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Approval";
+                    lnkApplied.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkQueryRaised.Text != "0")
-                    lnkQueryRaised.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=QueryRaised";
+                    lnkQueryRaised.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScBeforeDate.Text != "0")
-                    lnkScBeforeDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=BeforeDue";
+                    lnkScBeforeDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScAfterDate.Text != "0")
-                    lnkScAfterDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=AfterDue";
+                    lnkScAfterDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScrRejected.Text != "0")
-                    lnkScrRejected.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=ScrutinyReject";
+                    lnkScrRejected.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkPaymentPending.Text != "0")
-                    lnkPaymentPending.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=PaymentPending";
+                    lnkPaymentPending.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScCompleted.Text != "0")
-                    lnkScCompleted.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=ScrutinyCompleted";
+                    lnkScCompleted.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkBeforeApprovalDate.Text != "0")
-                    lnkBeforeApprovalDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=BeforeDueDate";
+                    lnkBeforeApprovalDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkApprovalDate.Text != "0")
-                    lnkApprovalDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=AfterDueDate";
+                    lnkApprovalDate.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkDeptApproved.Text != "0")
-                    lnkDeptApproved.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=DeptApproved";
+                    lnkDeptApproved.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkRejected.Text != "0")
-                    lnkRejected.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Reject";
+                    lnkRejected.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 lnkApplied.ForeColor = System.Drawing.Color.Black;
                 lnkQueryRaised.ForeColor = System.Drawing.Color.Black;
@@ -190,6 +203,46 @@ namespace MeghalayaUIP.Dept.Reports
                 lnkApprovalDate.ForeColor = System.Drawing.Color.Black;
                 lnkDeptApproved.ForeColor = System.Drawing.Color.Black;
                 lnkRejected.ForeColor = System.Drawing.Color.Black;
+
+            }
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
+                string Deptid = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPT_ID")).Trim();
+
+                if (ddldepartment.SelectedItem.Text == "" || ddldepartment.SelectedItem.Text == null || ddldepartment.SelectedItem.Text == "--ALL--" || ddldepartment.SelectedValue == "0")
+                {
+                    Department = "%";
+                    Deptid = "%";
+                }
+                else
+                {
+                    Department = ddldepartment.SelectedItem.Text;
+                    Deptid = ddldepartment.SelectedValue;
+                }
+
+                e.Row.Font.Bold = true;
+                e.Row.Cells[2].Text = "Total";
+                LinkButton Total = new LinkButton();
+                Total.ForeColor = System.Drawing.Color.Black;
+                if (Total.Text != "0")
+                {
+                    Total.PostBackUrl = "RENDeptWiseReportDrillDown.aspx?Deptid=" + Deptid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text;
+                }
+                Total.Text = ApprovalsApplied.ToString();
+                e.Row.Cells[3].Text = ApprovalsApplied.ToString();
+                e.Row.Cells[3].Controls.Add(Total);
+
+                e.Row.Cells[4].Text = QueryRaised.ToString();
+                e.Row.Cells[5].Text = BeforeDate.ToString();
+                e.Row.Cells[6].Text = AfterDate.ToString();
+                e.Row.Cells[7].Text = PreRejected.ToString();
+                e.Row.Cells[8].Text = Paymentpending.ToString();
+                e.Row.Cells[9].Text = ScrutinyCompleted.ToString();
+                e.Row.Cells[10].Text = Before.ToString();
+                e.Row.Cells[11].Text = After.ToString();
+                e.Row.Cells[12].Text = DeptApproved.ToString();
+                e.Row.Cells[13].Text = Rejected.ToString();
             }
         }
     }
