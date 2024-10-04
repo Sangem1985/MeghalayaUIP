@@ -2066,7 +2066,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
-        public DataSet GetGrievanceMisReportDrilldiwn(string Deptid, string FromDate, string ToDate, string ViewType,string Status)
+        public DataSet GetGrievanceMisReportDrilldiwn(string Deptid, string FromDate, string ToDate, string ViewType, string Status)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2086,7 +2086,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 if (FromDate != null && FromDate != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                   // da.SelectCommand.Parameters.AddWithValue("@FDATE", FromDate);
+                    // da.SelectCommand.Parameters.AddWithValue("@FDATE", FromDate);
                 }
                 if (ToDate != null && ToDate != "")
                 {
@@ -2112,7 +2112,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public string InsPageAccessed(string Userid, string Email, string Pagename, string IPAddress)
+        public string InsPageAccessed(string Userid, string Email, string Pagename, string IPAddress, string RoleId)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -2129,10 +2129,21 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-                com.Parameters.AddWithValue("@INVESTORID", Userid);
-                com.Parameters.AddWithValue("@USERNAME", Email);
+                if (Userid != "")
+                {
+                    com.Parameters.AddWithValue("@INVESTORID", Userid);
+                }
+                if (Email != "")
+                {
+                    com.Parameters.AddWithValue("@USERNAME", Email);
+                }
                 com.Parameters.AddWithValue("@PAGENAME", Pagename);
                 com.Parameters.AddWithValue("@IPADDRESS", IPAddress);
+                if (RoleId != "")
+                {
+                    com.Parameters.AddWithValue("@ROLEID", RoleId);
+                }
+
 
                 Result = Convert.ToString(com.ExecuteNonQuery());
 

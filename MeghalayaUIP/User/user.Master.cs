@@ -44,7 +44,7 @@ namespace MeghalayaUIP.User
                     {
                         fnSetNewControls_Click(sender, e);
                     }*/
-                    masterball.InsPageAccessed(ObjUserInfo.Userid, ObjUserInfo.Email, Request.Url.ToString(), getclientIP());
+                    masterball.InsPageAccessed(ObjUserInfo.Userid, ObjUserInfo.Email, Request.Url.ToString(), getclientIP(),"");
                 }
 
             }

@@ -41,6 +41,7 @@ namespace MeghalayaUIP.Dept
                     {
                         fnSetNewControls_Click(sender, e);
                     }*/
+                    masterball.InsPageAccessed(ObjUserInfo.UserID, ObjUserInfo.UserName, Request.Url.ToString(), getclientIP(), ObjUserInfo.Roleid);
                 }
                 // username = ObjUserInfo.UserName;
             }
@@ -87,9 +88,9 @@ namespace MeghalayaUIP.Dept
             }
 
             lblUser.InnerText = ObjUserInfo.UserName;
-            if(ObjUserInfo.Roleid=="1")
-            lblrole.InnerText = "Invest Meghalaya Authority";
-            if (ObjUserInfo.Roleid == "4"|| ObjUserInfo.Roleid == "8")
+            if (ObjUserInfo.Roleid == "1")
+                lblrole.InnerText = "Invest Meghalaya Authority";
+            if (ObjUserInfo.Roleid == "4" || ObjUserInfo.Roleid == "8")
                 lblrole.InnerText = "Department";
             if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
                 lblrole.InnerText = "Committee Officer";
@@ -128,6 +129,23 @@ namespace MeghalayaUIP.Dept
         protected void linkDeptdshbrd_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx");
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
         }
     }
 }

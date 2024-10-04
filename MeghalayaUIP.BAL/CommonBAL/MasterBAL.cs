@@ -175,7 +175,7 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetCentralRepository(moduleid, deptid, fdate, tdate, userid);
         }
-        public string GetPageAuthorization (string PageName,string RoleCode)
+        public string GetPageAuthorization(string PageName, string RoleCode)
         {
             return objMasterDAL.GetPageAuthorization(PageName, RoleCode);
         }
@@ -229,15 +229,15 @@ namespace MeghalayaUIP.BAL.CommonBAL
         }
         public DataSet GetAmmendamentFullName(string AmmendementID)
         {
-            return objMasterDAL.GetAmmendamentFullName( AmmendementID);
+            return objMasterDAL.GetAmmendamentFullName(AmmendementID);
         }
-        public DataSet GetGrievanceMisReportDrilldiwn(string Deptid, string FromDate, string ToDate, string ViewType,string Status)
+        public DataSet GetGrievanceMisReportDrilldiwn(string Deptid, string FromDate, string ToDate, string ViewType, string Status)
         {
             return objMasterDAL.GetGrievanceMisReportDrilldiwn(Deptid, FromDate, ToDate, ViewType, Status);
         }
-        public string InsPageAccessed(string Userid, string Email, string Pagename, string IPAddress)
+        public string InsPageAccessed(string Userid, string Email, string Pagename, string IPAddress, string RoleId)
         {
-            return objMasterDAL.InsPageAccessed(Userid, Email, Pagename, IPAddress);
+            return objMasterDAL.InsPageAccessed(Userid, Email, Pagename, IPAddress, RoleId);
         }
 
 
