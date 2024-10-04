@@ -560,6 +560,7 @@
     <Content Include="Dept\CFO\CFOApplDeptView.aspx" />
     <Content Include="Dept\CFO\CFODeptDashboard.aspx" />
     <Content Include="Dept\CFO\demo.aspx" />
+    <Content Include="Dept\Dashboard\ApplicationTracker.aspx" />
     <Content Include="Dept\Dashboard\DeptDashboard.aspx" />
     <Content Include="Dept\Demo.aspx" />
     <Content Include="Dept\DeptDashboard.aspx" />
@@ -852,6 +853,13 @@
     </Compile>
     <Compile Include="Dept\CFO\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Dashboard\ApplicationTracker.aspx.cs">
+      <DependentUpon>ApplicationTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Dashboard\ApplicationTracker.aspx.designer.cs">
+      <DependentUpon>ApplicationTracker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Dashboard\DeptDashboard.aspx.cs">
       <DependentUpon>DeptDashboard.aspx</DependentUpon>
