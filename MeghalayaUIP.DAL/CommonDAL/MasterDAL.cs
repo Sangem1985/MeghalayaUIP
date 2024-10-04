@@ -2112,5 +2112,45 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public string InsPageAccessed(string Userid, string Email, string Pagename, string IPAddress)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = MasterConstants.InsertUSERACCESSEDPAGES;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INVESTORID", Userid);
+                com.Parameters.AddWithValue("@USERNAME", Email);
+                com.Parameters.AddWithValue("@PAGENAME", Pagename);
+                com.Parameters.AddWithValue("@IPADDRESS", IPAddress);
+
+                Result = Convert.ToString(com.ExecuteNonQuery());
+
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
     }
 }

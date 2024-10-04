@@ -235,6 +235,11 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetGrievanceMisReportDrilldiwn(Deptid, FromDate, ToDate, ViewType, Status);
         }
+        public string InsPageAccessed(string Userid, string Email, string Pagename, string IPAddress)
+        {
+            return objMasterDAL.InsPageAccessed(Userid, Email, Pagename, IPAddress);
+        }
+
 
     }
 }
