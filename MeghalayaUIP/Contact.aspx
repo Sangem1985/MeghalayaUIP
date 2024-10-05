@@ -91,7 +91,7 @@
                                 <ul>
                                     <li><i class="ti-location-pin"></i> Deputy Director (Planning),<br /> Commerce and Industries</li>
                                     
-                                    <li><i class="ti-email"></i> Email : daphira@yahoo[dot]co[dot]in</li>
+                                    <li><i class="ti-email"></i> Email : daphira[at]yahoo[dot]co[dot]in</li>
                                 </ul>
                             </div>
                             <div>
