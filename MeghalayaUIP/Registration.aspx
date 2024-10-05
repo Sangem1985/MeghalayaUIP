@@ -151,31 +151,25 @@
                                                     <label>Enter Captha</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" ID="txtCaptcha" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <%--<div class="col-md-2">
                                                 <div class="form-group">
                                                     <label>Captcha <span class="text-Danger">*</span></label>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <%--<img id="imgCaptcha" src="UI/TSiPASS/CaptchaHandler.ashx?query=Q4fey6" style="border-width:0px;">--%>
-                                                    <asp:Image ID="imgCaptcha" runat="server" BackColor="BlueViolet" ForeColor="#0099ff" />
-                                                    <%--<asp:ImageButton ID="btnRefresh"  runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click"  ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />--%>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <div class="form-group">
-                                                    <%--<img id="imgCaptcha" src="UI/TSiPASS/CaptchaHandler.ashx?query=Q4fey6" style="border-width:0px;">--%>
-                                                    <%--<asp:Image ID="Image1" runat="server" BackColor="BlueViolet" ForeColor="#0099ff" />--%>
-                                                    <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />
+                                            </div>--%>
+                                          <div class="col-md-4" style="display: flex; align-items: center;">
+    <div class="form-group" style="margin-bottom: 20px;">
+        <asp:Image ID="imgCaptcha" runat="server" BackColor="BlueViolet" ForeColor="#0099ff" Width="130px"  />
+    </div>
+    <div class="form-group" style="margin-left: 10px;">
+        <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />
+    </div>
+</div>
 
-                                                </div>
-                                            </div>
                                             
                                         </div>
                                     </div>
