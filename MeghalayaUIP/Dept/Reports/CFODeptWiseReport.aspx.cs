@@ -17,23 +17,63 @@ namespace MeghalayaUIP.Dept.Reports
 {
     public partial class CFODeptWiseReport : System.Web.UI.Page
     {
+        DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MasterBAL mstrBAL = new MasterBAL();
         ReportBAL reportsBAL = new ReportBAL();
 
         int ApprovalsApplied, QueryRaised, BeforeDate, AfterDate, PreRejected, Paymentpending, ScrutinyCompleted, Before, After, DeptApproved, Rejected;
-              
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            try
             {
-                BindDepartments();
-                btnsubmit_Click(sender, e);
+
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.UserID;
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        BindDepartments();
+                        btnsubmit_Click(sender, e);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/DeptLogin.aspx");
+                }
             }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                throw ex;
+            }
+          
         }
 
         protected void lbtnBack_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void BindDepartments()
@@ -103,7 +143,7 @@ namespace MeghalayaUIP.Dept.Reports
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             BindCFoDeptReports();
-           // divPrint1.Visible = true;
+            // divPrint1.Visible = true;
         }
 
         protected void GVCFOReport_RowCreated(object sender, GridViewRowEventArgs e)
@@ -232,7 +272,7 @@ namespace MeghalayaUIP.Dept.Reports
                 if (lnkRejected.Text != "0")
                     lnkRejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Reject";
 
-                 lnkApplied.ForeColor = System.Drawing.Color.Black;
+                lnkApplied.ForeColor = System.Drawing.Color.Black;
                 lnkQueryRaised.ForeColor = System.Drawing.Color.Black;
                 lnkScrRejected.ForeColor = System.Drawing.Color.Black;
                 lnkScBeforeDate.ForeColor = System.Drawing.Color.Black;
@@ -266,7 +306,7 @@ namespace MeghalayaUIP.Dept.Reports
                 Total.ForeColor = System.Drawing.Color.Black;
                 if (Total.Text != "0")
                 {
-                    Total.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text+ "&ViewType=Total";
+                    Total.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Total";
                 }
                 Total.Text = ApprovalsApplied.ToString();
                 e.Row.Cells[3].Text = ApprovalsApplied.ToString();

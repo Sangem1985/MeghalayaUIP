@@ -58,8 +58,8 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="col-lg-6 col-form-label">Application Type:</label>
-                                                                <div class="col-lg-7 d-flex">
-                                                                    <asp:DropDownList ID="ddl" runat="server" class=" form-control" AutoPostBack="true">
+                                                                <div class="col-lg-4 d-flex">
+                                                                    <asp:DropDownList ID="ddlApplication" runat="server" class=" form-control" AutoPostBack="true">
                                                                         <asp:ListItem Value="0">--ALL--</asp:ListItem>
                                                                         <asp:ListItem Value="IR">INDUSTRY REGISTRATION</asp:ListItem>
                                                                         <asp:ListItem Value="LA">LAND ALLOTTMENT</asp:ListItem>
@@ -73,7 +73,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="col-lg-5 col-form-label">Unit Name:</label>
-                                                                <div class="col-lg-7 d-flex">
+                                                                <div class="col-lg-4 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtName" class="form-control" TabIndex="1" />
 
                                                                 </div>
@@ -82,7 +82,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="col-lg-6 col-form-label">UID Number: </label>
-                                                                <div class="col-lg-7 d-flex">
+                                                                <div class="col-lg-4 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtuid" class="form-control" />
 
                                                                 </div>
@@ -93,7 +93,7 @@
 
                                                         <div class="col-md-12 float-left ">
                                                             <div class="form-group row justify-content-center" style="padding: 20px">
-                                                                <asp:Button ID="btnsubmit" runat="server" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                                <asp:Button ID="btnsubmit" runat="server" Text="Search" OnClick="btnsubmit_Click" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                                                 <asp:Button ID="btnClear" runat="server" Text="Clear" ValidationGroup="Search" class="btn btn-rounded btn-warning btn-lg" Width="150px" />
                                                             </div>
 
@@ -103,7 +103,7 @@
                                                     <div>
                                                         <asp:GridView ID="GVIndustry" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="grid-view" ForeColor="#333333"
-                                                            GridLines="Both" ShowFooter="true"
+                                                            GridLines="Both" ShowFooter="true" OnRowDataBound="GVIndustry_RowDataBound"
                                                             Width="100%" EnableModelValidation="True">
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                             <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
@@ -117,16 +117,16 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
+                                                               <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblIndustry" Text='<%#Eval("") %>' />
+                                                                        <asp:LinkButton runat="server" ID="lnkIndustry" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -139,7 +139,7 @@
                                                     <div>
                                                         <asp:GridView ID="GVLnad" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="grid-view" ForeColor="#333333"
-                                                            GridLines="Both" ShowFooter="true"
+                                                            GridLines="Both" ShowFooter="true" OnRowDataBound="GVLnad_RowDataBound"
                                                             Width="100%" EnableModelValidation="True">
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                             <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
@@ -153,16 +153,16 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
+                                                               <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblLand" Text='<%#Eval("") %>' />
+                                                                        <asp:LinkButton runat="server" ID="lblLand" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -175,7 +175,7 @@
                                                     <div>
                                                         <asp:GridView ID="GVCFE" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="grid-view" ForeColor="#333333"
-                                                            GridLines="Both" ShowFooter="true"
+                                                            GridLines="Both" ShowFooter="true" OnRowDataBound="GVCFE_RowDataBound"
                                                             Width="100%" EnableModelValidation="True">
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                             <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
@@ -189,16 +189,16 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
+                                                                <%--<asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblCFE" Text='<%#Eval("") %>' />
+                                                                        <asp:LinkButton runat="server" ID="lblCFE" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -211,7 +211,7 @@
                                                     <div>
                                                         <asp:GridView ID="GVCFO" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="grid-view" ForeColor="#333333"
-                                                            GridLines="Both" ShowFooter="true"
+                                                            GridLines="Both" ShowFooter="true" OnRowDataBound="GVCFO_RowDataBound"
                                                             Width="100%" EnableModelValidation="True">
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                             <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
@@ -225,16 +225,16 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
+                                                                <%--<asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblCFO" Text='<%#Eval("") %>' />
+                                                                        <asp:LinkButton runat="server" ID="lblCFO" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -247,7 +247,7 @@
                                                     <div>
                                                         <asp:GridView ID="GVREN" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="grid-view" ForeColor="#333333"
-                                                            GridLines="Both" ShowFooter="true"
+                                                            GridLines="Both" ShowFooter="true" OnRowDataBound="GVREN_RowDataBound"
                                                             Width="100%" EnableModelValidation="True">
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                             <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
@@ -261,16 +261,16 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />
-                                                                <asp:BoundField DataField="" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
+                                                               <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblRenewal" Text='<%#Eval("") %>' />
+                                                                        <asp:LinkButton runat="server" ID="lblRenewal" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>

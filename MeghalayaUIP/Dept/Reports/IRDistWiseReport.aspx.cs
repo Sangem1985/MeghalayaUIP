@@ -20,19 +20,50 @@ namespace MeghalayaUIP.Dept.Reports
 {
     public partial class IRDistWiseReport : System.Web.UI.Page
     {
+        DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MasterBAL mstrBAL = new MasterBAL();
         ReportBAL reportsBAL = new ReportBAL();
 
         int TotalAppl, ImaPending, ImaQuery, CommPending, CommApproved, CommRejected, CommQuery;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                BindDistricts();
-                //txtFormDate.Text = "01-06-2024";
-                //txtToDate.Text = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
-                btnsubmit_Click(sender, e);
+
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.UserID;
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        BindDistricts();
+                        //txtFormDate.Text = "01-06-2024";
+                        //txtToDate.Text = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
+                        btnsubmit_Click(sender, e);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/DeptLogin.aspx");
+                }
             }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                throw ex;
+            }
+           
         }
         protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -120,7 +151,15 @@ namespace MeghalayaUIP.Dept.Reports
 
         protected void lbtnBack_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
         }
 
         protected void GVDistrictWise_RowDataBound(object sender, GridViewRowEventArgs e)

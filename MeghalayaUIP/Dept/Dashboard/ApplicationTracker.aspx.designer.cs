@@ -87,13 +87,13 @@ namespace MeghalayaUIP.Dept.Dashboard
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// ddl control.
+        /// ddlApplication control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlApplication;
 
         /// <summary>
         /// txtName control.

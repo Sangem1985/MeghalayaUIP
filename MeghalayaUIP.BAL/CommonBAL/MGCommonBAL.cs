@@ -88,6 +88,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetUserHelpDeskList(Userid);
         }
+        public DataSet GetApplicationTracker(string Applicationtype,string Unitname, string UId)
+        {
+            return objCommonDAL.GetApplicationTracker(Applicationtype, Unitname, UId);
+        }
 
 
     }
