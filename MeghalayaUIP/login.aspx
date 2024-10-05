@@ -31,9 +31,26 @@
             padding: 60px !important;
         }
     </style>
-    
-    
+
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>--%>
+    <script src="assets/admin/js/crypto.js"></script>
+    <script type="text/javascript">
+        function encryptData() {
+            var passwordField = document.getElementById('<%= txtPswrd.ClientID %>');
+            var key = CryptoJS.enc.Utf8.parse("1234567890123456");  // Use a secure key
+            var iv = CryptoJS.enc.Utf8.parse("1234567890123456");  // Initialization vector (IV)
+            // Encrypt the password using AES
+            var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(passwordField.value), key, {
+                keySize: 128 / 8,
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+            passwordField.value = encrypted.toString();
+            // Replace the password with encrypted value
+        }
+    </script>
     <section class="about-us-section section-padding">
         <div class="">
             <div class="">
@@ -74,11 +91,11 @@
                                                 <%-- <input class="form-control" type="text" placeholder="Email">--%>
                                             </div>
                                             <div class="form-group">
-                                                <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control"  placeholder="Password"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" placeholder="Password"></asp:TextBox>
                                                 <%-- <input class="form-control" type="text" placeholder="Password">--%>
                                             </div>
                                             <div class="form-group">
-                                                <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" Text="Login" class="btn btn-primary btn-block" />
+                                                <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="encryptData()" Text="Login" class="btn btn-primary btn-block" />
                                                 <%-- <button class="btn btn-primary btn-block" type="submit">Login</button>--%>
                                             </div>
                                         </form>

@@ -244,6 +244,7 @@
     <Content Include="assets\admin\js\bootstrap.js" />
     <Content Include="assets\admin\js\bootstrap.min.js" />
     <Content Include="assets\admin\js\chart.morris.js" />
+    <Content Include="assets\admin\js\crypto.js" />
     <Content Include="assets\admin\js\form-validation.js" />
     <Content Include="assets\admin\js\html5shiv.min.js" />
     <Content Include="assets\admin\js\jquery-3.2.1.min.js" />
@@ -495,6 +496,7 @@
     <Content Include="assets\assetsnew\images\popupcircle.gif" />
     <Content Include="assets\assetsnew\images\popupimg.png" />
     <Content Include="assets\assetsnew\images\power.png" />
+    <Content Include="assets\assetsnew\images\Refresh.jpg" />
     <Content Include="assets\assetsnew\images\resource\about-3.jpg" />
     <Content Include="assets\assetsnew\images\resource\crop.gif" />
     <Content Include="assets\assetsnew\images\resource\single-service-1.jpg" />
@@ -740,6 +742,9 @@
     </Compile>
     <Compile Include="BusinessRegulation.aspx.designer.cs">
       <DependentUpon>BusinessRegulation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CaptchaHandler.ashx.cs">
+      <DependentUpon>CaptchaHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="CentralInspectionDashboard.aspx.cs">
       <DependentUpon>CentralInspectionDashboard.aspx</DependentUpon>
@@ -2329,6 +2334,7 @@
     <Content Include="Dept\Dashboard\DeptServePdfFile.ashx" />
     <Content Include="Documents\Decriminalizationlist.xlsx" />
     <Content Include="Documents\Decriminalization list %281%29 %281%29.pdf" />
+    <Content Include="CaptchaHandler.ashx" />
     <None Include="packages.config" />
     <Content Include="User\user.Master" />
     <Content Include="User\Dashboard\ServePdfFile.ashx" />

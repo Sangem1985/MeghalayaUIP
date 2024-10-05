@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -106,8 +109,7 @@ namespace MeghalayaUIP
         protected void btnLogint_Click(object sender, EventArgs e)
         {
             try
-            {
-               
+            {               
                 if (Request.RequestType.ToUpper() != "POST")
                 {
                     Killsession();
@@ -126,8 +128,8 @@ namespace MeghalayaUIP
                     Failure.Visible = false;
                     string UserID = "", Password = "";
                     UserID = txtUsername.Text;
-                    Password = txtPswrd.Text;
-
+                    // Password = txtPswrd.Text;
+                    Password = DecryptAES(txtPswrd.Text, "1234567890123456", "1234567890123456");
                     bool CaptchaResult = false;
                     string CErrormsg = "";
                     //CaptchaResult = ValidateCaptcha(out CErrormsg);
@@ -180,7 +182,31 @@ namespace MeghalayaUIP
                 Failure.Visible = true;
             }
         }
+        public static string DecryptAES(string encryptedText, string keyString, string ivString)
+        {
+            byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(keyString);
+            byte[] ivBytes = Encoding.UTF8.GetBytes(ivString);
 
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = keyBytes;
+                aes.IV = ivBytes;
+                aes.Mode = CipherMode.CBC;
+                aes.Padding = PaddingMode.PKCS7;
+
+                using (var memoryStream = new MemoryStream(cipherTextBytes))
+                {
+                    using (var cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                    {
+                        using (var reader = new StreamReader(cryptoStream))
+                        {
+                            return reader.ReadToEnd();
+                        }
+                    }
+                }
+            }
+        }
         public static string getclientIP()
         {
             string result = string.Empty;

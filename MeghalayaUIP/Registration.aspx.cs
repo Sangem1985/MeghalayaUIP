@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using MeghalayaUIP.BAL;
 using MeghalayaUIP.BAL.CommonBAL;
 using System.Data.SqlClient;
+using System.Text;
+
 namespace MeghalayaUIP
 {
     public partial class Registration : System.Web.UI.Page
@@ -22,6 +24,7 @@ namespace MeghalayaUIP
                 Failure.Visible = false;
                 if (!IsPostBack)
                 {
+                    FillCapctha();
                     txtEmail.Text = "";
                     txtPswd.Text = "";
                 }
@@ -100,6 +103,7 @@ namespace MeghalayaUIP
                 }
                 else
                 {
+                    FillCapctha();
                     string message = "alert('" + Errormsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
@@ -172,11 +176,16 @@ namespace MeghalayaUIP
                     }
                 }
 
-                //if (string.IsNullOrEmpty(txtCaptcha.Text) || txtCaptcha.Text == "" || txtCaptcha.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Cpatcha \\n";
-                //    slno = slno + 1;
-                //}
+                if (string.IsNullOrEmpty(txtCaptcha.Text) || txtCaptcha.Text == "" || txtCaptcha.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Captcha \\n";
+                    slno = slno + 1;
+                }
+                if (txtCaptcha.Text.Trim() !=Convert.ToString(ViewState["captcha"]))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Correct Captcha \\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
             }
@@ -210,7 +219,7 @@ namespace MeghalayaUIP
                 Failure.Visible = true;
                 txtPswd.Text = "";
                 txtCaptcha.Text = "";
-                // FillCapctha();
+                 FillCapctha();
                 return;
             }
             if (txtPswd.Text.Trim().Length < 8)
@@ -220,7 +229,7 @@ namespace MeghalayaUIP
                 Failure.Visible = true;
                 txtPswd.Text = "";
                 txtCaptcha.Text = "";
-                //  FillCapctha();
+                FillCapctha();
                 return;
             }
             if (!(txtPswd.Text.Any(char.IsLower) && txtPswd.Text.Any(char.IsUpper) &&
@@ -232,7 +241,7 @@ namespace MeghalayaUIP
                 Failure.Visible = true;
                 txtPswd.Text = "";
                 txtCaptcha.Text = "";
-                //  FillCapctha();
+                FillCapctha();
                 return;
             }
         }
@@ -283,6 +292,30 @@ namespace MeghalayaUIP
             }
             return bValid;
         }
+        void FillCapctha()
+        {
+            try
+            {
+                ViewState["captcha"] = "";
 
+                Random random = new Random();
+                string combination = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabdfghjkmnpqrstuvwxyz";
+                StringBuilder captcha = new StringBuilder();
+
+                for (int i = 0; i < 6; i++)
+                    captcha.Append(combination[random.Next(combination.Length)]);
+                ViewState["captcha"] = captcha.ToString();
+                imgCaptcha.ImageUrl = "~/CaptchaHandler.ashx?query=" + captcha.ToString();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        protected void btnRefresh_Click(object sender, ImageClickEventArgs e)
+        {
+            FillCapctha();
+        }
     }
 }
