@@ -23,8 +23,19 @@
             font-size: 26px !important;
         }
     </style>
+    <script src="assets/admin/js/crypto.js"></script>
+    <script type="text/javascript">
+        function hashPassword() {
+            var passwordField = document.getElementById('<%= txtPswd.ClientID %>');
+            var hashedPassword = CryptoJS.SHA256(passwordField.value);
+            passwordField.value = hashedPassword;// Replace plain password with hashed one
+         <%--var passwordField2 = document.getElementById('<%= Cfpasswordbox.ClientID %>');            
+            var hashedPassword2 = CryptoJS.SHA256(passwordField2.value);          
+            passwordField2.value = hashedPassword2;--%>
+        }
+ </script>
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
-    
+
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">

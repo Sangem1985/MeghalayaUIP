@@ -253,6 +253,9 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+         <asp:PostBackTrigger ControlID="btnsave" />
+        </Triggers>
     </asp:UpdatePanel>
 
 </asp:Content>

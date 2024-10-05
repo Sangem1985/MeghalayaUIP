@@ -56,7 +56,7 @@ namespace MeghalayaUIP.User.HelpDesk
                 if (ErrorMsg == "")
                 {
                     string newPath = "";
-                    string sFileDir = ConfigurationManager.AppSettings["HelpDeskAttachment"];
+                    string sFileDir = ConfigurationManager.AppSettings["HelpDeskAttachments"];
                     if (FileUpload.HasFile)
                     {
                         if ((FileUpload.PostedFile != null) && (FileUpload.PostedFile.ContentLength > 0))
