@@ -29,7 +29,7 @@ namespace MeghalayaUIP
                 //DataSet ds = new DataSet();
                 //string status = Request.QueryString[0].ToString().Trim();
 
-              
+
 
                 if (!IsPostBack)
                 {
@@ -109,7 +109,7 @@ namespace MeghalayaUIP
         protected void btnLogint_Click(object sender, EventArgs e)
         {
             try
-            {               
+            {
                 if (Request.RequestType.ToUpper() != "POST")
                 {
                     Killsession();
@@ -173,7 +173,10 @@ namespace MeghalayaUIP
             catch (SqlException ex)
             {
                 string errorMsg = ex.Message;
-                lblmsg0.Text = "Invalid Credentials.. " ;
+                if (errorMsg.Contains("FAILED LOGIN ATTEMPTS ARE MORE THAN ZERO"))
+                    lblmsg0.Text = "Invalid Credentials...! ";
+                else
+                    lblmsg0.Text = "Invalid Credentials.. ";
                 Failure.Visible = true;
             }
             catch (Exception ex)
@@ -224,6 +227,6 @@ namespace MeghalayaUIP
 
             return result;
         }
-      
+
     }
 }
