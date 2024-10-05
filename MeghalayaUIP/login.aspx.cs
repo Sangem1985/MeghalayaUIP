@@ -35,6 +35,7 @@ namespace MeghalayaUIP
                 {
                     Killsession();
                     txtUsername.Focus();
+                    FillCapctha();
                 }
             }
             catch (Exception ex)
@@ -116,11 +117,20 @@ namespace MeghalayaUIP
                 }
 
                 Session["UserInfo"] = null;
-                if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPswrd.Text))
+                if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPswrd.Text) || string.IsNullOrEmpty(txtcaptcha.Text))
                 {
-                    lblmsg0.Text = "Please provide User Name and Password";
+                    lblmsg0.Text = "Please provide User Name and Password and Captcha";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
+                    FillCapctha();
+                }
+                else if (txtcaptcha.Text != Convert.ToString(ViewState["captcha"]))
+                {
+                    lblmsg0.Text = "Invalid Captcha.....!";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
+                    Failure.Visible = true;
+                    FillCapctha();
+
                 }
                 else
                 {
@@ -151,6 +161,7 @@ namespace MeghalayaUIP
                             lblmsg0.Text = "Invalid Credentials..";
                             txtPswrd.Text = "";
                             Failure.Visible = true;
+                            FillCapctha();
                         }
                     }
                     else
@@ -227,6 +238,30 @@ namespace MeghalayaUIP
 
             return result;
         }
+        void FillCapctha()
+        {
+            try
+            {
+                ViewState["captcha"] = "";
 
+                Random random = new Random();
+                string combination = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabdfghjkmnpqrstuvwxyz";
+                StringBuilder captcha = new StringBuilder();
+
+                for (int i = 0; i < 6; i++)
+                    captcha.Append(combination[random.Next(combination.Length)]);
+                ViewState["captcha"] = captcha.ToString();
+                imgCaptcha.ImageUrl = "~/CaptchaHandler.ashx?query=" + captcha.ToString();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        protected void btnRefresh_Click(object sender, ImageClickEventArgs e)
+        {
+            FillCapctha();
+        }
     }
 }

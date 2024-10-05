@@ -94,6 +94,20 @@
                                                 <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" placeholder="Password"></asp:TextBox>
                                                 <%-- <input class="form-control" type="text" placeholder="Password">--%>
                                             </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group" style="margin-bottom: 20px;">
+                                                    <asp:Image ID="imgCaptcha" runat="server" BackColor="BlueViolet" ForeColor="#0099ff" Width="130px" />
+                                                </div>
+                                                <div class="form-group" style="margin-left: 10px;">
+                                                    <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />
+                                                </div>
+                                            </div>
+
                                             <div class="form-group">
                                                 <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="encryptData()" Text="Login" class="btn btn-primary btn-block" />
                                                 <%-- <button class="btn btn-primary btn-block" type="submit">Login</button>--%>
