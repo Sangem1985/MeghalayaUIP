@@ -826,6 +826,43 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
+        public DataSet GetApplicationTracker(string Applicationtype, string Unitname, string UId)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetApplicationTracker, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetApplicationTracker;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@APPLTYPE", Applicationtype);
+                da.SelectCommand.Parameters.AddWithValue("@UNITNAME", Unitname);
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UId);
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
 
 
     }

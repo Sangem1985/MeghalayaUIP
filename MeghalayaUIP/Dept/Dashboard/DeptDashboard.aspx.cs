@@ -167,7 +167,7 @@ namespace MeghalayaUIP.Dept.Dashboard
             if (ObjUserInfo.Roleid=="4" || ObjUserInfo.Roleid=="1")
             {
                 Report.Visible = true;
-                string url = "~/Dept/Reports/IRDistWiseReport.aspx";
+                string url = "~/Dept/Reports/ReportsAbstract.aspx";
                 Response.Redirect(url);
             }
         }

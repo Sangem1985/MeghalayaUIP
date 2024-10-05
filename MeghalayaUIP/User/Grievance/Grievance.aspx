@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
@@ -112,7 +113,7 @@
                                             <label class="col-lg-6 col-form-label">Company Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtindname" runat="server" class="form-control txtbox"
-                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                    MaxLength="40" TabIndex="1" ValidationGroup="group" onkeypress="return Names(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -121,7 +122,7 @@
                                             <label class="col-lg-6 col-form-label">Applicant Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtApplcantName" runat="server" class="form-control txtbox"
-                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"  onkeypress="return Names(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +131,7 @@
                                             <label class="col-lg-6 col-form-label">E-Mail *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtEmail" runat="server" class="form-control txtbox" TextMode="Email"
-                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                    MaxLength="40" TabIndex="1" ValidationGroup="group" onblur="validateEmail(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +142,7 @@
                                             <label class="col-lg-6 col-form-label">Mobile Number *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtMob" runat="server" class="form-control txtbox"
-                                                    MaxLength="10" onkeypress="NumberOnly()" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                  TabIndex="1" ValidationGroup="group" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -175,7 +176,7 @@
                                             <label class="col-lg-6 col-form-label">Subject *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtSub" runat="server" class="form-control txtbox"
-                                                     TabIndex="1" TextMode="MultiLine"
+                                                    TabIndex="1" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
@@ -185,7 +186,7 @@
                                             <label class="col-lg-3 col-form-label">Description *</label>
                                             <div class="col-lg-9 d-flex">
                                                 <asp:TextBox ID="txtDesc" runat="server" class="form-control txtbox"
-                                                    TabIndex="1" TextMode="MultiLine"
+                                                    TabIndex="1" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>

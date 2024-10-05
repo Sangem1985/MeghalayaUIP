@@ -13,29 +13,48 @@ namespace MeghalayaUIP.Dept.Reports
 {
     public partial class RENDeptWiseReport : System.Web.UI.Page
     {
+        DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MasterBAL mstrBAL = new MasterBAL();
         ReportBAL reportsBAL = new ReportBAL();
         int ApprovalsApplied, QueryRaised, BeforeDate, AfterDate, PreRejected, Paymentpending, ScrutinyCompleted, Before, After, DeptApproved, Rejected;
 
-        protected void lbtnBack_Click(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("");
+
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.UserID;
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        BindDepartments();
+                        btnsubmit_Click(sender, e);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/DeptLogin.aspx");
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
                 throw ex;
             }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                BindDepartments();
-                btnsubmit_Click(sender, e);
-            }
+          
         }
         protected void BindDepartments()
         {
@@ -243,6 +262,18 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[11].Text = After.ToString();
                 e.Row.Cells[12].Text = DeptApproved.ToString();
                 e.Row.Cells[13].Text = Rejected.ToString();
+            }
+        }
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Reports/ReportsAbstract.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
             }
         }
     }

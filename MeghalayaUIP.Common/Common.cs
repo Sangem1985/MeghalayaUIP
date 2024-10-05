@@ -34,5 +34,9 @@ namespace MeghalayaUIP.Common
 
         public static string InsertHelpDesk = "USP_INSHELPDESK";
         public static string GetUserHelpDeskList = "USP_GETUSERHELPDESK";
+
+        ////////------------------ApplicationTracker----------------///////
+
+        public static string GetApplicationTracker = "USP_GETAPPLICATIONTRACKER";
     }
 }
