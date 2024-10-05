@@ -67,7 +67,7 @@ namespace MeghalayaUIP.Dept.Reports
         {
             try
             {
-                Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
+                Response.Redirect("~/Dept/Reports/ReportsAbstract.aspx");
             }
             catch(Exception ex)
             {

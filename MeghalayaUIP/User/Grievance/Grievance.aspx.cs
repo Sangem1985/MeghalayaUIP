@@ -11,7 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
 using System.IO;
-
+using System.Configuration;
 
 namespace MeghalayaUIP.User.Grievance
 {
@@ -361,7 +361,7 @@ namespace MeghalayaUIP.User.Grievance
                 if (ErrorMsg == "")
                 {
                     string newPath = "";
-                    string sFileDir = Server.MapPath("~\\GrievanceAttachments");
+                    string sFileDir = ConfigurationManager.AppSettings["GrievanceAttachments"];
 
                     if (FileUpload.HasFile)
                     {

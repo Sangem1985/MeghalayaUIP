@@ -3,15 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <link rel="stylesheet" href="assets/admin/css/style.css">
     <style>
         .page-wrapper {
-    padding-top: 15px;
-}
+            padding-top: 15px;
+        }
+
         div#ContentPlaceHolder1_UpdatePanel1 {
-    width: 90%;
-    margin: 0px 76px;
-}
+            width: 90%;
+            margin: 0px 76px;
+        }
     </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
@@ -81,7 +83,7 @@
                                                     <label class="col-lg-6 col-form-label">Applicant Name <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtApplcantName" runat="server" class="form-control txtbox"
-                                                            MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                            MaxLength="40" TabIndex="1" ValidationGroup="group" onkeypress="return Names(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,7 +128,7 @@
                                                     <label class="col-lg-6 col-form-label">Company Name <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtindname" runat="server" class="form-control txtbox"
-                                                            MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                            MaxLength="40" TabIndex="1" ValidationGroup="group" onkeypress="return Names(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,7 +137,7 @@
                                                     <label class="col-lg-6 col-form-label">E-Mail <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtEmail" runat="server" class="form-control txtbox" TextMode="Email"
-                                                            MaxLength="40" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                            MaxLength="40" TabIndex="1" ValidationGroup="group" onblur="validateEmail(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,7 +146,7 @@
                                                     <label class="col-lg-6 col-form-label">Mobile Number <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtMob" runat="server" class="form-control txtbox"
-                                                            MaxLength="10" onkeypress="NumberOnly()" TabIndex="1" ValidationGroup="group"></asp:TextBox>
+                                                            TabIndex="1" ValidationGroup="group" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +180,7 @@
                                                     <label class="col-lg-6 col-form-label">Subject <span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtSub" runat="server" class="form-control txtbox"
-                                                           TabIndex="1" TextMode="MultiLine" Height="40px"
+                                                            TabIndex="1" TextMode="MultiLine" Height="40px" onkeypress="return validateNameAndNumbers(event)"
                                                             ValidationGroup="group"></asp:TextBox>
                                                     </div>
                                                 </div>
@@ -192,30 +194,29 @@
                                                     <label class="col-lg-2 col-form-label">Description <span class="star">*</span></label>
                                                     <div class="col-lg-9 d-flex">
                                                         <asp:TextBox ID="txtDesc" runat="server" class="form-control txtbox"
-                                                            TabIndex="1" TextMode="MultiLine"
+                                                            TabIndex="1" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"
                                                             ValidationGroup="group"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                        <div class="col-md-12">
+                                            <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-2 col-form-label">Upload (If any)</label>
                                                     <div class="col-lg-8 d-flex">
-                                                        <asp:FileUpload ID="FileUpload" runat="server" 
+                                                        <asp:FileUpload ID="FileUpload" runat="server"
                                                             Height="28px" />
                                                         <asp:HyperLink ID="lblFileName1" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                 </div>
                                             </div>
-                                            </div>
+                                        </div>
                                         <div class="col-md-12 d-flex">
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="form-group row mt-1">
-                                                    
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -254,7 +255,7 @@
             </asp:UpdateProgress>
         </ContentTemplate>
         <Triggers>
-         <asp:PostBackTrigger ControlID="btnsave" />
+            <asp:PostBackTrigger ControlID="btnsave" />
         </Triggers>
     </asp:UpdatePanel>
 
