@@ -306,6 +306,7 @@ namespace MeghalayaUIP
                     captcha.Append(combination[random.Next(combination.Length)]);
                 ViewState["captcha"] = captcha.ToString();
                 imgCaptcha.ImageUrl = "~/CaptchaHandler.ashx?query=" + captcha.ToString();
+                imgCaptcha.Enabled = false;
             }
             catch
             {

@@ -33,7 +33,7 @@
             var hashedPassword2 = CryptoJS.SHA256(passwordField2.value);          
             passwordField2.value = hashedPassword2;--%>
         }
- </script>
+    </script>
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -148,7 +148,7 @@
                                         <div class="col-md-12" style="display: flex;">
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label>Enter Captha</label>
+                                                    <label>Enter Captcha</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
@@ -161,16 +161,16 @@
                                                     <label>Captcha <span class="text-Danger">*</span></label>
                                                 </div>
                                             </div>--%>
-                                          <div class="col-md-4" style="display: flex; align-items: center;">
-    <div class="form-group" style="margin-bottom: 20px;">
-        <asp:Image ID="imgCaptcha" runat="server" BackColor="BlueViolet" ForeColor="#0099ff" Width="130px"  />
-    </div>
-    <div class="form-group" style="margin-left: 10px;">
-        <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />
-    </div>
-</div>
+                                            <div class="col-md-4" style="display: flex; align-items: center;">
+                                                <div class="form-group" style="margin-bottom: 20px;">
+                                                    <asp:Image ID="imgCaptcha" runat="server" draggable="false" />
+                                                </div>
+                                                <div class="form-group" style="margin-left: 10px;">
+                                                    <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />
+                                                </div>
+                                            </div>
 
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row">
