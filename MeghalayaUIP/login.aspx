@@ -31,6 +31,8 @@
             padding: 60px !important;
         }
     </style>
+    
+    
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
     <section class="about-us-section section-padding">
         <div class="">
@@ -68,11 +70,11 @@
                                         <!-- Form -->
                                         <form action="admin/IndustryRegistration.aspx">
                                             <div class="form-group">
-                                                <asp:TextBox runat="server" ID="txtUsername" class="form-control"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email"></asp:TextBox>
                                                 <%-- <input class="form-control" type="text" placeholder="Email">--%>
                                             </div>
                                             <div class="form-group">
-                                                <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control"  placeholder="Password"></asp:TextBox>
                                                 <%-- <input class="form-control" type="text" placeholder="Password">--%>
                                             </div>
                                             <div class="form-group">

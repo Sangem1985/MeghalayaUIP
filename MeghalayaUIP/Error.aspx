@@ -12,12 +12,12 @@
             <table>
                 <tr>
                     <td>
-                        <img src="assets/images/404-error-page-templates.jpg" style="margin-left: 96px;">
+                        <img src="assets/assetsnew/images/404-error-page-templates.jpeg" style="margin-left: 96px;" />
                     </td>
                 </tr>
                 <tr>
                 <td align="center">
-                    <asp:Label  runat="server" ID="lbl" style="font-family: math;font-size: xx-large;color: black;">Server Error</asp:Label>
+                    <asp:Label  runat="server" ID="lbl" style="font-family: math;font-size: xx-large;color: black;">Error Occurred...!</asp:Label>
                 </td>
             </tr>
             </table>

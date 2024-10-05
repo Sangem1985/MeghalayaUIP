@@ -146,7 +146,7 @@ namespace MeghalayaUIP
                         }
                         else
                         {
-                            lblmsg0.Text = "Invalid UserName or Password";
+                            lblmsg0.Text = "Invalid Credentials..";
                             txtPswrd.Text = "";
                             Failure.Visible = true;
                         }
@@ -162,7 +162,6 @@ namespace MeghalayaUIP
                     string status = Request.QueryString["status"];
                     if (!string.IsNullOrEmpty(status))
                     {
-
                         url = "~/User/CFO/CFOQuestionnaire.aspx?status=" + status;
                         Response.Redirect(url);
 
@@ -172,7 +171,7 @@ namespace MeghalayaUIP
             catch (SqlException ex)
             {
                 string errorMsg = ex.Message;
-                lblmsg0.Text = "Internal error has occured. Please try after some time " + errorMsg;
+                lblmsg0.Text = "Invalid Credentials.. " ;
                 Failure.Visible = true;
             }
             catch (Exception ex)
