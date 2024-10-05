@@ -21,7 +21,7 @@ namespace MeghalayaUIP
             {
                 using (Graphics g = Graphics.FromImage(b))
                 {
-                    Rectangle rect = new Rectangle(0, 0, 100, 34);
+                    Rectangle rect = new Rectangle(0, 0, 100, 39);
                     g.FillRectangle(Brushes.BurlyWood, rect);
 
                     // Create string to draw.
