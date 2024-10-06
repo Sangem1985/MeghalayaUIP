@@ -9,33 +9,7 @@
     </asp:ContentPlaceHolder>
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
-                input.addEventListener('keypress', preventInvalidChars)
-                input.addEventListener('paste', function (e) {
-                    e.preventDefault();
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('input[type="text"]').forEach(function (input) {
-                input.addEventListener('keypress', preventInvalidChars)
-                input.addEventListener('paste', function (e) {
-                    e.preventDefault();
-                });
-            });
-        });
-        function preventInvalidChars(event) {
-            var charCode = event.charCode || event.keyCode;
-            var charStr = String.fromCharCode(charCode);
 
-            // Check if the character is < or >
-            if (charStr === '<' || charStr === '>') {
-                event.preventDefault();
-            }
-        }
-    </script>
 
     <!-- Stylesheets -->
     <link href="assets/assetsnew/css/style.css" rel="stylesheet" />
@@ -336,7 +310,7 @@
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Education Policy.pdf', '_blank'); return false;">Meghalaya State Education Policy, 2018</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Health Policy.pdf', '_blank'); return false;">Meghalaya Health Policy, 2021</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Telecom infrastructure Policy.pdf', '_blank'); return false;">Meghalaya Telecom Infrastructure Policy, 2018</a>
-                                                                </li>                    
+                                                                </li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Organic Farming policy.pdf', '_blank'); return false;">Meghalaya State Organic Farming Policy,2023</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Sports Policy.pdf', '_blank'); return false;">Meghalaya State Sports Policy, 2019</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/PPP Policy.pdf', '_blank'); return false;">Meghalaya Public Private Partnership Policy (PPP),
@@ -575,7 +549,35 @@
 
             <!-- main-js -->
             <script src="assets/assetsnew/js/script.js"></script>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
+                        input.addEventListener('keypress', preventInvalidChars)
+                        input.addEventListener('paste', function (e) {
+                            e.preventDefault();
+                        });
+                    });
+                });
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.querySelectorAll('input[type="text"]').forEach(function (input) {
+                        input.addEventListener('keypress', preventInvalidChars)
+                        input.addEventListener('paste', function (e) {
+                            e.preventDefault();
+                        });
+                    });
+                });
+                function preventInvalidChars(event) {
+                    var charCode = event.charCode || event.keyCode;
+                    var charStr = String.fromCharCode(charCode);
+
+                    // Check if the character is < or >
+                    if (charStr === '<' || charStr === '>') {
+                        event.preventDefault();
+                    }
+                }
+            </script>
         </div>
+
     </form>
 </body>
 </html>

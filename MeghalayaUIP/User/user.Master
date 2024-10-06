@@ -309,6 +309,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
         <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function () {
                 document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
+                    input.setAttribute('autocomplete', 'off')
                     input.addEventListener('keypress', preventInvalidChars)
                     input.addEventListener('paste', function (e) {
                         e.preventDefault();
@@ -318,6 +319,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
             document.addEventListener('DOMContentLoaded', function () {
                 document.querySelectorAll('input[type="text"]').forEach(function (input) {
                     input.addEventListener('keypress', preventInvalidChars)
+                    input.setAttribute('autocomplete', 'off')
                     input.addEventListener('paste', function (e) {
                         e.preventDefault();
                     });
