@@ -117,14 +117,14 @@ namespace MeghalayaUIP
                 }
 
                 Session["UserInfo"] = null;
-                if (String.IsNullOrEmpty(txtUsername.Text.Trim()) || String.IsNullOrEmpty(txtPswrd.Text.Trim()) )
+                if (String.IsNullOrEmpty(txtUsername.Text.Trim()) || String.IsNullOrEmpty(txtPswrd.Text.Trim()))
                 {
                     lblmsg0.Text = "Please provide User Name and Password";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
                     FillCapctha();
                 }
-                else if(string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
+                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
                 {
                     lblmsg0.Text = "Please Enter Captcha";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
@@ -136,7 +136,7 @@ namespace MeghalayaUIP
                     lblmsg0.Text = "Invalid Captcha.....!";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
-                    FillCapctha();
+                    FillCapctha(); txtcaptcha.Text = "";
 
                 }
                 else
@@ -168,13 +168,14 @@ namespace MeghalayaUIP
                             lblmsg0.Text = "Invalid Credentials..";
                             txtPswrd.Text = "";
                             Failure.Visible = true;
-                            FillCapctha();
+                            FillCapctha(); txtcaptcha.Text = "";
                         }
                     }
                     else
                     {
                         lblmsg0.Text = CErrormsg;
                         Failure.Visible = true;
+                        FillCapctha(); txtcaptcha.Text = "";
                     }
                 }
                 if (Request.QueryString.Count > 0)
@@ -191,16 +192,19 @@ namespace MeghalayaUIP
             catch (SqlException ex)
             {
                 string errorMsg = ex.Message;
+                FillCapctha(); txtcaptcha.Text = "";
                 if (errorMsg.Contains("FAILED LOGIN ATTEMPTS ARE MORE THAN ZERO"))
                     lblmsg0.Text = "Invalid Credentials...! ";
                 else
                     lblmsg0.Text = "Invalid Credentials.. ";
                 Failure.Visible = true;
+
             }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                FillCapctha(); txtcaptcha.Text = "";
             }
         }
         public static string DecryptAES(string encryptedText, string keyString, string ivString)

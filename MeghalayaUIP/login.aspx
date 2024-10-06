@@ -109,12 +109,10 @@
                                                             <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5">
-                                                        <div class="form-group">
+                                                    <div class="col-md-7" style="display: flex; align-items: center;">
+                                                        <div class="form-group" style="margin-bottom: 20px;">
                                                             <asp:Image ID="imgCaptcha" runat="server" BackColor="#0066ff" ForeColor="#0099ff" draggable="false" Height="35px" Width="250px" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
+                                                        </div>                                                    
                                                         <div class="form-group" style="margin-left: 10px;">
                                                             <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="35px" Width="40px" />
                                                         </div>

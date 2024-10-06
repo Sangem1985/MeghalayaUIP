@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" visible="true" runat="server">
+                                    <div class="row" >
                                         <div class="col-md-12" style="display: flex;">
                                             <div class="col-md-2">
                                                 <div class="form-group">
@@ -169,8 +169,6 @@
                                                     <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />
                                                 </div>
                                             </div>
-
-
                                         </div>
                                     </div>
                                     <div class="row">
