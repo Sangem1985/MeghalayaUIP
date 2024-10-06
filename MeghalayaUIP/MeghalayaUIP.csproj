@@ -601,6 +601,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
     <Content Include="forgot-password.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="GrievanceMisReport.aspx" />
     <Content Include="GrievanceMisReportDrilldown.aspx" />
     <Content Include="GrievanceQueryHandleEODBDashboard.aspx" />
@@ -1143,6 +1144,9 @@
     </Compile>
     <Compile Include="forgot-password.aspx.designer.cs">
       <DependentUpon>forgot-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GrievanceMisReport.aspx.cs">
       <DependentUpon>GrievanceMisReport.aspx</DependentUpon>
