@@ -576,6 +576,28 @@
                     }
                 }
             </script>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Apply to input[type="text"], textarea, and input[type="password"]
+                    document.querySelectorAll('input[type="text"], textarea, input[type="password"]').forEach(function (input) {
+                        input.setAttribute('autocomplete', 'off'); // Disable autocomplete
+                        input.addEventListener('keypress', preventInvalidChars); // Prevent invalid characters
+                        input.addEventListener('paste', function (e) {
+                            e.preventDefault(); // Disable paste
+                        });
+                    });
+                });
+
+                function preventInvalidChars(event) {
+                    var charCode = event.charCode || event.keyCode;
+                    var charStr = String.fromCharCode(charCode);
+
+                    // Prevent the '<' and '>' characters from being typed
+                    if (charStr === '<' || charStr === '>') {
+                        event.preventDefault();
+                    }
+                }
+        </script>
         </div>
 
     </form>

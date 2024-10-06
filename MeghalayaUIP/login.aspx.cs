@@ -117,9 +117,16 @@ namespace MeghalayaUIP
                 }
 
                 Session["UserInfo"] = null;
-                if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPswrd.Text) || string.IsNullOrEmpty(txtcaptcha.Text))
+                if (String.IsNullOrEmpty(txtUsername.Text.Trim()) || String.IsNullOrEmpty(txtPswrd.Text.Trim()) )
                 {
-                    lblmsg0.Text = "Please provide User Name and Password and Captcha";
+                    lblmsg0.Text = "Please provide User Name and Password";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
+                    Failure.Visible = true;
+                    FillCapctha();
+                }
+                else if(string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
+                {
+                    lblmsg0.Text = "Please Enter Captcha";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
                     FillCapctha();

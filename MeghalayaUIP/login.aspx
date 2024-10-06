@@ -51,98 +51,109 @@
             // Replace the password with encrypted value
         }
     </script>
-    <section class="about-us-section section-padding">
-        <div class="">
-            <div class="">
-                <table style="width: 100%">
-                    <tr>
-                        <td>
-                            <div id="success" runat="server" visible="false" class="alert alert-success m-0" align="Center">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong>
-                                <asp:Label ID="lblmsg" runat="server"></asp:Label>
+    <%--<script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type="password"]').on('copy paste cut', function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>--%>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
-                            </div>
-                            <div id="Failure" runat="server" visible="false" class="alert alert-danger m-0" align="Center">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
-                                <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div class="main-wrapper login-body">
-                    <div class="login-wrapper">
-                        <div class="container">
-                            <div class="loginbox">
-                                <div class="login-left">
-                                    <h2>Welcome Back!</h2>
-                                    <p>To keep connected with</p>
-                                    <h5>Invest Meghalaya Authority</h5>
-                                    <p>with your personal info</p>
-                                </div>
-                                <div class="login-right">
-                                    <div class="login-right-wrap">
-                                        <h1>User Login</h1>
-                                        <p class="account-subtitle">Access to our dashboard</p>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
+            <section class="about-us-section section-padding">
+                <div class="">
+                    <div class="">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <div id="success" runat="server" visible="false" class="alert alert-success m-0" align="Center">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong>
+                                        <asp:Label ID="lblmsg" runat="server"></asp:Label>
 
-                                        <!-- Form -->
-                                        <form action="admin/IndustryRegistration.aspx">
-                                            <div class="form-group">
-                                                <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email"></asp:TextBox>
-                                                <%-- <input class="form-control" type="text" placeholder="Email">--%>
-                                            </div>
-                                            <div class="form-group">
-                                                <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" placeholder="Password"></asp:TextBox>
-                                                <%-- <input class="form-control" type="text" placeholder="Password">--%>
-                                            </div>
-                                            <div class="col-md-12" style="display: flex;">
-                                                <div class="col-md-6" style="padding-left:10px">
-                                                    <div class="form-group" style="margin-left: -25px;">
-                                                        <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <asp:Image ID="imgCaptcha" runat="server" BackColor="BlueViolet" ForeColor="#0099ff" Height="40px" Width="100px" />
-                                                    </div>
-                                                    <div class="form-group" style="margin-left: 10px;">
-                                                        <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="40px" Width="40px" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="encryptData()" Text="Login" class="btn btn-primary btn-block" />
-                                                <%-- <button class="btn btn-primary btn-block" type="submit">Login</button>--%>
-                                            </div>
-                                        </form>
-                                        <!-- /Form -->
-
-                                        <div class="text-center forgotpass"><a href="forgot-password.aspx">Forgot Password?</a></div>
-                                        <div class="login-or">
-                                            <span class="or-line"></span>
-                                            <span class="span-or">or</span>
+                                    </div>
+                                    <div id="Failure" runat="server" visible="false" class="alert alert-danger m-0" align="Center">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
+                                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="main-wrapper login-body">
+                            <div class="login-wrapper">
+                                <div class="container">
+                                    <div class="loginbox">
+                                        <div class="login-left">
+                                            <h2>Welcome Back!</h2>
+                                            <p>To keep connected with</p>
+                                            <h5>Invest Meghalaya Authority</h5>
+                                            <p>with your personal info</p>
                                         </div>
+                                        <div class="login-right">
+                                            <div class="login-right-wrap">
+                                                <h1>User Login</h1>
+                                                <p class="account-subtitle">Access to our dashboard</p>
+
+                                                <!-- Form -->
+                                                <%-- <form action="admin/IndustryRegistration.aspx">--%>
+                                                <div class="form-group">
+                                                    <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
+                                                </div>
+                                                <div class="form-group">
+                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
+                                                </div>
+                                                <div class="col-md-12" style="display: flex;">
+                                                    <div class="col-md-5" style="padding-left: 10px">
+                                                        <div class="form-group" style="margin-left: -25px;">
+                                                            <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group">
+                                                            <asp:Image ID="imgCaptcha" runat="server" BackColor="#0066ff" ForeColor="#0099ff" draggable="false" Height="35px" Width="250px" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group" style="margin-left: 10px;">
+                                                            <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="35px" Width="40px" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="encryptData()" Text="Login" class="btn btn-primary btn-block" />
+                                                </div>
+                                                <%--</form>--%>
+                                                <!-- /Form -->
+
+                                                <div class="text-center forgotpass"><a href="forgot-password.aspx">Forgot Password?</a></div>
+                                                <div class="login-or">
+                                                    <span class="or-line"></span>
+                                                    <span class="span-or">or</span>
+                                                </div>
 
 
 
-                                        <div class="text-center dont-have">Don’t have an account? <a href="Registration.aspx">SignUp</a></div>
+                                                <div class="text-center dont-have">Don’t have an account? <a href="Registration.aspx">SignUp</a></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- end container -->
-    </section>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('input[type="password"]').on('copy paste cut', function (e) {
-                e.preventDefault();
-            });
-        });
-    </script>
+                <!-- end container -->
+            </section>
+            <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
 </asp:Content>

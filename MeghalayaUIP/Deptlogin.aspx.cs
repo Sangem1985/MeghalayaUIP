@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -26,6 +27,7 @@ namespace MeghalayaUIP
                 {
                     Killsession();
                     txtUsername.Focus();
+                    FillCapctha();
                 }
             }
             catch (Exception ex)
@@ -113,6 +115,21 @@ namespace MeghalayaUIP
                     lblmsg0.Text = "Please provide User Name and Password";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
+                    FillCapctha();
+                }
+                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
+                {
+                    lblmsg0.Text = "Please Enter Captcha";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
+                    Failure.Visible = true;
+                    FillCapctha();
+                }
+                else if (txtcaptcha.Text != Convert.ToString(ViewState["captcha"]))
+                {
+                    lblmsg0.Text = "Invalid Captcha.....!";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
+                    Failure.Visible = true; txtcaptcha.Text = "";
+                    FillCapctha();
                 }
                 else
                 {
@@ -140,9 +157,10 @@ namespace MeghalayaUIP
                         }
                         else
                         {
-                            lblmsg0.Text = "Invalid UserName or Password";
+                            lblmsg0.Text = "Invalid Credentials..";
                             txtPswrd.Text = "";
                             Failure.Visible = true;
+                            FillCapctha(); txtcaptcha.Text = "";
                         }
                     }
                     else
@@ -155,8 +173,9 @@ namespace MeghalayaUIP
             catch (SqlException ex)
             {
                 string errorMsg = ex.Message;
-                lblmsg0.Text = "Internal error has occured. Please try after some time " + errorMsg;
+                lblmsg0.Text = "Invalid Credentials..";
                 Failure.Visible = true;
+                FillCapctha(); txtcaptcha.Text = "";
             }
             catch (Exception ex)
             {
@@ -181,6 +200,31 @@ namespace MeghalayaUIP
             }
 
             return result;
+        }
+        void FillCapctha()
+        {
+            try
+            {
+                ViewState["captcha"] = "";
+
+                Random random = new Random();
+                string combination = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabdfghjkmnpqrstuvwxyz";
+                StringBuilder captcha = new StringBuilder();
+
+                for (int i = 0; i < 6; i++)
+                    captcha.Append(combination[random.Next(combination.Length)]);
+                ViewState["captcha"] = captcha.ToString();
+                imgCaptcha.ImageUrl = "~/CaptchaHandler.ashx?query=" + captcha.ToString();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        protected void btnRefresh_Click(object sender, ImageClickEventArgs e)
+        {
+            FillCapctha();
         }
     }
 }

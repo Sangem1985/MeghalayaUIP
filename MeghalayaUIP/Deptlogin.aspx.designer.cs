@@ -51,6 +51,33 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.TextBox txtPswrd;
 
         /// <summary>
+        /// txtcaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcaptcha;
+
+        /// <summary>
+        /// imgCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCaptcha;
+
+        /// <summary>
+        /// btnRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnRefresh;
+
+        /// <summary>
         /// btnLogint control.
         /// </summary>
         /// <remarks>
