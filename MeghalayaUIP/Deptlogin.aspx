@@ -87,7 +87,7 @@
                                                 <%--</form>--%>
 
 
-                                                <div class="text-center forgotpass"><a href="forgot-password.aspx">Forgot Password?</a></div>
+                                                <div class="text-center forgotpass"><a href="ForgotPassword.aspx">Forgot Password?</a></div>
                                                 <div class="login-or">
                                                     <span class="or-line"></span>
                                                 </div>

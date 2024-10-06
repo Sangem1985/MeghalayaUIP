@@ -600,7 +600,7 @@
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
-    <Content Include="forgot-password.aspx" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GrievanceMisReport.aspx" />
     <Content Include="GrievanceMisReportDrilldown.aspx" />
@@ -1138,12 +1138,12 @@
     <Compile Include="Faq.aspx.designer.cs">
       <DependentUpon>Faq.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forgot-password.aspx.cs">
-      <DependentUpon>forgot-password.aspx</DependentUpon>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forgot-password.aspx.designer.cs">
-      <DependentUpon>forgot-password.aspx</DependentUpon>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

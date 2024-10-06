@@ -7,10 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace MeghalayaUIP
 {
-    public partial class forgot_password
+
+
+    public partial class ForgotPassword
     {
     }
 }
