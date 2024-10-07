@@ -1,5 +1,4 @@
-﻿using iText.Kernel.Geom;
-using MeghalayaUIP.BAL.CommonBAL;
+﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
 using System;
@@ -10,8 +9,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Document = iTextSharp.text.Document;
-using PageSize = iTextSharp.text.PageSize;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using System.Text.RegularExpressions;
+
 
 namespace MeghalayaUIP.Dept.Reports
 {
@@ -60,7 +63,7 @@ namespace MeghalayaUIP.Dept.Reports
                 Failure.Visible = true;
                 throw ex;
             }
-          
+
         }
 
         protected void lbtnBack_Click(object sender, EventArgs e)
@@ -69,7 +72,7 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 Response.Redirect("~/Dept/Reports/ReportsAbstract.aspx");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;

@@ -4,10 +4,15 @@ using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text;
+using PageSize = iTextSharp.text.PageSize;
+using Document = iTextSharp.text.Document;
 
 namespace MeghalayaUIP.Dept.Reports
 {
@@ -17,6 +22,16 @@ namespace MeghalayaUIP.Dept.Reports
         MasterBAL mstrBAL = new MasterBAL();
         ReportBAL reportsBAL = new ReportBAL();
         int ApprovalsApplied, QueryRaised, BeforeDate, AfterDate, PreRejected, Paymentpending, ScrutinyCompleted, Before, After, DeptApproved, Rejected;
+
+        protected void btnExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            ExportToExcel();
+        }
+
+        protected void btnPdf_Click(object sender, ImageClickEventArgs e)
+        {
+            ExportGridToPDF();
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -274,6 +289,90 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+            }
+        }
+        protected void ExportToExcel()
+        {
+            try
+            {
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment;filename=REN Dept wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".xls");
+                Response.Charset = "";
+                Response.ContentType = "application/vnd.ms-excel";
+                using (StringWriter sw = new StringWriter())
+                {
+                    GVRENReport.Style["width"] = "680px";
+                    HtmlTextWriter hw = new HtmlTextWriter(sw);
+                    GVRENReport.RenderControl(hw);
+                    string headerTable = @"<table width='100%'  class='table-bordered mb-0 GRD'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + "</h4></td></td></tr></table>";
+                    HttpContext.Current.Response.Write(headerTable);
+                    Response.Output.Write(sw.ToString());
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+            catch (Exception e)
+            {
+                //throw e;
+            }
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
+        }
+        private void ExportGridToPDF()
+        {
+
+            try
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (StringWriter sw = new StringWriter())
+                    {
+                        using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                        {
+
+                            GVRENReport.AllowPaging = false;
+                            this.BindRENDeptReports(); 
+                            GVRENReport.HeaderRow.ForeColor = System.Drawing.Color.Black;
+                            GVRENReport.FooterRow.Visible = false;
+                            GVRENReport.RenderControl(hw);
+
+                            string htmlContent = sw.ToString();
+
+                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+
+
+                            //  PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+
+                            pdfDoc.Open();
+
+                            using (StringReader sr = new StringReader(htmlContent))
+                            {
+                                // XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                            }
+
+                            pdfDoc.Close();
+
+                            // Send the generated PDF to the client browser
+                            Response.ContentType = "application/pdf";
+                            Response.AddHeader("content-disposition", "attachment;filename=RENDeptWiseReport " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+
+                            // Write the PDF from memory stream to the Response OutputStream
+                            Response.OutputStream.Write(memoryStream.GetBuffer(), 0, memoryStream.GetBuffer().Length);
+                            Response.Flush();
+                            Response.End();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // Handle the error and provide feedback
             }
         }
     }
