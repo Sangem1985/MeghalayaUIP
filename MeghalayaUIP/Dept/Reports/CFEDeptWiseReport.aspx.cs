@@ -1,6 +1,5 @@
-﻿using iText.Kernel.Geom;
-using iText.Kernel.Pdf;
-using iTextSharp.tool.xml;
+﻿using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
@@ -9,15 +8,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using iTextSharp.text.html.simpleparser;
 using iTextSharp.text;
-using PageSize = iTextSharp.text.PageSize;
-using Document = iTextSharp.text.Document;
+using iTextSharp.tool.xml;
 
 
 namespace MeghalayaUIP.Dept.Reports
