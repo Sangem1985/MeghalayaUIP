@@ -33,17 +33,17 @@ namespace MeghalayaUIP
                 Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx");
             }
 
-            
-            //string expectedHost = "http://103.154.75.191/"; // Replace with your valid host        
-            //string actualHost = HttpContext.Current.Request.Headers["Host"];
-            //if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
-            ////if (!actualHost.Contains("localhost:44379"))
-            //{
-            //    // Reject the request or return an error response
-            //    Response.StatusCode = 400; // Bad Request
-            //    Response.Write("Invalid Host Header");
-            //    Response.End();
-            //}
+
+            string expectedHost = "http://103.154.75.191/"; // Replace with your valid host        
+            string actualHost = HttpContext.Current.Request.Headers["Host"];
+            if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
+            //if (!actualHost.Contains("localhost:44379"))
+            {
+                // Reject the request or return an error response
+                Response.StatusCode = 400; // Bad Request
+                Response.Write("Invalid Host Header");
+                Response.End();
+            }
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
