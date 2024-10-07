@@ -879,7 +879,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("", );
+              //  da.SelectCommand.Parameters.AddWithValue("", );
 
                 da.Fill(ds);
 
