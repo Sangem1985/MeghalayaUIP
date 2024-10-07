@@ -39,6 +39,6 @@ namespace MeghalayaUIP.Common
 
         public static string GetApplicationTracker = "USP_GETAPPLICATIONTRACKER";
         ////////-----------------CHANGE PASSWORD---------------//////
-        public static string GetUserChangePWD = "";
+        public static string GetUserChangePWD = "USP_GETVALIDUSERRESET";
     }
 }

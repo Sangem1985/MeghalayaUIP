@@ -118,6 +118,11 @@ namespace MeghalayaUIP.User
 
                     DataSet ds = new DataSet();
                     ds = objcomBal.GetUserPass(UserID, Password.ToString(), txtoldpassword.Text.Trim());
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        Newpassword = DecryptAES(txtnewpassword.Text, "1234567890123456", "1234567890123456");
+
+                    }
                 }
 
             }

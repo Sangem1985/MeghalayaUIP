@@ -78,7 +78,7 @@
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;"></td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
+                                                            <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha" Width="180px" Height="28px"></asp:TextBox>
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
                                                             <asp:Image ID="imgCaptcha" runat="server" BackColor="#0066ff" ForeColor="#0099ff" draggable="false" Height="35px" Width="100px" />

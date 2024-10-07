@@ -879,7 +879,25 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-              //  da.SelectCommand.Parameters.AddWithValue("", );
+                if (Username.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = Username.ToString();
+                }
+                if (Password.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@PASSWORD", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@PASSWORD", SqlDbType.VarChar).Value = Password.ToString();
+                }
+
+                da.SelectCommand.Parameters.Add("@PASSWORDDECRIPTY", SqlDbType.VarChar).Value = Decripty.ToString();
+
 
                 da.Fill(ds);
 
