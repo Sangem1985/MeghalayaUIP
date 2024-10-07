@@ -672,6 +672,7 @@
     <Content Include="User\CFO\CFOUserApplStatus.aspx" />
     <Content Include="User\CFO\CFOUserDashboard.aspx" />
     <Content Include="User\CFO\demo.aspx" />
+    <Content Include="User\ChangePassword.aspx" />
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
     <Content Include="User\Dashboard\CentralRepository.aspx" />
@@ -1648,6 +1649,13 @@
     </Compile>
     <Compile Include="User\CFO\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\DashboardDrill.aspx.cs">
       <DependentUpon>DashboardDrill.aspx</DependentUpon>

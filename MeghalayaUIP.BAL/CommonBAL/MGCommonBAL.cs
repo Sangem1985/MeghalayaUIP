@@ -92,7 +92,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetApplicationTracker(Applicationtype, Unitname, UId);
         }
-
+        public DataSet GetUserPass(string Username,string Password,string Decripty)
+        {
+            return objCommonDAL.GetUserPass(Username, Password, Decripty);
+        }
 
     }
 }
