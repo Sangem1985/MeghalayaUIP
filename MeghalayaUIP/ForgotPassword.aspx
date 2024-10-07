@@ -3,10 +3,42 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .main-wrapper.login-body {
+            width: 100%;
+        }
+
+        section.about-us-section.section-padding {
+            padding: 0px 0px 0px !important;
+        }
+
+        .login-body {
+            min-height: 70vh;
+            padding: 10px 0px;
+        }
+
+        .login-wrapper h1 {
+            font-family: "Poppins", sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 26px !important;
+        }
+
+        h1 {
+            font-weight: 500 !important;
+        }
+
+        .login-wrapper .loginbox .login-left {
+            padding: 60px !important;
+        }
+        footer.main-footer.style-two.style-four.home-5 {
+    margin-top: 0px !important;
+}
+    </style>
+    <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-    <link href="assets/css/login.css" rel="stylesheet" />
+    <%--<link href="assets/css/login.css" rel="stylesheet" />--%>
     <section class="about-us-section section-padding">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <table style="width: 100%">
                     <tr>
@@ -37,7 +69,7 @@
                                 <div class="login-right">
                                     <div class="login-right-wrap">
                                         <h1>Forgot Password?</h1>
-                                        <p class="account-subtitle">Enter your email to get a password reset link</p>
+                                        <p class="account-subtitle">Enter email to get a password reset link</p>
 
                                         <!-- Form -->
                                         <form action="admin/IndustryRegistration.aspx">
