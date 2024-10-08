@@ -12,7 +12,7 @@ namespace MeghalayaUIP
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            HttpContext.Current.Response.Headers.Remove("X-AspNet-Version");
         }
 
         protected void Session_Start(object sender, EventArgs e)
