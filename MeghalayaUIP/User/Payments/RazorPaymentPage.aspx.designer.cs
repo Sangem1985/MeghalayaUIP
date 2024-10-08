@@ -7,120 +7,129 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User.CFE
+namespace MeghalayaUIP.User.Payments
 {
 
 
-    public partial class CFEPaymentPage
+    public partial class RazorPaymentPage
     {
 
         /// <summary>
-        /// success control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblmsg control.
+        /// razorpay_payment_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden razorpay_payment_id;
 
         /// <summary>
-        /// Label1 control.
+        /// razorpay_order_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden razorpay_order_id;
 
         /// <summary>
-        /// Failure control.
+        /// razorpay_signature control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden razorpay_signature;
 
         /// <summary>
-        /// lblmsg0 control.
+        /// hdn_key_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg0;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_key_id;
 
         /// <summary>
-        /// hdnUserID control.
+        /// hdn_order_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_order_id;
 
         /// <summary>
-        /// hdnQuesID control.
+        /// hdn_amount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnQuesID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_amount;
 
         /// <summary>
-        /// hdnUIDNo control.
+        /// hdn_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUIDNo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_name;
 
         /// <summary>
-        /// hdnPaymentAmount control.
+        /// hdn_description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnPaymentAmount;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_description;
 
         /// <summary>
-        /// grdApprovals control.
+        /// hdn_email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdApprovals;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_email;
 
         /// <summary>
-        /// lblPaymentAmount control.
+        /// hdn_contact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPaymentAmount;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_contact;
 
         /// <summary>
-        /// btnPrevious control.
+        /// hdn_notes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrevious;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdn_notes;
+
+        /// <summary>
+        /// hdncallback_url control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdncallback_url;
 
         /// <summary>
         /// btnPay control.

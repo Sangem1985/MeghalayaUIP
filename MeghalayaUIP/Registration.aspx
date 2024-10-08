@@ -24,6 +24,22 @@
         }
     </style>
     <script src="assets/admin/js/crypto.js"></script>
+     <script type="text/javascript">
+         function encryptData() {
+             var passwordField = document.getElementById('<%= txtPswd.ClientID %>');
+             var key = CryptoJS.enc.Utf8.parse("1234567890123456");  // Use a secure key
+             var iv = CryptoJS.enc.Utf8.parse("1234567890123456");  // Initialization vector (IV)
+             // Encrypt the password using AES
+             var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(passwordField.value), key, {
+                 keySize: 128 / 8,
+                 iv: iv,
+                 mode: CryptoJS.mode.CBC,
+                 padding: CryptoJS.pad.Pkcs7
+             });
+             passwordField.value = encrypted.toString();
+             // Replace the password with encrypted value
+         }
+     </script>
     <script type="text/javascript">
         function hashPassword() {
             var passwordField = document.getElementById('<%= txtPswd.ClientID %>');
@@ -138,7 +154,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" MaxLength="12"
+                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" MaxLength="12" 
                                                         AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -161,7 +177,7 @@
                                                     <label>Captcha <span class="text-Danger">*</span></label>
                                                 </div>
                                             </div>--%>
-                                            <div class="col-md-4" style="display: flex; align-items: center;">
+                                            <div class="col-md-4" style="display: flex; align-items: center;margin-left: -20px;">
                                                 <div class="form-group" style="margin-bottom: 20px;">
                                                     <asp:Image ID="imgCaptcha" runat="server" draggable="false" />
                                                 </div>
@@ -177,7 +193,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-grup">
-                                                    <asp:Button runat="server" CssClass=" btn btn-primary" Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click"></asp:Button>
+                                                    <asp:Button runat="server" CssClass=" btn btn-primary" Text="Submit" ID="btnSubmit" OnClientClick="encryptData()" OnClick="btnSubmit_Click"></asp:Button>
 
                                                 </div>
                                             </div>

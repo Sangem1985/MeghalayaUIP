@@ -9,6 +9,9 @@ using MeghalayaUIP.DAL.CommonDAL;
 using MeghalayaUIP.DAL.CFEDAL;
 using System.Data;
 using MeghalayaUIP.DAL.PreRegDAL;
+using System.Net.Http;
+using iText.Layout.Borders;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace MeghalayaUIP.BAL.CFEBLL
 {
@@ -253,7 +256,24 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.UpdateCFEDepartmentProcess(Objcfedtls);
         }
+        public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID)
+        {
+            return objCFEDAL.GetUnitDetailsforPayment(UnitID, InvesterID);
+        }
+        public string InsertPaymentRequest(string UnitID, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
+            string Contact, string Notes,string IpAddress)
+        {
+            return objCFEDAL.InsertPaymentRequest(UnitID, InvestorId,Receiptorder,OrderId,PayAmount,Name,Desc,Mail,Contact,Notes, IpAddress);
+        }
+        public string UpdatePaymentResponse(string paymentId, string OrderId, string Signature, string IpAddress)
+        {
+            return objCFEDAL.UpdatePaymentResponse(paymentId, OrderId, Signature, IpAddress);
+        }
+        public string UpdatePaymentErrorResponse(string paymentId, string OrderId, string Signature, string IpAddress, string code, string description,
+            string source, string step, string reason)
+        {
+            return objCFEDAL.UpdatePaymentErrorResponse(paymentId, OrderId, Signature, IpAddress,code,description,source,step,reason);
+        }
 
-        
     }
 }
