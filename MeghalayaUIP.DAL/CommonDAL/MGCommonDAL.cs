@@ -863,9 +863,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
-        public DataSet GetUserPass(string Username, string Password, string Decripty)
+        public string GetUserPass(string Created, string Username, string Password, string Decripty, string IPAddress)
         {
-            DataSet ds = new DataSet();
+            string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
             connection.Open();
@@ -879,6 +879,8 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = Created.ToString();
                 if (Username.ToString() == "")
                 {
                     da.SelectCommand.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = DBNull.Value;
@@ -896,11 +898,16 @@ namespace MeghalayaUIP.DAL.CommonDAL
                     da.SelectCommand.Parameters.Add("@PASSWORD", SqlDbType.VarChar).Value = Password.ToString();
                 }
 
-                da.SelectCommand.Parameters.Add("@PASSWORDDECRIPTY", SqlDbType.VarChar).Value = Decripty.ToString();
+                da.SelectCommand.Parameters.Add("@ENCRYPTEDPASSWORD", SqlDbType.VarChar).Value = Decripty.ToString();
 
+                da.SelectCommand.Parameters.Add("@IPADDRESS", SqlDbType.VarChar).Value = IPAddress.ToString();
 
-                da.Fill(ds);
+                // da.Fill(ds);
+                da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                da.SelectCommand.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                da.SelectCommand.ExecuteNonQuery();
 
+                Result = da.SelectCommand.Parameters["@RESULT"].Value.ToString();
                 transaction.Commit();
                 connection.Close();
             }
@@ -914,7 +921,67 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Close();
                 connection.Dispose();
             }
-            return ds;
+            return Result;
+        }
+        public string GetDeptChangePassword(string Created, string Username, string Password, string Decripty, string IPAddress)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetDeptChangePassword, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetDeptChangePassword;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.Add("@USERID", SqlDbType.VarChar).Value = Created.ToString();
+                if (Username.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@USERNAME", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@USERNAME", SqlDbType.VarChar).Value = Username.ToString();
+                }
+                if (Password.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@USERPWD", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@USERPWD", SqlDbType.VarChar).Value = Password.ToString();
+                }
+
+                da.SelectCommand.Parameters.Add("@ENCRYPTEDPASSWORD", SqlDbType.VarChar).Value = Decripty.ToString();
+
+                da.SelectCommand.Parameters.Add("@IPADDRESS", SqlDbType.VarChar).Value = IPAddress.ToString();
+
+                // da.Fill(ds);
+                da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                da.SelectCommand.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                da.SelectCommand.ExecuteNonQuery();
+
+                Result = da.SelectCommand.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
 
 

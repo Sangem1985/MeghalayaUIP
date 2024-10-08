@@ -563,6 +563,7 @@
     <Content Include="Dept\CFO\CFODeptDashboard.aspx" />
     <Content Include="Dept\CFO\demo.aspx" />
     <Content Include="Dept\Dashboard\ApplicationTracker.aspx" />
+    <Content Include="Dept\Dashboard\DeptChangePassword.aspx" />
     <Content Include="Dept\Dashboard\DeptDashboard.aspx" />
     <Content Include="Dept\Demo.aspx" />
     <Content Include="Dept\DeptDashboard.aspx" />
@@ -868,6 +869,13 @@
     </Compile>
     <Compile Include="Dept\Dashboard\ApplicationTracker.aspx.designer.cs">
       <DependentUpon>ApplicationTracker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Dashboard\DeptChangePassword.aspx.cs">
+      <DependentUpon>DeptChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Dashboard\DeptChangePassword.aspx.designer.cs">
+      <DependentUpon>DeptChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Dashboard\DeptDashboard.aspx.cs">
       <DependentUpon>DeptDashboard.aspx</DependentUpon>

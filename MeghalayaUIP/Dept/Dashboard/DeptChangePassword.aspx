@@ -1,15 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="MeghalayaUIP.User.ChangePassword" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="DeptChangePassword.aspx.cs" Inherits="MeghalayaUIP.Dept.Dashboard.DeptChangePassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
             <div class="page-wrapper">
                 <div class="content container-fluid">
                     <div class="card-header d-flex justify-content-between">
-                        <h4 class="card-title mt-1"><b>Change Password</b></h4>
+                        <h4 class="card-title mt-1"><b>Department Change Password</b></h4>
                         <div class="col-md-1">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
@@ -37,7 +36,7 @@
 
                             <div align="center">
                                 <div class="row" align="center">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-10">
                                         <div class="panel panel-primary">
                                             <div class="panel-body">
                                                 <table style="vertical-align: top;margin-left: 12%;" cellpadding="5" cellspacing="10"
@@ -80,17 +79,17 @@
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
                                                             <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha" Width="180px" Height="28px"></asp:TextBox>
                                                         </td>
-                                                        <td style="padding: 5px; margin: 5px; text-align: left;">
+                                                        <td style="padding: 5px; margin: 5px; text-align: left; width:120px" >
                                                             <asp:Image ID="imgCaptcha" runat="server" BackColor="#0066ff" ForeColor="#0099ff" draggable="false" Height="35px" Width="100px" />
                                                         </td>
-                                                        <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:ImageButton ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" AlternateText="Refresh" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="35px" Width="40px" />
+                                                        <td style="padding: 5px; margin: 5px; text-align: left; width:50px">
+                                                            <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="35px" Width="40px" />
                                                         </td>
 
                                                     </tr>
 
                                                     <tr>
-                                                        <td colspan="3" align="right" style="height: 25px"></td>
+                                                        <td colspan="2" align="right" style="height: 25px"></td>
 
 
                                                     </tr>

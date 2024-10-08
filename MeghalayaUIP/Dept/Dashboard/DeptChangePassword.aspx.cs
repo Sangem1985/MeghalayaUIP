@@ -3,58 +3,49 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MeghalayaUIP.User
+namespace MeghalayaUIP.Dept.Dashboard
 {
-    public partial class ChangePassword : System.Web.UI.Page
+    public partial class DeptChangePassword : System.Web.UI.Page
     {
         readonly LoginBAL objloginBAL = new LoginBAL();
         MGCommonBAL objcomBal = new MGCommonBAL();
+        DeptUserInfo ObjUserInfo = new DeptUserInfo();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                if (Session["UserInfo"] != null)
+                if (Session["DeptUserInfo"] != null)
                 {
-                    var ObjUserInfo = new UserInfo();
-                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
-                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                       
                     }
                     if (hdnUserID.Value == "")
                     {
-                        hdnUserID.Value = ObjUserInfo.Userid;
-                    }
-                    else
-                    {
-                        //string newurl = "~/login.aspx";
-                        //Response.Redirect(newurl);
+                        hdnUserID.Value = ObjUserInfo.UserID;
                     }
 
-                    Page.MaintainScrollPositionOnPostBack = true;
-                    Failure.Visible = false;
-                    success.Visible = false;
                     if (!IsPostBack)
                     {
                         FillCapctha();
                     }
+
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-
         }
 
         protected void btnRefresh_Click(object sender, ImageClickEventArgs e)
@@ -87,7 +78,7 @@ namespace MeghalayaUIP.User
         {
             try
             {
-                String UserID = "", result = "";
+                String User = "", result = "";
                 if (ViewState["captcha"].ToString() != txtcaptcha.Text.Trim().TrimStart())
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Captcha Code !!.');", true);
@@ -109,30 +100,12 @@ namespace MeghalayaUIP.User
                 }
                 if (string.IsNullOrEmpty(txtnewpassword.Text) || string.IsNullOrEmpty(txtconfirmpassword.Text))
                 {
-                    lblmsg0.Text = "Please Enter New Password And Confirm Password...!";                   
+                    lblmsg0.Text = "Please Enter New Password And Confirm Password...!";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
-                    success.Visible = false;                  
+                    success.Visible = false;
                     FillCapctha();
                 }
-                //if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
-                //{
-                //    lblmsg.Text = "New Password & Confirm Password Doesn't Matched....!";
-                //    FillCapctha();                   
-                //    string message = "alert('" + lblmsg.Text + "')";
-                //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                //    success.Visible = false;
-                //    Failure.Visible = true;
-                //}
-                //else
-                //{
-                //    lblmsg.Text = "New Password & Confirm Password Matched....!";                   
-                //    string message = "alert('" + lblmsg.Text + "')";
-                //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                //    success.Visible = true;
-                //    Failure.Visible = false;
-                //}
-
 
                 if (BtnSave3.Text == "Submit")
                 {
@@ -154,15 +127,12 @@ namespace MeghalayaUIP.User
                         return;
                     }
 
-                    UserID = txtusername.Text;
-
-
+                    User = txtusername.Text;
                     UserInfo ObjUserInfo;
-                    ObjUserInfo = objloginBAL.GetUserInfo(UserID, txtoldpassword.Text.Trim(), getclientIP());
-                    // ds = objcomBal.GetUserPass(UserID, Password.ToString(), txtoldpassword.Text.Trim());
+                    ObjUserInfo = objloginBAL.GetUserInfo(User, txtoldpassword.Text.Trim(), getclientIP());                   
                     if (ObjUserInfo != null && ObjUserInfo.Userid != null)
                     {
-                        result = objcomBal.GetUserPass(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
+                        result = objcomBal.GetDeptChangePassword(hdnUserID.Value, User, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
                         if (result != "")
                         {
                             lblmsg.Text = "Password Successfully Changed And Login With New Password..!";
@@ -188,36 +158,11 @@ namespace MeghalayaUIP.User
                 }
 
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        public static string DecryptAES(string encryptedText, string keyString, string ivString)
-        {
-            byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
-            byte[] keyBytes = Encoding.UTF8.GetBytes(keyString);
-            byte[] ivBytes = Encoding.UTF8.GetBytes(ivString);
-
-            using (Aes aes = Aes.Create())
-            {
-                aes.Key = keyBytes;
-                aes.IV = ivBytes;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-
-                using (var memoryStream = new MemoryStream(cipherTextBytes))
-                {
-                    using (var cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Read))
-                    {
-                        using (var reader = new StreamReader(cryptoStream))
-                        {
-                            return reader.ReadToEnd();
-                        }
-                    }
-                }
             }
         }
         public static string getclientIP()
@@ -242,11 +187,13 @@ namespace MeghalayaUIP.User
         {
             try
             {
-                Response.Redirect("~/User/ChangePassword.aspx");
+                Response.Redirect("~/Dept/Dashboard/DeptChangePassword");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

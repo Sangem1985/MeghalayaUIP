@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User
+namespace MeghalayaUIP.Dept.Dashboard
 {
 
 
-    public partial class ChangePassword
+    public partial class DeptChangePassword
     {
 
         /// <summary>
