@@ -145,8 +145,8 @@ namespace MeghalayaUIP
                     Failure.Visible = false;
                     string UserID = "", Password = "";
                     UserID = txtUsername.Text;
-                    // Password = txtPswrd.Text;
-                    Password = DecryptAES(txtPswrd.Text, "1234567890123456", "1234567890123456");
+                     Password = txtPswrd.Text;
+                    string PasswordText = DecryptAES(txtPswrd.Text, "1234567890123456", "1234567890123456");
                     bool CaptchaResult = false;
                     string CErrormsg = "";
                     //CaptchaResult = ValidateCaptcha(out CErrormsg);
