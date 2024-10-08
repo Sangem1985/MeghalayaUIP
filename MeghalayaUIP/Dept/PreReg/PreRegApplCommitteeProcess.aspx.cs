@@ -226,8 +226,9 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void linkAttachment_Click(object sender, EventArgs e)
