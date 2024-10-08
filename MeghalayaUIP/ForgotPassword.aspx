@@ -95,7 +95,7 @@
                                             </div>
 
                                             <div class="form-group mb-0">
-                                                <asp:Button ID="btnForget" runat="server" Text="Reset Password" class="btn btn-primary btn-block" OnClick="btnForget_Click" />
+                                                <asp:Button ID="btnForget" runat="server" Text="Send Link" class="btn btn-primary btn-block" OnClick="btnForget_Click" />
                                                 <%--<button class="btn btn-primary btn-block" type="submit">Reset Password</button>--%>
                                             </div>
 
