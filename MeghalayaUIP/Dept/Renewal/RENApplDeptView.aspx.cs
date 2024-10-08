@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.RenewalBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,17 +34,28 @@ namespace MeghalayaUIP.Dept.Renewal
         }
         public void Bind()
         {
-            DataTable dt = new DataTable();
-            ObjREN.ViewStatus = Request.QueryString["status"].ToString();
-            if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+            try
             {
-                ObjREN.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                DataTable dt = new DataTable();
+                ObjREN.ViewStatus = Request.QueryString["status"].ToString();
+                if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                {
+                    ObjREN.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                }
+                ObjREN.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                ObjREN.UserID = ObjUserInfo.UserID;
+                dt = objRenbal.GetRENDashBoardView(ObjREN);
+                gvCFEDtls.DataSource = dt;
+                gvCFEDtls.DataBind();
             }
-            ObjREN.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-            ObjREN.UserID = ObjUserInfo.UserID;
-            dt = objRenbal.GetRENDashBoardView(ObjREN);
-            gvCFEDtls.DataSource = dt;
-            gvCFEDtls.DataBind();
+            catch(Exception ex)
+            {
+
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+          
         }
         protected void gvCFEDtls_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -80,7 +92,10 @@ namespace MeghalayaUIP.Dept.Renewal
             }
             catch (Exception ex)
             {
-                throw ex;
+
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

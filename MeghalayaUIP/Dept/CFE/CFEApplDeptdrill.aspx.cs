@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.Common;
-
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.CFE
 {
@@ -34,6 +34,10 @@ namespace MeghalayaUIP.Dept.CFE
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                             BindApplStatus();
                         }
+                        if (hdnUserID.Value == "")
+                        {
+                            hdnUserID.Value = ObjUserInfo.UserID;
+                        }
                         // username = ObjUserInfo.UserName;
                     }
                     else
@@ -44,7 +48,9 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -100,7 +106,11 @@ namespace MeghalayaUIP.Dept.CFE
                 lblOFFLINEPENDINGBEYOND.Text = dt.Rows[0]["OFFLINEPENDINGBEYOND"].ToString();
             }
             catch (Exception ex)
-            { }
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -193,7 +203,11 @@ namespace MeghalayaUIP.Dept.CFE
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         protected void lbtnBack_Click(object sender, EventArgs e)
         {
@@ -203,7 +217,9 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

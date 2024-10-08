@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,8 +48,8 @@ namespace MeghalayaUIP.Dept.Grievance
             catch (Exception ex)
             {
                 lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                throw ex;
+                Failure.Visible = true;                
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -85,7 +86,9 @@ namespace MeghalayaUIP.Dept.Grievance
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -112,7 +115,9 @@ namespace MeghalayaUIP.Dept.Grievance
             }
             catch (Exception ex)
             {
-
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

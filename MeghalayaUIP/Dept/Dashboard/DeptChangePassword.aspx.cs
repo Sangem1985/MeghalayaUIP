@@ -68,9 +68,11 @@ namespace MeghalayaUIP.Dept.Dashboard
                 ViewState["captcha"] = captcha.ToString();
                 imgCaptcha.ImageUrl = "~/CaptchaHandler.ashx?query=" + captcha.ToString();
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

@@ -69,6 +69,15 @@ namespace MeghalayaUIP.Dept.Renewal
         protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
+        /// hdnUserID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+
+        /// <summary>
         /// lblnameUnit control.
         /// </summary>
         /// <remarks>

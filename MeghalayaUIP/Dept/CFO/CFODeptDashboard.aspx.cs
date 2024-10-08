@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -83,7 +84,9 @@ namespace MeghalayaUIP.Dept.CFO
             }
             catch (Exception ex)
             {
-
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void lbtnBack_Click(object sender, EventArgs e)
@@ -96,7 +99,9 @@ namespace MeghalayaUIP.Dept.CFO
             }
             catch (Exception ex)
             {
-
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

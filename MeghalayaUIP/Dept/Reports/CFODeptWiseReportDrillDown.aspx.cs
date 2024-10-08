@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,9 +48,9 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";               
                 Failure.Visible = true;
-                throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
            
         }
@@ -89,7 +90,9 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void lbtnBack_Click(object sender, EventArgs e)
@@ -102,6 +105,7 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

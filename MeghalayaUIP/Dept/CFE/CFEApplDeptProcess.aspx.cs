@@ -38,6 +38,10 @@ namespace MeghalayaUIP.Dept.CFE
                         {
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                         }
+                        if (hdnUserID.Value == "")
+                        {
+                            hdnUserID.Value = ObjUserInfo.UserID;
+                        }
                         // username = ObjUserInfo.UserName;
                     }
                     BindCFEApplicatinDetails();
@@ -47,6 +51,7 @@ namespace MeghalayaUIP.Dept.CFE
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindCFEApplicatinDetails()
@@ -803,7 +808,9 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -871,6 +878,7 @@ namespace MeghalayaUIP.Dept.CFE
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -1076,6 +1084,7 @@ namespace MeghalayaUIP.Dept.CFE
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnQuery_Click(object sender, EventArgs e)
@@ -1240,8 +1249,9 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations(FileUpload Attachment)
@@ -1302,7 +1312,11 @@ namespace MeghalayaUIP.Dept.CFE
                 btnApprove_Click(sender, e);
             }
             catch (Exception ex)
-            { }
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         public static bool ValidateFileExtension(FileUpload Attachment)
@@ -1329,8 +1343,9 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
                 //throw ex;
             }
         }
@@ -1405,8 +1420,9 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

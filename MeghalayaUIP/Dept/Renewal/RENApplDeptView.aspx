@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="RENApplDeptView.aspx.cs" Inherits="MeghalayaUIP.Dept.Renewal.RENApplDeptView" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="../../Dept/Renewal/RENDeptDashboard.aspx">Renewal</a></li>
@@ -11,8 +12,26 @@
     </nav>
     <div class="page-wrapper" style="">
         <div class="content container-fluid">
-             <div class="card-header d-flex justify-content-between">
-               <h4 class="card-title mt-1"><b>View Pre Establishment Applications</b></h4>
+            <div class="col-md-12 ">
+                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                    <asp:Label ID="Label2" runat="server"></asp:Label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                    <strong>Warning!</strong>
+                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            </div>
+            <asp:HiddenField ID="hdnUserID" runat="server" />
+            <div class="card-header d-flex justify-content-between">
+                <h4 class="card-title mt-1"><b>View Pre Establishment Applications</b></h4>
                 <div class="col-md-1">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
@@ -36,7 +55,7 @@
                             <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
                             <asp:BoundField HeaderText="Unit ID" DataField="RENID_RENQDID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
                             <asp:BoundField HeaderText="Invester ID" DataField="INVESTERID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
-                            <asp:BoundField HeaderText="ID" DataField="RENDA_RENUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center"  ItemStyle-ForeColor="WindowText" />
+                            <asp:BoundField HeaderText="ID" DataField="RENDA_RENUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Unit ID" DataField="RENID_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
                             <asp:BoundField HeaderText="Unit Name" DataField="RENID_NAMEOFUNIT" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />

@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.CFE
 {
@@ -34,17 +35,27 @@ namespace MeghalayaUIP.Dept.CFE
         }
         public void Bind()
         {
-            DataTable dt = new DataTable();
-            objcfedtls.ViewStatus = Request.QueryString["status"].ToString();
-            if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+            try
             {
-                objcfedtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                DataTable dt = new DataTable();
+                objcfedtls.ViewStatus = Request.QueryString["status"].ToString();
+                if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                {
+                    objcfedtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                }
+                objcfedtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                objcfedtls.UserID = ObjUserInfo.UserID;
+                dt = CfeBAL.GetCFEDashBoardView(objcfedtls);
+                gvCFEDtls.DataSource = dt;
+                gvCFEDtls.DataBind();
             }
-            objcfedtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-            objcfedtls.UserID = ObjUserInfo.UserID;
-            dt = CfeBAL.GetCFEDashBoardView(objcfedtls);
-            gvCFEDtls.DataSource = dt;
-            gvCFEDtls.DataBind();
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+          
         }
 
         protected void gvCFEDtls_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -83,7 +94,9 @@ namespace MeghalayaUIP.Dept.CFE
             }
             catch (Exception ex)
             {
-                
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

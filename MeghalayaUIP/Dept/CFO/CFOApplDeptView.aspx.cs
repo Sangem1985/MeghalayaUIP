@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,17 +34,27 @@ namespace MeghalayaUIP.Dept.CFO
         }
         public void Bind()
         {
-            DataTable dt = new DataTable();
-            objcfodtls.ViewStatus = Request.QueryString["status"].ToString();
-            if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+            try
             {
-                objcfodtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                DataTable dt = new DataTable();
+                objcfodtls.ViewStatus = Request.QueryString["status"].ToString();
+                if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                {
+                    objcfodtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                }
+                objcfodtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                objcfodtls.UserID = ObjUserInfo.UserID;
+                dt = CfoBAL.GetCFODashBoardView(objcfodtls);
+                gvCFODtls.DataSource = dt;
+                gvCFODtls.DataBind();
             }
-            objcfodtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-            objcfodtls.UserID = ObjUserInfo.UserID;
-            dt = CfoBAL.GetCFODashBoardView(objcfodtls);
-            gvCFODtls.DataSource = dt;
-            gvCFODtls.DataBind();
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+          
         }
         protected void gvCFODtls_RowCommand(object sender, GridViewCommandEventArgs e)
         {
