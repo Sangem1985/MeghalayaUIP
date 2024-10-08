@@ -48,7 +48,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFEWaterDetails = "USP_GETCFEWATERDETAILS";
 
         public static string GetCFEApprovalsAmounttoPay = "USP_GETCFEAPPROVALSAMOUNTTOPAY";
-        public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS";
+        public static string InsertPaymentDetails = "USP_INSCFEPAYMENTDETAILS_BKP";
         public static string InsertCFEAttachments = "USP_INSCFEATTACHMENTS";
         public static string GetCFEAttachments = "USP_GETCFEATTACHMENTS";
 
@@ -81,6 +81,9 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEPCBHAZARDOUSDETAILS = "USP_INSCFEHAZWASTEDETAILS";
         public static string GetCFEHazardousDetails = "USP_GETCFEHAZWASTEDETAILS";
         public static string GetCFEQueryDashBoard = "USP_GETCFEQUERYRAISEDDEPT";
+        public static string InsertPaymentRequest = "USP_INS_PAYMENT_REQUEST";
+        public static string UpdatePaymentResponse = "USP_UPD_PAYMENT_RESPONSE";
+        public static string UpdatePaymentErrorResponse = "USP_UPD_PAYMENT_ERROR_RESPONSE";
 
         /// <summary>
         /// DEPARTMENT STARTED
@@ -90,6 +93,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFEDashBoardView = "USP_CFEDASHBOARDVIEW";
         public static string GetCFEApplicationDet = "USP_GETCFEAPPLICATIONDETAILS";
         public static string UpdateCFEDepartmentProcess = "USP_UPDATECFESCRUTINYACTION";
+        public static string GetUnitDetailsforPayment = "USP_GET_UNIT_DTLS_PAYMENTPAGE";
         ///END///
 
     }
