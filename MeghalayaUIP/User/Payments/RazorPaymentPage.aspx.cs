@@ -59,6 +59,7 @@ namespace MeghalayaUIP.User.Payments
                                 Receipt = Request.QueryString["receipt"].ToString();
                             }
                             Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
+
                             string UnitID = Convert.ToString(Session["CFEUNITID"]);
 
 
