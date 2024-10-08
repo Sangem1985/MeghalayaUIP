@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MeghalayaUIP.DAL;
 using MeghalayaUIP.DAL.CommonDAL;
 using MeghalayaUIP.Common;
+using System.Data;
 
 namespace MeghalayaUIP.BAL.CommonBAL
 {
@@ -29,6 +30,11 @@ namespace MeghalayaUIP.BAL.CommonBAL
         //{
         //    return objLoginDAL.GetUserOptions(roleID, userId);
         //}
+        public DataSet ForgetPassword(string EmailId)
+        {
+            return objLoginDAL.ForgetPassword(EmailId);
+        }
+
     }
 
     public class UserRegBAL

@@ -863,6 +863,59 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
+        public DataSet GetUserPass(string Username, string Password, string Decripty)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetUserChangePWD, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetUserChangePWD;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                if (Username.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = Username.ToString();
+                }
+                if (Password.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@PASSWORD", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@PASSWORD", SqlDbType.VarChar).Value = Password.ToString();
+                }
+
+                da.SelectCommand.Parameters.Add("@PASSWORDDECRIPTY", SqlDbType.VarChar).Value = Decripty.ToString();
+
+
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
 
 
     }

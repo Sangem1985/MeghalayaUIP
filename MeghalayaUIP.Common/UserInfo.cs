@@ -13,6 +13,7 @@ namespace MeghalayaUIP.Common
         public static string UserLogHistory = "USP_INS_LOGININFO_HISTORY";
         public static string UserOptions = "GetURLOptions";
         public static string ValidateMasterUser = "USP_VALIDATE_MASTERUSERS";
+        public static string ForgetPassDetails = "USP_GETFORGETPASSWORD";
     }
     public class UserRegDetails
     {
