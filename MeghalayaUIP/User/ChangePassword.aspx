@@ -40,8 +40,8 @@
                                     <div class="col-lg-12">
                                         <div class="panel panel-primary">
                                             <div class="panel-body">
-                                                <table style="vertical-align: top; text-align: center;" cellpadding="5" cellspacing="10"
-                                                    width="50%">
+                                                <table style="vertical-align: top;margin-left: 12%;" cellpadding="5" cellspacing="10"
+                                                     width="50%">
 
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">User Name</td>
@@ -62,21 +62,21 @@
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">New Password</td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox ID="txtnewpassword" runat="server" class="form-control txtbox" Width="180px"
-                                                                Height="28px" MaxLength="200" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtnewpassword" runat="server" class="form-control txtbox" Width="180px" MinLength="8" MaxLength="12" OnTextChanged="txtnewpassword_TextChanged"
+                                                                Height="28px" TabIndex="1" AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">Confirm Password</td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox ID="txtconfirmpassword" runat="server" class="form-control txtbox" Width="180px"
-                                                                Height="28px" MaxLength="200" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtconfirmpassword" runat="server" class="form-control txtbox" Width="180px" MinLength="8" MaxLength="12"
+                                                                Height="28px" TabIndex="1"></asp:TextBox>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td style="padding: 5px; margin: 5px; text-align: left;"></td>
+                                                        <td style="padding: 5px; margin: 5px; text-align: left;">Enter Captcha</td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
                                                             <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha" Width="180px" Height="28px"></asp:TextBox>
                                                         </td>
@@ -94,7 +94,7 @@
 
 
                                                     </tr>
-                                                    <tr>
+                                                    <tr id="trsubmittion" runat="server">
                                                         <td colspan="3" align="center" style="text-align: center;">
 
 
@@ -103,7 +103,7 @@
                                                                 Width="116px" />
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                                                             <asp:Button ID="BTNcLEAR" runat="server" CssClass="btn btn-xs btn-warning"
-                                                                                Height="40px" Text="Clear"
+                                                                                Height="40px" Text="Clear" OnClick="BTNcLEAR_Click"
                                                                                 Width="82px" />
                                                         </td>
 

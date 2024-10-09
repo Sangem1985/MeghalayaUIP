@@ -261,7 +261,7 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <%-- <asp:TextBox ID="txtDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
-                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" />
+                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" TabIndex="1" MaxLength="10" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>

@@ -9,6 +9,24 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+                            <div class="col-md-12 ">
+                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                    <asp:Label ID="Label2" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span></button>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                    <strong>Warning!</strong>
+                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <asp:HiddenField ID="HiddenField1" runat="server" />
                             <div class="card-header">
 
                                 <div class="col-md-12 d-flex">
@@ -16,7 +34,7 @@
                                         <h4 class="card-title">Industry Registration: Query DashBoard</h4>
                                     </div>
                                     <div class="col-md-1">
-                                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click"  CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                                     </div>
                                 </div>
                                 <%-- <p style="position: absolute; right: 10px; top: 6px; color: red;">

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="RENDeptDashboard.aspx.cs" Inherits="MeghalayaUIP.Dept.Renewal.RENDeptDashboard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
+    <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
@@ -13,6 +14,24 @@
     <div class="page-wrapper deptcfeodeptdashboard">
         <div class="content container-fluid">
             <div class="col-md-12 d-flex">
+                <div class="col-md-12 ">
+                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        <asp:Label ID="Label2" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                        <strong>Warning!</strong>
+                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+                <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="col-md-11">
                     <h4 style="margin-left: -10px; padding-top: 20px">Renewal Applications :</h4>
                 </div>
@@ -21,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="card" id="divScrutiny" runat="server" >
+            <div class="card" id="divScrutiny" runat="server">
                 <div class="card-header">
                     <h3>Pre-Scrutiny Stage</h3>
                 </div>

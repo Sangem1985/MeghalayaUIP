@@ -15,6 +15,23 @@
                     </nav>
                     <h3>Renewal Services</h3>
                 </div>
+                <div class="col-md-12">
+                    <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                        <asp:Label ID="Label1" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                        <strong>Warning!</strong>
+                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
                 <asp:HiddenField ID="hdnUserID" runat="server" />
             </div>
             <div class="col-md-12 d-flex" id="divGrid" runat="server" visible="true" style="margin-top: 25px;">
@@ -34,7 +51,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Select" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="chkApproval"  Checked='<%# Eval("IsApplied").ToString() == "1" ? true : false %>' runat="server" />
+                                    <asp:CheckBox ID="chkApproval" Checked='<%# Eval("IsApplied").ToString() == "1" ? true : false %>' runat="server" />
                                 </ItemTemplate>
                                 <ItemStyle Width="5%" />
                             </asp:TemplateField>

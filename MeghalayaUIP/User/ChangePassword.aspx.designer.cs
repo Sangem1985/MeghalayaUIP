@@ -150,6 +150,15 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.ImageButton btnRefresh;
 
         /// <summary>
+        /// trsubmittion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trsubmittion;
+
+        /// <summary>
         /// BtnSave3 control.
         /// </summary>
         /// <remarks>

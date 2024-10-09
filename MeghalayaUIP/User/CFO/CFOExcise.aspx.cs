@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -22,215 +23,235 @@ namespace MeghalayaUIP.User.CFO
         string UnitID, Errormsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                if (Session["UserInfo"] != null)
+                if (!IsPostBack)
                 {
-                    var ObjUserInfo = new UserInfo();
-                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    if (Session["UserInfo"] != null)
                     {
-                        ObjUserInfo = (UserInfo)Session["UserInfo"];
-                    }
-                    if (hdnUserID.Value == "")
-                    {
-                        hdnUserID.Value = ObjUserInfo.Userid;
-                    }
-
-                    if (Convert.ToString(Session["CFOUNITID"]) != "")
-                    {
-                        UnitID = Convert.ToString(Session["CFOUNITID"]);
-                    }
-                    else
-                    {
-                        string newurl = "~/User/CFO/CFOUserDashboard.aspx";
-                        Response.Redirect(newurl);
-                    }
-
-                    Page.MaintainScrollPositionOnPostBack = true;
-                    Failure.Visible = false;
-                    success.Visible = false;
-                    if (!IsPostBack)
-                    {
-                        DataSet dsnew = new DataSet();
-                        dsnew = bal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "7");
-                        if (dsnew.Tables[0].Rows.Count > 0)
+                        var ObjUserInfo = new UserInfo();
+                        if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                         {
-                            for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
-                            {
-                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "45")
-                                {
-                                    div_45_AplicntDtls.Visible = true;
-                                }
-                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "47")
-                                {
-                                    div_47_BLR.Visible = true;
-                                }
-                            }
+                            ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        }
+                        if (hdnUserID.Value == "")
+                        {
+                            hdnUserID.Value = ObjUserInfo.Userid;
+                        }
+
+                        if (Convert.ToString(Session["CFOUNITID"]) != "")
+                        {
+                            UnitID = Convert.ToString(Session["CFOUNITID"]);
                         }
                         else
                         {
-                            if (Request.QueryString[0].ToString() == "N")
+                            string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                            Response.Redirect(newurl);
+                        }
+
+                        Page.MaintainScrollPositionOnPostBack = true;
+                        Failure.Visible = false;
+                        success.Visible = false;
+                        if (!IsPostBack)
+                        {
+                            DataSet dsnew = new DataSet();
+                            dsnew = bal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "7");
+                            if (dsnew.Tables[0].Rows.Count > 0)
                             {
-                                Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                                for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                                {
+                                    if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "45")
+                                    {
+                                        div_45_AplicntDtls.Visible = true;
+                                    }
+                                    if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "47")
+                                    {
+                                        div_47_BLR.Visible = true;
+                                    }
+                                }
                             }
                             else
                             {
-                                Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
+                                if (Request.QueryString[0].ToString() == "N")
+                                {
+                                    Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
+                                }
                             }
+                            BindCountry();
                         }
-                        BindCountry();
                     }
-                }
-                //BindDetails(UnitId, Quesstionriids);
+                    //BindDetails(UnitId, Quesstionriids);
 
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindDetails(int unitid, int qid)
         {
-            CFOExciseDetails cFOExciseDetails = bal.GetCFOExciseData(unitid, qid);
-            List<CFOExciseBrandDetails> brandDetailsList = cFOExciseDetails.brandgridlist;
-            List<CFOExciseLiquorDetails> liquorDetailsList = cFOExciseDetails.liquorgridlist;
-            ViewState["BrandDetails"] = brandDetailsList;
-            ViewState["LiquorDetails"] = liquorDetailsList;
-            // Bind brand details list to gvBrandDetails
-            gvBrandDetails.DataSource = brandDetailsList;
-            gvBrandDetails.DataBind();
-
-            // Bind liquor details list to GvLiquor
-            GvLiquor.DataSource = liquorDetailsList;
-            GvLiquor.DataBind();
-
-            // Bind values to RadioButtonList controls
-            rblArtical5.SelectedValue = cFOExciseDetails.Artical5Selection;
-            rblapplicant.SelectedValue = cFOExciseDetails.ApplicantSelection;
-            rblMember.SelectedValue = cFOExciseDetails.MemberSelection;
-            rblTax.SelectedValue = cFOExciseDetails.TaxSelection;
-            rblsaletax.SelectedValue = cFOExciseDetails.SaleTaxSelection;
-            rblprofession.SelectedValue = cFOExciseDetails.ProfessionSelection;
-            rblgoverment.SelectedValue = cFOExciseDetails.GovernmentSelection;
-            if (cFOExciseDetails.GovernmentSelection == "Y") { Excisedept.Visible = true; txttradeLic.Text = cFOExciseDetails.GovernmentDetails; }
-            rblviolation.SelectedValue = cFOExciseDetails.ViolationSelection;
-            if (cFOExciseDetails.ViolationSelection == "Y") { txtlaw.Visible = true; txtexciselaw.Text = cFOExciseDetails.ViolationDetails; }
-            rblConvicted.SelectedValue = cFOExciseDetails.ConvictedSelection;
-            if (cFOExciseDetails.ConvictedSelection == "Y") { convictedlaw.Visible = true; txtDetails.Text = cFOExciseDetails.ConvictedDetails; }
-            rblBrand.SelectedValue = cFOExciseDetails.RenewBrand;
-            if (rblBrand.SelectedValue == "Y")
+            try
             {
-                TodateReg.Visible = true; Brands.Visible = true;
-                txtFromDate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");// Convert.ToDateTime( cFOExciseDetails.RegFromDate).ToString("dd-MM-yyyy");
-                txtTodate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");
-                txtAddress.Text = cFOExciseDetails.FirmAddress;
-            }
-            if (brandDetailsList.Count > 0)
-            {
-                gvBrandDetails.Visible = true;
+
+
+                CFOExciseDetails cFOExciseDetails = bal.GetCFOExciseData(unitid, qid);
+                List<CFOExciseBrandDetails> brandDetailsList = cFOExciseDetails.brandgridlist;
+                List<CFOExciseLiquorDetails> liquorDetailsList = cFOExciseDetails.liquorgridlist;
+                ViewState["BrandDetails"] = brandDetailsList;
+                ViewState["LiquorDetails"] = liquorDetailsList;
+                // Bind brand details list to gvBrandDetails
                 gvBrandDetails.DataSource = brandDetailsList;
                 gvBrandDetails.DataBind();
-            }
-            if (liquorDetailsList.Count > 0)
-            {
-                GvLiquor.Visible = true;
+
+                // Bind liquor details list to GvLiquor
                 GvLiquor.DataSource = liquorDetailsList;
                 GvLiquor.DataBind();
+
+                // Bind values to RadioButtonList controls
+                rblArtical5.SelectedValue = cFOExciseDetails.Artical5Selection;
+                rblapplicant.SelectedValue = cFOExciseDetails.ApplicantSelection;
+                rblMember.SelectedValue = cFOExciseDetails.MemberSelection;
+                rblTax.SelectedValue = cFOExciseDetails.TaxSelection;
+                rblsaletax.SelectedValue = cFOExciseDetails.SaleTaxSelection;
+                rblprofession.SelectedValue = cFOExciseDetails.ProfessionSelection;
+                rblgoverment.SelectedValue = cFOExciseDetails.GovernmentSelection;
+                if (cFOExciseDetails.GovernmentSelection == "Y") { Excisedept.Visible = true; txttradeLic.Text = cFOExciseDetails.GovernmentDetails; }
+                rblviolation.SelectedValue = cFOExciseDetails.ViolationSelection;
+                if (cFOExciseDetails.ViolationSelection == "Y") { txtlaw.Visible = true; txtexciselaw.Text = cFOExciseDetails.ViolationDetails; }
+                rblConvicted.SelectedValue = cFOExciseDetails.ConvictedSelection;
+                if (cFOExciseDetails.ConvictedSelection == "Y") { convictedlaw.Visible = true; txtDetails.Text = cFOExciseDetails.ConvictedDetails; }
+                rblBrand.SelectedValue = cFOExciseDetails.RenewBrand;
+                if (rblBrand.SelectedValue == "Y")
+                {
+                    TodateReg.Visible = true; Brands.Visible = true;
+                    txtFromDate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");// Convert.ToDateTime( cFOExciseDetails.RegFromDate).ToString("dd-MM-yyyy");
+                    txtTodate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");
+                    txtAddress.Text = cFOExciseDetails.FirmAddress;
+                }
+                if (brandDetailsList.Count > 0)
+                {
+                    gvBrandDetails.Visible = true;
+                    gvBrandDetails.DataSource = brandDetailsList;
+                    gvBrandDetails.DataBind();
+                }
+                if (liquorDetailsList.Count > 0)
+                {
+                    GvLiquor.Visible = true;
+                    GvLiquor.DataSource = liquorDetailsList;
+                    GvLiquor.DataBind();
+                }
+                if (liquorDetailsList.Count > 0)
+                {
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 83)
+                    {
+                        hypTribal.Visible = true;
+                        hypTribal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypTribal.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 84)
+                    {
+                        hypQualification.Visible = true;
+                        hypQualification.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypQualification.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 85)
+                    {
+                        hypSpecimen.Visible = true;
+                        hypSpecimen.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypSpecimen.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 86)
+                    {
+                        hypHeadman.Visible = true;
+                        hypHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypHeadman.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 87)
+                    {
+                        hypTenancy.Visible = true;
+                        hypTenancy.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypTenancy.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 88)
+                    {
+                        hypRegistration.Visible = true;
+                        hypRegistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypRegistration.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 89)
+                    {
+                        hypPharmacist.Visible = true;
+                        hypPharmacist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypPharmacist.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 90)
+                    {
+                        hypQualificationcertificate.Visible = true;
+                        hypQualificationcertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypQualificationcertificate.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 91)
+                    {
+                        hypsiteplan.Visible = true;
+                        hypsiteplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypsiteplan.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 92)
+                    {
+                        hypCompetentperson.Visible = true;
+                        hypCompetentperson.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypCompetentperson.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 93)
+                    {
+                        hyppharmacistlist.Visible = true;
+                        hyppharmacistlist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hyppharmacistlist.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 94)
+                    {
+                        hypundertaking1.Visible = true;
+                        hypundertaking1.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypundertaking1.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 95)
+                    {
+                        hypundertaking2.Visible = true;
+                        hypundertaking2.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypundertaking2.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 96)
+                    {
+                        hypstaff.Visible = true;
+                        hypstaff.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypstaff.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 97)
+                    {
+                        hypagencyClearance.Visible = true;
+                        hypagencyClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypagencyClearance.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                    if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 98)
+                    {
+                        hypProjectReport.Visible = true;
+                        hypProjectReport.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
+                        hypProjectReport.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
+                    }
+                }
             }
-            if (liquorDetailsList.Count > 0)
+            catch(Exception ex)
             {
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 83)
-                {
-                    hypTribal.Visible = true;
-                    hypTribal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypTribal.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 84)
-                {
-                    hypQualification.Visible = true;
-                    hypQualification.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypQualification.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 85)
-                {
-                    hypSpecimen.Visible = true;
-                    hypSpecimen.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypSpecimen.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 86)
-                {
-                    hypHeadman.Visible = true;
-                    hypHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypHeadman.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 87)
-                {
-                    hypTenancy.Visible = true;
-                    hypTenancy.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypTenancy.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 88)
-                {
-                    hypRegistration.Visible = true;
-                    hypRegistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypRegistration.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 89)
-                {
-                    hypPharmacist.Visible = true;
-                    hypPharmacist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypPharmacist.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 90)
-                {
-                    hypQualificationcertificate.Visible = true;
-                    hypQualificationcertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypQualificationcertificate.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 91)
-                {
-                    hypsiteplan.Visible = true;
-                    hypsiteplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypsiteplan.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 92)
-                {
-                    hypCompetentperson.Visible = true;
-                    hypCompetentperson.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypCompetentperson.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 93)
-                {
-                    hyppharmacistlist.Visible = true;
-                    hyppharmacistlist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hyppharmacistlist.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 94)
-                {
-                    hypundertaking1.Visible = true;
-                    hypundertaking1.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypundertaking1.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 95)
-                {
-                    hypundertaking2.Visible = true;
-                    hypundertaking2.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypundertaking2.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 96)
-                {
-                    hypstaff.Visible = true;
-                    hypstaff.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypstaff.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 97)
-                {
-                    hypagencyClearance.Visible = true;
-                    hypagencyClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypagencyClearance.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
-                if (Convert.ToInt32(ViewState["CFOA_MASTERAID"]) == 98)
-                {
-                    hypProjectReport.Visible = true;
-                    hypProjectReport.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ViewState["FILELOCATION"]);
-                    hypProjectReport.Text = Convert.ToString(ViewState["CFOA_FILENAME"]);
-                }
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void validate()
@@ -240,126 +261,191 @@ namespace MeghalayaUIP.User.CFO
         }
         protected void rblConvicted_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblConvicted.SelectedItem.Text == "Yes")
+            try
             {
-                convictedlaw.Visible = true;
+                if (rblConvicted.SelectedItem.Text == "Yes")
+                {
+                    convictedlaw.Visible = true;
+                }
+                else
+                {
+                    convictedlaw.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                convictedlaw.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void rblviolation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblviolation.SelectedItem.Text == "Yes")
+            try
             {
-                txtlaw.Visible = true;
+                if (rblviolation.SelectedItem.Text == "Yes")
+                {
+                    txtlaw.Visible = true;
+                }
+                else
+                {
+                    txtlaw.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                txtlaw.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void rblgoverment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblgoverment.SelectedItem.Text == "Yes")
+            try
             {
-                Excisedept.Visible = true;
+                if (rblgoverment.SelectedItem.Text == "Yes")
+                {
+                    Excisedept.Visible = true;
+                }
+                else
+                {
+                    Excisedept.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                Excisedept.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void rblMRPRS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblMRPRS.SelectedItem.Text == "Yes")
+            try
             {
-                MRPGRID.Visible = true;
+                if (rblMRPRS.SelectedItem.Text == "Yes")
+                {
+                    MRPGRID.Visible = true;
+                }
+                else
+                {
+                    MRPGRID.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MRPGRID.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void rblBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblBrand.SelectedItem.Text == "Yes")
+            try
             {
-                Brands.Visible = true;
-                TodateReg.Visible = true;
+                if (rblBrand.SelectedItem.Text == "Yes")
+                {
+                    Brands.Visible = true;
+                    TodateReg.Visible = true;
+                }
+                else
+                {
+                    Brands.Visible = false;
+                    TodateReg.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                Brands.Visible = false;
-                TodateReg.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            Errormsg = Validations();
-            if (Errormsg == "")
+            try
             {
-                SaveData();
+                Errormsg = Validations();
+                if (Errormsg == "")
+                {
+                    SaveData();
+                }
+                else
+                {
+                    string message = "alert('" + Errormsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                string message = "alert('" + Errormsg + "')";
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
 
         public void SaveData()
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                ObjUserInfo = (UserInfo)Session["UserInfo"];
+
+
+                if (Session["UserInfo"] != null)
+                {
+                    ObjUserInfo = (UserInfo)Session["UserInfo"];
+                }
+
+
+                CFOExciseDetails objcfo = new CFOExciseDetails();
+                objcfo.CFOQID = Convert.ToInt32(Convert.ToString(Session["CFOQID"]));
+                objcfo.CFOunitid = Convert.ToInt32(Convert.ToString(Session["CFOQID"]));
+                objcfo.Artical5Selection = rblArtical5.SelectedValue;
+                objcfo.ApplicantSelection = rblapplicant.SelectedValue;
+                objcfo.MemberSelection = rblMember.SelectedValue;
+                objcfo.TaxSelection = rblTax.SelectedValue;
+                objcfo.SaleTaxSelection = rblsaletax.SelectedValue;
+                objcfo.ProfessionSelection = rblprofession.SelectedValue;
+                objcfo.GovernmentSelection = rblgoverment.SelectedValue;
+                objcfo.GovernmentDetails = rblgoverment.SelectedValue == "Y" ? txttradeLic.Text : "";
+                objcfo.ViolationSelection = rblviolation.SelectedValue;
+                objcfo.ViolationDetails = rblviolation.SelectedValue == "Y" ? txtexciselaw.Text : "";
+                objcfo.ConvictedSelection = rblConvicted.SelectedValue;
+                objcfo.ConvictedDetails = rblConvicted.SelectedValue == "Y" ? txtDetails.Text : "";
+                objcfo.RenewBrand = rblBrand.SelectedValue;
+                if (rblBrand.SelectedValue == "Y")
+                    objcfo.RegFromDate = Convert.ToDateTime(txtFromDate.Text);
+                if (rblBrand.SelectedValue == "Y")
+                    objcfo.RegToDate = Convert.ToDateTime(txtTodate.Text);
+                objcfo.FirmAddress = txtAddress.Text;
+                objcfo.CreatedIp = getclientIP();
+                objcfo.CreatedBy = hdnUserID.Value;
+                objcfo.Flag = "S";
+                List<CFOExciseBrandDetails> brandDetails = ViewState["BrandDetails"] as List<CFOExciseBrandDetails>;
+                List<CFOExciseLiquorDetails> liquorDetails = ViewState["LiquorDetails"] as List<CFOExciseLiquorDetails>;
+
+                string res = bal.InsertCFOExciseData(objcfo, brandDetails, liquorDetails);
+                if (res == "Success")
+                {
+                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'success', title: 'Success',text: 'Submitted', allowOutsideClick:false})", true);
+                    return;
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'oops..',text: 'Submission failed', allowOutsideClick:false})", true);
+                    return;
+                }
             }
-
-
-            CFOExciseDetails objcfo = new CFOExciseDetails();
-            objcfo.CFOQID = Convert.ToInt32(Convert.ToString(Session["CFOQID"]));
-            objcfo.CFOunitid = Convert.ToInt32(Convert.ToString(Session["CFOQID"]));
-            objcfo.Artical5Selection = rblArtical5.SelectedValue;
-            objcfo.ApplicantSelection = rblapplicant.SelectedValue;
-            objcfo.MemberSelection = rblMember.SelectedValue;
-            objcfo.TaxSelection = rblTax.SelectedValue;
-            objcfo.SaleTaxSelection = rblsaletax.SelectedValue;
-            objcfo.ProfessionSelection = rblprofession.SelectedValue;
-            objcfo.GovernmentSelection = rblgoverment.SelectedValue;
-            objcfo.GovernmentDetails = rblgoverment.SelectedValue == "Y" ? txttradeLic.Text : "";
-            objcfo.ViolationSelection = rblviolation.SelectedValue;
-            objcfo.ViolationDetails = rblviolation.SelectedValue == "Y" ? txtexciselaw.Text : "";
-            objcfo.ConvictedSelection = rblConvicted.SelectedValue;
-            objcfo.ConvictedDetails = rblConvicted.SelectedValue == "Y" ? txtDetails.Text : "";
-            objcfo.RenewBrand = rblBrand.SelectedValue;
-            if (rblBrand.SelectedValue == "Y")
-                objcfo.RegFromDate = Convert.ToDateTime(txtFromDate.Text);
-            if (rblBrand.SelectedValue == "Y")
-                objcfo.RegToDate = Convert.ToDateTime(txtTodate.Text);
-            objcfo.FirmAddress = txtAddress.Text;
-            objcfo.CreatedIp = getclientIP();
-            objcfo.CreatedBy = hdnUserID.Value;
-            objcfo.Flag = "S";
-            List<CFOExciseBrandDetails> brandDetails = ViewState["BrandDetails"] as List<CFOExciseBrandDetails>;
-            List<CFOExciseLiquorDetails> liquorDetails = ViewState["LiquorDetails"] as List<CFOExciseLiquorDetails>;
-
-            string res = bal.InsertCFOExciseData(objcfo, brandDetails, liquorDetails);
-            if (res == "Success")
+            catch(Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'success', title: 'Success',text: 'Submitted', allowOutsideClick:false})", true);
-                return;
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "Alert", "Swal.fire({icon: 'error', title: 'oops..',text: 'Submission failed', allowOutsideClick:false})", true);
-                return;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string Validations()
@@ -808,7 +894,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         private void BindBrandGrid()
@@ -880,6 +968,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -941,6 +1030,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1001,6 +1091,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1061,6 +1152,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1121,6 +1213,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1181,6 +1274,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1241,6 +1335,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1301,6 +1396,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1361,6 +1457,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1421,6 +1518,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1481,6 +1579,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1541,6 +1640,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1601,6 +1701,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1661,6 +1762,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations(FileUpload Attachment)
@@ -1799,6 +1901,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1859,6 +1962,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1872,6 +1976,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
             //  Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
         }
@@ -1888,6 +1993,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
             //  Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
         }

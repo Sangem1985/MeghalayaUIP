@@ -9,6 +9,9 @@ using MeghalayaUIP.BAL;
 using MeghalayaUIP.BAL.CommonBAL;
 using System.Data.SqlClient;
 using System.Text;
+using System.IO;
+using System.Security.Cryptography;
+using AjaxControlToolkit.HtmlEditor.ToolbarButtons;
 
 namespace MeghalayaUIP
 {
@@ -16,6 +19,7 @@ namespace MeghalayaUIP
     {
         UserRegBAL useregBAL = new UserRegBAL();
         MasterBAL mstrBAL = new MasterBAL();
+        string Password;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -80,8 +84,9 @@ namespace MeghalayaUIP
             {
                 string Errormsg = "";
                 string valid = "0";
+                Password = DecryptAES(txtPswd.Text, "1234567890123456", "1234567890123456");
                 Errormsg = validations();
-
+                
                 if (string.IsNullOrEmpty(Errormsg))
                 {
                     UserRegDetails Userregdtls = new UserRegDetails();
@@ -158,18 +163,18 @@ namespace MeghalayaUIP
                 }
                 if (!string.IsNullOrEmpty(txtPswd.Text) || txtPswd.Text != "")
                 {
-                    if (txtPswd.Text.Trim() == txtEmail.Text.Trim())
+                    if (Password.Trim() == txtEmail.Text.Trim())
                     {
                         errormsg = errormsg + slno + ". User Email and Password should not be same \\n";
                         slno = slno + 1;
                     }
-                    if (txtPswd.Text.Trim().Length < 8)
+                    if (Password.Trim().Length < 8)
                     {
                         errormsg = errormsg + slno + ". Password must have 8 characters Minimum \\n";
                         slno = slno + 1;
                     }
-                    if (!(txtPswd.Text.Any(char.IsLower) && txtPswd.Text.Any(char.IsUpper) &&
-                               txtPswd.Text.Any(char.IsDigit) && ValidatePassword(txtPswd.Text.Trim())))
+                    if (!(Password.Any(char.IsLower) && Password.Any(char.IsUpper) &&
+                               Password.Any(char.IsDigit) && ValidatePassword(Password.Trim())))
                     {
                         errormsg = errormsg + slno + ". Password must have atleast one upper case letter, one lower case letter, one numer and one special character \\n";
                         slno = slno + 1;
@@ -209,7 +214,31 @@ namespace MeghalayaUIP
 
             return visitorsIpAddr;
         }
+        public static string DecryptAES(string encryptedText, string keyString, string ivString)
+        {
+            byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(keyString);
+            byte[] ivBytes = Encoding.UTF8.GetBytes(ivString);
 
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = keyBytes;
+                aes.IV = ivBytes;
+                aes.Mode = CipherMode.CBC;
+                aes.Padding = PaddingMode.PKCS7;
+
+                using (var memoryStream = new MemoryStream(cipherTextBytes))
+                {
+                    using (var cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                    {
+                        using (var reader = new StreamReader(cryptoStream))
+                        {
+                            return reader.ReadToEnd();
+                        }
+                    }
+                }
+            }
+        }
         protected void txtPswd_TextChanged(object sender, EventArgs e)
         {
             if (txtPswd.Text.Trim() == txtEmail.Text.Trim())

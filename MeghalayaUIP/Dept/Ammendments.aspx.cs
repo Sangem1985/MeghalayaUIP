@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -55,9 +56,9 @@ namespace MeghalayaUIP.Dept
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";              
                 Failure.Visible = true;
-                throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -93,6 +94,8 @@ namespace MeghalayaUIP.Dept
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void bindAmmendments()
@@ -164,6 +167,7 @@ namespace MeghalayaUIP.Dept
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -271,9 +275,9 @@ namespace MeghalayaUIP.Dept
                             BtnSave3.Enabled = false;
                         }
                     }
-                    catch (Exception)//in case of an error
+                    catch (Exception ex)//in case of an error
                     {
-
+                       
                     }
                 }
                 else
@@ -367,7 +371,17 @@ namespace MeghalayaUIP.Dept
         }
         protected void BTNcLEAR_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Ammendments.aspx");
+            try
+            {
+                Response.Redirect("Ammendments.aspx");
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+          
         }
 
         protected void lbtnBack_Click(object sender, EventArgs e)
@@ -378,9 +392,9 @@ namespace MeghalayaUIP.Dept
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;                
+                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

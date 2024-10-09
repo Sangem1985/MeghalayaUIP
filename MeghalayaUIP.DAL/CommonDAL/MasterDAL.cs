@@ -1576,6 +1576,8 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Parameters.AddWithValue("@TYPE", Type);
                 da.SelectCommand.Parameters.AddWithValue("@FDATE", fdate);
                 da.SelectCommand.Parameters.AddWithValue("@TDATE", tdate);
+                //  da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(fdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                // da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(tdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

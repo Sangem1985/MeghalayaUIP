@@ -640,7 +640,9 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void ddlQueryAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -702,7 +704,11 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         protected void btnSubmit2_Click(object sender, EventArgs e)
         {
@@ -860,6 +866,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations(FileUpload Attachment)

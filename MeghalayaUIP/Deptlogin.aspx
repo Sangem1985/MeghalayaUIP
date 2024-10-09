@@ -84,6 +84,7 @@
                                                         </tr>
                                                     </table>
                                                 </div>
+                                                <asp:HiddenField ID="hdnUserID" runat="server" />
                                                 <%--</form>--%>
 
 

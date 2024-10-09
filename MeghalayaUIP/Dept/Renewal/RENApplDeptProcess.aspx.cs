@@ -2,6 +2,7 @@
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.BAL.RenewalBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,6 +45,7 @@ namespace MeghalayaUIP.Dept.Renewal
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindRENApplicatinDetails()
@@ -743,7 +745,9 @@ namespace MeghalayaUIP.Dept.Renewal
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

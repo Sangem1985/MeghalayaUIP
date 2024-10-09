@@ -8,6 +8,8 @@ using MeghalayaUIP.Common;
 using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
+using iText.Layout.Borders;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace MeghalayaUIP.DAL.CFEDAL
 {
@@ -3019,6 +3021,181 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return valid;
 
+        }
+        public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetUnitDetailsforPayment, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetUnitDetailsforPayment;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string InsertPaymentRequest(string UnitID, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
+            string Contact, string Notes,string IpAddress)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertPaymentRequest;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@UNITID", UnitID);
+                com.Parameters.AddWithValue("@INVESTORID", InvestorId);
+                com.Parameters.AddWithValue("@ONLINE_ORDER_NO", Receiptorder);
+                com.Parameters.AddWithValue("@ORDERID", OrderId);
+                com.Parameters.AddWithValue("@PAYMENTAMOUNT", PayAmount);
+                com.Parameters.AddWithValue("@NAME", Name);
+                com.Parameters.AddWithValue("@DESCRIPTION", Desc);
+                com.Parameters.AddWithValue("@MAIL", Mail);
+                com.Parameters.AddWithValue("@CONTACT", Contact);
+                com.Parameters.AddWithValue("@NOTES", Notes);
+                com.Parameters.AddWithValue("@IPADDRESS", IpAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string UpdatePaymentResponse(string paymentId, string OrderId, string Signature, string IpAddress)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.UpdatePaymentResponse;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                
+                com.Parameters.AddWithValue("@ORDERID", OrderId);
+                com.Parameters.AddWithValue("@PAYMENT_ID", paymentId);
+                com.Parameters.AddWithValue("@RESPONSE_SIGNATURE", Signature);
+                com.Parameters.AddWithValue("@IPADDRESS", IpAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string UpdatePaymentErrorResponse(string paymentId, string OrderId, string Signature, string IpAddress,string code,string description,
+            string source,string step,string reason)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.UpdatePaymentErrorResponse;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@ORDERID", OrderId);
+                com.Parameters.AddWithValue("@PAYMENT_ID", paymentId);
+                com.Parameters.AddWithValue("@RESPONSE_SIGNATURE", Signature);
+                com.Parameters.AddWithValue("@IPADDRESS", IpAddress);
+                com.Parameters.AddWithValue("@ERRORCODE", code);
+                com.Parameters.AddWithValue("@ERRORDESC", description);
+                com.Parameters.AddWithValue("@ERRORSOURCE", source);
+                com.Parameters.AddWithValue("@ERRORSTEP", step);
+                com.Parameters.AddWithValue("@ERRORREASON", reason);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
     }
 }
