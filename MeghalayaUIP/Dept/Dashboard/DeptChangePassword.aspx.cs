@@ -80,7 +80,7 @@ namespace MeghalayaUIP.Dept.Dashboard
         {
             try
             {
-                String User = "", result = "";
+                String UserID = "", result = "";
                 if (ViewState["captcha"].ToString() != txtcaptcha.Text.Trim().TrimStart())
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Captcha Code !!.');", true);
@@ -129,12 +129,12 @@ namespace MeghalayaUIP.Dept.Dashboard
                         return;
                     }
 
-                    User = txtusername.Text;
-                    UserInfo ObjUserInfo;
-                    ObjUserInfo = objloginBAL.GetUserInfo(User, txtoldpassword.Text.Trim(), getclientIP());                   
-                    if (ObjUserInfo != null && ObjUserInfo.Userid != null)
+                    UserID = txtusername.Text;
+                    DeptUserInfo ObjUserInfo;
+                    ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, txtoldpassword.Text.Trim(), getclientIP());//,Dept  
+                    if (ObjUserInfo != null && ObjUserInfo.UserID != null)
                     {
-                        result = objcomBal.GetDeptChangePassword(hdnUserID.Value, User, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
+                        result = objcomBal.GetDeptChangePassword(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
                         if (result != "")
                         {
                             lblmsg.Text = "Password Successfully Changed And Login With New Password..!";
