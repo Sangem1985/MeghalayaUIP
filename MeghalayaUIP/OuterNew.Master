@@ -22,6 +22,9 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css' />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css' />
     <style>
+        i.fi {
+    vertical-align: middle;
+}
         i.fi.fi-br-chevron-double-down {
             font-size: 11px;
         }
@@ -449,9 +452,9 @@
                                                 Shillong - 793 001, East Khasi Hills District, Meghalaya.<br />
                                             </li>
 
-                                            <li><i class="fi fi-br-envelope"></i><span>Email:</span>
+                                            <li><i class="fi fi-br-envelope"></i> <span>Email:</span>
                                                 <a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority[at]gmail[dot]com</a></li>
-                                            <li><i class="fi fi-br-phone-call"></i><span>Call Us:</span>
+                                            <li><i class="fi fi-br-phone-call"></i> <span>Call Us:</span>
                                                 <a href="tel:+91 7085741695">+91 7085741695</a></li>
 
                                         </ul>
