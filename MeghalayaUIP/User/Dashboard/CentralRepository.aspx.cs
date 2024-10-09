@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -46,8 +47,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!!";
+                lblmsg0.Text = "Oops, You've have encountered an error!!";               
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -71,7 +73,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -85,7 +89,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void ddlModule_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,7 +154,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindPreRegDepts()
@@ -182,7 +188,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindDepartment()
@@ -210,7 +218,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -246,7 +256,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void grdCentralRepo_RowCommand(object sender, GridViewCommandEventArgs e)

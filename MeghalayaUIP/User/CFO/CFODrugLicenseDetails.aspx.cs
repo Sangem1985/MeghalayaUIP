@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,85 +22,96 @@ namespace MeghalayaUIP.User.CFO
         string UnitID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                var ObjUserInfo = new UserInfo();
-                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
-                {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
-                }
-                if (hdnUserID.Value == "")
-                {
-                    hdnUserID.Value = ObjUserInfo.Userid;
-                }
 
-                if (Convert.ToString(Session["CFOUNITID"]) != "")
-                {
-                    UnitID = Convert.ToString(Session["CFOUNITID"]);
-                }
-                else
-                {
-                    string newurl = "~/User/CFO/CFOUserDashboard.aspx";
-                    Response.Redirect(newurl);
-                }
 
-                Page.MaintainScrollPositionOnPostBack = true;
-                Failure.Visible = false;
-                success.Visible = false;
-                if (!IsPostBack)
+                if (Session["UserInfo"] != null)
                 {
-                    DataSet dsnew = new DataSet();
-                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "8");
-                    if (dsnew.Tables[0].Rows.Count > 0)
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
-                        for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
-                        {
-                            if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "46")
-                            {
-                                div_39_46.Visible = true;
-                            }
-                            if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
-                            {
-                                div_48.Visible = true;
-                            }
-                            if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "49")
-                            {
-                                div_48.Visible = true;
-                                div_Staff_Manf.Visible = true;
-                                div_Staff_Test.Visible = true;
-                            }
-                            if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "50")
-                            {
-                                div_48.Visible = true;
-                                div_Staff_Manf.Visible = true;
-                            }
-                            if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "51")
-                            {
-                                div_48.Visible = true;
-                                div_Staff_Test.Visible = true;
-                            }
-                            if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "52")
-                            {
-                                div_52.Visible = true;
-                                div_48.Visible = true;
-                                div_Staff_Manf.Visible = true;
-                                div_Staff_Test.Visible = true;
-                            }
-                        }
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+
+                    if (Convert.ToString(Session["CFOUNITID"]) != "")
+                    {
+                        UnitID = Convert.ToString(Session["CFOUNITID"]);
                     }
                     else
                     {
-                        if (Request.QueryString[0].ToString() == "N")
+                        string newurl = "~/User/CFO/CFOUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        DataSet dsnew = new DataSet();
+                        dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "8");
+                        if (dsnew.Tables[0].Rows.Count > 0)
                         {
-                            Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
+                            for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                            {
+                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "46")
+                                {
+                                    div_39_46.Visible = true;
+                                }
+                                if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
+                                {
+                                    div_48.Visible = true;
+                                }
+                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "49")
+                                {
+                                    div_48.Visible = true;
+                                    div_Staff_Manf.Visible = true;
+                                    div_Staff_Test.Visible = true;
+                                }
+                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "50")
+                                {
+                                    div_48.Visible = true;
+                                    div_Staff_Manf.Visible = true;
+                                }
+                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "51")
+                                {
+                                    div_48.Visible = true;
+                                    div_Staff_Test.Visible = true;
+                                }
+                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "52")
+                                {
+                                    div_52.Visible = true;
+                                    div_48.Visible = true;
+                                    div_Staff_Manf.Visible = true;
+                                    div_Staff_Test.Visible = true;
+                                }
+                            }
                         }
                         else
                         {
-                            Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+                            if (Request.QueryString[0].ToString() == "N")
+                            {
+                                Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
+                            }
+                            else
+                            {
+                                Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+                            }
                         }
+                        Binddata();
                     }
-                    Binddata();
                 }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void Binddata()
@@ -254,19 +266,30 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void rblinsection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblinsection.SelectedValue == "Y")
+            try
             {
-                InspectionDate.Visible = true;
+                if (rblinsection.SelectedValue == "Y")
+                {
+                    InspectionDate.Visible = true;
+                }
+                else
+                {
+                    InspectionDate.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                InspectionDate.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -387,7 +410,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string Validations()
@@ -571,13 +596,22 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblLicense_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblLicense.SelectedValue == "Y")
+            try
             {
-                CanceledLIC.Visible = true;
+                if (rblLicense.SelectedValue == "Y")
+                {
+                    CanceledLIC.Visible = true;
+                }
+                else
+                {
+                    CanceledLIC.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                CanceledLIC.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public static string getclientIP()
@@ -646,7 +680,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -698,7 +734,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -746,7 +784,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -762,6 +802,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
             // Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
         }
@@ -776,6 +817,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
             //  Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
         }
@@ -801,8 +843,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -827,8 +870,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -889,6 +933,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -950,6 +995,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1010,6 +1056,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1070,6 +1117,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1130,6 +1178,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1190,6 +1239,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1250,6 +1300,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1310,6 +1361,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1370,6 +1422,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1430,6 +1483,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1490,6 +1544,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1550,6 +1605,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1610,6 +1666,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -1670,6 +1727,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations(FileUpload Attachment)
@@ -1771,8 +1829,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }
