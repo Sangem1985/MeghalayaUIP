@@ -152,7 +152,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -409,14 +411,25 @@ namespace MeghalayaUIP.User.CFE
 
         public void TotalAmount()
         {
-            if (int.TryParse(txtMale.Text, out int maleCount) && int.TryParse(txtFemale.Text, out int femaleCount))
+            try
             {
-                int total = maleCount + femaleCount;
-                lbltotalEmp.Text = total.ToString();
+
+
+                if (int.TryParse(txtMale.Text, out int maleCount) && int.TryParse(txtFemale.Text, out int femaleCount))
+                {
+                    int total = maleCount + femaleCount;
+                    lbltotalEmp.Text = total.ToString();
+                }
+                else
+                {
+                    lbltotalEmp.Text = "Invalid input";
+                }
             }
-            else
+            catch(Exception ex)
             {
-                lbltotalEmp.Text = "Invalid input";
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -798,7 +811,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch(Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value); throw ex;
             }
         }
 
@@ -814,6 +829,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
