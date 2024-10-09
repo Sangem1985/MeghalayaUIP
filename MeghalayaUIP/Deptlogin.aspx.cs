@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using MeghalayaUIP.BAL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP
 {
@@ -34,6 +35,7 @@ namespace MeghalayaUIP
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -181,6 +183,7 @@ namespace MeghalayaUIP
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -224,7 +227,17 @@ namespace MeghalayaUIP
 
         protected void btnRefresh_Click(object sender, ImageClickEventArgs e)
         {
-            FillCapctha();
+            try
+            {
+                FillCapctha();
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+          
         }
     }
 }
