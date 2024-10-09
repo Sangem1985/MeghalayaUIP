@@ -167,7 +167,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Date of Birth/Date of Incorporation*  :</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtBirth" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtBirth" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtBirth"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -287,7 +287,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Date from which working as contractor * :</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtContractor" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtContractor" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtContractor"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
