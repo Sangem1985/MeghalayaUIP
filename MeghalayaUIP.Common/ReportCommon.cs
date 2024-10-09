@@ -16,5 +16,6 @@ namespace MeghalayaUIP.Common
         public static string GetCFODeptWiseReportDrill = "USP_GET_CFODEPTWISEREPORTDRILLDOWN";
         public static string GetRENDeptReport = "USP_GET_RENDEPARTMENTWISEREPORT";
         public static string GetRENDeptWiseReportDrill = "USP_GET_RENDEPTWISEREPORTDRILLDOWN";
+        public static string GetGrievanceDeptReport = "USP_GET_GRIEVANCEDEPARTMENT";
     }
 }
