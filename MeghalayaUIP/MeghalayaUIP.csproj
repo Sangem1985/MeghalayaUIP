@@ -600,6 +600,7 @@
     <Content Include="Dept\Reports\CFODeptWiseReport.aspx" />
     <Content Include="Dept\Reports\CFODeptWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\GRDeptWiseReport.aspx" />
+    <Content Include="Dept\Reports\GRDeptWiseReportDrilldown.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReport.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\RENDeptWiseReport.aspx" />
@@ -1106,6 +1107,13 @@
     </Compile>
     <Compile Include="Dept\Reports\GRDeptWiseReport.aspx.designer.cs">
       <DependentUpon>GRDeptWiseReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\GRDeptWiseReportDrilldown.aspx.cs">
+      <DependentUpon>GRDeptWiseReportDrilldown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\GRDeptWiseReportDrilldown.aspx.designer.cs">
+      <DependentUpon>GRDeptWiseReportDrilldown.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Reports\IRDistWiseReport.aspx.cs">
       <DependentUpon>IRDistWiseReport.aspx</DependentUpon>

@@ -252,6 +252,9 @@ namespace MeghalayaUIP.User.Dashboard
                     grdCentralRepo.DataSource = null;
                     grdCentralRepo.DataBind();
                     divgrd.Visible = false;
+                    lblmsg0.Text = "No Records Found....! ";
+                    Failure.Visible = true;
+
                 }
             }
             catch (Exception ex)
@@ -289,14 +292,18 @@ namespace MeghalayaUIP.User.Dashboard
                 }
                 else
                 {
-                    Context.Response.Write("<script>");
-                    Context.Response.Write("window.open('" + physicalPath + "', '_newtab');");
-                    Context.Response.Write("</script>");
+                    //Context.Response.Write("<script>");
+                    //Context.Response.Write("window.open('" + physicalPath + "', '_newtab');");
+                    //Context.Response.Write("</script>");
 
                     //string script = "openPdf('" + physicalPath + "');";
 
                     //ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
                     //Response.Write("<script>alert('File not found.');</script>");
+                    Failure.Visible = true;
+                    lblmsg0.Text = "File Not Found....!";                    
+                    string message = "alert('" + lblmsg0.Text + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
         }

@@ -108,7 +108,7 @@
 
                                                     <asp:GridView ID="GVGrievance" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
-                                                        GridLines="Both"
+                                                        GridLines="Both" OnRowDataBound="GVGrievance_RowDataBound" ShowFooter="true"
                                                         Width="100%" EnableModelValidation="True">
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />

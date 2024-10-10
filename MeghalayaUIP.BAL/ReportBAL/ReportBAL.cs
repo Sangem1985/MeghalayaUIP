@@ -48,5 +48,9 @@ namespace MeghalayaUIP.BAL.ReportBAL
         {
             return reportDAL.GrievanceDeptReport(Department, Formdate, Todate);
         }
+        public DataSet GRDeptwiseReport(string Department, string Formdate, string Todate)
+        {
+            return reportDAL.GRDeptwiseReport(Department, Formdate, Todate);
+        }
     }
 }
