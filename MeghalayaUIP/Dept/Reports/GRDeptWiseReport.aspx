@@ -99,7 +99,8 @@
                                                         </div>
                                                     </div>
 
-
+                                                     <div class="col-md-12 d-flex justify-content-center align-items-center">
+                                                    </div>
                                                     <div class="col-md-12 float-left ">
                                                         <div class="form-group row justify-content-center" style="padding: 20px">
                                                             <asp:Button ID="btnsubmit" runat="server" OnClick="btnsubmit_Click" Text="Submit" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
