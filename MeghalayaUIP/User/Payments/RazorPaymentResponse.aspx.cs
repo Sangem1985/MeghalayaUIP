@@ -4,7 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -45,7 +48,14 @@ namespace MeghalayaUIP.User.Payments
 
                 /*Please use below code to refund the payment   
                  Refund refund = new Razorpay.Api.Payment((string) paymentId).Refund();*/
-               
+                
+                string generated_signature = ComputeSha256Hash(OrderId + "|" + paymentId, secret);
+                /*if (Signature.ToLower() == generated_signature.ToLower())
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Equal')", true);
+                    return;
+                }*/
+
 
                 string A = objcfebal.UpdatePaymentResponse(paymentId, OrderId, Signature, IpAddress);
 
@@ -90,6 +100,27 @@ namespace MeghalayaUIP.User.Payments
             }
 
             return result;
+        }
+        public static string ComputeSha256Hash(string message, string key)
+        {
+            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+            byte[] keyByte = encoding.GetBytes(key);
+
+            HMACSHA256 hmacsha256 = new HMACSHA256(keyByte);
+
+            byte[] messageBytes = encoding.GetBytes(message);
+            byte[] hashmessage = hmacsha256.ComputeHash(messageBytes);
+            return ByteToString(hashmessage);
+        }
+        public static string ByteToString(byte[] buff)
+        {
+            string sbinary = "";
+
+            for (int i = 0; i < buff.Length; i++)
+            {
+                sbinary += buff[i].ToString("X2"); // hex format
+            }
+            return (sbinary);
         }
     }
 }
