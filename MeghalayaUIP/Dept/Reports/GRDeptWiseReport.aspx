@@ -99,66 +99,67 @@
                                                         </div>
                                                     </div>
 
-                                                     <div class="col-md-12 d-flex justify-content-center align-items-center">
+                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
                                                     </div>
                                                     <div class="col-md-12 float-left ">
                                                         <div class="form-group row justify-content-center" style="padding: 20px">
                                                             <asp:Button ID="btnsubmit" runat="server" OnClick="btnsubmit_Click" Text="Submit" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-12">
+                                                        <asp:GridView ID="GVGrievance" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
+                                                            GridLines="Both" OnRowDataBound="GVGrievance_RowDataBound" ShowFooter="true"
+                                                            Width="100%" EnableModelValidation="True">
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
+                                                            <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
+                                                            <RowStyle Height="40px" BorderColor="Blue" Font-Bold="true" />
+                                                            <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                    <ItemTemplate>
+                                                                        <%# Container.DataItemIndex + 1%>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Districtid" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblDeptid" runat="server" Text='<%#Eval("DEPT_ID") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="Department Name" ItemStyle-HorizontalAlign="Left" />
 
-                                                    <asp:GridView ID="GVGrievance" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
-                                                        GridLines="Both" OnRowDataBound="GVGrievance_RowDataBound" ShowFooter="true"
-                                                        Width="100%" EnableModelValidation="True">
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
-                                                        <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
-                                                        <RowStyle Height="40px" BorderColor="Blue" Font-Bold="true" />
-                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Left" />
-                                                                <ItemTemplate>
-                                                                    <%# Container.DataItemIndex + 1%>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Districtid" Visible="false">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblDeptid" runat="server" Text='<%#Eval("DEPT_ID") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="Department Name" ItemStyle-HorizontalAlign="Left" />
+                                                                <asp:TemplateField HeaderText="Total Applications">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblTotal" Text='<%#Eval("TOTALAPPLICATIONSRCVD") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Pending">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblPending" Text='<%#Eval("PENDING") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Redressed">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblRedressed" Text='<%#Eval("REDRESS") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Rejected">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblReject" Text='<%#Eval("REJECT") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Total Applications">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblTotal" Text='<%#Eval("TOTALAPPLICATIONSRCVD") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Pending">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblPending" Text='<%#Eval("PENDING") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Redressed">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblRedressed" Text='<%#Eval("REDRESS") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Rejected">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblReject" Text='<%#Eval("REJECT") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-
-                                                        </Columns>
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                        <AlternatingRowStyle BackColor="White" />
-                                                    </asp:GridView>
+                                                            </Columns>
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                            <AlternatingRowStyle BackColor="White" />
+                                                        </asp:GridView>
+                                                    </div>
 
                                                 </div>
                                                 <div>
@@ -168,8 +169,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>                            
-                            </section>                            
+                            </div>
+                            <%--</section>--%>
                         </div>
                     </div>
                 </div>

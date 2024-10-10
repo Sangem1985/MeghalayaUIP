@@ -27,7 +27,7 @@ namespace MeghalayaUIP.User
             aLogout.HRef = "";
             string fullUrl = Request.Url.AbsoluteUri;
             string pageName = Path.GetFileName(fullUrl);
-           
+
 
             if (Session["UserInfo"] == null)
             {
@@ -44,7 +44,8 @@ namespace MeghalayaUIP.User
                     {
                         fnSetNewControls_Click(sender, e);
                     }*/
-                    masterball.InsPageAccessed(ObjUserInfo.Userid, ObjUserInfo.Email, Request.Url.ToString(), getclientIP(),"");
+                    if (!Request.Url.ToString().Contains("localhost"))
+                        masterball.InsPageAccessed(ObjUserInfo.Userid, ObjUserInfo.Email, Request.Url.ToString(), getclientIP(), "");
                 }
 
             }
@@ -94,7 +95,7 @@ namespace MeghalayaUIP.User
             DateTime now = DateTime.Now;
             string timestamp = now.ToString("dd MMMM yyyy, hh:mm tt", CultureInfo.InvariantCulture);//("yyyy-MM-dd hh:mm:ss tt");
             lbltime.InnerText = timestamp;
-            lblusername.InnerText= ObjUserInfo.Email;
+            lblusername.InnerText = ObjUserInfo.Email;
         }
 
         protected void fnSetNewControls_Click(object sender, EventArgs e)

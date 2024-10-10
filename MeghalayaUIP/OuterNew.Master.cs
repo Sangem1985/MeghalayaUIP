@@ -14,7 +14,8 @@ namespace MeghalayaUIP
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            masterball.InsPageAccessed( "","", Request.Url.ToString(), getclientIP(),"");
+            if (!Request.Url.ToString().Contains("localhost"))
+                masterball.InsPageAccessed("", "", Request.Url.ToString(), getclientIP(), "");
 
         }
         public static string getclientIP()

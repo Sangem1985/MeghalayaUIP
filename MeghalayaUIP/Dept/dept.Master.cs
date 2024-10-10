@@ -41,7 +41,8 @@ namespace MeghalayaUIP.Dept
                     {
                         fnSetNewControls_Click(sender, e);
                     }*/
-                    masterball.InsPageAccessed(ObjUserInfo.UserID, ObjUserInfo.UserName, Request.Url.ToString(), getclientIP(), ObjUserInfo.Roleid);
+                    if (!Request.Url.ToString().Contains("localhost"))
+                        masterball.InsPageAccessed(ObjUserInfo.UserID, ObjUserInfo.UserName, Request.Url.ToString(), getclientIP(), ObjUserInfo.Roleid);
                 }
                 // username = ObjUserInfo.UserName;
             }
@@ -94,9 +95,6 @@ namespace MeghalayaUIP.Dept
                 lblrole.InnerText = "Department";
             if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
                 lblrole.InnerText = "Committee Officer";
-
-
-
         }
 
         protected void fnSetNewControls_Click(object sender, EventArgs e)
