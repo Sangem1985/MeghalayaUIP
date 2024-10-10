@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="RENApplDeptdrill.aspx.cs" Inherits="MeghalayaUIP.Dept.Renewal.RENApplDeptdrill" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
+    <link href="../../assets/admin/css/deptdashbaords.css" rel="stylesheet" />
     <link href="../../assets/admin/css/deptdashboard3.css" rel="stylesheet" />
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
@@ -12,15 +13,32 @@
     </nav>
     <div class="page-wrapper cfeappldeptdrill">
         <div class="content container-fluid">
-
+            <div class="col-md-12 ">
+                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                    <strong>Warning!</strong>
+                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            </div>
+            <asp:HiddenField ID="hdnUserID" runat="server" />
             <div class="card-header d-flex  justify-content-between">
-                <h4 class="card-title mt-1" style="font-size:18px !important;"><b>Renewal Applications with Time Lines</b></h4>
+                <h4 class="card-title mt-1" style="font-size: 18px !important;"><b>Renewal Applications with Time Lines</b></h4>
                 <div class="col-md-1">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
             </div>
             <div class="col-md-12 d-flex row mb-3">
-                
+
                 <div class="col-md-2">Applications Status</div>
                 <div class="col-md-2 d-flex">
                     <spna class="dots">:&nbsp;&nbsp;</spna>
@@ -380,108 +398,108 @@
                     </div>
                 </section>
             </div>
-             <div class="card" id="OfflineApprovalPending" runat="server" visible="false">
-     <div class="card-header">
-         <h3>Offiline Approvals Pending</h3>
-     </div>
-     <section id="dashboardcount4" class="mt-3 mb-3">
-         <div class="container-fluid">
-             <div class="row">
-                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                     <a href="RENApplDeptView.aspx?status=OFFLINEPENDING">
-                         <div class="card 1">
-                             <div class="card-headr">
-                                 <div class="text">Total</div>
-                                 <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                 <div class="count">
-                                     <asp:Label ID="lblOFFLINEPENDING" runat="server"></asp:Label>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                     <a href="RENApplDeptView.aspx?status=OFFLINEPENDINGWITHIN">
-                         <div class="card 2">
-                             <div class="card-headr">
-                                 <div class="text">Within Time Limits</div>
-                                 <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
-                                 <div class="count">
-                                     <asp:Label ID="lblOFFLINEPENDINGWITHIN" runat="server"></asp:Label>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                     <a href="RENApplDeptView.aspx?status=OFFLINEPENDINGBEYOND">
-                         <div class="card 4">
-                             <div class="card-headr">
-                                 <div class="text">Beyond in Time Limits</div>
-                                 <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                 <div class="count">
-                                     <asp:Label ID="lblOFFLINEPENDINGBEYOND" runat="server"></asp:Label>
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
+            <div class="card" id="OfflineApprovalPending" runat="server" visible="false">
+                <div class="card-header">
+                    <h3>Offiline Approvals Pending</h3>
+                </div>
+                <section id="dashboardcount4" class="mt-3 mb-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="RENApplDeptView.aspx?status=OFFLINEPENDING">
+                                    <div class="card 1">
+                                        <div class="card-headr">
+                                            <div class="text">Total</div>
+                                            <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblOFFLINEPENDING" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="RENApplDeptView.aspx?status=OFFLINEPENDINGWITHIN">
+                                    <div class="card 2">
+                                        <div class="card-headr">
+                                            <div class="text">Within Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblOFFLINEPENDINGWITHIN" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="RENApplDeptView.aspx?status=OFFLINEPENDINGBEYOND">
+                                    <div class="card 4">
+                                        <div class="card-headr">
+                                            <div class="text">Beyond in Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblOFFLINEPENDINGBEYOND" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
 
-             </div>
-         </div>
-     </section>
- </div>
-                        <div class="card" id="OfflineApproved" runat="server" visible="false">
-    <div class="card-header">
-        <h3>Offiline Issued Approvals</h3>
-    </div>
-    <section id="dashboardcount4" class="mt-3 mb-3">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <a href="RENApplDeptView.aspx?status=OFFLINEAPPROVED">
-                        <div class="card 1">
-                            <div class="card-headr">
-                                <div class="text">Total</div>
-                                <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
-                                <div class="count">
-                                    <asp:Label ID="lblTOTALOFFLINEAPPROVED" runat="server"></asp:Label>
-                                </div>
-                            </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <a href="RENApplDeptView.aspx?status=OFFLINEAPPROVEDWITHIN">
-                        <div class="card 2">
-                            <div class="card-headr">
-                                <div class="text">Within Time Limits</div>
-                                <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
-                                <div class="count">
-                                    <asp:Label ID="lblOFFLINEWITHINAPPROVED" runat="server"></asp:Label>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <a href="RENApplDeptView.aspx?status=OFFLINEAPPROVEDBEYOND">
-                        <div class="card 4">
-                            <div class="card-headr">
-                                <div class="text">Beyond in Time Limits</div>
-                                <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
-                                <div class="count">
-                                    <asp:Label ID="lblOFFLINEBEYONDAPPROVED" runat="server"></asp:Label>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
+                    </div>
+                </section>
             </div>
-        </div>
-    </section>
-</div>
+            <div class="card" id="OfflineApproved" runat="server" visible="false">
+                <div class="card-header">
+                    <h3>Offiline Issued Approvals</h3>
+                </div>
+                <section id="dashboardcount4" class="mt-3 mb-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="RENApplDeptView.aspx?status=OFFLINEAPPROVED">
+                                    <div class="card 1">
+                                        <div class="card-headr">
+                                            <div class="text">Total</div>
+                                            <div class="iocn"><i class="fi fi-tr-memo-circle-check"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblTOTALOFFLINEAPPROVED" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="RENApplDeptView.aspx?status=OFFLINEAPPROVEDWITHIN">
+                                    <div class="card 2">
+                                        <div class="card-headr">
+                                            <div class="text">Within Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-download"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblOFFLINEWITHINAPPROVED" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <a href="RENApplDeptView.aspx?status=OFFLINEAPPROVEDBEYOND">
+                                    <div class="card 4">
+                                        <div class="card-headr">
+                                            <div class="text">Beyond in Time Limits</div>
+                                            <div class="iocn"><i class="fi fi-tr-file-upload"></i></div>
+                                            <div class="count">
+                                                <asp:Label ID="lblOFFLINEBEYONDAPPROVED" runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
 
 
         </div>

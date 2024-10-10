@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -53,7 +54,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindData(string Unitid, string QueryID)
@@ -82,7 +85,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
 
@@ -119,7 +124,9 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -180,6 +187,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations(FileUpload Attachment)

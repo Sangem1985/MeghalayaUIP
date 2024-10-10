@@ -11,6 +11,7 @@ using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.BAL.PreRegBAL;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -49,7 +50,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindaApplicatinDetails()
@@ -195,7 +198,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void lbtnBack_Click(object sender, EventArgs e)
@@ -210,6 +215,7 @@ namespace MeghalayaUIP.User.PreReg
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
 
             }
         }
@@ -224,7 +230,12 @@ namespace MeghalayaUIP.User.PreReg
                 if (lblfilepath != null || lblfilepath.Text != "")
                     Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + lblfilepath.Text);
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

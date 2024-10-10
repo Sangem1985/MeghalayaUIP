@@ -453,8 +453,9 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
 
@@ -705,6 +706,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations(FileUpload Attachment)
@@ -795,7 +797,9 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

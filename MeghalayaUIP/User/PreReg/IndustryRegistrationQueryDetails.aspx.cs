@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Configuration;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -50,7 +51,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
 
@@ -80,7 +83,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
 
@@ -195,8 +200,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -239,7 +245,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
 

@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.User.PreReg
 {
@@ -87,7 +88,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }

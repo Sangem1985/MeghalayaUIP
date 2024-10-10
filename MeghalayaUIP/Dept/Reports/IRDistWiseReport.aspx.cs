@@ -14,7 +14,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using iTextSharp.text;
 using iTextSharp.tool.xml;
-
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.Reports
 {
@@ -59,9 +59,9 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";               
                 Failure.Visible = true;
-                throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
            
         }
@@ -100,7 +100,9 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -139,13 +141,25 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            FillGridData();
+            try
+            {
+                FillGridData();
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+           
 
         }
 
@@ -159,6 +173,7 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

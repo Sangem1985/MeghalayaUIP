@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,32 +18,43 @@ namespace MeghalayaUIP.User.Dashboard
         string UnitID; string url;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                var ObjUserInfo = new UserInfo();
-                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+
+
+                if (Session["UserInfo"] != null)
                 {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+
+                    if (!IsPostBack)
+                    {
+                        BindUnits();
+                        if (Request.QueryString.Count > 0)
+                        { ddlUnitNames.SelectedValue = Request.QueryString[0]; }
+                        BindApplStatus(ddlUnitNames.SelectedValue);
+                    }
                 }
-                if (hdnUserID.Value == "")
+                else
                 {
-                    hdnUserID.Value = ObjUserInfo.Userid;
-
-                }
-
-                Page.MaintainScrollPositionOnPostBack = true;
-
-                if (!IsPostBack)
-                {
-                    BindUnits();
-                    if (Request.QueryString.Count > 0)
-                    { ddlUnitNames.SelectedValue = Request.QueryString[0]; }
-                    BindApplStatus(ddlUnitNames.SelectedValue);
+                    Response.Redirect("~/Login.aspx");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                Response.Redirect("~/Login.aspx");
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
 
@@ -67,6 +79,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindApplStatus(string UnitID)
@@ -122,6 +135,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -137,6 +151,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void ddlUnitNames_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,6 +178,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnPreRegTotal_Click(object sender, EventArgs e)

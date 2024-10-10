@@ -179,8 +179,9 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindMandal(DropDownList ddlmndl, string DistrictID)
@@ -594,6 +595,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -752,6 +754,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

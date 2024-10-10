@@ -53,7 +53,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch(Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void GetAppliedorNot()
@@ -84,7 +86,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -127,7 +131,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch(Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string validations()
@@ -227,14 +233,13 @@ namespace MeghalayaUIP.User.Renewal
                     txtLicDateTo.Text = ds.Tables[0].Rows[0]["RENLM_RENEWEDDATE"].ToString();
                     txtLicValiddate.Text = ds.Tables[0].Rows[0]["RENLM_LICVALIDDATE"].ToString();
                    
-                   
-                   
-
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

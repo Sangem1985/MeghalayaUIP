@@ -42,7 +42,7 @@
             <div class="content container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Application Status For Application ID: 
+                        <h3>Application Status For Acknowledgement ID: 
                             <asp:Label ID="lbluidno" runat="server"></asp:Label></h3>
                     </div>
                     <section id="dashboardcount1">

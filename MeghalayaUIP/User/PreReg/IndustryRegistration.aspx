@@ -428,7 +428,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" OnTextChanged="txtDCPorOperation_TextChanged" AutoPostBack="true" />
+                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" OnTextChanged="txtDCPorOperation_TextChanged" AutoPostBack="true" MaxLength="10" />
                                                                             <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDCPorOperation"></cc1:CalendarExtender>
                                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>

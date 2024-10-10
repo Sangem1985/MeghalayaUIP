@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL; 
-using MeghalayaUIP.Common; 
+using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,46 +17,57 @@ namespace MeghalayaUIP.User.CFO
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                var ObjUserInfo = new UserInfo();
-                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
-                {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
-                }
-                if (hdnUserID.Value == "")
-                {
-                    hdnUserID.Value = ObjUserInfo.Userid;
 
-                }
 
-                if (Request.QueryString.Count > 0)
+                if (Session["UserInfo"] != null)
                 {
-                    UnitID = Convert.ToString(Request.QueryString[0]);
-                    lblType.Text = Request.QueryString[1].ToString();
-                    if (Request.QueryString[1].ToString() == "UnderProcess")
-                    { lblType.Text = " Under Process:"; }
-                    if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
-                    { lblType.Text = " Scrutiny Completed:"; }
-                    if (Request.QueryString[1].ToString() == "ScrutinyPending")
-                    { lblType.Text = " Scrutiny Pending:"; }
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+
+                    }
+
+                    if (Request.QueryString.Count > 0)
+                    {
+                        UnitID = Convert.ToString(Request.QueryString[0]);
+                        lblType.Text = Request.QueryString[1].ToString();
+                        if (Request.QueryString[1].ToString() == "UnderProcess")
+                        { lblType.Text = " Under Process:"; }
+                        if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
+                        { lblType.Text = " Scrutiny Completed:"; }
+                        if (Request.QueryString[1].ToString() == "ScrutinyPending")
+                        { lblType.Text = " Scrutiny Pending:"; }
+                    }
+                    else
+                    {
+                        string newurl = "~/User/MainDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+
+                    if (!IsPostBack)
+                    {
+                        BindApplStatus();
+                    }
                 }
                 else
                 {
-                    string newurl = "~/User/MainDashboard.aspx";
-                    Response.Redirect(newurl);
-                }
-
-                Page.MaintainScrollPositionOnPostBack = true;
-
-                if (!IsPostBack)
-                {
-                    BindApplStatus();
+                    Response.Redirect("~/Login.aspx");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                Response.Redirect("~/Login.aspx");
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -87,6 +99,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -154,6 +167,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
 
             }
         }

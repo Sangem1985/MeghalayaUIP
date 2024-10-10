@@ -25,7 +25,7 @@
     </div>
     <div class="card mt-2">
         <div class="modal-header" style="padding: 3px 30px;">
-            <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Operational Approvalss</h4>
+            <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Operational Approvals</h4>
             <h5 class="modal-title cfe" id="myLargeModalLabel cfe2">Status View : 
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Open this select Status</option>
@@ -42,7 +42,7 @@
             <div class="content container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Application Status For Application ID: 
+                        <h3>Application Status For Acknowledgement ID: 
                             <asp:Label ID="lbluidno" runat="server"></asp:Label></h3>
                     </div>
                     <section id="dashboardcount1">
@@ -57,7 +57,7 @@
                                                 </div>
                                                 <div class="text-end pt-1">
                                                     <h5 class="mb-0">
-                                                        <asp:Label ID="lblAppstatus" runat="server">Submiteed</asp:Label></h5>
+                                                        <asp:Label ID="lblAppstatus" runat="server">Submitted</asp:Label></h5>
                                                     <%--<p class="text-sm mb-0 text-capitalize">Sumbitted</p>--%>
                                                 </div>
                                             </div>

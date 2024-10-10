@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -46,8 +47,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!!";
+                lblmsg0.Text = "Oops, You've have encountered an error!!";               
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -71,7 +73,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -85,7 +89,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void ddlModule_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,7 +154,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindPreRegDepts()
@@ -182,7 +188,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindDepartment()
@@ -210,7 +218,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -242,11 +252,16 @@ namespace MeghalayaUIP.User.Dashboard
                     grdCentralRepo.DataSource = null;
                     grdCentralRepo.DataBind();
                     divgrd.Visible = false;
+                    lblmsg0.Text = "No Records Found....! ";
+                    Failure.Visible = true;
+
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void grdCentralRepo_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -277,14 +292,18 @@ namespace MeghalayaUIP.User.Dashboard
                 }
                 else
                 {
-                    Context.Response.Write("<script>");
-                    Context.Response.Write("window.open('" + physicalPath + "', '_newtab');");
-                    Context.Response.Write("</script>");
+                    //Context.Response.Write("<script>");
+                    //Context.Response.Write("window.open('" + physicalPath + "', '_newtab');");
+                    //Context.Response.Write("</script>");
 
                     //string script = "openPdf('" + physicalPath + "');";
 
                     //ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
                     //Response.Write("<script>alert('File not found.');</script>");
+                    Failure.Visible = true;
+                    lblmsg0.Text = "File Not Found....!";                    
+                    string message = "alert('" + lblmsg0.Text + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
         }

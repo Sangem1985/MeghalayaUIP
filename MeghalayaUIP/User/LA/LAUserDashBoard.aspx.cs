@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.LABAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -49,7 +50,7 @@ namespace MeghalayaUIP.User.LA
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindApproved()
@@ -82,7 +83,7 @@ namespace MeghalayaUIP.User.LA
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -120,7 +121,9 @@ namespace MeghalayaUIP.User.LA
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnCombndAppl_Click(object sender, EventArgs e)
@@ -139,7 +142,9 @@ namespace MeghalayaUIP.User.LA
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void btnView_Click(object sender, EventArgs e)
@@ -249,7 +254,9 @@ namespace MeghalayaUIP.User.LA
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

@@ -38,6 +38,7 @@
                             <span aria-hidden="true">×</span></button>
                     </div>
                 </div>
+                 <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">

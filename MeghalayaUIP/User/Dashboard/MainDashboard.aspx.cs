@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.User.Dashboard
 {
@@ -40,9 +41,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                //lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
-                //Failure.Visible = true;
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void RegistrationMIIPPTotal_Click(object sender, EventArgs e)
@@ -121,6 +122,9 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }

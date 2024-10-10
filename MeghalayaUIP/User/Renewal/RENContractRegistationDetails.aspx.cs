@@ -19,35 +19,46 @@ namespace MeghalayaUIP.User.Renewal
         string UnitID, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserInfo"] != null)
+            try
             {
-                var ObjUserInfo = new UserInfo();
-                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
-                {
-                    ObjUserInfo = (UserInfo)Session["UserInfo"];
-                }
-                if (hdnUserID.Value == "")
-                {
-                    hdnUserID.Value = ObjUserInfo.Userid;
-                }
-                if (Convert.ToString(Session["RENUNITID"]) != "")
-                { UnitID = Convert.ToString(Session["RENUNITID"]); }
-                else
-                {
-                    string newurl = "~/User/Renewal/RENUserDashboard.aspx";
-                    Response.Redirect(newurl);
-                }
-                //Session["RENWC_UNITID"] = "1001";
-                //UnitID = Convert.ToString(Session["RENWC_UNITID"]);
 
-                Page.MaintainScrollPositionOnPostBack = true;
-                Failure.Visible = false;
-                success.Visible = false;
 
-                if (!IsPostBack)
+                if (Session["UserInfo"] != null)
                 {
-                    GetAppliedorNot();
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    if (Convert.ToString(Session["RENUNITID"]) != "")
+                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    else
+                    {
+                        string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+                    //Session["RENWC_UNITID"] = "1001";
+                    //UnitID = Convert.ToString(Session["RENWC_UNITID"]);
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
+
+                    if (!IsPostBack)
+                    {
+                        GetAppliedorNot();
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void GetAppliedorNot()
@@ -80,47 +91,71 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void rblApplicant_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblApplicant.SelectedValue == "Y")
+            try
             {
-                ApplicantName.Visible = true;
-                social.Visible = true;
-                PowerAttorney.Visible = false;
+
+
+                if (rblApplicant.SelectedValue == "Y")
+                {
+                    ApplicantName.Visible = true;
+                    social.Visible = true;
+                    PowerAttorney.Visible = false;
+                }
+                else
+                {
+                    PowerAttorney.Visible = true;
+                    social.Visible = false;
+                    ApplicantName.Visible = false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                PowerAttorney.Visible = true;
-                social.Visible = false;
-                ApplicantName.Visible = false;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void rblRegister_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblRegister.SelectedValue == "1")
+            try
             {
-                director.Visible = true;
-                applicant.Visible = true;
-                circle.Visible = false;
-                division.Visible = false;
+
+
+                if (rblRegister.SelectedValue == "1")
+                {
+                    director.Visible = true;
+                    applicant.Visible = true;
+                    circle.Visible = false;
+                    division.Visible = false;
+                }
+                else if (rblRegister.SelectedValue == "2")
+                {
+                    applicant.Visible = true;
+                    director.Visible = true;
+                    circle.Visible = true;
+                    division.Visible = false;
+                }
+                else if (rblRegister.SelectedValue == "3")
+                {
+                    applicant.Visible = true;
+                    director.Visible = true;
+                    circle.Visible = true;
+                    division.Visible = true;
+                }
             }
-            else if (rblRegister.SelectedValue == "2")
+            catch(Exception ex)
             {
-                applicant.Visible = true;
-                director.Visible = true;
-                circle.Visible = true;
-                division.Visible = false;
-            }
-            else if (rblRegister.SelectedValue == "3")
-            {
-                applicant.Visible = true;
-                director.Visible = true;
-                circle.Visible = true;
-                division.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -183,7 +218,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string Stepvalidations()
@@ -339,7 +376,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindCaste()
@@ -366,7 +405,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -380,7 +421,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindStates()
@@ -408,7 +451,9 @@ namespace MeghalayaUIP.User.Renewal
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -444,13 +489,22 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void ddlnational_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlnational.SelectedValue == "2")
+            try
             {
-                SateDomical.Visible = false;
+                if (ddlnational.SelectedValue == "2")
+                {
+                    SateDomical.Visible = false;
+                }
+                else
+                {
+                    SateDomical.Visible = true;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                SateDomical.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }
