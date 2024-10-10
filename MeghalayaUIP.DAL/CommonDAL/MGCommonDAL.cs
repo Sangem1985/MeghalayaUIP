@@ -844,7 +844,15 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@APPLTYPE", Applicationtype);
                 da.SelectCommand.Parameters.AddWithValue("@UNITNAME", Unitname);
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", UId);
+                //if (UId.ToString() != "" || UId.ToString() != null)
+                //{
+                //    da.SelectCommand.Parameters.AddWithValue("@UNITID", UId);
+                //}
+
+                if (UId.Trim() == "" || UId.Trim() == null)
+                    da.SelectCommand.Parameters.AddWithValue("@UNITID", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@UNITID", SqlDbType.VarChar).Value = UId.Trim();
 
                 da.Fill(ds);
 

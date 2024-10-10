@@ -25,7 +25,7 @@
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="card-title mt-1"><b>Application Tracker:</b></h4>
                         <div class="col-md-1">
-                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnBack" runat="server" OnClick="lbtnBack_Click" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
                     <div class="card">
@@ -63,9 +63,9 @@
                                                                         <asp:ListItem Value="0">--ALL--</asp:ListItem>
                                                                         <asp:ListItem Value="IR">INDUSTRY REGISTRATION</asp:ListItem>
                                                                         <asp:ListItem Value="LA">LAND ALLOTTMENT</asp:ListItem>
-                                                                        <asp:ListItem Value="CF">CFE</asp:ListItem>
-                                                                        <asp:ListItem Value="CO">CFO</asp:ListItem>
-                                                                        <asp:ListItem Value="RE">RENEWAL</asp:ListItem>
+                                                                        <asp:ListItem Value="CFE">CFE</asp:ListItem>
+                                                                        <asp:ListItem Value="CFO">CFO</asp:ListItem>
+                                                                        <asp:ListItem Value="REN">RENEWAL</asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -117,16 +117,32 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Unitid" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblUnitId" runat="server" Text='<%#Eval("UNITID") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="InvesterId" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblInvesterId" runat="server" Text='<%#Eval("INVESTERID") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                 <asp:TemplateField HeaderText="StageID" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblStageID" runat="server" Text='<%#Eval("STATUS") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                               
                                                                 <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                               <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
                                                                 <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lnkIndustry" Target="_blank" />
+                                                                        <asp:LinkButton Text="Click Here" runat="server" ID="lnkIndustry" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -157,12 +173,12 @@
                                                                 <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                               <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
                                                                 <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblLand" Target="_blank" />
+                                                                        <asp:LinkButton runat="server" ID="lnkLand" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -189,6 +205,17 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Unitid" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblUnitId" runat="server" Text='<%#Eval("CFEQD_UNITID") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="InvesterId" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblInvesterId" runat="server" Text='<%#Eval("CFEQD_CREATEDBY") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                
                                                                 <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
@@ -198,7 +225,7 @@
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblCFE" Target="_blank" />
+                                                                        <asp:LinkButton runat="server" ID="lnkCFE" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -225,6 +252,16 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Unitid" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblUnitId" runat="server" Text='<%#Eval("CFOQD_UNITID") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="InvesterId" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblInvesterId" runat="server" Text='<%#Eval("CFOQD_CREATEDBY") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
                                                                 <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
@@ -234,7 +271,7 @@
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblCFO" Target="_blank" />
+                                                                        <asp:LinkButton runat="server" ID="lnkCFO" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
@@ -261,16 +298,26 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Unitid" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblUnitId" runat="server" Text='<%#Eval("RENID_UNITID") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="InvesterId" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblInvesterId" runat="server" Text='<%#Eval("RENID_CREATEDBY") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
                                                                 <asp:BoundField DataField="UIDNO" HeaderText="UID" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="UNITNAME" HeaderText="Name Of the Industry" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="ACTIVITYPROPOSED" HeaderText="Activity Proposed" ItemStyle-HorizontalAlign="Left" />
                                                                 <asp:BoundField DataField="LINEOFACTIVITY" HeaderText="Line of Activity" ItemStyle-HorizontalAlign="Left" />
-                                                               <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
+                                                                <%-- <asp:BoundField DataField="" HeaderText="Total Investment (in Crores)" ItemStyle-HorizontalAlign="Left" />--%>
                                                                 <asp:BoundField DataField="DATEOFREGISTER" HeaderText="Date of application" ItemStyle-HorizontalAlign="Left" />
 
                                                                 <asp:TemplateField HeaderText="View Status">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblRenewal" Target="_blank" />
+                                                                        <asp:LinkButton runat="server" ID="lnkRenewal" Target="_blank" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>

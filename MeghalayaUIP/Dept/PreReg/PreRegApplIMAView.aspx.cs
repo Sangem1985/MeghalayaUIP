@@ -154,7 +154,8 @@ namespace MeghalayaUIP.Dept.PreReg
                 Button button = e.Row.FindControl("ciw_id") as Button;
                 if (button != null)
                 {
-                    if (Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" ||
+                    if (
+                        Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" ||
                         Request.QueryString["status"].ToString() == "DEPTREPLIEDTOIMA"||
                         Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA"||
                         Request.QueryString["status"].ToString() == "COMMQUERYTOIMA"||

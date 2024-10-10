@@ -225,26 +225,34 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
                         }
-
-                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "3" ||
-                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "5" ||
-                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "7" ||
-                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "14" ||
-                            Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "16")
+                        if (Convert.ToString(Request.QueryString["status"]) != "ApplicationTracker")
                         {
-                            verifypanel.Visible = true;
+                            if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "3" ||
+                                Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "5" ||
+                                Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "7" ||
+                                Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "14" ||
+                                Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "16")
+                            {
+                                verifypanel.Visible = true;
+                            }
+                            else
+                            {
+                                verifypanel.Visible = false;
+                            }
+                            if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
+                            {
+                                QueryResondpanel.Visible = true;
+                            }
+                            else
+                            {
+                                QueryResondpanel.Visible = false;
+                            }
                         }
-                        else
-                        {
-                            verifypanel.Visible = false;
-                        }
-                        if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
-                        {
-                            QueryResondpanel.Visible = true;
-                        }
-                        else
+                        else if(Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
                         {
                             QueryResondpanel.Visible = false;
+                            verifypanel.Visible = false;
+
                         }
                     }
 
