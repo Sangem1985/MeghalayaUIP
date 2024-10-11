@@ -13,6 +13,7 @@ using System.Globalization;
 using System.IO;
 using System.Configuration;
 using MeghalayaUIP.CommonClass;
+using System.Text.RegularExpressions;
 
 namespace MeghalayaUIP.User.Grievance
 {
@@ -46,7 +47,7 @@ namespace MeghalayaUIP.User.Grievance
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!!";             
+                lblmsg0.Text = "Oops, You've have encountered an error!!";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
@@ -129,7 +130,7 @@ namespace MeghalayaUIP.User.Grievance
                 if (ddlModule.SelectedValue == "7")
                 {
                     ddldept.SelectedValue = "104";
-                        ddldept.Enabled = false;
+                    ddldept.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -212,7 +213,7 @@ namespace MeghalayaUIP.User.Grievance
                     trData.Visible = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -327,11 +328,11 @@ namespace MeghalayaUIP.User.Grievance
                         }
                         if (ddlModule.SelectedValue == "7")
                         {
-                            divPreReg.Visible = false;  divCFE.Visible = false; divCFO.Visible = false; divRenewals.Visible = false; divIncentives.Visible = false;
+                            divPreReg.Visible = false; divCFE.Visible = false; divCFO.Visible = false; divRenewals.Visible = false; divIncentives.Visible = false;
                             BindPreRegDepts();
                         }
                     }
-                   
+
                 }
                 else
                 {
@@ -382,6 +383,7 @@ namespace MeghalayaUIP.User.Grievance
             {
                 string ErrorMsg = "", result = "";
                 ErrorMsg = Validations();
+                ErrorMsg = validations(FileUpload);
                 if (ErrorMsg == "")
                 {
                     string newPath = "";
@@ -389,6 +391,7 @@ namespace MeghalayaUIP.User.Grievance
 
                     if (FileUpload.HasFile)
                     {
+
                         if ((FileUpload.PostedFile != null) && (FileUpload.PostedFile.ContentLength > 0))
                         {
                             string sFileName = System.IO.Path.GetFileName(FileUpload.PostedFile.FileName);
@@ -487,7 +490,7 @@ namespace MeghalayaUIP.User.Grievance
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";               
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
@@ -603,9 +606,76 @@ namespace MeghalayaUIP.User.Grievance
             catch (Exception ex)
             {
                 lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
-                Failure.Visible = true;             
+                Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
+
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                //  }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }
