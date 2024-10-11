@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MeghalayaUIP.DAL.CommonDAL;
 using MeghalayaUIP.Common;
+using System.Text.RegularExpressions;
+
+
 
 namespace MeghalayaUIP.BAL.CommonBAL
 {
@@ -100,6 +103,6 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetDeptChangePassword(Created, Username, Password, Decripty, IPAddress);
         }
-
+        
     }
 }
