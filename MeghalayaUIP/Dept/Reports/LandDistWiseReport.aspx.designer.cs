@@ -177,13 +177,13 @@ namespace MeghalayaUIP.Dept.Reports
         protected global::System.Web.UI.WebControls.Button btnsubmit;
 
         /// <summary>
-        /// GVDistrictWise control.
+        /// GVLADistrictWise control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVDistrictWise;
+        protected global::System.Web.UI.WebControls.GridView GVLADistrictWise;
 
         /// <summary>
         /// label control.

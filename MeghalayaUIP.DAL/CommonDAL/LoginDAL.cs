@@ -149,7 +149,40 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetDeptUserPwdInfo(string EmailId,string Type)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
 
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(LoginConstants.GetDeptUserPwdInfo, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = LoginConstants.GetDeptUserPwdInfo;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@EMAILID", EmailId);
+                da.SelectCommand.Parameters.AddWithValue("@TYPE", Type);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
         //public List<UserOptions> GetUserOptions(string roleID, string userId)
         //{
         //    List<UserOptions> portalUserOptionList = new List<UserOptions>();

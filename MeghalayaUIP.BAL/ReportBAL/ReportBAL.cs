@@ -52,5 +52,9 @@ namespace MeghalayaUIP.BAL.ReportBAL
         {
             return reportDAL.GRDeptwiseReport(Department, Formdate, Todate);
         }
+        public DataSet LandDistrictWiseReports(string District, string Formdate, string Todate)
+        {
+            return reportDAL.LandDistrictWiseReports(District, Formdate, Todate);
+        }
     }
 }

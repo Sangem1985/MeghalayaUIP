@@ -34,6 +34,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objLoginDAL.ForgetPassword(EmailId);
         }
+        public DataSet GetDeptUserPwdInfo(string UserName, string Type)
+        {
+            return objLoginDAL.GetDeptUserPwdInfo(UserName, Type);
+        }
 
     }
 
