@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MeghalayaUIP.BAL;
@@ -26,6 +29,7 @@ namespace MeghalayaUIP
 
                 if (!IsPostBack)
                 {
+                    ComputeSha256Hash("Chanikya");
                     Killsession();
                     txtUsername.Focus();
                     FillCapctha();
@@ -105,6 +109,7 @@ namespace MeghalayaUIP
         {
             try
             {
+                string DPassword = string.Empty;
 
                 if (Request.RequestType.ToUpper() != "POST")
                 {
@@ -148,27 +153,42 @@ namespace MeghalayaUIP
                     CaptchaResult = true;
                     if (CaptchaResult)
                     {
-                        DeptUserInfo ObjUserInfo;
-                        //string encpassword = ExtensionMethods.Encrypt(Password, "SYSTIME");
-                        ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, Password, getclientIP());//,Dept
-                        if (ObjUserInfo != null && ObjUserInfo.UserID != null)
+
+                        DataSet ds1 = objloginBAL.GetDeptUserPwdInfo(txtUsername.Text.ToString(), "D");
+                        if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
                         {
-                            Session["DeptUserInfo"] = ObjUserInfo;
-                            //objloginBAL.LogUserLoginHistory(ObjUserInfo.Userid, getclientIP());
-                            Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx", false);
+                            DPassword = ds1.Tables[0].Rows[0]["Password"].ToString();
+                            string actPwd1 = FormsAuthentication.HashPasswordForStoringInConfigFile(DPassword + asp_hidden.Value.ToString(), "MD5");
+                            if (actPwd1.ToUpper().ToString() != txtPswrd.Text.ToUpper().ToString())
+                            {
+                                lblmsg0.Text = "Invalid UserName or Password";
+                                txtPswrd.Text = "";
+                                Failure.Visible = true;
+                                FillCapctha(); txtcaptcha.Text = "";
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true); return;
+                            }
+                            DeptUserInfo ObjUserInfo;
+                            //string encpassword = ExtensionMethods.Encrypt(Password, "SYSTIME");
+                            ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, DPassword, getclientIP());//,Dept
+                            if (ObjUserInfo != null && ObjUserInfo.UserID != null)
+                            {
+                                Session["DeptUserInfo"] = ObjUserInfo;
+                                //objloginBAL.LogUserLoginHistory(ObjUserInfo.Userid, getclientIP());
+                                Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx", false);
+                            }
+                            else
+                            {
+                                lblmsg0.Text = "Invalid Credentials..";
+                                txtPswrd.Text = "";
+                                Failure.Visible = true;
+                                FillCapctha(); txtcaptcha.Text = "";
+                            }
                         }
                         else
                         {
-                            lblmsg0.Text = "Invalid Credentials..";
-                            txtPswrd.Text = "";
+                            lblmsg0.Text = CErrormsg;
                             Failure.Visible = true;
-                            FillCapctha(); txtcaptcha.Text = "";
                         }
-                    }
-                    else
-                    {
-                        lblmsg0.Text = CErrormsg;
-                        Failure.Visible = true;
                     }
                 }
             }
@@ -238,6 +258,20 @@ namespace MeghalayaUIP
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
           
+        }
+        static string ComputeSha256Hash(string rawData)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
