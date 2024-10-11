@@ -64,8 +64,8 @@
                                                             <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" OnClick="btnPdf_Click" />
                                                             <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
                                                     </div>
-                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
-                                                        <div class="col-md-3">
+                                                    <div class="col-md-10 d-flex">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="col-lg-6 col-form-label">Department :</label>
                                                                 <div class="col-lg-8 d-flex">
@@ -75,7 +75,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="col-lg-5 col-form-label">From Date:</label>
                                                                 <div class="col-lg-7 d-flex">
@@ -85,7 +85,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="col-lg-4 col-form-label">To Date: </label>
                                                                 <div class="col-lg-7 d-flex">

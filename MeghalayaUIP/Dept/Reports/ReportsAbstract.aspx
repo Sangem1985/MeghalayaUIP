@@ -93,7 +93,7 @@
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
-                  <h4 class="card-title mt-1"><b>Invest Meghalaya Reports</b></h4>
+                <h4 class="card-title mt-1"><b>Invest Meghalaya Reports</b></h4>
                 <div class="col-md-1">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
@@ -123,136 +123,144 @@
 
                 <div class="container">
                     <div class="row">
-                        <!-- Left Panel -->
-                        <div class="col-md-6 col-xs-12">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                                                class="collapsed">Industry Registration Reports
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="headingOne" aria-expanded="false">
-                                        <div class="card">
-                                            <section id="dashboardBasic">
-                                                <div class="container-fluid">
-                                                    <div class="row clearfix">
-                                                        <div id="DashBoardmenu" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
-                                                            <ul>
-                                                                <li><a style="text-decoration: none;" target="_blank" href="IRDistWiseReport.aspx"><i
-                                                                    class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R1: IR District Wise Reports</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Right Panel -->
-                        <div class="col-md-6 col-xs-12">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingTwo">
-                                        <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                                                class="collapsed">Pre-Establishment Reports
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="headingTwo" aria-expanded="false">
-                                        <div class="card">
-                                            <section id="dashboardBasic1">
-                                                <div class="container-fluid">
-                                                    <div class="row clearfix">
-                                                        <div id="DashBoardmenu1" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
-                                                            <ul>
-                                                                <li><a style="text-decoration: none;" target="_blank" href="CFEDeptWiseReport.aspx"><i
-                                                                    class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R2: CFE Department Wise Reports</a></li>
-                                                            </ul>
+                        <div class="col-md-12 d-flex">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <%--------Industry Registration Reports-------%>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+                                                        class="collapsed">Industry Registration Reports
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingOne" aria-expanded="false">
+                                                <div class="card">
+                                                    <section id="dashboardBasic">
+                                                        <div class="container-fluid">
+                                                            <div class="row clearfix">
+                                                                <div id="DashBoardmenu" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                    <ul>
+                                                                        <li><a style="text-decoration: none;" target="_blank" href="IRDistWiseReport.aspx"><i
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R1: IR District Wise Reports</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </section>
                                                 </div>
-                                            </section>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <!-- Left Panel -->
-                        <div class="col-md-6 col-xs-12">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                                                class="collapsed">Pre-Operational Reports
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="headingThree" aria-expanded="false">
-                                        <div class="card">
-                                            <section id="dashboardBasic2">
-                                                <div class="container-fluid">
-                                                    <div class="row clearfix">
-                                                        <div id="DashBoardmenu2" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
-                                                            <ul>
-                                                                <li><a style="text-decoration: none;" target="_blank" href="CFODeptWiseReport.aspx"><i
-                                                                    class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R3: CFO Department Wise Reports</a></li>
-                                                            </ul>
+                                <%--------CFE Reports-------------------------%>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                                                        class="collapsed">Pre-Operational Reports
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingThree" aria-expanded="false">
+                                                <div class="card">
+                                                    <section id="dashboardBasic2">
+                                                        <div class="container-fluid">
+                                                            <div class="row clearfix">
+                                                                <div id="DashBoardmenu2" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                    <ul>
+                                                                        <li><a style="text-decoration: none;" target="_blank" href="CFODeptWiseReport.aspx"><i
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R3: CFO Department Wise Reports</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </section>
                                                 </div>
-                                            </section>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-md-5">
+                                <%--------CFO Reports------------------------%>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                                                        class="collapsed">Pre-Establishment Reports
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingTwo" aria-expanded="false">
+                                                <div class="card">
+                                                    <section id="dashboardBasic1">
+                                                        <div class="container-fluid">
+                                                            <div class="row clearfix">
+                                                                <div id="DashBoardmenu1" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                    <ul>
+                                                                        <li><a style="text-decoration: none;" target="_blank" href="CFEDeptWiseReport.aspx"><i
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R2: CFE Department Wise Reports</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <!-- Right Panel -->
-                        <div class="col-md-6 col-xs-12">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingFour">
-                                        <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
-                                                class="collapsed">Renewals Reports
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="headingFour" aria-expanded="false">
-                                        <div class="card">
-                                            <section id="dashboardBasic3">
-                                                <div class="container-fluid">
-                                                    <div class="row clearfix">
-                                                        <div id="DashBoardmenu3" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
-                                                            <ul>
-                                                                <li><a style="text-decoration: none;" target="_blank" href="RENDeptWiseReport.aspx"><i
-                                                                    class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R4: Renewal Department Wise Reports</a></li>
-                                                            </ul>
+                                <%--------Renewal Reports--------------------%>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingFour">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                                                        class="collapsed">Renewals Reports
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingFour" aria-expanded="false">
+                                                <div class="card">
+                                                    <section id="dashboardBasic3">
+                                                        <div class="container-fluid">
+                                                            <div class="row clearfix">
+                                                                <div id="DashBoardmenu3" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                    <ul>
+                                                                        <li><a style="text-decoration: none;" target="_blank" href="RENDeptWiseReport.aspx"><i
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R4: Renewal Department Wise Reports</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </section>
                                                 </div>
-                                            </section>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-1"></div>
                         </div>
                     </div>
                 </div>
