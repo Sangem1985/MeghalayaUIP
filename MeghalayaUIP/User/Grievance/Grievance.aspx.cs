@@ -383,7 +383,7 @@ namespace MeghalayaUIP.User.Grievance
             {
                 string ErrorMsg = "", result = "";
                 ErrorMsg = Validations();
-                ErrorMsg = validations(FileUpload);
+
                 if (ErrorMsg == "")
                 {
                     string newPath = "";
@@ -391,59 +391,67 @@ namespace MeghalayaUIP.User.Grievance
 
                     if (FileUpload.HasFile)
                     {
-
-                        if ((FileUpload.PostedFile != null) && (FileUpload.PostedFile.ContentLength > 0))
+                        ErrorMsg = validations(FileUpload);
+                        if (ErrorMsg == "")
                         {
-                            string sFileName = System.IO.Path.GetFileName(FileUpload.PostedFile.FileName);
-                            try
+                            if ((FileUpload.PostedFile != null) && (FileUpload.PostedFile.ContentLength > 0))
                             {
-
-                                string[] fileType = FileUpload.PostedFile.FileName.Split('.');
-                                int i = fileType.Length;
-                                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" ||
-                                    fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" ||
-                                    fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" ||
-                                    fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" ||
-                                    fileType[i - 1].ToUpper().Trim() == "DWG")
+                                string sFileName = System.IO.Path.GetFileName(FileUpload.PostedFile.FileName);
+                                try
                                 {
-                                    newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value);
-                                    Grivance_File_Path = newPath + System.DateTime.Now.ToString("ddMMyyyyhhmmss");
-                                    Grivance_File_Type = fileType[i - 1].ToUpper().Trim();
-                                    Grievnace_FileName = sFileName;
 
-                                    if (!Directory.Exists(Grivance_File_Path))
+                                    string[] fileType = FileUpload.PostedFile.FileName.Split('.');
+                                    int i = fileType.Length;
+                                    if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" ||
+                                        fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" ||
+                                        fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" ||
+                                        fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" ||
+                                        fileType[i - 1].ToUpper().Trim() == "DWG")
+                                    {
+                                        newPath = System.IO.Path.Combine(sFileDir, hdnUserID.Value);
+                                        Grivance_File_Path = newPath + System.DateTime.Now.ToString("ddMMyyyyhhmmss");
+                                        Grivance_File_Type = fileType[i - 1].ToUpper().Trim();
+                                        Grievnace_FileName = sFileName;
 
-                                        System.IO.Directory.CreateDirectory(Grivance_File_Path);
-                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(Grivance_File_Path);
-                                    int count = dir.GetFiles().Length;
-                                    if (count == 0)
-                                        FileUpload.PostedFile.SaveAs(Grivance_File_Path + "\\" + Grievnace_FileName);
+                                        if (!Directory.Exists(Grivance_File_Path))
+
+                                            System.IO.Directory.CreateDirectory(Grivance_File_Path);
+                                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(Grivance_File_Path);
+                                        int count = dir.GetFiles().Length;
+                                        if (count == 0)
+                                            FileUpload.PostedFile.SaveAs(Grivance_File_Path + "\\" + Grievnace_FileName);
+                                        else
+                                        {
+                                            if (count == 1)
+                                            {
+                                                string[] Files = Directory.GetFiles(Grivance_File_Path);
+
+                                                foreach (string file in Files)
+                                                {
+                                                    File.Delete(file);
+                                                }
+                                                FileUpload.PostedFile.SaveAs(Grivance_File_Path + "\\" + Grievnace_FileName);
+                                            }
+                                        }
+
+                                    }
                                     else
                                     {
-                                        if (count == 1)
-                                        {
-                                            string[] Files = Directory.GetFiles(Grivance_File_Path);
-
-                                            foreach (string file in Files)
-                                            {
-                                                File.Delete(file);
-                                            }
-                                            FileUpload.PostedFile.SaveAs(Grivance_File_Path + "\\" + Grievnace_FileName);
-                                        }
+                                        lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG files only..!</font>";
+                                        Failure.Visible = true;
                                     }
 
                                 }
-                                else
+                                catch (Exception)//in case of an error
                                 {
-                                    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG files only..!</font>";
-                                    Failure.Visible = true;
+                                    DeleteFile(newPath + "\\" + sFileName);
                                 }
-
                             }
-                            catch (Exception)//in case of an error
-                            {
-                                DeleteFile(newPath + "\\" + sFileName);
-                            }
+                        }
+                        else
+                        {
+                            string message = "alert('" + ErrorMsg + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
                     int j = 0;
@@ -669,7 +677,7 @@ namespace MeghalayaUIP.User.Grievance
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;
