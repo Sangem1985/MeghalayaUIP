@@ -77,7 +77,7 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";                
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
@@ -1250,12 +1250,12 @@ namespace MeghalayaUIP.User.PreReg
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtWorkingCapital.Text) || txtWorkingCapital.Text == "" || txtWorkingCapital.Text == null || txtWorkingCapital.Text.All(c=> c=='0') || System.Text.RegularExpressions.Regex.IsMatch(txtWorkingCapital.Text, @"^0+(\.0+)?$"))
+                if (string.IsNullOrEmpty(txtWorkingCapital.Text) || txtWorkingCapital.Text == "" || txtWorkingCapital.Text == null || txtWorkingCapital.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtWorkingCapital.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Working Capital \\n";
                     slno = slno + 1;
                 }
-               
+
 
                 //if (string.IsNullOrEmpty(txtPromoterEquity.Text) || txtPromoterEquity.Text == "" || txtPromoterEquity.Text == null)
                 //{
@@ -1519,9 +1519,9 @@ namespace MeghalayaUIP.User.PreReg
                         TextBox txtYear4 = grdRevenueProj.Rows[j].FindControl("txtYear4") as TextBox;
                         TextBox txtYear5 = grdRevenueProj.Rows[j].FindControl("txtYear5") as TextBox;
 
-                        if (string.IsNullOrEmpty(txtYear1.Text) || txtYear1.Text == "" || txtYear1.Text == null || txtYear1.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear1.Text, @"^0+(\.0+)?$")||
-                            string.IsNullOrEmpty(txtYear2.Text) || txtYear2.Text == "" || txtYear2.Text == null || txtYear2.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear2.Text, @"^0+(\.0+)?$")||
-                            string.IsNullOrEmpty(txtYear3.Text) || txtYear3.Text == "" || txtYear3.Text == null || txtYear3.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear3.Text, @"^0+(\.0+)?$")||
+                        if (string.IsNullOrEmpty(txtYear1.Text) || txtYear1.Text == "" || txtYear1.Text == null || txtYear1.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear1.Text, @"^0+(\.0+)?$") ||
+                            string.IsNullOrEmpty(txtYear2.Text) || txtYear2.Text == "" || txtYear2.Text == null || txtYear2.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear2.Text, @"^0+(\.0+)?$") ||
+                            string.IsNullOrEmpty(txtYear3.Text) || txtYear3.Text == "" || txtYear3.Text == null || txtYear3.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear3.Text, @"^0+(\.0+)?$") ||
                             string.IsNullOrEmpty(txtYear4.Text) || txtYear4.Text == "" || txtYear4.Text == null || txtYear4.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear4.Text, @"^0+(\.0+)?$") ||
                             string.IsNullOrEmpty(txtYear5.Text) || txtYear5.Text == "" || txtYear5.Text == null || txtYear5.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear5.Text, @"^0+(\.0+)?$"))
                         {
@@ -2462,7 +2462,7 @@ namespace MeghalayaUIP.User.PreReg
                 if (Convert.ToString(ViewState["UnitID"]) != "")
                 {
                     string Error = ""; string message = "";
-                   
+
                     if (fupPAN.HasFile)
                     {
                         Error = validations(fupPAN);
@@ -2472,7 +2472,7 @@ namespace MeghalayaUIP.User.PreReg
                             string serverpath = sFileDir + hdnUserID.Value + "\\"
                              + ViewState["UnitID"].ToString() + "\\" + "PAN" + "\\";
 
-                           
+
                             if (!Directory.Exists(serverpath))
                             {
                                 Directory.CreateDirectory(serverpath);
@@ -2554,7 +2554,7 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     string Error = ""; string message = "";
                     string newPath = "";
-                    string sFileDir =  ConfigurationManager.AppSettings["PreRegAttachments"];
+                    string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
                     //Server.MapPath("~\\PreRegAttachments");
                     if (fupDPR.HasFile)
                     {
@@ -2767,9 +2767,10 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 if (!ValidateFileExtension(Attachment))
                 {
-                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    Error = Error + slno + ". Invalid File Extension \\n";
                     slno = slno + 1;
                 }
+
                 // }
                 return Error;
             }
@@ -2793,19 +2794,16 @@ namespace MeghalayaUIP.User.PreReg
         }
         public static bool ValidateFileExtension(FileUpload Attachment)
         {
-            try
-            {
-                string Attachmentname = Attachment.PostedFile.FileName;
-                string[] fileType = Attachmentname.Split('.');
-                int i = fileType.Length;
 
-                if (i == 2)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception ex)
-            { throw ex; }
+            string Attachmentname = Attachment.PostedFile.FileName;
+            string[] fileType = Attachmentname.Split('.');
+            int i = fileType.Length;
+
+            if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
+                return true;
+            else 
+                return false;
+            
         }
         protected void btnPreview_Click(object sender, EventArgs e)
         {
@@ -2867,7 +2865,7 @@ namespace MeghalayaUIP.User.PreReg
                     // dt.Columns.Remove("IDD_COUNTRYName");
                     result = indstregBAL.InsertIndustryRegDetails(dt, ViewState["UnitID"].ToString(), hdnUserID.Value);
                     if (result != "")
-                    {   
+                    {
                         string unitid = Convert.ToString(ViewState["UnitID"]);
                         smsMail.SendSms(unitid, hdnUserID.Value.ToString(), "1407172584852269031", "REG", "");
 
@@ -3157,7 +3155,7 @@ namespace MeghalayaUIP.User.PreReg
         {
             ErrorMsg1 = Step1validations();
             ErrorMsg2 = Step2validations();
-            if ( ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"])!="" && hdnResultTab2.Value != "" && ErrorMsg2 == "")
+            if (ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && ErrorMsg2 == "")
                 MVprereg.ActiveViewIndex = 2;
             else
             {
@@ -3180,7 +3178,7 @@ namespace MeghalayaUIP.User.PreReg
             ErrorMsg1 = Step1validations();
             ErrorMsg2 = Step2validations();
 
-            if (ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"])!="" && ErrorMsg2 == "" && hdnResultTab3.Value != "" && gvPromoters.Rows.Count > 0)
+            if (ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"]) != "" && ErrorMsg2 == "" && hdnResultTab3.Value != "" && gvPromoters.Rows.Count > 0)
                 MVprereg.ActiveViewIndex = 3;
             else
             {
