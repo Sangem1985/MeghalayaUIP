@@ -104,13 +104,13 @@
                                                     </div>
                                                     <div class="col-md-12 float-left ">
                                                         <div class="form-group row justify-content-center" style="padding: 20px">
-                                                            <asp:Button ID="btnsubmit" runat="server" Text="Submit" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                            <asp:Button ID="btnsubmit" runat="server" OnClick="btnsubmit_Click" Text="Submit" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                                         </div>
                                                     </div>
 
-                                                    <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                    <asp:GridView ID="GVLADistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
-                                                        GridLines="Both" ShowFooter="true"
+                                                        GridLines="Both" ShowFooter="true" OnRowDataBound="GVLADistrictWise_RowDataBound"
                                                         Width="100%" EnableModelValidation="True">
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
@@ -129,13 +129,7 @@
                                                                     <asp:Label ID="lblDistrictid" runat="server" Text='<%#Eval("DISTRICID") %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />
-                                                            <%--  <asp:TemplateField HeaderText="District">
-                                                                    <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ID="lblBeyonReport" Text='<%#Eval("DISTRICTNAME") %>' />
-                                                                    </ItemTemplate>
-                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                </asp:TemplateField>--%>
+                                                            <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />                                                           
                                                             <asp:TemplateField HeaderText="Total Applications">
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton runat="server" ID="lblTotal" Text='<%#Eval("TOTALAPPL") %>' />

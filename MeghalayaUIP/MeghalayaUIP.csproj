@@ -604,6 +604,7 @@
     <Content Include="Dept\Reports\IRDistWiseReport.aspx" />
     <Content Include="Dept\Reports\IRDistWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\LandDistWiseReport.aspx" />
+    <Content Include="Dept\Reports\LandDistWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\RENDeptWiseReport.aspx" />
     <Content Include="Dept\Reports\RENDeptWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\ReportsAbstract.aspx" />
@@ -1136,6 +1137,13 @@
     </Compile>
     <Compile Include="Dept\Reports\LandDistWiseReport.aspx.designer.cs">
       <DependentUpon>LandDistWiseReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Reports\LandDistWiseReportDrillDown.aspx.cs">
+      <DependentUpon>LandDistWiseReportDrillDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Reports\LandDistWiseReportDrillDown.aspx.designer.cs">
+      <DependentUpon>LandDistWiseReportDrillDown.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Reports\RENDeptWiseReport.aspx.cs">
       <DependentUpon>RENDeptWiseReport.aspx</DependentUpon>
