@@ -30,13 +30,13 @@ namespace MeghalayaUIP
                 Response.RedirectPermanent(santzurl);
             }
 
-            //string expectedHost = "http://103.154.75.191"; // Replace with your valid host
-            string expectedHost = "localhost";
+            string expectedHost = "http://103.154.75.191"; // Replace with your valid host
+            //string expectedHost = "localhost";
             string actualHost = HttpContext.Current.Request.Headers["Host"];
 
             //if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
-            //if (!(actualHost.Contains("http://103.154.75.191")))//http://218.185.250.36/IndustriesTest
-                if (!(actualHost.Contains("localhost")))//http://218.185.250.36/IndustriesTest
+            if (!(actualHost.Contains("http://103.154.75.191")))//http://218.185.250.36/IndustriesTest
+                //if (!(actualHost.Contains("localhost")))//http://218.185.250.36/IndustriesTest
                 {
                 // Reject the request or return an error response
                 Response.Headers.Remove("Server");
@@ -83,8 +83,8 @@ namespace MeghalayaUIP
 
             // Check if the Host header matches the expected value
             //if (!string.Equals(requestHost, expectedHost, StringComparison.OrdinalIgnoreCase))
-            //if (!(requestHost.Contains("103.154.75.191")))
-                if (!(requestHost.Contains("localhost")))
+            if (!(requestHost.Contains("103.154.75.191")))
+            //    if (!(requestHost.Contains("localhost")))
                 {
                 // Log the unauthorized request or take other appropriate action (e.g., return an error response)
                 Response.Headers.Remove("Server");
@@ -115,8 +115,8 @@ namespace MeghalayaUIP
             string actualHost = HttpContext.Current.Request.Headers["Host"];
             Response.Headers.Remove("Server");
 
-            //if (!(actualHost.Contains("http://103.154.75.191")))
-                if (!(actualHost.Contains("localhost")))
+            if (!(actualHost.Contains("http://103.154.75.191")))
+            //    if (!(actualHost.Contains("localhost")))
                 {
                 Response.Headers.Remove("Server");
                 Response.StatusCode = 400; // Bad Request
