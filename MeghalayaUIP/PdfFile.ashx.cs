@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
-
+using MeghalayaUIP.BAL.CommonBAL;
 namespace MeghalayaUIP
 {
     /// <summary>
@@ -11,12 +11,13 @@ namespace MeghalayaUIP
     /// </summary>
     public class PdfFile : IHttpHandler
     {
-
+        MasterBAL objmbal = new MasterBAL();
         public void ProcessRequest(HttpContext context)
         {
             //context.Response.ContentType = "text/plain";
             //context.Response.Write("Hello World");
             string filePath = context.Request.QueryString["filePath"];
+            filePath = objmbal.DecryptFilePath(filePath);
             if (!string.IsNullOrEmpty(filePath))
             {
 

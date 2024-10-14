@@ -232,7 +232,7 @@ namespace MeghalayaUIP.User.PreReg
                                 if (sen.Contains("CompanyRegistration"))
                                 {
                                     hplcompanyregistration.Visible = true;
-                                    hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
+                                    hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + QueryStringModule.Encrypt( sen);
                                     hplcompanyregistration.Text = ds.Tables[3].Rows[i][1].ToString();
 
                                 }

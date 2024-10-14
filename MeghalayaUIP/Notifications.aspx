@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/outerNew.Master" AutoEventWireup="true" CodeBehind="Notifications.aspx.cs" Inherits="MeghalayaUIP.Notifications" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,53 +14,53 @@
                             <li class="breadcrumb-item active" aria-current="page">Notifications</li>
                         </ol>
                     </nav>
-                    
+
                     <h3>Archive</h3>
-                     <ul>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Notification_6May2022.pdf', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/813 Dated
+                    <ul>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Notification_6May2022%>', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/813 Dated
                   Shillong, the 6th May 2022]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Notification_29July2021.pdf', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/693 Dated
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Notification_29July2021%>', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/693 Dated
                   Shillong, the 29th July 2021]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/MRPSA_2020.pdf', '_blank'); return false;">The
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=MRPSA_2020%>', '_blank'); return false;">The
                   Meghalaya Right to Public Services Act, 2020 [No. PER(ARC)3/2012/Pt.I/338 Dated Shillong, the 14th
                   January 2021]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Labour_29012021.pdf', '_blank'); return false;">Government Notification related to Shops and Establishment 365 days [No.
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Labour_29012021%>', '_blank'); return false;">Government Notification related to Shops and Establishment 365 days [No.
                   LBG.132/82/Pt/Vol.I/67 Dated Shillong, the 29th January 2021]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Taxation_GST_Centers.pdf', '_blank'); return false;">GST Facilitation Centers [No. CTAS-18/2017Pt.II/458 Dated Shillong, the 25th January
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Taxation_GST_Centers%>', '_blank'); return false;">GST Facilitation Centers [No. CTAS-18/2017Pt.II/458 Dated Shillong, the 25th January
                   2021]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/GO_UrbanAffairs_19012021.pdf', '_blank'); return false;">Notification from Urban Affairs Department [No. UAU.110/2020/32 Dated Shillong, the
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=GO_UrbanAffairs_19012021%>', '_blank'); return false;">Notification from Urban Affairs Department [No. UAU.110/2020/32 Dated Shillong, the
                   19th January 2021</a>]</li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/OO_Excise_18012021.pdf', '_blank'); return false;">Office Order from Commissioner of Excise [No. MEG/CE-73/2018/PT/67 Dated Shillong, the
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=OO_Excise_18012021%>', '_blank'); return false;">Office Order from Commissioner of Excise [No. MEG/CE-73/2018/PT/67 Dated Shillong, the
                   18th January 2021]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Transport_15012021.pdf', '_blank'); return false;">Notification from Transport Department [No. TPT.14/2018/471 Dated Shillong, the 15th
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Transport_15012021%>', '_blank'); return false;">Notification from Transport Department [No. TPT.14/2018/471 Dated Shillong, the 15th
                   January 2021]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Tourism_11012021.pdf', '_blank'); return false;">Notification from Tourism Department [No. Tourism.31/2020/113 Dated Shillong, the
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Tourism_11012021%>', '_blank'); return false;">Notification from Tourism Department [No. Tourism.31/2020/113 Dated Shillong, the
                   11the January 2021]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Power_23122020.pdf', '_blank'); return false;">Notification from Power Department [No. POWER-118/2020/85 Dated Shillong, the 23rd
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Power_23122020%>', '_blank'); return false;">Notification from Power Department [No. POWER-118/2020/85 Dated Shillong, the 23rd
                   December 2020]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/UrbanAffairs.pdf', '_blank'); return false;">Government Notification on Auto Renewal for the Urban Affairs Department [Dated
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=UrbanAffairs%>', '_blank'); return false;">Government Notification on Auto Renewal for the Urban Affairs Department [Dated
                   Shillong, the 23rd December 2020]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/CIBF_27012021.pdf', '_blank'); return false;">Government Notification on Auto Renewal for the Office of the Chief Inspector of
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=CIBF_27012021%>', '_blank'); return false;">Government Notification on Auto Renewal for the Office of the Chief Inspector of
                   Boilers and Factories [Dated Shillong, the 22nd December 2020]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/LabourCommissioner.pdf', '_blank'); return false;">Government Notification on Auto Renewal for the Office of the Labour Commissioner
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=LabourCommissioner%>', '_blank'); return false;">Government Notification on Auto Renewal for the Office of the Labour Commissioner
                   [Dated Shillong, the 22nd December 2020]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Drugs.pdf', '_blank'); return false;">Government
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Drugs%>', '_blank'); return false;">Government
                   Notification on Auto Renewal for the Health &amp; Family Welfare Department [Dated Shillong, the 17th
                   December 2020]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/LegalMetrology.pdf', '_blank'); return false;">Government Notification on Auto Renewal for the Legal Metrology Department [Dated
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=LegalMetrology%>', '_blank'); return false;">Government Notification on Auto Renewal for the Legal Metrology Department [Dated
                   Shillong, the 16th December 2020]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/GO_CS_1.pdf', '_blank'); return false;">Government
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=GO_CS_1%>', '_blank'); return false;">Government
                   Notification on Ease of Doing Business (EoDB) by the Chief Secretary [Dated Shillong, the 11th
                   December 2020]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/ERTS_MAAAR_04022020.pdf', '_blank'); return false;">Meghalaya Appellate Authority for Advance Ruling [Notification No. ERTS(T)18/2018/51
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ERTS_MAAAR_04022020%>', '_blank'); return false;">Meghalaya Appellate Authority for Advance Ruling [Notification No. ERTS(T)18/2018/51
                   Dated <span role="link" id="OBJ_PREFIX_DWT163_com_zimbra_date"><span role="link" id="OBJ_PREFIX_DWT168_com_zimbra_date">Shillong, the 4th February 2020</span></span>]</a></li>
-              <li><i class="fi fi-br-arrow-up-right-from-square"></i> <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/ERTS_MARA_10082018.pdf', '_blank'); return false;">Meghalaya Advance Ruling Authority [Notification No. ERTS(T)18/2018/9 Dated <span role="link" id="OBJ_PREFIX_DWT164_com_zimbra_date"><span role="link" id="OBJ_PREFIX_DWT169_com_zimbra_date">10th August 2018</span></span>]</a></li>
-                <li><i class="fi fi-br-arrow-up-right-from-square"></i>  <a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Notification_6May2022.pdf', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/813 Dated
-                  Shillong, the 6th May 2022]</a></li>
-            </ul>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ERTS_MARA_10082018%>', '_blank'); return false;">Meghalaya Advance Ruling Authority [Notification No. ERTS(T)18/2018/9 Dated <span role="link" id="OBJ_PREFIX_DWT164_com_zimbra_date"><span role="link" id="OBJ_PREFIX_DWT169_com_zimbra_date">10th August 2018</span></span>]</a></li>
+                        <%--<li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Notification_6May2022%>', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/813 Dated
+                  Shillong, the 6th May 2022]</a></li>--%>
+                    </ul>
 
-                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 </asp:Content>

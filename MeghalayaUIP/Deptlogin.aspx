@@ -24,10 +24,30 @@
         }
     </style>
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
+    <script src="assets/admin/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/admin/js/MD5.js"></script>
+    <script type="text/javascript">
+        function Generate() {
+            var pass;
+            var passObj = $("#<%= txtPswrd.ClientID%>").val();
+
+            if (passObj != "") {
+                var x = (Math.random() * 1973);
+                $("input[id*='asp_hidden']").val(x);
+                asp_hiddenVal = $("input[id*='asp_hidden']").val();
+                pass = MD5(passObj + asp_hiddenVal);
+                $("#<%= txtPswrd.ClientID%>").val(pass);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
-        <ContentTemplate>
+        <contenttemplate>
             <section class="about-us-section section-padding">
                 <div class="">
                     <div class="">
@@ -68,7 +88,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" Text="Login" class="btn btn-primary btn-block" />
+                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="return Generate();" Text="Login" class="btn btn-primary btn-block" />
                                                     <table style="width: 100%">
                                                         <tr>
                                                             <td>
@@ -85,6 +105,7 @@
                                                     </table>
                                                 </div>
                                                 <asp:HiddenField ID="hdnUserID" runat="server" />
+                                                <asp:HiddenField runat="server" ID="asp_hidden" />
                                                 <%--</form>--%>
 
 
@@ -103,11 +124,11 @@
             </section>
 
             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                <ProgressTemplate>
+                <progresstemplate>
                     <div class="update">
                     </div>
-                </ProgressTemplate>
+                </progresstemplate>
             </asp:UpdateProgress>
-        </ContentTemplate>
+        </contenttemplate>
     </asp:UpdatePanel>
 </asp:Content>

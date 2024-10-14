@@ -84,7 +84,6 @@ namespace MeghalayaUIP
             {
                 string Errormsg = "";
                 string valid = "0";
-                Password = DecryptAES(txtPswd.Text, "1234567890123456", "1234567890123456");
                 Errormsg = validations();
                 
                 if (string.IsNullOrEmpty(Errormsg))
@@ -94,7 +93,7 @@ namespace MeghalayaUIP
                     Userregdtls.CompanyName = txtcompanyname.Text.Trim();
                     Userregdtls.PANno = txtPAN.Text.Trim();
                     Userregdtls.Email = txtEmail.Text.Trim();
-                    Userregdtls.Password = txtPswd.Text.Trim();
+                    Userregdtls.Password = PasswordDescription(txtPswd.Text.Trim()) ;
                     Userregdtls.MobileNo = txtMobileNo.Text.Trim();
                     Userregdtls.State = "STATE";
                     Userregdtls.DateofBirth = "1988-04-10";
@@ -109,17 +108,20 @@ namespace MeghalayaUIP
                 else
                 {
                     FillCapctha();
+                    txtPswd.Text = ""; txtCaptcha.Text = "";
                     string message = "alert('" + Errormsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (SqlException ex)
             {
+                FillCapctha(); txtPswd.Text = ""; txtCaptcha.Text = "";
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
             catch (Exception ex)
             {
+                FillCapctha(); txtPswd.Text = "";  txtCaptcha.Text = "";
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
@@ -163,6 +165,7 @@ namespace MeghalayaUIP
                 }
                 if (!string.IsNullOrEmpty(txtPswd.Text) || txtPswd.Text != "")
                 {
+                    Password=PasswordDescription(txtPswd.Text.Trim());
                     if (Password.Trim() == txtEmail.Text.Trim())
                     {
                         errormsg = errormsg + slno + ". User Email and Password should not be same \\n";
@@ -214,31 +217,18 @@ namespace MeghalayaUIP
 
             return visitorsIpAddr;
         }
-        public static string DecryptAES(string encryptedText, string keyString, string ivString)
+        public string PasswordDescription(string encrPswd)
         {
-            byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
-            byte[] keyBytes = Encoding.UTF8.GetBytes(keyString);
-            byte[] ivBytes = Encoding.UTF8.GetBytes(ivString);
-
-            using (Aes aes = Aes.Create())
+            var key = asp_hidden.Value;
+            string encrpted = encrPswd.Trim(), DecrPswd = "";
+            for (int j = 0; j < encrpted.Length; j++)
             {
-                aes.Key = keyBytes;
-                aes.IV = ivBytes;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-
-                using (var memoryStream = new MemoryStream(cipherTextBytes))
-                {
-                    using (var cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Read))
-                    {
-                        using (var reader = new StreamReader(cryptoStream))
-                        {
-                            return reader.ReadToEnd();
-                        }
-                    }
-                }
+                var charCode = (char)(encrpted[j] ^ key[j % key.Length]);
+                DecrPswd += charCode;
             }
+            return DecrPswd;
         }
+        
         protected void txtPswd_TextChanged(object sender, EventArgs e)
         {
             if (txtPswd.Text.Trim() == txtEmail.Text.Trim())

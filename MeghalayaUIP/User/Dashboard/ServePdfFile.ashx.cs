@@ -24,7 +24,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
 
                 string filePath = context.Request.QueryString["filePath"];
-                string[] parts = filePath.Split('\\');
+                string[] parts = filePath.Split('/');
 
                 if (parts.Length > 4)
                 {

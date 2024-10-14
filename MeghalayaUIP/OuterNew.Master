@@ -23,11 +23,12 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css' />
     <style>
         i.fi {
-    vertical-align: middle;
-}
-        i.fi.fi-br-chevron-double-down {
-            font-size: 11px;
+            vertical-align: middle;
         }
+
+            i.fi.fi-br-chevron-double-down {
+                font-size: 11px;
+            }
 
         .right-content.pull-right {
             visibility: hidden;
@@ -297,29 +298,29 @@
                                                 </li>
                                                 <li class="dropdown"><a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
                                                     <ul>
-                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/MIIPP%202024.pdf', '_blank'); return false;">MIIPP, 2024</a></li>
-                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Meghalaya Tourism.pdf', '_blank'); return false;">Meghalaya Tourism Policy</a></li>
+                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaNextVision2028 %>', '_blank'); return false;">MIIPP, 2024</a></li>
+                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaTourism %>', '_blank'); return false;">Meghalaya Tourism Policy</a></li>
 
-                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/IT Policy 2024.pdf', '_blank'); return false;">IT/ITES Policy 2024</a></li>
-                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Meghalaya Power Policy.pdf', '_blank'); return false;">Meghalaya
+                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= ITPolicy2024 %>', '_blank'); return false;">IT/ITES Policy 2024</a></li>
+                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaPowerPolicy %>', '_blank'); return false;">Meghalaya
                                                 Power Policy, 2024</a></li>
                                                         <li class="dropdown"><a href="#">Others</a>
                                                             <ul>
                                                                 <li><a href="Documents/Procure MSME.pdf" class="text-black">Meghalaya
                                                     Procurement Preference Policy for Micro and small Enterprises,
                                                     2020</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Meghalaya Startup Policy.pdf', '_blank'); return false;">Meghalaya Start up Policy,2018</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Mines and Minerals Policy.pdf', '_blank'); return false;">Meghalaya Mines and Minerals Policy, 2012</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Education Policy.pdf', '_blank'); return false;">Meghalaya State Education Policy, 2018</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Health Policy.pdf', '_blank'); return false;">Meghalaya Health Policy, 2021</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Telecom infrastructure Policy.pdf', '_blank'); return false;">Meghalaya Telecom Infrastructure Policy, 2018</a>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=MeghalayaStartupPolicy%>', '_blank'); return false;">Meghalaya Start up Policy,2018</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=MinesandMineralsPolicy%>', '_blank'); return false;">Meghalaya Mines and Minerals Policy, 2012</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=EducationPolicy%>', '_blank'); return false;">Meghalaya State Education Policy, 2018</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=HealthPolicy%>', '_blank'); return false;">Meghalaya Health Policy, 2021</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=TelecominfrastructurePolicy%>', '_blank'); return false;">Meghalaya Telecom Infrastructure Policy, 2018</a>
                                                                 </li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Organic Farming policy.pdf', '_blank'); return false;">Meghalaya State Organic Farming Policy,2023</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/Sports Policy.pdf', '_blank'); return false;">Meghalaya State Sports Policy, 2019</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/PPP Policy.pdf', '_blank'); return false;">Meghalaya Public Private Partnership Policy (PPP),
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=OrganicFarmingpolicy%>', '_blank'); return false;">Meghalaya State Organic Farming Policy,2023</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=SportsPolicy%>', '_blank'); return false;">Meghalaya State Sports Policy, 2019</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=PPPPolicy%>', '_blank'); return false;">Meghalaya Public Private Partnership Policy (PPP),
                                                     2021</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/EV Policy.pdf', '_blank'); return false;">Meghalaya Electronic Vehicle Policy, 2021</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=D:/Meghalaya/Documents/MIIPP%202024.pdf', '_blank'); return false;">Industrial and
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=EVPolicy%>', '_blank'); return false;">Meghalaya Electronic Vehicle Policy, 2021</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=MIIPP2024%>', '_blank'); return false;">Industrial and
                                                     Investment Promotion Policy,2024</a></li>
                                                             </ul>
 
@@ -452,9 +453,9 @@
                                                 Shillong - 793 001, East Khasi Hills District, Meghalaya.<br />
                                             </li>
 
-                                            <li><i class="fi fi-br-envelope"></i> <span>Email:</span>
+                                            <li><i class="fi fi-br-envelope"></i><span>Email:</span>
                                                 <a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority[at]gmail[dot]com</a></li>
-                                            <li><i class="fi fi-br-phone-call"></i> <span>Call Us:</span>
+                                            <li><i class="fi fi-br-phone-call"></i><span>Call Us:</span>
                                                 <a href="tel:+91 7085741695">+91 7085741695</a></li>
 
                                         </ul>
@@ -600,7 +601,7 @@
                         event.preventDefault();
                     }
                 }
-        </script>
+            </script>
         </div>
 
     </form>

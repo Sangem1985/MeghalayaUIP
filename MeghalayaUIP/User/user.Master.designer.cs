@@ -69,13 +69,13 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblusername;
 
         /// <summary>
-        /// aLogout control.
+        /// linklogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aLogout;
+        protected global::System.Web.UI.WebControls.LinkButton linklogout;
 
         /// <summary>
         /// linkuserdshbrd control.

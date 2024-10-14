@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using MeghalayaUIP.BAL.CommonBAL;
 
 namespace MeghalayaUIP.Dept.Dashboard
 {
@@ -11,6 +12,7 @@ namespace MeghalayaUIP.Dept.Dashboard
     /// </summary>
     public class DeptServePdfFile : IHttpHandler, System.Web.SessionState.IRequiresSessionState
     {
+        MasterBAL objmbal = new MasterBAL();
 
         public void ProcessRequest(HttpContext context)
         {
@@ -19,6 +21,9 @@ namespace MeghalayaUIP.Dept.Dashboard
             {
 
                 string filePath = context.Request.QueryString["filePath"];
+               // filePath = CleanBase64String(filePath);
+                filePath = objmbal.DecryptFilePath(filePath);
+               
                 if (!string.IsNullOrEmpty(filePath))
                 {
                     //string physicalPath = HttpContext.Current.Server.MapPath(filePath);
@@ -54,5 +59,11 @@ namespace MeghalayaUIP.Dept.Dashboard
                 return false;
             }
         }
+        public string CleanBase64String(string base64String)
+        {
+            // Remove whitespace (spaces, newlines, etc.) that are not valid in a Base64 string
+            return base64String.Replace(" ", "").Replace("\n", "").Replace("\r", "");
+        }
     }
+   
 }

@@ -30,7 +30,7 @@ namespace MeghalayaUIP
                 //string status = Request.QueryString[0].ToString().Trim();
 
 
-
+               
                 if (!IsPostBack)
                 {
                     Killsession();
@@ -94,11 +94,11 @@ namespace MeghalayaUIP
             Session.Clear();
             Session.Abandon();
             Session.RemoveAll();
-            if (Request.Cookies["ASP.NET_SessionId"] != null)
-            {
+            //if (Request.Cookies["ASP.NET_SessionId"] != null)
+            //{
                 Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
                 Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
-            }
+            //}
             if (Request.Cookies["__AntiXsrfToken"] != null)
             {
                 Response.Cookies["__AntiXsrfToken"].Value = string.Empty;
@@ -114,6 +114,7 @@ namespace MeghalayaUIP
                 if (Request.RequestType.ToUpper() != "POST")
                 {
                     Killsession();
+                    AbandonSession();
                 }
 
                 Session["UserInfo"] = null;
@@ -193,6 +194,7 @@ namespace MeghalayaUIP
             }
             catch (SqlException ex)
             {
+                Killsession();
                 string errorMsg = ex.Message;
                 FillCapctha(); txtcaptcha.Text = "";
                 if (errorMsg.Contains("FAILED LOGIN ATTEMPTS ARE MORE THAN ZERO"))
