@@ -25,31 +25,28 @@
     </style>
     <script src="assets/admin/js/crypto.js"></script>
      <script type="text/javascript">
-         function encryptData() {
-             var passwordField = document.getElementById('<%= txtPswd.ClientID %>');
-             var key = CryptoJS.enc.Utf8.parse("1234567890123456");  // Use a secure key
-             var iv = CryptoJS.enc.Utf8.parse("1234567890123456");  // Initialization vector (IV)
-             // Encrypt the password using AES
-             var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(passwordField.value), key, {
-                 keySize: 128 / 8,
-                 iv: iv,
-                 mode: CryptoJS.mode.CBC,
-                 padding: CryptoJS.pad.Pkcs7
-             });
-             passwordField.value = encrypted.toString();
-             // Replace the password with encrypted value
+         
+         function fnEncryption() {
+             var x = (Math.random() * 1973);
+             $("input[id*='asp_hidden']").val(x);
+             asp_hiddenVal = $("input[id*='asp_hidden']").val();
+             var key = asp_hiddenVal;
+             var otp = document.getElementById("<%=txtPswd.ClientID %>");
+             var o = otp.value;
+             //var otpencrpt = window.btoa(o);
+             var otpencrpt = xorEncrypt(o, key);
+             otp.value = otpencrpt;
+         }
+         function xorEncrypt(text, key) {
+             var result = "";
+             for (var i = 0; i < text.length; i++) {
+                 var charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+                 result += String.fromCharCode(charCode);
+             }
+             return result;
          }
      </script>
-    <script type="text/javascript">
-        function hashPassword() {
-            var passwordField = document.getElementById('<%= txtPswd.ClientID %>');
-            var hashedPassword = CryptoJS.SHA256(passwordField.value);
-            passwordField.value = hashedPassword;// Replace plain password with hashed one
-         <%--var passwordField2 = document.getElementById('<%= Cfpasswordbox.ClientID %>');            
-            var hashedPassword2 = CryptoJS.SHA256(passwordField2.value);          
-            passwordField2.value = hashedPassword2;--%>
-        }
-    </script>
+  
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -193,7 +190,8 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-grup">
-                                                    <asp:Button runat="server" CssClass=" btn btn-primary" Text="Submit" ID="btnSubmit" OnClientClick="encryptData()" OnClick="btnSubmit_Click"></asp:Button>
+                                                    <asp:Button runat="server" CssClass=" btn btn-primary" Text="Submit" ID="btnSubmit" OnClientClick="fnEncryption()" OnClick="btnSubmit_Click"></asp:Button>
+                                                      <asp:HiddenField runat="server" ID="asp_hidden" />
 
                                                 </div>
                                             </div>

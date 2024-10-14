@@ -47,7 +47,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
-        <ContentTemplate>
+        <contenttemplate>
             <section class="about-us-section section-padding">
                 <div class="">
                     <div class="">
@@ -124,11 +124,11 @@
             </section>
 
             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                <ProgressTemplate>
+                <progresstemplate>
                     <div class="update">
                     </div>
-                </ProgressTemplate>
+                </progresstemplate>
             </asp:UpdateProgress>
-        </ContentTemplate>
+        </contenttemplate>
     </asp:UpdatePanel>
 </asp:Content>
