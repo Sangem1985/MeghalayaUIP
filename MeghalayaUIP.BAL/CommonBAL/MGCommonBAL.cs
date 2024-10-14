@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using MeghalayaUIP.DAL.CommonDAL;
 using MeghalayaUIP.Common;
-using System.Security.Cryptography;
-using System.IO;
 
 namespace MeghalayaUIP.BAL.CommonBAL
 {
@@ -102,72 +100,7 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public string GetDeptChangePassword(string Created, string Username, string Password, string Decripty, string IPAddress)
         {
             return objCommonDAL.GetDeptChangePassword(Created, Username, Password, Decripty, IPAddress);
-        }
-
-
-        public string Encrypt(string strPassword, string EncKey)
-        {
-            byte[] clearBytes = System.Text.Encoding.Unicode.GetBytes(strPassword);
-
-            PasswordDeriveBytes pdb = new PasswordDeriveBytes(EncKey,
-                new byte[] {0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d,
-            0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76});
-
-            byte[] encryptedData = Encrypt(clearBytes, pdb.GetBytes(32), pdb.GetBytes(16));
-
-            return Convert.ToBase64String(encryptedData);
-
-        }
-
-        private byte[] Encrypt(byte[] clearData, byte[] Key, byte[] IV)
-        {
-            MemoryStream ms = new MemoryStream();
-            Rijndael alg = Rijndael.Create();
-
-            alg.Key = Key;
-            alg.IV = IV;
-
-            CryptoStream cs = new CryptoStream(ms, alg.CreateEncryptor(), CryptoStreamMode.Write);
-
-            cs.Write(clearData, 0, clearData.Length);
-            cs.Close();
-
-            byte[] encryptedData = ms.ToArray();
-            return encryptedData;
-        }
-
-        public string Decrypt(string strPassword, string EncKey)
-        {
-
-            byte[] cipherBytes = Convert.FromBase64String(strPassword);
-
-            PasswordDeriveBytes pdb = new PasswordDeriveBytes(EncKey,
-                new byte[] {0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65,
-            0x64, 0x76, 0x65, 0x64, 0x65, 0x76});
-
-            byte[] decryptedData = Decrypt(cipherBytes,
-                pdb.GetBytes(32), pdb.GetBytes(16));
-
-            return System.Text.Encoding.Unicode.GetString(decryptedData);
-
-        }
-
-        private byte[] Decrypt(byte[] cipherData, byte[] Key, byte[] IV)
-        {
-            MemoryStream ms = new MemoryStream();
-            Rijndael alg = Rijndael.Create();
-
-            alg.Key = Key;
-            alg.IV = IV;
-
-            CryptoStream cs = new CryptoStream(ms, alg.CreateDecryptor(), CryptoStreamMode.Write);
-
-            cs.Write(cipherData, 0, cipherData.Length);
-            cs.Close();
-
-            byte[] decryptedData = ms.ToArray();
-            return decryptedData;
-        }
+        } 
 
     }
 }

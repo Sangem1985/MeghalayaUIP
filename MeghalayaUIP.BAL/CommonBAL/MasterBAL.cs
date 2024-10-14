@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.DAL;
 using MeghalayaUIP.DAL.CommonDAL;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace MeghalayaUIP.BAL.CommonBAL
 {
@@ -240,6 +242,110 @@ namespace MeghalayaUIP.BAL.CommonBAL
             return objMasterDAL.InsPageAccessed(Userid, Email, Pagename, IPAddress, RoleId);
         }
 
+        /// encryption and decryption code///
+        public string EncryptFilePath(string filePath)
+        {
+            string encryptionKey = "SYSTIMEMIPASS";
+            // Convert the file path into bytes
+            byte[] plainBytes = System.Text.Encoding.UTF8.GetBytes(filePath);
+
+            // Generate the key and IV (use a secure derivation method)
+            byte[] key = GenerateKey(encryptionKey, 256); // AES-256 key (32 bytes)
+            byte[] iv = GenerateIV();
+
+            // Perform AES encryption
+            byte[] encryptedBytes;
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = key;
+                aes.IV = iv;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(plainBytes, 0, plainBytes.Length);
+                        cs.FlushFinalBlock();
+                        encryptedBytes = ms.ToArray();
+                    }
+                }
+            }
+
+            // Combine IV and encrypted data (IV is needed for decryption)
+            byte[] combined = new byte[iv.Length + encryptedBytes.Length];
+            Buffer.BlockCopy(iv, 0, combined, 0, iv.Length);
+            Buffer.BlockCopy(encryptedBytes, 0, combined, iv.Length, encryptedBytes.Length);
+
+            // Convert to hexadecimal string for URL-safe representation
+            return BitConverter.ToString(combined).Replace("-", "");
+        }
+
+        // Generate a random IV (Initialization Vector)
+        private byte[] GenerateIV()
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.GenerateIV();
+                return aes.IV;
+            }
+        }
+
+        // Key generation from password
+        private byte[] GenerateKey(string password, int keySize)
+        {
+            byte[] salt = new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 }; // Example salt
+            using (var pdb = new Rfc2898DeriveBytes(password, salt, 10000))
+            {
+                return pdb.GetBytes(keySize / 8);
+            }
+        }
+
+        public string DecryptFilePath(string encryptedHex)
+        {
+            string encryptionKey = "SYSTIMEMIPASS";
+            // Convert hex string back to byte array
+            byte[] combinedBytes = HexStringToByteArray(encryptedHex);
+
+            // Extract IV and encrypted data
+            byte[] iv = new byte[16]; // AES block size is 16 bytes
+            byte[] encryptedBytes = new byte[combinedBytes.Length - 16];
+            Buffer.BlockCopy(combinedBytes, 0, iv, 0, iv.Length);
+            Buffer.BlockCopy(combinedBytes, 16, encryptedBytes, 0, encryptedBytes.Length);
+
+            // Generate the key
+            byte[] key = GenerateKey(encryptionKey, 256);
+
+            // Perform AES decryption
+            byte[] decryptedBytes;
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = key;
+                aes.IV = iv;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(encryptedBytes, 0, encryptedBytes.Length);
+                        cs.FlushFinalBlock();
+                        decryptedBytes = ms.ToArray();
+                    }
+                }
+            }
+
+            // Convert the decrypted bytes back to the original file path string
+            return System.Text.Encoding.UTF8.GetString(decryptedBytes);
+        }
+
+        // Helper function to convert hex string back to byte array
+        private byte[] HexStringToByteArray(string hex)
+        {
+            int length = hex.Length;
+            byte[] bytes = new byte[length / 2];
+            for (int i = 0; i < length; i += 2)
+            {
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            }
+            return bytes;
+        }
 
     }
 }

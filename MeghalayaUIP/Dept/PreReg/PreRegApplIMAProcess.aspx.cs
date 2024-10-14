@@ -24,7 +24,7 @@ namespace MeghalayaUIP.Dept.PreReg
         PreRegDtls prd = new PreRegDtls();
         DataTable dt = new DataTable();
         List<PreRegDtls> lstPreRegDtlsVo = new List<PreRegDtls>();
-        MGCommonBAL objmgbal = new MGCommonBAL();
+        MasterBAL objmgbal = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -274,8 +274,9 @@ namespace MeghalayaUIP.Dept.PreReg
                 LinkButton link = (LinkButton)sender;
                 GridViewRow row = (GridViewRow)link.NamingContainer;
                 Label lblfilepath = (Label)row.FindControl("lblFilePath");
+                
                 if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmgbal.Encrypt(lblfilepath.Text, "SYSTIME") );
+                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmgbal.EncryptFilePath(lblfilepath.Text));
             }
             catch (Exception ex) { }
         }
@@ -286,7 +287,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
             Label lblfilepath = (Label)row.FindControl("lblFilePath");
             if (lblfilepath != null || lblfilepath.Text != "")
-                Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + lblfilepath.Text);
+                Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmgbal.EncryptFilePath(lblfilepath.Text));
         }
         public void BindDepartments()
         {
