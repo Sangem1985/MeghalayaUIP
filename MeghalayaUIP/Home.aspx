@@ -121,7 +121,12 @@
                             </div>
 
                             <div class="text">
-                                <button class="button-box"><a href="Documents/Incentive Package Demo 027082024.pdf" target="_blank" style="color: #164976">Click Here !</a></button>
+                                <button class="button-box">
+                                   <%-- <a href="Documents/Incentive Package Demo 027082024.pdf" target="_blank" style="color: #164976">Click Here !</a>--%>
+                                   <a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= IncentivePackageDemo027082024 %>', '_blank'); return false;">
+       Click Here !
+    </a>
+                                </button>
 
                             </div>
 
@@ -840,7 +845,7 @@
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i> Investor Desk
+            <i class="fi fi-tr-admin-alt"></i>Investor Desk
         </button>
     </div>
 
