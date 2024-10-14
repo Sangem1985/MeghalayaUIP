@@ -122,9 +122,8 @@
 
                             <div class="text">
                                 <button class="button-box">
-                                   <%-- <a href="Documents/Incentive Package Demo 027082024.pdf" target="_blank" style="color: #164976">Click Here !</a>--%>
-                                   <a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= IncentivePackageDemo027082024 %>', '_blank'); return false;">
-       Click Here !
+                                    <%-- <a href="Documents/Incentive Package Demo 027082024.pdf" target="_blank" style="color: #164976">Click Here !</a>--%>
+                                    <a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= IncentivePackageDemo027082024 %>', '_blank'); return false;">Click Here !
     </a>
                                 </button>
 
@@ -514,11 +513,9 @@
                     <h5 class="modal-title" id="exampleModalLongTitle1">
                         <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%; position: absolute; left: -95px; top: -5px; border-radius: 12px;">
                         Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 &nbsp;&nbsp;&nbsp;&nbsp;<span
-                            style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="Documents/unnati2024.pdf" target="_blank">Read the UNNATI 2024 scheme document here.</a></span>
+                            style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= unnati2024 %>', '_blank'); return false;">Read the UNNATI 2024 scheme document here.</a></span>
                     </h5>
-
-
-
                 </div>
                 <div class="modal-body">
                     <p class="colorpurpule">Available Incentives</p>
@@ -528,8 +525,6 @@
                                 <th scope="col">INCENTIVES</th>
                                 <th scope="col" style="background: #2F5596; color: #fff;">Where GST is applicable</th>
                                 <th scope="col" style="background: #0170C1; color: #fff;">Where GST is not applicable</th>
-
-
                             </tr>
                         </thead>
                         <tbody>
@@ -656,7 +651,8 @@
                         <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%; position: absolute; left: -95px; top: -5px; border-radius: 12px;">
                         Meghalaya Industrial and Investment
                         Promotion Policy (MIIPP) 2024 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span
-                            style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="Documents/mipp2024.pdf" target="_blank">Read
+                            style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;">
+                            <a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= mipp2024 %>', '_blank'); return false;">Read
                             the MIIPP 2024 document here.</a></span>
                     </h5>
                     <p></p>
