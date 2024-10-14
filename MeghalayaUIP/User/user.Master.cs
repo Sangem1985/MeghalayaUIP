@@ -23,8 +23,8 @@ namespace MeghalayaUIP.User
         MasterBAL masterball = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            aLogout.ServerClick += new EventHandler(fnSetNewControls_Click);
-            aLogout.HRef = "";
+            //aLogout.ServerClick += new EventHandler(fnSetNewControls_Click);
+            //aLogout.HRef = "";
             string fullUrl = Request.Url.AbsoluteUri;
             string pageName = Path.GetFileName(fullUrl);
 
@@ -190,5 +190,12 @@ namespace MeghalayaUIP.User
             return result;
         }
 
+        protected void linklogout_Click(object sender, EventArgs e)
+        {
+            Killsession();
+            Session["UserInfo"] = null;
+            Session.Abandon();
+            Response.Redirect("~/login.aspx");
+        }
     }
 }

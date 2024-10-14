@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.BAL.CommonBAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,6 +24,7 @@ namespace MeghalayaUIP.Dept.PreReg
         PreRegDtls prd = new PreRegDtls();
         DataTable dt = new DataTable();
         List<PreRegDtls> lstPreRegDtlsVo = new List<PreRegDtls>();
+        MGCommonBAL objmgbal = new MGCommonBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -273,7 +275,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 GridViewRow row = (GridViewRow)link.NamingContainer;
                 Label lblfilepath = (Label)row.FindControl("lblFilePath");
                 if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + lblfilepath.Text);
+                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmgbal.Encrypt(lblfilepath.Text, "SYSTIME") );
             }
             catch (Exception ex) { }
         }
