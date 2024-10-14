@@ -258,9 +258,8 @@ namespace MeghalayaUIP
 
                     if (FileUpload.HasFile)
                     {
-                        string fuperror = "";
-                        fuperror = validations(FileUpload);
-                        if (fuperror == "")
+                        ErrorMsg = validations(FileUpload);
+                        if (ErrorMsg == "")
                         {
                             if ((FileUpload.PostedFile != null) && (FileUpload.PostedFile.ContentLength > 0))
                             {
@@ -318,9 +317,8 @@ namespace MeghalayaUIP
                         }
                         else
                         {
-                            string message = "alert('" + fuperror + "')";
+                            string message = "alert('" + ErrorMsg + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                            return;
                         }
                     }
                     int j = 0;

@@ -1,14 +1,20 @@
-﻿using MeghalayaUIP.BAL.CommonBAL;
+﻿using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
-using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.Reports
 {
@@ -56,6 +62,16 @@ namespace MeghalayaUIP.Dept.Reports
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void btnPdf_Click(object sender, ImageClickEventArgs e)
+        {
+            ExportGridToPDF();
+        }
+
+        protected void btnExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            ExportToExcel();
         }
 
         protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,7 +133,7 @@ namespace MeghalayaUIP.Dept.Reports
             try
             {
                 DataSet ds = new DataSet();
-                ds = reportsBAL.LandDistrictWiseReports(ddldistrict.SelectedValue, txtFormDate.Text, txtToDate.Text);
+                ds = reportsBAL.LandDistrictWiseReports(ddldistrict.SelectedValue, txtFormDate.Text, txtToDate.Text, ddlEnterPriseType.SelectedItem.Text);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     GVLADistrictWise.DataSource = ds.Tables[0];
@@ -192,25 +208,25 @@ namespace MeghalayaUIP.Dept.Reports
                 // string districtname = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DISTRICTNAME")).Trim();
 
                 if (lnkTotal.Text != "0")
-                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + ddldistrict.SelectedItem.Text;
+                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + ddldistrict.SelectedItem.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkPending.Text != "0")
-                    lnkPending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&District=" + ddldistrict.SelectedItem.Text;
+                    lnkPending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&District=" + ddldistrict.SelectedItem.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkQuery.Text != "0")
-                    lnkQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Query" + "&District=" + ddldistrict.SelectedItem.Text;
+                    lnkQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Query" + "&District=" + ddldistrict.SelectedItem.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkcommpending.Text != "0")
-                    lnkcommpending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=commpending" + "&District=" + ddldistrict.SelectedItem.Text;
+                    lnkcommpending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=commpending" + "&District=" + ddldistrict.SelectedItem.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkApproved.Text != "0")
-                    lnkApproved.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Approved" + "&District=" + ddldistrict.SelectedItem.Text;
+                    lnkApproved.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Approved" + "&District=" + ddldistrict.SelectedItem.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkRejected.Text != "0")
-                    lnkRejected.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Rejected" + "&District=" + ddldistrict.SelectedItem.Text;
+                    lnkRejected.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Rejected" + "&District=" + ddldistrict.SelectedItem.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkCommQuery.Text != "0")
-                    lnkCommQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=CommQuery" + "&District=" + ddldistrict.SelectedItem.Text;
+                    lnkCommQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=CommQuery" + "&District=" + ddldistrict.SelectedItem.Text + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 lnkTotal.ForeColor = System.Drawing.Color.Black;
                 lnkPending.ForeColor = System.Drawing.Color.Black;
@@ -240,10 +256,10 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[2].Text = "Total";
 
                 LinkButton Total = new LinkButton();
-                Total.ForeColor = System.Drawing.Color.Blue;
+                Total.ForeColor = System.Drawing.Color.Black;
                 if (Total.Text != "0")
                 {
-                    Total.PostBackUrl = ".aspx?Distid=" + Districtid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname;
+                    Total.PostBackUrl = ".aspx?Distid=" + Districtid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
                 }
                 Total.Text = TotalAppl.ToString();
                 e.Row.Cells[3].Text = TotalAppl.ToString();
@@ -255,6 +271,94 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[7].Text = CommApproved.ToString();
                 e.Row.Cells[8].Text = CommRejected.ToString();
                 e.Row.Cells[9].Text = CommQuery.ToString();
+            }
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+        }
+        protected void ExportToExcel()
+        {
+            try
+            {
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment;filename=Land District wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".xls");
+                Response.Charset = "";
+                Response.ContentType = "application/vnd.ms-excel";
+                using (StringWriter sw = new StringWriter())
+                {
+                    GVLADistrictWise.Style["width"] = "680px";
+                    HtmlTextWriter hw = new HtmlTextWriter(sw);
+                    GVLADistrictWise.RenderControl(hw);
+                    string headerTable = @"<table width='100%'  class='table-bordered mb-0 GRD'><tr><td align='center' colspan='5'><h4>" + lblHeading.Text + "</h4></td></td></tr><tr><td align='center' colspan='5'><h4>" + label + "</h4></td></td></tr></table>";
+                    HttpContext.Current.Response.Write(headerTable);
+                    Response.Output.Write(sw.ToString());
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+
+        private void ExportGridToPDF()
+        {
+
+            try
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (StringWriter sw = new StringWriter())
+                    {
+                        using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                        {
+                            // To Export all pages
+                            GVLADistrictWise.AllowPaging = false;
+                            this.FillGridData();
+                            GVLADistrictWise.HeaderRow.ForeColor = System.Drawing.Color.Black;
+                            GVLADistrictWise.FooterRow.Visible = false;
+                            GVLADistrictWise.RenderControl(hw);
+
+                            // Convert HTML to string
+                            string htmlContent = sw.ToString();
+
+                            // Create a PDF document
+                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+
+                            // Create a PdfWriter that writes to memory stream
+                            PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+
+                            pdfDoc.Open();
+
+                            // Use XMLWorkerHelper to parse the HTML content
+                            using (StringReader sr = new StringReader(htmlContent))
+                            {
+                                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                            }
+
+                            pdfDoc.Close();
+
+                            // Send the generated PDF to the client browser
+                            Response.ContentType = "application/pdf";
+                            Response.AddHeader("content-disposition", "attachment;filename=Land District Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+
+                            // Write the PDF from memory stream to the Response OutputStream
+                            Response.OutputStream.Write(memoryStream.GetBuffer(), 0, memoryStream.GetBuffer().Length);
+                            Response.Flush();
+                            Response.End();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // Handle the error and provide feedback
             }
         }
     }

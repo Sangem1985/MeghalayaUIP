@@ -61,8 +61,8 @@
                                                     <div class="panel-heading" style="text-align: center">
                                                         <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
                                                             <asp:Label ID="lblHeading" runat="server" Visible="false">DistrictWiseReports</asp:Label>
-                                                            <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" />
-                                                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" /></h2>
+                                                            <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" OnClick="btnPdf_Click" />
+                                                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
 
 
                                                     </div>
@@ -77,6 +77,25 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-lg-12 col-form-label">Type of Enterprise : </label>
+                                                                <div class="col-lg-12 d-flex">
+                                                                    <asp:DropDownList ID="ddlEnterPriseType" runat="server" class=" form-control">
+                                                                        <asp:ListItem Value="--Select--">--ALL--</asp:ListItem>
+                                                                        <asp:ListItem Value="Micro">Micro</asp:ListItem>
+                                                                        <asp:ListItem Value="Small">Small</asp:ListItem>
+                                                                        <asp:ListItem Value="Medium">Medium</asp:ListItem>
+                                                                        <asp:ListItem Value="Large">Large</asp:ListItem>
+                                                                        <asp:ListItem Value="Mega">Mega</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="col-lg-12 col-form-label">From Date:</label>
@@ -97,10 +116,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                    </div>
-
-                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
                                                     </div>
                                                     <div class="col-md-12 float-left ">
                                                         <div class="form-group row justify-content-center" style="padding: 20px">
@@ -129,7 +144,7 @@
                                                                     <asp:Label ID="lblDistrictid" runat="server" Text='<%#Eval("DISTRICID") %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />                                                           
+                                                            <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />
                                                             <asp:TemplateField HeaderText="Total Applications">
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton runat="server" ID="lblTotal" Text='<%#Eval("TOTALAPPL") %>' />
