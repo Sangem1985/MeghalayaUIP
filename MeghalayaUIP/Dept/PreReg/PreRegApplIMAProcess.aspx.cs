@@ -24,7 +24,7 @@ namespace MeghalayaUIP.Dept.PreReg
         PreRegDtls prd = new PreRegDtls();
         DataTable dt = new DataTable();
         List<PreRegDtls> lstPreRegDtlsVo = new List<PreRegDtls>();
-        MasterBAL objmgbal = new MasterBAL();
+        MasterBAL objmbal = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -276,7 +276,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 Label lblfilepath = (Label)row.FindControl("lblFilePath");
                 
                 if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmgbal.EncryptFilePath(lblfilepath.Text));
+                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmbal.EncryptFilePath(lblfilepath.Text));
             }
             catch (Exception ex) { }
         }
@@ -287,7 +287,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
             Label lblfilepath = (Label)row.FindControl("lblFilePath");
             if (lblfilepath != null || lblfilepath.Text != "")
-                Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmgbal.EncryptFilePath(lblfilepath.Text));
+                Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmbal.EncryptFilePath(lblfilepath.Text));
         }
         public void BindDepartments()
         {
