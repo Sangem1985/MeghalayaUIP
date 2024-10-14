@@ -11,13 +11,13 @@ namespace MeghalayaUIP
     /// </summary>
     public class PdfFile : IHttpHandler
     {
-        MasterBAL objmgbal = new MasterBAL();
+        MasterBAL objmbal = new MasterBAL();
         public void ProcessRequest(HttpContext context)
         {
             //context.Response.ContentType = "text/plain";
             //context.Response.Write("Hello World");
             string filePath = context.Request.QueryString["filePath"];
-            filePath = objmgbal.DecryptFilePath(filePath);
+            filePath = objmbal.DecryptFilePath(filePath);
             if (!string.IsNullOrEmpty(filePath))
             {
 

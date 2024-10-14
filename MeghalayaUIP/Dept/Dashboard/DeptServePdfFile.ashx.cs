@@ -12,7 +12,7 @@ namespace MeghalayaUIP.Dept.Dashboard
     /// </summary>
     public class DeptServePdfFile : IHttpHandler, System.Web.SessionState.IRequiresSessionState
     {
-        MasterBAL objmgbal = new MasterBAL();
+        MasterBAL objmbal = new MasterBAL();
 
         public void ProcessRequest(HttpContext context)
         {
@@ -22,7 +22,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
                 string filePath = context.Request.QueryString["filePath"];
                // filePath = CleanBase64String(filePath);
-                filePath = objmgbal.DecryptFilePath(filePath);
+                filePath = objmbal.DecryptFilePath(filePath);
                
                 if (!string.IsNullOrEmpty(filePath))
                 {
