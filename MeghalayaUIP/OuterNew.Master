@@ -454,9 +454,11 @@
                                             </li>
 
                                             <li><i class="fi fi-br-envelope"></i><span>Email:</span>
-                                                <a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority[at]gmail[dot]com</a></li>
+                                                <%--<a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority[at]gmail[dot]com</a></li>--%>
+                                            <li>investmeghalayaauthority[at]gmail[dot]com</li>
                                             <li><i class="fi fi-br-phone-call"></i><span>Call Us:</span>
-                                                <a href="tel:+91 7085741695">+91 7085741695</a></li>
+                                                <%--<a href="tel:+91 7085741695">+91 7085741695</a></li>--%>
+                                            <li>+91 7085741695</li>
 
                                         </ul>
                                     </div>
