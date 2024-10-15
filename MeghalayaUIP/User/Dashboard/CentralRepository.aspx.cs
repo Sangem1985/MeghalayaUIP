@@ -4,6 +4,7 @@ using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -47,7 +48,7 @@ namespace MeghalayaUIP.User.Dashboard
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!!";               
+                lblmsg0.Text = "Oops, You've have encountered an error!!";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
@@ -277,34 +278,34 @@ namespace MeghalayaUIP.User.Dashboard
                 string virtualPath = relativeFilePath.Text;// +"\\"+ fileName.Text;
 
                 string physicalPath = virtualPath.Replace(@"\", "/");
+                Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(physicalPath));
 
-                if (File.Exists(physicalPath))
-                {
-                    string script = "openPdf('" + physicalPath + "');";
-
-                    ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
-
-
-                    //Response.ContentType = "application/pdf";
-                    //Response.AppendHeader("Content-Disposition", $"attachment; filename={fileName.Text}");
-                    //Response.TransmitFile(physicalPath);
-                    //Response.End();
-                }
-                else
-                {
-                    //Context.Response.Write("<script>");
-                    //Context.Response.Write("window.open('" + physicalPath + "', '_newtab');");
-                    //Context.Response.Write("</script>");
-
-                    //string script = "openPdf('" + physicalPath + "');";
-
-                    //ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
-                    //Response.Write("<script>alert('File not found.');</script>");
-                    Failure.Visible = true;
-                    lblmsg0.Text = "File Not Found....!";                    
-                    string message = "alert('" + lblmsg0.Text + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
+                //if (File.Exists(physicalPath))
+                //{
+                //string url = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(physicalPath);
+                //string fullUrl = ResolveUrl(url); // Resolves the URL to the correct application path
+                //string script = $"window.open('{fullUrl}', '_blank');";
+                //ClientScript.RegisterStartupScript(this.GetType(), "OpenNewTab", script, true);
+                //string script = "openPdf('" + physicalPath + "');";
+                //ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
+                //Response.ContentType = "application/pdf";
+                //Response.AppendHeader("Content-Disposition", $"attachment; filename={fileName.Text}");
+                //Response.TransmitFile(physicalPath);
+                //Response.End();
+                //}
+                //else
+                //{
+                //    //Context.Response.Write("<script>");
+                //    //Context.Response.Write("window.open('" + physicalPath + "', '_newtab');");
+                //    //Context.Response.Write("</script>");
+                //    //string script = "openPdf('" + physicalPath + "');";
+                //    //ScriptManager.RegisterStartupScript(this, GetType(), "OpenPdfScript", script, true);
+                //    //Response.Write("<script>alert('File not found.');</script>");
+                //    Failure.Visible = true;
+                //    lblmsg0.Text = "File Not Found....!";
+                //    string message = "alert('" + lblmsg0.Text + "')";
+                //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                //}
             }
         }
     }

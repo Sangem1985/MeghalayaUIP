@@ -11,7 +11,7 @@ namespace MeghalayaUIP
     public class Global : System.Web.HttpApplication
     {
         string expectedHost = Convert.ToString(ConfigurationManager.AppSettings["expectedHost"]);
-     
+
         protected void Application_Start(object sender, EventArgs e)
         {
             PreSendRequestHeaders += Application_PreSendRequestHeaders;
@@ -33,13 +33,11 @@ namespace MeghalayaUIP
             }
             string actualHost = HttpContext.Current.Request.Headers["Host"];
 
-            //if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
-            if (!(actualHost.Contains(expectedHost)))//http://218.185.250.36/IndustriesTest
-                                                     //if (!(actualHost.Contains("localhost")))//http://218.185.250.36/IndustriesTest
+            if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
+            //if (!(actualHost.Contains(expectedHost))) 
             {
-                // Reject the request or return an error response
                 Response.Headers.Remove("Server");
-                //Response.StatusCode = 400; // Bad Request
+                Response.StatusCode = 400; // Bad Request
                 Response.Write("Invalid Host Header");
                 Response.End();
             }
@@ -47,7 +45,6 @@ namespace MeghalayaUIP
             {
                 // Get the cookies from the request
                 var cookies = Request.Headers["Cookie"];
-
                 // Check if the SameSite attribute is already set in the cookies
                 if (!cookies.Contains("SameSite="))
                 {
@@ -61,7 +58,6 @@ namespace MeghalayaUIP
             string rawUrl = Request.RawUrl;
             if (rawUrl.Contains("<") || rawUrl.Contains(">"))
             {
-                //string encodedUrl = Server.UrlEncode(rawUrl);          
                 Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
             }
 
@@ -74,15 +70,11 @@ namespace MeghalayaUIP
         }
         protected void Application_PreRequestHandlerExecute(object sender, EventArgs e)
         {
-            // Get the incoming Host header from the request
-            string requestHost = HttpContext.Current.Request.Headers["Host"];
+            string actualHost = HttpContext.Current.Request.Headers["Host"];
 
-            // Check if the Host header matches the expected value
-
-            if (!(requestHost.Contains(expectedHost)))
-
-            {
-                // Log the unauthorized request or take other appropriate action (e.g., return an error response)
+            //if (!(requestHost.Contains(expectedHost)))
+            if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
+            {                
                 Response.Headers.Remove("Server");
                 HttpContext.Current.Response.StatusCode = 403; // Forbidden
                 HttpContext.Current.Response.StatusDescription = "Invalid Host Header";
@@ -109,8 +101,8 @@ namespace MeghalayaUIP
             string actualHost = HttpContext.Current.Request.Headers["Host"];
             Response.Headers.Remove("Server");
 
-            if (!(actualHost.Contains(expectedHost)))
-            
+            //if (!(actualHost.Contains(expectedHost)))
+            if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
             {
                 Response.Headers.Remove("Server");
                 Response.StatusCode = 400; // Bad Request
@@ -142,8 +134,6 @@ namespace MeghalayaUIP
             string rawUrl = Request.RawUrl;
             if (rawUrl.Contains("<") || rawUrl.Contains(">"))
             {
-                //string encodedUrl = Server.UrlEncode(rawUrl);
-                //Response.Redirect(encodedUrl, true);
                 Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
             }
         }
