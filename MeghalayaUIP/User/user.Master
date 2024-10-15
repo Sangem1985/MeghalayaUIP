@@ -165,7 +165,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                             <a class="dropdown-item" href="../../login.aspx"><i class="fi fi-br-lock"></i>Change Password</a>
                             <%--<a class="dropdown-item" href="#">Settings</a>--%>
                            <%-- <a class="dropdown-item" href="../../login.aspx" id="aLogout" runat="server"><i class="fi fi-br-sign-out-alt"></i>Logout</a>--%>
-                            <asp:LinkButton ID="linklogout" runat="server" OnClick="linklogout_Click" ><i class="fi fi-br-sign-out-alt"></i> Logout</asp:LinkButton>
+                            <asp:LinkButton ID="linklogout" runat="server" class="dropdown-item" OnClick="linklogout_Click" ><i class="fi fi-br-sign-out-alt"></i> Logout</asp:LinkButton>
                         </div>
                     </li>
                     <!-- /User Menu -->
