@@ -253,7 +253,7 @@
     <Content Include="assets\admin\js\crypto.js" />
     <Content Include="assets\admin\js\form-validation.js" />
     <Content Include="assets\admin\js\html5shiv.min.js" />
-    <Content Include="assets\admin\js\jquery-3.2.1.min.js" />
+    <Content Include="assets\admin\js\jquery-T.T.O.min.js" />
     <Content Include="assets\admin\js\jquery-ui.min.js" />
     <Content Include="assets\admin\js\jquery.inputmask.js" />
     <Content Include="assets\admin\js\jquery.maskedinput.min.js" />
@@ -538,7 +538,7 @@
     <Content Include="assets\assetsnew\js\countdown.js" />
     <Content Include="assets\assetsnew\js\gmaps.js" />
     <Content Include="assets\assetsnew\js\isotope.js" />
-    <Content Include="assets\assetsnew\js\jquery-1.7.2.min.js" />
+    <Content Include="assets\assetsnew\js\jquery-O.S.T.min.js" />
     <Content Include="assets\assetsnew\js\jquery-ui.js" />
     <Content Include="assets\assetsnew\js\jquery.bootstrap-touchspin.js" />
     <Content Include="assets\assetsnew\js\jquery.countTo.js" />

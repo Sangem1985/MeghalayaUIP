@@ -41,7 +41,7 @@
         });
     </script>--%>
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
-    <script src="assets/admin/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/admin/js/jquery-T.T.O.min.js"></script>
     <script src="assets/admin/js/MD5.js"></script>
     <script type="text/javascript">
         function Generate() {

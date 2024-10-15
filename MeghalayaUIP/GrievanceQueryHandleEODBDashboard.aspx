@@ -65,16 +65,7 @@
             width: 96.9% !important;
         }
     </style>
-    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--%>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <script type="text/javascript" src="httpS://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"> </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/admin/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/assetsnew/js/jquery.min.js"></script>
-    <script src="assets/assetsnew/js/jquery-1.7.2.min.js"></script>
-
+    
     <script type="text/javascript">
 
 

@@ -1,7 +1,6 @@
 /*
 Author       : Dreamguys
 Template Name: Doccure - Bootstrap Admin Template
-Version      : 1.3
 */
 
 (function($) {

@@ -227,7 +227,7 @@
 
         <!-- jQuery -->
         <asp:HiddenField ID="hdnUToken" runat="server" Value="" />
-        <script src="../../assets/admin/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/admin/js/jquery-T.T.O.min.js"></script>
 
         <!-- Bootstrap Core JS -->
         <script src="../../assets/admin/js/popper.min.js"></script>

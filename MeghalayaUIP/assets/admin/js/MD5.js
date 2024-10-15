@@ -1,5 +1,5 @@
 ﻿/*
- *  md5.jvs 1.0b 27/06/96
+ * 
  *
  * Javascript implementation of the RSA Data Security, Inc. MD5
  * Message-Digest Algorithm.

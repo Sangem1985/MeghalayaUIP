@@ -553,6 +553,11 @@
 
             <!-- main-js -->
             <script src="assets/assetsnew/js/script.js"></script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/admin/js/jquery-T.T.O.min.js"></script>
+            <script src="assets/assetsnew/js/jquery.min.js"></script>
+            <script src="assets/assetsnew/js/jquery-O.S.T.min.js"></script>
+
             <script type="text/javascript">
                 document.addEventListener('DOMContentLoaded', function () {
                     document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
