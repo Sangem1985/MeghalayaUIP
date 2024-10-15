@@ -452,6 +452,7 @@ namespace MeghalayaUIP.User.Grievance
                         {
                             string message = "alert('" + ErrorMsg + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            return;
                         }
                     }
                     int j = 0;
@@ -645,7 +646,7 @@ namespace MeghalayaUIP.User.Grievance
                 }
                 else if (!ValidateFileExtension(Attachment))
                 {
-                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    Error = Error + slno + ". Invalid File type \\n";
                     slno = slno + 1;
                 }
                 //  }
