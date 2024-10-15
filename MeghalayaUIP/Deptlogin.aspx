@@ -47,7 +47,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
-        <contenttemplate>
+        <ContentTemplate>
             <section class="about-us-section section-padding">
                 <div class="">
                     <div class="">
@@ -72,21 +72,26 @@
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
                                                 </div>
-                                                <div class="col-md-12" style="display: flex;">
-                                                    <div class="col-md-5" style="padding-left: 10px">
-                                                        <div class="form-group" style="margin-left: -25px;">
-                                                            <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
+                                                <div class="row" style="padding-left: 10px">
+                                                    <div class="col-md-12" style="display: flex;">
+                                                        <div class="col-md-5">
+                                                            <div class="form-group" style="margin-left: -25px;">
+                                                                <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-7" style="display: flex; align-items: center;">
-                                                        <div class="form-group" style="margin-bottom: 20px;">
-                                                            <asp:Image ID="imgCaptcha" runat="server" BackColor="#0066ff" ForeColor="#0099ff" draggable="false" Height="35px" Width="250px" />
+                                                        <div class="col-md-6" style="display: flex; align-items: center; margin-left: -20px;">
+                                                            <div class="form-group" style="margin-bottom: 20px;">
+                                                                <asp:Image ID="imgCaptcha" runat="server" draggable="false" Height="38px" Width="400px" />
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group" style="margin-left: 10px;">
-                                                            <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="35px" Width="40px" />
+                                                        <div class="col-md-1" style="display: flex; align-items: center; margin-left: -20px;">
+                                                            <div class="form-group" style="margin-left: 10px;">
+                                                                <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="35px" Width="40px" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="return Generate();" Text="Login" class="btn btn-primary btn-block" />
                                                     <table style="width: 100%">
@@ -124,11 +129,11 @@
             </section>
 
             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                <progresstemplate>
+                <ProgressTemplate>
                     <div class="update">
                     </div>
-                </progresstemplate>
+                </ProgressTemplate>
             </asp:UpdateProgress>
-        </contenttemplate>
+        </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

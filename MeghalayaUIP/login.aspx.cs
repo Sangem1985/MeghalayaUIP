@@ -152,7 +152,7 @@ namespace MeghalayaUIP
                     DataSet ds1 = objloginBAL.GetDeptUserPwdInfo(txtUsername.Text.ToString(), "I");
                     if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
                     {
-                        if (Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])) <= 5)
+                        if (Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])) < 5)
                         {
                             Password = ds1.Tables[0].Rows[0]["Password"].ToString();
                             string actPwd1 = FormsAuthentication.HashPasswordForStoringInConfigFile(Password + asp_hidden.Value.ToString(), "MD5");
@@ -194,7 +194,7 @@ namespace MeghalayaUIP
                         else
                         {
                             Killsession();
-                            lblmsg0.Text = "Invalid Credentials..";
+                            lblmsg0.Text = "You have made 5 failed login attemps...! Your account has been locked for today...!";
                             txtPswrd.Text = "";
                             Failure.Visible = true;
                             FillCapctha(); txtcaptcha.Text = "";

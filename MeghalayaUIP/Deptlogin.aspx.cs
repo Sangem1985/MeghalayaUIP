@@ -149,17 +149,27 @@ namespace MeghalayaUIP
                     DataSet ds1 = objloginBAL.GetDeptUserPwdInfo(txtUsername.Text.ToString(), "D");
                     if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
                     {
-                        if (Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])) <= 5)
+                        if (Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])) < 5)
                         {
                             DPassword = ds1.Tables[0].Rows[0]["Password"].ToString();
                             string actPwd1 = FormsAuthentication.HashPasswordForStoringInConfigFile(DPassword + asp_hidden.Value.ToString(), "MD5");
                             if (actPwd1.ToUpper().ToString() != txtPswrd.Text.ToUpper().ToString())
                             {
-                                lblmsg0.Text = "Invalid Credentials...!";
-                                txtPswrd.Text = "";
-                                Failure.Visible = true;
-                                FillCapctha(); txtcaptcha.Text = "";
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true); return;
+                                try
+                                {
+                                    objloginBAL.GetDeptUserInfo(UserID, Password, getclientIP());
+                                }
+                                catch (SqlException ex)
+                                {
+                                    Killsession();
+                                    lblmsg0.Text = "Invalid Credentials...!" + " You have " +
+                                                    Convert.ToString(4 - Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])))
+                                                    + " Attempts remaining for today";
+                                    txtPswrd.Text = "";
+                                    Failure.Visible = true;
+                                    FillCapctha(); txtcaptcha.Text = "";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true); return;
+                                }
                             }
                             else
                             {
@@ -172,6 +182,7 @@ namespace MeghalayaUIP
                                 }
                                 else
                                 {
+                                    Killsession();
                                     lblmsg0.Text = "Invalid Credentials...!";
                                     txtPswrd.Text = "";
                                     Failure.Visible = true;
@@ -182,7 +193,7 @@ namespace MeghalayaUIP
                         else
                         {
                             Killsession();
-                            lblmsg0.Text = "Invalid Credentials..";
+                            lblmsg0.Text = "You have made 5 failed login attemps...! Your account has been locked for today...!";
                             txtPswrd.Text = "";
                             Failure.Visible = true;
                             FillCapctha(); txtcaptcha.Text = "";
@@ -190,9 +201,17 @@ namespace MeghalayaUIP
                     }
                     else
                     {
-                        lblmsg0.Text = "Invalid Credentials...!";
-                        Failure.Visible = true;
-                        txtPswrd.Text = ""; FillCapctha(); txtcaptcha.Text = "";
+                        try
+                        {
+                            objloginBAL.GetDeptUserInfo(UserID, Password, getclientIP());
+                        }
+                        catch (SqlException ex)
+                        {
+                            Killsession();
+                            lblmsg0.Text = "Invalid Credentials...!";
+                            Failure.Visible = true;
+                            txtPswrd.Text = ""; FillCapctha(); txtcaptcha.Text = "";
+                        }
                     }
                 }
             }
@@ -201,7 +220,7 @@ namespace MeghalayaUIP
                 string errorMsg = ex.Message;
                 lblmsg0.Text = "Invalid Credentials..";
                 Failure.Visible = true;
-                FillCapctha(); txtcaptcha.Text = "";
+                FillCapctha(); txtcaptcha.Text = ""; txtPswrd.Text = "";
             }
             catch (Exception ex)
             {

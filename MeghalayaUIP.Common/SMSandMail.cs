@@ -128,7 +128,8 @@ namespace MeghalayaUIP.Common
 
             }
         }
-        public void SMSANDMAILDetails(string MobileNo, string SMSText, string UnitId, string InvestorId, string transaction, string Module, string Template, string msg, string Mode)
+        public void SMSANDMAILDetails(string MobileNo, string SMSText, string UnitId, string InvestorId,
+            string transaction, string Module, string Template, string msg, string Mode)
         {
             SqlConnection Scon = new SqlConnection(connstr);
             Scon.Open();
@@ -207,7 +208,8 @@ namespace MeghalayaUIP.Common
             response.Close();
             return responseFromServer;
         }
-        public void SendEmailSingle(string strTo, string CCmails, string EmailSubject, string EmailText, string AttachmentPath, string Module, string transaction, string UnitId, string InvestorId)
+        public void SendEmailSingle(string strTo, string CCmails, string EmailSubject, string EmailText,
+            string AttachmentPath, string Module, string transaction, string UnitId, string InvestorId)
         {
             // string path = "";
             string EmailSend = "";
@@ -218,9 +220,10 @@ namespace MeghalayaUIP.Common
             {
                 try
                 {
-                    FromEmailId = Convert.ToString(ConfigurationManager.AppSettings["FromMail"]);
-                    Password = Convert.ToString(ConfigurationManager.AppSettings["FromMailPwd"]);
-
+                    //FromEmailId = Convert.ToString(ConfigurationManager.AppSettings["FromMail"]);
+                    //Password = Convert.ToString(ConfigurationManager.AppSettings["FromMailPwd"]);
+                    FromEmailId = "tsipass.telangana@gmail.com";
+                    Password = "lrefskmlxnoowqtc";
 
                     MailMessage message = new MailMessage(FromEmailId, strTo)
                     {

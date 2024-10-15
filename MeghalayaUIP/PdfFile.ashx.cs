@@ -14,14 +14,14 @@ namespace MeghalayaUIP
         MasterBAL objmbal = new MasterBAL();
         public void ProcessRequest(HttpContext context)
         {
-            //context.Response.ContentType = "text/plain";
-            //context.Response.Write("Hello World");
+
             string filePath = context.Request.QueryString["filePath"];
             filePath = objmbal.DecryptFilePath(filePath);
-            if (!string.IsNullOrEmpty(filePath))
+            if (!string.IsNullOrEmpty(filePath) &&
+                !(filePath.Contains("PreRegAttachments") || filePath.Contains("CFEAttachments")
+                  || filePath.Contains("CFOAttachments") || filePath.Contains("RENAttachments")
+                   || filePath.Contains("GrievanceAttachments") || filePath.Contains("HelpDeskAttachments")))
             {
-
-                // string physicalPath = HttpContext.Current.Server.MapPath(filePath);
                 if (File.Exists(filePath))
                 {
                     context.Response.ContentType = "application/pdf";

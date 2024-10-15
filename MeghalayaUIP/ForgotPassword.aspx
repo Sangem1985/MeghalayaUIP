@@ -30,9 +30,10 @@
         .login-wrapper .loginbox .login-left {
             padding: 60px !important;
         }
+
         footer.main-footer.style-two.style-four.home-5 {
-    margin-top: 0px !important;
-}
+            margin-top: 0px !important;
+        }
     </style>
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
@@ -72,36 +73,35 @@
                                         <p class="account-subtitle">Enter email to get a password reset link</p>
 
                                         <!-- Form -->
-                                        <form action="admin/IndustryRegistration.aspx">
-                                            <div class="form-group">
-                                                <%-- <input class="form-control" type="text" placeholder="Email" onkeypress="validateEmailInput(event)" onblur="validateEmail(event)">--%>
-                                                <asp:TextBox runat="server" ID="txtEmail" class="form-control" placeholder="Email" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
-                                            </div>
+
+                                        <div class="form-group">
+                                            <%-- <input class="form-control" type="text" placeholder="Email" onkeypress="validateEmailInput(event)" onblur="validateEmail(event)">--%>
+                                            <asp:TextBox runat="server" ID="txtEmail" class="form-control" placeholder="Email" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
+                                        </div>
+                                        <div class="row" style="padding-left: 10px">
                                             <div class="col-md-12" style="display: flex;">
-                                                <div class="col-md-5" style="padding-left: 10px">
+                                                <div class="col-md-5">
                                                     <div class="form-group" style="margin-left: -25px;">
                                                         <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-7" style="display: flex; align-items: center;">
+                                                <div class="col-md-6" style="display: flex; align-items: center; margin-left: -20px;">
                                                     <div class="form-group" style="margin-bottom: 20px;">
-                                                        <asp:Image ID="imgCaptcha" runat="server" BackColor="#0066ff" ForeColor="#0099ff" draggable="false" Height="35px" Width="100px" />
+                                                        <asp:Image ID="imgCaptcha" runat="server" draggable="false" Height="38px" Width="400px" />
                                                     </div>
+                                                </div>
+                                                <div class="col-md-1" style="display: flex; align-items: center; margin-left: -20px;">
                                                     <div class="form-group" style="margin-left: 10px;">
                                                         <asp:ImageButton ID="btnRefresh" runat="server" AlternateText="Refresh" OnClick="btnRefresh_Click" ImageUrl="~/assets/assetsnew/images/Refresh.jpg" Height="35px" Width="40px" />
                                                     </div>
                                                 </div>
-
                                             </div>
+                                        </div>
 
-                                            <div class="form-group mb-0">
-                                                <asp:Button ID="btnForget" runat="server" Text="Send Link" class="btn btn-primary btn-block" OnClick="btnForget_Click" />
-                                                <%--<button class="btn btn-primary btn-block" type="submit">Reset Password</button>--%>
-                                            </div>
-
-
-
-                                        </form>
+                                        <div class="form-group mb-0">
+                                            <asp:Button ID="btnForget" runat="server" Text="Send Link" class="btn btn-primary btn-block" OnClick="btnForget_Click" />
+                                            <%--<button class="btn btn-primary btn-block" type="submit">Reset Password</button>--%>
+                                        </div>
 
                                         <!-- /Form -->
 
