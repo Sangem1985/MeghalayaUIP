@@ -6,12 +6,15 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.SessionState;
+using MeghalayaUIP.BAL.CommonBAL;
 
 namespace MeghalayaUIP.User.Dashboard
 {
 
     public class ServePdfFile : IHttpHandler, System.Web.SessionState.IRequiresSessionState
     {
+        MasterBAL objmbal = new MasterBAL();
+
 
         public void ProcessRequest(HttpContext context)
         {
@@ -24,6 +27,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
 
                 string filePath = context.Request.QueryString["filePath"];
+                filePath = objmbal.DecryptFilePath(filePath);
                 string[] parts = filePath.Split('/');
 
                 if (parts.Length > 4)
