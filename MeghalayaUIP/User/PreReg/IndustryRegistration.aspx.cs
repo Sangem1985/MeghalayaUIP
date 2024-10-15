@@ -227,26 +227,26 @@ namespace MeghalayaUIP.User.PreReg
                                     hypdpr.Visible = true;
                                     hypdpr.Text = ds.Tables[3].Rows[i][1].ToString();
                                     lbldpr.Text = ds.Tables[3].Rows[i][1].ToString();
-                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
+                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(sen);
                                 }
                                 if (sen.Contains("CompanyRegistration"))
                                 {
                                     hplcompanyregistration.Visible = true;
-                                    hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + QueryStringModule.Encrypt( sen);
+                                    hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(sen);
                                     hplcompanyregistration.Text = ds.Tables[3].Rows[i][1].ToString();
 
                                 }
                                 if (sen.Contains("UdyamRegistration"))
                                 {
                                     hplUdyam.Visible = true;
-                                    hplUdyam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
+                                    hplUdyam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(sen);
                                     hplUdyam.Text = ds.Tables[3].Rows[i][1].ToString();
 
                                 }
                                 if (sen.Contains("PAN"))
                                 {
                                     hplPAN.Visible = true;
-                                    hplPAN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
+                                    hplPAN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(sen);
                                     hplPAN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplPAN.Text = ds.Tables[3].Rows[i][1].ToString();
 
@@ -254,7 +254,7 @@ namespace MeghalayaUIP.User.PreReg
                                 if (sen.Contains("GSTIN"))
                                 {
                                     hplGSTIN.Visible = true;
-                                    hplGSTIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
+                                    hplGSTIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(sen);
                                     hplGSTIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplGSTIN.Text = ds.Tables[3].Rows[i][1].ToString();
 
@@ -262,14 +262,14 @@ namespace MeghalayaUIP.User.PreReg
                                 if (sen.Contains("CIN"))
                                 {
                                     hplCIN.Visible = true;
-                                    hplCIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
+                                    hplCIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(sen);
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplCIN.Text = ds.Tables[3].Rows[i][1].ToString();
                                 }
                                 if (sen.Contains("BankAppraisal"))
                                 {
                                     hplBankAppraisal.Visible = true;
-                                    hplBankAppraisal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + sen;
+                                    hplBankAppraisal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(sen);
                                     hplBankAppraisal.Text = ds.Tables[3].Rows[i][1].ToString();
                                     hplBankAppraisal.Text = ds.Tables[3].Rows[i][1].ToString();
                                 }
@@ -2157,7 +2157,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplcompanyregistration.Text = fupcompanyregistration.PostedFile.FileName;
-                                hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupcompanyregistration.PostedFile.FileName;
+                                hplcompanyregistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupcompanyregistration.PostedFile.FileName);
                                 hplcompanyregistration.Target = "blank";
                                 message = "alert('" + "Company Registration Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2247,7 +2247,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplUdyam.Text = fupUdyam.PostedFile.FileName;
-                                hplUdyam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupUdyam.PostedFile.FileName;
+                                hplUdyam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupUdyam.PostedFile.FileName);
                                 hplUdyam.Target = "blank";
                                 message = "alert('" + "Udyam Registration Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2335,7 +2335,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplCIN.Text = fupCIN.PostedFile.FileName;
-                                hplCIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupCIN.PostedFile.FileName;
+                                hplCIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupCIN.PostedFile.FileName);
                                 hplCIN.Target = "blank";
                                 message = "alert('" + "CIN Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2423,7 +2423,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplGSTIN.Text = fupGSTIN.PostedFile.FileName;
-                                hplGSTIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupGSTIN.PostedFile.FileName;
+                                hplGSTIN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupGSTIN.PostedFile.FileName);
                                 hplGSTIN.Target = "blank";
                                 message = "alert('" + "GSTIN Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2514,7 +2514,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplPAN.Text = fupPAN.PostedFile.FileName;
-                                hplPAN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupPAN.PostedFile.FileName;
+                                hplPAN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupPAN.PostedFile.FileName);
                                 hplPAN.Target = "blank";
                                 message = "alert('" + "PAN Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2606,7 +2606,7 @@ namespace MeghalayaUIP.User.PreReg
                                 {
                                     lbldpr.Text = fupDPR.FileName;
                                     hypdpr.Text = fupDPR.FileName;
-                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + newPath + fupDPR.PostedFile.FileName;
+                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath="+mstrBAL.EncryptFilePath(newPath + fupDPR.PostedFile.FileName);
                                     message = "alert('" + "DPR Document Uploaded successfully" + "')";
                                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                                 }
@@ -2697,7 +2697,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (result != 0)
                             {
                                 hplBankAppraisal.Text = fupBankAppraisal.PostedFile.FileName;
-                                hplBankAppraisal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath;
+                                hplBankAppraisal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath);
                                 hplBankAppraisal.Target = "blank";
                                 message = "alert('" + "Bank Appraisal Document Uploaded successfully" + "')";
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
