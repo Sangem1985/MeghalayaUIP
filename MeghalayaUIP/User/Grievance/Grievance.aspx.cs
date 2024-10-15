@@ -450,6 +450,8 @@ namespace MeghalayaUIP.User.Grievance
                         }
                         else
                         {
+                            Failure.Visible = true;
+                            lblmsg0.Text = ErrorMsg.Replace(@"\n", "");
                             string message = "alert('" + ErrorMsg + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                             return;
@@ -480,6 +482,7 @@ namespace MeghalayaUIP.User.Grievance
                     {
                         lblmsg.Text = "Details Submited Successfully..!";
                         success.Visible = true;
+                        btnsave.Enabled = false;
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
 

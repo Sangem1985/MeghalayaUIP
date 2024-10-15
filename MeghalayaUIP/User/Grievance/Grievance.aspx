@@ -122,7 +122,7 @@
                                             <label class="col-lg-6 col-form-label">Applicant Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtApplcantName" runat="server" class="form-control txtbox"
-                                                    MaxLength="40" TabIndex="1" ValidationGroup="group"  onkeypress="return Names(event)"></asp:TextBox>
+                                                    MaxLength="40" TabIndex="1" ValidationGroup="group" onkeypress="return Names(event)"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                             <label class="col-lg-6 col-form-label">Mobile Number *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtMob" runat="server" class="form-control txtbox"
-                                                  TabIndex="1" ValidationGroup="group" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
+                                                    TabIndex="1" ValidationGroup="group" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
                                             <label class="col-lg-6 col-form-label">Subject *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtSub" runat="server" class="form-control txtbox"
-                                                    TabIndex="1" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"
+                                                    TabIndex="1" TextMode="MultiLine" onkeypress="return Address(event)" 
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
@@ -221,8 +221,9 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-12 float-end">
                                         <div class="form-group row justify-content-end">
-                                            <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-warning btn-lg" OnClick="btnClear_Click" Width="150px" />
                                             <asp:Button runat="server" Text="Submit" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-submit btn-lg mr-2" Width="150px" />
+                                            <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-warning btn-lg" OnClick="btnClear_Click" Width="150px" />
+
 
                                         </div>
                                     </div>
