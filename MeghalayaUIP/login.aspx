@@ -33,24 +33,6 @@
     </style>
 
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
-    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>--%>
-    <script src="assets/admin/js/crypto.js"></script>
-    <script type="text/javascript">
-        function encryptData() {
-            var passwordField = document.getElementById('<%= txtPswrd.ClientID %>');
-            var key = CryptoJS.enc.Utf8.parse("1234567890123456");  // Use a secure key
-            var iv = CryptoJS.enc.Utf8.parse("1234567890123456");  // Initialization vector (IV)
-            // Encrypt the password using AES
-            var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(passwordField.value), key, {
-                keySize: 128 / 8,
-                iv: iv,
-                mode: CryptoJS.mode.CBC,
-                padding: CryptoJS.pad.Pkcs7
-            });
-            passwordField.value = encrypted.toString();
-            // Replace the password with encrypted value
-        }
-    </script>
     <%--<script type="text/javascript">
         $(document).ready(function () {
             $('input[type="password"]').on('copy paste cut', function (e) {
@@ -58,6 +40,26 @@
             });
         });
     </script>--%>
+    <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
+    <script src="assets/admin/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/admin/js/MD5.js"></script>
+    <script type="text/javascript">
+        function Generate() {
+            var pass;
+            var passObj = $("#<%= txtPswrd.ClientID%>").val();
+            if (passObj != "") {
+                var x = (Math.random() * 1973);
+                $("input[id*='asp_hidden']").val(x);
+                asp_hiddenVal = $("input[id*='asp_hidden']").val();
+                pass = MD5(passObj + asp_hiddenVal);
+                $("#<%= txtPswrd.ClientID%>").val(pass);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -124,7 +126,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="encryptData()" Text="Login" class="btn btn-primary btn-block" />
+                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="return Generate();" Text="Login" class="btn btn-primary btn-block" />
                                                 </div>
                                                 <%--</form>--%>
                                                 <!-- /Form -->
@@ -134,8 +136,7 @@
                                                     <span class="or-line"></span>
                                                     <span class="span-or">or</span>
                                                 </div>
-
-
+                                                <asp:HiddenField runat="server" ID="asp_hidden" />
 
                                                 <div class="text-center dont-have">Don’t have an account? <a href="Registration.aspx">SignUp</a></div>
                                             </div>

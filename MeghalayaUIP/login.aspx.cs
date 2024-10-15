@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MeghalayaUIP.BAL;
@@ -30,7 +31,7 @@ namespace MeghalayaUIP
                 //string status = Request.QueryString[0].ToString().Trim();
 
 
-               
+
                 if (!IsPostBack)
                 {
                     Killsession();
@@ -96,8 +97,8 @@ namespace MeghalayaUIP
             Session.RemoveAll();
             //if (Request.Cookies["ASP.NET_SessionId"] != null)
             //{
-                Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
-                Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+            Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+            Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
             //}
             if (Request.Cookies["__AntiXsrfToken"] != null)
             {
@@ -146,28 +147,53 @@ namespace MeghalayaUIP
                     Failure.Visible = false;
                     string UserID = "", Password = "";
                     UserID = txtUsername.Text;
-                     //Password = txtPswrd.Text;
-                    string PasswordText = DecryptAES(txtPswrd.Text, "1234567890123456", "1234567890123456");
-                     Password = DecryptAES(txtPswrd.Text, "1234567890123456", "1234567890123456");
 
-                    bool CaptchaResult = false;
-                    string CErrormsg = "";
-                    //CaptchaResult = ValidateCaptcha(out CErrormsg);
-                    // string encpassword1 = ExtensionMethods.Decrypt("1D+sRnJbMDxcvfwJF8zPrQ==", "SYSTIME");
-                    CaptchaResult = true;
-                    if (CaptchaResult)
+                    UserInfo ObjUserInfo;
+                    DataSet ds1 = objloginBAL.GetDeptUserPwdInfo(txtUsername.Text.ToString(), "I");
+                    if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
                     {
-                        UserInfo ObjUserInfo;
-                        //string encpassword = ExtensionMethods.Encrypt(Password, "SYSTIME");
-                        ObjUserInfo = objloginBAL.GetUserInfo(UserID, Password, getclientIP());//,Dept
-                        if (ObjUserInfo != null && ObjUserInfo.Userid != null)
+                        if (Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])) <= 5)
                         {
-                            Session["UserInfo"] = ObjUserInfo;
-                            //objloginBAL.LogUserLoginHistory(ObjUserInfo.Userid, getclientIP());
-                            Response.Redirect("~/User/Dashboard/MainDashboard.aspx", false);
+                            Password = ds1.Tables[0].Rows[0]["Password"].ToString();
+                            string actPwd1 = FormsAuthentication.HashPasswordForStoringInConfigFile(Password + asp_hidden.Value.ToString(), "MD5");
+                            if (actPwd1.ToUpper().ToString() != txtPswrd.Text.ToUpper().ToString())
+                            {
+                                try
+                                {
+                                    objloginBAL.GetUserInfo(UserID, txtPswrd.Text, getclientIP());
+                                }
+                                catch (SqlException ex)
+                                {
+                                    Killsession();
+                                    lblmsg0.Text = "Invalid Credentials...!" + " You have " +
+                                                    Convert.ToString(4 - Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])))
+                                                    + " Attempts remaining for today";
+                                    txtPswrd.Text = "";
+                                    Failure.Visible = true;
+                                    FillCapctha(); txtcaptcha.Text = "";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true); return;
+                                }
+                            }
+                            else
+                            {
+                                ObjUserInfo = objloginBAL.GetUserInfo(UserID, Password, getclientIP());
+                                if (ObjUserInfo != null && ObjUserInfo.Userid != null)
+                                {
+                                    Session["UserInfo"] = ObjUserInfo;
+                                    Response.Redirect("~/User/Dashboard/MainDashboard.aspx", false);
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "Invalid Credentials..";
+                                    txtPswrd.Text = "";
+                                    Failure.Visible = true;
+                                    FillCapctha(); txtcaptcha.Text = "";
+                                }
+                            }
                         }
                         else
                         {
+                            Killsession();
                             lblmsg0.Text = "Invalid Credentials..";
                             txtPswrd.Text = "";
                             Failure.Visible = true;
@@ -176,9 +202,17 @@ namespace MeghalayaUIP
                     }
                     else
                     {
-                        lblmsg0.Text = CErrormsg;
-                        Failure.Visible = true;
-                        FillCapctha(); txtcaptcha.Text = "";
+                        try
+                        {
+                            objloginBAL.GetUserInfo(UserID, Password, getclientIP());
+                        }
+                        catch (SqlException ex)
+                        {
+                            Killsession();
+                            lblmsg0.Text = "Invalid Credentials...!";
+                            Failure.Visible = true;
+                            txtPswrd.Text = ""; FillCapctha(); txtcaptcha.Text = "";
+                        }
                     }
                 }
                 if (Request.QueryString.Count > 0)

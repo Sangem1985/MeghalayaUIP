@@ -146,49 +146,53 @@ namespace MeghalayaUIP
                     UserID = txtUsername.Text;
                     Password = txtPswrd.Text;
 
-                    bool CaptchaResult = false;
-                    string CErrormsg = "";
-                    //CaptchaResult = ValidateCaptcha(out CErrormsg);
-                    // string encpassword1 = ExtensionMethods.Decrypt("1D+sRnJbMDxcvfwJF8zPrQ==", "SYSTIME");
-                    CaptchaResult = true;
-                    if (CaptchaResult)
+                    DataSet ds1 = objloginBAL.GetDeptUserPwdInfo(txtUsername.Text.ToString(), "D");
+                    if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
                     {
-
-                        DataSet ds1 = objloginBAL.GetDeptUserPwdInfo(txtUsername.Text.ToString(), "D");
-                        if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+                        if (Convert.ToInt32(Convert.ToString(ds1.Tables[0].Rows[0]["WrngPswdCount"])) <= 5)
                         {
                             DPassword = ds1.Tables[0].Rows[0]["Password"].ToString();
                             string actPwd1 = FormsAuthentication.HashPasswordForStoringInConfigFile(DPassword + asp_hidden.Value.ToString(), "MD5");
                             if (actPwd1.ToUpper().ToString() != txtPswrd.Text.ToUpper().ToString())
                             {
-                                lblmsg0.Text = "Invalid UserName or Password";
+                                lblmsg0.Text = "Invalid Credentials...!";
                                 txtPswrd.Text = "";
                                 Failure.Visible = true;
                                 FillCapctha(); txtcaptcha.Text = "";
                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true); return;
                             }
-                            DeptUserInfo ObjUserInfo;
-                            //string encpassword = ExtensionMethods.Encrypt(Password, "SYSTIME");
-                            ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, DPassword, getclientIP());//,Dept
-                            if (ObjUserInfo != null && ObjUserInfo.UserID != null)
-                            {
-                                Session["DeptUserInfo"] = ObjUserInfo;
-                                //objloginBAL.LogUserLoginHistory(ObjUserInfo.Userid, getclientIP());
-                                Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx", false);
-                            }
                             else
                             {
-                                lblmsg0.Text = "Invalid Credentials..";
-                                txtPswrd.Text = "";
-                                Failure.Visible = true;
-                                FillCapctha(); txtcaptcha.Text = "";
+                                DeptUserInfo ObjUserInfo;
+                                ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, DPassword, getclientIP());//,Dept
+                                if (ObjUserInfo != null && ObjUserInfo.UserID != null)
+                                {
+                                    Session["DeptUserInfo"] = ObjUserInfo;
+                                    Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx", false);
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "Invalid Credentials...!";
+                                    txtPswrd.Text = "";
+                                    Failure.Visible = true;
+                                    FillCapctha(); txtcaptcha.Text = "";
+                                }
                             }
                         }
                         else
                         {
-                            lblmsg0.Text = CErrormsg;
+                            Killsession();
+                            lblmsg0.Text = "Invalid Credentials..";
+                            txtPswrd.Text = "";
                             Failure.Visible = true;
+                            FillCapctha(); txtcaptcha.Text = "";
                         }
+                    }
+                    else
+                    {
+                        lblmsg0.Text = "Invalid Credentials...!";
+                        Failure.Visible = true;
+                        txtPswrd.Text = ""; FillCapctha(); txtcaptcha.Text = "";
                     }
                 }
             }
@@ -251,13 +255,13 @@ namespace MeghalayaUIP
             {
                 FillCapctha();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-          
+
         }
         static string ComputeSha256Hash(string rawData)
         {
