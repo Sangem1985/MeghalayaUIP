@@ -194,7 +194,7 @@
                                     <%--<a class="nav-link" href="Dashboard.aspx">DashBoard</a>--%>
                                 </li>
 
-                                <li class="nav-item dropdown">
+                                <%--<li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fi fi-br-user-headset"></i>Helpdesk
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -212,7 +212,7 @@
                                         <a class="dropdown-item" href="#">-</a>
                                         <a class="dropdown-item" href="#">-</a>
                                     </div>
-                                </li>
+                                </li>--%>
                             </ul>
                         </div>
                     </nav>
@@ -227,7 +227,7 @@
 
         <!-- jQuery -->
         <asp:HiddenField ID="hdnUToken" runat="server" Value="" />
-        <script src="../assets/admin/js/jquery-T.T.O.min.js"></script>
+        <script src="../../assets/admin/js/jquery-T.T.O.min.js"></script>
 
         <!-- Bootstrap Core JS -->
         <script src="../../assets/admin/js/popper.min.js"></script>
