@@ -186,7 +186,7 @@
                                             <label class="col-lg-3 col-form-label">Description *</label>
                                             <div class="col-lg-9 d-flex">
                                                 <asp:TextBox ID="txtDesc" runat="server" class="form-control txtbox"
-                                                    TabIndex="1" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"
+                                                    TabIndex="1" TextMode="MultiLine" onkeypress="return Names(event)"
                                                     ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
