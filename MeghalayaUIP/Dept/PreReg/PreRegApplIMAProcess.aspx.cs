@@ -350,6 +350,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         tdDeptQuery.Visible = false;
                         btnQuery.Visible = false;
                         ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                        ViewState["QueryTable"] = null;
                         grdDeptQueries.DataSource = null; grdDeptQueries.DataBind();
 
                     }
@@ -368,7 +369,8 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         tdDeptQuery.Visible = false;
                         btnQuery.Visible = false;
-                        ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                        ddldepartment.ClearSelection(); txtDeptQuery.Text = ""; 
+                        ViewState["QueryTable"] = null;
                         grdDeptQueries.DataSource = null; grdDeptQueries.DataBind();
                     }
                     else if (ddlStatus.SelectedValue == "6") //Raise Query to Departments
@@ -401,6 +403,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     tdDeptQuery.Visible = false;
                     btnQuery.Visible = false;
                     ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                    ViewState["QueryTable"] = null;
                     grdDeptQueries.DataSource = null; grdDeptQueries.DataBind(); btnQuery.Enabled = false;
 
                 }
