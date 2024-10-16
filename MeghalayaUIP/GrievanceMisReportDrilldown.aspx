@@ -63,7 +63,7 @@
                                 <asp:BoundField HeaderText="Subject" DataField="SUBJECT" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="20%" />
                                 <asp:BoundField HeaderText="Description" DataField="DESCRIPTION" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="15%" />
                                 <asp:BoundField HeaderText="Query Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="15%" />
-                                <asp:TemplateField HeaderText="View">
+                                <asp:TemplateField HeaderText="View" Visible="false">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lnkButton" runat="server" Text="View" OnClick="lnkButton_Click"></asp:LinkButton>
                                     </ItemTemplate>

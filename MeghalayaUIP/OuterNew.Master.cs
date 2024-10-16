@@ -15,6 +15,7 @@ namespace MeghalayaUIP
         protected string MeghalayaTourism { get; set; }
         protected string ITPolicy2024 { get; set; }
         protected string MeghalayaPowerPolicy { get; set; }
+        protected string MeghalayaMicroSmallEnterprises { get; set; }
         protected string MeghalayaStartupPolicy { get; set; }
         protected string MinesandMineralsPolicy { get; set; }
         protected string EducationPolicy { get; set; }
@@ -46,6 +47,7 @@ namespace MeghalayaUIP
             EVPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/EV Policy.pdf");
             MIIPP2024 = masterball.EncryptFilePath("D:/Meghalaya/Documents/MIIPP 2024.pdf");
             Decriminalizationlist = masterball.EncryptFilePath("D:/Meghalaya/Documents/Decriminalization list (1) (1).pdf");
+            MeghalayaMicroSmallEnterprises = masterball.EncryptFilePath("D:/Meghalaya/Documents/Procure MSME.pdf");
 
         }
         public static string getclientIP()

@@ -48,7 +48,7 @@ namespace MeghalayaUIP
             Tourism_11012021 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Tourism_11012021.pdf");
             Power_23122020 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Power_23122020.pdf");
             UrbanAffairs = mbal.EncryptFilePath("D:/Meghalaya/Documents/UrbanAffairs.pdf");
-            CIBF_27012021 = mbal.EncryptFilePath("=D:/Meghalaya/Documents/CIBF_27012021.pdf");
+            CIBF_27012021 = mbal.EncryptFilePath("D:/Meghalaya/Documents/CIBF_27012021.pdf");
             LabourCommissioner = mbal.EncryptFilePath("D:/Meghalaya/Documents/LabourCommissioner.pdf");
             Drugs = mbal.EncryptFilePath("D:/Meghalaya/Documents/Drugs.pdf");
             LegalMetrology = mbal.EncryptFilePath("D:/Meghalaya/Documents/LegalMetrology.pdf");
