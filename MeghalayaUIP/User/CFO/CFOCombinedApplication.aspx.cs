@@ -109,7 +109,7 @@ namespace MeghalayaUIP.User.CFO
                     lblAmount.Text = HdfAmount.Value.ToString();
 
                     lblAmount.Text = string.Format("{0:N0}", lblAmount.Text.ToString());
-                    decimal amounts = Convert.ToDecimal(lblAmount.Text.ToString()); 
+                    decimal amounts = Convert.ToDecimal(lblAmount.Text.ToString());
                     int textCheck = grdApprovalsCFO.Columns.Count;
                     if (rblObtained.SelectedValue == "Y")
                     {
@@ -177,6 +177,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         cnt = cnt + 1;
                     }
+                    SetGridLabelValue();
                 }
                 if (cnt <= 1)
                 {
@@ -209,11 +210,10 @@ namespace MeghalayaUIP.User.CFO
                     if (A != "")
                     { count = count + 1; }
                     //}
-                    SetGridLabelValue();
+
                 }
                 if (grdApprovalsCFO.Rows.Count == count)
                 {
-                   
                     GetCFOofflineapprovals();
                     success.Visible = true;
                     lblmsg.Text = "Details Submitted Successfully";
@@ -235,74 +235,116 @@ namespace MeghalayaUIP.User.CFO
             {
                 DataSet dsOffline = new DataSet();
                 dsOffline = objcfobal.GetCFOAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Session["CFOQID"].ToString(), "Y");
+                divOffline.Visible = false; btnNext.Enabled = true; btnNext2.Visible = false;
                 if (dsOffline.Tables.Count > 0)
                 {
-                    if (dsOffline.Tables[0].Rows.Count > 0 )
+                    if (dsOffline.Tables[0].Rows.Count > 0)
                     {
                         btnNext.Enabled = false; btnNext2.Visible = true;
-                        divOffline.Visible = true;
-                        div2.Visible = true;
+                        divOffline.Visible = true; div2.Visible = true;
+
+                        divMigrantReg2020.Visible = false; divManufactureReg.Visible = false; divRenewalReg.Visible = false;
+                        divBoilerReg.Visible = false; divLICFactory.Visible = false; divLICMIGRANTWORKMEN1979.Visible = false;
+                        divLICLabourContractor1970.Visible = false; divLicRetailDrug.Visible = false; divLicManuMeasure.Visible = false;
+                        div42LicDealerWeight.Visible = false; divIVSMeasure.Visible = false; divFireSafeCert.Visible = false;
+                        divExiseRetail.Visible = false; divLicWholeDrug.Visible = false; divBrandReg.Visible = false;
+                        divLicGrantRenew.Visible = false; divLicManuDrug.Visible = false; divLicManuDrugSpecifie.Visible = false;
+                        divLicGrantRenewSch.Visible = false; divLicManuVolumesera.Visible = false; divProffessTax.Visible = false;
+                        divPCB.Visible = false; divOccupancyCert.Visible = false; divBoilerDept.Visible = false;
+                        divRegPipelineSteam.Visible = false; divRegShopEst.Visible = false; divLicGrantBusiness.Visible = false;
+                        divLicIMFL.Visible = false; divSatateExcise.Visible = false;
+
+
                         for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
                         {
                             if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "32")
                                 divMigrantReg2020.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "33")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "33")
                                 divManufactureReg.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "34")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "34")
                                 divRenewalReg.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "35")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "35")
                                 divBoilerReg.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "36")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "36")
                                 divLICFactory.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "37")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "37")
                                 divLICMIGRANTWORKMEN1979.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "38")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "38")
                                 divLICLabourContractor1970.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "39")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "39")
                                 divLicRetailDrug.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "40")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "40")
                                 divLicRepairWeight.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "41")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "41")
                                 divLicManuMeasure.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "42")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "42")
                                 div42LicDealerWeight.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "43")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "43")
                                 divIVSMeasure.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "44")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "44")
                                 divFireSafeCert.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "45")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "45")
                                 divExiseRetail.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "46")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "46")
                                 divLicWholeDrug.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "47")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "47")
                                 divBrandReg.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "48")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "48")
                                 divLicGrantRenew.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "49")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "49")
                                 divLicManuDrug.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "50")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "50")
                                 divLicManuDrugSpecifie.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "51")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "51")
                                 divLicGrantRenewSch.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "52")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "52")
                                 divLicManuVolumesera.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "53")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "53")
                                 divProffessTax.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "54")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "54")
                                 divPCB.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "55")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "55")
                                 divOccupancyCert.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "56")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "56")
                                 divBoilerDept.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "57")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "57")
                                 divRegPipelineSteam.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "58")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "58")
                                 divRegShopEst.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "59")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "59")
                                 divLicGrantBusiness.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "60")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "60")
                                 divLicIMFL.Visible = true;
-                            else if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "61")
+
+                            if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "61")
                                 divSatateExcise.Visible = true;
 
                         }
@@ -2791,13 +2833,13 @@ namespace MeghalayaUIP.User.CFO
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
         }
 
         public static bool ValidateFileExtension(FileUpload Attachment)
