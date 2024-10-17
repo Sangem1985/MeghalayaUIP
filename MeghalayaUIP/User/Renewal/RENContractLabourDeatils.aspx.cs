@@ -778,7 +778,7 @@ namespace MeghalayaUIP.User.Renewal
                         if (result != "")
                         {
                             hypContractor.Text = fupContractor.PostedFile.FileName;
-                            hypContractor.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRenAttachments.FilePath;
+                            hypContractor.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objRenAttachments.FilePath);
                             hypContractor.Target = "blank";
                             message = "alert('" + "Upload Contractor's Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);

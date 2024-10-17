@@ -250,25 +250,25 @@ namespace MeghalayaUIP.User.CFE
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 33)
                         {
                             hypownership.Visible = true;
-                            hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                             hypownership.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 34)
                         {
                             hypland.Visible = true;
-                            hypland.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypland.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                             hypland.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 35)
                         {
                             hypNOCLand.Visible = true;
-                            hypNOCLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypNOCLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                             hypNOCLand.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 36)
                         {
                             hypforestdfo.Visible = true;
-                            hypforestdfo.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                            hypforestdfo.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                             hypforestdfo.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                         }
                     }
@@ -496,7 +496,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypownership.Text = fupOwnership.PostedFile.FileName;
-                            hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objManufacture.FilePath);
                             hypownership.Target = "blank";
                             message = "alert('" + "Lease deed or Agreement of Sale or any related Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -555,7 +555,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypland.Text = fupland.PostedFile.FileName;
-                            hypland.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypland.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objManufacture.FilePath);
                             hypland.Target = "blank";
                             message = "alert('" + "Rough map of the concerned land Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -614,7 +614,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypNOCLand.Text = fupNOCLand.PostedFile.FileName;
-                            hypNOCLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypNOCLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objManufacture.FilePath);
                             hypNOCLand.Target = "blank";
                             message = "alert('" + "NoC from the concerned Autonomous District Council for land use Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -673,7 +673,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypforestdfo.Text = fupForestDFO.PostedFile.FileName;
-                            hypforestdfo.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypforestdfo.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objManufacture.FilePath);
                             hypforestdfo.Target = "blank";
                             message = "alert('" + "Distance from Forest Certificate from DFO (Wild-life) Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);

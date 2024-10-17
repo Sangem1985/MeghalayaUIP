@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.BAL.CFOBAL;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
@@ -22,7 +23,7 @@ namespace MeghalayaUIP.User.CFO
         decimal amounts1;
         decimal amounts22 = 0;
         string result, ErrorMsg = "";
-
+        MasterBAL mstrBAL = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -208,11 +209,11 @@ namespace MeghalayaUIP.User.CFO
                     if (A != "")
                     { count = count + 1; }
                     //}
-
+                    SetGridLabelValue();
                 }
                 if (grdApprovalsCFO.Rows.Count == count)
                 {
-                    SetGridLabelValue();
+                   
                     GetCFOofflineapprovals();
                     success.Visible = true;
                     lblmsg.Text = "Details Submitted Successfully";
@@ -315,210 +316,210 @@ namespace MeghalayaUIP.User.CFO
                                 {
                                     divMigrantReg2020.Visible = true;
                                     hpl32MigrantReg.Visible = true;
-                                    hpl32MigrantReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl32MigrantReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl32MigrantReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 33)//ManuFacture Repaire
                                 {
                                     divManufactureReg.Visible = true;
                                     hpl33ManufactureReg.Visible = true;
-                                    hpl33ManufactureReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl33ManufactureReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl33ManufactureReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 34)//PCB HAZ NOC
                                 {
                                     divRenewalReg.Visible = true;
                                     hpl34RenewalReg.Visible = true;
-                                    hpl34RenewalReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl34RenewalReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl34RenewalReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 35)
                                 {
                                     divBoilerReg.Visible = true;
                                     hpl35BoilerReg.Visible = true;
-                                    hpl35BoilerReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl35BoilerReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl35BoilerReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 36)
                                 {
                                     divLICFactory.Visible = true;
                                     hpl36LICFactory.Visible = true;
-                                    hpl36LICFactory.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl36LICFactory.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl36LICFactory.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 37)
                                 {
                                     divLICMIGRANTWORKMEN1979.Visible = true;
                                     hpl37LICMIGRANTWORKMEN.Visible = true;
-                                    hpl37LICMIGRANTWORKMEN.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl37LICMIGRANTWORKMEN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl37LICMIGRANTWORKMEN.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 38)
                                 {
                                     divLICLabourContractor1970.Visible = true;
                                     hpl38LICLabourContractor.Visible = true;
-                                    hpl38LICLabourContractor.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl38LICLabourContractor.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl38LICLabourContractor.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 39)
                                 {
                                     divLicRetailDrug.Visible = true;
                                     hpl39LicRetailDrug.Visible = true;
-                                    hpl39LicRetailDrug.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl39LicRetailDrug.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl39LicRetailDrug.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 40)
                                 {
                                     divLicRepairWeight.Visible = true;
                                     hpl40LicRepairWeight.Visible = true;
-                                    hpl40LicRepairWeight.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl40LicRepairWeight.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl40LicRepairWeight.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 41)
                                 {
                                     divLicManuMeasure.Visible = true;
                                     hpl41LicManuMeasure.Visible = true;
-                                    hpl41LicManuMeasure.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl41LicManuMeasure.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl41LicManuMeasure.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 42)
                                 {
                                     div42LicDealerWeight.Visible = true;
                                     hpl42LicDealerWeight.Visible = true;
-                                    hpl42LicDealerWeight.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl42LicDealerWeight.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl42LicDealerWeight.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 43)
                                 {
                                     divIVSMeasure.Visible = true;
                                     hpl43IVSMeasure.Visible = true;
-                                    hpl43IVSMeasure.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl43IVSMeasure.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl43IVSMeasure.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 44)
                                 {
                                     divFireSafeCert.Visible = true;
                                     hpl44FireSafeCert.Visible = true;
-                                    hpl44FireSafeCert.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl44FireSafeCert.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl44FireSafeCert.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 45)
                                 {
                                     divExiseRetail.Visible = true;
                                     hpl45ExiseRetail.Visible = true;
-                                    hpl45ExiseRetail.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl45ExiseRetail.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl45ExiseRetail.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 46)
                                 {
                                     divLicWholeDrug.Visible = true;
                                     hpl46LicWholeDrug.Visible = true;
-                                    hpl46LicWholeDrug.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl46LicWholeDrug.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl46LicWholeDrug.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 47)
                                 {
                                     divBrandReg.Visible = true;
                                     hpl47BrandReg.Visible = true;
-                                    hpl47BrandReg.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl47BrandReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl47BrandReg.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 48)
                                 {
                                     divLicGrantRenew.Visible = true;
                                     hpl48LicGrantRenew.Visible = true;
-                                    hpl48LicGrantRenew.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl48LicGrantRenew.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl48LicGrantRenew.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 49)
                                 {
                                     divLicManuDrug.Visible = true;
                                     hpl49LicManuDrug.Visible = true;
-                                    hpl49LicManuDrug.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl49LicManuDrug.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl49LicManuDrug.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 50)
                                 {
                                     divLicManuDrugSpecifie.Visible = true;
                                     hpl50LicManuDrugSpecifie.Visible = true;
-                                    hpl50LicManuDrugSpecifie.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl50LicManuDrugSpecifie.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl50LicManuDrugSpecifie.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 51)
                                 {
                                     divLicGrantRenewSch.Visible = true;
                                     hpl51LicGrantRenewSch.Visible = true;
-                                    hpl51LicGrantRenewSch.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl51LicGrantRenewSch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl51LicGrantRenewSch.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 52)
                                 {
                                     divLicManuVolumesera.Visible = true;
                                     hpl52LicManuVolumesera.Visible = true;
-                                    hpl52LicManuVolumesera.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl52LicManuVolumesera.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl52LicManuVolumesera.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 53)
                                 {
                                     divProffessTax.Visible = true;
                                     hpl53ProffessTax.Visible = true;
-                                    hpl53ProffessTax.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl53ProffessTax.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl53ProffessTax.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 54)
                                 {
                                     divPCB.Visible = true;
                                     hpl54PCB.Visible = true;
-                                    hpl54PCB.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl54PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl54PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 55)
                                 {
                                     divOccupancyCert.Visible = true;
                                     hpl55OccupancyCert.Visible = true;
-                                    hpl55OccupancyCert.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl55OccupancyCert.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl55OccupancyCert.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 56)
                                 {
                                     divBoilerDept.Visible = true;
                                     hpl56BoilerDept.Visible = true;
-                                    hpl56BoilerDept.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl56BoilerDept.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl56BoilerDept.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 57)
                                 {
                                     divRegPipelineSteam.Visible = true;
                                     hpl57RegPipelineSteam.Visible = true;
-                                    hpl57RegPipelineSteam.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl57RegPipelineSteam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl57RegPipelineSteam.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 58)
                                 {
                                     divRegShopEst.Visible = true;
                                     hpl58RegShopEst.Visible = true;
-                                    hpl58RegShopEst.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl58RegShopEst.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl58RegShopEst.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 59)
                                 {
                                     divLicGrantBusiness.Visible = true;
                                     hpl59LicGrantBusiness.Visible = true;
-                                    hpl59LicGrantBusiness.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl59LicGrantBusiness.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl59LicGrantBusiness.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 60)
                                 {
                                     divLicIMFL.Visible = true;
                                     hpl60LicIMFL.Visible = true;
-                                    hpl60LicIMFL.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl60LicIMFL.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl60LicIMFL.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 61)
                                 {
                                     divSatateExcise.Visible = true;
                                     hpl61SatateExcise.Visible = true;
-                                    hpl61SatateExcise.NavigateUrl = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]);
+                                    hpl61SatateExcise.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILEPATH"]));
                                     hpl61SatateExcise.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
 
@@ -929,7 +930,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl32MigrantReg.Text = fup32MigrantReg.PostedFile.FileName;
-                            hpl32MigrantReg.NavigateUrl = serverpath;
+                            hpl32MigrantReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup32MigrantReg.PostedFile.FileName);
                             hpl32MigrantReg.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1026,7 +1027,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl33ManufactureReg.Text = fup33ManufactureReg.PostedFile.FileName;
-                            hpl33ManufactureReg.NavigateUrl = serverpath;
+                            hpl33ManufactureReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup33ManufactureReg.PostedFile.FileName);
                             hpl33ManufactureReg.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1087,7 +1088,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl34RenewalReg.Text = fup34RenewalReg.PostedFile.FileName;
-                            hpl34RenewalReg.NavigateUrl = serverpath;
+                            hpl34RenewalReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup34RenewalReg.PostedFile.FileName);
                             hpl34RenewalReg.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1148,7 +1149,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl35BoilerReg.Text = fup35BoilerReg.PostedFile.FileName;
-                            hpl35BoilerReg.NavigateUrl = serverpath;
+                            hpl35BoilerReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup35BoilerReg.PostedFile.FileName);
                             hpl35BoilerReg.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1209,7 +1210,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl36LICFactory.Text = fup36LICFactory.PostedFile.FileName;
-                            hpl36LICFactory.NavigateUrl = serverpath;
+                            hpl36LICFactory.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup36LICFactory.PostedFile.FileName);
                             hpl36LICFactory.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1270,7 +1271,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl37LICMIGRANTWORKMEN.Text = fup37LICMIGRANTWORKMEN.PostedFile.FileName;
-                            hpl37LICMIGRANTWORKMEN.NavigateUrl = serverpath;
+                            hpl37LICMIGRANTWORKMEN.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup37LICMIGRANTWORKMEN.PostedFile.FileName);
                             hpl37LICMIGRANTWORKMEN.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1331,7 +1332,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl38LICLabourContractor.Text = fup38LICLabourContractor.PostedFile.FileName;
-                            hpl38LICLabourContractor.NavigateUrl = serverpath;
+                            hpl38LICLabourContractor.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup38LICLabourContractor.PostedFile.FileName);
                             hpl38LICLabourContractor.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1392,7 +1393,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl39LicRetailDrug.Text = fup39LicRetailDrug.PostedFile.FileName;
-                            hpl39LicRetailDrug.NavigateUrl = serverpath;
+                            hpl39LicRetailDrug.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup39LicRetailDrug.PostedFile.FileName);
                             hpl39LicRetailDrug.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1453,7 +1454,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl40LicRepairWeight.Text = fup40LicRepairWeight.PostedFile.FileName;
-                            hpl40LicRepairWeight.NavigateUrl = serverpath;
+                            hpl40LicRepairWeight.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup40LicRepairWeight.PostedFile.FileName);
                             hpl40LicRepairWeight.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1514,7 +1515,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl41LicManuMeasure.Text = fup41LicManuMeasure.PostedFile.FileName;
-                            hpl41LicManuMeasure.NavigateUrl = serverpath;
+                            hpl41LicManuMeasure.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup41LicManuMeasure.PostedFile.FileName);
                             hpl41LicManuMeasure.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1575,7 +1576,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl42LicDealerWeight.Text = fup42LicDealerWeight.PostedFile.FileName;
-                            hpl42LicDealerWeight.NavigateUrl = serverpath;
+                            hpl42LicDealerWeight.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup42LicDealerWeight.PostedFile.FileName);
                             hpl42LicDealerWeight.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1636,7 +1637,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl43IVSMeasure.Text = fup43IVSMeasure.PostedFile.FileName;
-                            hpl43IVSMeasure.NavigateUrl = serverpath;
+                            hpl43IVSMeasure.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup43IVSMeasure.PostedFile.FileName);
                             hpl43IVSMeasure.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1697,7 +1698,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl44FireSafeCert.Text = fup44FireSafeCert.PostedFile.FileName;
-                            hpl44FireSafeCert.NavigateUrl = serverpath;
+                            hpl44FireSafeCert.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup44FireSafeCert.PostedFile.FileName);
                             hpl44FireSafeCert.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1758,7 +1759,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl45ExiseRetail.Text = fup45ExiseRetail.PostedFile.FileName;
-                            hpl45ExiseRetail.NavigateUrl = serverpath;
+                            hpl45ExiseRetail.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup45ExiseRetail.PostedFile.FileName);
                             hpl45ExiseRetail.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1819,7 +1820,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl46LicWholeDrug.Text = fup46LicWholeDrug.PostedFile.FileName;
-                            hpl46LicWholeDrug.NavigateUrl = serverpath;
+                            hpl46LicWholeDrug.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup46LicWholeDrug.PostedFile.FileName);
                             hpl46LicWholeDrug.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1880,7 +1881,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl47BrandReg.Text = fup47BrandReg.PostedFile.FileName;
-                            hpl47BrandReg.NavigateUrl = serverpath;
+                            hpl47BrandReg.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup47BrandReg.PostedFile.FileName);
                             hpl47BrandReg.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1941,7 +1942,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl48LicGrantRenew.Text = fup48LicGrantRenew.PostedFile.FileName;
-                            hpl48LicGrantRenew.NavigateUrl = serverpath;
+                            hpl48LicGrantRenew.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup48LicGrantRenew.PostedFile.FileName);
                             hpl48LicGrantRenew.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2002,7 +2003,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl49LicManuDrug.Text = fup49LicManuDrug.PostedFile.FileName;
-                            hpl49LicManuDrug.NavigateUrl = serverpath;
+                            hpl49LicManuDrug.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup49LicManuDrug.PostedFile.FileName);
                             hpl49LicManuDrug.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2063,7 +2064,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl50LicManuDrugSpecifie.Text = fup50LicManuDrugSpecifie.PostedFile.FileName;
-                            hpl50LicManuDrugSpecifie.NavigateUrl = serverpath;
+                            hpl50LicManuDrugSpecifie.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup50LicManuDrugSpecifie.PostedFile.FileName);
                             hpl50LicManuDrugSpecifie.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2124,7 +2125,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl51LicGrantRenewSch.Text = fup51LicGrantRenewSch.PostedFile.FileName;
-                            hpl51LicGrantRenewSch.NavigateUrl = serverpath;
+                            hpl51LicGrantRenewSch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup51LicGrantRenewSch.PostedFile.FileName);
                             hpl51LicGrantRenewSch.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2185,7 +2186,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl52LicManuVolumesera.Text = fup52LicManuVolumesera.PostedFile.FileName;
-                            hpl52LicManuVolumesera.NavigateUrl = serverpath;
+                            hpl52LicManuVolumesera.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup52LicManuVolumesera.PostedFile.FileName);
                             hpl52LicManuVolumesera.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2246,7 +2247,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl53ProffessTax.Text = fup53ProffessTax.PostedFile.FileName;
-                            hpl53ProffessTax.NavigateUrl = serverpath;
+                            hpl53ProffessTax.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup53ProffessTax.PostedFile.FileName);
                             hpl53ProffessTax.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2307,7 +2308,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl54PCB.Text = fup54PCB.PostedFile.FileName;
-                            hpl54PCB.NavigateUrl = serverpath;
+                            hpl54PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup54PCB.PostedFile.FileName);
                             hpl54PCB.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2368,7 +2369,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl55OccupancyCert.Text = fup55OccupancyCert.PostedFile.FileName;
-                            hpl55OccupancyCert.NavigateUrl = serverpath;
+                            hpl55OccupancyCert.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup55OccupancyCert.PostedFile.FileName);
                             hpl55OccupancyCert.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2429,7 +2430,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl56BoilerDept.Text = fup56BoilerDept.PostedFile.FileName;
-                            hpl56BoilerDept.NavigateUrl = serverpath;
+                            hpl56BoilerDept.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup56BoilerDept.PostedFile.FileName);
                             hpl56BoilerDept.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2490,7 +2491,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl57RegPipelineSteam.Text = fup57RegPipelineSteam.PostedFile.FileName;
-                            hpl57RegPipelineSteam.NavigateUrl = serverpath;
+                            hpl57RegPipelineSteam.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup57RegPipelineSteam.PostedFile.FileName);
                             hpl57RegPipelineSteam.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2551,7 +2552,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl58RegShopEst.Text = fup58RegShopEst.PostedFile.FileName;
-                            hpl58RegShopEst.NavigateUrl = serverpath;
+                            hpl58RegShopEst.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup58RegShopEst.PostedFile.FileName);
                             hpl58RegShopEst.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2612,7 +2613,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl59LicGrantBusiness.Text = fup59LicGrantBusiness.PostedFile.FileName;
-                            hpl59LicGrantBusiness.NavigateUrl = serverpath;
+                            hpl59LicGrantBusiness.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup59LicGrantBusiness.PostedFile.FileName);
                             hpl59LicGrantBusiness.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2673,7 +2674,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl60LicIMFL.Text = fup60LicIMFL.PostedFile.FileName;
-                            hpl60LicIMFL.NavigateUrl = serverpath;
+                            hpl60LicIMFL.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup60LicIMFL.PostedFile.FileName);
                             hpl60LicIMFL.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2734,7 +2735,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hpl61SatateExcise.Text = fup61SatateExcise.PostedFile.FileName;
-                            hpl61SatateExcise.NavigateUrl = serverpath;
+                            hpl61SatateExcise.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup61SatateExcise.PostedFile.FileName);
                             hpl61SatateExcise.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
