@@ -274,6 +274,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.UpdatePaymentErrorResponse(paymentId, OrderId, Signature, IpAddress,code,description,source,step,reason);
         }
+        public DataSet GetPaymentOrderNo(string OrderId)
+        {
+            return objCFEDAL.GetPaymentOrderNo(OrderId);
+        }
 
     }
 }
