@@ -43,9 +43,11 @@ namespace MeghalayaUIP.User.Payments
                             input.Add("amount", orderAmount);
                             input.Add("currency", "INR");
                             input.Add("receipt", Receiptorder);
-
-                            string key = "rzp_test_q9BWc8q5PkutRv";
-                            string secret = "8916qyvOByxlwtx3U229pdB0";
+                            
+                            //string key = "rzp_test_q9BWc8q5PkutRv";
+                            //string secret = "8916qyvOByxlwtx3U229pdB0";
+                            string key = "rzp_test_l9labd1MMZqwzK";
+                            string secret ="iX44FqckwRPPRhuMmiltpKBd";
                             System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                             RazorpayClient client = new RazorpayClient(key, secret);
@@ -69,23 +71,23 @@ namespace MeghalayaUIP.User.Payments
 
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                             {
-                                string currency = "INR"; var ImageLogo = "";
-                                string KeyId=hdn_key_id.Value = "rzp_test_q9BWc8q5PkutRv";
-                                string OrderId=hdn_order_id.Value = orderId;
-                                string PayAmount=hdn_amount.Value = Amount.ToString();
-                                string Name=hdn_name.Value = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
-                                string Desc=hdn_description.Value = "Meghalaya Description";
-                                string Mail=hdn_email.Value = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
-                                string Contact = hdn_contact.Value = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
-                                string IpAddress= getclientIP();
+                                //string currency = "INR"; var ImageLogo = "";
+                                //string KeyId = hdn_key_id.Value = "rzp_test_l9labd1MMZqwzK";
+                                //string OrderId = hdn_order_id.Value = orderId;
+                                //string PayAmount = hdn_amount.Value = Amount.ToString();
+                                //string Name = hdn_name.Value = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
+                                //string Desc = hdn_description.Value = "Meghalaya Description";
+                                //string Mail = hdn_email.Value = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
+                                //string Contact = hdn_contact.Value = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
+                                //string IpAddress = getclientIP();
 
-                                Dictionary<string, string> notes = new Dictionary<string, string>()
-                                {
-                                    {"Note1","Payment Note1" },{"Note2","Payment Note2" }
-                                };
-                                hdn_notes.Value = JsonConvert.SerializeObject(notes);
+                                //Dictionary<string, string> notes = new Dictionary<string, string>()
+                                //{
+                                //    {"Note1","Payment Note1" },{"Note2","Payment Note2" }
+                                //};
+                                //hdn_notes.Value = JsonConvert.SerializeObject(notes);
 
-                                string A = objcfebal.InsertPaymentRequest(UnitID, Session["INSTRIDPM"].ToString(), Receiptorder, OrderId, PayAmount, Name, Desc, Mail, Contact,"", IpAddress);
+                                //string A = objcfebal.InsertPaymentRequest(UnitID, Session["INSTRIDPM"].ToString(), Receiptorder, OrderId, PayAmount, Name, Desc, Mail, Contact, "", IpAddress);
 
                             }
                         }
